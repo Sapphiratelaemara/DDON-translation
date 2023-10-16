@@ -1,0 +1,151 @@
+﻿[[message]]
+key = 'BTL_CONTENT_RESET_REPORT'
+old = '探索結果の報告'
+new = 'Report Search Results'
+[[message]]
+key = 'BTL_CONTENT_RESET_RESET_PROGRESS'
+old = '進行のリセット'
+new = 'Reset Progress'
+[[message]]
+key = 'BTL_CONTENT_RESET_RESET_PROGRESS_REWARD'
+old = '進行と報酬のリセット'
+new = 'Reset Rewards and Progress'
+[[message]]
+key = 'BTL_CONTENT_RESET_CONF_GET_REWARD'
+old = '''
+クリア報酬を受け取りますか？
+
+報酬を受け取ると、
+<COL ffdc78>進行のリセット</COL>をするまで再突入できなくなります
+また、<COL ffdc78>進行と報酬のリセット</COL>をするまで
+クリア報酬が発生しなくなります'''
+[[message]]
+key = 'BTL_CONTENT_RESET_CONF_RESET_NO_COST'
+old = '''
+<COL d7b450>進行のリセット</COL>を行いますか？
+下記の項目がリセットされます
+
+・覚者、ポーンのレベル
+・チェックポイントなどの進行データ (※1)(※2)
+・<COL d7b450>入手したすべてのアイテム</COL> (※3)
+
+※1…<COL d7b450>一度でも冥府1をクリアしている場合</COL>
+　　  進行と報酬のリセットをするまで
+　　  <COL d7b450>ルートは変更できません</COL>
+※2…<COL d7b450>宝箱などの報酬はリセットされません</COL>
+　　  友人と最初から遊ぶ場合に活用します
+※3…<COL d7b450><ITEM 21630></COL>や、<COL d7b450><ITEM 23364></COL>
+　　  <COL d7b450><ITEM 21651></COL>等は大変貴重です。ご注意ください'''
+new = '''
+Do you want to <COL d7b450>reset progress</COL>?
+The following items will be reset:
+
+・Arisen, Pawn levels.
+・Progress data such as checkpoints. (※1)(※2)
+・<COL d7b450>All acquired items.</COL> (※3)
+
+※１…<COL d7b450>一度でも冥府1をクリアしている場合</COL>
+　　  進行と報酬のリセットをするまで
+　　  <COL d7b450>ルートは変更できません</COL>
+※２…<COL d7b450>Rewards such as treasure chests
+　　　are not reset.</COL> Useful for playing
+　　　from beginning with friends.
+※３…<COL d7b450><ITEM 21630></COL>, <COL d7b450><ITEM 23364></COL>,
+　　　<COL d7b450><ITEM 21651></COL> are very valuable.
+　　　Please be careful.'''
+[[message]]
+key = 'BTL_CONTENT_RESET_CONF_RESET'
+old = '''
+<UNTN KT> %d<UNIT KT>を使用して
+<COL d7b450>進行と報酬のリセット</COL>を行いますか？（残り%d<UNIT KT>）
+下記の内容がリセットされます
+
+・覚者、ポーンのレベル
+・チェックポイントなどの進行データ (※1)
+・<COL d7b450>進行中の宝箱や報酬データ</COL> (※2)
+・<COL d7b450>入手したすべてのアイテム</COL> (※3)
+
+※1…固定されているルートが<COL d7b450>変更可能になります</COL>
+※2…<COL d7b450>黒呪の迷宮を再周回するために必ず必要です</COL>
+※3…<COL d7b450><ITEM 21630></COL>や、<COL d7b450><ITEM 23364></COL>
+　　  <COL d7b450><ITEM 21651></COL>等は大変貴重です。ご注意ください'''
+new = '''
+Using <UNTN KT> <UNIT KT>%d.
+Do you want to <COL d7b450>reset rewards
+and progress</COL>? (<UNIT KT>%d remaining)
+The following contents will be reset:
+
+・Arisen, Pawn levels. (※1)
+・Progress data such as checkpoints.
+・<COL d7b450>In-progress treasure chests
+　and reward data.</COL> (※2)
+・<COL d7b450>All acquired items.</COL> (※3)
+
+※１…固定されているルートが<COL d7b450>変更可能になります</COL>
+※２…<COL d7b450>Always necessary to reclaim
+　　　Bitterblack Maze.</COL>
+※３…<COL d7b450><ITEM 21630></COL>, <COL d7b450><ITEM 23364></COL>
+　　　<COL d7b450><ITEM 21651></COL> are very valuable.
+　　　Please be careful.'''
+[[message]]
+key = 'BTL_CONTENT_RESET_CONF_GP'
+old = '''
+<UNTN KT>が足りません
+
+代わりに<COL d7b450>黄金石%d個</COL>を使用して
+進行と報酬のリセットが行えます
+黄金石によるリセットは<COL d7b450>あと%d回</COL>利用できます
+
+<COL d7b450>黄金石%d個</COL>を使用してリセットを行いますか？
+（所持数：%d）
+
+黄金石リセットにより以下の効果が発動します
+・初期装備品の性能アップ
+<COL d7b450>・レアアイテムの追加</COL>
+・探索結果の報告のクリア報酬アップ'''
+[[message]]
+key = 'BTL_CONTENT_RESET_DISABLE'
+old = '''
+<UNTN KT>が足りません
+
+黄金石によるリセットも
+利用回数を満たしているため
+次回のリセット時間までお待ちください
+
+（リセット時間はプレイマニュアルをご覧ください）'''
+[[message]]
+key = 'BTL_CONTENT_RESET_NO_ENOUGH_GP'
+old = '''
+黄金石が不足しています
+（所持数：%d）'''
+[[message]]
+key = 'BTL_CONTENT_RESET_ERR_NO_REWARD'
+old = '報酬がありません'
+[[message]]
+key = 'BTL_CONTENT_RESET_ERR_NO_REPORT'
+old = '探索結果の報告を確認してください'
+[[message]]
+key = 'BTL_CONTENT_RESET_ERR_NO_PROGRESS'
+old = '進行中のデータが存在しません'
+[[message]]
+key = 'BTL_CONTENT_RESET_SUCCESS_REWARD'
+old = '報酬を受け取りました'
+[[message]]
+key = 'BTL_CONTENT_RESET_SUCCESS_PROGRESS'
+old = '進行のリセットが完了しました'
+[[message]]
+key = 'BTL_CONTENT_RESET_SUCCESS_PROGRESS_REWARD'
+old = '進行と報酬のリセットが完了しました'
+[[message]]
+key = 'BTL_CONTENT_RESET_SELECT_TITLE'
+old = '選択してください'
+new = 'Please select'
+[[message]]
+key = 'BTL_CONTENT_RESET_SUCCESS_PROGRESS_REWARD_EX'
+old = '''
+進行と報酬のリセットが完了しました
+
+黄金石リセットにより以下の効果が発動しました
+・初期装備品の性能アップ
+<COL d7b450>・レアアイテムの追加</COL>
+・探索結果の報告のクリア報酬アップ'''

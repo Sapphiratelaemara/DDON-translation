@@ -1,0 +1,147 @@
+﻿[[message]]
+key = 'ItemJudge_000'
+old = 'どれを鑑定しますか？'
+new = 'What would you like to appraise?'
+[[message]]
+key = 'ItemJudge_001'
+old = '(所持数：%d)'
+new = '(Have: %d)'
+[[message]]
+key = 'ItemJudge_002'
+old = '''
+鑑定しました。以下の内容でよろしいですか？
+
+　鑑定アイテム ： <VAL> × <VAL>
+　<COL ffdc78>鑑定結果　　 ： <VAL> × <VAL></COL>'''
+new = '''
+Item appraised. Is this OK?
+
+Appraised Item: <VAL> × <VAL>
+　<COL ffdc78>Results: <VAL> × <VAL></COL>'''
+[[message]]
+key = 'ItemJudge_003'
+old = '''
+以下のアイテムを獲得しました
+
+　<COL ffdc78><VAL> × <VAL></COL>'''
+new = '''
+You have obtained:
+
+　<COL ffdc78><VAL> × <VAL></COL>'''
+[[message]]
+key = 'confirm_judge_random'
+old = '''
+鑑定します。よろしいですか？
+　鑑定アイテム ： <VAL> × <VAL>
+　費用　　　　 ： <VAL GOLD>
+
+以下のいずれかのアイテムのようです'''
+new = '''
+Item appraised. Is this OK?
+
+Appraised Item: <VAL> × <VAL>
+Cost: <VAL GOLD>
+It seems to be one of the following items.'''
+[[message]]
+key = 'ItemJudge_title'
+old = 'Trade'
+new = 'Trade'
+[[message]]
+key = 'ItemJudge_title_sub'
+old = '鑑定交換'
+new = 'Appraisal Exchange'
+[[message]]
+key = 'ItemJudge_cost'
+old = '費用'
+new = 'Cost'
+[[message]]
+key = 'ItemJudge_need_item'
+old = '必要アイテム'
+new = 'Required items'
+[[message]]
+key = 'ItemJudge_need_num'
+old = '必要数'
+new = 'Num'
+[[message]]
+key = 'ItemJudge_appraise_list'
+old = '鑑定リスト'
+new = 'Appraisal List'
+[[message]]
+key = 'ItemJudge_limit_num'
+old = '回数制限'
+new = 'Limit'
+[[message]]
+key = 'ItemJudge_get_num'
+old = '獲得数'
+new = 'Num'
+[[message]]
+key = 'ItemJudge_lot_item'
+old = '以下のアイテムが抽選されます'
+new = 'Following items will be drawn from'
+[[message]]
+key = 'ItemJudge_lot_crest'
+old = '以下のクレストが抽選されます'
+new = 'Following crests will be drawn from'
+[[message]]
+key = 'ItemJudge_select_storage_notice'
+old = '保存先を選択してください'
+new = 'Please select destination'
+[[message]]
+key = 'ItemJudge_period'
+old = '期限'
+new = 'Period'
+[[message]]
+key = 'ItemJudge_infinit'
+old = '無期限'
+new = 'Indefinite'
+[[message]]
+key = 'ItemJudge_need_list'
+old = '費用/必要アイテム一覧'
+new = 'Cost/Required Item List'
+[[message]]
+key = 'ItemJudge_trade_list'
+old = '交換アイテム一覧'
+new = 'Exchange Item List'
+[[message]]
+key = 'ItemJudge_appraise_confirm'
+old = '''
+以下を鑑定します。よろしいですか？
+鑑定名：<VAL>
+保存先：<VAL>'''
+[[message]]
+key = 'ItemJudge_appraise_notice'
+old = '以下のアイテムを獲得しました'
+[[message]]
+key = 'ItemJudge_limit_num_error'
+old = '回数制限があります。これ以上は交換できません'
+[[message]]
+key = 'ItemJudge_shortage_error'
+old = '費用または必要アイテムが足りません'
+[[message]]
+key = 'ItemJudge_storage_error'
+old = '''
+アイテムが受け取れない可能性があります
+アイテム枠を十分に空けてください'''
+[[message]]
+key = 'ItemJudge_nothing_error'
+old = '現在、配信されていません'
+new = 'Currently there are no exchanges.'
+[[message]]
+key = 'ItemJudge_and_more'
+old = 'and more...'
+new = 'and more...'
+[[message]]
+key = 'ItemJudge_category'
+old = 'Category'
+new = 'Category'
+[[message]]
+key = 'ItemJudge_woman_only'
+old = '[女性専用]'
+new = '[Female Only]'
+[[message]]
+key = 'ItemJudge_man_only'
+old = '[男性専用]'
+new = '[Male Only]'
+[[message]]
+key = 'ItemJudge_select_storage_error'
+old = 'この保存先は選択できません'

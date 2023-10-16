@@ -1,0 +1,193 @@
+﻿[[message]]
+key = 'net_signout_return_l'
+old = '''
+認証サーバーとの接続が切れました
+ランチャーに戻ります'''
+new = '''
+The connection with the authentication server has expired.
+Exiting to the launcher.'''
+[[message]]
+key = 'net_non_connect_lan_return_l_common'
+old = '''
+インターネットへの接続が確認できません
+インターネット接続が切断されたか、
+接続されていない可能性があります
+
+このゲームをプレイするにはインターネットへの
+接続が必要となりますので接続状況をご確認ください
+ランチャーを再起動いたします'''
+new = '''
+Cannot reach the internet server.
+Check to make sure the internet connection has
+not been disconnected or unplugged.
+
+To play this game,
+an internet connection is required.
+Restarting the launcher now.'''
+[[message]]
+key = 'net_network_cancel_return_l_common'
+old = '''
+ネットワークの開始がキャンセルされました
+ランチャーに戻ります'''
+new = '''
+Connection to the servers cancelled.
+Exiting to the launcher.'''
+[[message]]
+key = 'net_network_ng_return_l_common'
+old = '''
+ネットワークの開始に失敗しました
+ランチャーに戻ります'''
+new = '''
+Cannot connect.
+Exiting to the launcher.'''
+[[message]]
+key = 'net_network_error_common'
+old = '通信エラーが発生しました'
+new = 'A communication error has occurred.'
+[[message]]
+key = 'net_network_error_return_t_common'
+old = '''
+通信エラーが発生しました
+タイトル画面に戻ります'''
+new = '''
+A communication error has occurred.
+Returning to the title screen.'''
+[[message]]
+key = 'net_network_error_return_l_common'
+old = '''
+通信エラーが発生しました
+ランチャーに戻ります'''
+new = '''
+A communication error has occurred.
+Exiting to the launcher.'''
+[[message]]
+key = 'net_server_error_common'
+old = 'サーバーとの接続に失敗しました'
+new = 'Failed to connect to the server.'
+[[message]]
+key = 'net_server_error_return_l_common'
+old = '''
+サーバーとの接続に失敗しました
+ランチャーに戻ります'''
+new = '''
+Failed to connect to the server.
+Exiting to launcher.'''
+[[message]]
+key = 'net_server_error_return_t_common'
+old = '''
+サーバーから切断されました
+タイトル画面に戻ります'''
+new = '''
+Failed to connect to the server.
+Returning to the title screen.'''
+[[message]]
+key = 'net_login_error_common'
+old = 'ログインに失敗しました'
+new = 'Failed to login.'
+[[message]]
+key = 'net_login_error_return_l_common'
+old = '''
+ログインに失敗しました
+ランチャーに戻ります'''
+new = '''
+Failed to login.
+Exiting to the launcher.'''
+[[message]]
+key = 'net_server_error_back_t_common'
+old = '''
+サーバーから切断されました
+タイトル画面に戻ります'''
+new = '''
+Failed to connect to the server.
+Returning to the title screen.'''
+[[message]]
+key = 'net_server_timeout_back_t_common'
+old = '''
+サーバーとの接続がタイムアウトになりました
+タイトル画面に戻ります'''
+new = '''
+The connection with the server has timed out.
+Returning to the title screen.'''
+[[message]]
+key = 'net_version_error_back_l_common'
+old = '''
+更新データが見つかりました
+アップデートする必要がありますので
+ランチャー画面へ戻ります'''
+new = '''
+An update to the game is available.
+Updating to the latest version is required.
+Exiting to the launcher.'''
+[[message]]
+key = 'net_autologout'
+old = '''
+長時間、操作が行われなかったため
+サーバーとの接続が切断されました
+タイトル画面に戻ります'''
+new = '''
+Due to prolonged inactivity, the connection
+to the server has been disconnected.
+Returning to the title screen.'''
+[[message]]
+key = 'net_signout_return_l_keep'
+old = '認証サーバーとの接続が切れました'
+new = 'The connection with the authentication server has expired.'
+[[message]]
+key = 'net_non_connect_lan_return_l_common_keep'
+old = '''
+インターネットへの接続が確認できません
+インターネット接続が切断されたか、
+接続されていない可能性があります
+
+このゲームをプレイするにはインターネットへの
+接続が必要となりますので接続状況をご確認ください'''
+new = '''
+Cannot reach the internet server.
+Check to make sure the internet connection has
+not been disconnected or unplugged.
+
+To play this game,
+an internet connection is required.'''
+[[message]]
+key = 'net_server_error_return_t_common_keep'
+old = 'サーバーから切断されました'
+new = 'Disconnected from the server.'
+[[message]]
+key = 'net_server_error_back_t_common_keep'
+old = 'サーバーから切断されました'
+new = 'Disconnected from the server.'
+[[message]]
+key = 'net_server_timeout_back_t_common_keep'
+old = 'サーバーとの接続がタイムアウトになりました'
+new = 'The connection with the server has timed out.'
+[[message]]
+key = 'net_autologout_keep'
+old = '''
+長時間、操作が行われなかったため
+サーバーとの接続が切断されました'''
+new = '''
+Due to prolonged inactivity, the connection
+to the server has been disconnected.'''
+[[message]]
+key = 'net_edit_keep'
+old = '''
+サーバーと接続されていないため
+これ以上ゲームを進行することができません
+
+現在のエディット情報をPC本体に
+セーブすることをオススメします
+
+ゲームを終了するにはエディット(または美容院)の
+画面でキャンセル操作をおこなってください'''
+new = '''
+Due to a disconnection from the server,
+the game cannot proceed.
+
+It is recommended that you save edits
+you have performed.
+
+After completing edits,
+please perform the cancel operation on the screen.'''
+[[message]]
+key = 'net_error_contents_reload'
+old = ''

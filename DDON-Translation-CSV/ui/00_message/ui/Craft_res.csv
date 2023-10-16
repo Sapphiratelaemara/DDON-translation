@@ -1,0 +1,331 @@
+key,old,new
+CRAFT_MSG_TITLE01,Craft,Craft
+CRAFT_MSG_TITLE02,クラフト,Craft
+MENU_OPT_POINT_ASSIGN,クラフトステータス,Craft Status
+MENU_OPT_PRODUCT,アイテム生産,Craft Item
+MENU_OPT_UPGRADE,装備の強化,Enhance Equipment
+MENU_OPT_CREST,クレスト装備,Mount Crest
+MENU_OPT_CHANGE_COLOR,カラー変更,Change Color
+MENU_OPT_CRAFT_STATUS,アイテム作成状況,Production Status
+TITLE_PAWN_STATUS,Pawn,Pawn
+ROW_PAWN_NAME,名前,Name
+ROW_PAWN_STATUS,状態,Status
+PAWN_STATUS_STAND_BY,待機,Standby
+PAWN_STATUS_WORKING,クラフト中,Crafting
+PAWN_STATUS_COMPLETE,クラフト中（完成）,Crafting (Complete)
+PAWN_STATUS_PARTY,パーティー,Party
+PAWN_STATUS_LOST,ロスト,Lost
+BUTTON_CANCEL,キャンセル,Cancel
+TITLE_ITEM_LIST,Item List,Item List
+TITLE_MAKE_ITEM,アイテム作成,Created Item
+HEADING_MAKE_ITEM,作成アイテム,Created Item
+HEADING_CRAFT_MEMBER,クラフトメンバー,Craft Member
+HEADING_LEADER,リーダー,Leader
+HEADING_ASSISTANT,アシスタント,Assistant
+HEADING_ADDITION,精錬材,Refining Material
+BUTTON_START,作成開始,Start
+TITLE_PAWN_LIST,Pawn List,Pawn List
+TAB_MAIN,メイン,Main
+TAB_SURPPORT,サポート,Support
+ROW_NAME,Name,Name
+ROW_CRAFT_LV,Craft LV.,Craft LV.
+ROW_STATUS,Status,Status
+ROW_LIMIT,Limit,Limit
+TITLE_TOTAL,Performance,Performance
+HEADING_SPEED,生産作業スピード,Production Speed
+HEADING_TECHNOLOGY,装備の強化技術,Equip Enhancement
+HEADING_FLASH,高品質装備の作成力,Equipment Quality
+HEADING_CAPACITY,消耗品の生産数アップ,Consumable Quantity
+HEADING_COST_PERFORMANCE,コストパフォーマンス,Cost Performance
+TITLE_STATUS,Status,Status
+CRAFT_TIME_INFINITY,∞,∞
+ROW_REQUIRED,必要数,Required
+HEADING_COST,作業費用,Crafting Cost
+HEADING_TIME,作業時間,Crafting Time
+HEADING_XP,取得経験値,Experience
+HEADING_NUMBER,生産個数,Quantity
+ROW_MATERIAL,素材名,Material Name
+DIALOG_CONFIRM_START,"このアイテムを通常作成します
+よろしいですか？",Are you sure you want to craft this item?
+DIALOG_START,アイテムの作成を開始しました,Crafting has begun.
+TAB_WEAPON,武器,Weapons
+TAB_PROTECTOR,防具,Armor
+BALLOON_LITTLE_LONGER,もう少しです,Almost Finished
+GUIDE_PRODUCT,作成するアイテムを選択してください,Please select the item to create.
+GUIDE_UPGRADE,強化する装備を選択してください,Please select the equipment to enhance.
+GUIDE_CREST,クレスト装着する装備を選択してください,Please select the equipment to mount a crest onto.
+GUIDE_CHANGE_COLOR,カラー変更する装備を選択してください,Please select the equipment you want to color change.
+TITLE_PROGRESS_LIST,Progress List,Progress List
+TITLE_DETAIL,Details,Details
+BALLOON_FINISH,できました！,Finished!
+CATEGORY_ALL,すべて,All
+BUTTON_GET_ITEM_FOR_STORAGE,保管ボックスに受け取る,Put in Storage
+SUCCESS,Success!,Success!
+TITLE_RECEIPT,アイテムを作成しました,Created an item
+BUTTON_GET_ITEM,受け取る,Accept
+DIALOG_RECEIPT_SUCCESS,<NAME ITEM>　<VAL>個を受け取りました,<NAME ITEM> x<VAL> obtained.
+DIALOG_GET_XP,"クラフトを指揮していた<NAME PAWN>が
+クラフト経験値を<VAL XP>入手しました","For being the craft leader, <NAME PAWN>
+has gained <VAL XP> crafting experience."
+HEADING_REMAIN,残りポイント,Remaining Points
+TITLE_POINT_ASSIGN,クラフトステータス,Craft Status
+DIALOG_BREAKUP,クラフトラインを解散しました,Crafters have returned to standby.
+DIALOG_CONFIRM_STOP,"クラフトを中止しますか？
+<COL aa1414>※素材・費用・クラフト回数は消費されます</COL>","Are you sure you want to stop crafting?
+<COL aa1414>※Materials and crafting cost will be lost.</COL>"
+DIALOG_STOP,クラフトを中止しました,The craft was canceled.
+ANNOUNCE_LV_UP,"<NAME PAWN>のクラフトレベルが<VAL>になりました
+クラフトスキルポイントを<VAL>取得しました","<NAME PAWN> has reached craft level <VAL>.
+They acquired <VAL> crafting skill points."
+DIALOG_CONFIRM_POINT_ASSIGN,ポイントの割り振りを行いますか？,"Are you sure you want to allocate the
+crafting skill points?"
+DIALOG_POINT_ASSIGN,ポイントの割り振りを行いました,Crafting skill points allocated.
+HEADING_REINFORCE_TARGET,強化アイテム,Enhanced Item
+HEADING_REINFORCE_POINT,強化ポイント,Enhancement Points
+BUTTON_REINFOECE,強化,Enhance
+DIALOG_CONFIRM_REINFORCE,このアイテムを強化しますか？,Are you sure you want to enhance this item?
+TITLE_REINFORCE,アイテムを強化しました,Item has been enhanced.
+POPUP_GRADE_UP,Grade UP!,Grade UP!
+HEADING_CREST_BREAK,Crest Break,Crest Break
+HEADING_CREST,Crest,Crest
+HEADING_CREST_EQUIP,Crest Equip,Mount Crest
+BUTTON_EQUIP_CREST,クレスト装備,Mount Crest
+HEADING_SLOT1,スロット１,Slot 1
+HEADING_SLOT2,スロット２,Slot 2
+HEADING_SLOT3,スロット３,Slot 3
+HEADING_SLOT4,スロット４,Slot 4
+GUIDE_SERECT_CREST,クレスト選択,Select Crest
+DIALOG_CONFIRM_SET_CREST,クレスト装備を行いますか？,Are you sure you want to equip the crests?
+CREST_SET,Crest Set！,Crest Set!
+TITLE_CREST_SET,クレストを装備しました,The crest has been equipped.
+DIALOG_CONFIRM_CREST_BREAK,"選択したスロットのクレストを破壊します
+よろしいですか？","Are you sure you want to destroy
+the crest in this slot?"
+CREST_BREAK,Crest Break!,Crest Break!
+TITLE_CREST_BREAK,クレストを破壊しました,The crest has been destroyed.
+HEADING_CURRENT_COLOR,現在のカラー,Current Color
+HEADING_DYES,染料,Dye
+HEADING_CHANGE_COLOR,変更するカラー,New Color
+BUTTON_CHANGE_COLOR,カラー変更,Change Color
+DIALOG_CONFIRM_CHANGE_COLOR,カラー変更を行いますか？,Are you sure you want to change the color?
+CHANGE_COLOR,Color Change!,Color Change!
+TITLE_CHANGE_COLOR,カラーを変更しました,The color has been changed.
+TITLE_REMOVES_PARTY,"選択したポーンはクラフト作業を行うため
+パーティーを離脱しますがよろしいですか？
+
+<COL aa1414>※パーティーからメインポーンがいなくなると
+　サポートポーンも自動的に離脱します</COL>","A selected pawn is in your party.
+Are you sure you want them to leave the party
+in order to craft?
+
+<COL aa1414>If there are no main pawns in the party,
+support pawns will automatically leave
+as well.</COL>"
+TITLE_REMOVES_PARTY_FAILURE,パーティーからの離脱に失敗しました,Failed to leave the party.
+TITLE_RECEIPT_FAILURE,アイテム作成に失敗しました,Failed to craft item.
+TITLE_EMPTY_ITEM_PLACE,装備強化する場合は、アイテムバッグの素材枠に空き枠を作ってください,
+TITLE_REINFORCE_FAILURE,装備の強化に失敗しました,Failed to enhance the equipment.
+DIALOG_GET_ARMS_POINT,"装備強化ポイントが<VAL 0>アップしました
+現在の装備強化ポイントは<VAL 1>です",
+TITLE_REQUEST_FAILURE,リクエストに失敗しました,
+DIALOG_GET_GRADE_UP,グレードアップしました,
+DIALOG_CRAFT_LV_UP,クラフトを指揮していた<NAME PAWN>のクラフトレベルが<VAL 0>になった,
+TAB_UNOPENED,未解放,
+TITLE_MONEY_INSUFFICIENT,所持金が足りません,
+TITLE_EQUIP_CREST_FAILURE,クレスト装着に失敗しました,
+TITLE_BREAK_CREST_FAILURE,クレスト破棄に失敗しました,
+TITLE_EQUIP_CREST_SUCCESS,クレスト装着に成功しました,Crest was successfully equipped
+TITLE_BREAK_CREST_SUCCESS,クレスト破棄に成功しました,Crest was successfully destroyed
+TITLE_CHANGE_COLOR_FAILURE,カラー変更に失敗しました,
+TITLE_CHANGE_COLOR_SUCCESS,カラー変更に成功しました,Color change succeeded
+TITLE_PAWN_INFO_FAILURE,詳細情報取得に失敗しました,
+DIALOG_POINT_ASSIGN_FAILURE,クラフトポイントの割り振りに失敗しました,
+TITLE_CRAFT_INFO_FAILURE,クラフト状況取得に失敗しました,
+TITLE_RECEIPT_SUCCESS,<VAL 0> x <VAL 1>個 が完成しました,
+TITLE_ITEM_INFO_FAILURE,クラフト完成品情報取得に失敗しました,
+TITLE_CRAFT_STOP_FAILURE,クラフト中止に失敗しました,
+DIALOG_RECEIPT_FAILURE,アイテム受け取りに失敗しました,
+TITLE_ARRANGEMENT_ITEM,"アイテムバッグ、保管ボックスがいっぱいのため
+受け取ることができません
+
+作成アイテム：<VAL> × <VAL>",
+TITLE_GET_ITEM,アイテムを受け取りますか？,
+TITLE_GET_NO_ITEM,受け取れるアイテムはありません,
+MENU_SITUATION,状況確認,
+HEADING_NEED_ITEM,必要素材 <VAL 0> x <VAL 1>,
+HEADING_COST_BASE,基準作成費用<VAL 0>,
+HEADING_COST_CUT,補正後作成費用<VAL 0>,
+REMAINING_MAKE_TIME_MINUTE,<VAL>m,
+TAB_MATERIAL_ITEM,素材,Materials
+TAB_USE_ITEM,消耗品,Usable
+GUIDE_SELECT_ADD_ITEM,追加する素材を選択してください,Please select the material you want to add.
+ROW_HAVE,Storage,Storage
+GUIDE_SELECT_COLOR_ITEM,使用する染料を選択してください,
+CRAFT_LEVEL_VAL,<VAL>,
+CRAFT_BUTTON_COMPLETE,完了,Complete
+NOTICE_GRADE_MAX,"グレードがアップしました！
+カラー変更ができるようになりました",
+CRAFT_BUTTON_EXAM_BEGIN,受領,
+ROW_POINT,Point,Point
+ORDER_HEADER_CRAFT_ITEM,Craft Item,Craft Item
+ORDER_HEADER_CRAFT_MEMBER,Craft Members,Craft Members
+ORDER_HEADER_ADD_ITEM,Additional Materials,Additional Materials
+HEADING_CUSTOMIZE_TARGET,アイテム,Item
+HEADING_CUSTOMIZE_PAWN,クラフトポーン,Craft Pawn
+HEADING_CREST_ITEM,Equip Crest,Mount Crest
+HEADING_COLOR_ITEM,Color Item,Color Item
+ROW_PROGRESS,Progress,Progress
+ROW_MAKE_ITEM,Item,Item
+CRAFT_VAL_NONE,なし,None
+CRAFT_PLUS_VAL,<VAL PLUS>,
+GUIDE_SELECT_LEADER_PAWN,リーダーをメインポーンから選択してください,Please select a craft leader from your main pawns.
+GUIDE_SELECT_ASSISTANT_PAWN,アシスタントを選択してください,Please select an assistant.
+GUIDE_SELECT_ADD_POINT_PAWN,ポイントを割り振るポーンを選択してください,
+EXAM_RECEIPE_TITLE,昇格試験レシピ,Promotion Test Recipe
+EXAM_RESULT_PARAM,昇格結果,Promotion Result
+CRAFT_DETAIL_ITEM_RANK,Item Rank,Item Rank
+CRAFT_DETAIL_XP_VAL,<VAL>/<VAL>,
+CRAFT_DETAIL_BAZAAR,バザー,Bazaar
+CRAFT_DETAIL_ENABLE_CREST,装着可能,Crest Slot Available
+ROW_LIST_CATEGORY,Category,Category
+RECIPE_CATE_USE_ITEM_HP,体力回復,Health Recovery
+RECIPE_CATE_USE_ITEM_ST,スタミナ回復,Stamina Recovery
+RECIPE_CATE_USE_ITEM_REPAIR,状態異常解消,Cure Debilitation
+RECIPE_CATE_USE_ITEM_ENCHANT,能力上昇,Stat Increase
+RECIPE_CATE_USE_ITEM_THROW,投擲道具,Throwing Item
+RECIPE_CATE_USE_ITEM_KEY,鍵・採集・探索,Exploration
+RECIPE_CATE_USE_ITEM_JOB,ジョブ専用道具,Job
+RECIPE_CATE_MATERIAL_INGOT,インゴット,Ingot
+RECIPE_CATE_MATERIAL_CLOTH,布,Cloth
+RECIPE_CATE_MATERIAL_THREAD,糸,Thread
+RECIPE_CATE_MATERIAL_SCROLL,スクロール,Scroll
+RECIPE_CATE_MATERIAL_STRENGTH_WEP,精錬材（武器）,Refine (Weapon)
+RECIPE_CATE_MATERIAL_STRENGTH_ARMOR,精錬材（防具）,Refine (Armor)
+ROW_MAKE,Made,Made
+CRAFT_NUM_CLASS_S,S級,
+CRAFT_NUM_CRAFTLV,クラフトレベル<VAL>,Craft Level <VAL>
+CRAFT_OVERUP_CRAFTLV,クラフトレベルの上限アップ,Craft Level Limit Up
+CRAFT_SET_ASSISTANT,アシスタントの設定人数,Assistant Slot Count
+CRAFT_NUM_TO_NUM,（<VAL>→<VAL>）,(<VAL>→<VAL>)
+CRAFT_NUM_CLASS_D,D級,
+CRAFT_NUM_CLASS_A,A級,
+CRAFT_NUM_CLASS_B,B級,
+CRAFT_NUM_CLASS_C,C級,
+CRAFT_UPGRADE_EQUIP_NOTHING,強化できる装備がありません,There is no equipment that be enhanced.
+CRAFT_COLOR_EQUIP_NOTHING,カラー変更できる装備がありません,There is no equipment that can change color.
+CRAFT_CREST_EQUIP_NOTHING,クレスト装着できる装備がありません,There is no equipment that can crests mounted.
+CRAFT_MATERIAL_NOTHING,使用できる素材がありません,
+CRAFT_COLOR_ITEM_NOTHING,使用できる染料がありません,
+CRAFT_PAWN_NO_ONE,ポーンを雇っていません,
+CRAFT_MAKE_ITEM_NOTHING,作成できるアイテムがありません,There are no items that can be created.
+CRAFT_MAKING_NOTHING,作成中のアイテムはありません,There are no items being crafted.
+CRAFT_BTGUID_DISPAWN,ポーンをはずす,Remove Pawn
+CRAFT_BTGUID_DISMATERIAL,精錬材をはずす,
+CRAFT_BTGUID_DISCREST,クレストを戻す,
+CRAFT_MAKING_CONTINUE,同じ装備アイテムを強化しますか？,Do you want to enhance the same item again?
+CRAFT_FINISHED,クラフト完了,Craft Finished
+REMAINING_MAKE_TIME_HOUR,<VAL>h,<VAL>h
+TAB_CLASS_UP_EXAM,特殊,Special
+CATEGORY_CLASS_UP_EXAM,昇格試験,Promotion Test
+MSG_NO_CLASS_UP_EXAM,昇格試験がありません,There is currently no promotion test.
+GUIDE_MSG_CHARACTER_CHANGE,試着切り替え,Switch Preview
+TITLE_MSG_CHARACTER_CHANGE,キャラクターを選択してください,Please select the character.
+RECIPE_CATE_MATERIAL_OTHER,その他,Other
+DIALOG_GET_XP_EX,"クラフトを指揮していた<NAME PAWN>が
+クラフト経験値を<VAL> (+<VAL>) <UNIT XP>入手しました","For being the craft leader, <NAME PAWN>
+has gained <VAL> (+<VAL>) <UNIT XP> crafting
+experience."
+EX_CHARGE_UNIT, (+<VAL>), (+<VAL>)
+COLOR_CHANGE_DISABLE,このアイテムはカラー変更できません,This item cannot have its color changed.
+CATEGORY_FURNITURE,家具,Furniture
+CRAFT_FURNITURE_NOTHING,家具レシピがありません,There are no furniture recipes.
+ERROR_CANT_MAKE_FURNITURE,作成済み、または作成中の家具は選択できません,Furniture already created or being created cannot be selected
+DIALOG_USE_FUNITURE_GUIDE,"受け取った家具アイテムは
+覚者の自室で配置することができます",
+RECIPE_CATE_MATERIAL_AREA,地域素材,Regional
+DIALOG_CONFIRM_CHOICE_CREATION_TYPE,作成方法を選んでください,Please choose the creation type.
+DIALOG_CONFIRM_TYPE_START,通常作成,Create
+DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,Create using Golden Gemstones (immediate completion)
+DIALOG_CONFIRM_EX_CREATE,"アイテムの作成がその場で完了します
+<COL ffdc78>黄金石<VAL>個</COL>を消費して作成しますか？
+(所持数：<VAL>)","The item will be created immediately.
+This will consume <COL ffdc78><VAL> Golden Gemstone</COL>.
+(You have: <VAL>)"
+DIALOG_EX_CREATE,アイテムの作成が完了しました,Item creation complete.
+DIALOG_CONFIRM_EX_CREATE_ERROR,"黄金石が不足しています
+その場で作成完了するには<COL ffdc78>黄金石<VAL>個</COL>が必要です
+(所持数：<VAL>)","You do not have enough Golden Gemstones.
+Creating this requires <COL ffdc78><VAL> Golden Gemstone</COL>.
+(You have: <VAL>)"
+DIALOG_CONFIRM_TYPE_JUMP_ONLINESHOP,オンラインショップを開く,Open the Online Shop
+DIALOG_CONFIRM_CHOICE_STOP_TYPE,まだアイテム作成が完了していません,Item production is not yet complete.
+DIALOG_CONFIRM_TYPE_STOP,アイテム生産を中止,Stop
+ANALYZE_RESULT,分析結果（概算）,Analysis Result (Approximate)
+ANALYZE_SPEED,作業時間<VAL>%OFF,
+ANALYZE_UPGRADE,<VAL>～<VAL>pt,
+ANALYZE_GREAT_SUCCESS,大成功率<VAL>%,
+ANALYZE_INCREASE,<VAL>%の確率で+<VAL>個,
+ANALYZE_COST_CUT,費用<VAL>%OFF,Cost <VAL>% OFF
+ANALYZE_ALWAYS_GREAT_SUCCESS,高品質装備の作成が、特定条件で必ず大成功,
+ANALYZE_ALWAYS_INCREASE,消耗品の生産が必ず大成功,
+ANALYZE_COST_CUT_MUCH,コストパフォーマンスの効果アップ,
+CREATE_TIMES_WARNING,※最大<VAL>回 (クラフト回数を消費します),"※ Maximum <VAL> times
+(will consume the craft number of times)"
+HEADING_CREATE_TIMES,生産回数,Production Times
+ANALYZE_BUTTON,パフォーマンス分析,Performance Analysis
+ERROR_SHORTAGE_MATERIAL,素材が足りません,
+ERROR_SHORTAGE_MONEY,所持金が足りません,
+ERROR_SHORTAGE_CRAFT_NUM,アシスタントの残りクラフト回数が足りません,
+ITEM_CREATE_TIMES,×<VAL>回,x<VAL> times
+ERROR_CREST_CANNOT_BREAK,このクレストは破壊できません,
+PERFORMANCE_NO_EFFECT,効果なし,No Effect
+BT_CHECK_CHEST,格納チェストを参照,See Storage Chest
+DIALOG_CHECKING_CHEST,格納チェストを参照しています,Checking Storage Chest
+ANNOUNCE_CHECK_NG_CHEST,格納チェストの参照は＜<OPCS>＞の発動中に使用可能となります,
+TAB_SPECIAL,一時レンタル,One-time Rental
+DIALOG_CONFIRM_GP_CREATE,"以下の機能を利用しているため、このアイテムを
+作成するには、<COL ffdc78>黄金石<VAL>個</COL>が必要です
+よろしいですか？
+(所持数：<VAL>)",
+DIALOG_CONFIRM_GP_REINFORCE,"以下の機能を利用しているため、このアイテムを
+強化するには、<COL ffdc78>黄金石<VAL>個</COL>が必要です
+よろしいですか？
+(所持数：<VAL>)",
+DIALOG_CONFIRM_GP_LACK_ERROR,"黄金石が不足しています
+(所持数：<VAL>)",
+HEADING_TIME_TO_MANDRA,育成時間,
+HEADING_ADD_STATUS,追加ステータス,Additional Status
+ROW_LIST,リスト,
+GUIDE_SELECT_ADD_STATUS,追加するステータスを選択してください,
+CRAFT_BTGUID_DISADDSTATUS,追加ステータスをはずす,
+RECIPE_CATE_MATERIAL_ADD_STATUS,特質錬石,Slayer Stone
+HEADING_ADD_STATUS2,Add Status,
+HEADING_MATERIALS_CHANGE,Materials Change,
+GUIDE_MATERIALS_CHANGE,品質変更する装備を選択してください,Please select the equipment to change quality.
+ERROR_MATERIALS_CHANGE_001,このアイテムは品質変更できません,This item cannot have its quality changed.
+CRAFT_MATERIALS_CHANGE_NOTHING,品質変更できる装備がありません,
+ERROR_MATERIALS_CHANGE_002,"品質が現状維持のまま、もしくは
+低下する可能性があるため使用できません",
+BUTTON_MATERIALS_CHANGE,変更,Change
+DIALOG_CONFIRM_MATERIALS_CHANGE,"このアイテムを品質変更しますか？
+
+作業費用　：<VAL G>
+取得経験値：<VAL XP>",
+DIALOG_CONFIRM_GP_MATERIALS_CHANGE,"以下の機能を利用しているため、このアイテムを
+品質変更するには、<COL ffdc78>黄金石<VAL>個</COL>が必要です
+よろしいですか？
+(所持数：<VAL>)",
+TITLE_MATERIALS_CHANGE,アイテムを品質変更しました,
+DIALOG_CONFIRM_MATERIALS_CHANGE_EX,"このアイテムを品質変更しますか？
+
+作業費用　：<VAL G>
+取得経験値：<VAL> (+<VAL>) <UNIT XP>",
+DIALOG_CONFIRM_REINFORCE_ADD_NO_SKIP,"<COL ffdc78>このアイテムの強化では
+一度に２段階以上のグレードＵＰはできません</COL>
+
+次のグレードで必要な強化ポイントを満たしていても
+２段階目のグレードＵＰ直前でポイントが止まります",
+DIALOG_CONFIRM_REINFORCE_ADD_NO_NEXT_ITEM,"<COL ffdc78>次のグレードＵＰで
+アイテムのグレードが最大になります</COL>",
+GUIDE_MSG_BUY_BAZAAR,バザーで必要素材を購入する,
+CRAFT_MSG_DS_BONUS_UP,Dragon Ability Level ,

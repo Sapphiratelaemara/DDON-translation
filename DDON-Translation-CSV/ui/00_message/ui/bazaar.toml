@@ -1,0 +1,341 @@
+﻿[[message]]
+key = 'bazaar_msg_itemsearch_en'
+old = 'Item Search'
+new = 'Item Search'
+[[message]]
+key = 'bazaar_msg_itemsearch_jp'
+old = '商品検索'
+new = 'Item Search'
+[[message]]
+key = 'bazaar_msg_categorysearch_en'
+old = 'Category Search'
+new = 'Category Search'
+[[message]]
+key = 'bazaar_msg_categorysearch_jp'
+old = 'カテゴリ'
+new = 'Category Search'
+[[message]]
+key = 'bazaar_msg_cs_categorysort'
+old = '＞'
+new = '＞'
+[[message]]
+key = 'bazaar_msg_cs_rank'
+old = 'ランク'
+new = 'Rank'
+[[message]]
+key = 'bazaar_msg_cs_morethan'
+old = '以上'
+new = 'or higher'
+[[message]]
+key = 'bazaar_msg_bt_search'
+old = '検索'
+new = 'Search'
+[[message]]
+key = 'bazaar_msg_freewordsearch_en'
+old = 'Free Word Search'
+new = 'Free Word Search (case sensitive)'
+[[message]]
+key = 'bazaar_msg_freewordsearch_jp'
+old = 'フリーワード検索'
+new = 'Free Word Search (case sensitive)'
+[[message]]
+key = 'bazaar_msg_disp_itemname'
+old = 'アイテム名'
+new = 'Item Name'
+[[message]]
+key = 'bazaar_msg_disp_number'
+old = '件数'
+new = 'Number'
+[[message]]
+key = 'bazaar_msg_searchresult_num'
+old = '件'
+new = 'results'
+[[message]]
+key = 'bazaar_msg_itemlist_disp_unitprice'
+old = '単価'
+new = 'Unit Price'
+[[message]]
+key = 'bazaar_msg_itemlist_disp_price'
+old = '価格'
+new = 'Price'
+[[message]]
+key = 'bazaar_msg_itemlist_disp_number_num'
+old = '個'
+new = ''
+[[message]]
+key = 'bazaar_msg_buy_distribution'
+old = '購入する個数を振分けてください'
+new = 'Please distribute your purchase.'
+[[message]]
+key = 'bazaar_msg_bt_buy'
+old = '購入'
+new = 'Buy'
+[[message]]
+key = 'bazaar_msg_bt_cancel'
+old = 'キャンセル'
+new = 'Cancel'
+[[message]]
+key = 'bazaar_msg_buy_confirmation'
+old = '''
+以下の内容で購入します。よろしいですか？
+
+　アイテム：<NAME ITEM>
+　合計個数：<VAL>個
+　合計価格：<VAL GOLD>'''
+new = '''
+Are you sure you want to buy the following?
+
+Item: <NAME ITEM>
+Amount: <VAL>
+Total Price: <VAL GOLD>'''
+[[message]]
+key = 'bazaar_msg_bt_yes'
+old = 'はい'
+new = 'Yes'
+[[message]]
+key = 'bazaar_msg_bt_no'
+old = 'いいえ'
+new = 'No'
+[[message]]
+key = 'bazaar_msg_info_switch'
+old = '情報切替'
+new = 'Switch Information'
+[[message]]
+key = 'bazaar_msg_info_trade'
+old = '取引成立相場'
+new = 'Current Market'
+[[message]]
+key = 'bazaar_msg_info_exhibit'
+old = '出品中相場'
+new = 'Exhibit'
+[[message]]
+key = 'bazaar_msg_info_disp_tradingday'
+old = '日付'
+new = 'Date'
+[[message]]
+key = 'bazaar_msg_info_disp_number'
+old = '個数'
+new = 'Number'
+[[message]]
+key = 'bazaar_msg_exhibit_set_unitprice'
+old = '単価設定'
+new = 'Set Unit Price'
+[[message]]
+key = 'bazaar_msg_exhibit_set_unitprice_limit'
+old = '※<VAL GOLD> ～ <VAL GOLD>まで'
+new = '※<VAL GOLD> ～ <VAL GOLD>'
+[[message]]
+key = 'bazaar_msg_exhibit_set_number'
+old = '個数設定'
+new = 'Set Number'
+[[message]]
+key = 'bazaar_msg_bt_decision'
+old = '決定'
+new = 'Choose'
+[[message]]
+key = 'bazaar_msg_exhibit_confirmation'
+old = '''
+以下の内容で出品します。よろしいですか？
+
+　アイテム：<NAME ITEM>
+　出品個数：<VAL>個
+　出品価格：<VAL GOLD>
+　売上時手数料(<VAL>%)：<VAL GOLD>'''
+new = '''
+Are you sure you want to exhibit the following?
+
+Item: <NAME ITEM>
+Amount: <VAL>
+Sell Price: <VAL GOLD>
+Sales Tax (<VAL>%): <VAL GOLD>'''
+[[message]]
+key = 'bazaar_msg_announce_exhibited'
+old = '<NAME ITEM>を出品しました'
+new = '<NAME ITEM> is now being exhibited.'
+[[message]]
+key = 'bazaar_msg_situation_en'
+old = 'Sell List'
+new = 'Sell List'
+[[message]]
+key = 'bazaar_msg_situation_jp'
+old = '出品状況'
+new = 'Sell List'
+[[message]]
+key = 'bazaar_msg_situation_disp_exhibiting'
+old = '出品中：'
+new = 'Total: '
+[[message]]
+key = 'bazaar_msg_situation_disp_totalsales'
+old = '売上合計：'
+new = 'Total sales: '
+[[message]]
+key = 'bazaar_msg_bt_salesreceipt'
+old = '売上の受け取り'
+new = 'Sales Receipt'
+[[message]]
+key = 'bazaar_msg_situation_exhibition_poss'
+old = '出品可能'
+new = 'Exhibition Available'
+[[message]]
+key = 'bazaar_msg_situation_exhibition_imposs'
+old = 'あと<COL FFFF00><JKAN HM></COL>で利用できます'
+new = 'Available in <COL FFFF00><JKAN HM></COL>'
+[[message]]
+key = 'bazaar_msg_situation_congrats'
+old = 'おめでとうございます！ 取引成立しました！'
+new = 'Congratulations! It was sold!'
+[[message]]
+key = 'bazaar_msg_announce_get_money'
+old = 'バザー売上 <VAL GOLD>を受け取りました'
+new = 'Received <VAL GOLD> from bazaar sales.'
+[[message]]
+key = 'bazaar_msg_bt_stop'
+old = '取り消し'
+new = 'Cancel'
+[[message]]
+key = 'bazaar_msg_bt_re_exhibit'
+old = '再出品'
+new = 'Re-Exhibit'
+[[message]]
+key = 'bazaar_msg_stop_confirmation'
+old = '''
+以下の出品を取り消します。よろしいですか？
+(取り消したアイテムは保管ボックスに送ります)
+
+　アイテム：<NAME ITEM>
+　出品個数：<VAL>個
+　設定価格：<VAL GOLD>'''
+new = '''
+Are you sure you want to stop exhibiting?
+(The canceled item will go to storage)
+
+Item: <NAME ITEM>
+Amount: <VAL>
+Price: <VAL GOLD>'''
+[[message]]
+key = 'bazaar_msg_announce_stop'
+old = '<NAME ITEM>を保管ボックスに移動しました'
+new = '<NAME ITEM> has been moved to storage.'
+[[message]]
+key = 'bazaar_msg_re_exhibit_set_unitprice'
+old = '単価の再設定'
+new = 'Resetting unit price.'
+[[message]]
+key = 'bazaar_msg_re_exhibit_confirmation'
+old = '''
+以下の内容で再出品します。よろしいですか？
+
+　アイテム：<NAME ITEM>
+　出品個数：<VAL>個
+　出品価格：<VAL GOLD>
+　売上時手数料(<VAL>%)：<VAL GOLD>'''
+new = '''
+Are you sure you want to re-exhibit the following?
+
+Item: <NAME ITEM>
+Amount: <VAL>
+Sell Price: <VAL GOLD>
+Sales Tax (<VAL>%): <VAL GOLD>'''
+[[message]]
+key = 'bazaar_msg_announce_re_exhibited'
+old = '<NAME ITEM>を再出品しました'
+new = '<NAME ITEM> has been re-exhibited.'
+[[message]]
+key = 'bazaar_msg_announce_buy'
+old = '<NAME ITEM>を購入しました'
+new = '<NAME ITEM> has been purchased.'
+[[message]]
+key = 'bazaar_msg_disp_search_info'
+old = '左のメニューから検索してください'
+new = 'Please search using the menu to the left.'
+[[message]]
+key = 'bazaar_msg_disp_search_notfound'
+old = '一致する情報は見つかりませんでした'
+new = 'There were no results.'
+[[message]]
+key = 'bazaar_msg_announce_error_buy'
+old = '購入に失敗しました'
+new = 'Failed to purchase.'
+[[message]]
+key = 'bazaar_msg_announce_error_exhibit'
+old = '出品に失敗しました'
+new = 'Failed to exhibit.'
+[[message]]
+key = 'bazaar_msg_announce_error_stop'
+old = '取り消しに失敗しました'
+new = 'Failed to cancel.'
+[[message]]
+key = 'bazaar_msg_announce_error_info'
+old = '情報の取得に失敗しました'
+new = 'Failed to get information.'
+[[message]]
+key = 'bazaar_msg_announce_error_exhibit_over'
+old = '出品可能数が０のため、新たに出品できません'
+new = 'You have 0 available exhibitions.'
+[[message]]
+key = 'bazaar_msg_announce_error_possession_full '
+old = 'アイテムバッグと保管ボックスに空き枠が無いため購入できません'
+new = 'You cannot purchase it because there is no free space in the item bag or storage.'
+[[message]]
+key = 'bazaar_msg_announce_error_stop_storage_full'
+old = '保管ボックスに空き枠が無いため取り消しできません'
+new = 'You cannot purchase it because there is no free space in storage.'
+[[message]]
+key = 'bazaar_msg_shortcut_exhibit'
+old = '出品へのショートカット'
+new = 'Shortcut to Exhibit'
+[[message]]
+key = 'bazaar_msg_announce_error_bazaaritem0'
+old = 'バザーに出品できるアイテムを持っていません'
+new = 'There are no items that can be exhibited.'
+[[message]]
+key = 'bazaar_msg_disp_snatching_notfound'
+old = '''
+購入できるアイテムは見つかりませんでした
+前の画面に戻ってください
+
+（他のプレイヤーに購入された、もしくは
+出品を取り消した等の可能性があります）'''
+new = '''
+There were no purchasable items found.
+Please go back to the previous screen.
+
+(It was purchased by other players
+or the exhibition was canceled)'''
+[[message]]
+key = 'bazaar_msg_announce_many_search'
+old = '一致する情報が多いため、すべてを取得できませんでした'
+new = 'There were too many results.'
+[[message]]
+key = 'bazaar_msg_exhibit_set_number_limit'
+old = '※<VAL> 個まで'
+[[message]]
+key = 'bazaar_msg_disp_access_frequency_error'
+old = '''
+サーバーへのアクセス頻度が高いため
+一定時間、商品検索のご利用を制限いたします
+時間を置いてもう一度お試しいただくか
+アクセス頻度を下げてご利用いただきますよう
+お願いいたします'''
+new = '''
+Due to a high frequency of searches in a small timespan,
+we will restrict the use of the Bazaar search for a period of time.
+Please lower the frequency of searches in the future, and
+try again later.'''
+[[message]]
+key = 'bazaar_msg_announce_error_notcovered'
+old = '対象のアイテムはバザーで購入できません'
+[[message]]
+key = 'bazaar_msg_name_bazaar_en'
+old = 'Bazaar'
+new = 'Bazaar'
+[[message]]
+key = 'bazaar_msg_name_bazaar_jp'
+old = 'バザー'
+new = 'Bazaar'
+[[message]]
+key = 'bazaar_msg_name_required_material'
+old = '必要素材名'
+[[message]]
+key = 'bazaar_msg_name_num_listings'
+old = '出品数'

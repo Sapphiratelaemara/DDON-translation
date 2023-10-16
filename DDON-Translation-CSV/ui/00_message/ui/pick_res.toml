@@ -1,0 +1,63 @@
+﻿[[message]]
+key = 'pick_recieve_en'
+old = 'Receive'
+[[message]]
+key = 'pick_recive_jp'
+old = '受け取り'
+new = 'Receive'
+[[message]]
+key = 'pick_item_select'
+old = '使用するアイテムを選択'
+new = 'Select which item to use'
+[[message]]
+key = 'pick_item_noselect'
+old = '使用しない'
+new = 'Nothing'
+[[message]]
+key = 'pick_item_allget'
+old = 'すべて受け取る'
+new = 'Take All'
+[[message]]
+key = 'pick_item_get'
+old = '受け取る'
+new = 'Take'
+[[message]]
+key = 'pick_item_limit'
+old = '所持数が上限に達しました'
+new = 'You cannot hold more of this item.'
+[[message]]
+key = 'pick_item_not_get'
+old = 'アイテムバッグがいっぱいのため、すべてを受け取ることができません'
+new = 'Your item bag is full and you cannot receive all the items.'
+[[message]]
+key = 'pick_item_limit_max'
+old = 'アイテムバッグがいっぱいのため、受け取ることができません'
+new = 'Your item bag is full.'
+[[message]]
+key = 'pick_item_err_000'
+old = '装備できません'
+[[message]]
+key = 'pick_item_err_001'
+old = '''
+このアイテムは個別に受け取ることができません
+【すべて受け取る】を押してください'''
+new = '''
+Cannot receive items individually
+Please select "Take All"'''
+[[message]]
+key = 'pick_item_btn_000'
+old = '受け取る'
+new = 'Take'
+[[message]]
+key = 'pick_item_btn_001'
+old = '直接装備する'
+new = 'Equip Immediately'
+[[message]]
+key = 'pick_item_err_002'
+old = '''
+必要アイテム（<NAME ITEM>×<VAL>）を
+アイテムバッグに所持していないため、受け取れません'''
+new = '''
+You cannot receive items because
+you do not carry enough items in the bag
+(<NAME ITEM>×<VAL>)'''

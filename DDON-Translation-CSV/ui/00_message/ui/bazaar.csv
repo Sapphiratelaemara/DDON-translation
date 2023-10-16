@@ -1,0 +1,124 @@
+key,old,new
+bazaar_msg_itemsearch_en,Item Search,Item Search
+bazaar_msg_itemsearch_jp,商品検索,Item Search
+bazaar_msg_categorysearch_en,Category Search,Category Search
+bazaar_msg_categorysearch_jp,カテゴリ,Category Search
+bazaar_msg_cs_categorysort,＞,＞
+bazaar_msg_cs_rank,ランク,Rank
+bazaar_msg_cs_morethan,以上,or higher
+bazaar_msg_bt_search,検索,Search
+bazaar_msg_freewordsearch_en,Free Word Search,Free Word Search (case sensitive)
+bazaar_msg_freewordsearch_jp,フリーワード検索,Free Word Search (case sensitive)
+bazaar_msg_disp_itemname,アイテム名,Item Name
+bazaar_msg_disp_number,件数,Number
+bazaar_msg_searchresult_num,件,results
+bazaar_msg_itemlist_disp_unitprice,単価,Unit Price
+bazaar_msg_itemlist_disp_price,価格,Price
+bazaar_msg_itemlist_disp_number_num,個,
+bazaar_msg_buy_distribution,購入する個数を振分けてください,Please distribute your purchase.
+bazaar_msg_bt_buy,購入,Buy
+bazaar_msg_bt_cancel,キャンセル,Cancel
+bazaar_msg_buy_confirmation,"以下の内容で購入します。よろしいですか？
+
+　アイテム：<NAME ITEM>
+　合計個数：<VAL>個
+　合計価格：<VAL GOLD>","Are you sure you want to buy the following?
+
+Item: <NAME ITEM>
+Amount: <VAL>
+Total Price: <VAL GOLD>"
+bazaar_msg_bt_yes,はい,Yes
+bazaar_msg_bt_no,いいえ,No
+bazaar_msg_info_switch,情報切替,Switch Information
+bazaar_msg_info_trade,取引成立相場,Current Market
+bazaar_msg_info_exhibit,出品中相場,Exhibit
+bazaar_msg_info_disp_tradingday,日付,Date
+bazaar_msg_info_disp_number,個数,Number
+bazaar_msg_exhibit_set_unitprice,単価設定,Set Unit Price
+bazaar_msg_exhibit_set_unitprice_limit,※<VAL GOLD> ～ <VAL GOLD>まで,※<VAL GOLD> ～ <VAL GOLD>
+bazaar_msg_exhibit_set_number,個数設定,Set Number
+bazaar_msg_bt_decision,決定,Choose
+bazaar_msg_exhibit_confirmation,"以下の内容で出品します。よろしいですか？
+
+　アイテム：<NAME ITEM>
+　出品個数：<VAL>個
+　出品価格：<VAL GOLD>
+　売上時手数料(<VAL>%)：<VAL GOLD>","Are you sure you want to exhibit the following?
+
+Item: <NAME ITEM>
+Amount: <VAL>
+Sell Price: <VAL GOLD>
+Sales Tax (<VAL>%): <VAL GOLD>"
+bazaar_msg_announce_exhibited,<NAME ITEM>を出品しました,<NAME ITEM> is now being exhibited.
+bazaar_msg_situation_en,Sell List,Sell List
+bazaar_msg_situation_jp,出品状況,Sell List
+bazaar_msg_situation_disp_exhibiting,出品中：,Total: 
+bazaar_msg_situation_disp_totalsales,売上合計：,Total sales: 
+bazaar_msg_bt_salesreceipt,売上の受け取り,Sales Receipt
+bazaar_msg_situation_exhibition_poss,出品可能,Exhibition Available
+bazaar_msg_situation_exhibition_imposs,あと<COL FFFF00><JKAN HM></COL>で利用できます,Available in <COL FFFF00><JKAN HM></COL>
+bazaar_msg_situation_congrats,おめでとうございます！ 取引成立しました！,Congratulations! It was sold!
+bazaar_msg_announce_get_money,バザー売上 <VAL GOLD>を受け取りました,Received <VAL GOLD> from bazaar sales.
+bazaar_msg_bt_stop,取り消し,Cancel
+bazaar_msg_bt_re_exhibit,再出品,Re-Exhibit
+bazaar_msg_stop_confirmation,"以下の出品を取り消します。よろしいですか？
+(取り消したアイテムは保管ボックスに送ります)
+
+　アイテム：<NAME ITEM>
+　出品個数：<VAL>個
+　設定価格：<VAL GOLD>","Are you sure you want to stop exhibiting?
+(The canceled item will go to storage)
+
+Item: <NAME ITEM>
+Amount: <VAL>
+Price: <VAL GOLD>"
+bazaar_msg_announce_stop,<NAME ITEM>を保管ボックスに移動しました,<NAME ITEM> has been moved to storage.
+bazaar_msg_re_exhibit_set_unitprice,単価の再設定,Resetting unit price.
+bazaar_msg_re_exhibit_confirmation,"以下の内容で再出品します。よろしいですか？
+
+　アイテム：<NAME ITEM>
+　出品個数：<VAL>個
+　出品価格：<VAL GOLD>
+　売上時手数料(<VAL>%)：<VAL GOLD>","Are you sure you want to re-exhibit the following?
+
+Item: <NAME ITEM>
+Amount: <VAL>
+Sell Price: <VAL GOLD>
+Sales Tax (<VAL>%): <VAL GOLD>"
+bazaar_msg_announce_re_exhibited,<NAME ITEM>を再出品しました,<NAME ITEM> has been re-exhibited.
+bazaar_msg_announce_buy,<NAME ITEM>を購入しました,<NAME ITEM> has been purchased.
+bazaar_msg_disp_search_info,左のメニューから検索してください,Please search using the menu to the left.
+bazaar_msg_disp_search_notfound,一致する情報は見つかりませんでした,There were no results.
+bazaar_msg_announce_error_buy,購入に失敗しました,Failed to purchase.
+bazaar_msg_announce_error_exhibit,出品に失敗しました,Failed to exhibit.
+bazaar_msg_announce_error_stop,取り消しに失敗しました,Failed to cancel.
+bazaar_msg_announce_error_info,情報の取得に失敗しました,Failed to get information.
+bazaar_msg_announce_error_exhibit_over,出品可能数が０のため、新たに出品できません,You have 0 available exhibitions.
+bazaar_msg_announce_error_possession_full ,アイテムバッグと保管ボックスに空き枠が無いため購入できません,You cannot purchase it because there is no free space in the item bag or storage.
+bazaar_msg_announce_error_stop_storage_full,保管ボックスに空き枠が無いため取り消しできません,You cannot purchase it because there is no free space in storage.
+bazaar_msg_shortcut_exhibit,出品へのショートカット,Shortcut to Exhibit
+bazaar_msg_announce_error_bazaaritem0,バザーに出品できるアイテムを持っていません,There are no items that can be exhibited.
+bazaar_msg_disp_snatching_notfound,"購入できるアイテムは見つかりませんでした
+前の画面に戻ってください
+
+（他のプレイヤーに購入された、もしくは
+出品を取り消した等の可能性があります）","There were no purchasable items found.
+Please go back to the previous screen.
+
+(It was purchased by other players
+or the exhibition was canceled)"
+bazaar_msg_announce_many_search,一致する情報が多いため、すべてを取得できませんでした,There were too many results.
+bazaar_msg_exhibit_set_number_limit,※<VAL> 個まで,
+bazaar_msg_disp_access_frequency_error,"サーバーへのアクセス頻度が高いため
+一定時間、商品検索のご利用を制限いたします
+時間を置いてもう一度お試しいただくか
+アクセス頻度を下げてご利用いただきますよう
+お願いいたします","Due to a high frequency of searches in a small timespan,
+we will restrict the use of the Bazaar search for a period of time.
+Please lower the frequency of searches in the future, and
+try again later."
+bazaar_msg_announce_error_notcovered,対象のアイテムはバザーで購入できません,
+bazaar_msg_name_bazaar_en,Bazaar,Bazaar
+bazaar_msg_name_bazaar_jp,バザー,Bazaar
+bazaar_msg_name_required_material,必要素材名,
+bazaar_msg_name_num_listings,出品数,
