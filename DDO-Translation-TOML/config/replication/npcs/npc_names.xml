@@ -1,0 +1,373 @@
+<replication>
+  <message_set name="npc name">
+    <match>^ui\\00_message\\npc\\npc_name$</match>
+    <match>^ui\\00_message\\enemy\\enemy_name$</match>
+    <rewrite>
+      <original_match>^(.+)兵士$</original_match>
+      <translation_replace>{0} Soldier</translation_replace>
+      <translation_arg message_set="location name" required="true" />
+    </rewrite>
+    <extra>
+      <original>兵</original>
+      <translation>Troop</translation>
+      <translation_format proper="false">troop</translation_format>
+    </extra>
+    <extra>
+      <original>兵士</original>
+      <translation>Soldier</translation>
+      <translation_format proper="false">soldier</translation_format>
+    </extra>
+    <extra>
+      <original>者</original>
+      <translation>Person</translation>
+      <translation_format proper="false">person</translation_format>
+    </extra>
+    <extra>
+      <original>傷ついた覚者</original>
+      <translation>wounded Arisen</translation>
+      <translation_format proper="false" />
+    </extra>
+    <extra>
+      <original>エリアマスター</original>
+      <translation>Area Master</translation>
+      <translation_format proper="false" />
+    </extra>
+    <extra>
+      <original>吟遊詩人シーベル</original>
+      <translation>minstrel Seabell</translation>
+      <translation_format proper="false" />
+    </extra>
+    <extra>
+      <original>メイロワ将軍</original>
+      <translation>General Meirova</translation>
+    </extra>
+    <extra>
+      <original>ネド王子</original>
+      <translation>Prince Nedo</translation>
+    </extra>
+    <extra>
+      <original>将</original>
+      <translation>Leader</translation>
+      <translation_format proper="false" pluralize="false">leader</translation_format>
+    </extra>
+    <extra>
+      <original>助太刀をしてくれた人物</original>
+      <translation>person who assisted</translation>
+      <translation_format proper="false" />
+    </extra>
+    <extra>
+      <original>助けた兵士</original>
+      <translation>soldier who assisted</translation>
+      <translation_format proper="false" />
+    </extra>
+    <extra>
+      <original>助けた人</original>
+      <translation>people who assisted</translation>
+      <translation_format proper="false" />
+    </extra>
+    <extra>
+      <original>仲間</original>
+      <translation>Comrade</translation>
+      <translation_format>comrade</translation_format>
+    </extra>
+    <extra>
+      <original>謎の戦士</original>
+      <translation>Mysterious Warrior</translation>
+      <translation_format proper="false">mysterious warrior</translation_format>
+    </extra>
+    <extra>
+      <original>捕虜</original>
+      <translation>Prisoner</translation>
+      <translation_format proper="false">prisoner</translation_format>
+    </extra>
+    <extra>
+      <original>敵</original>
+      <translation>Enemy</translation>
+      <translation_format proper="false" pluralize="false">enemy</translation_format>
+    </extra>
+    <extra>
+      <original>最後の敵</original>
+      <translation>Final Enemy</translation>
+      <translation_format proper="false" pluralize="false">final enemy</translation_format>
+    </extra>
+    <extra>
+      <original>敵軍</original>
+      <translation>Enemy Army</translation>
+      <translation_format proper="false" pluralize="false">enemy army</translation_format>
+    </extra>
+    <extra>
+      <original>敵の本隊</original>
+      <translation>Enemy Troop</translation>
+      <translation_format proper="false">enemy troop</translation_format>
+    </extra>
+    <extra>
+      <original>残りの敵</original>
+      <translation>Remaining Enemy</translation>
+      <translation_format proper="false" pluralize="false">remaining enemy</translation_format>
+    </extra>
+    <extra>
+      <original>強敵</original>
+      <translation>Formidable Enemy</translation>
+      <translation_format proper="false" pluralize="false">formidable enemy</translation_format>
+    </extra>
+    <extra>
+      <original>脅威となる敵</original>
+      <translation>Enemy Threat</translation>
+      <translation_format proper="false" pluralize="false">enemy threat</translation_format>
+    </extra>
+    <extra>
+      <original>敵部隊</original>
+      <translation>Enemy Force</translation>
+      <translation_format proper="false" pluralize="false">enemy force</translation_format>
+    </extra>
+    <extra>
+      <original>災いの源たる敵</original>
+      <translation>The Enemy Who Are the Source of Calamity</translation>
+      <translation_format proper="false" pluralize="false">the enemy who are the source of calamity</translation_format>
+    </extra>
+    <extra>
+      <original>歌の正体である敵</original>
+      <translation>The Enemy Who Is the Origin of the Song</translation>
+      <translation_format proper="false" pluralize="false">the enemy who is the origin of the song</translation_format>
+    </extra>
+    <extra>
+      <original>魔物</original>
+      <translation>Demon</translation>
+      <translation_format proper="false">demon</translation_format>
+    </extra>
+    <extra>
+      <original>異形の魔物</original>
+      <translation>Strange Demon</translation>
+      <translation_format proper="false">strange demon</translation_format>
+    </extra>
+    <extra>
+      <original>巨大な異形の魔物</original>
+      <translation>Huge Strange Demon</translation>
+      <translation_format proper="false" pluralize="false">huge strange demon</translation_format>
+    </extra>
+    <extra>
+      <original>未知なる魔物</original>
+      <translation>Unknown Demon</translation>
+      <translation_format proper="false">unknown demon</translation_format>
+    </extra>
+    <extra>
+      <original>最後の魔物</original>
+      <translation>Final Demon</translation>
+      <translation_format proper="false">final demon</translation_format>
+    </extra>
+    <extra>
+      <original>危険な魔物</original>
+      <translation>Dangerous Demon</translation>
+      <translation_format proper="false">dangerous demon</translation_format>
+    </extra>
+    <extra>
+      <original>強力な魔物</original>
+      <translation>Powerful Demon</translation>
+      <translation_format proper="false">powerful demon</translation_format>
+    </extra>
+    <extra>
+      <original>凶悪な魔物</original>
+      <translation>Fiendish Demon</translation>
+      <translation_format proper="false">fiendish demon</translation_format>
+    </extra>
+    <extra>
+      <original>侵食魔</original>
+      <translation>corruption</translation>
+      <translation_format proper="false" pluralize="false" />
+    </extra>
+    <extra>
+      <original>精霊竜</original>
+      <translation>Spirit Dragon</translation>
+      <translation_format proper="false" pluralize="false" />
+    </extra>
+    <extra>
+      <original>魔軍</original>
+      <translation>Demon Army</translation>
+      <translation_format proper="false" pluralize="false">Demon Army</translation_format>
+    </extra>
+    <extra>
+      <original>魔軍の伝令兵</original>
+      <translation>Demon Army Runner</translation>
+      <translation_format proper="false">Demon Army runner</translation_format>
+    </extra>
+    <extra>
+      <original>“ゴブリン一家”と“ボス”</original>
+      <translation>"Goblin Family" and "Boss"</translation>
+      <translation_format proper="false" pluralize="false" />
+    </extra>
+    <extra>
+      <original>獲物</original>
+      <translation>Game</translation>
+      <translation_format proper="false" pluralize="false">game</translation_format>
+    </extra>
+    <extra>
+      <original>見張り</original>
+      <translation>Lookout</translation>
+      <translation_format proper="false">lookout</translation_format>
+    </extra>
+    <extra>
+      <original>謎の巨大生物</original>
+      <translation>Mysterious Giant Creature</translation>
+      <translation_format proper="false" pluralize="false">mysterious giant creature</translation_format>
+    </extra>
+    <extra>
+      <original>探索者</original>
+      <translation>Explorer</translation>
+      <translation_format proper="false">explorer</translation_format>
+    </extra>
+    <extra>
+      <original>騎士喰らい</original>
+      <translation>Knight-Devourer</translation>
+      <translation_format proper="false" pluralize="false" />
+    </extra>
+    <extra>
+      <original>悪しき竜軍</original>
+      <translation>Evil Dragon army</translation>
+      <translation_format proper="false" pluralize="false" />
+    </extra>
+    <extra>
+      <original>ダンジョンの主</original>
+      <translation>Dungeon Master</translation>
+      <translation_format proper="false" pluralize="false">dungeon master</translation_format>
+    </extra>
+    <extra>
+      <original>第３守備隊</original>
+      <translation>3rd Garrison</translation>
+      <translation_format proper="false" pluralize="false" />
+    </extra>
+    <extra>
+      <original>第４守備隊</original>
+      <translation>4th Garrison</translation>
+      <translation_format proper="false" pluralize="false" />
+    </extra>
+    <extra>
+      <original>第５守備隊</original>
+      <translation>5th Garrison</translation>
+      <translation_format proper="false" pluralize="false" />
+    </extra>
+    <extra>
+      <original>第６守備隊</original>
+      <translation>6th Garrison</translation>
+      <translation_format proper="false" pluralize="false" />
+    </extra>
+    <extra>
+      <original>守護者</original>
+      <translation>Guardian</translation>
+      <translation_format proper="false">guardian</translation_format>
+    </extra>
+    <extra>
+      <original>黄金竜ゴルゴラン</original>
+      <translation>The Golden Dragon Golgorran</translation>
+      <translation_format proper="false" pluralize="false">Golden Dragon Golgorran</translation_format>
+    </extra>
+    <extra>
+      <original>亡者の主</original>
+      <translation>Lord of the Dead</translation>
+      <translation_format proper="false" pluralize="false">Lord of the Dead</translation_format>
+    </extra>
+    <extra>
+      <original>悪魔</original>
+      <translation>Fiend</translation>
+      <translation_format proper="false" pluralize="false">fiend</translation_format>
+    </extra>
+    <extra>
+      <original>強力な侵食魔</original>
+      <translation>Powerful Infected</translation>
+      <translation_format proper="false" pluralize="false">powerful infected</translation_format>
+    </extra>
+    <extra>
+      <original>竜力の化身</original>
+      <translation>Incarnation of Dragon Force</translation>
+      <translation_format proper="false" pluralize="false">Incarnation of Dragon Force</translation_format>
+    </extra>
+    <extra>
+      <original>真なる力に満ちた竜力の化身</original>
+      <translation>Incarnation of Dragon Force Full of True Force</translation>
+      <translation_format proper="false" pluralize="false">Incarnation of Dragon Force Full of True Force</translation_format>
+    </extra>
+    <extra>
+      <original>強力な戦徒</original>
+      <translation>Powerful Myrmidon</translation>
+      <translation_format proper="false">powerful myrmidon</translation_format>
+    </extra>
+    <extra>
+      <original>覚者隊の仲間</original>
+      <translation>Arisen Corps Comrade</translation>
+      <translation_format proper="false">Arisen Corps comrade</translation_format>
+    </extra>
+    <extra>
+      <original>腐竜</original>
+      <translation>Decay Dragon</translation>
+      <translation_format proper="false" pluralize="false">decay dragon</translation_format>
+    </extra>
+    <extra>
+      <original>老甲竜</original>
+      <translation>Elder Shell Dragon</translation>
+      <translation_format proper="false" pluralize="false">elder shell dragon</translation_format>
+    </extra>
+    <extra>
+      <original>ならず者</original>
+      <translation>Ruffian</translation>
+      <translation_format proper="false">ruffian</translation_format>
+    </extra>
+    <extra>
+      <original>魔鳥</original>
+      <translation>Demon Bird</translation>
+      <translation_format proper="false">demon bird</translation_format>
+    </extra>
+    <extra>
+      <original>巨人ヨトン</original>
+      <translation>Giant Yoton</translation>
+      <translation_format proper="false" pluralize="false">giant Yoton</translation_format>
+    </extra>
+    <extra>
+      <original>“白い災厄”</original>
+      <translation>"White Calamity"</translation>
+      <translation_format proper="false" pluralize="false" />
+    </extra>
+    <extra>
+      <original>亡霊騎士</original>
+      <translation>Spectral Knight</translation>
+      <translation_format proper="false" pluralize="false">spectral knight</translation_format>
+    </extra>
+    <extra>
+      <original>従者</original>
+      <translation>Follower</translation>
+      <translation_format proper="false">follower</translation_format>
+    </extra>
+    <extra>
+      <original>部下</original>
+      <translation>Subordinate</translation>
+      <translation_format proper="false">subordinate</translation_format>
+    </extra>
+    <extra>
+      <original>増援のリーダー</original>
+      <translation>Reinforcement Leader</translation>
+      <translation_format proper="false" pluralize="false">reinforcement leader</translation_format>
+    </extra>
+    <extra>
+      <original>野盗</original>
+      <translation>Brigand</translation>
+      <translation_format proper="false">brigand</translation_format>
+    </extra>
+    <extra>
+      <original>士</original>
+      <translation>Warrior</translation>
+      <translation_format proper="false">warrior</translation_format>
+    </extra>
+    <extra>
+      <original>灯台守</original>
+      <translation>Lighthouse Keeper</translation>
+      <translation_format proper="false">lighthouse keeper</translation_format>
+    </extra>
+    <extra>
+      <original>伝令兵</original>
+      <translation>Runner</translation>
+      <translation_format proper="false">runner</translation_format>
+    </extra>
+    <extra>
+      <original>？？？？？？</original>
+      <translation>??????</translation>
+    </extra>
+  </message_set>
+</replication>

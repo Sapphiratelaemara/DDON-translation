@@ -1,0 +1,15 @@
+﻿<replication>
+  <message_set name="named param" type="namedparam">
+    <match>^ui\\00_message\\named\\named_param$</match>
+    <rewrite soft="true">
+      <original_match>^(.+?)・(.+?)$</original_match>
+      <translation_replace>{0} {1}</translation_replace>
+      <translation_arg index="0" message_set="npc name" required="true" />
+    </rewrite>
+    <rewrite soft="true">
+      <original_match>^(.+?)・(.+?)$</original_match>
+      <translation_replace>{0} {1}</translation_replace>
+      <translation_arg index="1" message_set="npc name" required="true" />
+    </rewrite>
+  </message_set>
+</replication>

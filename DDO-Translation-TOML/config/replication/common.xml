@@ -1,0 +1,52 @@
+﻿<replication>
+  <message_set name="job name">
+    <match>^ui\\00_message\\common\\job_name$</match>
+    <extra>
+      <original>エレメントアーチャ―</original>
+      <translation>Element Archer</translation>
+    </extra>
+    <extra>
+      <original>Eアーチャー</original>
+      <translation>Element Archer</translation>
+    </extra>
+    <extra>
+      <original>Ｅアーチャー</original>
+      <translation>Element Archer</translation>
+    </extra>
+    <extra>
+      <original>Sセージ</original>
+      <translation>Shield Sage</translation>
+    </extra>
+    <extra>
+      <original>Ｓセージ</original>
+      <translation>Shield Sage</translation>
+    </extra>
+    <extra>
+      <original>Sランサー</original>
+      <translation>Spirit Lancer</translation>
+    </extra>
+    <extra>
+      <original>Ｓランサー</original>
+      <translation>Spirit Lancer</translation>
+    </extra>
+  </message_set>
+  <message_set name="ability name">
+    <match>^ui\\00_message\\skill\\ability_name$</match>
+  </message_set>
+  <message_set name="ability info">
+    <match>^ui\\00_message\\skill\\ability_info$</match>
+  </message_set>
+  <message_set name="weapon category name">
+    <match>^ui\\00_message\\common\\weapon_ctgr$</match>
+  </message_set>
+  <message_set name="arisen card">
+    <match>^ui\\00_message\\ui\\ArisenCard$</match>
+    <match>^ui\\00_message\\ui\\ArisenCard_win$</match>
+  </message_set>
+  <message_set name="arisen card background name">
+    <match>^ui\\00_message\\ui\\arisencard_background_name$</match>
+  </message_set>
+  <message_set name="condition name">
+    <match>^ui\\00_message\\common\\condition_name$</match>
+  </message_set>
+</replication>

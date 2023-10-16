@@ -1,0 +1,234 @@
+﻿<replication>
+  <message_set name="mandragora species name">
+    <match>^ui\\00_message\\mandragora\\mandragora_species_name$</match>
+    <rewrite>
+      <original_match>^【(.+)】(.+)・(.+)$</original_match>
+      <translation_replace>({0}) {1} - {2}</translation_replace>
+      <translation_arg index="0" message_set="mandragora type" />
+      <translation_arg index="1" message_set="mandragora variant" />
+      <translation_arg index="2" message_set="mandragora type" />
+    </rewrite>
+    <rewrite>
+      <original_match>^【(.+)】(.+)$</original_match>
+      <translation_replace>({0}) {1}</translation_replace>
+      <translation_arg index="0" message_set="mandragora type" />
+      <translation_arg index="1" message_set="mandragora variant" required="true" />
+    </rewrite>
+    <rewrite>
+      <original_match>^【(.+)】(.+)$</original_match>
+      <translation_replace>({0}) {1}</translation_replace>
+      <translation_arg index="0" message_set="mandragora type" />
+      <translation_arg index="1" message_set="mandragora species name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)・(.+)$</original_match>
+      <translation_replace>{0} - {1}</translation_replace>
+      <translation_arg index="0" message_set="mandragora variant" />
+      <translation_arg index="1" message_set="mandragora type" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)$</original_match>
+      <translation_replace>{0}</translation_replace>
+      <translation_arg message_set="mandragora variant" required="true" />
+    </rewrite>
+  </message_set>
+  <message_set name="mandragora species info">
+    <match>^ui\\00_message\\mandragora\\mandragora_species_info$</match>
+  </message_set>
+  <message_set name="mandragora variant">
+    <extra>
+      <original>マンドラゴラ</original>
+      <translation>Mandragora</translation>
+    </extra>
+    <extra>
+      <original>マンドラフラワー</original>
+      <translation>Mandra Flower</translation>
+    </extra>
+    <extra>
+      <original>マンドラフラワーブルーム</original>
+      <translation>Mandra Flower Bloom</translation>
+    </extra>
+    <extra>
+      <original>マンドラブーケ</original>
+      <translation>Mandra Boquet</translation>
+    </extra>
+    <extra>
+      <original>マンドラブロッサム</original>
+      <translation>Mandra Blossom</translation>
+    </extra>
+    <extra>
+      <original>マンドラマッシュルーム</original>
+      <translation>Mandra Mushroom</translation>
+    </extra>
+    <extra>
+      <original>マッシュルーム</original>
+      <translation>Mushroom</translation>
+    </extra>
+    <extra>
+      <original>マンドラマッシュルームズ</original>
+      <translation>Mandra Mushrooms</translation>
+    </extra>
+    <extra>
+      <original>マッシュルームズ</original>
+      <translation>Mushrooms</translation>
+    </extra>
+    <extra>
+      <original>マンドレインジア</original>
+      <translation>Mandrangea</translation>
+    </extra>
+    <extra>
+      <original>マンドラツリー</original>
+      <translation>Mandra Tree</translation>
+    </extra>
+    <extra>
+      <original>マンドラココナッツ</original>
+      <translation>Mandra Coconut</translation>
+    </extra>
+    <extra>
+      <original>チリマンドラゴラ</original>
+      <translation>Chili Mandragora</translation>
+    </extra>
+    <extra>
+      <original>アルビノマンドラゴラ</original>
+      <translation>Albino Mandragora</translation>
+    </extra>
+    <extra>
+      <original>チャコマンドラゴラ</original>
+      <translation>Chaco Mandragora</translation>
+    </extra>
+    <extra>
+      <original>マンドラプスフラワーブルー</original>
+      <translation>Mandrups Flower Blue</translation>
+    </extra>
+    <extra>
+      <original>マンドラプスフラワーレッド</original>
+      <translation>Mandrups Flower Red</translation>
+    </extra>
+    <extra>
+      <original>マンドラプスフラワーイエロー</original>
+      <translation>Mandrups Flower Yellow</translation>
+    </extra>
+    <extra>
+      <original>マンドラプスフラワーホワイト</original>
+      <translation>Mandrups Flower White</translation>
+    </extra>
+    <extra>
+      <original>マンドラプスフラワーブラック</original>
+      <translation>Mandrups Flower Black</translation>
+    </extra>
+    <extra>
+      <original>マンドラプスブーケ</original>
+      <translation>Mandrups Boquet</translation>
+    </extra>
+  </message_set>
+  <message_set name="mandragora type">
+    <extra>
+      <original>幼生体</original>
+      <translation>Larva</translation>
+    </extra>
+    <extra>
+      <original>成体</original>
+      <translation>Adult</translation>
+    </extra>
+    <extra>
+      <original>観葉体</original>
+      <translation>Houseplant</translation>
+    </extra>
+    <extra>
+      <original>三分咲き</original>
+      <translation>One-third Bloom</translation>
+    </extra>
+    <extra>
+      <original>満開</original>
+      <translation>Full Bloom</translation>
+    </extra>
+    <extra>
+      <original>枯れ木</original>
+      <translation>Withered Tree</translation>
+    </extra>
+    <extra>
+      <original>若木</original>
+      <translation>Young Tree</translation>
+    </extra>
+    <extra>
+      <original>成木</original>
+      <translation>Mature Tree</translation>
+    </extra>
+    <extra>
+      <original>果実</original>
+      <translation>Fruit</translation>
+    </extra>
+    <extra>
+      <original>ブルー</original>
+      <translation>Blue</translation>
+    </extra>
+    <extra>
+      <original>フィンドブルー</original>
+      <translation>Phindymian Blue</translation>
+    </extra>
+    <extra>
+      <original>レッド</original>
+      <translation>Red</translation>
+    </extra>
+    <extra>
+      <original>イエロー</original>
+      <translation>Yellow</translation>
+    </extra>
+    <extra>
+      <original>ホワイト</original>
+      <translation>White</translation>
+    </extra>
+    <extra>
+      <original>パープル</original>
+      <translation>Purple</translation>
+    </extra>
+    <extra>
+      <original>ピンク</original>
+      <translation>Pink</translation>
+    </extra>
+    <extra>
+      <original>ブラウン</original>
+      <translation>Brown</translation>
+    </extra>
+    <extra>
+      <original>ブラック</original>
+      <translation>Black</translation>
+    </extra>
+    <extra>
+      <original>ダーク</original>
+      <translation>Dark</translation>
+    </extra>
+    <extra>
+      <original>銅</original>
+      <translation>Bronze</translation>
+    </extra>
+    <extra>
+      <original>銀</original>
+      <translation>Silver</translation>
+    </extra>
+    <extra>
+      <original>金</original>
+      <translation>Gold</translation>
+    </extra>
+    <extra>
+      <original>黒鋼</original>
+      <translation>Black Steel</translation>
+    </extra>
+    <extra>
+      <original>アイス</original>
+      <translation>Ice</translation>
+    </extra>
+    <extra>
+      <original>ベリー</original>
+      <translation>Berry</translation>
+    </extra>
+    <extra>
+      <original>ハニー</original>
+      <translation>Honey</translation>
+    </extra>
+    <extra>
+      <original>ミント</original>
+      <translation>Mint</translation>
+    </extra>
+  </message_set>
+</replication>

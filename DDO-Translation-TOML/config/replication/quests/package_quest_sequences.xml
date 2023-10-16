@@ -1,0 +1,30 @@
+﻿<replication>
+  <message_set name="package quest sequence" type="title_name">
+    <match>^ui\\00_message\\package_quest\\package_quest_sequence_\d+$</match>
+    <rewrite>
+      <original_match>^(.+)の食料調達$</original_match>
+      <translation_replace>{0} Food Procurement</translation_replace>
+      <translation_arg message_set="location name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)へ食料運搬$</original_match>
+      <translation_replace>{0} Food Transport</translation_replace>
+      <translation_arg message_set="location name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^《(.+)》の攻略$</original_match>
+      <translation_replace>Capture of "{0}"</translation_replace>
+      <translation_arg message_set="location name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^《(.+)》の奪還$</original_match>
+      <translation_replace>Recapture of "{0}"</translation_replace>
+      <translation_arg message_set="location name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)の探し物$</original_match>
+      <translation_replace>What {0} Is Looking For</translation_replace>
+      <translation_arg message_set="npc name" />
+    </rewrite>
+  </message_set>
+</replication>

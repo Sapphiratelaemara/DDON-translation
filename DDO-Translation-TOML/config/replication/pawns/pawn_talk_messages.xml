@@ -1,0 +1,10 @@
+<replication>
+  <message_set name="pawn talk message">
+    <match>^ui\\00_message\\pw\\pwtlk\d+$</match>
+    <rewrite soft="true">
+      <original_match>^&lt;COL B6FF01&gt;《(.+?)》(.+)$$</original_match>
+      <translation_replace>&lt;COL B6FF01&gt;[{0}] {1}</translation_replace>
+      <translation_arg index="0" message_set="pawn special skill category name" />
+    </rewrite>
+  </message_set>
+</replication>

@@ -1,0 +1,46 @@
+﻿<replication>
+  <message_set name="achievement name" type="achievement_name">
+    <match>^ui\\00_message\\achievement\\achievement_name$</match>
+    <rewrite>
+      <original_match>^エリアミッション《(.+)》攻略！$</original_match>
+      <translation_replace>Area Mission "{0}" Cleared!</translation_replace>
+      <translation_arg message_set="quest name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^ウォーミッション《(.+)》攻略！$</original_match>
+      <translation_replace>War Mission "{0}" Cleared!</translation_replace>
+      <translation_arg message_set="quest name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^エピタフロード《(.+)》攻略！$</original_match>
+      <translation_replace>The Epitaph Road "{0}" Cleared!</translation_replace>
+      <translation_arg message_set="location name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^サブストーリー《(.+)》目的達成！$</original_match>
+      <translation_replace>Substory "{0}" Goal Accomplished!</translation_replace>
+      <translation_arg message_set="package quest name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)大陸《(.+)》再興達成！$</original_match>
+      <translation_replace>{0} "{1}" Restoration Accomplished!</translation_replace>
+      <translation_arg index="0" message_set="location name" />
+      <translation_arg index="1" message_set="location name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+?)$</original_match>
+      <translation_replace>{0}</translation_replace>
+      <translation_arg message_set="package quest name" required="true" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+?)$</original_match>
+      <translation_replace>{0}</translation_replace>
+      <translation_arg message_set="quest name" required="true" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+?)のジョブレベルが(\d+)になった$</original_match>
+      <translation_replace>{0} became Job Level {1}</translation_replace>
+      <translation_arg message_set="job name" />
+    </rewrite>
+  </message_set>
+</replication>

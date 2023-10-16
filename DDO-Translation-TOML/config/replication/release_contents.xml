@@ -1,0 +1,30 @@
+﻿<replication>
+  <message_set name="release content">
+    <match>^ui\\00_message\\common\\release_content$</match>
+    <rewrite>
+      <original_match>^(.+)ワールドクエスト$</original_match>
+      <translation_replace>{0} World Quests</translation_replace>
+      <translation_arg message_set="location name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)のジョブ修練$</original_match>
+      <translation_replace>{0} Job Training</translation_replace>
+      <translation_arg message_set="job name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)のジョブの証$</original_match>
+      <translation_replace>{0} Vocation Emblem</translation_replace>
+      <translation_arg message_set="job name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)の戦技の継承$</original_match>
+      <translation_replace>{0} War Skill Augmentation</translation_replace>
+      <translation_arg message_set="job name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)への転職$</original_match>
+      <translation_replace>Change to {0}</translation_replace>
+      <translation_arg message_set="job name" required="true" />
+    </rewrite>
+  </message_set>
+</replication>

@@ -1,0 +1,400 @@
+﻿<replication>
+  <message_set name="item name" type="item">
+    <match>^ui\\00_message\\common\\item_name$</match>
+    <extra>
+      <original>アイテム</original>
+      <translation>Item</translation>
+      <translation_format proper="false">item</translation_format>
+    </extra>
+    <extra>
+      <original>指令書</original>
+      <translation>Letter of Instruction</translation>
+      <translation_format proper="false">letter of instruction</translation_format>
+    </extra>
+    <rewrite>
+      <original_match>^エンブレムストーン・(.+)$</original_match>
+      <translation_replace>Emblem Stone ({0})</translation_replace>
+      <translation_arg message_set="job name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^閃きの果実【(.+)】$</original_match>
+      <translation_replace>Fruit of Inspiration ({0})</translation_replace>
+      <translation_arg message_set="pawn special skill category name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^AP【(.+)】$</original_match>
+      <translation_replace>AP ({0})</translation_replace>
+      <translation_arg message_set="location name" />
+    </rewrite>
+    <!-- Event -->
+    <rewrite>
+      <original_match>^オーフリング(.+)改【(.+?)】$</original_match>
+      <translation_replace>Olfring {0}+ ({1})</translation_replace>
+      <translation_arg index="0" message_set="event item name" />
+      <translation_arg index="1" message_set="event item element name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^オーフリング(.+)【(.+?)】$</original_match>
+      <translation_replace>Olfring {0} ({1})</translation_replace>
+      <translation_arg index="0" message_set="event item name" />
+      <translation_arg index="1" message_set="event item element name" />
+    </rewrite>
+    <!-- Augments -->
+    <rewrite>
+      <original_match>^習得の書【(.+?)】$</original_match>
+      <translation_replace>Book of Acquisition ({0})</translation_replace>
+      <translation_arg message_set="ability name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^シークレットアビリティ・(.+?)$</original_match>
+      <translation_replace>Secret Ability: {0}</translation_replace>
+      <translation_arg message_set="ability name" />
+    </rewrite>
+    <!-- Augment crests -->
+    <rewrite>
+      <original_match>^(.+) LV.(.+)$</original_match>
+      <translation_replace>{0} LV.{1}</translation_replace>
+      <translation_arg index="0" message_set="ability name" />
+      <translation_arg index="1" message_set="numeric" required="true" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+?)Lv(.+)$</original_match>
+      <translation_replace>{0} LV.{1}</translation_replace>
+      <translation_arg index="0" message_set="ability name" required="true" />
+      <translation_arg index="1" message_set="numeric" required="true" />
+    </rewrite>
+    <!-- Crest modifiers -->
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【延焼】$</original_match>
+      <translation_replace>{0} (Burning)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【凍結】$</original_match>
+      <translation_replace>{0} (Freezing)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【感電】$</original_match>
+      <translation_replace>{0} (Shock)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【聖吸】$</original_match>
+      <translation_replace>{0} (Holy Drain)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【闇霧】$</original_match>
+      <translation_replace>{0} (Blinding)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【吹飛】$</original_match>
+      <translation_replace>{0} (Blow Power)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【気絶】$</original_match>
+      <translation_replace>{0} (Stun)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【毒】$</original_match>
+      <translation_replace>{0} (Poison)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【遅延】$</original_match>
+      <translation_replace>{0} (Torpor)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【睡眠】$</original_match>
+      <translation_replace>{0} (Sleep)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【石化】$</original_match>
+      <translation_replace>{0} (Petrification)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【黄金化】$</original_match>
+      <translation_replace>{0} (Gilding)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【物防低下】$</original_match>
+      <translation_replace>{0} (Lowered Defense)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【魔防低下】$</original_match>
+      <translation_replace>{0} (Lowered Magick Defense)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【軽量化】$</original_match>
+      <translation_replace>{0} (Lightness)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【炎防低下】$</original_match>
+      <translation_replace>{0} (Decreased Fire Resist)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【氷防低下】$</original_match>
+      <translation_replace>{0} (Decreased Ice Resist)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【雷防低下】$</original_match>
+      <translation_replace>{0} (Decreased Lightning Resist)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【聖防低下】$</original_match>
+      <translation_replace>{0} (Decreased Holy Resist)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【闇防低下】$</original_match>
+      <translation_replace>{0} (Decreased Dark Resist)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【体力】$</original_match>
+      <translation_replace>{0} (Health)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【耐久】$</original_match>
+      <translation_replace>{0} (Endurance)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^((.+?)のクレスト)【生命力】$</original_match>
+      <translation_replace>{0} (Vitality)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <!-- Crest levels -->
+    <rewrite>
+      <!-- Crest of {0}+ -->
+      <original_match>^((.+?)のクレスト)・改$</original_match>
+      <translation_replace>{0}+</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <!-- Crest of {0} II-X -->
+      <original_match>^((.+?)のクレスト)(.+?)$</original_match>
+      <translation_replace>{0} {2}</translation_replace>
+      <translation_arg index="0" message_set="item name" required="true" />
+      <translation_arg index="2" message_set="numerals" required="true" />
+    </rewrite>
+    <!-- Parameters -->
+    <rewrite>
+      <original_match>^(.+)＋(\d+)$</original_match>
+      <translation_replace>{0} +{1}</translation_replace>
+      <translation_arg index="0" message_set="parameter name" required="true" />
+      <translation_arg index="1" message_set="numeric" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)系にダメージ\+(\d+)$</original_match>
+      <translation_replace>{0} +{1}</translation_replace>
+      <translation_arg index="0" message_set="extra parameter name" />
+      <translation_arg index="1" message_set="numeric" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)＋(\d+)$</original_match>
+      <translation_replace>{0} +{1}</translation_replace>
+      <translation_arg index="0" message_set="condition name" required="true" />
+      <translation_arg index="1" message_set="numeric" />
+    </rewrite>
+    <rewrite>
+      <original_match>^装備重量軽減(.+)％$</original_match>
+      <translation_replace>Equipment Weight Reduction {0}%</translation_replace>
+      <translation_arg message_set="numeric" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)フォース(\d+)$</original_match>
+      <translation_replace>{0:c} Force {1}</translation_replace>
+      <translation_arg index="0" message_set="element name" />
+      <translation_arg index="1" message_set="numeric" />
+    </rewrite>
+    <!-- Misc -->
+    <rewrite>
+      <original_match>^シーズン１～２戦技・ジョブ修練全解放【(.+)】$</original_match>
+      <translation_replace>Season 1～2 War Skill/Job Training Full Unlock ({0})</translation_replace>
+      <translation_arg message_set="job name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^LV.90になる宝珠【(.+)】$</original_match>
+      <translation_replace>Become LV.90 Orb ({0})</translation_replace>
+      <translation_arg message_set="job name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^錆びた(.+)$</original_match>
+      <translation_replace>Rusted {0}</translation_replace>
+      <translation_arg message_set="weapon category name" required="true" />
+    </rewrite>
+    <rewrite>
+      <original_match>^異彩を放つ錆びた(.+)$</original_match>
+      <translation_replace>Conspicuous Rusted {0}</translation_replace>
+      <translation_arg message_set="weapon category name" required="true" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)の大鍵$</original_match>
+      <translation_replace>{0} Large Key</translation_replace>
+      <translation_arg message_set="location name" required="true" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)の金鍵$</original_match>
+      <translation_replace>{0} Gold Key</translation_replace>
+      <translation_arg message_set="location name" required="true" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)の鍵$</original_match>
+      <translation_replace>{0} Key</translation_replace>
+      <translation_arg message_set="location name" required="true" />
+    </rewrite>
+    <rewrite>
+      <original_match>^アリストクラットバス・(.+)$</original_match>
+      <translation_replace>Aristocrat Bath - {0}</translation_replace>
+      <translation_arg message_set="npc name" required="true" />
+    </rewrite>
+    <rewrite>
+      <original_match>^レシピ：アリストクラットバス・(.+)$</original_match>
+      <translation_replace>Recipe: Aristocrat Bath - {0}</translation_replace>
+      <translation_arg message_set="npc name" required="true" />
+    </rewrite>
+    <rewrite>
+      <original_match>^レシピ：(.+)$</original_match>
+      <translation_replace>Recipe: {0}</translation_replace>
+      <translation_arg message_set="item name" required="true" />
+    </rewrite>
+    <rewrite soft="true">
+      <original_match>^レシピ：(.+)$</original_match>
+      <translation_replace>Recipe: {0}</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+?)【飾】$</original_match>
+      <translation_replace>{0} (Decoration)</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^真・(.+?)$</original_match>
+      <translation_replace>True {0}</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^極・(.+?)$</original_match>
+      <translation_replace>Extreme {0}</translation_replace>
+      <translation_arg message_set="item name" required="true" />
+    </rewrite>
+    <rewrite>
+      <original_match>^至高・(.+?)$</original_match>
+      <translation_replace>Supreme {0}</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^衣装：(.+?)$</original_match>
+      <translation_replace>Outfit: {0}</translation_replace>
+      <translation_arg message_set="npc name" required="true" />
+    </rewrite>
+    <rewrite>
+      <original_match>^飛翔のピアス・極【(.+)】$</original_match>
+      <translation_replace>Earrings of Soaring - Extreme ({0})</translation_replace>
+      <translation_arg message_set="job name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^快走のピアス・極【(.+)】$</original_match>
+      <translation_replace>Earrings of Dashing - Extreme ({0})</translation_replace>
+      <translation_arg message_set="job name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)・極【(.+)】$</original_match>
+      <translation_replace>{0} - Extreme ({1})</translation_replace>
+      <translation_arg index="0" message_set="item name" required="true" />
+      <translation_arg index="1" message_set="job name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^竜彫りの秘装具【(.+)】$</original_match>
+      <translation_replace>Unidentified Dragon Trinket ({0})</translation_replace>
+      <translation_arg message_set="job name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^竜彫りの秘装具Ⅱ【(.+)】$</original_match>
+      <translation_replace>Unidentified Dragon Trinket II ({0})</translation_replace>
+      <translation_arg message_set="job name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^竜技のリング【(.+)】$</original_match>
+      <translation_replace>Dragon Skill Ring ({0})</translation_replace>
+      <translation_arg message_set="job name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^竜技のリングⅡ【(.+)】$</original_match>
+      <translation_replace>Dragon Skill Ring II ({0})</translation_replace>
+      <translation_arg message_set="job name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^竜技の腕輪【(.+)】$</original_match>
+      <translation_replace>Dragon Skill Bracelet ({0})</translation_replace>
+      <translation_arg message_set="job name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^竜技の腕輪Ⅱ【(.+)】$</original_match>
+      <translation_replace>Dragon Skill Bracelet II ({0})</translation_replace>
+      <translation_arg message_set="job name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^竜技のピアス【(.+)】$</original_match>
+      <translation_replace>Dragon Skill Earrings ({0})</translation_replace>
+      <translation_arg message_set="job name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^竜技のピアスⅡ【(.+)】$</original_match>
+      <translation_replace>Dragon Skill Earrings II ({0})</translation_replace>
+      <translation_arg message_set="job name" />
+    </rewrite>
+    <rewrite soft="true">
+      <original_match>^(.+)$</original_match>
+      <translation_replace>{0}</translation_replace>
+      <translation_arg message_set="arisen card background name" required="true" />
+    </rewrite>
+    <rewrite>
+      <original_match>^髪のパーツEX(.+)$</original_match>
+      <translation_replace>Hair Part EX{0}</translation_replace>
+      <translation_arg message_set="numeric" />
+    </rewrite>
+    <!-- Crest defaults -->
+    <rewrite soft="true">
+      <original_match>^(.+?)のクレスト【(.+?)】\s*$</original_match>
+      <translation_replace>FIXME:Crest of {0} ({1})</translation_replace>
+    </rewrite>
+    <rewrite soft="true">
+      <original_match>^(.+?)のクレスト\s*$</original_match>
+      <translation_replace>FIXME:Crest of {0}</translation_replace>
+    </rewrite>
+    <rewrite soft="true">
+      <original_match>^(.+?)のクレスト(.+?)\s*$</original_match>
+      <translation_replace>FIXME:Crest of {0} -- {1}</translation_replace>
+    </rewrite>
+    <!-- For batch additions generically named Prefix + Suffix -->
+    <rewrite>
+      <original_match>^(.+)(ソード|シールド|ブレード|ウォール|ロッド|ダガー|ボウ|ガントレット|スペル|スタッフ|ワンズ|スピア|ファルシオン|コンポジット|スクトゥム|ツインスペル|クレイモア|ツインスペル)$</original_match>
+      <translation_replace>{0} {1}</translation_replace>
+      <translation_arg index="0" message_set="item weapon prefix" required="true" />
+      <translation_arg index="1" message_set="item weapon suffix" required="true" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)(マスク|コイフ|ヘルム|アーメット|ミトラ|アーマー|プレート|ガントレット|グローブ|ハンズ|サバトン|グリーブ|ブーツ)$</original_match>
+      <translation_replace>{0} {1}</translation_replace>
+      <translation_arg index="0" message_set="item armor prefix" required="true" />
+      <translation_arg index="1" message_set="item armor suffix" required="true" />
+    </rewrite>
+  </message_set>
+</replication>

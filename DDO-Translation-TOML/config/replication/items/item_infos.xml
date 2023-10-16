@@ -1,0 +1,60 @@
+﻿<replication>
+  <message_set name="item info" type="item">
+    <match>^ui\\00_message\\common\\item_info$</match>
+    <rewrite>
+      <original_match>^(.+)のAPを取得できます$</original_match>
+      <translation_replace>You can obtain
+{0} AP.</translation_replace>
+      <translation_arg message_set="location name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^(.+)を取得できます$</original_match>
+      <translation_replace>You can obtain {0}.</translation_replace>
+      <translation_arg message_set="item name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^投げつけた対象にダメージと
+状態異常【(.+)】を与える$</original_match>
+      <translation_replace>Throw this to cause damage on impact.
+Causes the "{0}" debilitation.</translation_replace>
+      <translation_arg message_set="condition name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^ハンターの弓矢による攻撃に
+状態異常【(.+)】を付与$</original_match>
+      <translation_replace>Used in attacks with a Hunter's bow and arrow.
+Causes the "{0}" debilitation.</translation_replace>
+      <translation_arg message_set="condition name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^状態異常【(.+)】【(.+)】【(.+)】
+を付加する$</original_match>
+      <translation_replace>Debilitations "{0}",
+"{1}", "{2}"
+added.</translation_replace>
+      <translation_arg index="0" message_set="condition name" />
+      <translation_arg index="1" message_set="condition name" />
+      <translation_arg index="2" message_set="condition name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^状態異常【(.+)】【(.+)】
+を付加する$</original_match>
+      <translation_replace>Debilitations "{0}",
+"{1}" added.</translation_replace>
+      <translation_arg index="0" message_set="condition name" />
+      <translation_arg index="1" message_set="condition name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^状態異常【(.+)】
+を付加する$</original_match>
+      <translation_replace>Debilitation "{0}"
+added.</translation_replace>
+      <translation_arg message_set="condition name" />
+    </rewrite>
+    <rewrite>
+      <original_match>^対敵特効【(.+)】を付加する$</original_match>
+      <translation_replace>"{0}" added.</translation_replace>
+      <translation_arg message_set="extra parameter name" />
+    </rewrite>
+  </message_set>
+</replication>
