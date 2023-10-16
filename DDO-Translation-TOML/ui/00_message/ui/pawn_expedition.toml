@@ -1,0 +1,178 @@
+﻿[[message]]
+key = 'area_list_title'
+old = 'Dispatch Area'
+new = 'Dispatch Area'
+[[message]]
+key = 'area_list_title_sub'
+old = '遠征エリア'
+new = 'Expedition Area'
+[[message]]
+key = 'area_list_header0'
+old = 'エリア'
+new = 'Area'
+[[message]]
+key = 'area_list_header1'
+old = 'ホットスポット'
+new = 'Hotspot'
+[[message]]
+key = 'area_list_header2'
+old = '遠征数'
+new = 'Dispatch Num'
+[[message]]
+key = 'area_list_err_no_permission'
+old = 'そのエリアに遠征する権利を購入していません'
+[[message]]
+key = 'result_hotspot_discovered'
+old = '<VAL>でホットスポットを発見しました'
+new = 'Found a hotspot in <VAL>'
+[[message]]
+key = 'sally_leave_party_confirm'
+old = '''
+ポーン遠征隊に派遣するため
+パーティーを離脱しますがよろしいですか？
+
+<COL aa1414>※パーティーからメインポーンがいなくなると
+　サポートポーンも自動的に離脱します</COL>'''
+[[message]]
+key = 'sally_not_enough_cost_select'
+old = '''
+現在、ポーン遠征隊を派遣することができません
+
+再度、ポーン遠征隊を派遣するには
+次回のリセット時間までお待ちいただくか
+<COL ffdc78>黄金石<VAL>個</COL>を使用することで直ちに派遣できます
+
+(リセット時間はプレイマニュアルをご覧ください)'''
+[[message]]
+key = 'sally_use_gp'
+old = '黄金石を使用する'
+new = 'Use Golden Gemstone'
+[[message]]
+key = 'sally_open_onlineshop'
+old = 'オンラインショップを開く'
+new = 'Open Online Shop'
+[[message]]
+key = 'sally_recover_cost_confirm'
+old = '''
+<COL ffdc78>黄金石<VAL>個</COL>を消費して
+直ちに派遣できるようにしますか？
+（所持数：<VAL>）'''
+[[message]]
+key = 'sally_recover_cost_notice'
+old = '直ちに派遣できるようになりました'
+[[message]]
+key = 'sally_condition'
+old = '''
+ポーン：%s
+遠征先：%s
+状況　：%s'''
+new = '''
+Pawn: %s
+Destination: %s
+Situation: %s'''
+[[message]]
+key = 'sally_hot_spot'
+old = '<COL ffdc78>ホットスポット</COL>'
+new = '<COL ffdc78>Hotspot</COL>'
+[[message]]
+key = 'sally_nothing'
+old = '特になし'
+new = 'Nothing in particular'
+[[message]]
+key = 'sally_normal'
+old = '通常派遣'
+new = 'Normal dispatch'
+[[message]]
+key = 'sally_with_support'
+old = '黄金石を使用して強化派遣'
+new = 'Enhanced dispatch using Golden Gemstone'
+[[message]]
+key = 'sally_normal_confirm'
+old = '''
+ポーン遠征隊を通常派遣します
+よろしいですか？'''
+new = '''
+Are you sure you want to dispatch
+the Pawn Expedition Corps normally?'''
+[[message]]
+key = 'sally_with_support_confirm'
+old = '''
+<COL ffdc78>強化派遣</COL>すると<COL ffdc78>希少なアイテム</COL>が確実に入手できます
+<COL ffdc78>黄金石<VAL>個</COL>を消費して強化派遣しますか？
+（所持数：<VAL>）'''
+[[message]]
+key = 'sally_with_support_not_enough_gp_select'
+old = '''
+黄金石が不足しています
+強化派遣するには<COL ffdc78>黄金石<VAL>個</COL>が必要です
+（所持数：<VAL>）'''
+[[message]]
+key = 'sally_normal_notice'
+old = 'ポーン遠征隊を通常派遣しました'
+new = 'Pawn Expedition Corps dispatched normally.'
+[[message]]
+key = 'sally_with_support_notice'
+old = 'ポーン遠征隊を<COL ffdc78>強化派遣</COL>しました'
+[[message]]
+key = 'sally_state_wait_notice'
+old = '''
+ポーン遠征隊を派遣していません
+パートナーポーンから派遣がおこなえます'''
+[[message]]
+key = 'sally_state_not_enough_cost_notice'
+old = '''
+ポーン遠征隊を派遣していません
+
+再度、ポーン遠征隊を派遣するには
+次回のリセット時間までお待ちいただくか
+黄金石を使用することで直ちに派遣できます
+パートナーポーンを訪ねてみてください
+
+(リセット時間はプレイマニュアルをご覧ください)'''
+[[message]]
+key = 'sally_state_check_reward_notice'
+old = '''
+ポーン遠征隊が帰還しています
+<COL ffdc78>パートナーポーンから報酬を確認してください</COL>'''
+[[message]]
+key = 'sally_hot_spot_with_support'
+old = '<COL ffdc78>ホットスポット（強化派遣中）</COL>'
+new = '<COL ffdc78>Hotspot (Enhanced dispatch)</COL>'
+[[message]]
+key = 'sally_stop'
+old = '派遣を中止'
+new = 'Stop dispatch'
+[[message]]
+key = 'sally_stop_confirm'
+old = '''
+ポーン遠征隊の派遣を中止しますか？
+
+再度、ポーン遠征隊を派遣するには
+次回のリセット時間までお待ちいただくか
+黄金石を使用することで直ちに派遣できます
+
+(リセット時間はプレイマニュアルをご覧ください)'''
+[[message]]
+key = 'sally_stop_notice'
+old = '''
+ポーン遠征隊の派遣を中止しました
+次回、クラン拠点へ訪れた時に帰還します'''
+[[message]]
+key = 'sally_need_partner_notice'
+old = '''
+ポーン遠征隊を派遣するには
+パートナーポーンが必要です'''
+[[message]]
+key = 'sally_error_already_supported'
+old = 'すでに強化派遣しています'
+[[message]]
+key = 'sally_error_cannot_support'
+old = '強化派遣はホットスポットでのみ使用可能です'
+[[message]]
+key = 'sally_state_not_have_expedition'
+old = '''
+ポーン遠征隊が解放されていません
+ポーン遠征隊は拠点拡張から購入できます'''
+[[message]]
+key = 'pop_buff_bonus_title'
+old = 'Special Bonus Buff'

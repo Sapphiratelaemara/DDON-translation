@@ -1,0 +1,69 @@
+﻿[[message]]
+key = 'TUTORIAL_STEP_145'
+old = '''
+<COL ffdc78>《ショートカット》</COL>はさまざまな機能を
+楽なボタンで呼び出せる便利な短縮操作です
+
+回復アイテム、チャット定型文、メニューや
+ポーン命令など、とっさの使用が
+生死を分けることもあります
+
+すぐ使いたいアイテムや機能は
+あらかじめ登録しておきましょう'''
+new = '''
+<COL ffdc78>"Shortcuts"</COL> are a convenient way to execute
+game functions with a simple button
+combination.
+
+The use of healing items, chat messages,
+menu/pawn commands and more in an instant
+can be the difference between life and death.
+
+If you have an item or feature you might
+want to use in a hurry, make sure to
+register it in advance.'''
+[[message]]
+key = 'TUTORIAL_STEP_408'
+old = '''
+＜登録方法：マルチショートカット＞
+【<KC UI_GAME_MENU>】ゲームメニューから、登録したい
+メニューを選択
+アイテムの場合は《アイテムバッグ》の
+<COL ffdc78>消費アイテム</COL>を選択
+
+<PADM>　【<KC UI_SC_MULTI>】を押して【 <KC UI_SC_MULTI_RIGHT>／<KC UI_SC_MULTI_DOWN>／<KC UI_SC_MULTI_LEFT>／<KC UI_SC_MULTI_UP> 】<KEYM>　【<KC UI_MSC1> ～ <KC UI_MSC12>】任意に割り当て</KEYM>
+<PADM>　　　　　　※任意に割り当て
+
+<PADM>　【<KC UI_SC_MULTI_PAGE_L>／<KC UI_SC_MULTI_PAGE_R>】セット切替（３セットまで可能）</PADM>'''
+new = '''
+Registration Method - Multi-Shortcut:
+From the [<KC UI_GAME_MENU>] Game Menu, highlight the menu option.
+In the case of an item, highlight a <COL ffdc78>Consumable</COL>
+from the "Item Bag".
+
+<PADM>　Hold [<KC UI_SC_MULTI>] then press [ <KC UI_SC_MULTI_RIGHT>/<KC UI_SC_MULTI_DOWN>/<KC UI_SC_MULTI_LEFT>/<KC UI_SC_MULTI_UP> ]<KEYM>　[<KC UI_MSC1> ~ <KC UI_MSC12>] assign to your choice</KEYM>
+<PADM>　　　　　　*assign to your choice
+
+<PADM>　[<KC UI_SC_MULTI_PAGE_L>/<KC UI_SC_MULTI_PAGE_R>] Change set (Up to 3 sets allowed)</PADM>'''
+[[message]]
+key = 'TUTORIAL_STEP_409'
+old = '''
+＜登録方法：簡易コミュニケーション＞
+【<KC UI_GAME_MENU>】ゲームメニューの
+《コミュニケーション》の《定型文》《エモート》や
+《キャラクター》の《ポーン命令》で登録項目を選択
+
+<PADM>　【<KC UI_SC_COMMU>】を押して【 <KC UI_SC_COMMU1>／<KC UI_SC_COMMU2>／<KC UI_SC_COMMU3>／<KC UI_SC_COMMU4> 】<KEYM>　【<KC UI_MSC1> ～ <KC UI_MSC8>】任意に割り当て</KEYM>
+<PADM>　　　　　　　　【 <KC UI_SC_COMMU5>／<KC UI_SC_COMMU6>／<KC UI_SC_COMMU7>／<KC UI_SC_COMMU8> 】
+　　　　　　※任意に割り当て</PADM><KEYM>　　　※呼び出し時は【<KC UI_SC_COMMU>】で登録ウィンドウ切替</KEYM>
+<PADM>　【<KC UI_SC_COMMU_PAGE_L>／<KC UI_SC_COMMU_PAGE_R>】<KEYM>　【<KC UI_MSC9>／<KC UI_MSC10>】</KEYM>セット切替（３セットまで可能）'''
+new = '''
+Registration Method - Quick Communication:
+From the [<KC UI_GAME_MENU>] Game Menu, in "Communication"->"Phrases" or "Emotes"
+or in "Character"->"Pawn Order", highlight
+an entry to register.
+
+<PADM>　Hold [<KC UI_SC_COMMU>] then press [ <KC UI_SC_COMMU1>/<KC UI_SC_COMMU2>/<KC UI_SC_COMMU3>/<KC UI_SC_COMMU4> ]<KEYM>　[<KC UI_MSC1> ~ <KC UI_MSC8>] assign to your choice</KEYM>
+<PADM>　　　　　　　　[ <KC UI_SC_COMMU5>/<KC UI_SC_COMMU6>/<KC UI_SC_COMMU7>/<KC UI_SC_COMMU8> ]
+　　　　　　*assign to your choice</PADM><KEYM>　　　*press [<KC UI_SC_COMMU>] to toggle the quick chat window</KEYM>
+<PADM>　[<KC UI_SC_COMMU_PAGE_L>/<KC UI_SC_COMMU_PAGE_R>]<KEYM>　[<KC UI_MSC9>/<KC UI_MSC10>]</KEYM> Change set (Up to 3 sets allowed)'''
