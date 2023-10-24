@@ -1,0 +1,53 @@
+key,old,new
+ItemJudge_000,どれを鑑定しますか？,What would you like to appraise?
+ItemJudge_001,(所持数：%d),(Have: %d)
+ItemJudge_002,"鑑定しました。以下の内容でよろしいですか？
+
+　鑑定アイテム ： <VAL> × <VAL>
+　<COL ffdc78>鑑定結果　　 ： <VAL> × <VAL></COL>","Item appraised. Is this OK?
+
+Appraised Item: <VAL> × <VAL>
+　<COL ffdc78>Results: <VAL> × <VAL></COL>"
+ItemJudge_003,"以下のアイテムを獲得しました
+
+　<COL ffdc78><VAL> × <VAL></COL>","You have obtained:
+
+　<COL ffdc78><VAL> × <VAL></COL>"
+confirm_judge_random,"鑑定します。よろしいですか？
+　鑑定アイテム ： <VAL> × <VAL>
+　費用　　　　 ： <VAL GOLD>
+
+以下のいずれかのアイテムのようです","Item appraised. Is this OK?
+
+Appraised Item: <VAL> × <VAL>
+Cost: <VAL GOLD>
+It seems to be one of the following items."
+ItemJudge_title,Trade,Trade
+ItemJudge_title_sub,鑑定交換,Appraisal Exchange
+ItemJudge_cost,費用,Cost
+ItemJudge_need_item,必要アイテム,Required items
+ItemJudge_need_num,必要数,Num
+ItemJudge_appraise_list,鑑定リスト,Appraisal List
+ItemJudge_limit_num,回数制限,Limit
+ItemJudge_get_num,獲得数,Num
+ItemJudge_lot_item,以下のアイテムが抽選されます,Following items will be drawn from
+ItemJudge_lot_crest,以下のクレストが抽選されます,Following crests will be drawn from
+ItemJudge_select_storage_notice,保存先を選択してください,Please select destination
+ItemJudge_period,期限,Period
+ItemJudge_infinit,無期限,Indefinite
+ItemJudge_need_list,費用/必要アイテム一覧,Cost/Required Item List
+ItemJudge_trade_list,交換アイテム一覧,Exchange Item List
+ItemJudge_appraise_confirm,"以下を鑑定します。よろしいですか？
+鑑定名：<VAL>
+保存先：<VAL>",Do you want to appraise the following? Are you sure? Appraisal Name: <VAL> Storage Location: <VAL>
+ItemJudge_appraise_notice,以下のアイテムを獲得しました,You have obtained the following items.
+ItemJudge_limit_num_error,回数制限があります。これ以上は交換できません,There is a usage limit. You cannot exchange more.
+ItemJudge_shortage_error,費用または必要アイテムが足りません,Insufficient cost or required items.
+ItemJudge_storage_error,"アイテムが受け取れない可能性があります
+アイテム枠を十分に空けてください",There is a possibility you may not receive the item. Please make sure there is enough space in your inventory.
+ItemJudge_nothing_error,現在、配信されていません,Currently there are no exchanges.
+ItemJudge_and_more,and more...,and more...
+ItemJudge_category,Category,Category
+ItemJudge_woman_only,[女性専用],[Female Only]
+ItemJudge_man_only,[男性専用],[Male Only]
+ItemJudge_select_storage_error,この保存先は選択できません,
