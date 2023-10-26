@@ -1,0 +1,53 @@
+"key","old","new"
+"TUTORIAL_STEP_67","ポーンはダメージを受け、体力が尽きると
+《行動不能》となり、さらに一定時間経過すると
+あなた同様《死亡状態》になってしまいます
+
+<COL ffdc78>行動不能になったポーンは
+一定時間内に覚者が接近して【<KC TOUCH>】で
+助け起こすことでその場復活します</COL>","When a Pawn takes damage and runs out of health, they become ""incapacitated"" and after a certain amount of time, they will end up in a state of ""death"" just like you.
+
+<COL ffdc78>When a Pawn becomes incapacitated, if an Arisen approaches within a certain amount of time, they can revive them on the spot using the <KC TOUCH> command.</COL>"
+"TUTORIAL_STEP_66","<COL ffdc78>一定時間内に助け起こせなかった場合も、
+雇い主の覚者が倒れたポーンに触れ《復活力》か
+《黄金石》を与えることで、復活させられます</COL>
+
+　自身の《復活力》を与える
+　　　　　…体力全快でその場復活
+
+　自身の《黄金石》を与える
+　　　　　…体力全快、【強化】状態でその場復活","<COL ffdc78>If assistance cannot be provided within a certain period of time, the Arisen employer can revive the fallen Pawn by touching them and providing either their own Revival Force or a Golden Gemstone. </COL>
+
+- Giving one's own Revival Force: Fully restores health and revives on the spot.
+- Giving one's own Golden Gemstone: Fully restores health and revives on the spot in a strengthened state."
+"TUTORIAL_STEP_303","メインポーンが復活できず死亡状態のまま
+消えてしまった場合、<COL ffdc78>《ロスト状態》</COL>となり
+再呼び出しできなくなります
+
+<COL ffdc78>ロストしたポーンは、《ポーン郷》にある
+《異界の狭間》に再び囚われます</COL>
+
+《異界の狭間》を訪れ、救出してあげましょう
+そうすることで再び呼び出せるようになります","If the main pawn cannot be revived and disappears while in a dead state, it will become<COL ffdc78>""Lost""</COL>and cannot be recalled.
+<COL ffdc78>Lost pawns will be trapped again in the ""Rift"" in ""Pawn Cathedral""</COL>
+
+Visit ""The Rift"" and rescue them, and they will be able to be recalled again!"
+"TUTORIAL_STEP_304","サポートポーンが復活できず倒れたまま
+消えてしまった場合、<COL ffdc78>《冒険回数》</COL>が１回分
+減り、待機状態に戻されます
+冒険回数が残っていれば、再呼び出し可能です
+
+ポーンの戦線離脱は大きな戦力ダウンに
+なるため、行動不能のポーンは急いで
+助け起こしてあげましょう","The support pawn, unable to be revived, remains fallen and disappears. In such cases, the <COL ffdc78>""Battle Count""</COL> will decrease by one, and the pawn will be returned to a standby state. If there are remaining Battle Count, it can be summoned again.
+
+When a pawn becomes unable to act, it results in a significant decrease in fighting strength. Therefore, be sure to quickly help and revive the incapacitated pawn."
+"TUTORIAL_STEP_420","また、特定の<OPCS>発動中はロストした
+メインポーンをリムストーンから直接救出
+できるようになります
+
+リムストーンのメニューから<COL ffdc78>《ポーンの救出》</COL>を
+選ぶことで、対象ポーンのレベルに応じた
+リムと引き換えに、すぐに復活させられます","Furthermore, while specific <OPCS> is active, it will be possible to directly rescue a lost Main Pawn from the Riftstone.
+
+By selecting ""<COL ffdc78>Lost Pawns</COL>"" from the Riftstone menu, you can immediately revive the target Pawn in exchange for Rift Crystals corresponding to their level."
