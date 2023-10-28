@@ -1,0 +1,1915 @@
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
+0,EDIT_MSG_DIALOG_REPLY_YES,はい,Yes,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,0
+1,EDIT_MSG_DIALOG_REPLY_NO,いいえ,No,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,1
+2,EDIT_MSG_DIALOG_REPLY_OK,OK,OK,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,2
+3,EDIT_MSG_DIALOG_REPLY_DECISION,はい,OK,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,3
+4,EDIT_MSG_DIALOG_REPLY_CONTINUE,いいえ,Cancel,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,4
+5,EDIT_MSG_DIALOG_REPLY_BACKSPACE,キャンセル,Cancel,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,5
+6,EDIT_MSG_DIALOG_REPLY_BACK,いいえ,Back,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,6
+7,EDIT_MSG_DIALOG_REPLY_ONLINESHOP,オンラインショップで購入する,Buy from Online Shop,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,7
+8,EDIT_MSG_DIALOG_REPLY_EDIT_SAVE,エディットをセーブする,エディットをセーブする,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,8
+9,EDIT_MSG_DIALOG_CHOICE_SAVE,セーブ,Save,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,9
+10,EDIT_MSG_DIALOG_CHOICE_LOAD,ロード,Load,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,10
+11,EDIT_MSG_DIALOG_EDIT_CANCEL,"エディットを終了して
+前の画面に戻りますか？","エディットを終了して
+前の画面に戻りますか？",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,11
+12,EDIT_MSG_DIALOG_EDIT_FIX,"エディットを決定します
+これでよろしいですか？",Are you sure you want these edits?,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,12
+13,EDIT_MSG_DIALOG_SALON_CANCEL,"美容院をキャンセルします
+よろしいですか？","美容院をキャンセルします
+よろしいですか？",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,13
+14,EDIT_MSG_DIALOG_SALON_FIX,"<VAL>を使用して
+エディットを変更します
+よろしいですか？","<VAL>を使用して
+エディットを変更します
+よろしいですか？",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,14
+15,EDIT_MSG_DIALOG_SALON_NOTGP,<VAL>が足りません,<VAL>が足りません,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,15
+16,EDIT_MSG_DIALOG_SAVE_LOAD,"エディットのセーブ/ロード
+
+性別や顔、体型などのモデルに関する
+エディット情報をセーブ
+またはロードすることができます","エディットのセーブ/ロード
+
+性別や顔、体型などのモデルに関する
+エディット情報をセーブ
+またはロードすることができます",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,16
+17,EDIT_MSG_DIALOG_SAVE_WORD,現在のエディット情報をセーブします,現在のエディット情報をセーブします,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,17
+18,EDIT_MSG_DIALOG_SAVE_DATE,エディットデータ：,エディットデータ：,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,18
+19,EDIT_MSG_DIALOG_LOAD_OVERWRITE,"ロードしたエディット情報を
+今のモデルに
+適用してもよろしいですか？","ロードしたエディット情報を
+今のモデルに
+適用してもよろしいですか？",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,19
+20,EDIT_MSG_DIALOG_ERROR_LOAD_NG_DATA,"ロードしたエディットデータは
+破損しているため使用できません","ロードしたエディットデータは
+破損しているため使用できません",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,20
+21,EDIT_MSG_DIALOG_LOAD_OVERWRITE_AT,"ロードしたエディットデータは
+設定できない項目が含まれているため
+使用できません","ロードしたエディットデータは
+設定できない項目が含まれているため
+使用できません",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,21
+22,EDIT_MSG_DIALOG_ERROR_LOAD_NG_SEX,"ロードしたエディットデータは
+設定している性別と異なるため
+使用できません","ロードしたエディットデータは
+設定している性別と異なるため
+使用できません",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,22
+23,EDIT_MSG_DIALOG_ERROR_NAME_EMPTY,"名前が決定していません
+名前を使用可能の状態にしてください","名前が決定していません
+名前を使用可能の状態にしてください",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,23
+24,EDIT_MSG_DIALOG_ERROR_NAME_USED1,"<NAME>は
+すでに使用されている名前です
+違う名前に変更してください","<NAME>は
+すでに使用されている名前です
+違う名前に変更してください",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,24
+25,EDIT_MSG_DIALOG_ERROR_SPPARTS_NG,"選択した声は未購入のポーンボイスです
+ポーンボイスはオンラインショップで購入できます","選択した声は未購入のポーンボイスです
+ポーンボイスはオンラインショップで購入できます",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,25
+26,EDIT_MSG_DIALOG_PC_SAVEDATA_SAVEWORD,セーブするスロットを選択してください,Please select the slot to save,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,26
+27,EDIT_MSG_DIALOG_PC_SAVEDATA_LOADWORD,ロードするスロットを選択してください,Please select the slot to load,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,27
+28,EDIT_MSG_DIALOG_PC_SAVEDATA_DATE,作成日時,Creation Time,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,28
+29,EDIT_MSG_DIALOG_PC_SAVEDATA_AUTHOR,作成者,Author,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,29
+30,EDIT_MSG_DIALOG_PC_SAVEDATA_SEX,性別,Gender,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,30
+31,EDIT_MSG_DIALOG_PC_SAVEDATA_COMMENT,コメント,Comment,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,31
+32,EDIT_MSG_DIALOG_PC_SAVE_OVERWRITE,"既存のセーブデータに
+上書きしてもよろしいですか？","既存のセーブデータに
+上書きしてもよろしいですか？",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,32
+33,EDIT_MSG_DIALOG_PC_SAVING,"保存しています
+PC本体の電源を
+切らないでください","保存しています
+PC本体の電源を
+切らないでください",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,33
+34,EDIT_MSG_DIALOG_PC_SAVE_FINISH,セーブが終了しました,セーブが終了しました,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,34
+35,EDIT_MSG_DIALOG_PC_ERROR_HDD_NOSPACE,"記憶デバイスの
+空き容量が不足しています
+空き容量を確保してください","記憶デバイスの
+空き容量が不足しています
+空き容量を確保してください",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,35
+36,EDIT_MSG_DIALOG_PC_ERROR_SAVE_FAILED,"セーブデータの保存に
+失敗しました","セーブデータの保存に
+失敗しました",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,36
+37,EDIT_MSG_DIALOG_PC_LOADING,"ロードしています
+PC本体の電源を
+切らないでください","ロードしています
+PC本体の電源を
+切らないでください",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,37
+38,EDIT_MSG_DIALOG_PC_LOAD_FINISH,ロードが終了しました,Loading Complete,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,38
+39,EDIT_MSG_DIALOG_PC_ERROR_LOAD_CRASH_DATA,"セーブデータが破損しているため
+ロードできません","セーブデータが破損しているため
+ロードできません",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,39
+40,EDIT_MSG_DIALOG_PC_ERROR_LOAD_FAILED,"セーブデータのロードに
+失敗しました","セーブデータのロードに
+失敗しました",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,40
+41,EDIT_MSG_DIALOG_PC_DELETE_DATA,セーブデータを削除してもよろしいですか？,セーブデータを削除してもよろしいですか？,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,41
+42,EDIT_MSG_DIALOG_PC_DELETING,"削除しています
+PC本体の電源を
+切らないでください","削除しています
+PC本体の電源を
+切らないでください",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,42
+43,EDIT_MSG_DIALOG_PC_DELETE_FINISH,削除しました,削除しました,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,43
+44,EDIT_MSG_DIALOG_PC_ERROR_DELETE_FAILED,"セーブデータの削除に
+失敗しました","セーブデータの削除に
+失敗しました",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,44
+45,EDIT_MSG_DIALOG_TUTORIAL_SEX,"《便利な機能を紹介》
+
+【<COL FFFFFF><KC UI_START></COL>】
+エディット情報のセーブ/ロードがおこなえます
+
+【<COL FFFFFF><KC UI_LB></COL> / <COL FFFFFF><KC UI_RB></COL>】
+一つ前の設定に戻したり、やり直したりできます
+（性別を変更すると履歴はリセットされます）
+
+その他の機能は、画面下のガイドをご覧ください","《便利な機能を紹介》
+
+【<COL FFFFFF><KC UI_START></COL>】
+エディット情報のセーブ/ロードがおこなえます
+
+【<COL FFFFFF><KC UI_LB></COL> / <COL FFFFFF><KC UI_RB></COL>】
+一つ前の設定に戻したり、やり直したりできます
+（性別を変更すると履歴はリセットされます）
+
+その他の機能は、画面下のガイドをご覧ください",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,45
+46,EDIT_MSG_DIALOG_TUTORIAL_PRESET,"《デザイナープリセットとは》
+
+予め用意されたサンプルモデルです
+エディットが苦手な方にオススメです
+
+より高度なエディットをしたい方は
+顔の輪郭や目、眉などで詳細な設定ができます","《デザイナープリセットとは》
+
+予め用意されたサンプルモデルです
+エディットが苦手な方にオススメです
+
+より高度なエディットをしたい方は
+顔の輪郭や目、眉などで詳細な設定ができます",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,46
+47,EDIT_MSG_DIALOG_TUTORIAL_RANDOM,"《ワンポイントアドバイス》
+
+ランダムを選ぶと、髪の毛や目、眉などの
+各種パーツをランダム設定します
+
+元に戻る/やり直すの履歴機能を使ったり
+こまめにセーブ/ロードをおこなって
+理想のキャラクターモデルに近づけていきましょう","《ワンポイントアドバイス》
+
+ランダムを選ぶと、髪の毛や目、眉などの
+各種パーツをランダム設定します
+
+元に戻る/やり直すの履歴機能を使ったり
+こまめにセーブ/ロードをおこなって
+理想のキャラクターモデルに近づけていきましょう",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,47
+48,EDIT_MSG_DIALOG_PC_CANCEL_LOADDATA,ロードをキャンセルしますか？,Are you sure you want to cancel the load?,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,48
+49,EDIT_MSG_DIALOG_PC_CANCEL_SAVEDATA,セーブをキャンセルしますか？,Are you sure you want to cancel the save?,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,49
+50,EDIT_MSG_DIALOG_SAVE_NODATA,NO DATA,NO DATA,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,50
+51,EDIT_MSG_DIALOG_SAVE_SEX_F,女性,Female,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,51
+52,EDIT_MSG_DIALOG_SAVE_SEX_M,男性,Male,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,52
+53,EDIT_MSG_DIALOG_FIRST_PUSH_DEFAULT,"【<COL FFFFFF><KC UI_X></COL>】はデフォルトに戻す機能です
+
+（次回の操作から、この確認は表示されません）","【<COL FFFFFF><KC UI_X></COL>】はデフォルトに戻す機能です
+
+（次回の操作から、この確認は表示されません）",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,53
+54,EDIT_MSG_DIALOG_EDIT_RETURN_TITLE,"タイトル画面に戻ります
+よろしいですか？
+
+(エディット情報のセーブは済ませましたか？)","タイトル画面に戻ります
+よろしいですか？
+
+(エディット情報のセーブは済ませましたか？)",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,54
+55,EDIT_MSG_DIALOG_EDIT_RETURN_LAUNCHER,"ゲームを終了してランチャーに戻ります
+よろしいですか？
+
+(エディット情報のセーブは済ませましたか？)","ゲームを終了してランチャーに戻ります
+よろしいですか？
+
+(エディット情報のセーブは済ませましたか？)",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,55
+56,EDIT_MSG_DIALOG_SALON_2_ERR_01,"名前、もしくは性別が変更されていません
+容姿だけを変更する場合は、美容院をご利用ください","名前、もしくは性別が変更されていません
+容姿だけを変更する場合は、美容院をご利用ください",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,56
+57,EDIT_MSG_DIALOG_SALON_CHOICE_PAY,支払い方法を選んでください,支払い方法を選んでください,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,57
+58,EDIT_MSG_DIALOG_SALON_2_CANCEL,"転生をキャンセルします
+よろしいですか？","転生をキャンセルします
+よろしいですか？",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,58
+59,EDIT_MSG_DIALOG_SALON_2_ERR_02,"性別が変更されていません
+容姿だけを変更する場合は、美容院をご利用ください","性別が変更されていません
+容姿だけを変更する場合は、美容院をご利用ください",ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,59
+0,FURNITURE_GROUP_NAME_14,広場,Plaza,ui\00_message\common\clan_furniture_group_name.gmd,\clankyoten.arc,clankyoten.arc,0
+1,FURNITURE_GROUP_NAME_15,白竜像,White Dragon Statue,ui\00_message\common\clan_furniture_group_name.gmd,\clankyoten.arc,clankyoten.arc,1
+2,FURNITURE_GROUP_NAME_16,大広間,Great Hall,ui\00_message\common\clan_furniture_group_name.gmd,\clankyoten.arc,clankyoten.arc,2
+3,FURNITURE_GROUP_NAME_20,ボード前ラウンジ,Board Front Lounge,ui\00_message\common\clan_furniture_group_name.gmd,\clankyoten.arc,clankyoten.arc,3
+0,FURNITURE_LAYOUT_NAME_50,広場オブジェ,Plaza Object,ui\00_message\common\clan_furniture_layout_name.gmd,\clankyoten.arc,clankyoten.arc,0
+1,FURNITURE_LAYOUT_NAME_52,白竜像,White Dragon Statue,ui\00_message\common\clan_furniture_layout_name.gmd,\clankyoten.arc,clankyoten.arc,1
+2,FURNITURE_LAYOUT_NAME_57,食卓,Dining Table,ui\00_message\common\clan_furniture_layout_name.gmd,\clankyoten.arc,clankyoten.arc,2
+3,FURNITURE_LAYOUT_NAME_58,大絨毯,Large Carpet,ui\00_message\common\clan_furniture_layout_name.gmd,\clankyoten.arc,clankyoten.arc,3
+4,FURNITURE_LAYOUT_NAME_59,ボード前ラウンジ,Board before Lounge,ui\00_message\common\clan_furniture_layout_name.gmd,\clankyoten.arc,clankyoten.arc,4
+5,FURNITURE_LAYOUT_NAME_60,装飾,Decoration,ui\00_message\common\clan_furniture_layout_name.gmd,\clankyoten.arc,clankyoten.arc,5
+6,FURNITURE_LAYOUT_NAME_62,食事,Meal,ui\00_message\common\clan_furniture_layout_name.gmd,\clankyoten.arc,clankyoten.arc,6
+0,,"我が主殿――そう慌てないで
+まずはクランショップから≪ポーン遠征隊≫を
+購入することが、スポットを探索するための
+輝かしき第一歩なのですよ","我が主殿――そう慌てないで
+まずはクランショップから≪ポーン遠征隊≫を
+購入することが、スポットを探索するための
+輝かしき第一歩なのですよ",ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,0
+0,,"残念ながら、クラフト中のポーンは
+ポーン遠征隊として探索に参加できないのです
+まぁ、当然と言えば当然ですね","残念ながら、クラフト中のポーンは
+ポーン遠征隊として探索に参加できないのです
+まぁ、当然と言えば当然ですね",ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,1
+0,,麗しき我が主よ、本日はいずこへ探索に？,麗しき我が主よ、本日はいずこへ探索に？,ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,2
+0,,"おや！　主殿、今日は
+スポット探索に派遣済みですから
+これ以上は探索に参加できないようです――が
+その前のめりな姿勢、嫌いではありませんよ","おや！　主殿、今日は
+スポット探索に派遣済みですから
+これ以上は探索に参加できないようです――が
+その前のめりな姿勢、嫌いではありませんよ",ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,3
+0,,それでは、この私が探索に行って参りましょう,それでは、この私が探索に行って参りましょう,ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,4
+0,,"おやおや、覚者殿
+お手持ちに<VAL>個の空きがありませんね
+遠征成果をお渡しすることができませんよ","おやおや、覚者殿
+お手持ちに<VAL>個の空きがありませんね
+遠征成果をお渡しすることができませんよ",ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,5
+0,,"覚者殿、《<VAL SPOT>》へ
+探索に行って参りましたよ
+ええ、それから<VAL EMNAME>
+<VAL>体などの討伐をこなしました","覚者殿、《<VAL SPOT>》へ
+探索に行って参りましたよ
+ええ、それから<VAL EMNAME>
+<VAL>体などの討伐をこなしました",ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,6
+0,,"《<VAL SPOT>》からただいま戻りましたよ
+<VAL EMNAME><VAL>体などの
+討伐を行いました
+――これでよろしいのでしょう？","《<VAL SPOT>》からただいま戻りましたよ
+<VAL EMNAME><VAL>体などの
+討伐を行いました
+――これでよろしいのでしょう？",ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,7
+0,,"この私の《<VAL SPOT>》探索を
+<VAL EMNAME>どもが
+少々邪魔でしたので――
+<VAL>体程度討伐してやりましたよ、我が主","この私の《<VAL SPOT>》探索を
+<VAL EMNAME>どもが
+少々邪魔でしたので――
+<VAL>体程度討伐してやりましたよ、我が主",ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,8
+0,,"《<VAL SPOT>》を探索して
+参りました
+宝物を発見し――もちろん入手しましたとも
+さて、我々の次なる獲物はどちらです？","《<VAL SPOT>》を探索して
+参りました
+宝物を発見し――もちろん入手しましたとも
+さて、我々の次なる獲物はどちらです？",ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,9
+0,,"《<VAL SPOT>》にて入手した
+この素晴らしい宝物をお受け取りください
+必ずや、貴方を陶酔の境地へ
+お連れすること請け合いです","《<VAL SPOT>》にて入手した
+この素晴らしい宝物をお受け取りください
+必ずや、貴方を陶酔の境地へ
+お連れすること請け合いです",ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,10
+0,,"主殿――先のご命令通り
+《<VAL SPOT>》探索を行いました
+道中にて発見したこの宝物――少々入手に代償を
+払いましたが――成果としてお受け取りください","主殿――先のご命令通り
+《<VAL SPOT>》探索を行いました
+道中にて発見したこの宝物――少々入手に代償を
+払いましたが――成果としてお受け取りください",ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,11
+0,,"ああそれから、《<VAL SPOT>》に
+異変が起きているようですね
+クランメンバーの方たちとご一緒に
+探索を行ってはいかがでしょう？","ああそれから、《<VAL SPOT>》に
+異変が起きているようですね
+クランメンバーの方たちとご一緒に
+探索を行ってはいかがでしょう？",ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,12
+0,,"聡明なる我が主殿――
+遠征成果の取り忘れはありませんね？","聡明なる我が主殿――
+遠征成果の取り忘れはありませんね？",ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,13
+0,,"さぁ主殿――この私に語りかけて来たからには
+さぞかし重大な使命をお持ちになられたのでしょう
+――してご用件は？","さぁ主殿――この私に語りかけて来たからには
+さぞかし重大な使命をお持ちになられたのでしょう
+――してご用件は？",ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,14
+0,,本日も、怪我の無きよう――,本日も、怪我の無きよう――,ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,15
+0,,"素晴らしい拠点ですね――
+覚者殿の栄光を刻むに
+ふさわしい場ではないですか","素晴らしい拠点ですね――
+覚者殿の栄光を刻むに
+ふさわしい場ではないですか",ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,16
+0,,"これだけ広い拠点です――
+もしも隠し部屋があったら、と空想してしまいます
+いつもと違う場所を進んだり
+童心に帰ってみるのも悪くないでしょう","これだけ広い拠点です――
+もしも隠し部屋があったら、と空想してしまいます
+いつもと違う場所を進んだり
+童心に帰ってみるのも悪くないでしょう",ui\00_message\pawn\clan\ppm005.gmd,\clankyoten.arc,clankyoten.arc,17
+0,,"あー、覚者さま！
+クランショップから≪ポーン遠征隊≫を買わないと
+スポットを探索できないんだよ！","あー、覚者さま！
+クランショップから≪ポーン遠征隊≫を買わないと
+スポットを探索できないんだよ！",ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,0
+0,,"ごめんね、覚者さま――
+クラフト中のポーンはクラフトをしているから、
+ポーン遠征隊の探索にいけないんです","ごめんね、覚者さま――
+クラフト中のポーンはクラフトをしているから、
+ポーン遠征隊の探索にいけないんです",ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,1
+0,,覚者さま！　今日はどこに探索しにいきますか？,覚者さま！　今日はどこに探索しにいきますか？,ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,2
+0,,"今日はもう、スポット探索に派遣したみたいだから
+これ以上探索にはいけないんです――ごめんなさい","今日はもう、スポット探索に派遣したみたいだから
+これ以上探索にはいけないんです――ごめんなさい",ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,3
+0,,"行ってきまーす！
+覚者さま、お土産期待しててくださいね","行ってきまーす！
+覚者さま、お土産期待しててくださいね",ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,4
+0,,"あれ、覚者さま
+手持ちを<VAL>個空けてくれないと
+遠征成果を渡せませんよ！","あれ、覚者さま
+手持ちを<VAL>個空けてくれないと
+遠征成果を渡せませんよ！",ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,5
+0,,"《<VAL SPOT>》を探索してきましたよ！
+なんと<VAL EMNAME><VAL>体とかの
+討伐をしてきちゃいました
+へへ、どうですか？　嬉しいですか？","《<VAL SPOT>》を探索してきましたよ！
+なんと<VAL EMNAME><VAL>体とかの
+討伐をしてきちゃいました
+へへ、どうですか？　嬉しいですか？",ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,6
+0,,"《<VAL SPOT>》を探索してきました
+<VAL EMNAME><VAL>体とかの
+討伐をやってきましたよ！
+ああ、もう、どうなることかと思いました――","《<VAL SPOT>》を探索してきました
+<VAL EMNAME><VAL>体とかの
+討伐をやってきましたよ！
+ああ、もう、どうなることかと思いました――",ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,7
+0,,"覚者さまのご命令通り
+《<VAL SPOT>》に探索に行って
+<VAL EMNAME>たちと戦ってきましたよ！
+ちゃんと<VAL>体倒してきたんですから！","覚者さまのご命令通り
+《<VAL SPOT>》に探索に行って
+<VAL EMNAME>たちと戦ってきましたよ！
+ちゃんと<VAL>体倒してきたんですから！",ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,8
+0,,"《<VAL SPOT>》を探索してきましたよ！
+それから、お宝を見つけたんです
+これ――覚者さまにあげますね
+きっと、すーっごく貴重なものですよ！","《<VAL SPOT>》を探索してきましたよ！
+それから、お宝を見つけたんです
+これ――覚者さまにあげますね
+きっと、すーっごく貴重なものですよ！",ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,9
+0,,"ただいま戻りました、覚者さま！
+《<VAL SPOT>》の探索中に
+お宝を見つけたから、お土産にあげますね！","ただいま戻りました、覚者さま！
+《<VAL SPOT>》の探索中に
+お宝を見つけたから、お土産にあげますね！",ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,10
+0,,"ふぅ、《<VAL SPOT>》から戻りました
+ちょっと無茶しちゃったけど――
+お宝を見つけたから、持って帰ってきたんです
+覚者さまが喜んでくれるといいなって","ふぅ、《<VAL SPOT>》から戻りました
+ちょっと無茶しちゃったけど――
+お宝を見つけたから、持って帰ってきたんです
+覚者さまが喜んでくれるといいなって",ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,11
+0,,"そういえば、覚者さま！
+《<VAL SPOT>》に異変が
+起きているみたいですよ
+クランメンバーのみんなで一緒に探索しましょうよ！","そういえば、覚者さま！
+《<VAL SPOT>》に異変が
+起きているみたいですよ
+クランメンバーのみんなで一緒に探索しましょうよ！",ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,12
+0,,"覚者さま、遠征成果の取り忘れはないですか？
+ぼくらのがんばり、ちゃんと受け取ってくださいね！","覚者さま、遠征成果の取り忘れはないですか？
+ぼくらのがんばり、ちゃんと受け取ってくださいね！",ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,13
+0,,"はーい！　ぼくだよ、覚者さまのポーンですよー！
+それで、何かご用ですか？","はーい！　ぼくだよ、覚者さまのポーンですよー！
+それで、何かご用ですか？",ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,14
+0,,今日も怪我なく、元気に戻ってきてくださいね！,今日も怪我なく、元気に戻ってきてくださいね！,ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,15
+0,,"覚者さま――ぼく――
+迷子になっちゃったかと思いました","覚者さま――ぼく――
+迷子になっちゃったかと思いました",ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,16
+0,,"なんだか、広くて大きくてわくわくするなぁ！
+隠し部屋があったりして――
+ねぇ、覚者さま！　あの上までどっちが
+早く登れるか、ぼくと競争しませんか？","なんだか、広くて大きくてわくわくするなぁ！
+隠し部屋があったりして――
+ねぇ、覚者さま！　あの上までどっちが
+早く登れるか、ぼくと競争しませんか？",ui\00_message\pawn\clan\ppm006.gmd,\clankyoten.arc,clankyoten.arc,17
+0,,"覚者様、申し訳ねぇんですが
+クランショップから≪ポーン遠征隊≫を買わねえと
+スポットを探索できるようにならないみてぇで――
+サクッと買っちまいましょうや","覚者様、申し訳ねぇんですが
+クランショップから≪ポーン遠征隊≫を買わねえと
+スポットを探索できるようにならないみてぇで――
+サクッと買っちまいましょうや",ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,0
+0,,"おっと、覚者さま――クラフト中のポーンは
+ポーン遠征隊として探索に参加できねぇんです
+何せ我々ポーンの体は一つしか無いもんでして","おっと、覚者さま――クラフト中のポーンは
+ポーン遠征隊として探索に参加できねぇんです
+何せ我々ポーンの体は一つしか無いもんでして",ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,1
+0,,さぁ、今日はどこを探索しに行けばいいんですかい？,さぁ、今日はどこを探索しに行けばいいんですかい？,ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,2
+0,,"おっと覚者様、
+今日はスポット探索に派遣済みなんで
+探索に参加できねぇようですぜ","おっと覚者様、
+今日はスポット探索に派遣済みなんで
+探索に参加できねぇようですぜ",ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,3
+0,,そんじゃ、ちょっくら探索に行くとするか！,そんじゃ、ちょっくら探索に行くとするか！,ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,4
+0,,"覚者様、手持ちに<VAL>個の空きがねえんじゃ
+この遠征成果は受け取ってもらえませんや","覚者様、手持ちに<VAL>個の空きがねえんじゃ
+この遠征成果は受け取ってもらえませんや",ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,5
+0,,"ご命令通り《<VAL SPOT>》へ
+行ってきましたぜ
+きっちり<VAL EMNAME><VAL>体
+ぶちのめしてきてやりましたよ","ご命令通り《<VAL SPOT>》へ
+行ってきましたぜ
+きっちり<VAL EMNAME><VAL>体
+ぶちのめしてきてやりましたよ",ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,6
+0,,"《<VAL SPOT>》へ行ったんですがね
+<VAL EMNAME>の奴ら
+<VAL>体くれぇは討伐できましたぜ
+覚者様、次はもっと期待しててくださいよ","《<VAL SPOT>》へ行ったんですがね
+<VAL EMNAME>の奴ら
+<VAL>体くれぇは討伐できましたぜ
+覚者様、次はもっと期待しててくださいよ",ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,7
+0,,"覚者様――《<VAL SPOT>》へ
+探索に行き、なんとか<VAL EMNAME>
+<VAL>体くれぇは討伐してきましたぜ――
+イテテ、ちょっと無理しちまったみたいだ","覚者様――《<VAL SPOT>》へ
+探索に行き、なんとか<VAL EMNAME>
+<VAL>体くれぇは討伐してきましたぜ――
+イテテ、ちょっと無理しちまったみたいだ",ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,8
+0,,"覚者様、《<VAL SPOT>》の
+探索に行ってきましたぜ
+まぁまぁの成果ってところですね
+で、こっちは探索中に見つけたお宝です","覚者様、《<VAL SPOT>》の
+探索に行ってきましたぜ
+まぁまぁの成果ってところですね
+で、こっちは探索中に見つけたお宝です",ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,9
+0,,"《<VAL SPOT>》の探索から戻りました
+覚者様のために、土産を持ち帰ってきましたぜ
+ま、あんまり期待しないで受け取ってくださいよ","《<VAL SPOT>》の探索から戻りました
+覚者様のために、土産を持ち帰ってきましたぜ
+ま、あんまり期待しないで受け取ってくださいよ",ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,10
+0,,"《<VAL SPOT>》の探索中に
+お宝を見つけたんで、持ち帰ってきました
+多少の危険はありましたが――
+まぁ、結果良ければってもんです","《<VAL SPOT>》の探索中に
+お宝を見つけたんで、持ち帰ってきました
+多少の危険はありましたが――
+まぁ、結果良ければってもんです",ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,11
+0,,"それから、《<VAL SPOT>》に
+異変が起きてるみたいですね
+クランメンバーのみなさんで探索してみちゃ
+いかがでしょう？","それから、《<VAL SPOT>》に
+異変が起きてるみたいですね
+クランメンバーのみなさんで探索してみちゃ
+いかがでしょう？",ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,12
+0,,"覚者様、遠征成果を受け取り忘れないでくださいよ
+――おっと、俺なんかに
+言われるまでもねぇことですね","覚者様、遠征成果を受け取り忘れないでくださいよ
+――おっと、俺なんかに
+言われるまでもねぇことですね",ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,13
+0,,よお覚者様、今日もお元気そうで安心しました,よお覚者様、今日もお元気そうで安心しました,ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,14
+0,,"今日も命を大事にな、覚者様
+――ポーンには覚者が全てって事を、お忘れなく","今日も命を大事にな、覚者様
+――ポーンには覚者が全てって事を、お忘れなく",ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,15
+0,,"――緊張しているように見えますかい？
+戦いには少々自信があるんですが――
+こういう社交の場は
+いかんせん慣れねぇもんで","――緊張しているように見えますかい？
+戦いには少々自信があるんですが――
+こういう社交の場は
+いかんせん慣れねぇもんで",ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,16
+0,,"ああいう出っ張りなんかを見ると血が騒いじまうのは
+冒険のしすぎってやつですかね？
+こんだけ広いんだ――
+隠し部屋の一つや二つ、ありそうなもんです","ああいう出っ張りなんかを見ると血が騒いじまうのは
+冒険のしすぎってやつですかね？
+こんだけ広いんだ――
+隠し部屋の一つや二つ、ありそうなもんです",ui\00_message\pawn\clan\ppm007.gmd,\clankyoten.arc,clankyoten.arc,17
+0,,"主、スポット探索は
+クランショップから≪ポーン遠征隊≫を
+購入する必要がある","主、スポット探索は
+クランショップから≪ポーン遠征隊≫を
+購入する必要がある",ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,0
+0,,"我が主――ポーンがいまだクラフト中にて
+ポーン遠征隊の探索には参加できない","我が主――ポーンがいまだクラフト中にて
+ポーン遠征隊の探索には参加できない",ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,1
+0,,本日の探索目的地を知らされたい,本日の探索目的地を知らされたい,ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,2
+0,,"主よ、本日は既にスポット探索派遣済みの様子
+探索には参加できない","主よ、本日は既にスポット探索派遣済みの様子
+探索には参加できない",ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,3
+0,,では、出発する,では、出発する,ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,4
+0,,"所持品に<VAL>個分の空きが無い様子――
+このままでは遠征成果をお渡しできない","所持品に<VAL>個分の空きが無い様子――
+このままでは遠征成果をお渡しできない",ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,5
+0,,"《<VAL SPOT>》へ探索に向かい
+<VAL EMNAME><VAL>体等の
+討伐に成功した――","《<VAL SPOT>》へ探索に向かい
+<VAL EMNAME><VAL>体等の
+討伐に成功した――",ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,6
+0,,"《<VAL SPOT>》へ探索に向かい
+生息していた<VAL EMNAME>
+<VAL>体等の討伐を行った――
+負傷は軽微","《<VAL SPOT>》へ探索に向かい
+生息していた<VAL EMNAME>
+<VAL>体等の討伐を行った――
+負傷は軽微",ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,7
+0,,"《<VAL SPOT>》の探索からただ今帰還
+<VAL EMNAME><VAL>体等の
+討伐に成功した――他にご命令は？","《<VAL SPOT>》の探索からただ今帰還
+<VAL EMNAME><VAL>体等の
+討伐に成功した――他にご命令は？",ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,8
+0,,"我が主――《<VAL SPOT>》の探索中
+宝物を発見し、入手した
+――お受け取りを","我が主――《<VAL SPOT>》の探索中
+宝物を発見し、入手した
+――お受け取りを",ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,9
+0,,"《<VAL SPOT>》探索任務完了
+探索成果として、宝物を入手した","《<VAL SPOT>》探索任務完了
+探索成果として、宝物を入手した",ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,10
+0,,"我が主、《<VAL SPOT>》の
+探索任務が完了し、宝物を入手
+――軽微な消耗はあるが
+任務遂行には問題無し","我が主、《<VAL SPOT>》の
+探索任務が完了し、宝物を入手
+――軽微な消耗はあるが
+任務遂行には問題無し",ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,11
+0,,"――我が主、さらにご報告が
+《<VAL SPOT>》に異変あり
+クランメンバーとの共同探索をお勧めする","――我が主、さらにご報告が
+《<VAL SPOT>》に異変あり
+クランメンバーとの共同探索をお勧めする",ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,12
+0,,遠征成果取り忘れには、ご注意を,遠征成果取り忘れには、ご注意を,ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,13
+0,,――ご用件は？,――ご用件は？,ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,14
+0,,本日も、円滑なる使命達成を,本日も、円滑なる使命達成を,ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,15
+0,,"――覚者の同志殿に力が劣らぬよう
+ポーンに可能な最大限の努力は行う所存","――覚者の同志殿に力が劣らぬよう
+ポーンに可能な最大限の努力は行う所存",ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,16
+0,,"壁の凹凸、謎めいた梁――
+未発見の部屋の存在は、否定できない
+――主よ、探索の継続を勧める","壁の凹凸、謎めいた梁――
+未発見の部屋の存在は、否定できない
+――主よ、探索の継続を勧める",ui\00_message\pawn\clan\ppm004.gmd,\clankyoten.arc,clankyoten.arc,17
+0,,"あら――マスター、クランショップから
+≪ポーン遠征隊≫を購入することで
+スポットを探索できるようになるみたいよ","あら――マスター、クランショップから
+≪ポーン遠征隊≫を購入することで
+スポットを探索できるようになるみたいよ",ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,0
+0,,"ごめんね、マスター――
+クラフト中のポーンは
+ポーン遠征隊として探索に参加できないの","ごめんね、マスター――
+クラフト中のポーンは
+ポーン遠征隊として探索に参加できないの",ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,1
+0,,"今日はどこへ探索に行けば
+いいのかしら、マスター？","今日はどこへ探索に行けば
+いいのかしら、マスター？",ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,2
+0,,"あら――ごめんなさいね、マスター
+今日はもうスポット探索に派遣済みだから
+参加できないの","あら――ごめんなさいね、マスター
+今日はもうスポット探索に派遣済みだから
+参加できないの",ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,3
+0,,マスター、それじゃ――行って来るわね,マスター、それじゃ――行って来るわね,ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,4
+0,,"マスター、遠征成果をお渡ししたいんだけど――
+手持ちに<VAL>個の空きを作ってもらえるかしら？","マスター、遠征成果をお渡ししたいんだけど――
+手持ちに<VAL>個の空きを作ってもらえるかしら？",ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,5
+0,,"《<VAL SPOT>》へ探索に行ってきたわ
+そこで<VAL EMNAME>
+<VAL>体などの討伐をしてきたの――
+あなたを喜ばせたくて、頑張ったのよ","《<VAL SPOT>》へ探索に行ってきたわ
+そこで<VAL EMNAME>
+<VAL>体などの討伐をしてきたの――
+あなたを喜ばせたくて、頑張ったのよ",ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,6
+0,,"《<VAL SPOT>》の探索から戻ったわ
+危ない所だったけれど<VAL EMNAME>
+<VAL>体などの討伐をしてきましたよ
+これからはあんまり無茶しない方がいいわね――","《<VAL SPOT>》の探索から戻ったわ
+危ない所だったけれど<VAL EMNAME>
+<VAL>体などの討伐をしてきましたよ
+これからはあんまり無茶しない方がいいわね――",ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,7
+0,,"あなたが命じた通りに《<VAL SPOT>》を
+探索して、<VAL EMNAME>
+<VAL>体などの討伐をしてきたわ――
+あたしのいない間、お変わりなかったかしら？","あなたが命じた通りに《<VAL SPOT>》を
+探索して、<VAL EMNAME>
+<VAL>体などの討伐をしてきたわ――
+あたしのいない間、お変わりなかったかしら？",ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,8
+0,,"《<VAL SPOT>》へ探索へ行ってきました
+素敵なお宝を見つけて――
+きっとマスターが喜ぶと思って、持ち帰ってきたの
+ね、どうかしら？","《<VAL SPOT>》へ探索へ行ってきました
+素敵なお宝を見つけて――
+きっとマスターが喜ぶと思って、持ち帰ってきたの
+ね、どうかしら？",ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,9
+0,,"マスター、ご命令通り《<VAL SPOT>》の
+探索に行ってきましたよ
+素敵なものを見つけたから、持ち帰ってきたの
+ふふ、喜んで下さると嬉しいわ","マスター、ご命令通り《<VAL SPOT>》の
+探索に行ってきましたよ
+素敵なものを見つけたから、持ち帰ってきたの
+ふふ、喜んで下さると嬉しいわ",ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,10
+0,,"マスター、《<VAL SPOT>》の探索へ
+行ってきたんですけどね――
+はぁ、あたしったら危ない所だったの
+でもほら、お宝のお土産があるのよ","マスター、《<VAL SPOT>》の探索へ
+行ってきたんですけどね――
+はぁ、あたしったら危ない所だったの
+でもほら、お宝のお土産があるのよ",ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,11
+0,,"あぁ、それから《<VAL SPOT>》に
+異変が起きているみたいよ
+クランメンバー全員で探索を
+行ってみるのはどうかしら？","あぁ、それから《<VAL SPOT>》に
+異変が起きているみたいよ
+クランメンバー全員で探索を
+行ってみるのはどうかしら？",ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,12
+0,,ねえマスター、遠征成果の取り忘れは無い？,ねえマスター、遠征成果の取り忘れは無い？,ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,13
+0,,"はいはい、どうしたの？
+あたしになにか用があるんでしょう？","はいはい、どうしたの？
+あたしになにか用があるんでしょう？",ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,14
+0,,今日も怪我には気を付けてね、マスター,今日も怪我には気を付けてね、マスター,ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,15
+0,,"うふふ――
+こんな素敵な場所で覚者同士集まったら、
+ポーンの事なんて忘れちゃうんじゃないかしら？","うふふ――
+こんな素敵な場所で覚者同士集まったら、
+ポーンの事なんて忘れちゃうんじゃないかしら？",ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,16
+0,,"これだけ大きいと、隠し部屋なんかが
+あってもおかしくないわよね――
+いつもと違う所を歩いてみるのもいいけれど
+滑って怪我したりしないでね","これだけ大きいと、隠し部屋なんかが
+あってもおかしくないわよね――
+いつもと違う所を歩いてみるのもいいけれど
+滑って怪我したりしないでね",ui\00_message\pawn\clan\ppm008.gmd,\clankyoten.arc,clankyoten.arc,17
+0,,"覚者さま――あのう
+クランショップから≪ポーン遠征隊≫を購入すれば
+スポットを探索できるようになる、みたいです――","覚者さま――あのう
+クランショップから≪ポーン遠征隊≫を購入すれば
+スポットを探索できるようになる、みたいです――",ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,0
+0,,"ご、ごめんなさい――！
+クラフト中のポーンは、ポーン遠征隊として
+探索に参加することはできないんです――","ご、ごめんなさい――！
+クラフト中のポーンは、ポーン遠征隊として
+探索に参加することはできないんです――",ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,1
+0,,"覚者さま、今日はどこへ
+探索に行かれるんでしょうか――","覚者さま、今日はどこへ
+探索に行かれるんでしょうか――",ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,2
+0,,"あ、あれ――？
+覚者さま、今日はスポット探索に派遣済みのようです
+探索に参加できないみたい――ごめんなさい","あ、あれ――？
+覚者さま、今日はスポット探索に派遣済みのようです
+探索に参加できないみたい――ごめんなさい",ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,3
+0,,"覚者さま、それじゃあ――探索に行ってきます
+うぅ、うまくいくといいなぁ","覚者さま、それじゃあ――探索に行ってきます
+うぅ、うまくいくといいなぁ",ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,4
+0,,"あのぅ――覚者さま？
+その――手持ちに<VAL>個の空きがなくて、
+遠征成果をお渡しできないみたいです","あのぅ――覚者さま？
+その――手持ちに<VAL>個の空きがなくて、
+遠征成果をお渡しできないみたいです",ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,5
+0,,"か、覚者さま――！
+《<VAL SPOT>》へ探索に行き
+<VAL EMNAME>を<VAL>体などの
+討伐を頑張りました――！","か、覚者さま――！
+《<VAL SPOT>》へ探索に行き
+<VAL EMNAME>を<VAL>体などの
+討伐を頑張りました――！",ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,6
+0,,"あ――あのう、覚者さま
+ご命令通り《<VAL SPOT>》へ行き
+<VAL EMNAME>を<VAL>体など――
+なんとか討伐、できたみたいです","あ――あのう、覚者さま
+ご命令通り《<VAL SPOT>》へ行き
+<VAL EMNAME>を<VAL>体など――
+なんとか討伐、できたみたいです",ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,7
+0,,"《<VAL SPOT>》へ探索に行き
+<VAL EMNAME><VAL>体などの
+討伐成功しました――！
+覚者さまに、喜んでもらえると嬉しいです","《<VAL SPOT>》へ探索に行き
+<VAL EMNAME><VAL>体などの
+討伐成功しました――！
+覚者さまに、喜んでもらえると嬉しいです",ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,8
+0,,"《<VAL SPOT>》探索、完了です！
+それで、あ、あの、お宝を見つけました！
+持ち帰ってきたんですけど――
+あんまり期待しないでくださいね――","《<VAL SPOT>》探索、完了です！
+それで、あ、あの、お宝を見つけました！
+持ち帰ってきたんですけど――
+あんまり期待しないでくださいね――",ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,9
+0,,"《<VAL SPOT>》の探索へ行ってきました――
+あの――これ、見つけたお宝です
+喜んでもらえるかは、わからないけど――","《<VAL SPOT>》の探索へ行ってきました――
+あの――これ、見つけたお宝です
+喜んでもらえるかは、わからないけど――",ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,10
+0,,"覚者さま――ご命令いただいた
+《<VAL SPOT>》探索、完了です
+お宝を見つけたので持ち帰ってきたのですが
+これで、よかったですか――？","覚者さま――ご命令いただいた
+《<VAL SPOT>》探索、完了です
+お宝を見つけたので持ち帰ってきたのですが
+これで、よかったですか――？",ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,11
+0,,"そ、それと《<VAL SPOT>》に
+異変が起きているみたいで――
+クランメンバー全員で探索を行ってみると
+いいかも――です","そ、それと《<VAL SPOT>》に
+異変が起きているみたいで――
+クランメンバー全員で探索を行ってみると
+いいかも――です",ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,12
+0,,"覚者さま――あ、あの
+遠征成果の取り忘れには、お気を付けください――","覚者さま――あ、あの
+遠征成果の取り忘れには、お気を付けください――",ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,13
+0,,"覚者さま――あ、あの、お役にたてるなら
+どんな事でもやりますから
+――なんでも言ってくださいね","覚者さま――あ、あの、お役にたてるなら
+どんな事でもやりますから
+――なんでも言ってくださいね",ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,14
+0,,足を引っ張らないように――今日も、がんばります！,足を引っ張らないように――今日も、がんばります！,ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,15
+0,,"立派で素敵な場所ですね――
+――自分には立派過ぎて、少し緊張します","立派で素敵な場所ですね――
+――自分には立派過ぎて、少し緊張します",ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,16
+0,,"うう、広すぎて迷ってしまいそうです――
+怪しげな梁や隙間も多いですし
+うっかり隠し部屋に迷い込んでしまったりして――","うう、広すぎて迷ってしまいそうです――
+怪しげな梁や隙間も多いですし
+うっかり隠し部屋に迷い込んでしまったりして――",ui\00_message\pawn\clan\ppm002.gmd,\clankyoten.arc,clankyoten.arc,17
+0,,"覚者さま、ポーン遠征隊をご所望ですか？
+クランショップから《ポーン遠征隊》を購入すると
+スポットを探索できるようになりますよ","覚者さま、ポーン遠征隊をご所望ですか？
+クランショップから《ポーン遠征隊》を購入すると
+スポットを探索できるようになりますよ",ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,0
+0,,"申し訳ありません、覚者さま――
+クラフト中のポーンは、ポーン遠征隊の探索に
+参加することができません","申し訳ありません、覚者さま――
+クラフト中のポーンは、ポーン遠征隊の探索に
+参加することができません",ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,1
+0,,覚者さま！　本日はどちらへ探索に参りましょうか,覚者さま！　本日はどちらへ探索に参りましょうか,ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,2
+0,,"覚者さま、申し訳ありません――
+本日はスポット探索に派遣済みのため、
+探索に参加することができません","覚者さま、申し訳ありません――
+本日はスポット探索に派遣済みのため、
+探索に参加することができません",ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,3
+0,,覚者さま！　それでは探索へ行って参ります,覚者さま！　それでは探索へ行って参ります,ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,4
+0,,"覚者さま――手持ちに<VAL>個の空きが無いため、
+遠征成果を渡すことができないようです","覚者さま――手持ちに<VAL>個の空きが無いため、
+遠征成果を渡すことができないようです",ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,5
+0,,"《<VAL SPOT>》へ向かいました
+そして、<VAL EMNAME>
+<VAL>体等の討伐をいたしました
+これでしばらくは、あの地域も静かになる事でしょう","《<VAL SPOT>》へ向かいました
+そして、<VAL EMNAME>
+<VAL>体等の討伐をいたしました
+これでしばらくは、あの地域も静かになる事でしょう",ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,6
+0,,"《<VAL SPOT>》へ探索に向かい
+遭遇した危険な魔物――
+<VAL EMNAME><VAL>体等の
+討伐に成功いたしました、覚者さま","《<VAL SPOT>》へ探索に向かい
+遭遇した危険な魔物――
+<VAL EMNAME><VAL>体等の
+討伐に成功いたしました、覚者さま",ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,7
+0,,"《<VAL SPOT>》へ探索に向かい
+ご命令通り<VAL EMNAME>
+<VAL>体等の討伐を完遂いたしました
+ご期待に添う結果だと良いのですが――","《<VAL SPOT>》へ探索に向かい
+ご命令通り<VAL EMNAME>
+<VAL>体等の討伐を完遂いたしました
+ご期待に添う結果だと良いのですが――",ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,8
+0,,"覚者さま！
+《<VAL SPOT>》へ探索に行き
+発見した宝を持ち帰りました！","覚者さま！
+《<VAL SPOT>》へ探索に行き
+発見した宝を持ち帰りました！",ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,9
+0,,"覚者さま！　ご命令通り
+《<VAL SPOT>》の探索へ行き
+さらに宝を発見しましたので、持ち帰りました！","覚者さま！　ご命令通り
+《<VAL SPOT>》の探索へ行き
+さらに宝を発見しましたので、持ち帰りました！",ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,10
+0,,"覚者さま、《<VAL SPOT>》の
+探索で宝を発見しました
+危ない所でしたが、なんとか
+持ち帰る事に成功いたしました！","覚者さま、《<VAL SPOT>》の
+探索で宝を発見しました
+危ない所でしたが、なんとか
+持ち帰る事に成功いたしました！",ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,11
+0,,"覚者さま、さらにご報告がございます――
+どうやら《<VAL SPOT>》に
+異変が起きているようです
+クランメンバーの皆さんで、探索を行いましょう！","覚者さま、さらにご報告がございます――
+どうやら《<VAL SPOT>》に
+異変が起きているようです
+クランメンバーの皆さんで、探索を行いましょう！",ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,12
+0,,"覚者さま！
+報酬の取り忘れには、ご注意くださいませ","覚者さま！
+報酬の取り忘れには、ご注意くださいませ",ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,13
+0,,"はい、覚者さま
+ご用件がありましたら、何なりとお申し付けください","はい、覚者さま
+ご用件がありましたら、何なりとお申し付けください",ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,14
+0,,覚者さま、本日もお気をつけて行ってらっしゃいませ,覚者さま、本日もお気をつけて行ってらっしゃいませ,ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,15
+0,,"はい、覚者さま
+クラン拠点の留守番は、
+我々ポーンにお任せください！","はい、覚者さま
+クラン拠点の留守番は、
+我々ポーンにお任せください！",ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,16
+0,,"なんて広い拠点なのでしょう！
+予想もしない手段やルートで入ることができる――
+そんな隠し部屋などがあるかもしれませんよ！","なんて広い拠点なのでしょう！
+予想もしない手段やルートで入ることができる――
+そんな隠し部屋などがあるかもしれませんよ！",ui\00_message\pawn\clan\ppm001.gmd,\clankyoten.arc,clankyoten.arc,17
+0,,"マスター！
+クランショップから≪ポーン遠征隊≫を購入すれば
+スポットを探索できるようになりますよ
+さぁさぁ、買いに行きましょう！","マスター！
+クランショップから≪ポーン遠征隊≫を購入すれば
+スポットを探索できるようになりますよ
+さぁさぁ、買いに行きましょう！",ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,0
+0,,"マスター、クラフト中のポーンはポーン遠征隊として
+探索に参加することができないのです！
+あぁっ――クラフトも派遣も同時にこなせたら
+もっとお役にたてるのに！","マスター、クラフト中のポーンはポーン遠征隊として
+探索に参加することができないのです！
+あぁっ――クラフトも派遣も同時にこなせたら
+もっとお役にたてるのに！",ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,1
+0,,"マスター、今日はどこへ探索に行きましょうか？
+山でも谷でも、私にお任せください！","マスター、今日はどこへ探索に行きましょうか？
+山でも谷でも、私にお任せください！",ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,2
+0,,"マスター、今日はスポット探索に派遣済みのため
+探索に参加できません――
+明日の探索が楽しみですね！","マスター、今日はスポット探索に派遣済みのため
+探索に参加できません――
+明日の探索が楽しみですね！",ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,3
+0,,マスター、それでは行って参ります！,マスター、それでは行って参ります！,ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,4
+0,,"マスター、申し訳ありません！
+手持ちに<VAL>個の空きがないと
+遠征成果をお渡しできないのです！","マスター、申し訳ありません！
+手持ちに<VAL>個の空きがないと
+遠征成果をお渡しできないのです！",ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,5
+0,,"マスター！
+《<VAL SPOT>》へ探索に行き――
+そしてなんと！<VAL EMNAME>
+<VAL>体などの討伐を完了しました！","マスター！
+《<VAL SPOT>》へ探索に行き――
+そしてなんと！<VAL EMNAME>
+<VAL>体などの討伐を完了しました！",ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,6
+0,,"《<VAL SPOT>》へ探索に行き――
+<VAL EMNAME><VAL>体などを
+討伐して参りました、マスター
+次は――きっと、もっとうまくやれるはずです！","《<VAL SPOT>》へ探索に行き――
+<VAL EMNAME><VAL>体などを
+討伐して参りました、マスター
+次は――きっと、もっとうまくやれるはずです！",ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,7
+0,,"《<VAL SPOT>》へ探索に行き
+<VAL EMNAME><VAL>体など
+討伐して参りました！
+かなり、手応えを掴めた気がします！","《<VAL SPOT>》へ探索に行き
+<VAL EMNAME><VAL>体など
+討伐して参りました！
+かなり、手応えを掴めた気がします！",ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,8
+0,,"《<VAL SPOT>》探索完了です！
+お宝を見つけましたので
+もちろん持ち帰って参りましたとも！
+これは素晴らしい品に違いありませんよ！","《<VAL SPOT>》探索完了です！
+お宝を見つけましたので
+もちろん持ち帰って参りましたとも！
+これは素晴らしい品に違いありませんよ！",ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,9
+0,,"《<VAL SPOT>》の探索へ
+行ったところ――
+なんと、お宝を発見したのです！
+持ち帰ってきましたので、どうぞお納めください！","《<VAL SPOT>》の探索へ
+行ったところ――
+なんと、お宝を発見したのです！
+持ち帰ってきましたので、どうぞお納めください！",ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,10
+0,,"《<VAL SPOT>》の探索へ行き
+宝を発見しましたので、なんとか持ち帰りました
+――いやぁ、九死に一生を得ました！","《<VAL SPOT>》の探索へ行き
+宝を発見しましたので、なんとか持ち帰りました
+――いやぁ、九死に一生を得ました！",ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,11
+0,,"それから、《<VAL SPOT>》に
+異変が起きておりました
+さぁマスター、クランメンバー全員で
+探索を行いましょう！","それから、《<VAL SPOT>》に
+異変が起きておりました
+さぁマスター、クランメンバー全員で
+探索を行いましょう！",ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,12
+0,,"マスター！
+遠征成果の取り忘れにはご注意ください！","マスター！
+遠征成果の取り忘れにはご注意ください！",ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,13
+0,,"はいマスター！
+さて、今日はどんな奴をやっつけにいきましょうか？","はいマスター！
+さて、今日はどんな奴をやっつけにいきましょうか？",ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,14
+0,,マスター、本日も鍛錬日和です！,マスター、本日も鍛錬日和です！,ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,15
+0,,"マスター、鍛錬は裏切りません！
+いざと言うとき後悔しないため――
+共に頑張りましょう！","マスター、鍛錬は裏切りません！
+いざと言うとき後悔しないため――
+共に頑張りましょう！",ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,16
+0,,"この拠点は――広い上に謎めいていて
+ワクワクしますね、マスター！
+身体を動かすのに最適な梁や凸凹の多い建物です
+どうです、共に隠し部屋探しでも？","この拠点は――広い上に謎めいていて
+ワクワクしますね、マスター！
+身体を動かすのに最適な梁や凸凹の多い建物です
+どうです、共に隠し部屋探しでも？",ui\00_message\pawn\clan\ppm003.gmd,\clankyoten.arc,clankyoten.arc,17
+0,,"こんにちは、覚者さま
+何かご用がありましたら、お申し付けください","こんにちは、覚者さま
+何かご用がありましたら、お申し付けください",ui\00_message\pawn\clan\ppo001.gmd,\clankyoten.arc,clankyoten.arc,0
+0,,"はい、覚者さま
+本日も、お気をつけて行ってらっしゃいませ","はい、覚者さま
+本日も、お気をつけて行ってらっしゃいませ",ui\00_message\pawn\clan\ppo001.gmd,\clankyoten.arc,clankyoten.arc,1
+0,,"覚者さま――
+やはり冒険は――ポーンを同行させるより
+覚者同士で助け合う方が好ましいのでしょうか？","覚者さま――
+やはり冒険は――ポーンを同行させるより
+覚者同士で助け合う方が好ましいのでしょうか？",ui\00_message\pawn\clan\ppo001.gmd,\clankyoten.arc,clankyoten.arc,2
+0,,"ポーンの雇用は、リムストーンからどうぞ！
+覚者さまからのお誘い、お待ちしておりますね","ポーンの雇用は、リムストーンからどうぞ！
+覚者さまからのお誘い、お待ちしておりますね",ui\00_message\pawn\clan\ppo001.gmd,\clankyoten.arc,clankyoten.arc,3
+0,,"クラン拠点の賑わいは、
+覚者の自室とはまた違う良さがありますね","クラン拠点の賑わいは、
+覚者の自室とはまた違う良さがありますね",ui\00_message\pawn\clan\ppo001.gmd,\clankyoten.arc,clankyoten.arc,4
+0,,"おう、覚者様
+何かご用がありましたら
+遠慮なくお申しつけくだせえ","おう、覚者様
+何かご用がありましたら
+遠慮なくお申しつけくだせえ",ui\00_message\pawn\clan\ppo007.gmd,\clankyoten.arc,clankyoten.arc,0
+0,,"冒険に行く主の背を見送るってのは
+ポーンにとっては何よりも不安なもんですぜ","冒険に行く主の背を見送るってのは
+ポーンにとっては何よりも不安なもんですぜ",ui\00_message\pawn\clan\ppo007.gmd,\clankyoten.arc,clankyoten.arc,1
+0,,"うちの覚者様なんですがね――
+ここだけの話、クランで
+上手くやってらっしゃるのか心配でして
+あ、これは内緒ですぜ！","うちの覚者様なんですがね――
+ここだけの話、クランで
+上手くやってらっしゃるのか心配でして
+あ、これは内緒ですぜ！",ui\00_message\pawn\clan\ppo007.gmd,\clankyoten.arc,clankyoten.arc,2
+0,,"冒険へ行くなら、この俺を雇っちゃどうです？
+きっとお役に立ちまさぁ！","冒険へ行くなら、この俺を雇っちゃどうです？
+きっとお役に立ちまさぁ！",ui\00_message\pawn\clan\ppo007.gmd,\clankyoten.arc,clankyoten.arc,3
+0,,"いやぁ、これだけ立派な場所――
+なんだか気恥ずかしくなっちまいます
+俺がここにいて、大丈夫ですかい？
+浮いたりしちゃいねえかな？","いやぁ、これだけ立派な場所――
+なんだか気恥ずかしくなっちまいます
+俺がここにいて、大丈夫ですかい？
+浮いたりしちゃいねえかな？",ui\00_message\pawn\clan\ppo007.gmd,\clankyoten.arc,clankyoten.arc,4
+0,,"はぁい、何かしら？
+うふ――恥ずかしがらずに、
+なんでも言ってちょうだいね","はぁい、何かしら？
+うふ――恥ずかしがらずに、
+なんでも言ってちょうだいね",ui\00_message\pawn\clan\ppo008.gmd,\clankyoten.arc,clankyoten.arc,0
+0,,"今日も冒険へ行くんでしょう？
+怪我しないように、気を付けてね","今日も冒険へ行くんでしょう？
+怪我しないように、気を付けてね",ui\00_message\pawn\clan\ppo008.gmd,\clankyoten.arc,clankyoten.arc,1
+0,,"うふふ、こんにちは
+今日もうちのマスターを、
+どうぞよろしくお願いしますね","うふふ、こんにちは
+今日もうちのマスターを、
+どうぞよろしくお願いしますね",ui\00_message\pawn\clan\ppo008.gmd,\clankyoten.arc,clankyoten.arc,2
+0,,"はぁい、どうしたの？
+あら、もしかして――
+あたしと冒険に行きたいのかしら","はぁい、どうしたの？
+あら、もしかして――
+あたしと冒険に行きたいのかしら",ui\00_message\pawn\clan\ppo008.gmd,\clankyoten.arc,clankyoten.arc,3
+0,,"素敵な方がいっぱいね――
+ふふ、目移りしちゃう","素敵な方がいっぱいね――
+ふふ、目移りしちゃう",ui\00_message\pawn\clan\ppo008.gmd,\clankyoten.arc,clankyoten.arc,4
+0,,は、はい――なにかご用でしょうか？,は、はい――なにかご用でしょうか？,ui\00_message\pawn\clan\ppo002.gmd,\clankyoten.arc,clankyoten.arc,0
+0,,"こ、こんにちは
+えと――お気をつけて、いってらっしゃいませ――","こ、こんにちは
+えと――お気をつけて、いってらっしゃいませ――",ui\00_message\pawn\clan\ppo002.gmd,\clankyoten.arc,clankyoten.arc,1
+0,,"あ、あの――自分の覚者さまと――
+今日も仲よく、してあげてほしい、です","あ、あの――自分の覚者さまと――
+今日も仲よく、してあげてほしい、です",ui\00_message\pawn\clan\ppo002.gmd,\clankyoten.arc,clankyoten.arc,2
+0,,"も、もしサポートポーンに選んでいただけたら？
+――が、頑張ります！","も、もしサポートポーンに選んでいただけたら？
+――が、頑張ります！",ui\00_message\pawn\clan\ppo002.gmd,\clankyoten.arc,clankyoten.arc,3
+0,,"――覚者さま、どこに行ったんだろう
+早くお部屋に帰りたい――","――覚者さま、どこに行ったんだろう
+早くお部屋に帰りたい――",ui\00_message\pawn\clan\ppo002.gmd,\clankyoten.arc,clankyoten.arc,4
+0,,"こんにちは！
+ねぇねぇ、ぼくと冒険行こうよー！","こんにちは！
+ねぇねぇ、ぼくと冒険行こうよー！",ui\00_message\pawn\clan\ppo006.gmd,\clankyoten.arc,clankyoten.arc,0
+0,,"怪我をしてほしくないのは、
+覚者さまもポーンも同じ――
+今日も気をつけて、行ってきてくださいね！","怪我をしてほしくないのは、
+覚者さまもポーンも同じ――
+今日も気をつけて、行ってきてくださいね！",ui\00_message\pawn\clan\ppo006.gmd,\clankyoten.arc,clankyoten.arc,1
+0,,"ぼくとぼくの覚者さまを、
+これからも末永くよろしくおねがいします！","ぼくとぼくの覚者さまを、
+これからも末永くよろしくおねがいします！",ui\00_message\pawn\clan\ppo006.gmd,\clankyoten.arc,clankyoten.arc,2
+0,,"なんですか？　もしかして、ぼくと冒険に行きたい？
+うーん、知らない人について行っちゃダメだしなぁ
+――なんてね！","なんですか？　もしかして、ぼくと冒険に行きたい？
+うーん、知らない人について行っちゃダメだしなぁ
+――なんてね！",ui\00_message\pawn\clan\ppo006.gmd,\clankyoten.arc,clankyoten.arc,3
+0,,"クラン拠点って大きいね！
+いいなぁ、ぼくの覚者さまの部屋も
+これくらいあればなぁ","クラン拠点って大きいね！
+いいなぁ、ぼくの覚者さまの部屋も
+これくらいあればなぁ",ui\00_message\pawn\clan\ppo006.gmd,\clankyoten.arc,clankyoten.arc,4
+0,,"はい、何かご用でしょうか！
+冒険ですか？　クラフトですか？","はい、何かご用でしょうか！
+冒険ですか？　クラフトですか？",ui\00_message\pawn\clan\ppo003.gmd,\clankyoten.arc,clankyoten.arc,0
+0,,"こんにちは！
+本日も冒険ですか？
+でしたらぜひ、この私をお供に！","こんにちは！
+本日も冒険ですか？
+でしたらぜひ、この私をお供に！",ui\00_message\pawn\clan\ppo003.gmd,\clankyoten.arc,clankyoten.arc,1
+0,,"我がマスターは、クランで
+上手くやれているでしょうか？
+ポーンともども、よろしくお願いしますね！","我がマスターは、クランで
+上手くやれているでしょうか？
+ポーンともども、よろしくお願いしますね！",ui\00_message\pawn\clan\ppo003.gmd,\clankyoten.arc,clankyoten.arc,2
+0,,"サポートポーンのご用命なら、
+ぜひともこの私に！
+かならずやご満足いただける結果を
+出して見せますとも！","サポートポーンのご用命なら、
+ぜひともこの私に！
+かならずやご満足いただける結果を
+出して見せますとも！",ui\00_message\pawn\clan\ppo003.gmd,\clankyoten.arc,clankyoten.arc,3
+0,,"この場所は、とてもいい刺激になりますね！
+あぁ――早くトレーニングしたい！","この場所は、とてもいい刺激になりますね！
+あぁ――早くトレーニングしたい！",ui\00_message\pawn\clan\ppo003.gmd,\clankyoten.arc,clankyoten.arc,4
+0,,――何か？,――何か？,ui\00_message\pawn\clan\ppo004.gmd,\clankyoten.arc,clankyoten.arc,0
+0,,クラン拠点内、異常なし,クラン拠点内、異常なし,ui\00_message\pawn\clan\ppo004.gmd,\clankyoten.arc,clankyoten.arc,1
+0,,"我が主のご様子は――
+――無用な心配であった、失礼","我が主のご様子は――
+――無用な心配であった、失礼",ui\00_message\pawn\clan\ppo004.gmd,\clankyoten.arc,clankyoten.arc,2
+0,,"雇用されれば伴をする――
+他の覚者であろうと、それは変わらない","雇用されれば伴をする――
+他の覚者であろうと、それは変わらない",ui\00_message\pawn\clan\ppo004.gmd,\clankyoten.arc,clankyoten.arc,3
+0,,"――クラン拠点内に、
+敵性人物がいないか見張っている","――クラン拠点内に、
+敵性人物がいないか見張っている",ui\00_message\pawn\clan\ppo004.gmd,\clankyoten.arc,clankyoten.arc,4
+0,,"おや、なんでしょう？
+この私を見て、声をかけずには
+いられなかったと――？
+そのお気持ち、理解できますとも","おや、なんでしょう？
+この私を見て、声をかけずには
+いられなかったと――？
+そのお気持ち、理解できますとも",ui\00_message\pawn\clan\ppo005.gmd,\clankyoten.arc,clankyoten.arc,0
+0,,"ごきげんよう、覚者殿
+本日も良き旅を――","ごきげんよう、覚者殿
+本日も良き旅を――",ui\00_message\pawn\clan\ppo005.gmd,\clankyoten.arc,clankyoten.arc,1
+0,,"我が主はいずこへ？
+全く、この私を置いてゆくとは――","我が主はいずこへ？
+全く、この私を置いてゆくとは――",ui\00_message\pawn\clan\ppo005.gmd,\clankyoten.arc,clankyoten.arc,2
+0,,"この世には様々な覚者殿がいらっしゃるのですね
+それぞれに色があり――
+それぞれに美しい","この世には様々な覚者殿がいらっしゃるのですね
+それぞれに色があり――
+それぞれに美しい",ui\00_message\pawn\clan\ppo005.gmd,\clankyoten.arc,clankyoten.arc,3
+0,,"この荘厳な拠点は悪くありませんが――
+ささやかながら居心地の良い主の自室も
+私は好きですよ","この荘厳な拠点は悪くありませんが――
+ささやかながら居心地の良い主の自室も
+私は好きですよ",ui\00_message\pawn\clan\ppo005.gmd,\clankyoten.arc,clankyoten.arc,4
+0,DRAGON_SKILL_INFO_1,"戦闘中、物理攻撃力／魔法攻撃力／物理防御力／魔法防御力が増加する
+<COL ffdc78>LV UP毎にステータスアップ効果がより上昇</COL>","During battle, Physical Attack/Magick Attack/
+Physical Defense/Magick Defense are increased.
+<COL ffdc78>LV UP Further increases the effectiveness.</COL>",ui\00_message\dragon_skill\skill_info.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,0
+1,DRAGON_SKILL_INFO_2,"アバドーンの弱点部位に一定量のダメージを与えると
+大ダメージを与える追撃が発生する
+<COL ffdc78>LV UP毎に追撃のダメージがより増加</COL>","Deal a great amount damage to Abaddon after you inflict
+a certain amount of damage to its weak point.
+<COL ffdc78>LV UP Further increases bonus damage.</COL>",ui\00_message\dragon_skill\skill_info.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,1
+2,DRAGON_SKILL_INFO_3,"バフォメットの弱点部位に一定量のダメージを与えると
+大ダメージを与える追撃が発生する
+<COL ffdc78>LV UP毎に追撃のダメージがより増加</COL>","Deal a great amount damage to Baphomet after you inflict
+a certain amount of damage to its weak point.
+<COL ffdc78>LV UP Further increases bonus damage.</COL>",ui\00_message\dragon_skill\skill_info.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,2
+3,DRAGON_SKILL_INFO_4,"黒騎士の弱点部位に一定量のダメージを与えると
+大ダメージを与える追撃が発生する
+<COL ffdc78>LV UP毎に追撃のダメージがより増加</COL>","Deal a great amount damage to Black Knight after you inflict
+a certain amount of damage to its weak point.
+<COL ffdc78>LV UP Further increases bonus damage.</COL>",ui\00_message\dragon_skill\skill_info.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,3
+4,DRAGON_SKILL_INFO_5,"黒竜の弱点部位、または黒竜により召喚された竜晶に
+一定量のダメージを与えると、大ダメージを与える追撃が発生する
+<COL ffdc78>LV UP毎に追撃のダメージがより増加</COL>","Deal a great amount damage to Black Dragon and the summoned
+Dragon Crystal after you inflict a certain amount of damage
+to them.
+<COL ffdc78>LV UP Further increases bonus damage.</COL>",ui\00_message\dragon_skill\skill_info.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,4
+5,DRAGON_SKILL_INFO_6,"大ダメージを受けるアバドーンの攻撃＜キラーアルベ＞の
+ダメージを軽減する。残り体力が少ない場合は発動しない
+<COL ffdc78>LV UP毎にダメージをさらに軽減</COL>","Reduces damage of fatal attacks from Abaddon. Does not activate
+if your health is low.
+<COL ffdc78>LV UP Further reduces damage.</COL>",ui\00_message\dragon_skill\skill_info.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,5
+6,DRAGON_SKILL_INFO_7,"敵が攻撃を放ったタイミングで、攻撃してきた部位や周囲の
+弱点部位を攻撃すると《精霊竜の反撃アイコン》が増加する
+アイコンが満了になると破壊可能部位へのダメージが大幅に増加する
+<COL ffdc78>LV UP毎にダメージがより増加</COL>","When enemy strikes, attacking the part used by the attack
+will increase the ""Spirit Dragon Counterattack Gauge"".
+When the gauge is full, damage to destructible parts
+is greatly increased.
+<COL ffdc78>LV UP Further increases bonus damage.</COL>",ui\00_message\dragon_skill\skill_info.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,6
+7,DRAGON_SKILL_INFO_8,"闇炎の状態異常にかかった際に回復までの時間を短縮する
+回復までの時間は、付与される毎にやや増減する
+<COL ffdc78>LV UP毎に回復までの時間がさらに短縮</COL>","Shorten the recovery time of Dark Flame debilitation. The time
+needed slightly increases or decreases each time this is triggered.
+<COL ffdc78>LV UP Further shortens the recovery time.</COL>",ui\00_message\dragon_skill\skill_info.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,7
+8,DRAGON_SKILL_INFO_9,"敵の＜魔法攻撃力上昇＞に合わせて
+魔法攻撃のダメージを無効化するバリアを展開する
+バリア展開中は筋力／魔力／疲労攻力／チャンス攻力が増加するが
+魔法攻撃を受けるか時間経過によりバリアの耐久値は減少する
+<COL ffdc78>LV UP毎にステータスアップ効果／バリアの耐久値がより上昇</COL>","Create a barrier to disable the ""Magick Attack Increase"" buff
+from enemy. While inside the barrier, Strength/Magick/
+Chance Attack/Exhaust Attack are increased. The durability of the
+barrier deteriotates over time and magick damage taken.
+<COL ffdc78>LV UP Further increases the stat bonus and duration
+of the barrier.</COL>",ui\00_message\dragon_skill\skill_info.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,8
+9,DRAGON_SKILL_INFO_10,"敵の＜物理攻撃力上昇＞に合わせて
+物理攻撃のダメージを無効化するバリアを展開する
+バリア展開中は筋力／魔力／疲労攻力／チャンス攻力が増加するが
+物理攻撃を受けるか時間経過によりバリアの耐久値は減少する
+<COL ffdc78>LV UP毎にステータスアップ効果／バリアの耐久値がより上昇</COL>","Create a barrier to disable the ""Physical Attack Increase"" buff
+from enemy. While inside the barrier, Strength/Magick/
+Chance Attack/Exhaust Attack are increased. The durability of the
+barrier deteriotates over time and physical damage taken.
+<COL ffdc78>LV UP Further increases the stat bonus and duration
+of the barrier.</COL>",ui\00_message\dragon_skill\skill_info.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,9
+10,DRAGON_SKILL_INFO_11,"敵の＜鎧硬化＞に合わせて
+吹き飛ばし力が増加し、鎧硬化状態を解除しやすくなる
+鎧硬化状態を解除すると、敵が体勢を崩している間
+筋力／魔力／疲労攻力／チャンス攻力が増加する追加効果が発動する
+<COL ffdc78>LV UP毎にステータスアップ効果がより上昇</COL>","Blow power increases in response to ""Armor Harden"" state triggered
+by enemy, making it easier to break through their armor. When the
+enemy is in the staggered state, Strength/Magick/Exhaust Attack/
+Chance Attack increase.
+<COL ffdc78>LV UP Further increases the stat bonus.</COL>",ui\00_message\dragon_skill\skill_info.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,10
+11,DRAGON_SKILL_INFO_12,"ボス撃破時に獲得できる宝箱報酬が増加する
+<COL ffdc78>LV UP毎に報酬がより増加</COL>","Increases the reward from chests after killing the boss.
+<COL ffdc78>LV UP Further increases the reward.</COL>",ui\00_message\dragon_skill\skill_info.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,11
+12,DRAGON_SKILL_INFO_13,"黄金竜の攻撃により、敵の特定の攻撃を中断する
+攻撃を中断すると＜破滅の力＞の蓄積量が減少する
+<COL ffdc78>LV UP毎に破滅の力の減少量がより増加</COL>","The Golden Dragon attacks, trying to interrupt a specific
+attack of the enemy. If the interruption succeeds, the
+""Power of Destruction"" is lowered.
+<COL ffdc78>LV UP Further decreases the Destruction power.</COL>",ui\00_message\dragon_skill\skill_info.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,12
+0,DRAGON_SKILL_NAME_1,竜の加護,Dragon Protection,ui\00_message\dragon_skill\skill_name.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,0
+1,DRAGON_SKILL_NAME_2,ビーストスレイヤー,Beast Slayer,ui\00_message\dragon_skill\skill_name.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,1
+2,DRAGON_SKILL_NAME_3,デーモンスレイヤー,Demon Slayer,ui\00_message\dragon_skill\skill_name.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,2
+3,DRAGON_SKILL_NAME_4,ゴーストスレイヤー,Spirit Slayer,ui\00_message\dragon_skill\skill_name.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,3
+4,DRAGON_SKILL_NAME_5,ドラゴンスレイヤー,Dragon Slayer,ui\00_message\dragon_skill\skill_name.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,4
+5,DRAGON_SKILL_NAME_6,精霊竜の抱擁,Embrace of the Spirit Dragon,ui\00_message\dragon_skill\skill_name.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,5
+6,DRAGON_SKILL_NAME_7,精霊竜の反撃,Counterattack of the Spirit Dragon,ui\00_message\dragon_skill\skill_name.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,6
+7,DRAGON_SKILL_NAME_8,火竜の浄化,Purification of the Fire Dragon,ui\00_message\dragon_skill\skill_name.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,7
+8,DRAGON_SKILL_NAME_9,火竜の魔防壁,Demon Bulwark of the Fire Dragon,ui\00_message\dragon_skill\skill_name.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,8
+9,DRAGON_SKILL_NAME_10,白竜の防壁,Bulwark of the White Dragon,ui\00_message\dragon_skill\skill_name.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,9
+10,DRAGON_SKILL_NAME_11,白竜の刃,Edge of the White Dragon,ui\00_message\dragon_skill\skill_name.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,10
+11,DRAGON_SKILL_NAME_12,竜の祝福,Dragon Blessing,ui\00_message\dragon_skill\skill_name.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,11
+12,DRAGON_SKILL_NAME_13,黄金竜の一撃,Blow of the Golden Dragon,ui\00_message\dragon_skill\skill_name.gmd,\dragon_skill_info.arc,dragon_skill_info.arc,12
+0,EVENT_NAME_st0423ev000,立ちはだかるオーク,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,0
+1,EVENT_NAME_st0423ev005,オーク撃破,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,1
+2,EVENT_NAME_st0201ev000,白竜神殿の人々,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,2
+3,EVENT_NAME_st0201ev005,テル村への使い,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,3
+4,EVENT_NAME_st0100ev010,小競り合い,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,4
+5,EVENT_NAME_st0100ev015,ゲルト登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,5
+6,EVENT_NAME_st0201ev015,戻らない調査団,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,6
+7,EVENT_NAME_st0576ev000,溶命炉の番人,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,7
+8,EVENT_NAME_st0576ev005,調査団の救助,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,8
+9,EVENT_NAME_st0201ev025,アークからの帰還,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,9
+10,EVENT_NAME_st0100ev020,メイリーフの捜索,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,10
+11,EVENT_NAME_st0401ev000,トロール登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,11
+12,EVENT_NAME_st0401ev010,メイリーフの救出,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,12
+13,EVENT_NAME_st0414ev005,キノザの温泉,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,13
+14,EVENT_NAME_st0100ev025,リンウッドの墓,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,14
+15,EVENT_NAME_st0201ev035,グリッテン砦への救援,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,15
+16,EVENT_NAME_st0417ev020,ガルム撃退,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,16
+17,EVENT_NAME_st0201ev040,レオの悩み,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,17
+18,EVENT_NAME_st0403ev000,占拠された古城,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,18
+19,EVENT_NAME_st0403ev010,ベヘモット討伐,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,19
+20,EVENT_NAME_st0100ev030,謎の襲撃者,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,20
+21,EVENT_NAME_st0100ev035,キースヒルトとの再会,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,21
+22,EVENT_NAME_st0201ev045,イリスからの伝言,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,22
+23,EVENT_NAME_st0408ev000,イリスとメイリーフ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,23
+24,EVENT_NAME_st0408ev010,神殿からの脱出,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,24
+25,EVENT_NAME_st0100ev040,キースヒルトの正体,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,25
+26,EVENT_NAME_st0201ev050,神殿に迫るオークの大軍,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,26
+27,EVENT_NAME_st0100ev045,オーク軍登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,27
+28,EVENT_NAME_st0100ev050,ズールの目的,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,28
+29,EVENT_NAME_st0201ev060,命の奪還,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,29
+30,EVENT_NAME_st0402ev000,モゴック登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,30
+31,EVENT_NAME_st0201ev065,キースヒルトの遺志,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,31
+32,EVENT_NAME_st0571ev000,立ち塞がるイリス,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,32
+33,EVENT_NAME_st0571ev005,アーク脱出,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,33
+34,EVENT_NAME_st0100ev060,騎士団の迎え,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,34
+35,EVENT_NAME_st0201ev070,アーク破壊の方策,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,35
+36,EVENT_NAME_st0571ev010,ズールの待ち伏せ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,36
+37,EVENT_NAME_st0571ev020,ズール討伐,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,37
+38,EVENT_NAME_st0201ev075,さらわれた巫女,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,38
+39,EVENT_NAME_st0201ev080,深淵での結末,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,39
+40,EVENT_NAME_st0572ev000,追い詰められるレオ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,40
+41,EVENT_NAME_st0572ev005,レオ逃亡,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,41
+42,EVENT_NAME_st0572ev015,走り去るレオ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,42
+43,EVENT_NAME_st0410ev005,黄金郷の住人,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,43
+44,EVENT_NAME_st0410ev010,テオドールとクラウス,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,44
+45,EVENT_NAME_st0622ev000,封印の鍵,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,45
+46,EVENT_NAME_st0418ev000,巨人兵の撃破,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,46
+47,EVENT_NAME_st0622ev005,テオドールへの報告,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,47
+48,EVENT_NAME_st0201ev090,決戦の地へ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,48
+49,EVENT_NAME_st0418ev005,封印された扉の先へ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,49
+50,EVENT_NAME_st0418ev010,跪くレオ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,50
+51,EVENT_NAME_st0201ev095,白竜よ永遠なれ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,51
+52,EVENT_NAME_st0101ev070,オープニング絵巻　語り：女性,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,52
+53,EVENT_NAME_st0101ev000,オーク戦争,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,53
+54,EVENT_NAME_st0101ev005,アーク落下,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,54
+55,EVENT_NAME_st0201ev010,ポーンとの契約,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,55
+56,EVENT_NAME_st0401ev005,キースヒルトとメイリーフ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,56
+57,EVENT_NAME_st0417ev010,救援部隊の到着,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,57
+58,EVENT_NAME_st0417ev015,モゴックとの対峙,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,58
+59,EVENT_NAME_st0403ev005,命の器の発見,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,59
+60,EVENT_NAME_st0403ev015,満たされる器,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,60
+61,EVENT_NAME_st0201ev020,目覚める白竜,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,61
+62,EVENT_NAME_st0408ev005,奪われた心,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,62
+63,EVENT_NAME_st0404ev000,追い詰められたキースヒルト,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,63
+64,EVENT_NAME_st0404ev005,キースヒルトの死,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,64
+65,EVENT_NAME_st0402ev005,モゴック撃退,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,65
+66,EVENT_NAME_st0100ev055,第二アーク落下,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,66
+67,EVENT_NAME_st0201ev030,錬金術師ディアマンテス絵巻,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,67
+68,EVENT_NAME_st0571ev015,第三アーク落下・前半,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,68
+69,EVENT_NAME_st0411ev000,託された未来,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,69
+70,EVENT_NAME_st0411ev005,すれ違った想い,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,70
+71,EVENT_NAME_st0572ev010,アーク発動,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,71
+72,EVENT_NAME_st0100ev065,メルゴダ復活,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,72
+73,EVENT_NAME_st0410ev000,亡都メルゴダ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,73
+74,EVENT_NAME_st0418ev015,ディアマンテス登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,74
+75,EVENT_NAME_st0418ev020,ホルス登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,75
+76,EVENT_NAME_st0418ev025,ディアマンテスの最期,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,76
+77,EVENT_NAME_st0410ev015,時代の潮流,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,77
+78,EVENT_NAME_st0203ev300,「【循環】船の出港」,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,78
+79,EVENT_NAME_st0405ev300,「【循環】大型砦戦の出撃」,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,79
+80,EVENT_NAME_st0416ev300,「【循環】金竜登場」,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,80
+81,EVENT_NAME_st0101ev010,新人覚者,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,81
+82,EVENT_NAME_st0200ev000,案内人,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,82
+83,EVENT_NAME_st0200ev005,一人前の覚者になるために,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,83
+84,EVENT_NAME_st0200ev010,ミシアルの告白,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,84
+85,EVENT_NAME_st0201ev068,ジョゼフの見解,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,85
+86,EVENT_NAME_st0100ev071,イリスとの別れ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,86
+87,EVENT_NAME_st0201ev073,アーク破壊作戦,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,87
+88,EVENT_NAME_st0418ev030,レオの加勢,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,88
+89,EVENT_NAME_st0733ev000,エンドコンテンツ会話デモ(ファビオ）,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,89
+90,EVENT_NAME_st0419ev000,エンドコンテンツ会話デモ(クラウス）,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,90
+91,EVENT_NAME_st0702ev000,エンドコンテンツ会話デモ(ヴァネッサ）,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,91
+92,EVENT_NAME_st0422ev000,エンドコンテンツ会話デモ（ゴルゴラン登場）,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,92
+93,EVENT_NAME_st0422ev005,エンドコンテンツ会話デモ（ゴルゴラン死亡）,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,93
+94,EVENT_NAME_st0571ev016,第三アーク落下・後半,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,94
+95,EVENT_NAME_st0201ev008,ポーン郷へ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,95
+96,EVENT_NAME_st0201ev011,イリスからの頼みごと,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,96
+97,EVENT_NAME_st0201ev013,ワールドクエスト解放,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,97
+98,EVENT_NAME_st0400ev013,ヴァネッサ登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,98
+99,EVENT_NAME_st0201ev028,クラウスの思い,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,99
+100,EVENT_NAME_st0201ev066,震撼,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,100
+101,EVENT_NAME_st0201ev105,エンドコンテンツ会話デモ（白竜）,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,101
+102,EVENT_NAME_st0416ev000,古の祭祀場でゴルゴラン去る,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,102
+103,EVENT_NAME_st0409ev000,黄金宮でゴルゴラン三度登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,103
+104,EVENT_NAME_st0409ev005,黄金宮でゴルゴラン再び敗れる,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,104
+105,EVENT_NAME_st0424ev000,メルゴダ護政区でズール登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,105
+106,EVENT_NAME_st0424ev005,メルゴダ護政区でズール敗れる,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,106
+107,EVENT_NAME_st0416ev005,古の祭祀場でグランエント登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,107
+108,EVENT_NAME_st0416ev010,古の祭祀場でグランエント敗れる,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,108
+109,EVENT_NAME_st0421ev000,エンドコンテンツ会話デモ(レオとの再会),,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,109
+110,EVENT_NAME_st0201ev003,竜の守護者,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,110
+111,EVENT_NAME_st0100ev100,レスタニアを覆う影,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,111
+112,EVENT_NAME_st0100ev105,謎の娘,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,112
+113,EVENT_NAME_st0110ev000,絶海の孤島,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,113
+114,EVENT_NAME_st0110ev005,侵食魔紹介デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,114
+115,EVENT_NAME_st0110ev010,生きた侵食魔との遭遇,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,115
+116,EVENT_NAME_st0110ev015,黒騎士との遭遇,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,116
+117,EVENT_NAME_st0201ev110,覚者隊の結成,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,117
+118,EVENT_NAME_st0213ev000,記憶を無くした娘,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,118
+119,EVENT_NAME_st0100ev110,女を探すズール,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,119
+120,EVENT_NAME_st0100ev115,黒騎士のポーン,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,120
+121,EVENT_NAME_st0100ev120,記憶の手掛かり,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,121
+122,EVENT_NAME_st0201ev115,白竜との拝謁,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,122
+123,EVENT_NAME_st0100ev125,騎士団と侵食魔,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,123
+124,EVENT_NAME_st0100ev130,レスタニアの覚者,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,124
+125,EVENT_NAME_st0201ev120,道筋,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,125
+126,EVENT_NAME_st0800ev000,記憶の断片,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,126
+127,EVENT_NAME_st0403ev020,追い込まれた魔物,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,127
+128,EVENT_NAME_st0403ev025,レオとの再会,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,128
+129,EVENT_NAME_st0100ev135,ロイグ登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,129
+130,EVENT_NAME_st0100ev140,不吉な警告,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,130
+131,EVENT_NAME_st0201ev125,侵食魔の襲来,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,131
+132,EVENT_NAME_st0201ev130,メルゴダ救援,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,132
+133,EVENT_NAME_st0410ev020,メルゴダを襲う魔物,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,133
+134,EVENT_NAME_st0410ev025,黒騎士の暗躍,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,134
+135,EVENT_NAME_st0201ev135,久しぶりの大勝利,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,135
+136,EVENT_NAME_st0201ev140,魔赤島での異変,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,136
+137,EVENT_NAME_st0110ev020,新たな魔物との遭遇,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,137
+138,EVENT_NAME_st0110ev025,ガルドリンの救出,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,138
+139,EVENT_NAME_st0940ev000,レオのアジトにて魔物と遭遇,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,139
+140,EVENT_NAME_st0940ev005,レオの迎え,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,140
+141,EVENT_NAME_st0213ev005,ロイグの病気,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,141
+142,EVENT_NAME_st0213ev010,ロイグの感謝,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,142
+143,EVENT_NAME_st0201ev145,セシリーの覚悟,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,143
+144,EVENT_NAME_st0112ev000,セシリー討たれる,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,144
+145,EVENT_NAME_st0100ev145,レオの心の内,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,145
+146,EVENT_NAME_st0408ev015,竜力の淀みへ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,146
+147,EVENT_NAME_st0430ev000,白竜の姿をした魔物,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,147
+148,EVENT_NAME_st0430ev005,それぞれの道,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,148
+149,EVENT_NAME_st0213ev015,セシリー目覚める,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,149
+150,EVENT_NAME_st0201ev150,黒騎士との決戦,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,150
+151,EVENT_NAME_st0112ev005,アルタード・ズール出現,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,151
+152,EVENT_NAME_st0112ev010,レオ、散る,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,152
+153,EVENT_NAME_st0201ev155,黒騎士討伐その後・前半,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,153
+154,EVENT_NAME_st0112ev015,黒騎士討伐その後・後半,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,154
+155,EVENT_NAME_st0112ev020,新大陸へ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,155
+156,EVENT_NAME_st0120ev000,フィンダムへ降り立つ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,156
+157,EVENT_NAME_st0121ev000,フィンダムの魔物との遭遇,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,157
+158,EVENT_NAME_st0121ev005,礎を探す,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,158
+159,EVENT_NAME_st0121ev010,礎の発見,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,159
+160,EVENT_NAME_st0120ev005,廃村と化した故郷,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,160
+161,EVENT_NAME_st0120ev010,精霊竜の来襲,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,161
+162,EVENT_NAME_st0120ev015,ダナ村での再会,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,162
+163,EVENT_NAME_st0123ev000,セシリーの故郷,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,163
+164,EVENT_NAME_st0123ev005,セシリーの気持ち,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,164
+165,EVENT_NAME_st0432ev000,瀕死のガラダ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,165
+166,EVENT_NAME_st0914ev000,ガラダを襲った犯人,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,166
+167,EVENT_NAME_st0120ev020,ロイグの復讐,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,167
+168,EVENT_NAME_st0120ev025,ロイグ逃亡,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,168
+169,EVENT_NAME_st0120ev030,フィンダムの未来を託す,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,169
+170,EVENT_NAME_st0120ev035,開門,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,170
+171,EVENT_NAME_st0880ev000,始まりの洞,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,171
+172,EVENT_NAME_st0880ev005,治療のためには,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,172
+173,EVENT_NAME_st0884ev000,樹内の魔物との遭遇,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,173
+174,EVENT_NAME_st0884ev005,精霊竜の咆哮,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,174
+175,EVENT_NAME_st0880ev010,浄化を試みる,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,175
+176,EVENT_NAME_st0122ev000,原始の雫を守る魔物との遭遇,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,176
+177,EVENT_NAME_st0434ev000,原始の雫の入手,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,177
+178,EVENT_NAME_st0880ev015,黒騎士現れる,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,178
+179,EVENT_NAME_st0880ev020,浄化のはじまり,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,179
+180,EVENT_NAME_st0120ev040,間に合わない竜,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,180
+181,EVENT_NAME_st0881ev025,精霊竜との決戦,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,181
+182,EVENT_NAME_st0435ev000,精霊竜ウィルミア,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,182
+183,EVENT_NAME_st0435ev005,消えゆくセシリー,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,183
+184,EVENT_NAME_st0881ev030,精霊竜セシリー,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,184
+185,EVENT_NAME_st0120ev045,未来の予告,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,185
+186,EVENT_NAME_st0120ev017,精霊槍の使い手,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,186
+187,EVENT_NAME_st0201ev103,更なる厄災の兆し(ジョゼフ）,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,187
+188,EVENT_NAME_st0113ev000,EX2.0導入デモ1,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,188
+189,EVENT_NAME_st0201ev160,EX2.0導入デモ2,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,189
+190,EVENT_NAME_st0113ev005,EX2.0スカージ登場開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,190
+191,EVENT_NAME_st0113ev010,EX2.0スカージ討伐デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,191
+192,EVENT_NAME_st0437ev000,GM2.0開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,192
+193,EVENT_NAME_st0437ev005,GM2.0カースドラゴン討伐デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,193
+194,EVENT_NAME_st0100ev150,EX2.1導入デモ1,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,194
+195,EVENT_NAME_st0201ev165,EX2.1導入デモ2,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,195
+196,EVENT_NAME_st0431ev000,EX2.1淀みし大竜力登場開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,196
+197,EVENT_NAME_st0431ev005,EX2.1淀みし大竜力討伐デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,197
+198,EVENT_NAME_st0114ev010,GM2.1開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,198
+199,EVENT_NAME_st0114ev005,GM2.1アルタード・ズール討伐デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,199
+200,EVENT_NAME_st0438ev000,EX1.1タイムアタックデモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,200
+201,EVENT_NAME_st0122ev005,原始の雫を守る魔物を討伐,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,201
+202,EVENT_NAME_st0200ev015,１ｓｔシーズン振り返り,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,202
+203,EVENT_NAME_st0114ev000,GM2.1開始デモ8人揃いスタート,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,203
+204,EVENT_NAME_st0124ev000,EX2.2導入デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,204
+205,EVENT_NAME_st0124ev005,EX2.2アドタラスク登場開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,205
+206,EVENT_NAME_st0124ev010,EX2.2アドタラスク討伐デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,206
+207,EVENT_NAME_st0433ev000,GM2.2開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,207
+208,EVENT_NAME_st0888ev000,EX2.3導入デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,208
+209,EVENT_NAME_st0889ev000,EX2.3黒騎士登場デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,209
+210,EVENT_NAME_st0889ev005,EX2.3黒騎士討伐デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,210
+211,EVENT_NAME_st0436ev000,GM2.3精霊竜ウィルミア開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,211
+212,EVENT_NAME_st0436ev005,GM2.3精霊竜ウィルミア討伐デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,212
+213,EVENT_NAME_st0201ev157,ゲート開通,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,213
+214,EVENT_NAME_st0813ev000,モローへの小路にて魔物と遭遇,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,214
+215,EVENT_NAME_st0813ev005,モローへの小路にて魔物を撃破,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,215
+216,EVENT_NAME_st0201ev170,精霊の地へ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,216
+217,EVENT_NAME_st0890ev000,EX2.3メガダンジョン攻略開始,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,217
+218,EVENT_NAME_st0201ev175,村を荒らせし盗賊,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,218
+219,EVENT_NAME_st0517ev000,隊長の右腕は誰か？,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,219
+220,EVENT_NAME_st0511ev000,財宝を奪いし者,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,220
+221,EVENT_NAME_st0511ev005,見つかった財宝,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,221
+222,EVENT_NAME_st0201ev180,エリオットの気持ち,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,222
+223,EVENT_NAME_st0213ev020,鳥の報せ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,223
+224,EVENT_NAME_st0404ev010,モゴックの計画,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,224
+225,EVENT_NAME_st0404ev015,メイリーフの守り手,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,225
+226,EVENT_NAME_st0201ev185,クラウスとジョゼフ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,226
+227,EVENT_NAME_st0914ev005,採取した植物を調べる,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,227
+228,EVENT_NAME_st0201ev190,ジョゼフの薬,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,228
+229,EVENT_NAME_st0400ev020,残されたメモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,229
+230,EVENT_NAME_st0100ev155,レオの残せし物,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,230
+231,EVENT_NAME_st0200ev020,燃える神殿・前半,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,231
+232,EVENT_NAME_st0201ev195,燃える神殿・後半,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,232
+233,EVENT_NAME_st0130ev000,戦場の只中へ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,233
+234,EVENT_NAME_st0130ev005,ジリアンとの出遭い,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,234
+235,EVENT_NAME_st0130ev010,絶望の大地,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,235
+236,EVENT_NAME_st0130ev015,捕虜奪還,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,236
+237,EVENT_NAME_st0130ev020,探し人,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,237
+238,EVENT_NAME_st0130ev025,襲われた村,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,238
+239,EVENT_NAME_st0130ev030,老将軍メイロワ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,239
+240,EVENT_NAME_st0440ev000,敵の将登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,240
+241,EVENT_NAME_st0440ev005,ティネス砦奪還,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,241
+242,EVENT_NAME_st0131ev000,閉ざされた門,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,242
+243,EVENT_NAME_st1001ev000,湖畔の洞窟の盗賊アジト,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,243
+244,EVENT_NAME_st0441ev000,獣の将登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,244
+245,EVENT_NAME_st0441ev005,王子との再会,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,245
+246,EVENT_NAME_st0201ev200,新たな局面,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,246
+247,EVENT_NAME_st0131ev005,王子は覚者か？,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,247
+248,EVENT_NAME_st1021ev000,王家の秘蹟,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,248
+249,EVENT_NAME_st0631ev000,内密話し,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,249
+250,EVENT_NAME_st0444ev000,狙われるネド,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,250
+251,EVENT_NAME_st0444ev005,ジリアンの報告,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,251
+252,EVENT_NAME_st0132ev000,魔軍への奇襲,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,252
+253,EVENT_NAME_st0132ev005,悪しき竜との対峙,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,253
+254,EVENT_NAME_st0443ev000,ティネス砦での会合,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,254
+255,EVENT_NAME_st0132ev010,ジリアンを残す,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,255
+256,EVENT_NAME_st1091ev000,秘密の扉,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,256
+257,EVENT_NAME_st0443ev005,駐留軍動く,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,257
+258,EVENT_NAME_st0450ev000,骸の将登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,258
+259,EVENT_NAME_st0450ev005,骸の将を倒す,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,259
+260,EVENT_NAME_st0201ev205,王都メガド奪回へ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,260
+261,EVENT_NAME_st0451ev000,使役獣,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,261
+262,EVENT_NAME_st0133ev000,北の大地を望む,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,262
+263,EVENT_NAME_st0133ev005,メガド守護兵との再会,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,263
+264,EVENT_NAME_st0451ev005,メガド侵攻の作戦会議,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,264
+265,EVENT_NAME_st0460ev000,姦計,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,265
+266,EVENT_NAME_st0201ev210,白竜神殿の死闘,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,266
+267,EVENT_NAME_st0201ev215,白竜の救済,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,267
+268,EVENT_NAME_st0430ev010,いない擬竜,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,268
+269,EVENT_NAME_st0213ev025,衰弱する覚者たち,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,269
+270,EVENT_NAME_st0881ev035,精霊竜の目覚め,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,270
+271,EVENT_NAME_st0451ev010,襲われる展望城,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,271
+272,EVENT_NAME_st0468ev005,攻防戦の勝利,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,272
+273,EVENT_NAME_st0460ev005,王都の決戦,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,273
+274,EVENT_NAME_st0464ev000,メガド王宮層にて黒騎士登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,274
+275,EVENT_NAME_st0464ev005,黒騎士を追い闇の中へ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,275
+276,EVENT_NAME_st0467ev000,黒騎士を打ち破る,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,276
+277,EVENT_NAME_st0464ev010,闇からの帰還,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,277
+278,EVENT_NAME_st0201ev220,白竜に剣を捧げる,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,278
+279,EVENT_NAME_st0201ev225,リズからの言伝,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,279
+280,EVENT_NAME_st0465ev000,秘策,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,280
+281,EVENT_NAME_st0134ev002,王家の墓,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,281
+282,EVENT_NAME_st1102ev000,王子の決意,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,282
+283,EVENT_NAME_st0134ev005,立ち塞がる恐ろしい魔物,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,283
+284,EVENT_NAME_st0134ev010,仲間との絆,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,284
+285,EVENT_NAME_st0451ev020,それぞれの想い,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,285
+286,EVENT_NAME_st1103ev000,望みの果て,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,286
+287,EVENT_NAME_st1103ev005,事の顛末,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,287
+288,EVENT_NAME_st0201ev230,竜を継ぐ者,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,288
+289,EVENT_NAME_st0470ev000,闇の中で,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,289
+290,EVENT_NAME_st0451ev017,姿を消した王子,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,290
+291,EVENT_NAME_st0131ev010,EX3.0導入デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,291
+292,EVENT_NAME_st0136ev000,EX3.0限界域開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,292
+293,EVENT_NAME_st0136ev005,EX3.0限界域カトブレパス討伐デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,293
+294,EVENT_NAME_st0445ev000,GM3.0開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,294
+295,EVENT_NAME_st1063ev000,EX3.1導入デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,295
+296,EVENT_NAME_st1063ev005,EX3.1限界域開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,296
+297,EVENT_NAME_st1063ev010,EX3.1限界域イービルアイ討伐デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,297
+298,EVENT_NAME_st0442ev000,GM3.1開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,298
+299,EVENT_NAME_st0138ev000,EX3.2導入デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,299
+300,EVENT_NAME_st0138ev005,EX3.2限界域開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,300
+301,EVENT_NAME_st0138ev010,EX3.2限界域イフリート討伐デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,301
+302,EVENT_NAME_st0135ev000,WM3.2開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,302
+303,EVENT_NAME_st1100ev000,EX3.3導入デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,303
+304,EVENT_NAME_st1104ev000,WM3.3開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,304
+305,EVENT_NAME_st1104ev005,WM3.3悪しき竜討伐デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,305
+306,EVENT_NAME_st0200ev025,２ｎｄシーズン振り返り,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,306
+307,EVENT_NAME_st0130ev022,迫る魔軍戦車,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,307
+308,EVENT_NAME_st0445ev005,GM3.0獣の将討伐デモ外,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,308
+309,EVENT_NAME_st0445ev010,GM3.0獣の将討伐デモ内,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,309
+310,EVENT_NAME_st0442ev005,GM3.1骸の将討伐デモ外,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,310
+311,EVENT_NAME_st0442ev010,GM3.1骸の将討伐デモ内,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,311
+312,EVENT_NAME_st0468ev000,戦の将登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,312
+313,EVENT_NAME_st0448ev000,キャリーの回想,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,313
+314,EVENT_NAME_st0472ev000,尋問１,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,314
+315,EVENT_NAME_st0140ev000,WM3.2闇の将討伐デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,315
+316,EVENT_NAME_st2000ev000,黒呪島導入デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,316
+317,EVENT_NAME_st0472ev005,尋問2,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,317
+318,EVENT_NAME_st0473ev000,暗部との対峙,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,318
+319,EVENT_NAME_st3000ev000,水竜大陸,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,319
+320,EVENT_NAME_st0201ev240,大陸の異変,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,320
+321,EVENT_NAME_st3111ev000,ゲートの門番,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,321
+322,EVENT_NAME_st3111ev005,レオとの再会,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,322
+323,EVENT_NAME_st3111ev010,黒騎士とレオ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,323
+324,EVENT_NAME_st0451ev025,アッカーシェランの異変,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,324
+325,EVENT_NAME_st3212ev000,数多の覚者,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,325
+326,EVENT_NAME_st3300ev000,闇の世界,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,326
+327,EVENT_NAME_st3300ev005,黒騎士の最期,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,327
+328,EVENT_NAME_st3411ev000,ミシアルの登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,328
+329,EVENT_NAME_st3500ev000,レオの覚悟,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,329
+330,EVENT_NAME_st3500ev005,レオとの別れ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,330
+331,EVENT_NAME_st3400ev000,黒竜の登場,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,331
+332,EVENT_NAME_st3400ev005,黒竜の最期,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,332
+333,EVENT_NAME_st0201ev245,未来への歩み・前半,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,333
+334,EVENT_NAME_st0100ev160,新たな時代の幕開け,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,334
+335,EVENT_NAME_st0120ev050,滅びの渦,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,335
+336,EVENT_NAME_st0134ev001,追いし者たち,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,336
+337,EVENT_NAME_st0200ev030,未来への歩み・後半,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,337
+338,EVENT_NAME_st3100ev000,EX3.4アバドーン開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,338
+339,EVENT_NAME_st3100ev005,EX3.4アバドーン討伐デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,339
+340,EVENT_NAME_st3200ev000,EX3.4バフォメット開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,340
+341,EVENT_NAME_st3200ev005,EX3.4バフォメット討伐デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,341
+342,EVENT_NAME_st3300ev010,EX3.4黒騎士開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,342
+343,EVENT_NAME_st3300ev015,EX3.4黒騎士討伐デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,343
+344,EVENT_NAME_st3400ev010,EX3.4黒竜４人開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,344
+345,EVENT_NAME_st3400ev015,EX3.4限界域黒竜８人開始デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,345
+346,EVENT_NAME_st3400ev020,EX3.4黒竜４人、８人共通討伐デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,346
+347,EVENT_NAME_st0201ev250,EX3.4限界域黒竜８人導入デモ,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,347
+348,EVENT_NAME_st1103ev010,WM3.3開始デモ４人,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,348
+349,EVENT_NAME_st0201ev100,１ｓｔシーズンスタッフロール,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,349
+350,EVENT_NAME_st0201ev172,２ｎｄシーズンスタッフロール,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,350
+351,EVENT_NAME_st0201ev235,３ｒｄシーズンスタッフロール,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,351
+352,EVENT_NAME_st0101ev071,オープニング絵巻　語り：男性,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,352
+353,EVENT_NAME_st3600ev000,EX3.5-SP1,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,353
+354,EVENT_NAME_st3602ev000,EX3.5-SP2,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,354
+355,EVENT_NAME_st3601ev000,EX3.5-SP3,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,355
+356,EVENT_NAME_st0408ev090,禊の神殿,,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,356
+0,EVENT_CATEGORY_NAME_1,プロローグ,,ui\00_message\event\event_category_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,0
+1,EVENT_CATEGORY_NAME_2,バージョン1.0,,ui\00_message\event\event_category_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,1
+2,EVENT_CATEGORY_NAME_3,バージョン1.1,,ui\00_message\event\event_category_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,2
+3,EVENT_CATEGORY_NAME_4,バージョン1.2,,ui\00_message\event\event_category_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,3
+4,EVENT_CATEGORY_NAME_6,バージョン2.0,,ui\00_message\event\event_category_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,4
+5,EVENT_CATEGORY_NAME_7,バージョン2.1,,ui\00_message\event\event_category_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,5
+6,EVENT_CATEGORY_NAME_8,バージョン2.2,,ui\00_message\event\event_category_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,6
+7,EVENT_CATEGORY_NAME_9,バージョン2.3,,ui\00_message\event\event_category_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,7
+8,EVENT_CATEGORY_NAME_10,バージョン3.0,,ui\00_message\event\event_category_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,8
+9,EVENT_CATEGORY_NAME_11,バージョン3.1,,ui\00_message\event\event_category_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,9
+10,EVENT_CATEGORY_NAME_12,バージョン3.2,,ui\00_message\event\event_category_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,10
+11,EVENT_CATEGORY_NAME_13,バージョン3.3,,ui\00_message\event\event_category_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,11
+12,EVENT_CATEGORY_NAME_14,バージョン3.4,,ui\00_message\event\event_category_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,12
+0,,ご機嫌麗しゅう。誉れ高き覚者殿,ご機嫌麗しゅう。誉れ高き覚者殿,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,0
+0,,この冒険の鍵を握るのは、貴方かも知れません,この冒険の鍵を握るのは、貴方かも知れません,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,1
+0,,ご一緒できるとは無上の喜び――,ご一緒できるとは無上の喜び――,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,2
+0,,あぁ、素晴らしい冒険の予感がいたします,あぁ、素晴らしい冒険の予感がいたします,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,3
+0,,ご活躍に花を添えてご覧にいれましょう,ご活躍に花を添えてご覧にいれましょう,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,4
+0,,この出会いに乾杯！,この出会いに乾杯！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,5
+0,,おや？　どなたかおいでのようですね,おや？　どなたかおいでのようですね,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,6
+0,,ふ、当然の結果でしょう,ふ、当然の結果でしょう,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,7
+0,,この達成感、素晴らしい！,この達成感、素晴らしい！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,8
+0,,語り継ぐにふさわしいご活躍です,語り継ぐにふさわしいご活躍です,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,9
+0,,残念。またの機会に――,残念。またの機会に――,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,10
+0,,ふ。また強くなってしまったのか,ふ。また強くなってしまったのか,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,11
+0,,私に限界を教えてほしい！,私に限界を教えてほしい！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,12
+0,,あぁ！　磨いた力を披露したい！,あぁ！　磨いた力を披露したい！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,13
+0,,ふふ。どんな英雄譚も小さな一歩から,ふふ。どんな英雄譚も小さな一歩から,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,14
+0,,もちろん、どこまでもお伴しますよ,もちろん、どこまでもお伴しますよ,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,15
+0,,敵のお出ましですか,敵のお出ましですか,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,16
+0,,おっと、何かいますね,おっと、何かいますね,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,17
+0,,あれは敵の影――ふふ！,あれは敵の影――ふふ！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,18
+0,,嫌いではない。強敵と相対する高揚感――！,嫌いではない。強敵と相対する高揚感――！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,19
+0,,逃げるか、立ち向かうか。実に悩ましい――,逃げるか、立ち向かうか。実に悩ましい――,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,20
+0,,あなたに感謝を！,あなたに感謝を！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,21
+0,,なっ！？　しまった！,なっ！？　しまった！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,22
+0,,助けを――求めるなど――,助けを――求めるなど――,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,23
+0,,ここまでか――不本意だ――！,ここまでか――不本意だ――！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,24
+0,,私と――したことが――！,私と――したことが――！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,25
+0,,血を見たくはないのですが,血を見たくはないのですが,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,26
+0,,軽くあしらってやりましょう,軽くあしらってやりましょう,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,27
+0,,なかなか絵になる戦いでした,なかなか絵になる戦いでした,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,28
+0,,ふふ！　お役に立てたなら何より,ふふ！　お役に立てたなら何より,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,29
+0,,勝利の美酒を、竜と貴方に,勝利の美酒を、竜と貴方に,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,30
+0,,さぁ、こちらへ。今ですよ！,さぁ、こちらへ。今ですよ！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,31
+0,,少々傷を負ってしまいましたね,少々傷を負ってしまいましたね,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,32
+0,,厳しいわけではありません。まだ――,厳しいわけではありません。まだ――,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,33
+0,,くっ――私の体に傷が――！,くっ――私の体に傷が――！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,34
+0,,人目を気にしている場合ではないか――,人目を気にしている場合ではないか――,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,35
+0,,この状況、どうにかしなければ！,この状況、どうにかしなければ！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,36
+0,,そんな！　ど、どうして――！！,そんな！　ど、どうして――！！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,37
+0,,さぁ！　受けてみるがいい,さぁ！　受けてみるがいい,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,38
+0,,これで元通りですよ！,これで元通りですよ！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,39
+0,,ふ！　ここは私の出番ですね！,ふ！　ここは私の出番ですね！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,40
+0,,戦いやすくいたしましょう！,戦いやすくいたしましょう！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,41
+0,,届きませんね！,届きませんね！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,42
+0,,ふふっ！,ふふっ！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,43
+0,,これはどうです！,これはどうです！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,44
+0,,踊りなさい！,踊りなさい！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,45
+0,,高く飛ばして差し上げましょう！,高く飛ばして差し上げましょう！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,46
+0,,従いますよ,従いますよ,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,47
+0,,ええ、解っていますとも,ええ、解っていますとも,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,48
+0,,おっと、それはできませんね,おっと、それはできませんね,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,49
+0,,次なる冒険譚のご準備ですか？,次なる冒険譚のご準備ですか？,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,50
+0,,おや、覚者殿、出発でしょうか？,おや、覚者殿、出発でしょうか？,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,51
+0,,覚者殿、ご用があれば何なりと,覚者殿、ご用があれば何なりと,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,52
+0,,覚者殿にも、そして私にも、休息は必要です,覚者殿にも、そして私にも、休息は必要です,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,53
+0,,疲れも溜まっているでしょう、ゆっくりとお休みなさいませ,疲れも溜まっているでしょう、ゆっくりとお休みなさいませ,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,54
+0,,良き夢を、覚者殿,良き夢を、覚者殿,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,55
+0,,こうして住環境にこだわってみるのも良いですね,こうして住環境にこだわってみるのも良いですね,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,56
+0,,ううーん、模様替え、素晴らしいセンスですね,ううーん、模様替え、素晴らしいセンスですね,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,57
+0,,覚者殿、エリア探索より舞い戻りました,覚者殿、エリア探索より舞い戻りました,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,58
+0,,今回のエリア探索――我が才能が恐ろしい！,今回のエリア探索――我が才能が恐ろしい！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,59
+0,,ほう――実に興味深い――,ほう――実に興味深い――,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,60
+0,,覚者殿、お庭に小さなお客様がいらしてます,覚者殿、お庭に小さなお客様がいらしてます,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,61
+0,,料理まで完璧とは――我が才能が恐ろしい！,料理まで完璧とは――我が才能が恐ろしい！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,62
+0,,これはもしや、わざわざ私のために――？,これはもしや、わざわざ私のために――？,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,63
+0,,"ご期待に添う――
+いえ、それ以上の成果をお約束しましょう","ご期待に添う――
+いえ、それ以上の成果をお約束しましょう",ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,64
+0,,このスキルで、より鮮やかな戦いを,このスキルで、より鮮やかな戦いを,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,65
+0,,なるほど、このスキルで大活躍すれば良いのですね,なるほど、このスキルで大活躍すれば良いのですね,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,66
+0,,休息も戦う者の務め、いまは英気を養いましょう,休息も戦う者の務め、いまは英気を養いましょう,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,67
+0,,私の出番でしょうか？ 本日はどちらの舞台に？,私の出番でしょうか？ 本日はどちらの舞台に？,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,68
+0,,はい、どうしました？,はい、どうしました？,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,69
+0,,えっ、私の美しさについてですか？,えっ、私の美しさについてですか？,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,70
+0,,私の才能の全ては、いつも貴方様のために――,私の才能の全ては、いつも貴方様のために――,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,71
+0,,この前クラフトのアシスタントで我が才を披露してきました,この前クラフトのアシスタントで我が才を披露してきました,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,72
+0,,この間、別の覚者様との冒険で我ながら中々の働きをしましたよ,この間、別の覚者様との冒険で我ながら中々の働きをしましたよ,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,73
+0,,先日、別の覚者様がこの装備を褒めていらっしゃいました、ふふふ,先日、別の覚者様がこの装備を褒めていらっしゃいました、ふふふ,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,74
+0,,覚者殿、今日は私から戦技のご提案を致しましょう,覚者殿、今日は私から戦技のご提案を致しましょう,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,75
+0,,"覚者殿、貴方様にお仕えしてきたおかげで
+私の意思疎通力が上がりました！","覚者殿、貴方様にお仕えしてきたおかげで
+私の意思疎通力が上がりました！",ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,76
+0,,覚者殿、今日は私から髪型のご提案があります！,覚者殿、今日は私から髪型のご提案があります！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,77
+0,,"新しい家財を入手されたのですね！
+これぞ覚者殿の誉にふさわしい！","新しい家財を入手されたのですね！
+これぞ覚者殿の誉にふさわしい！",ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,78
+0,,貴方様のお戻りで、やっと人心地着くというもの,貴方様のお戻りで、やっと人心地着くというもの,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,79
+0,,無事のご帰還、何よりです,無事のご帰還、何よりです,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,80
+0,,お戻りになるのを、今か今かとお待ちしていたのです！,お戻りになるのを、今か今かとお待ちしていたのです！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,81
+0,,お疲れ様でした、少し休まれては？,お疲れ様でした、少し休まれては？,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,82
+0,,ここへ帰ってくる瞬間も楽しみの一つです,ここへ帰ってくる瞬間も楽しみの一つです,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,83
+0,,ふぅ、小休憩といたしましょう,ふぅ、小休憩といたしましょう,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,84
+0,,ここは正にオアシス、といったところですね,ここは正にオアシス、といったところですね,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,85
+0,,"クエストボードの確認はしましたか？
+貴方様の名を上げるチャンスです","クエストボードの確認はしましたか？
+貴方様の名を上げるチャンスです",ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,86
+0,,おっと、そちらに伺いましょう,おっと、そちらに伺いましょう,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,87
+0,,慌てずにお待ちを,慌てずにお待ちを,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,88
+0,,さ、大丈夫ですよ,さ、大丈夫ですよ,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,89
+0,,お気をつけて覚者殿,お気をつけて覚者殿,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,90
+0,,怒っていますね、見苦しいことです,怒っていますね、見苦しいことです,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,91
+0,,ずいぶんと興奮していますね、ご注意を覚者殿,ずいぶんと興奮していますね、ご注意を覚者殿,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,92
+0,,おや、先ほどの威勢はどこへやら,おや、先ほどの威勢はどこへやら,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,93
+0,,もうダウンですか？ さあ攻撃に移りましょう！,もうダウンですか？ さあ攻撃に移りましょう！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,94
+0,,しょうがない、揺さぶって差し上げましょう！,しょうがない、揺さぶって差し上げましょう！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,95
+0,,弱点、見抜けないとでも？,弱点、見抜けないとでも？,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,96
+0,,弱点を叩かれても我慢できるかな？,弱点を叩かれても我慢できるかな？,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,97
+0,,私が支援しましょう、この技で！,私が支援しましょう、この技で！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,98
+0,,敵の状態を変えてやりましょう、この技で！,敵の状態を変えてやりましょう、この技で！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,99
+0,,お待たせしました、属性を付与します！,お待たせしました、属性を付与します！,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,100
+0,,力を乗せたこの攻撃、我慢できるといいですが,力を乗せたこの攻撃、我慢できるといいですが,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,101
+0,,ふははは、この技を受け、せめて美しく散るといい,ふははは、この技を受け、せめて美しく散るといい,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,102
+0,,<COL B6FF01>《特技》限界を超えし力、お見せしましょう！</COL>,<COL B6FF01>[Special Skill] 限界を超えし力、お見せしましょう！</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,103
+0,,<COL B6FF01>《特技》全力を出してあげましょう――いきますよ！</COL>,<COL B6FF01>[Special Skill] 全力を出してあげましょう――いきますよ！</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,104
+0,,<COL B6FF01>《特技》さあ――これで終わりにしましょうか</COL>,<COL B6FF01>[Special Skill] さあ――これで終わりにしましょうか</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,105
+0,,<COL B6FF01>《剛化》この攻撃、その身に焼き付けるといい！</COL>,<COL B6FF01>[Harden] この攻撃、その身に焼き付けるといい！</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,106
+0,,<COL B6FF01>《剛化》己の無力さを知るといい！</COL>,<COL B6FF01>[Harden] 己の無力さを知るといい！</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,107
+0,,<COL B6FF01>《重化》あなたは地面を舐めていなさい！</COL>,<COL B6FF01>[Heavy] あなたは地面を舐めていなさい！</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,108
+0,,<COL B6FF01>《重化》いつまで立っていられますかね？</COL>,<COL B6FF01>[Heavy] いつまで立っていられますかね？</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,109
+0,,<COL B6FF01>《癒活》私たちの戦いに癒しの加護を！</COL>,<COL B6FF01>[Restoration] 私たちの戦いに癒しの加護を！</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,110
+0,,<COL B6FF01>《癒活》苦しさを越える喜び――私にお任せを！</COL>,<COL B6FF01>[Restoration] 苦しさを越える喜び――私にお任せを！</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,111
+0,,<COL B6FF01>《柔化》今から、あなたの能力を――下げます！</COL>,<COL B6FF01>[Weaken] 今から、あなたの能力を――下げます！</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,112
+0,,<COL B6FF01>《柔化》そこの敵から、弱らせてみましょうか</COL>,<COL B6FF01>[Weaken] そこの敵から、弱らせてみましょうか</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,113
+0,,<COL B6FF01>《集中》大いなる力よ、我らに勝利を</COL>,<COL B6FF01>[Concentration] 大いなる力よ、我らに勝利を</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,114
+0,,<COL B6FF01>《集中》詠唱に集中するので、邪魔なさらぬように</COL>,<COL B6FF01>[Concentration] 詠唱に集中するので、邪魔なさらぬように</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,115
+0,,<COL B6FF01>《無恐》つまらない攻め方では、まるで効きませんよ</COL>,<COL B6FF01>[Fearless] つまらない攻め方では、まるで効きませんよ</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,116
+0,,<COL B6FF01>《無恐》さぁ、傷をつけてみることですね――可能ならですが</COL>,<COL B6FF01>[Fearless] さぁ、傷をつけてみることですね――可能ならですが</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,117
+0,,<COL B6FF01>《集視》勇猛なる私の背を、しかとその目に！</COL>,<COL B6FF01>[Attraction] 勇猛なる私の背を、しかとその目に！</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,118
+0,,"<COL B6FF01>《集視》いいでしょう、
+しばらくはおとり役をこなしますよ</COL>","<COL B6FF01>《集視》いいでしょう、
+しばらくはおとり役をこなしますよ</COL>",ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,119
+0,,<COL B6FF01>《守護》守りは完璧です、怒涛の攻撃を！</COL>,<COL B6FF01>[Protection] 守りは完璧です、怒涛の攻撃を！</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,120
+0,,<COL B6FF01>《守護》敵の攻撃に打ち勝つ守りを！</COL>,<COL B6FF01>[Protection] 敵の攻撃に打ち勝つ守りを！</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,121
+0,,<COL B6FF01>《蘇生》覚者殿、貴方をお守りするのはこの私</COL>,<COL B6FF01>[Resurrection] 覚者殿、貴方をお守りするのはこの私</COL>,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,122
+0,,"新しい特技が降ってきました
+閃きというものですね","新しい特技が降ってきました
+閃きというものですね",ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,123
+0,,雇われし仲間の特技、私も身に付けましたよ,雇われし仲間の特技、私も身に付けましたよ,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,124
+0,,"おや、
+この辺りにジョブ修練敵がいるようですね","おや、
+この辺りにジョブ修練敵がいるようですね",ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,125
+0,,すぐそこに修練敵がいますよ,すぐそこに修練敵がいますよ,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,126
+0,,"修練達成ですか、ジョブマスターに
+報告に行かねばなりませんね","修練達成ですか、ジョブマスターに
+報告に行かねばなりませんね",ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,127
+0,,"この感じは――貴重な宝、私の読みに
+間違いはありません","この感じは――貴重な宝、私の読みに
+間違いはありません",ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,128
+0,,この付近、探せば希少な宝があるでしょう,この付近、探せば希少な宝があるでしょう,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,129
+0,,"覚者殿も感じてらっしゃるでしょう
+この辺り、何かありますね","覚者殿も感じてらっしゃるでしょう
+この辺り、何かありますね",ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,130
+0,,匂いますね――少し辺りを調べてみては？,匂いますね――少し辺りを調べてみては？,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,131
+0,,ご覧ください、珍しき敵がいますよ,ご覧ください、珍しき敵がいますよ,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,132
+0,,"これはこれは、
+珍しい敵が出迎えてくれましたね","これはこれは、
+珍しい敵が出迎えてくれましたね",ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,133
+0,,これは？　私が預かっておきましょう,これは？　私が預かっておきましょう,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,134
+0,,"聡明なる我が主殿、
+戦術育成にて教えを請いたいですね","聡明なる我が主殿、
+戦術育成にて教えを請いたいですね",ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,135
+0,,これはこれは、お噂はかねがね――,これはこれは、お噂はかねがね――,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,136
+0,,我が主と親しきお方、歓迎いたしますとも,我が主と親しきお方、歓迎いたしますとも,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,137
+0,,もちろんです,もちろんです,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,138
+0,,そういたしましょう,そういたしましょう,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,139
+0,,回復いたしましょう,回復いたしましょう,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,140
+0,,甘い甘い――,甘い甘い――,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,141
+0,,当たるとでも？,当たるとでも？,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,142
+0,,炎がお嫌いなようで,炎がお嫌いなようで,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,143
+0,,氷がお嫌いなようで,氷がお嫌いなようで,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,144
+0,,雷がお嫌いなようで,雷がお嫌いなようで,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,145
+0,,聖がお嫌いなようで,聖がお嫌いなようで,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,146
+0,,闇がお嫌いなようで,闇がお嫌いなようで,ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,147
+0,,"不気味な島にあっても、
+主従の輝きは変わりません","不気味な島にあっても、
+主従の輝きは変わりません",ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,148
+0,,"覚者殿のお望みのものを
+探しにまいりましょう","覚者殿のお望みのものを
+探しにまいりましょう",ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,149
+0,,"覚者殿、私の能力をより完全なものと
+するために、今日は特別なお願いがあります","覚者殿、私の能力をより完全なものと
+するために、今日は特別なお願いがあります",ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,150
+0,,"覚者殿、お喜びください
+あなたのための私の力が、
+完全なものとなりました","覚者殿、お喜びください
+あなたのための私の力が、
+完全なものとなりました",ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,151
+0,,"さあ覚者殿、冒険へ出ようではありませんか
+この手にも力がみなぎっています","さあ覚者殿、冒険へ出ようではありませんか
+この手にも力がみなぎっています",ui\00_message\pw\pwtlk05.gmd,\game_common.arc,game_common.arc,152
+0,,協力し、ともに使命達成を,協力し、ともに使命達成を,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,0
+0,,よろしくお願い申し上げる,よろしくお願い申し上げる,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,1
+0,,同行の覚者よ、あなたに忠義を尽くそう,同行の覚者よ、あなたに忠義を尽くそう,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,2
+0,,信頼に足る方とお見受けした,信頼に足る方とお見受けした,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,3
+0,,任務成功に向け、最善を尽くす所存,任務成功に向け、最善を尽くす所存,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,4
+0,,良き連携のために、最大限努力しよう,良き連携のために、最大限努力しよう,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,5
+0,,我が主、同士の存在を確認,我が主、同士の存在を確認,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,6
+0,,任務終了,任務終了,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,7
+0,,ほぼ計算通り,ほぼ計算通り,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,8
+0,,この成功は必然,この成功は必然,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,9
+0,,――これは、想定外の結果,――これは、想定外の結果,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,10
+0,,基本能力、上昇,基本能力、上昇,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,11
+0,,より高度な戦闘力を獲得！,より高度な戦闘力を獲得！,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,12
+0,,この力、全て我が主の為に,この力、全て我が主の為に,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,13
+0,,まずは周辺状況の確認を,まずは周辺状況の確認を,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,14
+0,,帰路の確保を怠らぬよう,帰路の確保を怠らぬよう,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,15
+0,,敵影認識。警戒態勢へ,敵影認識。警戒態勢へ,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,16
+0,,討伐対象を捕捉,討伐対象を捕捉,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,17
+0,,敵を発見！　油断なきよう,敵を発見！　油断なきよう,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,18
+0,,脅威となる敵発見。慎重に！,脅威となる敵発見。慎重に！,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,19
+0,,強敵と判断――最大の警戒を！,強敵と判断――最大の警戒を！,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,20
+0,,支援感謝する,支援感謝する,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,21
+0,,支援要求！,支援要求！,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,22
+0,,まずい、救援を！,まずい、救援を！,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,23
+0,,せ、戦線――離脱――,せ、戦線――離脱――,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,24
+0,,不覚！　行動――不能に――,不覚！　行動――不能に――,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,25
+0,,敵排除、開始する！,敵排除、開始する！,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,26
+0,,戦闘態勢へ移行！,戦闘態勢へ移行！,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,27
+0,,対象沈黙。まずまずの戦果,対象沈黙。まずまずの戦果,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,28
+0,,脅威の排除を完了,脅威の排除を完了,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,29
+0,,戦闘終了！　我々の勝利,戦闘終了！　我々の勝利,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,30
+0,,対象の足止めに成功！,対象の足止めに成功！,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,31
+0,,負傷はあるが、問題なし,負傷はあるが、問題なし,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,32
+0,,状態注意。　早めの対処を,状態注意。　早めの対処を,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,33
+0,,負傷部位、拡大――！,負傷部位、拡大――！,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,34
+0,,この状況での任務継続は困難――,この状況での任務継続は困難――,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,35
+0,,く、早急な立て直しが必要――,く、早急な立て直しが必要――,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,36
+0,,なっ！？　これでは全ての戦略が無駄に――,なっ！？　これでは全ての戦略が無駄に――,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,37
+0,,少々――時間を――,少々――時間を――,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,38
+0,,ただちに回復する！,ただちに回復する！,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,39
+0,,敵の誘導は、私が,敵の誘導は、私が,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,40
+0,,援護する！,援護する！,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,41
+0,,回避する！,回避する！,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,42
+0,,そこ！,そこ！,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,43
+0,,必中！,必中！,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,44
+0,,必ず仕留める！,必ず仕留める！,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,45
+0,,ここから跳躍を！,ここから跳躍を！,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,46
+0,,了解した,了解した,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,47
+0,,命令に従う,命令に従う,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,48
+0,,承服しかねる,承服しかねる,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,49
+0,,装備・道具には重々の確認を,装備・道具には重々の確認を,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,50
+0,,我が主よ、出立の時が近いとお見受けする,我が主よ、出立の時が近いとお見受けする,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,51
+0,,疲労が溜まる前に、適度に休憩を,疲労が溜まる前に、適度に休憩を,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,52
+0,,休息も心身の安定には不可欠,休息も心身の安定には不可欠,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,53
+0,,よき眠りを、我が主,よき眠りを、我が主,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,54
+0,,主よ、お休みの間ここに待機していよう,主よ、お休みの間ここに待機していよう,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,55
+0,,室内風景が変化,室内風景が変化,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,56
+0,,模様替えの妙――実感,模様替えの妙――実感,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,57
+0,,主よ、ただいまエリア探索より帰還,主よ、ただいまエリア探索より帰還,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,58
+0,,この度のエリア探索は、秀逸なる成果,この度のエリア探索は、秀逸なる成果,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,59
+0,,書を読むことも 主のため――,書を読むことも 主のため――,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,60
+0,,主よ、庭に気配を感知,主よ、庭に気配を感知,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,61
+0,,栄養学的には完璧――,栄養学的には完璧――,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,62
+0,,最善を尽くすと約束しよう,最善を尽くすと約束しよう,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,63
+0,,必ずや主をお守りする,必ずや主をお守りする,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,64
+0,,この戦技なら、お役に立てるはず,この戦技なら、お役に立てるはず,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,65
+0,,戦術に変更有り,戦術に変更有り,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,66
+0,,休息の間、私にできることがあればいかようにも――,休息の間、私にできることがあればいかようにも――,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,67
+0,,我が主の、次なる目的に備えよう,我が主の、次なる目的に備えよう,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,68
+0,,主よ、本日の目的は如何に,主よ、本日の目的は如何に,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,69
+0,,呼びかけに応えよう,呼びかけに応えよう,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,70
+0,,全ては主がため――,全ては主がため――,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,71
+0,,"先日、異なる覚者からの要請により
+クラフトの補助を遂行し、評価を賜った","先日、異なる覚者からの要請により
+クラフトの補助を遂行し、評価を賜った",ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,72
+0,,"過日、異なる覚者からの要請により、
+旅に同行し、感謝を賜った","過日、異なる覚者からの要請により、
+旅に同行し、感謝を賜った",ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,73
+0,,"先日、異なる覚者より
+私の装備に良き評価を賜った","先日、異なる覚者より
+私の装備に良き評価を賜った",ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,74
+0,,我が主、本日は私から戦技をご提案する,我が主、本日は私から戦技をご提案する,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,75
+0,,"主に従う日々により
+私の意思疎通力が向上した","主に従う日々により
+私の意思疎通力が向上した",ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,76
+0,,我が主、本日は私から髪型のご提案を,我が主、本日は私から髪型のご提案を,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,77
+0,,"新しい家財の入手を確認――
+居住性が向上した","新しい家財の入手を確認――
+居住性が向上した",ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,78
+0,,我が主の帰還、お待ちしていた,我が主の帰還、お待ちしていた,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,79
+0,,主の無事を確認,主の無事を確認,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,80
+0,,主よ、長き留守、憂慮していた――,主よ、長き留守、憂慮していた――,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,81
+0,,これにて此度の護衛を終了,これにて此度の護衛を終了,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,82
+0,,長旅となったものの無事、帰宅,長旅となったものの無事、帰宅,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,83
+0,,拠点に到着、戦闘態勢を解除,拠点に到着、戦闘態勢を解除,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,84
+0,,地域住人との交流も、時には有益――,地域住人との交流も、時には有益――,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,85
+0,,出発前にはエリア情報や装備の確認を,出発前にはエリア情報や装備の確認を,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,86
+0,,ただちに傍へ――,ただちに傍へ――,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,87
+0,,主の救出を優先,主の救出を優先,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,88
+0,,主の危機を救出,主の危機を救出,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,89
+0,,大事には至らず,大事には至らず,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,90
+0,,興奮状態を確認、警戒を――,興奮状態を確認、警戒を――,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,91
+0,,激昂により、危険な動きをする可能性大,激昂により、危険な動きをする可能性大,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,92
+0,,敵の隙を確認――　今が好機,敵の隙を確認――　今が好機,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,93
+0,,敵の動きが停止、総攻撃を開始,敵の動きが停止、総攻撃を開始,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,94
+0,,揺さぶりで、疲労させる,揺さぶりで、疲労させる,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,95
+0,,弱点を暴く、お任せを――,弱点を暴く、お任せを――,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,96
+0,,弱点を狙い、効率的に動く,弱点を狙い、効率的に動く,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,97
+0,,主のため、支援となる技を放つ,主のため、支援となる技を放つ,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,98
+0,,主のため、敵能力の低下を狙う,主のため、敵能力の低下を狙う,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,99
+0,,属性付与、開始,属性付与、開始,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,100
+0,,力を溜め、威力を乗せて、敵を撃つ,力を溜め、威力を乗せて、敵を撃つ,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,101
+0,,持てる最大の技にて、対象を沈黙させる,持てる最大の技にて、対象を沈黙させる,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,102
+0,,<COL B6FF01>《特技》限界を超える力を解放</COL>,<COL B6FF01>[Special Skill] 限界を超える力を解放</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,103
+0,,<COL B6FF01>《特技》この戦いに終止符を――</COL>,<COL B6FF01>[Special Skill] この戦いに終止符を――</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,104
+0,,<COL B6FF01>《特技》能力の限界、その先を――</COL>,<COL B6FF01>[Special Skill] 能力の限界、その先を――</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,105
+0,,<COL B6FF01>《剛化》攻撃に特化し、殲滅する</COL>,<COL B6FF01>[Harden] 攻撃に特化し、殲滅する</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,106
+0,,<COL B6FF01>《剛化》攻撃能力上昇――敵を討つ</COL>,<COL B6FF01>[Harden] 攻撃能力上昇――敵を討つ</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,107
+0,,<COL B6FF01>《重化》この技で倒れさせる</COL>,<COL B6FF01>[Heavy] この技で倒れさせる</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,108
+0,,<COL B6FF01>《重化》敵の体勢、打ち崩す――</COL>,<COL B6FF01>[Heavy] 敵の体勢、打ち崩す――</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,109
+0,,<COL B6FF01>《癒活》癒しの力、今こそ使う時――</COL>,<COL B6FF01>[Restoration] 癒しの力、今こそ使う時――</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,110
+0,,<COL B6FF01>《癒活》戦闘続行の支援を行う</COL>,<COL B6FF01>[Restoration] 戦闘続行の支援を行う</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,111
+0,,<COL B6FF01>《柔化》敵を弱体化させ、戦力を削ぐ</COL>,<COL B6FF01>[Weaken] 敵を弱体化させ、戦力を削ぐ</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,112
+0,,<COL B6FF01>《柔化》状態異常にて敵を弱体化させる</COL>,<COL B6FF01>[Weaken] 状態異常にて敵を弱体化させる</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,113
+0,,<COL B6FF01>《集中》精神統一により詠唱効率を高める</COL>,<COL B6FF01>[Concentration] 精神統一により詠唱効率を高める</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,114
+0,,<COL B6FF01>《集中》これより魔力を集める――</COL>,<COL B6FF01>[Concentration] これより魔力を集める――</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,115
+0,,<COL B6FF01>《無恐》これよりしばらく、攻撃は通らない</COL>,<COL B6FF01>[Fearless] これよりしばらく、攻撃は通らない</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,116
+0,,<COL B6FF01>《無恐》猛攻にも耐え抜こう</COL>,<COL B6FF01>[Fearless] 猛攻にも耐え抜こう</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,117
+0,,<COL B6FF01>《集視》作戦として敵を引き付けよう</COL>,<COL B6FF01>[Attraction] 作戦として敵を引き付けよう</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,118
+0,,<COL B6FF01>《集視》前線への侵攻を開始</COL>,<COL B6FF01>[Attraction] 前線への侵攻を開始</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,119
+0,,<COL B6FF01>《守護》味方の守りを固めた、この機に攻撃を</COL>,<COL B6FF01>[Protection] 味方の守りを固めた、この機に攻撃を</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,120
+0,,<COL B6FF01>《守護》しばし、守りの構えを</COL>,<COL B6FF01>[Protection] しばし、守りの構えを</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,121
+0,,<COL B6FF01>《蘇生》主よ、あなたをお守りすると誓ったはず</COL>,<COL B6FF01>[Resurrection] 主よ、あなたをお守りすると誓ったはず</COL>,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,122
+0,,主よ、新たな特技を閃いた,主よ、新たな特技を閃いた,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,123
+0,,雇用された仲間の特技を習得,雇用された仲間の特技を習得,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,124
+0,,周辺にジョブ修練敵の気配を察知,周辺にジョブ修練敵の気配を察知,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,125
+0,,修練敵、確認,修練敵、確認,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,126
+0,,主は修練を完了――ジョブマスターへの報告を,主は修練を完了――ジョブマスターへの報告を,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,127
+0,,付近に貴重な宝の存在を確認,付近に貴重な宝の存在を確認,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,128
+0,,周辺に希少な宝を感知――,周辺に希少な宝を感知――,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,129
+0,,主よ、速やかに周辺の探索を勧める,主よ、速やかに周辺の探索を勧める,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,130
+0,,この場所――何かが隠されている模様,この場所――何かが隠されている模様,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,131
+0,,この敵に遭遇するのは稀――速やかに討伐を,この敵に遭遇するのは稀――速やかに討伐を,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,132
+0,,予期せぬ相手に遭遇,予期せぬ相手に遭遇,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,133
+0,,アイテムを入手――,アイテムを入手――,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,134
+0,,主の考えに沿うべく、戦術育成を,主の考えに沿うべく、戦術育成を,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,135
+0,,我が主よりあなたの戦功を聞いている,我が主よりあなたの戦功を聞いている,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,136
+0,,我が主との冒険についてお聞かせ願いたい,我が主との冒険についてお聞かせ願いたい,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,137
+0,,承った,承った,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,138
+0,,そのように,そのように,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,139
+0,,これで戦えるかと,これで戦えるかと,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,140
+0,,危険！,危険！,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,141
+0,,攻撃を回避,攻撃を回避,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,142
+0,,敵の弱点は炎,敵の弱点は炎,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,143
+0,,敵の弱点は氷,敵の弱点は氷,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,144
+0,,敵の弱点は雷,敵の弱点は雷,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,145
+0,,敵の弱点は聖,敵の弱点は聖,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,146
+0,,敵の弱点は闇,敵の弱点は闇,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,147
+0,,主よ、ここに何をお望みか,主よ、ここに何をお望みか,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,148
+0,,いかなる状況であれ、お傍に,いかなる状況であれ、お傍に,ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,149
+0,,"我が主よ、さらなる期待に沿えるよう、力を手に入れたい
+速やかに私の願いを聞いていただけないだろうか――","我が主よ、さらなる期待に沿えるよう、力を手に入れたい
+速やかに私の願いを聞いていただけないだろうか――",ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,150
+0,,"新たな力を習得――主よ、今後
+より的確にあなたをサポートする","新たな力を習得――主よ、今後
+より的確にあなたをサポートする",ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,151
+0,,"我が主よ、冒険へ出るなら私を――
+戦いがより冴えるよう
+的確なサポートを約束する","我が主よ、冒険へ出るなら私を――
+戦いがより冴えるよう
+的確なサポートを約束する",ui\00_message\pw\pwtlk04.gmd,\game_common.arc,game_common.arc,152
+0,,よぉし、ぼくも頑張ります！,よぉし、ぼくも頑張ります！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,0
+0,,こんにちは！　一生懸命やりますね！,こんにちは！　一生懸命やりますね！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,1
+0,,一緒に冒険、楽しみです！　わくわくするなぁ,一緒に冒険、楽しみです！　わくわくするなぁ,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,2
+0,,わぁ、強そうですね！　よろしくお願いします！,わぁ、強そうですね！　よろしくお願いします！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,3
+0,,一番の家来を目指します、覚者さま！,一番の家来を目指します、覚者さま！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,4
+0,,安心してください！　ぼくが守りますから！,安心してください！　ぼくが守りますから！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,5
+0,,あ！　覚者さま、誰か来ましたよ？,あ！　覚者さま、誰か来ましたよ？,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,6
+0,,成功ですね！　覚者さま！,成功ですね！　覚者さま！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,7
+0,,やったぁ！　お役に立てて嬉しいなぁ,やったぁ！　お役に立てて嬉しいなぁ,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,8
+0,,この次もうまくいきますように！,この次もうまくいきますように！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,9
+0,,あ～、失敗かぁ。悔しいなぁ――,あ～、失敗かぁ。悔しいなぁ――,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,10
+0,,ぼくの頑張り、見てて下さいね！,ぼくの頑張り、見てて下さいね！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,11
+0,,あ！　なんだか今、強くなりました！,あ！　なんだか今、強くなりました！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,12
+0,,覚者さまより強くなって、きっと守りますから！,覚者さまより強くなって、きっと守りますから！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,13
+0,,行き先はどこなんですか？　楽しみだな,行き先はどこなんですか？　楽しみだな,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,14
+0,,今日は何があるんだろう,今日は何があるんだろう,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,15
+0,,あっ！！　ほら、敵ですよ！,あっ！！　ほら、敵ですよ！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,16
+0,,覚者さま、敵があんなところに！,覚者さま、敵があんなところに！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,17
+0,,何かいる――気をつけないと――,何かいる――気をつけないと――,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,18
+0,,わ！　あれ、すごく強そうですよ！？,わ！　あれ、すごく強そうですよ！？,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,19
+0,,覚者さま、あ、あんなのと戦うんですか？,覚者さま、あ、あんなのと戦うんですか？,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,20
+0,,ありがとう！,ありがとう！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,21
+0,,だ、誰か助けて！！,だ、誰か助けて！！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,22
+0,,こいつを何とかして！,こいつを何とかして！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,23
+0,,ごめんなさい、ぼく、もう――,ごめんなさい、ぼく、もう――,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,24
+0,,うっ――やられた――,うっ――やられた――,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,25
+0,,よぉし、ぼくがやっつけます！,よぉし、ぼくがやっつけます！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,26
+0,,ああっ、敵が来ました！,ああっ、敵が来ました！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,27
+0,,楽勝でしたね！,楽勝でしたね！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,28
+0,,思ったほど強くなかったなぁ,思ったほど強くなかったなぁ,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,29
+0,,覚者さまがご無事でよかったです！,覚者さまがご無事でよかったです！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,30
+0,,今です！　ほらっ！！,今です！　ほらっ！！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,31
+0,,心配ないですよ！　これくらい,心配ないですよ！　これくらい,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,32
+0,,――ちょっとやられました,――ちょっとやられました,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,33
+0,,痛たたたっ――でも頑張る――,痛たたたっ――でも頑張る――,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,34
+0,,か、覚者さまぁ、ぼくもう体力が――,か、覚者さまぁ、ぼくもう体力が――,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,35
+0,,ああ、だめ――倒れそう――,ああ、だめ――倒れそう――,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,36
+0,,え！？　覚者さま、覚者さまぁっ！！,え！？　覚者さま、覚者さまぁっ！！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,37
+0,,よーーーしこれでっ！,よーーーしこれでっ！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,38
+0,,あっ！　すぐに治します！,あっ！　すぐに治します！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,39
+0,,おーい！　ぼくはこっちだ！,おーい！　ぼくはこっちだ！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,40
+0,,支援しますね！,支援しますね！,ui\00_message\pw\pwtlk06.gmd,\game_common.arc,game_common.arc,41

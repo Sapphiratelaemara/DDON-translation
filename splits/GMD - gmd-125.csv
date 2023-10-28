@@ -1,0 +1,1385 @@
+13,PAWN_STATUS_COMPLETE,クラフト中（完成）,Crafting (Complete),ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,13
+14,PAWN_STATUS_PARTY,パーティー,Party,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,14
+15,PAWN_STATUS_LOST,ロスト,Lost,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,15
+16,BUTTON_CANCEL,キャンセル,Cancel,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,16
+17,TITLE_ITEM_LIST,Item List,Item List,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,17
+18,TITLE_MAKE_ITEM,アイテム作成,Created Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,18
+19,HEADING_MAKE_ITEM,作成アイテム,Created Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,19
+20,HEADING_CRAFT_MEMBER,クラフトメンバー,Craft Member,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,20
+21,HEADING_LEADER,リーダー,Leader,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,21
+22,HEADING_ASSISTANT,アシスタント,Assistant,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,22
+23,HEADING_ADDITION,精錬材,Refining Material,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,23
+24,BUTTON_START,作成開始,Start,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,24
+25,TITLE_PAWN_LIST,Pawn List,Pawn List,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,25
+26,TAB_MAIN,メイン,Main,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,26
+27,TAB_SURPPORT,サポート,Support,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,27
+28,ROW_NAME,Name,Name,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,28
+29,ROW_CRAFT_LV,Craft LV.,Craft LV.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,29
+30,ROW_STATUS,Status,Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,30
+31,ROW_LIMIT,Limit,Limit,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,31
+32,TITLE_TOTAL,Performance,Performance,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,32
+33,HEADING_SPEED,生産作業スピード,Production Speed,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,33
+34,HEADING_TECHNOLOGY,装備の強化技術,Equip Enhancement,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,34
+35,HEADING_FLASH,高品質装備の作成力,Equipment Quality,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,35
+36,HEADING_CAPACITY,消耗品の生産数アップ,Consumable Quantity,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,36
+37,HEADING_COST_PERFORMANCE,コストパフォーマンス,Cost Performance,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,37
+38,TITLE_STATUS,Status,Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,38
+39,CRAFT_TIME_INFINITY,∞,∞,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,39
+40,ROW_REQUIRED,必要数,Required,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,40
+41,HEADING_COST,作業費用,Crafting Cost,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,41
+42,HEADING_TIME,作業時間,Crafting Time,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,42
+43,HEADING_XP,取得経験値,Experience,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,43
+44,HEADING_NUMBER,生産個数,Quantity,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,44
+45,ROW_MATERIAL,素材名,Material Name,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,45
+46,DIALOG_CONFIRM_START,"このアイテムを通常作成します
+よろしいですか？",Are you sure you want to craft this item?,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,46
+47,DIALOG_START,アイテムの作成を開始しました,Crafting has begun.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,47
+48,TAB_WEAPON,武器,Weapons,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,48
+49,TAB_PROTECTOR,防具,Armor,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,49
+50,BALLOON_LITTLE_LONGER,もう少しです,Almost Finished,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,50
+51,GUIDE_PRODUCT,作成するアイテムを選択してください,Please select the item to create.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,51
+52,GUIDE_UPGRADE,強化する装備を選択してください,Please select the equipment to enhance.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,52
+53,GUIDE_CREST,クレスト装着する装備を選択してください,Please select the equipment to mount a crest onto.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,53
+54,GUIDE_CHANGE_COLOR,カラー変更する装備を選択してください,Please select the equipment you want to color change.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,54
+55,TITLE_PROGRESS_LIST,Progress List,Progress List,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,55
+56,TITLE_DETAIL,Details,Details,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,56
+57,BALLOON_FINISH,できました！,Finished!,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,57
+58,CATEGORY_ALL,すべて,All,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,58
+59,BUTTON_GET_ITEM_FOR_STORAGE,保管ボックスに受け取る,Put in Storage,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,59
+60,SUCCESS,Success!,Success!,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,60
+61,TITLE_RECEIPT,アイテムを作成しました,Created an item,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,61
+62,BUTTON_GET_ITEM,受け取る,Accept,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,62
+63,DIALOG_RECEIPT_SUCCESS,<NAME ITEM>　<VAL>個を受け取りました,<NAME ITEM> x<VAL> obtained.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,63
+64,DIALOG_GET_XP,"クラフトを指揮していた<NAME PAWN>が
+クラフト経験値を<VAL XP>入手しました","For being the craft leader, <NAME PAWN>
+has gained <VAL XP> crafting experience.",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,64
+65,HEADING_REMAIN,残りポイント,Remaining Points,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,65
+66,TITLE_POINT_ASSIGN,クラフトステータス,Craft Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,66
+67,DIALOG_BREAKUP,クラフトラインを解散しました,Crafters have returned to standby.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,67
+68,DIALOG_CONFIRM_STOP,"クラフトを中止しますか？
+<COL aa1414>※素材・費用・クラフト回数は消費されます</COL>","Are you sure you want to stop crafting?
+<COL aa1414>※Materials and crafting cost will be lost.</COL>",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,68
+69,DIALOG_STOP,クラフトを中止しました,The craft was canceled.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,69
+70,ANNOUNCE_LV_UP,"<NAME PAWN>のクラフトレベルが<VAL>になりました
+クラフトスキルポイントを<VAL>取得しました","<NAME PAWN> has reached craft level <VAL>.
+They acquired <VAL> crafting skill points.",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,70
+71,DIALOG_CONFIRM_POINT_ASSIGN,ポイントの割り振りを行いますか？,"Are you sure you want to allocate the
+crafting skill points?",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,71
+72,DIALOG_POINT_ASSIGN,ポイントの割り振りを行いました,Crafting skill points allocated.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,72
+73,HEADING_REINFORCE_TARGET,強化アイテム,Enhanced Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,73
+74,HEADING_REINFORCE_POINT,強化ポイント,Enhancement Points,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,74
+75,BUTTON_REINFOECE,強化,Enhance,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,75
+76,DIALOG_CONFIRM_REINFORCE,このアイテムを強化しますか？,Are you sure you want to enhance this item?,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,76
+77,TITLE_REINFORCE,アイテムを強化しました,Item has been enhanced.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,77
+78,POPUP_GRADE_UP,Grade UP!,Grade UP!,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,78
+79,HEADING_CREST_BREAK,Crest Break,Crest Break,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,79
+80,HEADING_CREST,Crest,Crest,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,80
+81,HEADING_CREST_EQUIP,Crest Equip,Mount Crest,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,81
+82,BUTTON_EQUIP_CREST,クレスト装備,Mount Crest,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,82
+83,HEADING_SLOT1,スロット１,Slot 1,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,83
+84,HEADING_SLOT2,スロット２,Slot 2,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,84
+85,HEADING_SLOT3,スロット３,Slot 3,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,85
+86,HEADING_SLOT4,スロット４,Slot 4,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,86
+87,GUIDE_SERECT_CREST,クレスト選択,Select Crest,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,87
+88,DIALOG_CONFIRM_SET_CREST,クレスト装備を行いますか？,Are you sure you want to equip the crests?,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,88
+89,CREST_SET,Crest Set！,Crest Set!,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,89
+90,TITLE_CREST_SET,クレストを装備しました,The crest has been equipped.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,90
+91,DIALOG_CONFIRM_CREST_BREAK,"選択したスロットのクレストを破壊します
+よろしいですか？","Are you sure you want to destroy
+the crest in this slot?",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,91
+92,CREST_BREAK,Crest Break!,Crest Break!,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,92
+93,TITLE_CREST_BREAK,クレストを破壊しました,The crest has been destroyed.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,93
+94,HEADING_CURRENT_COLOR,現在のカラー,Current Color,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,94
+95,HEADING_DYES,染料,Dye,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,95
+96,HEADING_CHANGE_COLOR,変更するカラー,New Color,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,96
+97,BUTTON_CHANGE_COLOR,カラー変更,Change Color,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,97
+98,DIALOG_CONFIRM_CHANGE_COLOR,カラー変更を行いますか？,Are you sure you want to change the color?,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,98
+99,CHANGE_COLOR,Color Change!,Color Change!,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,99
+100,TITLE_CHANGE_COLOR,カラーを変更しました,The color has been changed.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,100
+101,TITLE_REMOVES_PARTY,"選択したポーンはクラフト作業を行うため
+パーティーを離脱しますがよろしいですか？
+
+<COL aa1414>※パーティーからメインポーンがいなくなると
+　サポートポーンも自動的に離脱します</COL>","A selected pawn is in your party.
+Are you sure you want them to leave the party
+in order to craft?
+
+<COL aa1414>If there are no main pawns in the party,
+support pawns will automatically leave
+as well.</COL>",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,101
+102,TITLE_REMOVES_PARTY_FAILURE,パーティーからの離脱に失敗しました,Failed to leave the party.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,102
+103,TITLE_RECEIPT_FAILURE,アイテム作成に失敗しました,Failed to craft item.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,103
+104,TITLE_EMPTY_ITEM_PLACE,装備強化する場合は、アイテムバッグの素材枠に空き枠を作ってください,装備強化する場合は、アイテムバッグの素材枠に空き枠を作ってください,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,104
+105,TITLE_REINFORCE_FAILURE,装備の強化に失敗しました,Failed to enhance the equipment.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,105
+106,DIALOG_GET_ARMS_POINT,"装備強化ポイントが<VAL 0>アップしました
+現在の装備強化ポイントは<VAL 1>です","装備強化ポイントが<VAL 0>アップしました
+現在の装備強化ポイントは<VAL 1>です",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,106
+107,TITLE_REQUEST_FAILURE,リクエストに失敗しました,リクエストに失敗しました,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,107
+108,DIALOG_GET_GRADE_UP,グレードアップしました,グレードアップしました,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,108
+109,DIALOG_CRAFT_LV_UP,クラフトを指揮していた<NAME PAWN>のクラフトレベルが<VAL 0>になった,クラフトを指揮していた<NAME PAWN>のクラフトレベルが<VAL 0>になった,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,109
+110,TAB_UNOPENED,未解放,未解放,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,110
+111,TITLE_MONEY_INSUFFICIENT,所持金が足りません,所持金が足りません,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,111
+112,TITLE_EQUIP_CREST_FAILURE,クレスト装着に失敗しました,クレスト装着に失敗しました,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,112
+113,TITLE_BREAK_CREST_FAILURE,クレスト破棄に失敗しました,クレスト破棄に失敗しました,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,113
+114,TITLE_EQUIP_CREST_SUCCESS,クレスト装着に成功しました,Crest was successfully equipped,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,114
+115,TITLE_BREAK_CREST_SUCCESS,クレスト破棄に成功しました,Crest was successfully destroyed,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,115
+116,TITLE_CHANGE_COLOR_FAILURE,カラー変更に失敗しました,カラー変更に失敗しました,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,116
+117,TITLE_CHANGE_COLOR_SUCCESS,カラー変更に成功しました,Color change succeeded,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,117
+118,TITLE_PAWN_INFO_FAILURE,詳細情報取得に失敗しました,詳細情報取得に失敗しました,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,118
+119,DIALOG_POINT_ASSIGN_FAILURE,クラフトポイントの割り振りに失敗しました,クラフトポイントの割り振りに失敗しました,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,119
+120,TITLE_CRAFT_INFO_FAILURE,クラフト状況取得に失敗しました,クラフト状況取得に失敗しました,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,120
+121,TITLE_RECEIPT_SUCCESS,<VAL 0> x <VAL 1>個 が完成しました,<VAL 0> x <VAL 1>個 が完成しました,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,121
+122,TITLE_ITEM_INFO_FAILURE,クラフト完成品情報取得に失敗しました,クラフト完成品情報取得に失敗しました,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,122
+123,TITLE_CRAFT_STOP_FAILURE,クラフト中止に失敗しました,クラフト中止に失敗しました,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,123
+124,DIALOG_RECEIPT_FAILURE,アイテム受け取りに失敗しました,アイテム受け取りに失敗しました,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,124
+125,TITLE_ARRANGEMENT_ITEM,"アイテムバッグ、保管ボックスがいっぱいのため
+受け取ることができません
+
+作成アイテム：<VAL> × <VAL>","アイテムバッグ、保管ボックスがいっぱいのため
+受け取ることができません
+
+作成アイテム：<VAL> × <VAL>",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,125
+126,TITLE_GET_ITEM,アイテムを受け取りますか？,アイテムを受け取りますか？,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,126
+127,TITLE_GET_NO_ITEM,受け取れるアイテムはありません,受け取れるアイテムはありません,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,127
+128,MENU_SITUATION,状況確認,状況確認,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,128
+129,HEADING_NEED_ITEM,必要素材 <VAL 0> x <VAL 1>,必要素材 <VAL 0> x <VAL 1>,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,129
+130,HEADING_COST_BASE,基準作成費用<VAL 0>,基準作成費用<VAL 0>,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,130
+131,HEADING_COST_CUT,補正後作成費用<VAL 0>,補正後作成費用<VAL 0>,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,131
+132,REMAINING_MAKE_TIME_MINUTE,<VAL>m,<VAL>m,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,132
+133,TAB_MATERIAL_ITEM,素材,Materials,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,133
+134,TAB_USE_ITEM,消耗品,Usable,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,134
+135,GUIDE_SELECT_ADD_ITEM,追加する素材を選択してください,Please select the material you want to add.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,135
+136,ROW_HAVE,Storage,Storage,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,136
+137,GUIDE_SELECT_COLOR_ITEM,使用する染料を選択してください,使用する染料を選択してください,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,137
+138,CRAFT_LEVEL_VAL,<VAL>,<VAL>,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,138
+139,CRAFT_BUTTON_COMPLETE,完了,Complete,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,139
+140,NOTICE_GRADE_MAX,"グレードがアップしました！
+カラー変更ができるようになりました","グレードがアップしました！
+カラー変更ができるようになりました",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,140
+141,CRAFT_BUTTON_EXAM_BEGIN,受領,受領,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,141
+142,ROW_POINT,Point,Point,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,142
+143,ORDER_HEADER_CRAFT_ITEM,Craft Item,Craft Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,143
+144,ORDER_HEADER_CRAFT_MEMBER,Craft Members,Craft Members,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,144
+145,ORDER_HEADER_ADD_ITEM,Additional Materials,Additional Materials,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,145
+146,HEADING_CUSTOMIZE_TARGET,アイテム,Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,146
+147,HEADING_CUSTOMIZE_PAWN,クラフトポーン,Craft Pawn,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,147
+148,HEADING_CREST_ITEM,Equip Crest,Mount Crest,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,148
+149,HEADING_COLOR_ITEM,Color Item,Color Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,149
+150,ROW_PROGRESS,Progress,Progress,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,150
+151,ROW_MAKE_ITEM,Item,Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,151
+152,CRAFT_VAL_NONE,なし,None,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,152
+153,CRAFT_PLUS_VAL,<VAL PLUS>,<VAL PLUS>,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,153
+154,GUIDE_SELECT_LEADER_PAWN,リーダーをメインポーンから選択してください,Please select a craft leader from your main pawns.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,154
+155,GUIDE_SELECT_ASSISTANT_PAWN,アシスタントを選択してください,Please select an assistant.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,155
+156,GUIDE_SELECT_ADD_POINT_PAWN,ポイントを割り振るポーンを選択してください,ポイントを割り振るポーンを選択してください,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,156
+157,EXAM_RECEIPE_TITLE,昇格試験レシピ,Promotion Test Recipe,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,157
+158,EXAM_RESULT_PARAM,昇格結果,Promotion Result,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,158
+159,CRAFT_DETAIL_ITEM_RANK,Item Rank,Item Rank,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,159
+160,CRAFT_DETAIL_XP_VAL,<VAL>/<VAL>,<VAL>/<VAL>,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,160
+161,CRAFT_DETAIL_BAZAAR,バザー,Bazaar,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,161
+162,CRAFT_DETAIL_ENABLE_CREST,装着可能,Crest Slot Available,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,162
+163,ROW_LIST_CATEGORY,Category,Category,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,163
+164,RECIPE_CATE_USE_ITEM_HP,体力回復,Health Recovery,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,164
+165,RECIPE_CATE_USE_ITEM_ST,スタミナ回復,Stamina Recovery,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,165
+166,RECIPE_CATE_USE_ITEM_REPAIR,状態異常解消,Cure Debilitation,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,166
+167,RECIPE_CATE_USE_ITEM_ENCHANT,能力上昇,Stat Increase,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,167
+168,RECIPE_CATE_USE_ITEM_THROW,投擲道具,Throwing Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,168
+169,RECIPE_CATE_USE_ITEM_KEY,鍵・採集・探索,Exploration,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,169
+170,RECIPE_CATE_USE_ITEM_JOB,ジョブ専用道具,Job,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,170
+171,RECIPE_CATE_MATERIAL_INGOT,インゴット,Ingot,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,171
+172,RECIPE_CATE_MATERIAL_CLOTH,布,Cloth,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,172
+173,RECIPE_CATE_MATERIAL_THREAD,糸,Thread,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,173
+174,RECIPE_CATE_MATERIAL_SCROLL,スクロール,Scroll,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,174
+175,RECIPE_CATE_MATERIAL_STRENGTH_WEP,精錬材（武器）,Refine (Weapon),ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,175
+176,RECIPE_CATE_MATERIAL_STRENGTH_ARMOR,精錬材（防具）,Refine (Armor),ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,176
+177,ROW_MAKE,Made,Made,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,177
+178,CRAFT_NUM_CLASS_S,S級,S級,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,178
+179,CRAFT_NUM_CRAFTLV,クラフトレベル<VAL>,Craft Level <VAL>,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,179
+180,CRAFT_OVERUP_CRAFTLV,クラフトレベルの上限アップ,Craft Level Limit Up,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,180
+181,CRAFT_SET_ASSISTANT,アシスタントの設定人数,Assistant Slot Count,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,181
+182,CRAFT_NUM_TO_NUM,（<VAL>→<VAL>）,(<VAL>→<VAL>),ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,182
+183,CRAFT_NUM_CLASS_D,D級,D級,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,183
+184,CRAFT_NUM_CLASS_A,A級,A級,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,184
+185,CRAFT_NUM_CLASS_B,B級,B級,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,185
+186,CRAFT_NUM_CLASS_C,C級,C級,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,186
+187,CRAFT_UPGRADE_EQUIP_NOTHING,強化できる装備がありません,There is no equipment that be enhanced.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,187
+188,CRAFT_COLOR_EQUIP_NOTHING,カラー変更できる装備がありません,There is no equipment that can change color.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,188
+189,CRAFT_CREST_EQUIP_NOTHING,クレスト装着できる装備がありません,There is no equipment that can crests mounted.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,189
+190,CRAFT_MATERIAL_NOTHING,使用できる素材がありません,使用できる素材がありません,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,190
+191,CRAFT_COLOR_ITEM_NOTHING,使用できる染料がありません,使用できる染料がありません,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,191
+192,CRAFT_PAWN_NO_ONE,ポーンを雇っていません,ポーンを雇っていません,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,192
+193,CRAFT_MAKE_ITEM_NOTHING,作成できるアイテムがありません,There are no items that can be created.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,193
+194,CRAFT_MAKING_NOTHING,作成中のアイテムはありません,There are no items being crafted.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,194
+195,CRAFT_BTGUID_DISPAWN,ポーンをはずす,Remove Pawn,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,195
+196,CRAFT_BTGUID_DISMATERIAL,精錬材をはずす,精錬材をはずす,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,196
+197,CRAFT_BTGUID_DISCREST,クレストを戻す,クレストを戻す,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,197
+198,CRAFT_MAKING_CONTINUE,同じ装備アイテムを強化しますか？,Do you want to enhance the same item again?,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,198
+199,CRAFT_FINISHED,クラフト完了,Craft Finished,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,199
+200,REMAINING_MAKE_TIME_HOUR,<VAL>h,<VAL>h,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,200
+201,TAB_CLASS_UP_EXAM,特殊,Special,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,201
+202,CATEGORY_CLASS_UP_EXAM,昇格試験,Promotion Test,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,202
+203,MSG_NO_CLASS_UP_EXAM,昇格試験がありません,There is currently no promotion test.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,203
+204,GUIDE_MSG_CHARACTER_CHANGE,試着切り替え,Switch Preview,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,204
+205,TITLE_MSG_CHARACTER_CHANGE,キャラクターを選択してください,Please select the character.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,205
+206,RECIPE_CATE_MATERIAL_OTHER,その他,Other,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,206
+207,DIALOG_GET_XP_EX,"クラフトを指揮していた<NAME PAWN>が
+クラフト経験値を<VAL> (+<VAL>) <UNIT XP>入手しました","For being the craft leader, <NAME PAWN>
+has gained <VAL> (+<VAL>) <UNIT XP> crafting
+experience.",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,207
+208,EX_CHARGE_UNIT,(+<VAL>),(+<VAL>),ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,208
+209,COLOR_CHANGE_DISABLE,このアイテムはカラー変更できません,This item cannot have its color changed.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,209
+210,CATEGORY_FURNITURE,家具,Furniture,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,210
+211,CRAFT_FURNITURE_NOTHING,家具レシピがありません,There are no furniture recipes.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,211
+212,ERROR_CANT_MAKE_FURNITURE,作成済み、または作成中の家具は選択できません,Furniture already created or being created cannot be selected,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,212
+213,DIALOG_USE_FUNITURE_GUIDE,"受け取った家具アイテムは
+覚者の自室で配置することができます","受け取った家具アイテムは
+覚者の自室で配置することができます",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,213
+214,RECIPE_CATE_MATERIAL_AREA,地域素材,Regional,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,214
+215,DIALOG_CONFIRM_CHOICE_CREATION_TYPE,作成方法を選んでください,Please choose the creation type.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,215
+216,DIALOG_CONFIRM_TYPE_START,通常作成,Create,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,216
+217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,Create using Golden Gemstones (immediate completion),ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,217
+218,DIALOG_CONFIRM_EX_CREATE,"アイテムの作成がその場で完了します
+<COL ffdc78>黄金石<VAL>個</COL>を消費して作成しますか？
+(所持数：<VAL>)","The item will be created immediately.
+This will consume <COL ffdc78><VAL> Golden Gemstone</COL>.
+(You have: <VAL>)",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,218
+219,DIALOG_EX_CREATE,アイテムの作成が完了しました,Item creation complete.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,219
+220,DIALOG_CONFIRM_EX_CREATE_ERROR,"黄金石が不足しています
+その場で作成完了するには<COL ffdc78>黄金石<VAL>個</COL>が必要です
+(所持数：<VAL>)","You do not have enough Golden Gemstones.
+Creating this requires <COL ffdc78><VAL> Golden Gemstone</COL>.
+(You have: <VAL>)",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,220
+221,DIALOG_CONFIRM_TYPE_JUMP_ONLINESHOP,オンラインショップを開く,Open the Online Shop,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,221
+222,DIALOG_CONFIRM_CHOICE_STOP_TYPE,まだアイテム作成が完了していません,Item production is not yet complete.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,222
+223,DIALOG_CONFIRM_TYPE_STOP,アイテム生産を中止,Stop,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,223
+224,ANALYZE_RESULT,分析結果（概算）,Analysis Result (Approximate),ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,224
+225,ANALYZE_SPEED,作業時間<VAL>%OFF,作業時間<VAL>%OFF,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,225
+226,ANALYZE_UPGRADE,<VAL>～<VAL>pt,<VAL>～<VAL>pt,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,226
+227,ANALYZE_GREAT_SUCCESS,大成功率<VAL>%,大成功率<VAL>%,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,227
+228,ANALYZE_INCREASE,<VAL>%の確率で+<VAL>個,<VAL>%の確率で+<VAL>個,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,228
+229,ANALYZE_COST_CUT,費用<VAL>%OFF,Cost <VAL>% OFF,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,229
+230,ANALYZE_ALWAYS_GREAT_SUCCESS,高品質装備の作成が、特定条件で必ず大成功,高品質装備の作成が、特定条件で必ず大成功,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,230
+231,ANALYZE_ALWAYS_INCREASE,消耗品の生産が必ず大成功,消耗品の生産が必ず大成功,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,231
+232,ANALYZE_COST_CUT_MUCH,コストパフォーマンスの効果アップ,コストパフォーマンスの効果アップ,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,232
+233,CREATE_TIMES_WARNING,※最大<VAL>回 (クラフト回数を消費します),"※ Maximum <VAL> times
+(will consume the craft number of times)",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,233
+234,HEADING_CREATE_TIMES,生産回数,Production Times,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,234
+235,ANALYZE_BUTTON,パフォーマンス分析,Performance Analysis,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,235
+236,ERROR_SHORTAGE_MATERIAL,素材が足りません,素材が足りません,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,236
+237,ERROR_SHORTAGE_MONEY,所持金が足りません,所持金が足りません,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,237
+238,ERROR_SHORTAGE_CRAFT_NUM,アシスタントの残りクラフト回数が足りません,アシスタントの残りクラフト回数が足りません,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,238
+239,ITEM_CREATE_TIMES,×<VAL>回,x<VAL> times,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,239
+240,ERROR_CREST_CANNOT_BREAK,このクレストは破壊できません,このクレストは破壊できません,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,240
+241,PERFORMANCE_NO_EFFECT,効果なし,No Effect,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,241
+242,BT_CHECK_CHEST,格納チェストを参照,See Storage Chest,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,242
+243,DIALOG_CHECKING_CHEST,格納チェストを参照しています,Checking Storage Chest,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,243
+244,ANNOUNCE_CHECK_NG_CHEST,格納チェストの参照は＜<OPCS>＞の発動中に使用可能となります,格納チェストの参照は＜<OPCS>＞の発動中に使用可能となります,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,244
+245,TAB_SPECIAL,一時レンタル,One-time Rental,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,245
+246,DIALOG_CONFIRM_GP_CREATE,"以下の機能を利用しているため、このアイテムを
+作成するには、<COL ffdc78>黄金石<VAL>個</COL>が必要です
+よろしいですか？
+(所持数：<VAL>)","以下の機能を利用しているため、このアイテムを
+作成するには、<COL ffdc78>黄金石<VAL>個</COL>が必要です
+よろしいですか？
+(所持数：<VAL>)",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,246
+247,DIALOG_CONFIRM_GP_REINFORCE,"以下の機能を利用しているため、このアイテムを
+強化するには、<COL ffdc78>黄金石<VAL>個</COL>が必要です
+よろしいですか？
+(所持数：<VAL>)","以下の機能を利用しているため、このアイテムを
+強化するには、<COL ffdc78>黄金石<VAL>個</COL>が必要です
+よろしいですか？
+(所持数：<VAL>)",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,247
+248,DIALOG_CONFIRM_GP_LACK_ERROR,"黄金石が不足しています
+(所持数：<VAL>)","黄金石が不足しています
+(所持数：<VAL>)",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,248
+249,HEADING_TIME_TO_MANDRA,育成時間,育成時間,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,249
+250,HEADING_ADD_STATUS,追加ステータス,Additional Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,250
+251,ROW_LIST,リスト,リスト,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,251
+252,GUIDE_SELECT_ADD_STATUS,追加するステータスを選択してください,追加するステータスを選択してください,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,252
+253,CRAFT_BTGUID_DISADDSTATUS,追加ステータスをはずす,追加ステータスをはずす,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,253
+254,RECIPE_CATE_MATERIAL_ADD_STATUS,特質錬石,Slayer Stone,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,254
+255,HEADING_ADD_STATUS2,Add Status,Add Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,255
+256,HEADING_MATERIALS_CHANGE,Materials Change,Materials Change,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,256
+257,GUIDE_MATERIALS_CHANGE,品質変更する装備を選択してください,Please select the equipment to change quality.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,257
+258,ERROR_MATERIALS_CHANGE_001,このアイテムは品質変更できません,This item cannot have its quality changed.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,258
+259,CRAFT_MATERIALS_CHANGE_NOTHING,品質変更できる装備がありません,品質変更できる装備がありません,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,259
+260,ERROR_MATERIALS_CHANGE_002,"品質が現状維持のまま、もしくは
+低下する可能性があるため使用できません","品質が現状維持のまま、もしくは
+低下する可能性があるため使用できません",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,260
+261,BUTTON_MATERIALS_CHANGE,変更,Change,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,261
+262,DIALOG_CONFIRM_MATERIALS_CHANGE,"このアイテムを品質変更しますか？
+
+作業費用　：<VAL G>
+取得経験値：<VAL XP>","このアイテムを品質変更しますか？
+
+作業費用　：<VAL G>
+取得経験値：<VAL XP>",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,262
+263,DIALOG_CONFIRM_GP_MATERIALS_CHANGE,"以下の機能を利用しているため、このアイテムを
+品質変更するには、<COL ffdc78>黄金石<VAL>個</COL>が必要です
+よろしいですか？
+(所持数：<VAL>)","以下の機能を利用しているため、このアイテムを
+品質変更するには、<COL ffdc78>黄金石<VAL>個</COL>が必要です
+よろしいですか？
+(所持数：<VAL>)",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,263
+264,TITLE_MATERIALS_CHANGE,アイテムを品質変更しました,アイテムを品質変更しました,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,264
+265,DIALOG_CONFIRM_MATERIALS_CHANGE_EX,"このアイテムを品質変更しますか？
+
+作業費用　：<VAL G>
+取得経験値：<VAL> (+<VAL>) <UNIT XP>","このアイテムを品質変更しますか？
+
+作業費用　：<VAL G>
+取得経験値：<VAL> (+<VAL>) <UNIT XP>",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,265
+266,DIALOG_CONFIRM_REINFORCE_ADD_NO_SKIP,"
+
+<COL ffdc78>このアイテムの強化では
+一度に２段階以上のグレードＵＰはできません</COL>
+
+次のグレードで必要な強化ポイントを満たしていても
+２段階目のグレードＵＰ直前でポイントが止まります","
+
+<COL ffdc78>このアイテムの強化では
+一度に２段階以上のグレードＵＰはできません</COL>
+
+次のグレードで必要な強化ポイントを満たしていても
+２段階目のグレードＵＰ直前でポイントが止まります",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,266
+267,DIALOG_CONFIRM_REINFORCE_ADD_NO_NEXT_ITEM,"
+
+<COL ffdc78>次のグレードＵＰで
+アイテムのグレードが最大になります</COL>","
+
+<COL ffdc78>次のグレードＵＰで
+アイテムのグレードが最大になります</COL>",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,267
+268,GUIDE_MSG_BUY_BAZAAR,バザーで必要素材を購入する,バザーで必要素材を購入する,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,268
+269,CRAFT_MSG_DS_BONUS_UP,Dragon Ability Level,Dragon Ability Level,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,269
+0,time_event_backup_title_en,Time Event,Time Event,ui\00_message\ui\time_event.gmd,\ui\uGUITimeEvent.arc,uGUITimeEvent.arc,0
+1,time_event_backup_title_jp,期間イベント,Time Event,ui\00_message\ui\time_event.gmd,\ui\uGUITimeEvent.arc,uGUITimeEvent.arc,1
+2,time_event_msg_01,項目はありません,There are no items,ui\00_message\ui\time_event.gmd,\ui\uGUITimeEvent.arc,uGUITimeEvent.arc,2
+3,time_event_msg_02,条件,Requirements,ui\00_message\ui\time_event.gmd,\ui\uGUITimeEvent.arc,uGUITimeEvent.arc,3
+4,time_event_msg_03,達成度,Progress,ui\00_message\ui\time_event.gmd,\ui\uGUITimeEvent.arc,uGUITimeEvent.arc,4
+5,time_event_msg_04,報酬,Rewards,ui\00_message\ui\time_event.gmd,\ui\uGUITimeEvent.arc,uGUITimeEvent.arc,5
+6,time_event_msg_05,無制限,Unlimited,ui\00_message\ui\time_event.gmd,\ui\uGUITimeEvent.arc,uGUITimeEvent.arc,6
+7,time_event_msg_06,開始まで,開始まで,ui\00_message\ui\time_event.gmd,\ui\uGUITimeEvent.arc,uGUITimeEvent.arc,7
+8,time_event_msg_07,終了しました,Ended,ui\00_message\ui\time_event.gmd,\ui\uGUITimeEvent.arc,uGUITimeEvent.arc,8
+0,title_copyright,"#CAPCOM CO., LTD. 2015 ALL RIGHTS RESERVED.","#CAPCOM CO., LTD. 2015 ALL RIGHTS RESERVED.",ui\00_message\ui\title_menu_win.gmd,\ui\uGUITitle.arc,uGUITitle.arc,0
+1,title_alert,,,ui\00_message\ui\title_menu_win.gmd,\ui\uGUITitle.arc,uGUITitle.arc,1
+2,titile_version,Version：,Version：,ui\00_message\ui\title_menu_win.gmd,\ui\uGUITitle.arc,uGUITitle.arc,2
+3,title_alert_index,注意,Warning,ui\00_message\ui\title_menu_win.gmd,\ui\uGUITitle.arc,uGUITitle.arc,3
+0,,"『大いなる理（ことわり）は我々が信じているよりも
+ずっと脆かったと考えるより他はありません』","『大いなる理（ことわり）は我々が信じているよりも
+ずっと脆かったと考えるより他はありません』",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,0
+0,,"『たったひとりの人間の野心が世界のありようを
+変えてしまったのですから』","『たったひとりの人間の野心が世界のありようを
+変えてしまったのですから』",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,1
+0,,エルテ・ディナンで見つかった古文書より,,ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,2
+0,,その豊穣なる大地の名はレスタニア――,"The ancient manuscripts discovered in Erte Deenan
+told of the great kingdom of Lestania,",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,3
+0,,白竜の翼の下――,where beneath the wings of the White Dragon,ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,4
+0,,人々は生まれ,"its people were born,",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,5
+0,,働き,"labored,",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,6
+0,,笑った,and laughed.,ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,7
+0,,竜への崇敬と感謝が文明を育み――,"The civilization grew prosperous, with great
+reverence and gratitude to the White Dragon;",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,8
+0,,"人の叡智は生と死の理すら
+乗り越えようとしていた","its people grew in wisdom enough to try
+and seek overcoming death itself.",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,9
+0,,しかし,"However,",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,10
+0,,３２３年前――,"323 years ago,",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,11
+0,,"どこからともなく現れた黄金色の竜が
+大いなる白竜に戦いを挑んだ","a Golden Dragon emerged to challenge
+the White Dragon in battle.",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,12
+0,,戦いは三日三晩続き,"The battle between the two raged for
+over three days and three nights,",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,13
+0,,誰もがその様子に固唾を呑んだ,"while the people awaited the
+outcome with bated breath.",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,14
+0,,四日目の日の出前だった,"And on the sunrise of the fourth day,",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,15
+0,,祈りが通じたのだろうか――,祈りが通じたのだろうか――,ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,16
+0,,白竜の痛撃が黄金の胸を貫き――,"the White Dragon triumphed and
+struck the Golden Dragon down,",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,17
+0,,まばゆい翼は光を失い,"but the White Dragon's bright
+resplendent wings lost their light,",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,18
+0,,堕ちた,and the dragon fell.,ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,19
+0,,人々は胸を撫で下ろしたが――,"Though the people breathed
+sighs of relief at its triumph,",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,20
+0,,白竜も深手を負い――,"the White Dragon had suffered
+a grievous wound in the battle.",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,21
+0,,そして,And thus,ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,22
+0,,堕ちた,it fell.,ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,23
+0,,頭を上げ、再び天空に昇ろうとしたが,"The White Dragon raised its head and
+tried to climb and soar back into the skies;",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,24
+0,,かなわず――,"alas, it could not.",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,25
+0,,人々は傷ついた白竜の周囲に集い,"The people then gathered
+around the injured dragon",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,26
+0,,祈った,and prayed.,ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,27
+0,,やがて白竜は弱々しい声で言った,"Before long, the White Dragon said weakly,",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,28
+0,,『おまえたちを覚者にしてやろう』,"""I shall make you Arisen,""",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,29
+0,,『その代わりに――』,"""and now""",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,30
+0,,『わたしを守ってくれ』,"""you shall protect me instead.""",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,31
+0,,『まだ消えるわけにはいかない』,"""For I cannot yet cease away,""",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,32
+0,,『レスタニアを愛する者たちよ――』,"""so you who have love for Lestania,""",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,33
+0,,『堅き砦となり、わたしを守ってくれ』,"""build a stronghold to protect me.""",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,34
+0,,『秩序をなくしたこの地を――』,"""Order must be""",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,35
+0,,『理の内に押し戻さねば――』,"""restored to the land.""",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,36
+0,,そののちの３００有余年――,"And for the next some 300 years,",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,37
+0,,白竜はひとり、またひとりと覚者を増やした,"the White Dragon increased the
+number of the Arisen, one at a time.",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,38
+0,,そしてまた,"And now,",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,39
+0,,新たな覚者が,a newly Arisen,ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,40
+0,,レスタニアの大地に立とうとしていた,will stand on the grounds of Lestania.,ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,41
+0,TUTORIAL_MSG_POPTITLE,Tutorial,Tutorial,ui\00_message\ui\tutorial.gmd,\ui\uGUITutorialPop.arc,uGUITutorialPop.arc,0
+1,TUTORIAL_MSG_TITLE_01,Tutorial,Tutorial,ui\00_message\ui\tutorial.gmd,\ui\uGUITutorialPop.arc,uGUITutorialPop.arc,1
+2,TUTORIAL_MSG_TITLE_02,チュートリアル,Tutorial,ui\00_message\ui\tutorial.gmd,\ui\uGUITutorialPop.arc,uGUITutorialPop.arc,2
+3,TUTORIAL_MSG_Category,Category,Category,ui\00_message\ui\tutorial.gmd,\ui\uGUITutorialPop.arc,uGUITutorialPop.arc,3
+4,TUTORIAL_MSG_NOMSG,このカテゴリに記事はありません,An article for this category does not exist,ui\00_message\ui\tutorial.gmd,\ui\uGUITutorialPop.arc,uGUITutorialPop.arc,4
+5,TUTORIAL_MSG_NEWFIVE,最新の５件,Newest Five,ui\00_message\ui\tutorial.gmd,\ui\uGUITutorialPop.arc,uGUITutorialPop.arc,5
+6,TUTORIAL_MSG_CLOSE,閉じる,Close,ui\00_message\ui\tutorial.gmd,\ui\uGUITutorialPop.arc,uGUITutorialPop.arc,6
+0,warehouse_title,Menu,Menu,ui\00_message\ui\WarehouseSelect_res.gmd,\ui\uGUIWarehouseSelect.arc,uGUIWarehouseSelect.arc,0
+1,warehouse_title_sub,メニュー,Menu,ui\00_message\ui\WarehouseSelect_res.gmd,\ui\uGUIWarehouseSelect.arc,uGUIWarehouseSelect.arc,1
+2,warehouse_item,引き出す / 預ける,Withdraw / Deposit,ui\00_message\ui\WarehouseSelect_res.gmd,\ui\uGUIWarehouseSelect.arc,uGUIWarehouseSelect.arc,2
+3,warehouse_reward,報酬受け取り,Rewards,ui\00_message\ui\WarehouseSelect_res.gmd,\ui\uGUIWarehouseSelect.arc,uGUIWarehouseSelect.arc,3
+4,warehouse_status,装備変更,Change Equipment,ui\00_message\ui\WarehouseSelect_res.gmd,\ui\uGUIWarehouseSelect.arc,uGUIWarehouseSelect.arc,4
+5,warehouse_chara_select_title,キャラクターを選択してください,Select Character,ui\00_message\ui\WarehouseSelect_res.gmd,\ui\uGUIWarehouseSelect.arc,uGUIWarehouseSelect.arc,5
+6,warehouse_gm_reward,GM最終報酬受け取り,Grand Mission Rewards,ui\00_message\ui\WarehouseSelect_res.gmd,\ui\uGUIWarehouseSelect.arc,uGUIWarehouseSelect.arc,6
+0,,なんだおまえは？　あ？　レオの使い？,Who might you be? Oh? You're Leo's messenger?,ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,0
+0,,"おい、声を低く――奴らに聞かせるな
+――それで、なんの用だ","Oi, keep your voice down...Don't let them hear this.
+...So, what do you want from me?",ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,1
+0,,撤収？　はん！レオめ――,To withdraw? Half?! Leo...,ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,2
+0,,"あいつは昔からそうだ
+自信たっぷりな態度で間違えやがる","He's old-fashioned, and bound to make plenty of
+terrible mistakes with that prideful attitude of his.",ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,3
+0,,おい、何をコソコソ――,"Hey, what are you doing...",ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,4
+0,,騎士団風情に聞かせる話なんぞないわ！,騎士団風情に聞かせる話なんぞないわ！,ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,5
+0,,"その言葉、聞き捨てならない！
+あんたも元は騎士だろう？","その言葉、聞き捨てならない！
+あんたも元は騎士だろう？",ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,6
+0,,ならば――,ならば――,ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,7
+0,,"んな昔のことは忘れたぜ！
+もう５０年前だからな！","んな昔のことは忘れたぜ！
+もう５０年前だからな！",ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,8
+0,,いやいやいや――,いやいやいや――,ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,9
+0,,"確かに俺がいた頃の騎士団は
+誇り高き戦闘集団だった","確かに俺がいた頃の騎士団は
+誇り高き戦闘集団だった",ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,10
+0,,ところが、今の騎士団はどうだ！？,ところが、今の騎士団はどうだ！？,ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,11
+0,,――言ってみろ,――言ってみろ,ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,12
+0,,口先だけの腰抜け集団だって言ってるんだよ！,口先だけの腰抜け集団だって言ってるんだよ！,ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,13
+0,,"な？　魔物討伐の優先権があるってなら
+さっさとやっつけろよ！","な？　魔物討伐の優先権があるってなら
+さっさとやっつけろよ！",ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,14
+0,,"何度も倒している！
+しかし、倒しても、また現れるのだ","何度も倒している！
+しかし、倒しても、また現れるのだ",ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,15
+0,,"どこかに巣窟があり、そこを叩かねば
+ならないと協議しているところへ貴様が来て――","どこかに巣窟があり、そこを叩かねば
+ならないと協議しているところへ貴様が来て――",ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,16
+0,,ほら来た言い訳騎士団！,ほら来た言い訳騎士団！,ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,17
+0,,くっ――,くっ――,ui\00_message\event\st0100\ev010.gmd,\event\st0100\st0100ev010.arc,st0100ev010.arc,18
+0,,今度はなんだ？　奴らに聞かせるなよ,Now what? Don't let them hear you.,ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,0
+0,,"なんだと！？
+魔物を倒しただって？","Wait, What!?
+Did you defeat the monster?",ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,1
+0,,今、なんと言った？,What did you say?,ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,2
+0,,"騎士団さんよ、人が悪いぜ
+魔物はすっかり倒したらしいじゃねえか","騎士団さんよ、人が悪いぜ
+魔物はすっかり倒したらしいじゃねえか",ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,3
+0,,"ったく！
+おれたちは帰る！　ああ、帰るぞ！","ったく！
+おれたちは帰る！　ああ、帰るぞ！",ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,4
+0,,なんの話だ――,What are you talking about?,ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,5
+0,,おまえ、騎士団副長のハインツだろ？,おまえ、騎士団副長のハインツだろ？,ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,6
+0,,"そこまで出世するってのは
+よほど話のわかる奴に違いねえ","そこまで出世するってのは
+よほど話のわかる奴に違いねえ",ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,7
+0,,"だから、ここの魔物を退治したのは
+あんたか部下の誰かってことにしておけ","だから、ここの魔物を退治したのは
+あんたか部下の誰かってことにしておけ",ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,8
+0,,それから新入り、おまえ――,それから新入り、おまえ――,ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,9
+0,,"いろいろ文句はあるだろうが全部飲み込め
+疑問も飲み込め","いろいろ文句はあるだろうが全部飲み込め
+疑問も飲み込め",ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,10
+0,,"ここにいる全員、おまえの手柄は忘れない
+だが、公式には騎士団が倒したことにする","ここにいる全員、おまえの手柄は忘れない
+だが、公式には騎士団が倒したことにする",ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,11
+0,,いいな？,いいな？,ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,12
+0,,はん！　その手には乗るか！,はん！　その手には乗るか！,ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,13
+0,,"恩を売りつけようというのか？
+貸しを作っておこうという魂胆か！？","恩を売りつけようというのか？
+貸しを作っておこうという魂胆か！？",ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,14
+0,,ハインツ！,ハインツ！,ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,15
+0,,はっ！,はっ！,ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,16
+0,,"怒声が木々に響き渡っているが――
+揉め事ではないだろうな","怒声が木々に響き渡っているが――
+揉め事ではないだろうな",ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,17
+0,,"信じられないことだが、騎士と見れば
+因縁をつける志の低い覚者もいるようだ","信じられないことだが、騎士と見れば
+因縁をつける志の低い覚者もいるようだ",ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,18
+0,,まさか挑発に――,まさか挑発に――,ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,19
+0,,とんでもありません！,とんでもありません！,ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,20
+0,,"騎士団長さんよ、信じてやりな
+こいつはおれたちの不作法をいさめただけだ","騎士団長さんよ、信じてやりな
+こいつはおれたちの不作法をいさめただけだ",ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,21
+0,,"ハインツたち、いい仕事をしたぜ？
+魔物はもういない――静かなもんだ","ハインツたち、いい仕事をしたぜ？
+魔物はもういない――静かなもんだ",ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,22
+0,,"――ほう
+任務はすでに完了したというのか","――ほう
+任務はすでに完了したというのか",ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,23
+0,,"ふむ――
+レオから報告を受けて慌ててここへ来たが","ふむ――
+レオから報告を受けて慌ててここへ来たが",ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,24
+0,,"取り越し苦労だったようだな
+では、一同、神殿へ戻るがいい","取り越し苦労だったようだな
+では、一同、神殿へ戻るがいい",ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,25
+0,,よし、じゃあ、覚者も解散だ！,よし、じゃあ、覚者も解散だ！,ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,26
+0,,"お疲れだったな
+特におまえ――よくこらえた、いい根性だ","お疲れだったな
+特におまえ――よくこらえた、いい根性だ",ui\00_message\event\st0100\ev015.gmd,\event\st0100\st0100ev015.arc,st0100ev015.arc,27
+0,,おや――,Oh?,ui\00_message\event\st0100\ev020.gmd,\event\st0100\st0100ev020.arc,st0100ev020.arc,0
+0,,"こんなところで――
+奇遇だな","こんなところで――
+奇遇だな",ui\00_message\event\st0100\ev020.gmd,\event\st0100\st0100ev020.arc,st0100ev020.arc,1
+0,,――いや,...No.,ui\00_message\event\st0100\ev020.gmd,\event\st0100\st0100ev020.arc,st0100ev020.arc,2
+0,,――なるほど,...I see.,ui\00_message\event\st0100\ev020.gmd,\event\st0100\st0100ev020.arc,st0100ev020.arc,3
+0,,"我々白騎団の捜索だけでは
+心許ない――","我々白騎団の捜索だけでは
+心許ない――",ui\00_message\event\st0100\ev020.gmd,\event\st0100\st0100ev020.arc,st0100ev020.arc,4
+0,,ジョゼフ殿のご判断か,It's Joseph's decision.,ui\00_message\event\st0100\ev020.gmd,\event\st0100\st0100ev020.arc,st0100ev020.arc,5
+0,,――ふむ,...Hmmm.,ui\00_message\event\st0100\ev020.gmd,\event\st0100\st0100ev020.arc,st0100ev020.arc,6
+0,,"ともあれ、メイリーフ嬢は
+このあたりにはいない","ともあれ、メイリーフ嬢は
+このあたりにはいない",ui\00_message\event\st0100\ev020.gmd,\event\st0100\st0100ev020.arc,st0100ev020.arc,7
+0,,"森にいるとすれば
+さらに奥――","森にいるとすれば
+さらに奥――",ui\00_message\event\st0100\ev020.gmd,\event\st0100\st0100ev020.arc,st0100ev020.arc,8
+0,,"いや待て――
+これはトロールの足跡！？","Wait a minute...
+troll footprints?!",ui\00_message\event\st0100\ev020.gmd,\event\st0100\st0100ev020.arc,st0100ev020.arc,9
+0,,"はるか向こうまで続いているようだ
+新しいぞ――？","はるか向こうまで続いているようだ
+新しいぞ――？",ui\00_message\event\st0100\ev020.gmd,\event\st0100\st0100ev020.arc,st0100ev020.arc,10
+0,,メイリーフ嬢はすでに！？,メイリーフ嬢はすでに！？,ui\00_message\event\st0100\ev020.gmd,\event\st0100\st0100ev020.arc,st0100ev020.arc,11
+0,,ここ、お友達のお墓なの――,,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,0
+0,,"わたしがもっと幼かった頃――
+あの子も同い年で――",,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,1
+0,,"どこへ行くにも――
+何をするのも一緒だった――",,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,2
+0,,"でも、あの子は――
+大人になって――",,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,3
+0,,わたしを遠ざけるようになった――,,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,4
+0,,"わたしがいつまでたっても
+少女のままだったから――",,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,5
+0,,"彼女となら
+ずっと仲良くできると思っていたのに――",,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,6
+0,,でも、無理だった――,,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,7
+0,,"結局、あの子は
+わたしを遠ざけたまま――",,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,8
+0,,"わたしを怪物扱いしたまま
+自分はしわくちゃに老いて――",,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,9
+0,,死んでしまったの,,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,10
+0,,"それ以来、人間とは
+仲良くならないようにしてるんだ",,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,11
+0,,"いつも距離を置いて
+お互い、つかず、離れず、ね",,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,12
+0,,あれ？,,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,13
+0,,"わたしが人間じゃないって
+話したかな？　",,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,14
+0,,わたしは――エルフなの,,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,15
+0,,"人間とは
+生きている時間が違うの",,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,16
+0,,"あなたは――
+あなたやレオやイリスは特別",,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,17
+0,,だって、覚者だからね,,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,18
+0,,覚者は心臓がなくて――,,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,19
+0,,"心臓が時を刻まないから――
+年を取らないんだよね",,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,20
+0,,仲良くしてね？,,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,21
+0,,"わたしはゆっくりだけど
+年を取る――",,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,22
+0,,あなたたちは取らない――,,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,23
+0,,"わたしの背が伸びて
+胸がふくらんだり――",,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,24
+0,,"腰が曲がって
+お婆さんになったり――",,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,25
+0,,全部、見ていてね,,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,26
+0,,"はい――これで告白はお・わ・り
+じゃあ、また、神殿で！",,ui\00_message\event\st0100\ev025.gmd,\event\st0100\st0100ev025.arc,st0100ev025.arc,27
+0,,待ってくれよー！,,ui\00_message\event\st0100\ev030.gmd,\event\st0100\st0100ev030.arc,st0100ev030.arc,0
+0,,"はぁ――はぁ――
+ジョゼフ様のご命令でね",,ui\00_message\event\st0100\ev030.gmd,\event\st0100\st0100ev030.arc,st0100ev030.arc,1
+0,,"メイリーフを見つけて
+仲良くなっておけって――",,ui\00_message\event\st0100\ev030.gmd,\event\st0100\st0100ev030.arc,st0100ev030.arc,2
+0,,――なんだろうね、いったい,,ui\00_message\event\st0100\ev030.gmd,\event\st0100\st0100ev030.arc,st0100ev030.arc,3
+0,,あ！？,,ui\00_message\event\st0100\ev030.gmd,\event\st0100\st0100ev030.arc,st0100ev030.arc,4
+0,,"逃げた方がいいって！ 
+キリがないぞ！？",,ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.arc,st0100ev035.arc,0
+0,,誰かっ！　誰か助けて！,,ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.arc,st0100ev035.arc,1
+0,,きみとは――二度目だな,,ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.arc,st0100ev035.arc,2
+0,,"そういえば
+自己紹介がまだだった",,ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.arc,st0100ev035.arc,3
+0,,――キースヒルトだ,,ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.arc,st0100ev035.arc,4
+0,,ふっ――,,ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.arc,st0100ev035.arc,5
+0,,"我々の出会いは
+いつも慌ただしいな",,ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.arc,st0100ev035.arc,6
+0,,さて――,,ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.arc,st0100ev035.arc,7
+0,,"メイリーフの行方には
+心当たりがある",,ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.arc,st0100ev035.arc,8
+0,,"あの子の保護は
+僕に任せてくれ",,ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.arc,st0100ev035.arc,9
+0,,"彼女の身を案じることに
+かけては――",,ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.arc,st0100ev035.arc,10
+0,,僕の方が上だと自負している,,ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.arc,st0100ev035.arc,11
+0,,きみは神殿に戻って――,,ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.arc,st0100ev035.arc,12
+0,,"自陣の結束を
+確認しておいた方がいい",,ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.arc,st0100ev035.arc,13
+0,,"人の繋がりなど――
+脆いものだから",,ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.arc,st0100ev035.arc,14
+0,,"ねえ、急いで神殿へ戻ろう
+嫌な予感がする",,ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.arc,st0100ev035.arc,15
+0,,"――いや
+嫌なものを見たっていうか――",,ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.arc,st0100ev035.arc,16
+0,,"狙いはエルフだぞ！　いいな？
+小さいぞ！　見逃すな！",,ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,0
+0,,エルフ！　エルフ！,,ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,1
+0,,"メイリーフ
+俺から離れるな！",,ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,2
+0,,奴らは僕が引きつける,,ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,3
+0,,メイリーフを頼む,,ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,4
+0,,いや、敵は俺たちが引き受ける,,ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,5
+0,,"あんたみたいな優男に
+あの大軍は無理だ",,ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,6
+0,,エルフ！？,,ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,7
+0,,そう――ただの優男ではない,,ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,8
+0,,"さあ、愚かなオークどもよ！
+エルフの命欲しくば――いざ！",,ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,9
+0,,応援に行かないの？,,ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,10
+0,,"エルフなら
+うまく逃げ切るさ",,ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,11
+0,,"ただ今より、ここを最前線とする！
+戦士たちよ！　退くな！　下がるな！",,ui\00_message\event\st0100\ev045.gmd,\event\st0100\st0100ev045.arc,st0100ev045.arc,0
+0,,見ろ――！？,,ui\00_message\event\st0100\ev050.gmd,\event\st0100\st0100ev050.arc,st0100ev050.arc,0
+0,,"なんだ？
+何が起こっている！？",,ui\00_message\event\st0100\ev050.gmd,\event\st0100\st0100ev050.arc,st0100ev050.arc,1
+0,,ほーら、こい、こい、こっちへこい！,,ui\00_message\event\st0100\ev050.gmd,\event\st0100\st0100ev050.arc,st0100ev050.arc,2
+0,,"モゴック――エルフ野郎の居場所がわかった
+エルテ・ディナンだ",,ui\00_message\event\st0100\ev050.gmd,\event\st0100\st0100ev050.arc,st0100ev050.arc,3
+0,,ははっ！　ズールよ、そりゃいい,,ui\00_message\event\st0100\ev050.gmd,\event\st0100\st0100ev050.arc,st0100ev050.arc,4
+0,,"ろくでなしども！　引き上げるぞ！
+エルテ・ディナンへ行く",,ui\00_message\event\st0100\ev050.gmd,\event\st0100\st0100ev050.arc,st0100ev050.arc,5
+0,,,,ui\00_message\event\st0100\ev055.gmd,\event\st0100\st0100ev055.arc,st0100ev055.arc,0
+0,,"ああ、ハインツ、丁度良かった
+わたしを神殿まで連れて帰ってくれ",,ui\00_message\event\st0100\ev060.gmd,\event\st0100\st0100ev060.arc,st0100ev060.arc,0
+0,,"それはもちろん！
+このわたしと――",,ui\00_message\event\st0100\ev060.gmd,\event\st0100\st0100ev060.arc,st0100ev060.arc,1
+0,,ローガンとデュークにお任せください,,ui\00_message\event\st0100\ev060.gmd,\event\st0100\st0100ev060.arc,st0100ev060.arc,2
+0,,"世話になったな
+年寄りの世話は終わりだ",,ui\00_message\event\st0100\ev060.gmd,\event\st0100\st0100ev060.arc,st0100ev060.arc,3
+0,,では、神殿で会おう,,ui\00_message\event\st0100\ev060.gmd,\event\st0100\st0100ev060.arc,st0100ev060.arc,4
+0,,,,ui\00_message\event\st0100\ev065.gmd,\event\st0100\st0100ev065.arc,st0100ev065.arc,0
+0,,あれ？,,ui\00_message\event\st0100\ev071.gmd,\event\st0100\st0100ev071.arc,st0100ev071.arc,0
+0,,なんだか、久しぶりだね,,ui\00_message\event\st0100\ev071.gmd,\event\st0100\st0100ev071.arc,st0100ev071.arc,1
+0,,"一番最近会ったのはキノザ――
+ううん、《禊の神殿》だ",,ui\00_message\event\st0100\ev071.gmd,\event\st0100\st0100ev071.arc,st0100ev071.arc,2
+0,,あの時は迷惑をかけちゃったな,,ui\00_message\event\st0100\ev071.gmd,\event\st0100\st0100ev071.arc,st0100ev071.arc,3
+0,,"いや、違うよね？
+前回会ったのはアークの中だった",,ui\00_message\event\st0100\ev071.gmd,\event\st0100\st0100ev071.arc,st0100ev071.arc,4
+0,,"あの時、あんたもいたよね？
+レオと一緒に――",,ui\00_message\event\st0100\ev071.gmd,\event\st0100\st0100ev071.arc,st0100ev071.arc,5
+0,,ねえ、レオは？,,ui\00_message\event\st0100\ev071.gmd,\event\st0100\st0100ev071.arc,st0100ev071.arc,6
+0,,"そう――来てないんだ
+え？　伝言？",,ui\00_message\event\st0100\ev071.gmd,\event\st0100\st0100ev071.arc,st0100ev071.arc,7
+0,,"「命がけで身を隠せ」――か
+うん、了解",,ui\00_message\event\st0100\ev071.gmd,\event\st0100\st0100ev071.arc,st0100ev071.arc,8
+0,,じゃあ、こっちからもレオに伝えて,,ui\00_message\event\st0100\ev071.gmd,\event\st0100\st0100ev071.arc,st0100ev071.arc,9
+0,,「村に迷惑をかけたくないから山に隠れる」って,,ui\00_message\event\st0100\ev071.gmd,\event\st0100\st0100ev071.arc,st0100ev071.arc,10
+0,,――ふう,,ui\00_message\event\st0100\ev071.gmd,\event\st0100\st0100ev071.arc,st0100ev071.arc,11
+0,,"さて、わたし、行くよ
+――神殿のみんなによろしく",,ui\00_message\event\st0100\ev071.gmd,\event\st0100\st0100ev071.arc,st0100ev071.arc,12
+0,,始まりは、荒波を海岸に叩きつけた強い風,,ui\00_message\event\st0100\ev100.gmd,\event\st0100\st0100ev100.arc,st0100ev100.arc,0
+0,,続いて水平線に現れた黒雲は、夜のとばりの如く,,ui\00_message\event\st0100\ev100.gmd,\event\st0100\st0100ev100.arc,st0100ev100.arc,1
+0,,レスタニアを覆い、重い雨で大地を穿った,,ui\00_message\event\st0100\ev100.gmd,\event\st0100\st0100ev100.arc,st0100ev100.arc,2
+0,,これほどの自然の猛威は白竜の記憶にもなかった,,ui\00_message\event\st0100\ev100.gmd,\event\st0100\st0100ev100.arc,st0100ev100.arc,3
+0,,人々は怖れ、おののき、祈った,,ui\00_message\event\st0100\ev100.gmd,\event\st0100\st0100ev100.arc,st0100ev100.arc,4
+0,,その祈りを知ってか知らずか――,,ui\00_message\event\st0100\ev100.gmd,\event\st0100\st0100ev100.arc,st0100ev100.arc,5
+0,,白竜は、覚者たちを神殿に集めるよう,,ui\00_message\event\st0100\ev100.gmd,\event\st0100\st0100ev100.arc,st0100ev100.arc,6
+0,,神官に命じた,,ui\00_message\event\st0100\ev100.gmd,\event\st0100\st0100ev100.arc,st0100ev100.arc,7
+0,,では、各自、割り当てに従い現地へ向かってくれ,,ui\00_message\event\st0100\ev100.gmd,\event\st0100\st0100ev100.arc,st0100ev100.arc,8
+0,,状況の把握が目的だが、優先すべきは人命だ,,ui\00_message\event\st0100\ev100.gmd,\event\st0100\st0100ev100.arc,st0100ev100.arc,9
+0,,我が使いたちよ,,ui\00_message\event\st0100\ev100.gmd,\event\st0100\st0100ev100.arc,st0100ev100.arc,10
+0,,怯える民に白竜の加護を伝えよ！,,ui\00_message\event\st0100\ev100.gmd,\event\st0100\st0100ev100.arc,st0100ev100.arc,11
+0,,,,ui\00_message\event\st0100\ev100.gmd,\event\st0100\st0100ev100.arc,st0100ev100.arc,12
+0,,,,ui\00_message\event\st0100\ev100.gmd,\event\st0100\st0100ev100.arc,st0100ev100.arc,13
+0,,お――,,ui\00_message\event\st0100\ev105.gmd,\event\st0100\st0100ev105.arc,st0100ev105.arc,0
+0,,まだ息がある,,ui\00_message\event\st0100\ev105.gmd,\event\st0100\st0100ev105.arc,st0100ev105.arc,1
+0,,が、若い女は面倒だ、おまえに任せる,,ui\00_message\event\st0100\ev105.gmd,\event\st0100\st0100ev105.arc,st0100ev105.arc,2
+0,,おいおいおい！,,ui\00_message\event\st0100\ev105.gmd,\event\st0100\st0100ev105.arc,st0100ev105.arc,3
+0,,――小娘ってのは、いつも俺の想像を越えやがる,,ui\00_message\event\st0100\ev105.gmd,\event\st0100\st0100ev105.arc,st0100ev105.arc,4
+0,,よっ――,,ui\00_message\event\st0100\ev105.gmd,\event\st0100\st0100ev105.arc,st0100ev105.arc,5
+0,,うっ――,,ui\00_message\event\st0100\ev105.gmd,\event\st0100\st0100ev105.arc,st0100ev105.arc,6
+0,,んっうっ――,,ui\00_message\event\st0100\ev105.gmd,\event\st0100\st0100ev105.arc,st0100ev105.arc,7
+0,,うぉっ！,,ui\00_message\event\st0100\ev105.gmd,\event\st0100\st0100ev105.arc,st0100ev105.arc,8
+0,,オマイ！　またオマイか！,,ui\00_message\event\st0100\ev110.gmd,\event\st0100\st0100ev110.arc,st0100ev110.arc,0
+0,,"あの時はよくもやってくれたなあ！
+ああ、覚えているとも！",,ui\00_message\event\st0100\ev110.gmd,\event\st0100\st0100ev110.arc,st0100ev110.arc,1
+0,,"踏んづけて地面にめり込ませてやりたいが
+今は忙しい",,ui\00_message\event\st0100\ev110.gmd,\event\st0100\st0100ev110.arc,st0100ev110.arc,2
+0,,――オレは、特別な女を探している,,ui\00_message\event\st0100\ev110.gmd,\event\st0100\st0100ev110.arc,st0100ev110.arc,3
+0,,"オマイ、オレの手先になって、女を
+探さないか？",,ui\00_message\event\st0100\ev110.gmd,\event\st0100\st0100ev110.arc,st0100ev110.arc,4
+0,,"――ふん、また邪魔する気だな！
+つくづく、面倒な奴め！",,ui\00_message\event\st0100\ev110.gmd,\event\st0100\st0100ev110.arc,st0100ev110.arc,5
+0,,ふん――調子に乗るがいい――,,ui\00_message\event\st0100\ev115.gmd,\event\st0100\st0100ev115.arc,st0100ev115.arc,0
+0,,"だがな、オマイらはオレを見るたびに
+怖れおののくことになるぞ",,ui\00_message\event\st0100\ev115.gmd,\event\st0100\st0100ev115.arc,st0100ev115.arc,1
+0,,"オレの主（あるじ）は
+ディアマンテスだと思っておろうが――",,ui\00_message\event\st0100\ev115.gmd,\event\st0100\st0100ev115.arc,st0100ev115.arc,2
+0,,我が主は、ああ偉大なり、黒き鎧の騎士！,,ui\00_message\event\st0100\ev115.gmd,\event\st0100\st0100ev115.arc,st0100ev115.arc,3
+0,,"オレは黒騎士の不死身のポーン
+何度でも蘇り、オマイの前に立ちふさがってやるわ",,ui\00_message\event\st0100\ev115.gmd,\event\st0100\st0100ev115.arc,st0100ev115.arc,4
+0,,"女を差し出さねば
+オマイらの悪夢は永遠に終わらんぞ！",,ui\00_message\event\st0100\ev115.gmd,\event\st0100\st0100ev115.arc,st0100ev115.arc,5
+0,,しっかし、ズールが黒騎士のポーンだったとは！,,ui\00_message\event\st0100\ev120.gmd,\event\st0100\st0100ev120.arc,st0100ev120.arc,0
+0,,"セシリー、知ってた？
+君がここにいた理由と関係ある？",,ui\00_message\event\st0100\ev120.gmd,\event\st0100\st0100ev120.arc,st0100ev120.arc,1
+0,,――何も思い出せないんです,,ui\00_message\event\st0100\ev120.gmd,\event\st0100\st0100ev120.arc,st0100ev120.arc,2
+0,,わたしが追われる理由――,,ui\00_message\event\st0100\ev120.gmd,\event\st0100\st0100ev120.arc,st0100ev120.arc,3
+0,,"――ずっと考えているんです
+雨が目に入ってつらかったこと――",,ui\00_message\event\st0100\ev120.gmd,\event\st0100\st0100ev120.arc,st0100ev120.arc,4
+0,,"間近に迫る黒騎士がおそろしかったこと――
+生き延びねばならないと決意していたこと――",,ui\00_message\event\st0100\ev120.gmd,\event\st0100\st0100ev120.arc,st0100ev120.arc,5
+0,,覚えているのはそれだけです,,ui\00_message\event\st0100\ev120.gmd,\event\st0100\st0100ev120.arc,st0100ev120.arc,6
+0,,"わたし、どこかの島に
+あなたを飛ばしてしまったそうですね",,ui\00_message\event\st0100\ev120.gmd,\event\st0100\st0100ev120.arc,st0100ev120.arc,7
+0,,"場所を覚えていますか？
+今一度、そこへ行けないでしょうか？",,ui\00_message\event\st0100\ev120.gmd,\event\st0100\st0100ev120.arc,st0100ev120.arc,8
+0,,"騎士団が全力で探してるよ
+大丈夫、きっと見つかるって",,ui\00_message\event\st0100\ev120.gmd,\event\st0100\st0100ev120.arc,st0100ev120.arc,9
+0,,隊長、神殿へ戻りましょう,,ui\00_message\event\st0100\ev120.gmd,\event\st0100\st0100ev120.arc,st0100ev120.arc,10
+0,,"島のことが気になるし、ズールの件も報告しないと
+ジョゼフ様、今頃、ぷりぷり怒ってますって",,ui\00_message\event\st0100\ev120.gmd,\event\st0100\st0100ev120.arc,st0100ev120.arc,11
+0,,怯むな！　戦え！,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,0
+0,,みな、よく聞け！,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,1
+0,,心強い援軍が来てくれた,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,2
+0,,統率の右腕と呼ばれし者だ――,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,3
+0,,さあ、もうひと揉みしてやろうぞ！,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,4
+0,,ふん,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,5
+0,,はっ,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,6
+0,,うぉおおお――はっ！！,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,7
+0,,うぉおおお――,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,8
+0,,うぉおおお――,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,9
+0,,うっ―はっ！！,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,10
+0,,はっ！！,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,11
+0,,ぐはっ！,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,12
+0,,ぐはっ！,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,13
+0,,ぐはっ！,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,14
+0,,おおっ！！,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,15
+0,,おおっ！！,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,16
+0,,おおっ！！,,ui\00_message\event\st0100\ev125.gmd,\event\st0100\st0100ev125.arc,st0100ev125.arc,17
+0,,"わはははは！
+これは気分がいい",,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,0
+0,,加勢、感謝する,,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,1
+0,,おつかれさま、隊長,,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,2
+0,,"セシリーがあんまり心配するから
+連れてきちゃった",,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,3
+0,,見事な戦いぶりでした！,,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,4
+0,,"人々が覚者を頼りにする理由が
+わかったような気がします",,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,5
+0,,竜に選ばれ、竜を守る者,,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,6
+0,,"それだけの力を授けられているからね
+もちろん、その力は、竜とレスタニアのために使うの",,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,7
+0,,素敵ですね――,,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,8
+0,,でもね――不安もある,,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,9
+0,,"ずっと先の話だけど、覚者の誰かが
+白竜様を引き継ぐことになるんだよね",,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,10
+0,,新しい白竜として、レスタニアに君臨するの,,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,11
+0,,"不安っていうのはね、その時、竜になれなかった
+覚者はどうなっちゃうんだろうってこと",,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,12
+0,,竜に力を返して――死んじゃうのかな？,,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,13
+0,,"それとも――よぼよぼになって
+しわくちゃで生きながらえるのかな――",,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,14
+0,,なんてね！,,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,15
+0,,"レスタニアの大地のため――
+暮らす人々のために使命をまっとうする――",,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,16
+0,,"未来はどうあれ、後悔のない今を生きること――
+わたしにはとても素敵に映りました",,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,17
+0,,ま、そうだね、ちょっと照れくさいけど、その通り！,,ui\00_message\event\st0100\ev130.gmd,\event\st0100\st0100ev130.arc,st0100ev130.arc,18
+0,,イリスを覚えているな？,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,0
+0,,セシリーよ,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,1
+0,,"おまえは知るまいが、かつて、覚者仲間に
+イリスという女がいた",,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,2
+0,,"人懐こく、明るい娘だったが
+心の中に闇を抱えていた",,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,3
+0,,その闇を、邪悪な力に利用されてな――,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,4
+0,,結果、オレはイリスを殺した,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,5
+0,,"心中、お察しします
+でも、わたしには――関係ありません",,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,6
+0,,見たところ、おまえの闇は深そうだ,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,7
+0,,"わかりません
+それよりも、ロイグに会わせてください！",,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,8
+0,,ロイグ？,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,9
+0,,無事で何よりだ、セシリー,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,10
+0,,族長ガラダの娘、セシリーだろ？,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,11
+0,,"そうです！　わたしの父はガラダ
+そう、わたしは――ガラダの娘です！",,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,12
+0,,"他には、他には何か知りませんか？
+教えてください！",,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,13
+0,,"黒騎士に追われている理由！
+わたしの、内なる力と――",,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,14
+0,,この焼けるような使命感の正体は！？,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,15
+0,,悪いけど――知らないんだ,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,16
+0,,"わたしが知っているのは
+君が黒騎士に追われているという事実だけ",,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,17
+0,,"理由は知らない
+なんとかして助けようと思った",,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,18
+0,,でも、その望みは叶わず、こうして、ここに――,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,19
+0,,そうですか――,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,20
+0,,どうしてセシリーを助けようと思ったの？,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,21
+0,,"取り繕っても仕方がないから正直に言うと――
+族長の娘だからさ",,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,22
+0,,族長に一目置かれたかった,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,23
+0,,なーんだ、ロマンティックな話かと――,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,24
+0,,ん？,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,25
+0,,わっ（リアクション）,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,26
+0,,わっ（リアクション）,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,27
+0,,わっ（リアクション）,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,28
+0,,わっ（リアクション）,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,29
+0,,見つけたぞ！　女を渡せ！,,ui\00_message\event\st0100\ev135.gmd,\event\st0100\st0100ev135.arc,st0100ev135.arc,30
+0,,"はぁ――はぁ――
+オレが倒れたら――黒騎士様が動き出すぞ",,ui\00_message\event\st0100\ev140.gmd,\event\st0100\st0100ev140.arc,st0100ev140.arc,0
+0,,魔物どもが主の意思により動くとなれば――,,ui\00_message\event\st0100\ev140.gmd,\event\st0100\st0100ev140.arc,st0100ev140.arc,1
+0,,"クックックッ――
+もはやレスタニアに安寧はない――",,ui\00_message\event\st0100\ev140.gmd,\event\st0100\st0100ev140.arc,st0100ev140.arc,2
+0,,"すっごい捨て台詞だったよね
+これで腐れ縁に終止符！　やったね！",,ui\00_message\event\st0100\ev140.gmd,\event\st0100\st0100ev140.arc,st0100ev140.arc,3
+0,,"口惜しい――どうして記憶が戻らないの？
+どうして？",,ui\00_message\event\st0100\ev140.gmd,\event\st0100\st0100ev140.arc,st0100ev140.arc,4
+0,,ロイグ――どうした,,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,0
+0,,"大地を巡る竜力が淀み、集まる場所がある
+そこで竜力を取り入れれば――",,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,1
+0,,"覚者は更なる力を手に入れることができる
+いつか話してくれただろう？",,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,2
+0,,"その地を、教えてほしい
+レオ――レスタニアの危機だ",,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,3
+0,,ふん――,,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,4
+0,,――ひさしぶりだ,,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,5
+0,,"生まれ合わせた時代のせいで
+俺たちは理から外れた覚者になった",,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,6
+0,,"多勢は心強いが――
+その代償は分散した竜の力",,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,7
+0,,"納得しているつもりだったが
+黄金竜との対決で、考えずにはいられなかった",,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,8
+0,,なぜあいつを倒せないのか――,,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,9
+0,,それは、俺が弱いからだ,,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,10
+0,,"竜の力を存分に継承していないことを
+思わずにはいられない",,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,11
+0,,"時代の巡り合わせだからと
+したり顔ではいられない",,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,12
+0,,以来、神殿を離れ――,,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,13
+0,,"俺は、分散してしまった力を補う方法を
+探し求めてきた",,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,14
+0,,――いいだろう,,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,15
+0,,"覚者とは、竜の敵と戦う者
+言ったのは俺だったな――",,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,16
+0,,ともに権利を主張して、力を手に入れようか,,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,17
+0,,"その力を合わせれば、黒騎士など
+たやすく討伐できるだろう",,ui\00_message\event\st0100\ev145.gmd,\event\st0100\st0100ev145.arc,st0100ev145.arc,18
+0,,ヴァネッサ様、あれを！,,ui\00_message\event\st0100\ev150.gmd,\event\st0100\st0100ev150.arc,st0100ev150.arc,0
+0,,まるで何かを恐れているようだ,,ui\00_message\event\st0100\ev150.gmd,\event\st0100\st0100ev150.arc,st0100ev150.arc,1
+0,,ここ連日の不吉な予兆は私も感じている,,ui\00_message\event\st0100\ev150.gmd,\event\st0100\st0100ev150.arc,st0100ev150.arc,2
+0,,"よし、万一の事態に備え
+急ぎ神殿にも事の次第を伝えよ",,ui\00_message\event\st0100\ev150.gmd,\event\st0100\st0100ev150.arc,st0100ev150.arc,3
+0,,"地図が示しているのはこのあたり――
+いや、まさにここだな",,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,0
+0,,それらしいものは何もない、が――,,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,1
+0,,"――わたしはわかったぞ
+ここは特別な場所だ",,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,2
+0,,おまえは思い出せないのか？,,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,3
+0,,レオが統率になって間もない頃だ,,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,4
+0,,ほら、わたしとおまえ、そしてイリス――,,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,5
+0,,あいつは演習と称し、わたしたち４人でここを訪れた,,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,6
+0,,"だが、それはオーク相手の連戦に疲れ切った
+わたしたちを労う、レオの気づかいだった",,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,7
+0,,結局、覚者の仲が深まったんだよな,,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,8
+0,,レオは――,,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,9
+0,,覚者同士の絆こそが、宝だと考えたのかも知れない,,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,10
+0,,あれ以来、こうして出かけることはなかった,,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,11
+0,,"今となっては、覚者隊が同じ境遇といえるだろう――
+エリオット、リズ、ガルドリン――",,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,12
+0,,"仲間への想いは、レオと共に戦い続けた
+あんたなら一番分かっているはずだ",,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,13
+0,,あいつは、消えちまった後も――,,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,14
+0,,残る俺たちの結束を気にしてるんだろうよ,,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,15
+0,,"ふっ――とんだお節介だな
+しかし実にレオらしい",,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,16
+0,,"私たち覚者とレスタニアの未来には
+まだまだ試練が待ち受けているだろう",,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,17
+0,,"ああ、その日に備え俺たちが
+レオのメッセージを心に刻んでおかないとな",,ui\00_message\event\st0100\ev155.gmd,\event\st0100\st0100ev155.arc,st0100ev155.arc,18
+0,,レスタニア歴、３２６年,,ui\00_message\event\st0100\ev160.gmd,\event\st0100\st0100ev160.arc,st0100ev160.arc,0
+0,,黒竜は討たれ、長きに渡った動乱の時代は終わった,,ui\00_message\event\st0100\ev160.gmd,\event\st0100\st0100ev160.arc,st0100ev160.arc,1
+0,,"竜たちの大陸はそれぞれの問題を抱えたまま
+未来に向かって歩き始める",,ui\00_message\event\st0100\ev160.gmd,\event\st0100\st0100ev160.arc,st0100ev160.arc,2
+0,,"道しるべなき旅に出た者――
+共に戦った仲間と手を取り、進もうとする者――",,ui\00_message\event\st0100\ev160.gmd,\event\st0100\st0100ev160.arc,st0100ev160.arc,3
+0,,"彼らが竜の加護を忘れずに歩む限り
+竜も彼らを見守り続けるだろう",,ui\00_message\event\st0100\ev160.gmd,\event\st0100\st0100ev160.arc,st0100ev160.arc,4
+0,,"人と竜が等しく生きる時代の訪れ――
+その時代を切り開いた英雄は",,ui\00_message\event\st0100\ev160.gmd,\event\st0100\st0100ev160.arc,st0100ev160.arc,5
+0,,"竜や王ではなく
+仲間と共に戦い抜いたひとりの覚者であった",,ui\00_message\event\st0100\ev160.gmd,\event\st0100\st0100ev160.arc,st0100ev160.arc,6
+0,,,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,0
+0,,バーラ！！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,1
+0,,オグ―？,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,2
+0,,ゴッ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,3
+0,,ゴアッ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,4
+0,,ゲフッ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,5
+0,,ロゴセ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,6
+0,,バナ、ロゴッセ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,7
+0,,ギルバウ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,8
+0,,それだけか！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,9
+0,,さあ来い！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,10
+0,,遅い！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,11
+0,,そこだ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,12
+0,,フッ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,13
+0,,なっ―！？,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,14
+0,,グフッ、グフッ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,15
+0,,ゴホッ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,16
+0,,ゴプッ―！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,17
+0,,うっ―がはぁッ―！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,18
+0,,チッ―！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,19
+0,,まだだ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,20
+0,,くそっ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,21
+0,,はぁ、はぁ―,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,22
+0,,調子に、乗るな―！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,23
+0,,舐めるな！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,24
+0,,だ、だめだ―,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,25
+0,,引け！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,26
+0,,立て直せ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,27
+0,,ああ―ああああ―！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,28
+0,,だめ―か―！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,29
+0,,ゥオオオオォォォォ―！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,30
+0,,オオオオ―――――ッッ！！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,31
+0,,ひるむな！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,32
+0,,行け！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,33
+0,,蹴散らせ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,34
+0,,仕留めろ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,35
+0,,何っ―！？,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,36
+0,,このっ―！！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,37
+0,,ゴフッ―！！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,38
+0,,まずい―！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,39
+0,,なんだと―！？,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,40
+0,,ぐっ―,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,41
+0,,ぐわああっ！！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,42
+0,,アーグラー！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,43
+0,,ゲルニ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,44
+0,,ま、待て―,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,45
+0,,こんな、はずは―！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,46
+0,,やめろ―！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,47
+0,,ブハハハハ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,48
+0,,グフ、グフフフ！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,49
+0,,フアッ！　―グフ、グフ―,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,50
+0,,ゥゴアアアアァァァァ――――――ッッ！！,,ui\00_message\event\st0101\ev000.gmd,\event\st0101\st0101ev000.arc,st0101ev000.arc,51
+0,,,,ui\00_message\event\st0101\ev005.gmd,\event\st0101\st0101ev005.arc,st0101ev005.arc,0
+0,,ハァ、ハァ、ハァ―,,ui\00_message\event\st0101\ev005.gmd,\event\st0101\st0101ev005.arc,st0101ev005.arc,1
+0,,フゥゥゥ、フゥゥゥ―,,ui\00_message\event\st0101\ev005.gmd,\event\st0101\st0101ev005.arc,st0101ev005.arc,2
+0,,新人覚者だな？,"Newly Arisen, are you?",ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,0
+0,,待っていろ,Wait there.,ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,1
+0,,――よし,... Alright.,ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,2
+0,,"この臭いを忘れるな
+オークの接近は臭いでわかる","Don't forget this smell.
+An orc's approach is betrayed by their stench.",ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,3
+0,,いつか鼻がバカになるだろうが――,"In time, your nose will grow accustomed to it.",ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,4
+0,,"その頃まで生きのびていれば
+オークごときにやられることはない","Though if you can survive that long,
+an orc will be as a trifling foe.",ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,5
+0,,あれが――,Over there.,ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,6
+0,,"グリッテン砦だ
+走るぞ","'Tis Gritten Fortress.
+Let's move.",ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,7
+0,,"急いで――
+ほら、オークちゃんが逃げちゃうよ！","Come along now,
+afore the orcs can make their retreat!",ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,8
+0,,"『大いなる理（ことわり）は我々が信じているよりも
+ずっと脆かったと考えるより他はありません』","『大いなる理（ことわり）は我々が信じているよりも
+ずっと脆かったと考えるより他はありません』",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,0
+0,,"『たったひとりの人間の野心が世界のありようを
+変えてしまったのですから』","『たったひとりの人間の野心が世界のありようを
+変えてしまったのですから』",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,1
+0,,エルテ・ディナンで見つかった古文書より,,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,2
+0,,その豊穣なる大地の名はレスタニア――,"The ancient manuscripts discovered in Erte Deenan
+told of the great kingdom of Lestania,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,3
+0,,白竜の翼の下――,where beneath the wings of the White Dragon,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,4
+0,,人々は生まれ,"its people were born,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,5
+0,,働き,"labored,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,6
+0,,笑った,and laughed.,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,7
+0,,竜への崇敬と感謝が文明を育み――,"The civilization grew prosperous, with great
+reverence and gratitude to the White Dragon;",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,8
+0,,"人の叡智は生と死の理すら
+乗り越えようとしていた","its people grew in wisdom enough to try
+and seek overcoming death itself.",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,9
+0,,しかし,"However,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,10
+0,,３２３年前――,"323 years ago,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,11
+0,,"どこからともなく現れた黄金色の竜が
+大いなる白竜に戦いを挑んだ","a Golden Dragon emerged to challenge
+the White Dragon in battle.",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,12
+0,,戦いは三日三晩続き,"The battle between the two raged for
+over three days and three nights,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,13
+0,,誰もがその様子に固唾を呑んだ,"while the people awaited the
+outcome with bated breath.",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,14
+0,,四日目の日の出前だった,"And on the sunrise of the fourth day,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,15
+0,,祈りが通じたのだろうか――,祈りが通じたのだろうか――,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,16
+0,,白竜の痛撃が黄金の胸を貫き――,"the White Dragon triumphed and
+struck the Golden Dragon down,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,17
+0,,まばゆい翼は光を失い,"but the White Dragon's bright
+resplendent wings lost their light,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,18
+0,,堕ちた,and the dragon fell.,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,19
+0,,人々は胸を撫で下ろしたが――,"Though the people breathed
+sighs of relief at its triumph,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,20
+0,,白竜も深手を負い――,"the White Dragon had suffered
+a grievous wound in the battle.",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,21
+0,,そして,And thus,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,22
+0,,堕ちた,it fell.,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,23
+0,,頭を上げ、再び天空に昇ろうとしたが,"The White Dragon raised its head and
+tried to climb and soar back into the skies;",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,24
+0,,かなわず――,"alas, it could not.",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,25
+0,,人々は傷ついた白竜の周囲に集い,"The people then gathered
+around the injured dragon",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,26
+0,,祈った,and prayed.,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,27
+0,,やがて白竜は弱々しい声で言った,"Before long, the White Dragon said weakly,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,28
+0,,『おまえたちを覚者にしてやろう』,"""I shall make you Arisen,""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,29
+0,,『その代わりに――』,"""and now""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,30
+0,,『わたしを守ってくれ』,"""you shall protect me instead.""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,31
+0,,『まだ消えるわけにはいかない』,"""For I cannot yet cease away,""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,32
+0,,『レスタニアを愛する者たちよ――』,"""so you who have love for Lestania,""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,33
+0,,『堅き砦となり、わたしを守ってくれ』,"""build a stronghold to protect me.""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,34
+0,,『秩序をなくしたこの地を――』,"""Order must be""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,35
+0,,『理の内に押し戻さねば――』,"""restored to the land.""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,36
+0,,そののちの３００有余年――,"And for the next some 300 years,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,37
+0,,白竜はひとり、またひとりと覚者を増やした,"the White Dragon increased the
+number of the Arisen, one at a time.",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,38
+0,,そしてまた,"And now,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,39
+0,,新たな覚者が,a newly Arisen,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,40
+0,,レスタニアの大地に立とうとしていた,will stand on the grounds of Lestania.,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,41
+0,,"『大いなる理（ことわり）は我々が信じているよりも
+ずっと脆かったと考えるより他はありません』","『大いなる理（ことわり）は我々が信じているよりも
+ずっと脆かったと考えるより他はありません』",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,0
+0,,"『たったひとりの人間の野心が世界のありようを
+変えてしまったのですから』","『たったひとりの人間の野心が世界のありようを
+変えてしまったのですから』",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,1
+0,,エルテ・ディナンで見つかった古文書より,,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,2
+0,,その豊穣なる大地の名はレスタニア――,"The ancient manuscripts discovered in Erte Deenan
+told of the great kingdom of Lestania,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,3
+0,,白竜の翼の下――,where beneath the wings of the White Dragon,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,4
+0,,人々は生まれ,"its people were born,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,5
+0,,働き,"labored,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,6
+0,,笑った,and laughed.,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,7
+0,,竜への崇敬と感謝が文明を育み――,"The civilization grew prosperous, with great
+reverence and gratitude to the White Dragon;",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,8
+0,,"人の叡智は生と死の理すら
+乗り越えようとしていた","its people grew in wisdom enough to try
+and seek overcoming death itself.",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,9
+0,,しかし,"However,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,10
+0,,３２３年前――,"323 years ago,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,11
+0,,"どこからともなく現れた黄金色の竜が
+大いなる白竜に戦いを挑んだ","a Golden Dragon emerged to challenge
+the White Dragon in battle.",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,12
+0,,戦いは三日三晩続き,"The battle between the two raged for
+over three days and three nights,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,13
+0,,誰もがその様子に固唾を呑んだ,"while the people awaited the
+outcome with bated breath.",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,14
+0,,四日目の日の出前だった,"And on the sunrise of the fourth day,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,15
+0,,祈りが通じたのだろうか――,祈りが通じたのだろうか――,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,16
+0,,白竜の痛撃が黄金の胸を貫き――,"the White Dragon triumphed and
+struck the Golden Dragon down,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,17
+0,,まばゆい翼は光を失い,"but the White Dragon's bright
+resplendent wings lost their light,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,18
+0,,堕ちた,and the dragon fell.,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,19
+0,,人々は胸を撫で下ろしたが――,"Though the people breathed
+sighs of relief at its triumph,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,20
+0,,白竜も深手を負い――,"the White Dragon had suffered
+a grievous wound in the battle.",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,21
+0,,そして,And thus,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,22
+0,,堕ちた,it fell.,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,23
+0,,頭を上げ、再び天空に昇ろうとしたが,"The White Dragon raised its head and
+tried to climb and soar back into the skies;",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,24
+0,,かなわず――,"alas, it could not.",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,25
+0,,人々は傷ついた白竜の周囲に集い,"The people then gathered
+around the injured dragon",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,26
+0,,祈った,and prayed.,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,27
+0,,やがて白竜は弱々しい声で言った,"Before long, the White Dragon said weakly,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,28
+0,,『おまえたちを覚者にしてやろう』,"""I shall make you Arisen,""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,29
+0,,『その代わりに――』,"""and now""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,30
+0,,『わたしを守ってくれ』,"""you shall protect me instead.""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,31
+0,,『まだ消えるわけにはいかない』,"""For I cannot yet cease away,""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,32
+0,,『レスタニアを愛する者たちよ――』,"""so you who have love for Lestania,""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,33
+0,,『堅き砦となり、わたしを守ってくれ』,"""build a stronghold to protect me.""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,34
+0,,『秩序をなくしたこの地を――』,"""Order must be""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,35
+0,,『理の内に押し戻さねば――』,"""restored to the land.""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,36
+0,,そののちの３００有余年――,"And for the next some 300 years,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,37
+0,,白竜はひとり、またひとりと覚者を増やした,"the White Dragon increased the
+number of the Arisen, one at a time.",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,38
+0,,そしてまた,"And now,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,39
+0,,新たな覚者が,a newly Arisen,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,40
+0,,レスタニアの大地に立とうとしていた,will stand on the grounds of Lestania.,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev071.arc,st0101ev071.arc,41
+0,,んっうっ――,,ui\00_message\event\st0110\ev000.gmd,\event\st0110\st0110ev000.arc,st0110ev000.arc,0
+0,,,,ui\00_message\event\st0110\ev005.gmd,\event\st0110\st0110ev005.arc,st0110ev005.arc,0
+0,,,,ui\00_message\event\st0110\ev010.gmd,\event\st0110\st0110ev010.arc,st0110ev010.arc,0
+0,,セシリー――,,ui\00_message\event\st0110\ev015.gmd,\event\st0110\st0110ev015.arc,st0110ev015.arc,0
+0,,セシリーはどこだ,,ui\00_message\event\st0110\ev015.gmd,\event\st0110\st0110ev015.arc,st0110ev015.arc,1
+0,,今一度訊こう,,ui\00_message\event\st0110\ev015.gmd,\event\st0110\st0110ev015.arc,st0110ev015.arc,2
+0,,セシリーはどこだ――,,ui\00_message\event\st0110\ev015.gmd,\event\st0110\st0110ev015.arc,st0110ev015.arc,3
+0,,そんな奴、知らねえよ！,,ui\00_message\event\st0110\ev015.gmd,\event\st0110\st0110ev015.arc,st0110ev015.arc,4
+0,,逃げ――,,ui\00_message\event\st0110\ev015.gmd,\event\st0110\st0110ev015.arc,st0110ev015.arc,5
+0,,逃げろ！,,ui\00_message\event\st0110\ev015.gmd,\event\st0110\st0110ev015.arc,st0110ev015.arc,6
+0,,黒き鎧をまといし者よ,,ui\00_message\event\st0110\ev015.gmd,\event\st0110\st0110ev015.arc,st0110ev015.arc,7
+0,,ここは我が大地、レスタニア,,ui\00_message\event\st0110\ev015.gmd,\event\st0110\st0110ev015.arc,st0110ev015.arc,8
+0,,ゆめゆめ忘れるな！,,ui\00_message\event\st0110\ev015.gmd,\event\st0110\st0110ev015.arc,st0110ev015.arc,9
+0,,ん！？,,ui\00_message\event\st0110\ev015.gmd,\event\st0110\st0110ev015.arc,st0110ev015.arc,10
+0,,うっ――,,ui\00_message\event\st0110\ev015.gmd,\event\st0110\st0110ev015.arc,st0110ev015.arc,11
+0,,,,ui\00_message\event\st0110\ev020.gmd,\event\st0110\st0110ev020.arc,st0110ev020.arc,0
+0,,ガルドリン！！,,ui\00_message\event\st0110\ev025.gmd,\event\st0110\st0110ev025.arc,st0110ev025.arc,0
+0,,おまえら――どうして――,,ui\00_message\event\st0110\ev025.gmd,\event\st0110\st0110ev025.arc,st0110ev025.arc,1
+0,,ああ、エリオットか,,ui\00_message\event\st0110\ev025.gmd,\event\st0110\st0110ev025.arc,st0110ev025.arc,2
+0,,"戻ってくんなよ――イテテ――
+誰か、治療できるか？",,ui\00_message\event\st0110\ev025.gmd,\event\st0110\st0110ev025.arc,st0110ev025.arc,3
+0,,わたしがやります,,ui\00_message\event\st0110\ev025.gmd,\event\st0110\st0110ev025.arc,st0110ev025.arc,4
+0,,ガルドリン――――ぶ,,ui\00_message\event\st0110\ev025.gmd,\event\st0110\st0110ev025.arc,st0110ev025.arc,5
+0,,あ？,,ui\00_message\event\st0110\ev025.gmd,\event\st0110\st0110ev025.arc,st0110ev025.arc,6
+0,,無事で良かったって言いましたよね,,ui\00_message\event\st0110\ev025.gmd,\event\st0110\st0110ev025.arc,st0110ev025.arc,7
+0,,状況はなーんにも変わってねえ,,ui\00_message\event\st0110\ev025.gmd,\event\st0110\st0110ev025.arc,st0110ev025.arc,8
+0,,"さっきの、侵食魔とはまるでちがう
+新手の魔物だよね",,ui\00_message\event\st0110\ev025.gmd,\event\st0110\st0110ev025.arc,st0110ev025.arc,9
+0,,"これまでとは段違いの強さだ
+黒騎士のお仲間だろうよ",,ui\00_message\event\st0110\ev025.gmd,\event\st0110\st0110ev025.arc,st0110ev025.arc,10
+0,,"おい、隊長
+島の調査なんてしてる場合じゃねえぞ",,ui\00_message\event\st0110\ev025.gmd,\event\st0110\st0110ev025.arc,st0110ev025.arc,11
+0,,"黒騎士をおびき寄せてでも、ぶっ倒さねえと
+ラチがあかねえ",,ui\00_message\event\st0110\ev025.gmd,\event\st0110\st0110ev025.arc,st0110ev025.arc,12
+0,,"隊長、一度戻ろうよ
+体勢を立て直して、出直そう！",,ui\00_message\event\st0110\ev025.gmd,\event\st0110\st0110ev025.arc,st0110ev025.arc,13
+0,,"これかよ――
+これが――",,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,0
+0,,胸が――,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,1
+0,,熱い、傷が――疼きます――,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,2
+0,,どうしよう――抑えられない――,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,3
+0,,セシリー――,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,4
+0,,"ほらな！
+そうくると思ったぜ！",,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,5
+0,,ロイグ！,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,6
+0,,竜との約束を悔いるがいい,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,7
+0,,"なんだこりゃ！
+最悪の展開じゃねえか！",,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,8
+0,,おい、さっさと引き上げるぞ,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,9
+0,,"セシリーを運べ！
+俺はロイグだ！",,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,10
+0,,あっ！？,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,11
+0,,おっ――,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,12
+0,,おお――,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,13
+0,,はっ！,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,14
+0,,うわっ！！,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,15
+0,,ぐっ―,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,16
+0,,あっ―,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,17
+0,,うっ,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,18
+0,,うっ――あっ――,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,19
+0,,んっ―んっん――,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,20
+0,,ふん！,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,21
+0,,ぎゃぁぁぁ――,,ui\00_message\event\st0112\ev000.gmd,\event\st0112\st0112ev000.arc,st0112ev000.arc,22
+0,,来ます――黒騎士の気配がします,,ui\00_message\event\st0112\ev005.gmd,\event\st0112\st0112ev005.arc,st0112ev005.arc,0
+0,,死に損なったか、セシリー――,,ui\00_message\event\st0112\ev005.gmd,\event\st0112\st0112ev005.arc,st0112ev005.arc,1
+0,,――行くぞ！,,ui\00_message\event\st0112\ev005.gmd,\event\st0112\st0112ev005.arc,st0112ev005.arc,2
+0,,ぬぁっ,,ui\00_message\event\st0112\ev005.gmd,\event\st0112\st0112ev005.arc,st0112ev005.arc,3
+0,,うっ！,,ui\00_message\event\st0112\ev005.gmd,\event\st0112\st0112ev005.arc,st0112ev005.arc,4
+0,,うっ！,,ui\00_message\event\st0112\ev005.gmd,\event\st0112\st0112ev005.arc,st0112ev005.arc,5
+0,,うっ！,,ui\00_message\event\st0112\ev005.gmd,\event\st0112\st0112ev005.arc,st0112ev005.arc,6
+0,,うっ！,,ui\00_message\event\st0112\ev005.gmd,\event\st0112\st0112ev005.arc,st0112ev005.arc,7
+0,,ズール！？,,ui\00_message\event\st0112\ev005.gmd,\event\st0112\st0112ev005.arc,st0112ev005.arc,8
+0,,フバァッッッ――,,ui\00_message\event\st0112\ev005.gmd,\event\st0112\st0112ev005.arc,st0112ev005.arc,9
+0,,でも、まるっきり魔物じゃない！？,,ui\00_message\event\st0112\ev005.gmd,\event\st0112\st0112ev005.arc,st0112ev005.arc,10
+0,,そうまでして蘇りたいかねえ,,ui\00_message\event\st0112\ev005.gmd,\event\st0112\st0112ev005.arc,st0112ev005.arc,11
+0,,セシリー、逃げて！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,0
+0,,所詮、定めにはあらがえぬ！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,1
+0,,レオ！？,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,2
+0,,邪魔をするか――,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,3
+0,,おまえの目――,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,4
+0,,その輝きは、生ある世界を見つめるためにある,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,5
+0,,守れなくて、なんのための覚者だ！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,6
+0,,もう誰も失わない！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,7
+0,,そのために手にした強さだ,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,8
+0,,その力、今差し出せというのなら――,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,9
+0,,――俺が！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,10
+0,,あとの世は――,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,11
+0,,おまえに託そう！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,12
+0,,貴様――,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,13
+0,,果たせぬ夢など――,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,14
+0,,ない！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,15
+0,,レオオオオオオ！！！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,16
+0,,はっ！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,17
+0,,うっ！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,18
+0,,うっ！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,19
+0,,うっ！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,20
+0,,わっ！！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,21
+0,,うっっ――,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,22
+0,,づあっ！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,23
+0,,ぬんっ！！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,24
+0,,"ぐっっ――
+うぉぉぉ―― ",,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,25
+0,,うっおおおぉぉ！！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,26
+0,,うおおおお！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,27
+0,,ぬぅぅん！,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,28
+0,,（力を込めた咆哮）,,ui\00_message\event\st0112\ev010.gmd,\event\st0112\st0112ev010.arc,st0112ev010.arc,29
+0,,やはり、フィンダムに乗り込むしかありません,,ui\00_message\event\st0112\ev015.gmd,\event\st0112\st0112ev015.arc,st0112ev015.arc,0
+0,,"ゲートの向こう側へ渡り
+原因を取り除かなくては――",,ui\00_message\event\st0112\ev015.gmd,\event\st0112\st0112ev015.arc,st0112ev015.arc,1
+0,,しばらくの間、時間をください,,ui\00_message\event\st0112\ev015.gmd,\event\st0112\st0112ev015.arc,st0112ev015.arc,2
+0,,"一方通行のこの、“ゲート”――
+わたしの力で、必ず開きます",,ui\00_message\event\st0112\ev015.gmd,\event\st0112\st0112ev015.arc,st0112ev015.arc,3
+0,,"再び一つとなった覚者たちは
+諸悪の根源と目された黒騎士を退けることに成功した",,ui\00_message\event\st0112\ev015.gmd,\event\st0112\st0112ev015.arc,st0112ev015.arc,4
+0,,しかし、侵食魔が跋扈する状況は、まだ変わらない,,ui\00_message\event\st0112\ev015.gmd,\event\st0112\st0112ev015.arc,st0112ev015.arc,5
+0,,フィンダム大陸へ渡る準備が粛々と進む中――,,ui\00_message\event\st0112\ev015.gmd,\event\st0112\st0112ev015.arc,st0112ev015.arc,6
+0,,覚者たちはひとときの安息を夢見た――,,ui\00_message\event\st0112\ev015.gmd,\event\st0112\st0112ev015.arc,st0112ev015.arc,7
+0,,準備ができました,,ui\00_message\event\st0112\ev020.gmd,\event\st0112\st0112ev020.arc,st0112ev020.arc,0
+0,,"クラウスが言うには――
+中は、もの凄い力でねじ曲げられた空間か――",,ui\00_message\event\st0112\ev020.gmd,\event\st0112\st0112ev020.arc,st0112ev020.arc,1
+0,,"離れた大地と大地が結ばれるほど
+圧縮された空間か――",,ui\00_message\event\st0112\ev020.gmd,\event\st0112\st0112ev020.arc,st0112ev020.arc,2
+0,,"どっちにしても、安全なんか
+これっぽちも保証されていないんです",,ui\00_message\event\st0112\ev020.gmd,\event\st0112\st0112ev020.arc,st0112ev020.arc,3
+0,,今、言う？,,ui\00_message\event\st0112\ev020.gmd,\event\st0112\st0112ev020.arc,st0112ev020.arc,4
+0,,これでお別れだったりして――,,ui\00_message\event\st0112\ev020.gmd,\event\st0112\st0112ev020.arc,st0112ev020.arc,5
+0,,"わたしは、一度通り抜けている
+セシリーもな",,ui\00_message\event\st0112\ev020.gmd,\event\st0112\st0112ev020.arc,st0112ev020.arc,6
+0,,"何かあっても、ちょっとばかり
+記憶をなくす程度さ",,ui\00_message\event\st0112\ev020.gmd,\event\st0112\st0112ev020.arc,st0112ev020.arc,7
+0,,"いつまでグダグダ言ってやがる
+覚悟決めろ",,ui\00_message\event\st0112\ev020.gmd,\event\st0112\st0112ev020.arc,st0112ev020.arc,8
+0,,――ありがとうございます,,ui\00_message\event\st0112\ev020.gmd,\event\st0112\st0112ev020.arc,st0112ev020.arc,9
+0,,それでは――開きます――,,ui\00_message\event\st0112\ev020.gmd,\event\st0112\st0112ev020.arc,st0112ev020.arc,10
+0,,おっ（リアクション）,,ui\00_message\event\st0112\ev020.gmd,\event\st0112\st0112ev020.arc,st0112ev020.arc,11
+0,,おっ（リアクション）,,ui\00_message\event\st0112\ev020.gmd,\event\st0112\st0112ev020.arc,st0112ev020.arc,12
+0,,おっ（リアクション）,,ui\00_message\event\st0112\ev020.gmd,\event\st0112\st0112ev020.arc,st0112ev020.arc,13
+0,,うわっ――（リアクション）,,ui\00_message\event\st0112\ev020.gmd,\event\st0112\st0112ev020.arc,st0112ev020.arc,14
+0,,うわっ――（リアクション）,,ui\00_message\event\st0112\ev020.gmd,\event\st0112\st0112ev020.arc,st0112ev020.arc,15
+0,,うわっ――（リアクション）,,ui\00_message\event\st0112\ev020.gmd,\event\st0112\st0112ev020.arc,st0112ev020.arc,16
+0,,一体ここで何が起きているんだ？,,ui\00_message\event\st0113\ev000.gmd,\event\st0113\st0113ev000.arc,st0113ev000.arc,0
+0,,"おい、見ろ！
+この妖しく輝く礎を――",,ui\00_message\event\st0113\ev000.gmd,\event\st0113\st0113ev000.arc,st0113ev000.arc,1
+0,,はじめてみるな,,ui\00_message\event\st0113\ev000.gmd,\event\st0113\st0113ev000.arc,st0113ev000.arc,2
+0,,な、なんだ！？,,ui\00_message\event\st0113\ev000.gmd,\event\st0113\st0113ev000.arc,st0113ev000.arc,3
+0,,うっ,,ui\00_message\event\st0113\ev000.gmd,\event\st0113\st0113ev000.arc,st0113ev000.arc,4
+0,,あああああああ！,,ui\00_message\event\st0113\ev000.gmd,\event\st0113\st0113ev000.arc,st0113ev000.arc,5
+0,,斥候からの情報によると――,,ui\00_message\event\st0114\ev000.gmd,\event\st0114\st0114ev000.arc,st0114ev000.arc,0
+0,,敵は二手に分かれて待ち受けているそうだ,,ui\00_message\event\st0114\ev000.gmd,\event\st0114\st0114ev000.arc,st0114ev000.arc,1
+0,,こちらも隊を二つに分け、迎え撃つ！,,ui\00_message\event\st0114\ev000.gmd,\event\st0114\st0114ev000.arc,st0114ev000.arc,2
+0,,それぞれの場所まで案内しよう,,ui\00_message\event\st0114\ev000.gmd,\event\st0114\st0114ev000.arc,st0114ev000.arc,3
+0,,聞いての通りだ,,ui\00_message\event\st0114\ev000.gmd,\event\st0114\st0114ev000.arc,st0114ev000.arc,4
+0,,私の側から向かう者はついてこい,,ui\00_message\event\st0114\ev000.gmd,\event\st0114\st0114ev000.arc,st0114ev000.arc,5
+0,,さぁ、出発するぞ！,,ui\00_message\event\st0114\ev000.gmd,\event\st0114\st0114ev000.arc,st0114ev000.arc,6
+0,,ただいま、フィンダム,,ui\00_message\event\st0120\ev000.gmd,\event\st0120\st0120ev000.arc,st0120ev000.arc,0
+0,,"みなさん、ようこそ
+ここがわたしの故郷――フィンダムです",,ui\00_message\event\st0120\ev000.gmd,\event\st0120\st0120ev000.arc,st0120ev000.arc,1
+0,,"フィンダムの芯なる樹――この世界の中心だ
+でも、病んで、死にかけている",,ui\00_message\event\st0120\ev000.gmd,\event\st0120\st0120ev000.arc,st0120ev000.arc,2
+0,,うわ――,,ui\00_message\event\st0120\ev000.gmd,\event\st0120\st0120ev000.arc,st0120ev000.arc,3
+0,,"ここはわたしの故郷なんだ
+かつてはナバド村と呼ばれていた",,ui\00_message\event\st0120\ev005.gmd,\event\st0120\st0120ev005.arc,st0120ev005.arc,0
+0,,"子供の頃に流行病があって――
+でも、フィンダムには対処法がなくてね",,ui\00_message\event\st0120\ev005.gmd,\event\st0120\st0120ev005.arc,st0120ev005.arc,1
+0,,そもそも、病は、報いや罰だと考えられていたんだ,,ui\00_message\event\st0120\ev005.gmd,\event\st0120\st0120ev005.arc,st0120ev005.arc,2
+0,,"ただ死を待つだけの日々――
+人がバタバタと死んでいった",,ui\00_message\event\st0120\ev005.gmd,\event\st0120\st0120ev005.arc,st0120ev005.arc,3
+0,,やりきれない話だね,,ui\00_message\event\st0120\ev005.gmd,\event\st0120\st0120ev005.arc,st0120ev005.arc,4
+0,,でも、フィンダムは変わりました,,ui\00_message\event\st0120\ev005.gmd,\event\st0120\st0120ev005.arc,st0120ev005.arc,5
+0,,"怯えて死を待つだけの時代に、父が終止符を
+打ったのです",,ui\00_message\event\st0120\ev005.gmd,\event\st0120\st0120ev005.arc,st0120ev005.arc,6
+0,,"今、父は“芯なる樹”を救うために奮闘しています
+フィンダムの未来は明るい――そう信じています",,ui\00_message\event\st0120\ev005.gmd,\event\st0120\st0120ev005.arc,st0120ev005.arc,7
+0,,"“芯なる樹”が腐るってのは、竜が病気に
+なるようなものか？",,ui\00_message\event\st0120\ev005.gmd,\event\st0120\st0120ev005.arc,st0120ev005.arc,8
+0,,"“芯なる樹”と竜は不可分
+だから、そう言っても、間違いではない",,ui\00_message\event\st0120\ev005.gmd,\event\st0120\st0120ev005.arc,st0120ev005.arc,9
+0,,"腐敗の原因を作ったのは
+どこからか現れた、あの黒騎士だ",,ui\00_message\event\st0120\ev005.gmd,\event\st0120\st0120ev005.arc,st0120ev005.arc,10
+0,,"黒騎士は倒したから、あとはどうやって
+この世界を救うか――だね",,ui\00_message\event\st0120\ev005.gmd,\event\st0120\st0120ev005.arc,st0120ev005.arc,11
+0,,"精霊竜ウィルミアと話さなくてはなりません
+もちろん、父にも帰還を報告しないと――",,ui\00_message\event\st0120\ev005.gmd,\event\st0120\st0120ev005.arc,st0120ev005.arc,12
+0,,"おいおいなんだあれは！？
+向かってくるぞ！",,ui\00_message\event\st0120\ev005.gmd,\event\st0120\st0120ev005.arc,st0120ev005.arc,13
+0,,竜――精霊竜ウィルミアです！,,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,0
+0,,会いに来てくれるなんて！,,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,1
+0,,いや、様子がおかしい！,,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,2
+0,,セシリー、逃げろ！,,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,3
+0,,うわっー,,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,4
+0,,うわっー,,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,5
+0,,うわっー,,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,6
+0,,うわっー,,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,7
+0,,うわっー,,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,8
+0,,"セシリー！？
+無事に戻ったというのは本当だったのだな",,ui\00_message\event\st0120\ev015.gmd,\event\st0120\st0120ev015.arc,st0120ev015.arc,0
+0,,一緒に来たってずーっと言ってるじゃねえかよ！,,ui\00_message\event\st0120\ev015.gmd,\event\st0120\st0120ev015.arc,st0120ev015.arc,1
+0,,この方は、レスタニアを護りし白竜の覚者です,,ui\00_message\event\st0120\ev015.gmd,\event\st0120\st0120ev015.arc,st0120ev015.arc,2
+0,,あれもレスタニアから来た覚者だと言っている,,ui\00_message\event\st0120\ev015.gmd,\event\st0120\st0120ev015.arc,st0120ev015.arc,3
+0,,"遙か彼方にレスタニアなる大地があり、白き竜と
+民が暮らしている",,ui\00_message\event\st0120\ev015.gmd,\event\st0120\st0120ev015.arc,st0120ev015.arc,4
+0,,"だが、竜と覚者は一対の契り
+白き竜には幾人もの覚者がいるなどとは――",,ui\00_message\event\st0120\ev015.gmd,\event\st0120\st0120ev015.arc,st0120ev015.arc,5
+0,,"世界は、わたしたちの想像より、ずっと広くて
+在り方も多様なのです",,ui\00_message\event\st0120\ev015.gmd,\event\st0120\st0120ev015.arc,st0120ev015.arc,6
+0,,"覚者になると同時に姿を消し――
+戻って来たと思えば異国と、その覚者の話だ",,ui\00_message\event\st0120\ev015.gmd,\event\st0120\st0120ev015.arc,st0120ev015.arc,7
+0,,我らとておまえを信じたい,,ui\00_message\event\st0120\ev015.gmd,\event\st0120\st0120ev015.arc,st0120ev015.arc,8
+0,,"おまえたちの言葉が真実だと言うのならば
+我らを納得させる、証を見せてほしい",,ui\00_message\event\st0120\ev015.gmd,\event\st0120\st0120ev015.arc,st0120ev015.arc,9
+0,,古来より伝わる方法で力とその正しさを示すのだ,,ui\00_message\event\st0120\ev015.gmd,\event\st0120\st0120ev015.arc,st0120ev015.arc,10
+0,,ホオオオオ――！！,,ui\00_message\event\st0120\ev017.gmd,\event\st0120\st0120ev017.arc,st0120ev017.arc,0
+0,,ハアッ――ハアッ――フ―！！,,ui\00_message\event\st0120\ev017.gmd,\event\st0120\st0120ev017.arc,st0120ev017.arc,1
+0,,セヤッ！！,,ui\00_message\event\st0120\ev017.gmd,\event\st0120\st0120ev017.arc,st0120ev017.arc,2
+0,,ハアッ―！！,,ui\00_message\event\st0120\ev017.gmd,\event\st0120\st0120ev017.arc,st0120ev017.arc,3
+0,,これはこれはみなさん――,,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,0
+0,,目的は、これですか？,,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,1
+0,,"冗談じゃない――
+復讐を台無しにされてたまるか！",,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,2
+0,,"腐った“芯なる樹”とともに
+皆、朽ち果ててしまえ！",,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,3
+0,,あなたが――したの？,,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,4
+0,,"ロイグ――
+あなたが“芯なる樹”を――",,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,5
+0,,"故郷が病魔に侵された時――
+誰もが、これは理、運命だと、背を向けた",,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,6
+0,,竜も助けてはくれなかった,,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,7
+0,,"悲しいが、歯を食いしばるしかなかった
+このフィンダムで育てば誰もがそうなる",,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,8
+0,,"しかし、苦しむ両親を見ているうちに
+背を向けた人々が憎くなった",,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,9
+0,,何もしない竜に失望した,,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,10
+0,,"ほどなく父は気が触れて――
+世を呪う言葉を残して死んだ",,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,11
+0,,わたしはその言葉に囚われたのさ,,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,12
+0,,乞い、願っていると、手段が手に入った,,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,13
+0,,"ああ――
+“芯なる樹”に毒素を植え付けてやった",,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,14
+0,,するとどうだ,,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,15
+0,,"“芯なる樹”を救おうと、おまえたちは右往左往
+死は理ではないのか？　運命ではなかったのか？",,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,16
+0,,"わかるぞ？
+自分たちの命だけは惜しいんだろう？",,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,17
+0,,"“理”など方便
+身勝手な奴らめ",,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,18
+0,,ロイグ、レスタニアを思い出して？,,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,19
+0,,フィンダムも、あんなふうになれるかもしれない,,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,20
+0,,無理だね,,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,21
+0,,わたしが全力で阻止するからな！,,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,22
+0,,ウォーウ、ウォウ、ウォウォウォーウ,,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,23
+0,,"魔物と化してもなおわたしを慕う
+かわいいケモノたちよ――",,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,24
+0,,さあ行け！,,ui\00_message\event\st0120\ev020.gmd,\event\st0120\st0120ev020.arc,st0120ev020.arc,25
+0,,"――なぜだ！　どういうことだ！？
+黒騎士よ！　どこにいる！",,ui\00_message\event\st0120\ev025.gmd,\event\st0120\st0120ev025.arc,st0120ev025.arc,0
+0,,今さらわたしを見捨てるのか！,,ui\00_message\event\st0120\ev025.gmd,\event\st0120\st0120ev025.arc,st0120ev025.arc,1
+0,,"ロイグが？
+黒い霧に――！！",,ui\00_message\event\st0120\ev025.gmd,\event\st0120\st0120ev025.arc,st0120ev025.arc,2
+0,,おい、近づくな！,,ui\00_message\event\st0120\ev025.gmd,\event\st0120\st0120ev025.arc,st0120ev025.arc,3
+0,,そこ！　足元に――,,ui\00_message\event\st0120\ev025.gmd,\event\st0120\st0120ev025.arc,st0120ev025.arc,4
+0,,《原始の雫》！,,ui\00_message\event\st0120\ev025.gmd,\event\st0120\st0120ev025.arc,st0120ev025.arc,5
+0,,まだ希望は消えていない――,,ui\00_message\event\st0120\ev025.gmd,\event\st0120\st0120ev025.arc,st0120ev025.arc,6
+0,,これで――フィンダムは救われます！,,ui\00_message\event\st0120\ev025.gmd,\event\st0120\st0120ev025.arc,st0120ev025.arc,7

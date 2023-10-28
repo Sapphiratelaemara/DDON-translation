@@ -1,0 +1,1313 @@
+45,ana_denial_friend_q,"<NAME TARGET>の
+フレンド申請を拒否します。よろしいですか？","Are you sure you want to decline
+the friend request from <NAME TARGET>?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,45
+46,ana_denial_friend,<NAME TARGET>のフレンド申請を拒否しました,Declined the friend request from <NAME TARGET>.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,46
+47,ana_denial_friend_error,<NAME TARGET>のフレンド申請を拒否できませんでした,Could not decline the friend request from <NAME TARGET>.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,47
+48,ana_release_friend_q,"<NAME TARGET>との
+フレンドを解除します。よろしいですか？","Are you sure you want to remove
+<NAME TARGET> from friends?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,48
+49,ana_release_friend,<NAME TARGET>のフレンドを解除しました,Removed <NAME TARGET> from friends.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,49
+50,ana_release_friend_error,<NAME TARGET>のフレンドを解除できませんでした,Could not remove <NAME TARGET> from friends.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,50
+51,ana_fav_friend_q,"<NAME TARGET>を
+お気に入りに登録します。よろしいですか？","Are you sure you want to add
+<NAME TARGET> to favorites?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,51
+52,ana_fav_friend,<NAME TARGET>をお気に入りに登録しました,Added <NAME TARGET> to favorites.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,52
+53,ana_fav_friend_error,<NAME TARGET>をお気に入りに登録できませんでした,Could not add <NAME TARGET> to favorites.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53
+54,ana_fav_release_friend_q,"<NAME TARGET>の
+お気に入りを解除します。よろしいですか？","Are you sure you want to remove
+<NAME TARGET> from favorites?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54
+55,ana_fav_release_friend,<NAME TARGET>のお気に入りを解除しました,Removed <NAME TARGET> from favorites.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,55
+56,ana_fav_release_friend_error,<NAME TARGET>のお気に入りを解除できませんでした,Could not remove <NAME TARGET> from favorites.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,56
+57,ana_entryb_entry,エントリーボードに参加申請を出しました,You have applied to join the entryboard.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,57
+58,ana_entryb_entry_error,エントリーボードに参加申請を出せませんでした,You could not apply to join the entryboard.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,58
+59,ana_entryb_join,エントリーボードに参加しました,You joined the entryboard.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,59
+60,ana_entryb_join_error,エントリーボードに参加できませんでした,You could not join the entryboard.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,60
+61,ana_entryb_join_cancel,エントリーボードの参加を取り消します。 よろしいですか？,"Are you sure you want to cancel your
+entryboard registration?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,61
+62,ana_member_ready_wait,全員が準備完了するのを待っています,Please wait for everyone to ready.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,62
+63,ana_member_less_party_q,"規定人数に足りていませんがパーティーを組みます
+よろしいですか？","There are not enough members,
+but the party will be formed. Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,63
+64,ana_search_result,検索結果は<VAL>件でした,There were <VAL> search results.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,64
+65,ana_transport_error,礎を解放する条件をみたしていません,You do not meet the conditions to go to the Portcrystal.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,65
+66,ana_countdown_die,カウントがなくなると死亡状態になります,You will die when the count reaches 0.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,66
+67,ana_revival_and_credits_num,"復活力を使用して復活しました
+残り<VAL>個です","You were resurrected by using a revival force.
+You have <VAL> remaining.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,67
+68,ana_you_die,戦闘不能になりました,You have died.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,68
+69,ana_revival_and_credits_full,黄金石を使用して復活しました,You were resurrected by using a Golden Gemstone.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,69
+70,ana_pawn_delete_q,"<NAME PAWN>を
+削除します。よろしいですか？",Are you sure you want to delete <NAME PAWN>?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,70
+71,ana_pawn_delete,<NAME PAWN>を削除しました,<NAME PAWN> has been deleted.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,71
+72,ana_pawn_public,公開設定を変更しました,You have changed your pawn's privacy settings.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,72
+73,ana_mail_send,メールを送信しました,You sent a mail.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,73
+74,ana_mail_delete_q,メールを削除します。よろしいですか？,You will delete the mail. Are you sure?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,74
+75,ana_clan_info_update,クラン情報を更新しました,Clan information has been updated.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,75
+76,ana_clan_join_q,"<NAME CLAN>に
+加入申請をします。よろしいですか？
+（一定期間承認されない場合、申請はキャンセルされます）","You will submit an application to
+join <NAME CLAN>.
+Are you sure?
+(If it is not accepted within a period of time,
+the invite will be canceled)",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,76
+77,ana_clan_join,<NAME CLAN>に加入申請しました,"You have submitted an application to
+join <NAME CLAN>.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,77
+78,ana_clan_join_cancel_q,"クランの加入申請をキャンセルします。
+よろしいですか？","You will cancel your application to join the clan.
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,78
+79,ana_clan_join_cancel,加入申請をキャンセルしました,You have canceled your application to join the clan.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,79
+80,ana_clan_join_permit_q,"<NAME TARGET>の
+加入を許可します。よろしいですか？","<NAME TARGET> will be permitted to
+join the clan. Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,80
+81,ana_clan_join_permit,<NAME TARGET>の加入を許可しました,"<NAME TARGET> has been permitted to
+join the clan.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,81
+82,ana_clan_join_ng_q,"<NAME TARGET>の
+加入を拒否します。よろしいですか？","The clan application of <NAME TARGET> will be refused.
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,82
+83,ana_clan_join_ng,<NAME TARGET>の加入を拒否しました,The clan application of <NAME TARGET> has been refused.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,83
+84,ana_clan_leave_q,クランを脱退します。よろしいですか？,You will leave the clan. Are you sure?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,84
+85,ana_clan_leave,クランを脱退しました,You have left the clan.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,85
+86,ana_clan_scout_entry,"スカウトリストにエントリーしました
+クランから招待が届くようになります","スカウトリストにエントリーしました
+クランから招待が届くようになります〈ana_clan_scout_entry〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,86
+87,ana_clan_invite_q,"<NAME TARGET>を
+クランに勧誘します。よろしいですか？
+（一定期間承認されない場合、申請はキャンセルされます）","<NAME TARGET> will be invited to the clan.
+Are you sure?
+(If it is not accepted within a period of time,
+the invite will be canceled)",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,87
+88,ana_clan_invite,<NAME TARGET>をクランに誘いました,<NAME TARGET> has been invited to the clan.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,88
+89,ana_clan_scout_cancel_q,"クランへのスカウトをキャンセルします
+よろしいですか？","The clan scouting will be canceled.
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,89
+90,ana_clan_scout_cancel,勧誘をキャンセルしました,The clan scouting has been canceled.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,90
+91,ana_clan_invite_ok_q,"<NAME CLAN>の
+勧誘を承認します。よろしいですか？","Accept the invitation to <NAME CLAN>
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,91
+92,ana_clan_join_result,<NAME CLAN>に加入しました,You have joined <NAME CLAN>.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,92
+93,ana_clan_invite_ng_q,"<NAME CLAN>の
+勧誘を拒否します。よろしいですか？","Decline the invitation to <NAME CLAN>
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,93
+94,ana_clan_invite_ng,<NAME CLAN>の勧誘を拒否しました,You declined the invitation to <NAME CLAN>.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,94
+95,ana_entryb_kicked,エントリーボードから抜けました,You have been removed from the entryboard.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,95
+96,ana_entryb_dissolution,エントリーボードが解散されました,The entryboard has been dissolved.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,96
+97,ana_entryb_timeup,エントリーボードの有効時間が切れました,The entryboard's time limit has expired.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,97
+98,ana_entryb_ready_timeup,時間内に準備完了できなかったので、エントリーボードから抜けました,"Since you did not ready in time, you were removed from the entryboard.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,98
+99,ana_member_ready_timeup,全員が準備完了しませんでした。エントリー状態を解除します,All members did not ready. Ending entry.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,99
+100,ana_entryb_alarm,エントリー可能時間が<VAL>分を切りました,You only have <VAL> minutes remaining to ready.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,100
+101,ana_mail_present_get,メール添付アイテムを取得しました,You have received items from the mail.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,101
+102,ana_entryb_alarm_reset,エントリーから<VAL>分経ちました。再延長が可能です,<VAL> minute has passed for entry. The time can be re-extended.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,102
+103,ana_leader_join_ready_info,リーダーがパーティー要請を受諾しました。一定時間内に準備完了してください,The leader has accepted the party request. Please select ready within a period of time.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,103
+104,ana_quiq_mach_ready_info,クイックパーティーで同じ目的のプレイヤーが見つかりました。合流するには一定時間内に準備完了してください,The quick party has been formed. Please select ready within a period of time.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,104
+105,ana_entryb_ready_info,エントリーメンバーがそろいました。一定時間内に準備完了してください,The entryboard has been filled. Please select ready within a period of time.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,105
+106,ana_gchat_invite,<NAME TARGET>からグループチャットに招待されました,You were invited to a group chat by <NAME TARGET>.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,106
+107,ana_gchat_invite_tg,<NAME TARGET>が<NAME TARGET>をグループチャットに招待しました,<NAME TARGET> has invited <NAME TARGET> to the group chat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,107
+108,ana_gchat_leave,<NAME TARGET>がグループチャットから抜けました,<NAME TARGET> has left the group chat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,108
+109,ana_gchat_kick,<NAME TARGET>によってグループチャットからキックされました,You have kicked <NAME TARGET> from the group chat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,109
+110,ana_gchat_kicked,グループチャットからキックされました,You were kicked from the group chat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,110
+111,ana_gchat_kick_tg,<NAME TARGET>が<NAME TARGET>をグループチャットからキックしました,<NAME TARGET> has kicked <NAME TARGET> from the group chat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,111
+112,ana_gchat_kicked_tg,<NAME TARGET>がグループチャットからキックされました,<NAME TARGET> has been kicked from the group chat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,112
+113,ana_entryb_join_tg,エントリーボードに<NAME TARGET>が参加しました,<NAME TARGET> has joined the entryboard.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,113
+114,ana_entryb_leave_tg,エントリーボードから<NAME TARGET>が離脱しました,<NAME TARGET> has left the entryboard.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,114
+115,ana_dialog_entryb_join_q,"エントリーボードに参加します。
+よろしいですか？","You will sign up for the entryboard.
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,115
+116,ana_dialog_gchat_invite_tg_q,"<NAME TARGET>を
+グループチャットに誘います。よろしいですか？","Invite <NAME TARGET> 
+to the group chat. Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,116
+117,ana_dialog_gchat_invite_tg,<NAME TARGET>をグループチャットに誘いました,<NAME TARGET> has been invited to the group chat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,117
+118,ana_dialog_gchat_leave_q,"グループチャットから抜けます。
+よろしいですか？","Leaving the group chat.
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,118
+119,ana_dialog_gchat_leave,グループチャットから抜けました,You have left the group chat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,119
+120,ana_dialog_gchat_kick_q,"<NAME TARGET>を
+グループチャットから外します。よろしいですか？","Remove <NAME TARGET> 
+from the group chat?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,120
+121,ana_dialog_gchat_kick,<NAME TARGET>をグループチャットから外しました,<NAME TARGET> has been kicked from the group chat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,121
+122,ana_dialog_retire_proposed,コンテンツ途中離脱の提案を行いました,You have proposed to withdraw from the content.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,122
+123,ana_dialog_retire_proposed_tg,<NAME TARGET>さんから途中離脱の提案がありました,<NAME TARGET> has proposed to withdraw from the content.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,123
+124,ana_dialog_retire_win,コンテンツ途中離脱が決定されました,Content withdrawal was successful.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,124
+125,ana_dialog_retire_lose,コンテンツ途中離脱が拒否されました,Content withdrawal has been denied.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,125
+126,ana_dialog_retire_isanswer,コンテンツを途中離脱しますか？,Do you want to withdraw from the content?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,126
+127,ana_dialog_retire_ispropose,コンテンツ途中離脱の提案をしますか？,"Do you want to propose to withdraw
+from the content?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,127
+128,ana_dialog_retire_agree,賛成,Agree,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,128
+129,ana_dialog_retire_re_agree,「賛成」で返答しました,"You replied ""agree.""",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,129
+130,ana_dialog_retire_re_disagree,「反対」で返答しました,"You replied ""disagree.""",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,130
+131,ana_dialog_retire_disagree,反対,Disagree,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,131
+132,ana_dialog_retire_noreply,返答せず閉じる,Close with no reply,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,132
+133,ana_dialog_retire_inform,コンテンツ途中離脱の提案がありました,Withdraw from the content?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,133
+134,ana_dialog_item_get,<ITEM n>を入手した,<ITEM n> was obtained.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,134
+135,ana_dialog_shortage_gold,所持金が不足しています,You do not have enough gold.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,135
+136,ana_warp_regist_error,礎の解放に失敗しました,Failed to unlock Portcrystal.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,136
+137,ana_warp_regist_error_main_quest,"メインクエストの進行度が不足しているため
+拠点の礎の解放に失敗しました","Because of your progress in the main quests, 
+you cannot unlock this Portcrystal.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,137
+138,ana_warp_regist_error_area_rank,"エリアランクが不足しているため
+拠点の礎の解放に失敗しました","Because your area rank is too low, 
+you cannot unlock this Portcrystal.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,138
+139,ana_pt_warp_begin,"<NAME TARGET>が＜<VAL>＞にリム転移しました
+<VAL PARTY_WARP_SEC>秒の間、同行リム転移が可能です","<NAME TARGET> has teleported to ""<VAL>"".
+Within <VAL PARTY_WARP_SEC> seconds, you can teleport with them.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,139
+140,ana_warp_point_release,礎「<NAME SPOT>」を解放しました,"Portcrystal for ""<NAME SPOT>"" has been unlocked.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,140
+141,ana_warp_regist_error_area_or_quest,"メインクエストの進行度
+またはエリアランク不足のため
+拠点の礎の解放に失敗しました","Because of your progression in the main quest 
+or your area rank, 
+you cannot unlock this Portcrystal.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,141
+142,ana_warp_disable_battle,戦闘中は使用できません,You cannot teleport during combat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,142
+143,ana_warp_disable_large_party,特定のコンテンツ中は使用できません,You cannot teleport in this content.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,143
+144,ana_event_skip,"イベントをスキップしますか？
+
+※パーティーの場合は
+　全員が承認することでスキップできます","Are you sure you want to skip the event?
+ 
+If you are in a party, 
+everyone must approve in order to skip.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,144
+145,ana_KICK_ERR_NOT_OWNER_PAWN,自分のメインポーンのみキックできます,You can only kick your own main pawn.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,145
+146,ana_KICK_ERR_NOT_PARTY,パーティーメンバーではありません,That person is not a party member and cannot be kicked.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,146
+147,ana_KICK_ERR_NOT_LEADER,リーダー時のみ選択できます,Only the party leader can kick.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,147
+148,ana_KICK_ERR_MYSELF,自分をキックすることはできません,You cannot kick yourself.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,148
+149,ana_KICK_ERR_EXIST_SUPPORT_PAWN,サポートポーンがパーティにいるためできません,You cannot kick because there is a support pawn.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,149
+150,ana_CHANGE_LEADER_ERR_NOT_PL,プレイヤーキャラクターではありません,Party leader cannot be changed to a non-player.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,150
+151,ana_CHANGE_LEADER_ERR_NOT_PARTY,パーティーが組まれていません,You cannot change leader because there is no party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,151
+152,ana_CHANGE_LEADER_ERR_AREA,リーダー変更可能エリアに全員が集まっていません,Party leader cannot be changed because all members are not gathered in a valid area.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,152
+153,ana_CHANGE_LEADER_ERR_PERMISSION,リーダーかリーダー不在でなければ選べません,You do not have permission to change the party leader.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,153
+154,ana_CHANGE_LEADER_ERR_ALREADY,現在のリーダーです,They are already the party leader.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,154
+155,ana_INVITE_PARTY_ERR_LOST_PAWN,ロスト中のポーンは呼び出せません,Pawn cannot be summoned because they are lost.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,155
+156,ana_INVITE_PARTY_ERR_ALREADY_PAWN,すでにパーティーメンバーです,Already a party member.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,156
+157,ana_INVITE_PARTY_ERR_CRAFT_PAWN,クラフト中のポーンです,Pawn is currently crafting.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,157
+158,ana_INVITE_PARTY_ERR_ADVENTURE_NUM,冒険回数が0です,Adventure count is 0.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,158
+159,ana_INVITE_PARTY_ERR_NO_MAIN_PAWN,先にメインポーンを雇う必要があります,A main pawn must be hired first.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,159
+160,ana_INVITE_PARTY_ERR_NOT_LEADER,リーダー以外は誘えません,Only the party leader can invite members.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,160
+161,ana_INVITE_PARTY_ERR_PLACE,パーティー要請が不可能なエリアです,Party invites are not possible in this area.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,161
+162,ana_INVITE_PARTY_ERR_ALREADY_PL,現在パーティーにいるメンバーです,That player is currently in your party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,162
+163,ana_INVITE_PARTY_ERR_INVITED,要請を受けています,That player has already been invited to party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,163
+164,ana_INVITE_PARTY_ERR_MYSELF,自分をパーティーに誘うことはできません,You cannot invite yourself to party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,164
+165,ana_JOIN_PARTY_ERR_UNABLE_READY,パーティー準備を完了できません,Party preparation could not be completed.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,165
+166,ana_PAWN_RENTAL_ERR_RIM,リムが足りません,Insufficient Rift Crystals.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,166
+167,ana_PAWN_RENTAL_ERR_NO_SPACE,空き枠がありません,There is no free space.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,167
+168,ana_PAWN_DELETE_ERR_PARTY,パーティーにいるポーンは削除できません,Cannot delete pawn while they are in your party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,168
+169,ana_PAWN_DELETE_ERR_CRAFT,クラフト中のポーンです,Cannot delete pawn while they are crafting.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,169
+170,ana_PAWN_RETURN_ERR_PARTY,パーティーにいるポーンは返却できません,Cannot return pawn while they are in your party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,170
+171,ana_PAWN_RETURN_ERR_CRAFT,クラフト中のポーンです,Cannot return pawn while they are crafting.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,171
+172,ana_GROUP_CHAT_ERR_ALREDY_MEMBER,すでにグループチャットのメンバーです,Already a member of the group chat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,172
+173,ana_GROUP_CHAT_ERR_NOT_PLAYER,グループチャットに誘える相手ではありません,Cannot invite to group chat because they are not a player.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,173
+174,ana_GROUP_CHAT_KICK_ERR_MYSELF,自分をキックすることはできません,Cannot kick yourself from a group chat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,174
+175,ana_EXPEL_CLAN_ERR_MYSELF,自分を除名することはできません,Cannot expel yourself from a clan.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,175
+176,ana_CHANGE_CLAN_MASTER_ERR_MYSELF,クランマスターに変更できません,Cannot change the Clan Master.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,176
+177,ana_SET_CLAN_MEMBER_RANK_ERR_MYSELF,自分にはクランランクを設定できません,Cannot change your own clan rank.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,177
+178,ana_FRIEND_ERR_MYSELF,自分にフレンド申請はだせません,Cannot send a friend request to yourself.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,178
+179,ana_TELL_ERR_MYSELF,Tellは自分にできません,Cannot send a Tell to yourself.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,179
+180,ana_AUTORUN_ERR_PAWN,ポーンを対象に追従オートランできません,Cannot use autorun on a pawn.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,180
+181,ana_AUTORUN_ERR_MYSELF,自分を対象に追従オートランできません,Cannot use autorun on yourself.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,181
+182,ana_AUTORUN_ERR_NO_PARTY,パーティーメンバー以外に追従オートランできません,Cannot use autorun on non-party members.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,182
+183,ana_AUTORUN_ERR_NO_UNIT,追従オートラン対象が同エリアにいません,Target is not in the same area for autorun.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,183
+184,ana_ERR_UNKNOWN,不明なエラーが発生しました,An unknown error has occurred.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,184
+185,ana_clan_create,クランを作成しました,You created a clan.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,185
+186,ana_clan_expulsion_q,"<NAME TARGET>を
+クランから除名します。よろしいですか？","Are you sure you want to expel <NAME TARGET> 
+from the clan?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,186
+187,ana_clan_expulsion,<NAME TARGET>を除名しました,<NAME TARGET> has been expelled.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,187
+188,ana_clan_chg_master_q,"<NAME TARGET>を
+クランマスターにします。よろしいですか？","<NAME TARGET> will become the clan master.
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,188
+189,ana_clan_chg_master,<NAME TARGET>をクランマスターにしました,<NAME TARGET> has become the clan master.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,189
+190,ana_clan_chg_leader_q,"<NAME TARGET>を
+サブマスターにします。よろしいですか？","<NAME TARGET> will become a clan leader.
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,190
+191,ana_clan_chg_member_q,"<NAME TARGET>を
+通常メンバーにします。よろしいですか？","<NAME TARGET> will become a clan member.
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,191
+192,ana_clan_chg_member,<NAME TARGET>を通常メンバーにしました,<NAME TARGET> has become a clan member.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,192
+193,ana_clan_chg_leader,<NAME TARGET>をサブマスターにしました,<NAME TARGET> has become a clan leader.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,193
+194,ana_re_entry_q,"現在のパーティーを解散して
+エントリーボードに登録しなおします。
+よろしいですか？","The current party will be disbanded.
+You will re-register on the entryboard.
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,194
+195,ana_re_entry,パーティーが解散され、エントリーボードに再登録されました,The party has been disbanded and re-registered on the entryboard.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,195
+196,ana_fav_pawn_q,"<NAME TARGET>を
+お気に入りに設定します。よろしいですか？","<NAME TARGET> will be set as a favorite pawn.
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,196
+197,ana_fav_del_pawn_q,"<NAME TARGET>を
+お気に入りから削除します。よろしいですか？","<NAME TARGET> will be removed as a favorite pawn.
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,197
+198,ana_fav_pawn,<NAME TARGET>をお気に入りに追加しました,<NAME TARGET> is now a favorite pawn.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,198
+199,ana_fav_del_pawn,<NAME TARGET>をお気に入りから削除しました,<NAME TARGET> is no longer a favorite pawn.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,199
+200,ana_friend_req_cancel_q,"<NAME TARGET>への
+フレンド申請をキャンセルします。よろしいですか？","The friend request to <NAME TARGET> will be canceled.
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,200
+201,ana_friend_req_cancel,<NAME TARGET>へのフレンド申請をキャンセルしました,The friend request to <NAME TARGET> has been canceled.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,201
+202,ana_mitem_get_con,メール添付アイテムを受け取りますか？,Receive the items attached to the mail?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,202
+203,ana_mitem_get,メール添付アイテムを受け取りました,You have received the attached items.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,203
+204,ana_mitem_all_get_q,"アイテム付きメール<VAL>件のアイテムを
+すべて受け取りますか？","There are <VAL> mails with items.
+Receive all of them?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,204
+205,ana_mitem_opt_alert,"※<OPCS>のアイテムは
+　個別に受け取ってください","※There is a <OPCS> in the mail.
+Please receive it separately.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,205
+206,ana_mitem_get_num,アイテム付きメール<VAL>件のアイテムを受け取りました,You have received items from <VAL> mails.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,206
+207,ana_blist_add_q,"<NAME TARGET>を
+ブラックリストに追加します。よろしいですか？","<NAME TARGET> will be added to your blacklist.
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,207
+208,ana_blist_del_q,"<NAME TARGET>を
+ブラックリストから削除します。よろしいですか？","Are you sure you want to remove <NAME TARGET>
+from your blacklist?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,208
+209,ana_blist_add,<NAME TARGET>をブラックリストに追加しました,<NAME TARGET> has been added to your blacklist.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,209
+210,ana_blist_del,<NAME TARGET>をブラックリストから削除しました,<NAME TARGET> has been removed from your blacklist.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,210
+211,ana_PAWN_DELETE_ERR_LAST,残り1体なので削除できません,"Since it is your last pawn, it cannot be deleted.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,211
+212,ana_mitem_get_msg_index,アイテム付きのメール<VAL>件を受け取りました,You have received <VAL> items from mail.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,212
+213,ana_mitem_get_gameitem,アイテム x <VAL> 入手,Item x<VAL> obtained.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,213
+214,ana_mitem_get_opt_course,<OPCS> x <VAL> 発動,<OPCS> x<VAL> activated.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,214
+215,ana_mitem_get_opt_goldstone,メール <VAL>件分の黄金石 直接入手,<VAL> Golden Gemstones directly obtained.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,215
+216,ana_mitem_get_opt_cticket,通貨系アイテム x <VAL> 直接入手,Currency item x<VAL> directly obtained.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,216
+217,ana_mitem_get_opt_lpawnticket,クラフトマスターポーン利用券 x <VAL> 入手,Craft Master Pawn ticket x<VAL> obtained.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,217
+218,ana_mitem_get_err_gameitem,アイテム x <VAL> を受け取れませんでした,アイテム x <VAL> を受け取れませんでした〈ana_mitem_get_err_gameitem〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,218
+219,ana_mitem_get_err_opt_course,<OPCS> x <VAL> を受け取れませんでした,<OPCS> x <VAL> を受け取れませんでした〈ana_mitem_get_err_opt_course〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,219
+220,ana_mitem_get_err_opt_goldstone,メール <VAL>件分の黄金石 を受け取れませんでした,メール <VAL>件分の黄金石 を受け取れませんでした〈ana_mitem_get_err_opt_goldstone〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,220
+221,ana_mitem_get_err_opt_cticket,通貨系アイテム x <VAL> を受け取れませんでした,通貨系アイテム x <VAL> を受け取れませんでした〈ana_mitem_get_err_opt_cticket〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,221
+222,ana_mitem_get_err_opt_lpawnticket,クラフトマスターポーン利用券 x <VAL> を受け取れませんでした,Craft Master Pawn Voucher x<VAL> could not be received.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,222
+223,ana_get_ability,アビリティ「<NAME ABILITY> <VAL LV>」を習得しました,"You have learned ""<NAME ABILITY> <VAL LV>"".",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,223
+224,ana_grandmission_get_reward,報酬が保管ボックスに送られました,The Grand Mission rewards have been sent to your storage box.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,224
+225,ana_unlock_contents,<TEXT>が解放されました,<TEXT> has been unlocked.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,225
+226,ana_gamemenu_atlobby,この場所では使用できません,You cannot use this in this location.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,226
+227,ana_gamemenu_dontnow,今は使用できません,You cannot use this right now.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,227
+228,ana_gamemenu_playcontents,特定コンテンツプレイ時にしか選べません,You can only select this during specific content.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,228
+229,ana_gamemenu_clanmember,クランに所属していなければ選べません,You cannot select this if you are not in a clan.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,229
+230,ana_gamemenu_dontrimwarp,カメラ制限がかかっているためフォトモードに移行できません,You cannot switch to Photo Mode due to camera restrictions.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,230
+231,ana_charge_course_start,<NAME ETC> が発動しました,<NAME ETC> has been activated.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,231
+232,ana_charge_course_limit_1h,<NAME ETC> の期限が、残り1時間をきりました,<NAME ETC> has 1 hour remaining.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,232
+233,ana_charge_course_limit_24h,<NAME ETC> の期限が、残り24時間をきりました,<NAME ETC> has 24 hours remaining.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,233
+234,ana_charge_course_end,<NAME ETC> が切れました,<NAME ETC> has ended.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,234
+235,ana_pawn_lost_escape,<NAME PAWN>はロストすることなく、リムストーンに戻りました,<NAME PAWN> has been lost and sent back to the Riftstone.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,235
+236,ana_cantchange,その項目は変更できません,This cannot be changed.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,236
+237,ana_number_selection,個数を選択してください,Please select the amount.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,237
+238,ana_tutorial_announce,新しいチュートリアルがあります,There is a new tutorial available.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,238
+239,ana_content_starting_standby,出発スタンバイをしますか？,Do you want to begin standing by?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,239
+240,ana_content_starting_cancel,出発スタンバイをキャンセルしますか？,Do you want to cancel standing by?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,240
+241,ana_content_party_standby,パーティーの準備ができたので移動しますか？,Do you want to move now that your party is ready?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,241
+242,ana_creating_second_pawn,新しいメインポーンと契約しました。パーティー管理から呼び出せます,You have made a contract with a new main pawn. It can be called through Party Management.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,242
+243,ana_get_keyitem,「%s」を入手しました,"""%s"" obtained.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,243
+244,ana_quest_party_join,"%sを
+パーティーに入れます。よろしいですか？","%s will join the party.
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,244
+245,ana_grand_npc_escort_faild,護衛対象の護衛に失敗,Failed to escort the target.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,245
+246,ana_extream_timelimit_faild,制限時間内での目的達成に失敗,Failed to meet objectives within the time limit.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,246
+247,ana_pawn_adventure_dec,<NAME PAWN>の冒険回数が減りました,The remaining adventures of <NAME PAWN> has been reduced.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,247
+248,ana_pawn_adventure_zero,"<NAME PAWN>の冒険回数が0になりました
+パーティーから外れます","The remaining adventures of <NAME PAWN> is now 0.
+They will leave the party.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,248
+249,ana_pawn_crafter_dec,<NAME PAWN>のクラフト回数が減りました,The remaining crafts of <NAME PAWN> has been reduced.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,249
+250,ana_pawn_crafter_zero,<NAME PAWN>のクラフト回数が0になりました,The remaining crafts of <NAME PAWN> is now 0.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,250
+251,ana_release_element,<VAL>を解放しました,<VAL> has been unlocked.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,251
+252,ana_INVITE_PARTY_ERR_PROGRESS_PL,まだプレイヤーをパーティーに誘うことができません,You cannot invite players to a party yet.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,252
+253,ana_INVITE_PARTY_ERR_PROGRESS_PAWN,まだポーンをパーティーに参加させることができません,You cannot invite a pawn to party yet.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,253
+254,ana_CARD_ERR_NOT_ONLINE,オフラインです,Offline.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,254
+255,ana_APPLY_CLAN_ERR_ALREADY_JOIN,すでにクランに所属しています,You are already in a clan.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,255
+256,ana_entry_board_name_taken_list,リストから名前取得,From List,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,256
+257,ana_entry_board_name_taken_friend,フレンドリストから,From Friends,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,257
+258,ana_entry_board_name_taken_clan,クランリストから,From Clan,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,258
+259,ana_mail_ana_receivedmail_full,知り合いメールボックスがいっぱいです,That character's mailbox is full.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,259
+260,ana_mail_ana_receivedmail_full_near,知り合いメールボックスの容量が少なくなってます,That character's mailbox is almost full.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,260
+261,ana_mail_ana_notificationmail_full,"運営メールボックスがいっぱいです
+新しい運営メールを受信するには、不要になった運営メールを削除してください","Your mailbox is full.
+Please delete unneeded mail to receive new mails.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,261
+262,ana_mail_ana_notificationmail_full_near,運営メールボックスの容量が少なくなってます,Your mailbox is almost full.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,262
+263,ana_mail_ana_0_newmail,新着メールはありません,There is no new mail.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,263
+264,ana_mail_ana_0_itemmail,添付アイテムはありません,There are no items in the mail.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,264
+265,ana_mail_ana_notset_address,宛先が設定されていません,The mail's destination has not been entered.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,265
+266,ana_mail_ana_notinput_text,本文が入力されていません,The mail's body has been entered.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,266
+267,ana_CLAN_SCOUT_DIALOG_SCOUT_CANCEL_READY,"スカウトエントリーをキャンセルします。
+よろしいですか？","You will cancel the scout entry.
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,267
+268,ana_CLAN_SCOUT_DIALOG_SCOUT_CANCEL_END,スカウトエントリーをキャンセルしました,You have canceled scout entry.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,268
+269,ana_om_cannotstart_battle,戦闘中は起動できません,You cannot start battle.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,269
+270,ana_questreward_to_rewardbox,クエスト報酬が報酬ボックスに入りました,The quest reward has been sent to the reward box.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,270
+271,ana_itembox_submenu_tooltip_sendspbox_nonsp,＜<OPCS>＞の発動中に使用可能となります,"This is available with the effect of ""<OPCS>"".",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,271
+272,ana_itembox_submenu_tooltip_sendbox_ng_frame,アイテム枠がいっぱいです,The box is full.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,272
+273,ana_itembox_submenu_tooltip_sendbox_ng_stack,アイテムスタック数を超えています,The total will exceed the stack limit.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,273
+274,ana_version_error,このバージョンでは使用できません,This cannot be used in this version.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,274
+275,ana_new_leader_re_entry,新たなリーダーに任命されました。出撃確認画面に入り直して下さい,The party has a new leader. Please re-enter with the party confirmation screen.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,275
+276,ana_quick_pt_recruiting_ng,クイックパーティー中のため募集できません,You cannot recruit for quick party while in a full party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,276
+277,ana_quick_pt_join_ng,クイックパーティー中のため参加できません,You can no longer participate in a quick party because you are in a party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,277
+278,ana_entryb_already_disable,コンテンツエントリー中のため選べません,You cannot select content while already in an entryboard.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,278
+279,ana_entryb_party_disable,特定コンテンツ用パーティーのため選べません,You cannot select content while already in a party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,279
+280,ana_entryb_only_disable,コンテンツエントリー時にしか選べません,You can only select this at the time of content entry.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,280
+281,ana_contents_leave_ng,コンテンツ中はパーティーから抜けられません,You cannot leave party while searching for content.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,281
+282,ana_quickparty_leave_ng,クイックパーティー中はパーティーから抜けられません,You cannot leave party while searching for a quick party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,282
+283,ana_dialog_party_leave_q,"パーティーから抜けます
+よろしいですか？",Are you sure you want to leave the party?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,283
+284,ana_KICK_ERR_QUICK_PT,クイックパーティー中はキックできません,You cannot kick in a quick party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,284
+285,ana_KICK_ERR_CONTENTS,特定のコンテンツ中はキックできません,You cannot kick in this particular content.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,285
+286,ana_INVITE_PARTY_ERR_QUICK_PT,クイックパーティー中はパーティーに誘えません,You cannot invite while searching for a quick party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,286
+287,ana_INVITE_PARTY_ERR_CONTENTS,特定のコンテンツ中はパーティーに誘えません,You cannot invite while searching for content.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,287
+288,ana_DEACTIVATE_ERR_QUICK_PT,クイックパーティー中は解散できません,You cannot disband the party while searching for a quick party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,288
+289,ana_DEACTIVATE_ERR_CONTENTS,特定のコンテンツ中は解散できません,You cannot disband the party while searching for content.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,289
+290,ana_pawn_review_err,すべての評価を行わないと返却できません,You cannot return the pawn until you complete all of the evaluation.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,290
+291,ana_create_character_max,これ以上新規キャラクターを作成できません,You cannot create any more new characters.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,291
+292,ana_delete_character_zero,キャラクターが作成されていません,There is no created characters.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,292
+293,ana_lot_err_goldstone_short,黄金石が不足しています,You do not have enough Golden Gemstones.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,293
+294,ana_lot_err_silverticket_short,シルバーチケットが不足しています,You do not have enough Silver Tickets.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,294
+295,ana_lot_err_itempost_full,アイテムポストの空きが足りないためロットできません,There is not enough space in the Item Post to lot.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,295
+296,ana_party_leave_err_battle,戦闘中はパーティーからぬけられません,You cannot leave party during combat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,296
+297,ana_party_leave_err_solo,一人の時はパーティーからぬけられません,You cannot leave party while solo.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,297
+298,ana_news_err_favorite_warp,拠点をマイ拠点に登録していないためリム転移できません,You cannot teleport because it is not registered as a favorite.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,298
+299,ana_quest_order_err_condition,クエスト受注条件を満たしていません,You do not meet the entry conditions for this quest.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,299
+300,ana_quest_order_err_max,クエスト受注数が上限に達しています,You cannot accept any more quests.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,300
+301,ana_quest_cancel_err,このクエストは破棄できません,You cannot cancel this quest.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,301
+302,ana_bazaar_no_sales,バザーの売上がありません,There have been no sales on the Bazaar.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,302
+303,ana_input_device_err_mouse_key,マウス・キーボードが接続されていません,Mouse and keyboard are not connected.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,303
+304,ana_equip_condition_err,条件をみたしていないため装備できません,You do not meet the conditions to wear this equipment.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,304
+305,ana_box_err_exspace,＜<OPCS>＞の発動中に使用可能となります,"This is available with the effect of ""<OPCS>"".",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,305
+306,ana_input_device_err_pad,<PFWD 0>が接続されていません,<PFWD 0> is not connected.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,306
+307,ana_input_device_err_mouse_key_unchangable,マウス・キーボードが接続されていません,Mouse and keyboard are not connected.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,307
+308,ana_input_device_err_pad_unchangable,<PFWD 0>が接続されていません,<PFWD 0> is not connected.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,308
+309,ana_notion_exbox_without_charge,本ボックスは＜<OPCS>＞の発動中に使用可能となります,"This box is available with the effects of ""<OPCS>"".",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,309
+310,ana_dialog_areatest,ランクアップにはエリア試練クエストのクリアが必要です,To rank up you need to complete the area quest.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,310
+311,ana_err_arearankup_by_guest,エリアランクアップはパーティーリーダーのみ可能です,Area rank up is only available to the party leader.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,311
+312,ana_pawn_delete_q_equip,保管ボックスの空きが足りないので装備品が消えますが、<NAME PAWN>を削除してよろしいですか？,There is not enough storage space to hold the equipment of <NAME PAWN>. Are you sure you want to delete?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,312
+313,ana_clan_info_reload,クランの情報が更新されました,Clan information has been updated.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,313
+314,ana_play_main_quest,メインクエストで遊ぶ,Play Main Quest,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,314
+315,ana_play_area,エリアスポットで遊ぶ,Play in an Area Spot,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,315
+316,ana_common_back,戻る,Back,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,316
+317,ana_common_ready,準備完了,Ready,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,317
+318,ana_common_refuse,拒否,Decline,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,318
+319,ana_common_return,戻る,Back,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,319
+320,ana_q_use_item,＜<NAME ITEM>＞を使いますか？,"Use ""<NAME ITEM>""?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,320
+321,ana_select_destination,行き先選択,Select Destination,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,321
+322,ana_common_cancel,やめる,Cancel,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,322
+323,CRAFT_NG_USED_PAWN,クラフト中のポーンです,That pawn is currently crafting.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,323
+324,CRAFT_NG_SELECTED_PAWN,クラフト選択済のポーンです,That pawn has already been selected.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,324
+325,CRAFT_NG_CRAFTRANK,クラフトレベルを満たしていません,That pawn's craft level is not high enough.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,325
+326,CRAFT_NG_NON_POSSIBLE_PAWN,クラフト可能なポーンがいません,There are no pawns currently available to craft.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,326
+327,CRAFT_NG_NON_NEED_ITEM,素材が足りません,You do not have enough materials.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,327
+328,CRAFT_NG_NON_CRAFTRANK_PAWN,クラフトレベルを満たしているポーンがいません,There are no pawns that have a high enough craft level.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,328
+329,CRAFT_NG_NON_MONEY,所持金が足りません,You do not have enough gold.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,329
+330,ana_qpt_checkbox_sel_err,現在のパーティー構成では選択できません,This cannot be selected with the current party setup.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,330
+331,ana_q_setting_initialize,設定を初期化しますか？,Are you sure you want to reset the settings?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,331
+332,ana_q_setting_recommended,設定をおすすめに戻しますか？,Return to the recommended settings?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,332
+333,ana_join_lobby,パーティーに合流します,Join party?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,333
+334,ana_enter_password,パスワードを入力してください,Please enter your password.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,334
+335,ana_select_type_quickmatch,クイックパーティーの冒険目的を選択してください,Please select the purpose of the adventure.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,335
+336,ana_freemarker_delete,<NAME TARGET>の<VAL>番フリーマーカー情報を削除しました,<NAME TARGET>の<VAL>番フリーマーカー情報を削除しました〈ana_freemarker_delete〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,336
+337,ana_freemarker_set,<NAME TARGET>の<VAL>番フリーマーカー情報を反映しました,<NAME TARGET> has set free marker <VAL>.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,337
+338,ana_quest_info_assept,パーティーメンバーが＜<VAL>＞を受注しました,"A party member has accepted the ""<VAL>"" quest.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,338
+339,ana_quest_info_clear,パーティーメンバーが＜<VAL>＞をクリアしました,"A party member has cleared the ""<VAL>"" quest.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,339
+340,ana_quest_info_cancel,<VAL>が＜<VAL>＞を破棄しました,"<VAL> has canceled the quest ""<VAL>"".",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,340
+341,ana_pt_mem_warp_begin,<NAME TARGET>が＜<VAL>＞にリム転移しました,"<NAME TARGET> has teleported to ""<VAL>"".",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,341
+342,ana_quest_info_update,パーティーメンバーが＜<VAL>＞を進行しました,"A party member has updated progress
+on the quest ""<VAL>"".",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,342
+343,ana_quest_info_accept_solo,＜<VAL>＞を受注しました,"""<VAL>"" has been accepted.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,343
+344,ana_quest_info_clear_solo,＜<VAL>＞をクリアしました,"""<VAL>"" has been cleared.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,344
+345,ana_quest_info_update_solo,＜<VAL>＞を進行しました,"""<VAL>"" progress has been updated.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,345
+346,ana_TELL_ERR_PAWN,Tellはポーンにできません,You cannot send a tell to Pawns.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,346
+347,ana_COMMON_ERR_PAWN,ポーンにはできません,You cannot do this to Pawns.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,347
+348,ana_job_release_order_start,新ジョブ「<VAL>」の習得試練を開始しました,Job order 「<VAL>」 is now available.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,348
+349,ana_party_full,メンバーの上限を越えるため誘えません,The party is full.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,349
+350,ana_disparty_in_battle,戦闘中なのでパーティー解散できません,The party cannot be disbanded during combat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,350
+351,ana_join_disable_discondition,募集条件を満たしていません,You do not meet the party requirements.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,351
+352,ana_event_skip_button,スキップ,Skip,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,352
+353,ana_server_crowded,"現在サーバーが混み合っています。
+順次ログイン処理を行いますので
+しばらくお待ちください。
+(現在<VAL>人待ちです)","The server is busy right now.
+Because there is a login queue,
+please be patient.
+(Currently <VAL> people waiting)",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,353
+354,ana_char_edit_crowded,"現在サーバーが混み合っています。
+キャラクター作成処理が完了するまで
+しばらくおまちください。
+(現在<VAL>人待ちです)","The server is busy right now.
+While your character is being created,
+please wait for a while.
+(Currently <VAL> people waiting)",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,354
+355,ana_solve_crowded,ゲーム開始可能になりました,The game can now start.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,355
+356,ana_is_backlobby,タイトルに戻りますか？,Return to the title screen?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,356
+357,ana_box_disable,拡張枠は使用できません,Storage expansion cannot be used.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,357
+358,ana_nomore_choice,これ以上選択できません,You cannot select any more.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,358
+359,ana_change_cancel,"変更をキャンセルします
+よろしいですか？","Are you sure you want to
+cancel the changes?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,359
+360,ana_entryb_ready_alert,メンバーが集合しました。担当NPCから《出撃》を選択してください,"The party members have assembled. Please select ""Sortie"" at the NPC.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,360
+361,ana_entryb_ready_wait_alert,他のメンバーの出撃完了を待っています,Waiting for the other party members to sortie.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,361
+362,ana_entryb_reentry_alert,メンバーが揃っていません。再エントリーを行ってください,Party members are not assembled. Please re-register.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,362
+363,ana_areamaster_no_quest,現在、配信されているクエストがありません,Currently there are no quests available.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,363
+364,ana_pawn_upset,ポーンが参加できる状態ではないためキャンセルされました,The pawn has been canceled because it has entered a state where it can no longer participate.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,364
+365,ana_entry_ready_gather,他のメンバーの準備完了を待っています,Waiting for the other party members to become ready.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,365
+366,ana_quest_wait_order_member_error,リーダーのみ操作が可能です,Only the leader can do this.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,366
+367,ana_quest_progress_error,"＜<NAME QUEST>＞は
+進行条件を満たしていません","You do not meet the progress conditions for ""<NAME QUEST>"".",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,367
+368,ana_quickpt_fail_by_friend,"全員が準備完了できなかったため
+キャンセルされました","Everyone was not ready, so quick party has been canceled.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,368
+369,ana_quickpt_fail_by_decline,"準備完了できなかったプレイヤーがいたため
+再マッチングを行います","Someone has declined the quick party invite.
+You have begun re-matching.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,369
+370,ana_gacha_no_items,トレジャーズロットに商品がありません,There are no items in the lot.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,370
+371,ana_event_skip_solo,イベントをスキップしますか？,Are you sure you want to skip the event?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,371
+372,ana_crowded_cancel,順番待ちを中止しますか？,Are you sure you want to leave the queue?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,372
+373,ana_disable_quickp,クイックパーティー中のため選べません,You cannot choose this option while in a quick party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,373
+374,ana_disable_make_pt,パーティー要請中のため選べません,You cannot choose this option while there is a party request.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,374
+375,ana_disable_join_pt,パーティー参加中のため選べません,You can't do that while in a party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,375
+376,ana_craft_noxp_rankup,"選択中のポーンは昇格試験クリアまで
+クラフト経験値を獲得できません","Your pawn cannot receive craft experience 
+until the promotion test is cleared.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,376
+377,ana_autologout_notice,"長時間、操作が行われていません
+この状態があと <VAL>分 続くと、サーバーとの接続が切断されます","There have been no actions for a long
+time. If this continues for <VAL> minutes,
+you will be disconnected.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,377
+378,ana_disable_not_leader_common_err,リーダーではないため選べません,You cannot choose this option because you are not the leader.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,378
+379,ana_disable_qpt_fullmenber,パーティーメンバーが揃っているため選べません,You cannot choose this because the party is full.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,379
+380,ana_clan_search_setting_dialog,"クランの情報を公開してメンバーを募集しますか？
+（クラン編集から設定変更できます）","Are you sure you want to recruit members using the public information of the clan?
+(You can change these settings in Edit Clan)",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,380
+381,ana_clan_create_err_scoutentry,スカウトエントリー中のため作成できません,You cannot create because you are currently in scout entry.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,381
+382,ana_clan_create_err_joinreq,クランに加入申請中のため作成できません,You cannot create because you currently have an application to a clan.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,382
+383,ana_error_party_unassembled,パーティー全員が揃っていないため使用できません,You cannot choose this option because the party has not assembled.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,383
+384,ana_pl_num_lobby_in,ワールド <NAME LOBBY> へ移動しました,You moved to world <NAME LOBBY>.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,384
+385,ana_autologout_avoidance,長時間の未操作状態から復帰しました,You have returned from the long period of no actions.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,385
+386,ana_no_contents_party_dissolution,"現在のパーティーで参加できるコンテンツがありません
+パーティー解散をしてください","There is no content available to participate in the current party.
+Please disband the party.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,386
+387,ana_rimstone_menu_ex_lost_pawn,＜<OPCS>＞の発動中に使用可能となります,"This is available with the effect of ""<OPCS>"".",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,387
+388,ana_skill_release_order_start,新しいジョブ修練の課題を開始しました,A new job training order has begun.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,388
+389,ana_lostpawn_rescue_q,"<VAL RIM>を消費して
+<NAME PAWN>を救出します
+よろしいですか？","By consuming <VAL RIM>, <NAME PAWN> will be rescued.
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,389
+390,ana_lostpawn_resque_rim_err,リムが足りないためできません,You do not have enough Rift Crystals.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,390
+391,ana_lostpawn_rescue,<NAME PAWN>を復活させました,<NAME PAWN> has been rescued.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,391
+392,ana_revival_and_credits_rim,リムを使用して復活しました,Revived using Rift Crystals.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,392
+393,ana_lostpawn_resque_userim_err,"リムが足りないためできません
+<VAL RIM>必要です","You cannot do this because you do not have enough Rift Crystals.
+<VAL RIM> is required.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,393
+394,ana_inputtxt_min_err,入力文字数が足りません,You must enter more characters.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,394
+395,ana_error_no_target_opcs,＜<OPCS>＞の発動中に使用可能となります,"This is available with the effect of ""<OPCS>"".",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,395
+396,ana_simple_req_notfound,条件のあうプレイヤーがみつかりませんでした,No players that match those conditions could be found.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,396
+397,ana_simple_req_retry,続けてパーティーへの参加要請を送りますか？,続けてパーティーへの参加要請を送りますか？〈ana_simple_req_retry〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,397
+398,ana_play_news,レスタニアニュースで遊ぶ,Play Lestania News,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,398
+399,ana_request_entry_invitation,エントリーボードに招待されました,エントリーボードに招待されました〈ana_request_entry_invitation〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,399
+400,ana_entry_password_release_conf,パスワードを解除します。よろしいですか？,パスワードを解除します。よろしいですか？〈ana_entry_password_release_conf〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,400
+401,ana_entry_password_release_deci,パスワードを解除しました,パスワードを解除しました〈ana_entry_password_release_deci〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,401
+402,ana_entry_comment_input,コメントを入力してください,コメントを入力してください〈ana_entry_comment_input〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,402
+403,ana_entry_comment_change,コメントを変更しました,コメントを変更しました〈ana_entry_comment_change〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,403
+404,ana_entry_invitation_pl_conf,"<NAME TARGET>を
+エントリーボードに招待します。よろしいですか？","Are you sure you want to invite
+<NAME TARGET> to the entryboard?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,404
+405,ana_entry_invitation_pt_conf,"パーティーメンバーを
+エントリーボードに招待します。よろしいですか？","Are you sure you want to invite
+your party members to the entryboard?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,405
+406,ana_entry_invitation_pl_deci,"<NAME TARGET>を
+エントリーボードに招待しました",<NAME TARGET> was invited to the entryboard.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,406
+407,ana_entry_invitation_pt_deci,"パーティーメンバーを
+エントリーボードに招待しました","パーティーメンバーを
+エントリーボードに招待しました〈ana_entry_invitation_pt_deci〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,407
+408,ana_get_gmission_reward,を獲得！,acquired!,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,408
+409,ana_totalscore_reward,累計スコア報酬を獲得！,累計スコア報酬を獲得！〈ana_totalscore_reward〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,409
+410,ana_totalscore_ability_reward,"累計スコア報酬で
+シークレットアビリティを獲得！","Earned Secret Augment in the
+total score reward!",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,410
+411,ana_ranking_reward,ランキング報酬を獲得！,ランキング報酬を獲得！〈ana_ranking_reward〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,411
+412,ana_ranking_ability_reward,"ランキング報酬で
+シークレットアビリティを獲得！","ランキング報酬で
+シークレットアビリティを獲得！〈ana_ranking_ability_reward〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,412
+413,OS_announce_buy_item,<NAME ETC> を購入しました,Purchased <NAME ETC>.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,413
+414,OS_announce_buygs,黄金石 <VAL> 個を購入しました,Purchased <VAL> Golden Gemstones.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,414
+415,OS_annnounce_for_itempost,"商品の受け取りは
+メールをご確認ください","商品の受け取りは
+メールをご確認ください〈OS_annnounce_for_itempost〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,415
+416,OS_annnounce_for_rimstone,"クラフトマスターポーンのご利用は
+リムストーンで行えます","クラフトマスターポーンのご利用は
+リムストーンで行えます〈OS_annnounce_for_rimstone〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,416
+417,OS_annnounce_for_beautyshop,ポーンボイスの設定は美容院で行えます,ポーンボイスの設定は美容院で行えます〈OS_annnounce_for_beautyshop〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,417
+418,ana_party_join_leader_name_info,"クイックパーティーで合流しました
+目的を共有しあい、冒険を楽しみましょう
+リーダーは <NAME TARGET> です","Quick party joined.
+Everyone shares the same goal, so let's enjoy the adventure.
+The party leader is <NAME TARGET>.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,418
+419,ana_main_quest_accept_error_party_inviting,パーティー要請中のため、メインクエストを受注できません,パーティー要請中のため、メインクエストを受注できません〈ana_main_quest_accept_error_party_inviting〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,419
+420,ana_err_cannot_use_me,自分には使用できません,自分には使用できません〈ana_err_cannot_use_me〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,420
+421,ana_err_quest_progress_no_leader_,リーダーが不在のため、クエストを進行できません,リーダーが不在のため、クエストを進行できません〈ana_err_quest_progress_no_leader_〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,421
+422,ana_mitem_get_num_all_opcsitem,受け取れるアイテムがありませんでした,There were no items to receive.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,422
+423,ana_mitem_get_opt_course_notget,※<OPCS>は個別に受け取ってください,※Please receive <OPCS> separately.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,423
+424,ana_mitem_opt_alert_one,"【ご注意】アイテムの中に<OPCS>が含まれています
+※<OPCS>は受け取ると発動します","[Warning] <OPCS> is attached.
+※<OPCS> will be received
+and activated.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,424
+425,ana_mail_delete_all_read_mail_q,"未読／未取得以外のメール<VAL>件を
+すべて削除します。よろしいですか？","未読／未取得以外のメール<VAL>件を
+すべて削除します。よろしいですか？〈ana_mail_delete_all_read_mail_q〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,425
+426,ana_mail_deleted,削除しました,It has been deleted.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,426
+427,ana_mail_delete_all_read_mail_0,既読メールはありません,既読メールはありません〈ana_mail_delete_all_read_mail_0〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,427
+428,ana_quiq_mach_ready_info_pop,"クイックパーティーで同じ目的のプレイヤーが見つかりました
+合流するには一定時間内に準備完了してください","クイックパーティーで同じ目的のプレイヤーが見つかりました
+合流するには一定時間内に準備完了してください〈ana_quiq_mach_ready_info_pop〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,428
+429,ana_entry_no_war_situation,参加しようとしていた戦況が終了しました,参加しようとしていた戦況が終了しました〈ana_entry_no_war_situation〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,429
+430,ana_gm_reward_syslog,"グランドミッションの戦果報酬配分期間です
+参加した覚者は窓口の人物に話しかけて
+報酬を受け取りましょう","グランドミッションの戦果報酬配分期間です
+参加した覚者は窓口の人物に話しかけて
+報酬を受け取りましょう〈ana_gm_reward_syslog〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,430
+431,ana_gm_situation_syslog,"グランドミッションの戦況が変化しました
+窓口の人物に話しかけて確認しましょう","グランドミッションの戦況が変化しました
+窓口の人物に話しかけて確認しましょう〈ana_gm_situation_syslog〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,431
+432,ana_quickpt_ng_mq_solo,受注条件がパーティープレイ不可のため使用できません,受注条件がパーティープレイ不可のため使用できません〈ana_quickpt_ng_mq_solo〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,432
+433,ana_mq_ng_different_progression_usenot_keyite,"リーダーと進行状況が異なるため
+キーアイテムは使用できません","リーダーと進行状況が異なるため
+キーアイテムは使用できません〈ana_mq_ng_different_progression_usenot_keyite〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,433
+434,ana_craftskillreset_ng_ticket,クラフトスキルリセット権がありません,クラフトスキルリセット権がありません〈ana_craftskillreset_ng_ticket〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,434
+435,ana_craftskillreset_ng_craft,クラフト中なので使用できません,クラフト中なので使用できません〈ana_craftskillreset_ng_craft〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,435
+436,ana_craftskillreset_ng_party,パーティー中なので使用できません,パーティー中なので使用できません〈ana_craftskillreset_ng_party〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,436
+437,ana_craftskillreset_conf,"<NAME PAWN>の
+クラフトスキルをリセットしますか？
+※クラフトスキルリセット権が消費されます","<NAME PAWN>の
+クラフトスキルをリセットしますか？
+※クラフトスキルリセット権が消費されます〈ana_craftskillreset_conf〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,437
+438,ana_craftskillreset_dec,"<NAME PAWN>の
+クラフトスキルをリセットしました","<NAME PAWN>の
+クラフトスキルをリセットしました〈ana_craftskillreset_dec〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,438
+439,ana_storageextension_dec,"ストレージが拡張されました
+該当する画面を確認してください","ストレージが拡張されました
+該当する画面を確認してください〈ana_storageextension_dec〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,439
+440,ana_craftskillreset_dec_guide,"クラフトスキルリセットのご利用は
+リムストーンでおこなえます","クラフトスキルリセットのご利用は
+リムストーンでおこなえます〈ana_craftskillreset_dec_guide〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,440
+441,ana_quest_invalid_status_change,クエスト状況が変化したため進行できませんでした,クエスト状況が変化したため進行できませんでした〈ana_quest_invalid_status_change〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,441
+442,ana_storage_num_increase,保管ボックスのアイテム枠数が増加しました,保管ボックスのアイテム枠数が増加しました〈ana_storage_num_increase〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,442
+443,ana_CLAN_ERR_INTERVAL,クランインターバル期間中のためできません,You cannot in the duration of the Clan Interval.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,443
+444,ana_already_received_supplies,すでに支援品を受け取っています,You have already received support items.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,444
+445,ana_warning_barricade_out,戦闘エリアから離れています,戦闘エリアから離れています〈ana_warning_barricade_out〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,445
+446,ana_warp_barricade_out,戦闘エリアを出たためワープします,戦闘エリアを出たためワープします〈ana_warp_barricade_out〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,446
+447,ana_PARTNERPAWN_SET_ng_configured,すでに設定済みです,すでに設定済みです〈ana_PARTNERPAWN_SET_ng_configured〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,447
+448,ana_PARTNERPAWN_SET_ng_myroom_only,自室のリムストーンでのみ設定できます,自室のリムストーンでのみ設定できます〈ana_PARTNERPAWN_SET_ng_myroom_only〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,448
+449,ana_PARTNERPAWN_SET_ng_reward_unacquired,リワードがあるときは変更できません,リワードがあるときは変更できません〈ana_PARTNERPAWN_SET_ng_reward_unacquired〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,449
+450,ana_PARTNERPAWN_SET_ok_decision,<NAME PAWN>をパートナーポーンに設定しました,<NAME PAWN>をパートナーポーンに設定しました〈ana_PARTNERPAWN_SET_ok_decision〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,450
+451,ana_PARTNERPAWN_SET_conf,"<NAME PAWN>を
+パートナーポーンに設定しますか？","<NAME PAWN>を
+パートナーポーンに設定しますか？〈ana_PARTNERPAWN_SET_conf〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,451
+452,ana_error_no_target_service,"オンラインショップより対象のサービスを
+ご購入いただくことで使用可能となります","オンラインショップより対象のサービスを
+ご購入いただくことで使用可能となります〈ana_error_no_target_service〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,452
+453,ana_om_door_open_by_enemy,閉ざされていた道が開けた,A path that was closed is now open.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,453
+454,ana_partner_pawn_rim_day,1日1回しか渡すことができません,You can only give once a day.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,454
+455,ana_partner_pawn_rim_max,これ以上渡すことができません,You cannot give anymore.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,455
+456,ana_partner_pawn_rwmsg_edit,"ポーンに新しい髪型の提案を受け
+エディットパーツが増えました！","You received a proposal for a new
+hairstyle from your pawn.
+The number of edit parts has increased!",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,456
+457,ana_partner_pawn_rwmsg_ability,"ポーンに戦技の提案を受け
+シークレットアビリティを獲得！","You received a proposal for an
+augment from your pawn.
+Gained Secret Augment!",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,457
+458,ana_partner_pawn_rwmsg_emo,ポーンに新しいエモートを教えてもらった！,You have learned a new emote from your pawn!,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,458
+459,ana_partner_pawn_rwmsg_talk,ポーンの会話が増えました！,Pawn's conversation has increased!,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,459
+460,ana_partner_pawn_lpup,パートナーポーンとの絆が深まった,You have deepened bonds with the Partner Pawn.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,460
+461,ana_quest_announce_set_discover_add,未公開クエスト「%s」を発見した！,"Discovered the Hidden Quest ""%s""!",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,461
+462,ana_mission_order_err_condition,受注条件を満たしていません,You do not meet the entry conditions.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,462
+463,ana_mission_order_err_condition_ir,アイテムランクの条件を満たしていません,You do not meet the Item Rank entry condition.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,463
+464,ana_unauthorized_cannotuse,権限がないため使用できません,権限がないため使用できません〈ana_unauthorized_cannotuse〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,464
+465,ana_clan_invite_q_direct,"<NAME TARGET>を
+クランに直接招待します。よろしいですか？","<NAME TARGET>を
+クランに直接招待します。よろしいですか？〈ana_clan_invite_q_direct〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,465
+466,ana_clan_invite_direct,"<NAME TARGET>を
+クランに直接招待しました","<NAME TARGET>を
+クランに直接招待しました〈ana_clan_invite_direct〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,466
+467,ana_disp_cleartime,クリアタイム,Clear time,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,467
+468,ana_PAWN_DELETE_ERR_PARTNER,パートナーポーンは削除できません,パートナーポーンは削除できません〈ana_PAWN_DELETE_ERR_PARTNER〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,468
+469,ana_craftskillreset_ng_0point,ポイントが割り振られていないため使用できません,ポイントが割り振られていないため使用できません〈ana_craftskillreset_ng_0point〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,469
+470,ana_not_login_cogid_ng_caplink,"「カプリンク」を使用するには
+カプコンオンラインゲームズ(COG)のIDでログインする必要があります","「カプリンク」を使用するには
+カプコンオンラインゲームズ(COG)のIDでログインする必要があります〈ana_not_login_cogid_ng_caplink〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,470
+471,ana_not_login_cogid_ng_support,"「サポート・報告」を使用するには
+カプコンオンラインゲームズ(COG)のIDでログインする必要があります
+お問い合わせについては公式サイトをご覧ください","「サポート・報告」を使用するには
+カプコンオンラインゲームズ(COG)のIDでログインする必要があります
+お問い合わせについては公式サイトをご覧ください〈ana_not_login_cogid_ng_support〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,471
+472,ana_om_warp_single_seater_used,すでに転移の力を失っている,It has already lost its power of transference.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,472
+473,ana_item_cannot_use_by_bat_status,アイテム封印中のため使用できません,Items cannot be used because they are sealed.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,473
+474,ana_cpOmOneWay,壁の向こう側へ移動しますか？,Move to the other side of the barrier?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,474
+475,ana_cpOmJukeBox,再生する項目を選択してください,Please select item to play,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,475
+476,ana_cpOmJukeBox_stop,曲を止める,Stop the song,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,476
+477,ana_clan_kyoten_ng_pass_stage,<STG 210>は解放されていません,<STG 210> has not been unlocked.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,477
+478,ana_clan_kyoten_ng_pass_door,この扉は解放されていません,This door has not been unlocked.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,478
+479,ana_PARTNERPAWN_SET_ng_quest_order,ポーンクエスト受注中のときは変更できません,ポーンクエスト受注中のときは変更できません〈ana_PARTNERPAWN_SET_ng_quest_order〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,479
+480,ana_keyconfig_dialog_overlap,"重複しているキーがあるため
+閉じることができません","重複しているキーがあるため
+閉じることができません〈ana_keyconfig_dialog_overlap〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,480
+481,ana_keyconfig_dialog_overlap_item_1,重複しているキーを変更前に戻して閉じる,重複しているキーを変更前に戻して閉じる〈ana_keyconfig_dialog_overlap_item_1〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,481
+482,ana_keyconfig_announce_err_01,このキーはブランクキーにできません,このキーはブランクキーにできません〈ana_keyconfig_announce_err_01〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,482
+483,ana_keyconfig_edit_name_title,名前の編集,名前の編集〈ana_keyconfig_edit_name_title〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,483
+484,ana_keyconfig_dialog_copy_select,どれにコピーしますか？,どれにコピーしますか？〈ana_keyconfig_dialog_copy_select〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,484
+485,ana_keyconfig_dialog_copy_conf,"キーコンフィグ内容をコピーします
+よろしいですか？
+
+　コピー元：%s
+　コピー先：%s","キーコンフィグ内容をコピーします
+よろしいですか？
+
+　コピー元：%s
+　コピー先：%s〈ana_keyconfig_dialog_copy_conf〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,485
+486,ana_clan_authority_settings_err_01,変更する権限がありません,変更する権限がありません〈ana_clan_authority_settings_err_01〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,486
+487,ana_clan_authority_settings_err_02,インターバル期間中のため変更できません,インターバル期間中のため変更できません〈ana_clan_authority_settings_err_02〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,487
+488,ana_keyconfig_dialog_category_initialization_,"すべてのキーを初期設定に戻します
+よろしいですか？","すべてのキーを初期設定に戻します
+よろしいですか？〈ana_keyconfig_dialog_category_initialization_〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,488
+489,ana_itembox_submenu_tooltip_senditempost,アイテムポストには送れません,You cannot send it to Item Post.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,489
+490,ana_INVITE_PARTY_ERR_PAWN_EXPEDITION,遠征中は呼び出せません,遠征中は呼び出せません〈ana_INVITE_PARTY_ERR_PAWN_EXPEDITION〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,490
+491,ana_PARTNERPAWN_SET_ng_pawn_expedition,遠征中は変更できません,遠征中は変更できません〈ana_PARTNERPAWN_SET_ng_pawn_expedition〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,491
+492,ana_clan_err_applying,すでに申請中のため選べません,すでに申請中のため選べません〈ana_clan_err_applying〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,492
+493,ana_TreasurePoint_Discovery,小さくきらめく何かを発見した！,You discovered something glittering!,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,493
+494,ana_keyconfig_announce_auto_key_change,キーコンフィグを「%s」に変更しました,"Key config changed to ""%s"".",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,494
+495,ana_keyconfig_dialog_not_yet_saved_attention,"キーコンフィグの変更はまだ保存されていません
+デバイス設定の適用ボタンを押してください
+
+<COL aa1414>キーコンフィグによる設定キーの変更は
+ゲームが正しく動作しない可能性があります
+ご注意ください</COL>","キーコンフィグの変更はまだ保存されていません
+デバイス設定の適用ボタンを押してください
+
+<COL aa1414>キーコンフィグによる設定キーの変更は
+ゲームが正しく動作しない可能性があります
+ご注意ください</COL>〈ana_keyconfig_dialog_not_yet_saved_attention〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,495
+496,ana_keyconfig_dialog_link_job_key_alteration,"ジョブとキーコンフィグの関連付けの
+変更はまだ保存されていません
+デバイス設定の適用ボタンを押してください","ジョブとキーコンフィグの関連付けの
+変更はまだ保存されていません
+デバイス設定の適用ボタンを押してください〈ana_keyconfig_dialog_link_job_key_alteration〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,496
+497,ana_mail_err_not_receive_item,添付アイテムを受け取っていないため削除できません,添付アイテムを受け取っていないため削除できません〈ana_mail_err_not_receive_item〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,497
+498,ana_keyconfig_dialog_all_blank,"すべてのキーをブランクキーにします
+よろしいですか？
+（一部のキーはブランクキーにできません）","すべてのキーをブランクキーにします
+よろしいですか？
+（一部のキーはブランクキーにできません）〈ana_keyconfig_dialog_all_blank〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,498
+499,ana_keyconfig_ng_can_not_be_changed,このキーは変更できません,このキーは変更できません〈ana_keyconfig_ng_can_not_be_changed〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,499
+500,ana_entry_invitation_clan_pt_conf,"同じクランに所属しているパーティーメンバーを
+エントリーボードに招待します。よろしいですか？","同じクランに所属しているパーティーメンバーを
+エントリーボードに招待します。よろしいですか？〈ana_entry_invitation_clan_pt_conf〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,500
+501,ana_entry_invitation_clan_pt_deci,"同じクランに所属しているパーティーメンバーを
+エントリーボードに招待しました","同じクランに所属しているパーティーメンバーを
+エントリーボードに招待しました〈ana_entry_invitation_clan_pt_deci〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,501
+502,ana_entryb_clan_member_disable,同じクランに所属しているメンバーにのみ使用できます,同じクランに所属しているメンバーにのみ使用できます〈ana_entryb_clan_member_disable〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,502
+503,ana_mail_receive_box,保管ボックスに受け取る,Receive in Storage Box,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,503
+504,ana_mail_receive_post,ポストに受け取る,Receive in Post,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,504
+505,ana_mail_receive_bag,アイテムバッグに受け取る,Receive in Item Bag,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,505
+506,ana_itembox_submenu_tooltip_sendbox_ng_same,同じアイテムは選択できません,同じアイテムは選択できません〈ana_itembox_submenu_tooltip_sendbox_ng_same〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,506
+507,OS_annnounce_for_fixed_phrase,対象のボイス定型文が使用可能になりました,対象のボイス定型文が使用可能になりました〈OS_annnounce_for_fixed_phrase〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,507
+508,ana_itembox_submenu_tooltip_sendspbox_nonsp1,格納チェスト引出し<VAL>は＜<OPCS>＞の発動中に使用可能となります,格納チェスト引出し<VAL>は＜<OPCS>＞の発動中に使用可能となります〈ana_itembox_submenu_tooltip_sendspbox_nonsp1〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,508
+509,ana_box_err_exspace1,格納チェスト引出し<VAL>は＜<OPCS>＞の発動中に使用可能となります,格納チェスト引出し<VAL>は＜<OPCS>＞の発動中に使用可能となります〈ana_box_err_exspace1〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,509
+510,ana_gamemenu_purchase_processing,購入情報を処理しています,購入情報を処理しています〈ana_gamemenu_purchase_processing〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,510
+511,ana_party_waiting_for_all,パーティー全員が参加するまで、しばらくお待ちください,Please wait a moment until all party members have joined.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,511
+512,ana_party_waiting_for_me,パーティーメンバーがあなたの参加を待っています,Party members are waiting for you to join.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,512
+513,ana_om_warp_nazo_warp,今は転移の力を失っているようだ――,It seems to have lost the power to teleport...,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,513
+514,ana_camera_angle_limit,装備判定により、撮影アングルが制限されました,装備判定により、撮影アングルが制限されました〈ana_camera_angle_limit〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,514
+515,OS_annnounce_for_available_immediately,購入した商品が利用可能になりました,購入した商品が利用可能になりました〈OS_annnounce_for_available_immediately〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,515
+516,ana_get_custom_skill,カスタムスキル「<NAME CUSTOM_SKILL> <VAL LV>」を習得しました,カスタムスキル「<NAME CUSTOM_SKILL> <VAL LV>」を習得しました〈ana_get_custom_skill〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,516
+517,ana_get_normal_skill,ノーマルスキル「<NAME NORMAL_SKILL>」を習得しました,ノーマルスキル「<NAME NORMAL_SKILL>」を習得しました〈ana_get_normal_skill〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,517
+518,ana_get_custom_skill_no_level,カスタムスキル「<NAME CUSTOM_SKILL>」を習得しました,カスタムスキル「<NAME CUSTOM_SKILL>」を習得しました〈ana_get_custom_skill_no_level〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,518
+519,ana_pawn_expedition_report_em_subjugation,-討伐結果報告-,-Subjugation Report-,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,519
+520,ana_epitaph_001,"よくここまできた
+試練を乗り越えしものに力を授けよう","よくここまできた
+試練を乗り越えしものに力を授けよう〈ana_epitaph_001〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,520
+521,ana_epitaph_002,"炎が煌めいており
+すでに力は授かっているようだ","The flames are dancing.
+It seems the force was granted already.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,521
+522,ana_wm_limited_condition_open,新たな戦況が期間限定で開催決定！,新たな戦況が期間限定で開催決定！〈ana_wm_limited_condition_open〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,522
+523,ana_epitaph_003,カテゴリ選択,Select Category,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,523
+524,ana_epitaph_004,ダンジョン選択,Select Dungeon,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,524
+525,ana_epitaph_005,確認,Confirm,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,525
+526,ana_epitaph_007,待ち受けをキャンセルしますか？,Cancel waiting?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,526
+527,ana_epitaph_008,パーティーリーダーが決定するまで、使用できません,Cannot select until the party leader decides.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,527
+528,ana_epitaph_009,リーダーが選択したダンジョンに突入しますか？,Enter the selected dungeon?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,528
+529,ana_epitaph_010,《魂》を捧げることで道が開けそうだ――,Seems the path will open by offering souls――,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,529
+530,ana_epitaph_011,"パーティーメンバーが開拓済みのため
+一時的に《魂》を捧げずに開拓できます
+(その場合、開拓状況は保存されません)","A party member has already reclaimed so
+you can temporarily reclaim without offering souls.
+(If you do your reclamation status won't be saved.)",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,530
+531,ana_epitaph_012,通常開拓,Normal Reclamation,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,531
+532,ana_epitaph_013,一時開拓,Temporary Reclamation,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,532
+533,ana_epitaph_014,"不思議な文字が
+刻み込まれている――","Mysterious characters
+Engraved――",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,533
+534,ana_epitaph_015,試練一覧,Ordeal List,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,534
+535,ana_epitaph_016,"試練を中断しますか？
+(中断した場合、納品したアイテムは破棄されます)","Interrupt ordeal?
+(If interrupted, delivered items will be discarded)",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,535
+536,ana_epitaph_017,"パーティーメンバーが別の場所で
+試練開始を待っています","Party member is waiting for the trial
+to start from a different location.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,536
+537,ana_epitaph_019,待ち受けをキャンセルしますか？,Cancel waiting?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,537
+538,ana_epitaph_020,"試練の開始待ちです
+(キャンセルはできません)","Waiting for trial to start.
+(Cannot cancel.)",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,538
+539,ana_epitaph_021,石板が青白く輝いている――,The stone slab is glowing blue――,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,539
+540,ana_epitaph_022,"絶技の継承から
+さらなる力を得られるようになった","You are now able to become even more powerful
+through Special Skill Augmentation.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,540
+541,ana_epitaph_023,不思議な力が辺りに散らばった,Mysterious force is scattered nearby.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,541
+542,ana_err_not_enough_item,アイテムが足りません,Insufficient items.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,542
+543,ana_q_use_item2,"ダンジョンへの突入時に以下のアイテムを消費します
+よろしいですか？
+
+<NAME ITEM> × <VAL>枚","Are you sure you want to consume the
+following items to enter the dungeon?
+
+<NAME ITEM> x<VAL>",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,543
+544,ana_pack_seq_empty,"使命：＜<NAME QUEST>＞
+本日のミッションは達成しています","Mission: ""<NAME QUEST>""
+Today's mission has been achieved.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,544
+545,ana_clan_kyoten_no_authority_layout,拠点のレイアウトを使用する権限が与えられていません,拠点のレイアウトを使用する権限が与えられていません〈ana_clan_kyoten_no_authority_layout〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,545
+546,ana_member_remove_q,"<NAME TARGET>を
+メンバーから外します。よろしいですか？","<NAME TARGET>を
+メンバーから外します。よろしいですか？〈ana_member_remove_q〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,546
+547,ana_entry_chat_recruit_01,"チャットにエントリーボード募集を配信します
+宛先を選択してください","チャットにエントリーボード募集を配信します
+宛先を選択してください〈ana_entry_chat_recruit_01〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,547
+548,ana_entry_chat_recruit_02,発言したいテキストを入力してください,発言したいテキストを入力してください〈ana_entry_chat_recruit_02〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,548
+549,ana_entry_chat_recruit_03,エントリー募集中！,Entry wanted!,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,549
+550,ana_entry_chat_recruit_04,にチャット募集しました,にチャット募集しました〈ana_entry_chat_recruit_04〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,550
+551,ana_itembox_submenu_tooltip_ng_itemlock_01,セーフティ設定しているアイテムを選択しています,セーフティ設定しているアイテムを選択しています〈ana_itembox_submenu_tooltip_ng_itemlock_01〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,551
+552,ana_item_conf_itemlock_caution_01,"<COL ffdc78>貴重なアイテム</COL>を選択しています
+本当によろしいですか？","<COL ffdc78>貴重なアイテム</COL>を選択しています
+本当によろしいですか？〈ana_item_conf_itemlock_caution_01〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,552
+553,ana_lde_no_items,開催しているイベントがありません,There are no events being held.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,553
+554,ana_common_msg_usage_prohibited,使用できません,Cannot be used.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,554
+555,ana_pspskill_sub_ng_01,空いている状態で使用できます,空いている状態で使用できます〈ana_pspskill_sub_ng_01〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,555
+556,ana_om_chest_open_by_enemy,閉ざされていた宝箱が開いた,The closed treasure chest has opened.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,556
+557,ana_om_chest_close_by_enemy,何かの強い力で、固く閉ざされているようだ――,"A strong force, appears to be firmly shut...",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,557
+558,ana_bitterblack_match_001,進行をリセットする必要があります,進行をリセットする必要があります〈ana_bitterblack_match_001〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,558
+559,ana_bitterblack_match_002,クイックパーティ申請中のため使用できません,クイックパーティ申請中のため使用できません〈ana_bitterblack_match_002〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,559
+560,ana_bitterblack_match_003,クイックパーティー申請をキャンセルしますか？,クイックパーティー申請をキャンセルしますか？〈ana_bitterblack_match_003〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,560
+561,ana_bitterblack_match_004,"このルートに現在のジョブで突入準備しますか？
+<COL aa1414>決定するとリセットするまでジョブは変更できません
+
+また、
+一度でも冥府1をクリアするとルートが固定されます
+進行と報酬のリセットをするまで、ルートの変更は
+できません</COL>","Are you sure you want to embark
+with your current vocation?
+<COL aa1414>Once decided it cannot be changed until reset.
+
+また、
+一度でも冥府1をクリアするとルートが固定されます
+進行と報酬のリセットをするまで、ルートの変更は
+できません</COL>",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,561
+562,ana_bitterblack_match_005,突入方法を選択してください,Please select embark method,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,562
+563,ana_bitterblack_match_006,現在のパーティーで突入する,Embark with current party,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,563
+564,ana_bitterblack_match_007,他のプレイヤーと突入する,Embark with other players,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,564
+565,ana_bitterblack_match_008,ポーンと突入する（ソロ専用）,Embark with pawns (solo only),ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,565
+566,ana_bitterblack_match_009,即時クリア,Immediate clear,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,566
+567,ana_bitterblack_match_010,パーティーに他プレイヤーがいるため選べません,パーティーに他プレイヤーがいるため選べません〈ana_bitterblack_match_010〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,567
+568,ana_bitterblack_match_011,パーティーを組んでいるため選べません,パーティーを組んでいるため選べません〈ana_bitterblack_match_011〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,568
+569,ana_bitterblack_match_012,黒呪の迷宮をクリアしていないため選べません,黒呪の迷宮をクリアしていないため選べません〈ana_bitterblack_match_012〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,569
+570,ana_bitterblack_match_013,リーダーではないため選べません,リーダーではないため選べません〈ana_bitterblack_match_013〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,570
+571,ana_bitterblack_match_014,"<COL ffdc78>黄金石</COL>を使って即時クリアしますか？
+<COL ffdc78>黄金石 <VAL GS></COL>を消費します（所持数：<HAVE GS>）
+
+即時クリア報酬として
+以下のアイテムが追加で獲得できます","<COL ffdc78>黄金石</COL>を使って即時クリアしますか？
+<COL ffdc78>黄金石 <VAL GS></COL>を消費します（所持数：<HAVE GS>）
+
+即時クリア報酬として
+以下のアイテムが追加で獲得できます〈ana_bitterblack_match_014〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,571
+572,ana_bitterblack_match_015,"<COL aa1414>現在の探索状態ではクリア報酬が発生しません</COL>
+本当に即時クリアしますか？","<COL aa1414>現在の探索状態ではクリア報酬が発生しません</COL>
+本当に即時クリアしますか？〈ana_bitterblack_match_015〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,572
+573,ana_quest_navi_ng_01,"ナビゲート設定できません
+白竜神殿かエリアマスターのいる拠点施設で設定してください","ナビゲート設定できません
+白竜神殿かエリアマスターのいる拠点施設で設定してください〈ana_quest_navi_ng_01〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,573
+574,ana_bitterblack_job_change_disable,黒呪の迷宮に突入している為、ジョブチェンジできません,黒呪の迷宮に突入している為、ジョブチェンジできません〈ana_bitterblack_job_change_disable〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,574
+575,ana_epitaph_024,開拓する場所を選んでください,開拓する場所を選んでください〈ana_epitaph_024〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,575
+576,ana_epitaph_025,開拓可能な場所がありません,開拓可能な場所がありません〈ana_epitaph_025〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,576
+577,ana_epitaph_026,発動するバフを選択してください,Please select buff to activate,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,577
+578,ana_epitaph_027,受け取らない,Do not receive,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,578
+579,ana_epitaph_028,バフを受け取らずに終了しますか？,バフを受け取らずに終了しますか？〈ana_epitaph_028〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,579
+580,ana_epitaph_029,"これ以上、バフを追加することができません
+すでに発動しているバフと置き換えてください","これ以上、バフを追加することができません
+すでに発動しているバフと置き換えてください〈ana_epitaph_029〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,580
+581,ana_epitaph_030,選択したバフと置き換えてもよろしいですか？,選択したバフと置き換えてもよろしいですか？〈ana_epitaph_030〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,581
+582,ana_epitaph_031,"大きな力が宿っている
+しかし、まだ試練を受ける資格がないようだ――","大きな力が宿っている
+しかし、まだ試練を受ける資格がないようだ――〈ana_epitaph_031〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,582
+583,ana_jobmaster_order_report,達成済みのジョブ修練をジョブマスターに報告しました,Accomplished Job Training has been reported to the Job Master.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,583
+584,ana_common_item_get,アイテムを受け取りました,You have received items.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,584
+585,ana_bitterblack_match_016,突入を開始しますか？,Embark?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,585
+586,ana_ordeal_conf_reward,報酬を確認する,報酬を確認する〈ana_ordeal_conf_reward〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,586
+587,ana_ordeal_choice_conf_reward,報酬を確認する試練を選択してください,報酬を確認する試練を選択してください〈ana_ordeal_choice_conf_reward〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,587
+588,title_ordeal_rewards,Ordeals Rewards,Ordeals Rewards〈title_ordeal_rewards〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,588
+589,title_sub_ordeal_rewards,試練で得られる可能性のある報酬の一覧,試練で得られる可能性のある報酬の一覧〈title_sub_ordeal_rewards〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,589
+590,ana_ordeal_conf_start,試練に挑む準備はよろしいですか？,試練に挑む準備はよろしいですか？〈ana_ordeal_conf_start〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,590
+591,ana_epitaph_032,大試練解放まで残りの試練<VAL>つ,大試練解放まで残りの試練<VAL>つ〈ana_epitaph_032〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,591
+592,ana_epitaph_033,第<VAL>区画の大試練が解放された――,第<VAL>区画の大試練が解放された――〈ana_epitaph_033〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,592
+593,ana_dialog_currency_leak_warning_01,"<COL ffdc78>※注意※
+このまま受け取ると、所持上限値を超えてしまう
+通貨系アイテムが含まれています
+満額受け取ることができませんのでご注意ください</COL>","<COL ffdc78>※注意※
+このまま受け取ると、所持上限値を超えてしまう
+通貨系アイテムが含まれています
+満額受け取ることができませんのでご注意ください</COL>〈ana_dialog_currency_leak_warning_01〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,593
+594,ana_dialog_currency_leak_warning_02,"<COL ffdc78>※注意※
+このまま受け取ると、所持上限値を超えてしまう
+通貨系アイテムが含まれている場合があります
+満額受け取ることができませんのでご注意ください</COL>","<COL ffdc78>※注意※
+このまま受け取ると、所持上限値を超えてしまう
+通貨系アイテムが含まれている場合があります
+満額受け取ることができませんのでご注意ください</COL>〈ana_dialog_currency_leak_warning_02〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,594
+595,ana_bitterblack_match_017,別のルートを進行中のため、突入できません,別のルートを進行中のため、突入できません〈ana_bitterblack_match_017〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,595
+596,ana_dark_dungeon_001,暗黒の竜晶を破壊した,暗黒の竜晶を破壊した〈ana_dark_dungeon_001〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,596
+597,ana_dark_dungeon_002,暗黒の竜晶が力を失い、消滅した,暗黒の竜晶が力を失い、消滅した〈ana_dark_dungeon_002〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,597
+598,ana_dark_dungeon_003,祝福の結晶が無事に転移した,祝福の結晶が無事に転移した〈ana_dark_dungeon_003〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,598
+599,ana_dark_dungeon_004,祝福の結晶が破壊された,祝福の結晶が破壊された〈ana_dark_dungeon_004〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,599
+600,ana_dark_dungeon_005,強い闇を放つ暗黒の竜晶を破壊した,強い闇を放つ暗黒の竜晶を破壊した〈ana_dark_dungeon_005〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,600
+601,ana_dark_dungeon_006,大地の宝箱A開始,大地の宝箱A開始〈ana_dark_dungeon_006〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,601
+602,ana_dark_dungeon_007,大地の宝箱B開始,大地の宝箱B開始〈ana_dark_dungeon_007〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,602
+603,ana_dark_dungeon_008,残りの探索ポイント <VAL>/<VAL>,残りの探索ポイント <VAL>/<VAL>〈ana_dark_dungeon_008〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,603
+604,ana_dark_dungeon_009,残り闇の欠片 <VAL>/<VAL>,残り闇の欠片 <VAL>/<VAL>〈ana_dark_dungeon_009〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,604
+605,ana_dark_dungeon_010,封印された宝箱が開けるようになった,封印された宝箱が開けるようになった〈ana_dark_dungeon_010〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,605
+606,ana_dark_dungeon_011,暗黒の大竜晶が姿を現した,暗黒の大竜晶が姿を現した〈ana_dark_dungeon_011〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,606
+607,ana_dark_dungeon_012,暗黒の大竜晶を破壊した,暗黒の大竜晶を破壊した〈ana_dark_dungeon_012〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,607
+608,ana_dark_dungeon_013,ゲートが開いた,ゲートが開いた〈ana_dark_dungeon_013〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,608
+609,ana_item_necessary_attention,コンテンツ中に必要なアイテムです,コンテンツ中に必要なアイテムです〈ana_item_necessary_attention〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,609
+610,ana_dark_dungeon_014,闇の力が少し弱まった,闇の力が少し弱まった〈ana_dark_dungeon_014〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,610
+611,ana_dark_dungeon_015,祝福の結晶が安全に立ち去った,祝福の結晶が安全に立ち去った〈ana_dark_dungeon_015〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,611
+612,ana_dark_dungeon_016,祝福の結晶が闇に侵食され破壊された,祝福の結晶が闇に侵食され破壊された〈ana_dark_dungeon_016〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,612
+613,ana_dark_dungeon_017,闇の渦から強力な力を感じる,闇の渦から強力な力を感じる〈ana_dark_dungeon_017〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,613
+614,ana_dark_dungeon_018,さらなる異変が発生した,さらなる異変が発生した〈ana_dark_dungeon_018〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,614
+615,ana_om_warp_001,（残り：%d人）,（残り：%d人）〈ana_om_warp_001〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,615
+616,ana_om_warp_002,今は移動できない,今は移動できない〈ana_om_warp_002〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,616
+617,ana_dark_dungeon_019,追加報酬が増えた,追加報酬が増えた〈ana_dark_dungeon_019〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,617
+618,ana_dark_dungeon_020,追加報酬が最大になった,追加報酬が最大になった〈ana_dark_dungeon_020〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,618
+619,ana_dialog_currency_leak_warning_03,"<COL ffdc78>※注意※
+このまま受け取ると、所持上限値を超えてしまいます
+満額受け取ることができませんのでご注意ください</COL>","<COL ffdc78>※注意※
+このまま受け取ると、所持上限値を超えてしまいます
+満額受け取ることができませんのでご注意ください</COL>〈ana_dialog_currency_leak_warning_03〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,619
+620,ana_conf_start_of_device,思い出を見ますか？,思い出を見ますか？〈ana_conf_start_of_device〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,620
+621,ana_error_no_partner_pawn,パートナーポーンがいないため、見ることができません,パートナーポーンがいないため、見ることができません〈ana_error_no_partner_pawn〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,621
+622,ana_entryb_gameprogress_disable,"進行状況によって解放されていないため
+このコンテンツはまだ参加できません","進行状況によって解放されていないため
+このコンテンツはまだ参加できません〈ana_entryb_gameprogress_disable〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,622
+623,ana_conf_end_of_eventviewer,"イベントビューアーを終了して
+前の画面に戻りますか？","イベントビューアーを終了して
+前の画面に戻りますか？〈ana_conf_end_of_eventviewer〉",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,623
+624,ana_bitterblack_match_018,このルートに突入するには、進行と報酬のリセットが必要です,このルートに突入するには、進行と報酬のリセットが必要です〈ana_bitterblack_match_018〉,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,624
+0,CHAT_COM_246,やあ！,Yo!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0
+1,CHAT_COM_247,やっほー！,Yahoo!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1
+2,CHAT_COM_248,久しぶり！,Long time no see!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
+3,CHAT_COM_249,何からやろうか？,What are we going to do?,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
+4,CHAT_COM_250,何からやっちゃう？,What are you doing?,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4
+5,CHAT_COM_251,次どうする？,What do we do next?,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5
+6,CHAT_COM_252,次なににする？,What are we going to do next?,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6
+7,CHAT_COM_253,レベル上げどう？,How about leveling?,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
+8,CHAT_COM_254,PP稼ぎ行かない？,Do you want to farm PP?,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8
+9,CHAT_COM_255,CP稼ぎどう？,How about farming CP?,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9
+10,CHAT_COM_256,CP稼ぎはどう？,How about farming CP?,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10
+11,CHAT_COM_258,オーブ集め行こう！,Let's go farming Orbs!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11
+12,CHAT_COM_257,ハイオーブ集め行こう！,Let's collect High Orbs!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12
+13,CHAT_COM_259,ウォーミッション行こう！,Let's do War Missions!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13
+14,CHAT_COM_261,いいね！,That's nice!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14
+15,CHAT_COM_262,回復してくる,I'll go healing,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15
+16,CHAT_COM_263,回復してくるね,I'll go healing,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16
+17,CHAT_COM_264,一瞬、離席します！,Just a moment!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17
+18,CHAT_COM_265,すいません、ちょっとトイレ！,"Excuse me, toilet!",ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18
+19,CHAT_COM_266,すみません、お手洗いに――,"Excuse me, I need to go to the restroom",ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,19
+20,CHAT_COM_267,おともします！,I'll go!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,20
+21,CHAT_COM_268,おまたせ！,Sorry for the wait!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,21
+22,CHAT_COM_269,おかえり！,Welcome back!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,22
+23,CHAT_COM_270,ヤバイ眠くなってきた――,"Not good, I'm getting sleepy...",ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,23
+24,CHAT_COM_271,なんか眠くなってきた――,I'm getting sleepy or something like that...,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,24
+25,CHAT_COM_272,ぼちぼちログアウトします,I'm logging out,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,25
+26,CHAT_COM_273,そろそろログアウトします,I'll log out soon,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,26
+27,CHAT_COM_274,決めポーズいくよ、せーの！,"Let's make a pose, come on!",ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,27
+28,CHAT_COM_275,さあ、踊ろう！,Let's dance!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,28
+29,CHAT_COM_276,さあ、踊りましょう！,Let's dance!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,29
+30,CHAT_COM_277,いち、にの、さんはい！,One more time!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,30
+31,CHAT_COM_278,みんな集まれ！　こっちだ！,Everyone gather over here!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,31
+32,CHAT_COM_279,みんな集まって、こっちこっち！,Everyone gather over here!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,32
+33,CHAT_COM_280,ハイ、チーズ！,"Alright, cheese!",ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,33
+34,CHAT_COM_281,よろこんで！,My pleasure!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,34
+35,CHAT_COM_282,それ、笑える！,That's funny!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,35
+36,CHAT_COM_283,それ、ウケる！,That's hilarious!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,36
+37,CHAT_COM_284,うわ、ミスった！！,"Oops, I made a mistake!!",ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,37
+38,CHAT_COM_285,ごめん、ミスっちゃった！！,"I'm sorry, I made a mistake!!",ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,38
+39,CHAT_COM_286,え、マジで？,"Oh, for real?",ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,39
+40,CHAT_COM_287,え、ホントに？,"Oh, really?",ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,40
+41,CHAT_COM_288,はいはい、なるほど,"Yeah yeah, I see",ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,41
+42,CHAT_COM_289,それは無理,That's impossible,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,42
+43,CHAT_COM_290,し、失礼な！,"Hey, that's rude!",ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,43
+44,CHAT_COM_291,し、失礼ね！,"Hey, that's rude!",ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,44
+45,CHAT_COM_292,新人覚者だな？,You are a rookie?,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,45
+46,CHAT_COM_293,最高じゃねーか！,Isn't it great!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,46
+47,CHAT_COM_294,神降臨！,God advent!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,47
+48,CHAT_COM_295,ふっかーつ！！,I'm back!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,48
+49,CHAT_COM_296,きたーーー！,Here it comes!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,49
+50,CHAT_COM_303,流れ変わった？,The flow has changed?,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,50
+51,CHAT_COM_302,言ってる意味は分かる,I know what you mean,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,51
+52,CHAT_COM_301,深く反省しております,I'm deeply sorry,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,52
+53,CHAT_COM_299,あははは！,Ahahaha!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53
+54,CHAT_COM_300,ウフフフ,Fufufu,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54
+55,CHAT_COM_297,はーっはっは！,Wahaha!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,55
+56,CHAT_COM_298,あーっはっは！,Wahaha!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,56
+57,CHAT_COM_304,イヤッホー！,Yahoo!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,57
+58,CHAT_COM_305,ワーイ！,Yay!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,58
+59,CHAT_COM_306,カッコイイ！,Cool!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,59
+60,CHAT_COM_307,カワイイ！,Cute!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,60
+61,CHAT_COM_308,ステキ！,Wonderful,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,61
+62,CHAT_COM_309,ビューティフル！,Beautiful!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,62
+63,CHAT_COM_310,メリークリスマス！,Merry Christmas!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,63
+64,CHAT_COM_311,ハッピーニューイヤー！,Happy New Year!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,64
+65,CHAT_COM_312,トリックオアトリート！,Trick or Treat!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,65
+0,ABILITY_NAME_27,精密,Precision,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0
+1,ABILITY_NAME_62,防炎,Fireproof,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1
+2,ABILITY_NAME_82,合昇,Counter,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
+3,ABILITY_NAME_111,悠握,Adhesion,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
+4,ABILITY_NAME_126,倒陣,Break Formation,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4
+5,ABILITY_NAME_159,甦活,Recovery Burst,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5
+6,ABILITY_NAME_181,初突,First Strike,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6
+7,ABILITY_NAME_205,舞活,Lively Romp,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
+8,ABILITY_NAME_231,柔触,Soft Touch,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8
+9,ABILITY_NAME_405,延霊,Extended Spirit,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9
+10,ABILITY_NAME_467,延印,Extended Glyph,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10
+11,ABILITY_NAME_4,受倒,Counter,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11
+12,ABILITY_NAME_34,遅爆,Delayed Explosion,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12
+13,ABILITY_NAME_67,減炎,Reduce Burn,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13
+14,ABILITY_NAME_85,壮防,Adamance,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14
+15,ABILITY_NAME_116,制倒,Reverse Stance,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15
+16,ABILITY_NAME_142,楽揚,Comfortable Levitate,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16
+17,ABILITY_NAME_166,死線,Verge of Death,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17
+18,ABILITY_NAME_191,壮堪,Ferocity,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18
+19,ABILITY_NAME_206,奪視,Vicious Vision,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,19
+20,ABILITY_NAME_232,延泉,Extended Springs,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,20
+21,ABILITY_NAME_415,採癒,Foraging Heal,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,21
+22,ABILITY_NAME_473,烈翔,Fierce Flight,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,22
+23,ABILITY_NAME_15,剛腕,Fitness,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,23
+24,ABILITY_NAME_42,底力,Hidden Potential,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,24
+25,ABILITY_NAME_57,防助,Assist Defense,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,25
+26,ABILITY_NAME_79,異彩,Prominence,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,26
+27,ABILITY_NAME_109,躍握,Leap Grip,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,27
+28,ABILITY_NAME_137,至極,Equanimity,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,28
+29,ABILITY_NAME_154,延助,Aid Extension,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,29
+30,ABILITY_NAME_180,斬刻,Mangle,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,30
+31,ABILITY_NAME_214,絶威,Majestic Might,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,31
+32,ABILITY_NAME_236,強投,Enhanced Throw,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,32
+33,ABILITY_NAME_418,触快,Pleasant Touch,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,33
+34,ABILITY_NAME_478,護印,Protective Glyph,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,34
+35,ABILITY_NAME_5,受拡,Counter Extension,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,35
+36,ABILITY_NAME_26,制動,Damping,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,36
+37,ABILITY_NAME_52,漲魂,Spirit Overflow,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,37
+38,ABILITY_NAME_81,過給,Supercharge,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,38
+39,ABILITY_NAME_101,延縄,Longline,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,39
+40,ABILITY_NAME_129,続詠,Continued Chant,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,40
+41,ABILITY_NAME_167,炎襲,Fire Affinity,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,41
+42,ABILITY_NAME_192,迫堪,Forced Endure,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,42
+43,ABILITY_NAME_218,即復,Instant Recovery,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,43
+44,ABILITY_NAME_228,探採,Gathering,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,44
+45,ABILITY_NAME_406,避影,Evasive Shadow,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,45
+46,ABILITY_NAME_469,強弾,Strong Shot,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,46
+47,ABILITY_NAME_1,敏動,Agile Motion,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,47
+48,ABILITY_NAME_30,集中,Concentration,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,48
+49,ABILITY_NAME_63,防氷,Iceproof,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,49
+50,ABILITY_NAME_89,揺抑,Vibrant Defense,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,50
+51,ABILITY_NAME_123,高舞,Assisted High Jump,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,51
+52,ABILITY_NAME_130,攻炎,Fire Attack,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,52
+53,ABILITY_NAME_168,氷襲,Ice Affinity,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53
+54,ABILITY_NAME_177,湧恨,Overflowing Hatred,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54
+55,ABILITY_NAME_203,延囮,Prolonged Lure,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,55
+56,ABILITY_NAME_235,薬効,Efficacy,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,56
+57,ABILITY_NAME_404,迫霊,Threatened Spirit,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,57
+58,ABILITY_NAME_468,危吸,Perilous Absorption,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,58
+59,ABILITY_NAME_9,本領,Exhilaration,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,59
+60,ABILITY_NAME_36,逞姿,Sturdy Form,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,60
+61,ABILITY_NAME_68,減氷,Reduce Freeze,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,61
+62,ABILITY_NAME_93,開悟,Sanctuary,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,62
+63,ABILITY_NAME_124,巨護,Giant Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,63
+64,ABILITY_NAME_131,攻氷,Ice Attack,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,64
+65,ABILITY_NAME_160,勢命,Life Energizer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,65
+66,ABILITY_NAME_184,迫当,Undying Force,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,66
+67,ABILITY_NAME_208,乖視,Calming Vision,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,67
+68,ABILITY_NAME_237,効延,Effect Extension,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,68
+69,ABILITY_NAME_411,採霊,Foraging Spirit,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,69
+70,ABILITY_NAME_483,活鎮,Active Supression,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,70
+71,ABILITY_NAME_16,速離,Egression,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,71
+72,ABILITY_NAME_33,匠填,Perfect Reload,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,72
+73,ABILITY_NAME_58,魔助,Assist Magick,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,73
+74,ABILITY_NAME_99,溌剌,Perky,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,74
+75,ABILITY_NAME_106,耐揺,Tremor-proof,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,75
+76,ABILITY_NAME_132,攻雷,Thunder Attack,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,76
+77,ABILITY_NAME_161,煌命,Life Spark,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,77
+78,ABILITY_NAME_188,迫攻,Forced Attack,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,78
+79,ABILITY_NAME_219,魂吸,Soul Stealer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,79
+80,ABILITY_NAME_240,新攻,New Attack,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,80
+81,ABILITY_NAME_417,触防,Protective Touch,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,81
+82,ABILITY_NAME_485,迫鎮,Imperative Supression,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,82
+83,ABILITY_NAME_6,受得,Advantageous Feeling,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,83
+84,ABILITY_NAME_50,鬼狙,Ogre Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,84
+85,ABILITY_NAME_64,防雷,Thunderproof,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,85
+86,ABILITY_NAME_84,長守,Frugal Defense,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,86
+87,ABILITY_NAME_102,縄倒,Rope Reversal,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,87
+88,ABILITY_NAME_146,魔狙,Demon Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,88
+89,ABILITY_NAME_169,雷襲,Thunder Affinity,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,89
+90,ABILITY_NAME_178,熟怨,Malice,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,90
+91,ABILITY_NAME_204,速錬,Well-Practiced,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,91
+92,ABILITY_NAME_241,新防,New Defense,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,92
+93,ABILITY_NAME_413,臨堅,Critical,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,93
+94,ABILITY_NAME_472,加吸,Increased Absorption,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,94
+95,ABILITY_NAME_25,軟狙,Soft Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,95
+96,ABILITY_NAME_48,翼狙,Winged Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,96
+97,ABILITY_NAME_69,減雷,Reduce Shock,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,97
+98,ABILITY_NAME_87,見極,Prescience,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,98
+99,ABILITY_NAME_125,巨狙,Giant Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,99
+100,ABILITY_NAME_148,呪狙,Cursed Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,100
+101,ABILITY_NAME_173,霊狙,Spirit Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,101
+102,ABILITY_NAME_185,精当,Inner Strength,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,102
+103,ABILITY_NAME_211,顕在,Apparentness,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,103
+104,ABILITY_NAME_244,雨攻,Rain Attack,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,104
+105,ABILITY_NAME_408,臨活,Active,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,105
+106,ABILITY_NAME_479,武運,Fortunes of War,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,106
+107,ABILITY_NAME_23,亜狙,Demihuman Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,107
+108,ABILITY_NAME_49,鬼護,Ogre Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,108
+109,ABILITY_NAME_75,骨狙,Skeleton Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,109
+110,ABILITY_NAME_86,抗意,Denial,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,110
+111,ABILITY_NAME_120,力跳,Jump Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,111
+112,ABILITY_NAME_145,魔護,Demon Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,112
+113,ABILITY_NAME_175,造狙,Construct Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,113
+114,ABILITY_NAME_200,獣狙,Beast Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,114
+115,ABILITY_NAME_222,錬護,Alchemized Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,115
+116,ABILITY_NAME_245,雨防,Rain Defense,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,116
+117,ABILITY_NAME_416,触攻,Attack Touch,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,117
+118,ABILITY_NAME_466,魔充,Magickal Charge,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,118
+119,ABILITY_NAME_24,軟護,Soft Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,119
+120,ABILITY_NAME_47,翼護,Winged Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,120
+121,ABILITY_NAME_73,腐狙,Undead Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,121
+122,ABILITY_NAME_88,堅牢,Solid,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,122
+123,ABILITY_NAME_121,軽跳,Light Recoil,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,123
+124,ABILITY_NAME_147,呪護,Cursed Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,124
+125,ABILITY_NAME_165,快癒,Quick Healing,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,125
+126,ABILITY_NAME_189,精攻,Fighting Spirit,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,126
+127,ABILITY_NAME_207,華療,Flourishing Healing,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,127
+128,ABILITY_NAME_229,巧掘,Expert Excavator,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,128
+129,ABILITY_NAME_409,避活,Avoidance,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,129
+130,ABILITY_NAME_484,勇鎮,Courageous Supression,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,130
+131,ABILITY_NAME_22,亜護,Demihuman Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,131
+132,ABILITY_NAME_31,巧填,Skilled Reload,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,132
+133,ABILITY_NAME_74,骨護,Skeleton Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,133
+134,ABILITY_NAME_77,貪吸,Trickle,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,134
+135,ABILITY_NAME_117,空撃,Sky Hammer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,135
+136,ABILITY_NAME_127,精唱,Spirit Chant,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,136
+137,ABILITY_NAME_172,霊護,Spirit Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,137
+138,ABILITY_NAME_193,精堪,Resolute,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,138
+139,ABILITY_NAME_216,迫技,Encouraged,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,139
+140,ABILITY_NAME_230,流断,Flow,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,140
+141,ABILITY_NAME_414,避霊,Evasive Spirit,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,141
+142,ABILITY_NAME_486,精鎮,Vigorous Supression,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,142
+143,ABILITY_NAME_10,壮腕,Brave Effort,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,143
+144,ABILITY_NAME_29,充矢,Arrow Increase,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,144
+145,ABILITY_NAME_72,腐護,Undead Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,145
+146,ABILITY_NAME_80,烈放,Violent Release,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,146
+147,ABILITY_NAME_104,高跳,High Jump,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,147
+148,ABILITY_NAME_128,麗詠,Graceful Chant,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,148
+149,ABILITY_NAME_174,造護,Construct Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,149
+150,ABILITY_NAME_199,獣護,Bestial Instinct,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,150
+151,ABILITY_NAME_223,錬狙,Alchemized Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,151
+152,ABILITY_NAME_233,羽踏,Featherfoot,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,152
+153,ABILITY_NAME_410,長癒,Extended Healing,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,153
+154,ABILITY_NAME_470,増魔,Augmented Magick,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,154
+155,ABILITY_NAME_2,狂刺,Dire Gouge,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,155
+156,ABILITY_NAME_35,威姿,Menacing Form,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,156
+157,ABILITY_NAME_51,緩療,Relaxed Cure,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,157
+158,ABILITY_NAME_95,専心,Dedication,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,158
+159,ABILITY_NAME_112,粘着,Adhesion,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,159
+160,ABILITY_NAME_134,攻闇,Dark Attack,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,160
+161,ABILITY_NAME_156,延療,Heal Extension,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,161
+162,ABILITY_NAME_176,超恨,Aggression,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,162
+163,ABILITY_NAME_202,侵錬,Alchemical Invasion,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,163
+164,ABILITY_NAME_242,月攻,Moonlight Assault,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,164
+165,ABILITY_NAME_433,救攻,Attack Rescue,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,165
+166,ABILITY_NAME_471,転魔,Altered Magick,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,166
+167,ABILITY_NAME_12,重盾,Heavy Shield,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,167
+168,ABILITY_NAME_39,芯撃,Heart Shot,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,168
+169,ABILITY_NAME_61,我慢,Patience,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,169
+170,ABILITY_NAME_96,堅忍,Perseverance,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,170
+171,ABILITY_NAME_119,翻防,Flip Resistance,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,171
+172,ABILITY_NAME_138,泰然,Calmness,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,172
+173,ABILITY_NAME_170,聖襲,Holy Affinity,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,173
+174,ABILITY_NAME_182,重当,Weighted,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,174
+175,ABILITY_NAME_209,慎療,Discreet Healing,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,175
+176,ABILITY_NAME_243,月防,Moonlight Defense,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,176
+177,ABILITY_NAME_422,耐附,Resistance,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,177
+178,ABILITY_NAME_482,厚足,Heavy Foot,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,178
+179,ABILITY_NAME_17,意地,Obstinacy,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,179
+180,ABILITY_NAME_45,射極,Decisive Shot,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,180
+181,ABILITY_NAME_65,防聖,Holyproof,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,181
+182,ABILITY_NAME_97,聖体,Holy Body,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,182
+183,ABILITY_NAME_122,健着,Sound Landing,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,183
+184,ABILITY_NAME_143,延浮,Extended Levitate,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,184
+185,ABILITY_NAME_171,闇襲,Dark Affinity,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,185
+186,ABILITY_NAME_183,烈当,Violence,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,186
+187,ABILITY_NAME_212,薄在,Diminishing,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,187
+188,ABILITY_NAME_226,宝眼,Treasure Eye,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,188
+189,ABILITY_NAME_423,不動,Immovable,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,189
+190,ABILITY_NAME_480,源運,Source Luck,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,190
+191,ABILITY_NAME_19,無衝,Nullifying Defense,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,191
+192,ABILITY_NAME_41,充実,Enhancement,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,192
+193,ABILITY_NAME_66,防闇,Darkproof,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,193
+194,ABILITY_NAME_92,気鋭,Fired Up,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,194
+195,ABILITY_NAME_105,腕力,Arm-Strength,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,195
+196,ABILITY_NAME_149,人護,Human Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,196
+197,ABILITY_NAME_151,一勢,United Energy,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,197
+198,ABILITY_NAME_187,勇攻,Brave Attack,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,198
+199,ABILITY_NAME_210,優撫,Tender Touch,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,199
+200,ABILITY_NAME_227,根性,Willpower,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,200
+201,ABILITY_NAME_424,爽快,Refreshing Rescue,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,201
+202,ABILITY_NAME_489,戦護,War-Ready Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,202
+203,ABILITY_NAME_8,闘勢,Combat Momentum,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,203
+204,ABILITY_NAME_32,侵矢,Aggression Arrow,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,204
+205,ABILITY_NAME_55,攻援,Attack Aid,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,205
+206,ABILITY_NAME_76,積吸,Absorption,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,206
+207,ABILITY_NAME_103,避旋,Spin Avoid,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,207
+208,ABILITY_NAME_133,攻聖,Holy Attack,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,208
+209,ABILITY_NAME_153,迅矢,Quick Arrow,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,209
+210,ABILITY_NAME_186,重攻,Heavy Attack,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,210
+211,ABILITY_NAME_217,快登,Cordial Climb,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,211
+212,ABILITY_NAME_238,羅刹,Rakshasa,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,212
+213,ABILITY_NAME_427,侵護,Infected Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,213
+214,ABILITY_NAME_481,砲撃,Bombardment,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,214
+215,ABILITY_NAME_18,硬台,Steadfast Stand,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,215
+216,ABILITY_NAME_43,強壮,Hardy,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,216
+217,ABILITY_NAME_56,魔援,Magick Aid,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,217
+218,ABILITY_NAME_83,岐精,Divided Strength,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,218
+219,ABILITY_NAME_113,跳避,Flying Evasion,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,219
+220,ABILITY_NAME_136,魔増,Magick Boost,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,220
+221,ABILITY_NAME_163,修復,Mending,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,221
+222,ABILITY_NAME_195,硬身,Hard Body,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,222
+223,ABILITY_NAME_220,英気,Heroic Spirit,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,223
+224,ABILITY_NAME_239,夜叉,Yasha,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,224
+225,ABILITY_NAME_412,封芽,Sprout Sealing,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,225
+226,ABILITY_NAME_488,甲砕,Armor Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,226
+227,ABILITY_NAME_3,受崩,Crush Receive,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,227
+228,ABILITY_NAME_28,力填,Reload Force,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,228
+229,ABILITY_NAME_70,減聖,Reduce Holy Drain,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,229
+230,ABILITY_NAME_90,即直,Instant Recovery,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,230
+231,ABILITY_NAME_110,耐握,Enduring Grip,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,231
+232,ABILITY_NAME_140,魔抗,Persistent Cast,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,232
+233,ABILITY_NAME_157,自療,Heal Thyself,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,233
+234,ABILITY_NAME_196,覇気,Ambition,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,234
+235,ABILITY_NAME_201,挑錬,Challenger,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,235
+236,ABILITY_NAME_234,安着,Safe Landing,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,236
+237,ABILITY_NAME_425,減侵,Reduced Corruption,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,237
+238,ABILITY_NAME_490,戦狙,War-Ready Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,238
+239,ABILITY_NAME_13,倒盾,Toppling Shield,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,239
+240,ABILITY_NAME_46,陰討,Shadow Attack,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,240
+241,ABILITY_NAME_71,減闇,Reduce Blind,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,241
+242,ABILITY_NAME_94,精強,Great Vigor,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,242
+243,ABILITY_NAME_115,鎮逸,Calm Evasion,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,243
+244,ABILITY_NAME_144,朗威,Ignore Intimidation,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,244
+245,ABILITY_NAME_164,忌吸,Deathly Devour,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,245
+246,ABILITY_NAME_197,重歩,Heavy Steps,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,246
+247,ABILITY_NAME_213,盛精,Vigorous Vitality,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,247
+248,ABILITY_NAME_246,男心,男心〈246〉,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,248
+249,ABILITY_NAME_426,侵壊,Infected Destroyer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,249
+250,ABILITY_NAME_477,節補,Complement Chant,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,250
+251,ABILITY_NAME_21,不屈,Fortitude,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,251
+252,ABILITY_NAME_38,快撃,Pleasant Attack,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,252
+253,ABILITY_NAME_53,慈覧,Compassion,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,253
+254,ABILITY_NAME_98,活性,Invigorated,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,254
+255,ABILITY_NAME_118,烈墜,Destructive Fall,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,255
+256,ABILITY_NAME_141,魔精,Magick Energy,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,256
+257,ABILITY_NAME_152,拡助,Lengthy Assistance,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,257
+258,ABILITY_NAME_190,高堪,Unyielding Posture,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,258
+259,ABILITY_NAME_224,竜護,Dragonkin Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,259
+260,ABILITY_NAME_247,女心,女心〈247〉,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,260
+261,ABILITY_NAME_407,延臨,Extension,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,261
+262,ABILITY_NAME_11,強盾,Strong Shield,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,262
+263,ABILITY_NAME_37,拡撃,Attack Expansion,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,263
+264,ABILITY_NAME_60,加護,Divine Protection,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,264
+265,ABILITY_NAME_91,壮健,Robust,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,265
+266,ABILITY_NAME_107,握烈,Furious Grip,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,266
+267,ABILITY_NAME_135,魔双,Twin Magick,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,267
+268,ABILITY_NAME_162,自回,Self Feedback,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,268
+269,ABILITY_NAME_179,延恨,Prolonged Hatred,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,269
+270,ABILITY_NAME_215,快動,Relaxedness,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,270
+271,ABILITY_NAME_248,抗毒,Resist Poison,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,271
+272,ABILITY_NAME_420,合附,Synergy,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,272
+273,ABILITY_NAME_475,節魔,Magickal Chant,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,273
+274,ABILITY_NAME_7,猛攻,Onslaught,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,274
+275,ABILITY_NAME_40,剛力,Herculean Strength,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,275
+276,ABILITY_NAME_54,長露,Long Exposure,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,276
+277,ABILITY_NAME_78,猛吸,Great Absorption,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,277
+278,ABILITY_NAME_108,与震,Quakemaker,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,278
+279,ABILITY_NAME_139,胆唱,Courageous Cast,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,279
+280,ABILITY_NAME_155,執矢,Persistent Arrow,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,280
+281,ABILITY_NAME_194,渾身,Full Bodied,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,281
+282,ABILITY_NAME_221,快錬,Polished Poise,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,282
+283,ABILITY_NAME_249,抗遅,Anti-slow,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,283
+284,ABILITY_NAME_421,属附,Attribution,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,284
+285,ABILITY_NAME_487,抗滅,Anti-Reduction,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,285
+286,ABILITY_NAME_14,圧伏,Overpower,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,286
+287,ABILITY_NAME_44,硬皮,Tough Skin,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,287
+288,ABILITY_NAME_59,激励,Encouragement,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,288
+289,ABILITY_NAME_100,緩刃,Eased Blade,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,289
+290,ABILITY_NAME_114,優避,Superior Evasion,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,290
+291,ABILITY_NAME_150,人狙,Humanoid Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,291
+292,ABILITY_NAME_158,急活,Quick Healing,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,292
+293,ABILITY_NAME_198,穿歩,Deft Footing,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,293
+294,ABILITY_NAME_225,竜狙,Dragonkin Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,294
+295,ABILITY_NAME_250,抗眠,Anti-sleep,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,295
+296,ABILITY_NAME_428,侵狙,Infected Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,296
+297,ABILITY_NAME_474,翔剣,Soaring Sword,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,297
+298,ABILITY_NAME_20,強靭,Resilience,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,298
+299,ABILITY_NAME_251,抗絶,Anti-stun,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,299
+300,ABILITY_NAME_308,弓射 倒,Archery: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,300
+301,ABILITY_NAME_320,癒気 詠,Healing: Chant,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,301
+302,ABILITY_NAME_332,盾打 倒,Shieldbash: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,302
+303,ABILITY_NAME_344,連斬 倒,Carve: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,303
+304,ABILITY_NAME_356,魔弾 倒,Magick Bolt: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,304
+305,ABILITY_NAME_368,闘矢 倒,Seeker: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,305
+306,ABILITY_NAME_380,破斬 倒,Hack: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,306
+307,ABILITY_NAME_392,錬打 倒,Alchemic Strike: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,307
+308,ABILITY_NAME_429,槍突 倒,Rushing Spear: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,308
+309,ABILITY_NAME_499,四撃 倒,Quadruple Slash: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,309
+310,ABILITY_NAME_252,抗水,Anti-drench,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,310
+311,ABILITY_NAME_296,連撃 倒,Onslaught: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,311
+312,ABILITY_NAME_309,爆矢 烈,Exploding Arrow: Fury,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,312
+313,ABILITY_NAME_321,破球 倒,Blast Bits: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,313
+314,ABILITY_NAME_333,属照 烈,Weaklight: Fury,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,314
+315,ABILITY_NAME_345,裂斬 倒,Scarlet Kisses: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,315
+316,ABILITY_NAME_357,魔罠 砕,Magick Trap: Crush,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,316
+317,ABILITY_NAME_369,助矢 詠,Aid Arrow: Chant,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,317
+318,ABILITY_NAME_381,魔倒 砕,Inverse Slash: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,318
+319,ABILITY_NAME_393,錬避 倒,Alchemic Evade: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,319
+320,ABILITY_NAME_430,槍昇 倒,Rising Spear: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,320
+321,ABILITY_NAME_500,弧撃 倒,Arc Slash: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,321
+322,ABILITY_NAME_253,抗油,Anti-oil,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,322
+323,ABILITY_NAME_297,斬崩 倒,Demolishing Strike: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,323
+324,ABILITY_NAME_311,矢斬 烈,Arrowhead Strike: Fury,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,324
+325,ABILITY_NAME_323,聖気 倒,Saint Aura: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,325
+326,ABILITY_NAME_336,攻爆 砕,Force Burst: Crush,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,326
+327,ABILITY_NAME_348,乱斬 砕,Scarlet Slashes: Crush,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,327
+328,ABILITY_NAME_363,魔破 倒,Magick Cracker: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,328
+329,ABILITY_NAME_371,一蹴 倒,Forward Kick: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,329
+330,ABILITY_NAME_384,魔斬 絶,Savage Lash: Eradicate,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,330
+331,ABILITY_NAME_396,錬爆 倒,Elixer: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,331
+332,ABILITY_NAME_432,槍墜 倒,Crushing Spear: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,332
+333,ABILITY_NAME_502,空叉 倒,Sky Slash: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,333
+334,ABILITY_NAME_254,抗封,Anti-seal,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,334
+335,ABILITY_NAME_299,抉突 絶,Gouge: Eradicate,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,335
+336,ABILITY_NAME_310,硬構,Rigid Stance,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,336
+337,ABILITY_NAME_322,扶魔,Assist Boost,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,337
+338,ABILITY_NAME_334,護治,Protected Mend,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,338
+339,ABILITY_NAME_346,走耐,Enduring Sprint,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,339
+340,ABILITY_NAME_358,硬浮,Enduring Levitation,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,340
+341,ABILITY_NAME_370,快進,Steady Advance,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,341
+342,ABILITY_NAME_382,快閃,Brandish,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,342
+343,ABILITY_NAME_394,硬視,Enduring Vision,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,343
+344,ABILITY_NAME_434,活発,Enhanced Vitality,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,344
+345,ABILITY_NAME_501,昇墜 倒,Falling Slash: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,345
+346,ABILITY_NAME_255,抗軟,Anti-subdue,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,346
+347,ABILITY_NAME_298,崩攻,Crushing Blow,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,347
+348,ABILITY_NAME_312,静射 倒,Keensight Shot: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,348
+349,ABILITY_NAME_324,衝破 倒,Shockwave: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,349
+350,ABILITY_NAME_335,盾序 烈,Shield Counter: Savage,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,350
+351,ABILITY_NAME_347,回蹴 倒,Roundhouse Kick: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,351
+352,ABILITY_NAME_360,魔破 砕,Magick Cracker: Smasher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,352
+353,ABILITY_NAME_372,奮矢 据,Invigorating Arrows: Duration,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,353

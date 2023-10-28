@@ -1,84 +1,124 @@
-old,new
+"old","new"
 "お休みでしたら、一泊
 <VAL PRICE_INN>になります
 すっかり疲れは取れますぞ
-泊まっていかれますかな？",
-はい,Yes
-いいえ,No
+泊まっていかれますかな？","It will be <VAL PRICE_INN> for a one-night stay.
+You will be completely refreshed!
+Would you like to stay?"
+"はい","Yes"
+"いいえ","No"
 "おお、《弱化の治療》ですかな、では
 <VAL PRICE_WEAK>ほど必要となりますが
-よろしいですかな？",
-はい,Yes
-いいえ,No
+よろしいですかな？","Ah, ""Cure for Weakness""?
+That will be <VAL PRICE_WEAK>.
+What do you say?"
+"はい","Yes"
+"いいえ","No"
 "おや、《弱化》には掛っていないようですぞ
-治療の必要はないようですな",
+治療の必要はないようですな","Well, it doesn't seem to be ""weakened""
+and doesn't seem to need any treatment."
 "長旅前にはゆっくりお休みを取り
-万全の状態になされませ",
+万全の状態になされませ","Please take a good night's rest before your long trip to
+and make sure you are in good shape."
 "体調不安は旅に響きますぞ
-覚者さまとて人間、無理はなさいますな",
+覚者さまとて人間、無理はなさいますな","If you are worried about your health, it will affect your trip.
+Even the Master of the Learned is a human being, so don't overdo it."
 "ようこそおいでくださいました
-お部屋のご用意はすぐにできますぞ",
+お部屋のご用意はすぐにできますぞ","Welcome to
+We'll have your room ready for you in no time!"
 "おお、これはこれは覚者さま
 ジョゼフ神官から事情は聞いておりますぞ
-ささ、我が家と思いご自由にお休み下され",
-はい,Yes
-いいえ,No
+ささ、我が家と思いご自由にお休み下され","Oh, well, well, well, my learned friend,
+I've heard what's going on from Priest Joseph
+Please, feel free to make yourself at home and rest."
+"はい","Yes"
+"いいえ","No"
 "旅先で疲れがたまると、回復魔法だけでは
-疲労は取り切れなくなりますぞ",
+疲労は取り切れなくなりますぞ","If you're tired from your travels, restorative magic alone won't
+take the fatigue away!"
 "薬でも疲れはとれますが、やはり本調子に
-戻るには快眠がいちばんでしょうな",
+戻るには快眠がいちばんでしょうな","Medication can relieve fatigue, but I think a good night's sleep is the best way to get back on track
+"
 "ジュリアのことですか
 いつかはこの宿屋の跡を継ぐというものですから
 まずは覚者様を自室へご案内するよう頼んだところ
-あのように張り切ってしまいましてな――",
+あのように張り切ってしまいましてな――","Is it about Julia?
+It is said that someday she will take over this inn
+So she asked if she could show the 'Arisen' to her room
+She got so excited and-"
 "ご迷惑をおかけしていないでしょうか？
 良い子なのですが、たまに一生懸命に
-なりすぎるきらいがあるもので――",
-お疲れでしたら、ぜひわが宿で休息を,
+なりすぎるきらいがあるもので――","I hope we're not causing any trouble.
+She's a good girl, but sometimes she tries too hard
+-"
+"お疲れでしたら、ぜひわが宿で休息を","If you're tired, please rest at our inn"
 "パーティーメンバーの方の部屋を
 ご訪問されるのでしたら
-手配をお手伝いいたしましょう",
+手配をお手伝いいたしましょう","If you are going to
+visit the room of the party member
+I will help you make arrangements"
 "パーティーメンバーの参加を待ちましょう
 お相手のあることですから
-少々時間がかかるかもしれませんな",
-パーティーリーダーの部屋に行かれるのですかな？,
-はい,Yes
-いいえ,No
+少々時間がかかるかもしれませんな","We'll wait for the party members to join
+and then we'll have a partner
+It might take a little while."
+"パーティーリーダーの部屋に行かれるのですかな？","Are you going to the party leader's room?"
+"はい","Yes"
+"いいえ","No"
 "パーティーリーダーが
 部屋への訪問を募集していないようです
-――勝手に上がりこむわけにはゆきませんからな",
+――勝手に上がりこむわけにはゆきませんからな","It appears that the party leader is not inviting visitors to the
+room
+--I'm not going to just barge in on my own!"
 "おや、覚者さま
 パーティーメンバーの部屋を訪問するには
 まずパーティーを組まねばなりません
-でないと、ご案内できませんからな――",
+でないと、ご案内できませんからな――","Oh, Arisen!
+You must first form a party to visit a party member's room, or we can't show you there--!"
 "――これは失礼いたしました
 覚者さまにはまだ《自室》を
-ご案内していなかったようです",
+ご案内していなかったようです","――Oh, I do apologize. It seems I have not yet shown the Arisen to《Your Room》."
 "そこにおります娘のジュリアが
 覚者さまを《自室》へとご案内いたします
-まずは自室で一息つかれるとよいでしょう",
+まずは自室で一息つかれるとよいでしょう","There is my daughter Julia
+will guide the Arisen to your
+<span class=""notranslate"">own room</span> <span class=""notranslate"">2</span> It would be good to take a break in your 
+ <span class=""notranslate"">own room</span> first"
 "現在、パーティーメンバーの皆さまに対して
 <COL b92828><VAL></COL>
 と公表しています
-変更をご希望ですかな？",
-変更しない,Do not change
-設定を変更：訪問を許可する,Change setting: Visit Allowed
-設定を変更：訪問を許可しない,Change setting: Visit Denied
+変更をご希望ですかな？","Currently, we have publicly announced
+to all party members<COL b92828><VAL></COL>
+
+Do you want any changes?"
+"変更しない","Do not change"
+"設定を変更：訪問を許可する","Change setting: Visit Allowed"
+"設定を変更：訪問を許可しない","Change setting: Visit Denied"
 "ええ、それでは
-<COL b92828><VAL></COL>　のままにしておきましょう",
+<COL b92828><VAL></COL>　のままにしておきましょう","Yeah, so let's leave it at
+<COL b92828><VAL></COL>"
 "わかりました、それでは
-<COL b92828><VAL></COL>　に変更しておきましょう",
+<COL b92828><VAL></COL>　に変更しておきましょう","Okay, so let's change it to
+<COL b92828><VAL></COL>"
 "おや、自室訪問の許可を設定されていませんね
 <COL b92828>自室を訪問するには＜自室訪問設定＞から
-自室訪問を許可していただく必要がありますぞ</COL>",
-どちらのお部屋に行かれますかな？,
+自室訪問を許可していただく必要がありますぞ</COL>","Oh, you haven't set up permission to visit your room.
+<COL b92828>To visit your room, you need to go to <Visit My Room Settings>
+You need to set up permission to visit your room.</COL>"
+"どちらのお部屋に行かれますかな？","Which room would you like to go to?"
 "おお、覚者さま
 みなまではお聞きしませぬ
-お部屋の準備は整っております",
+お部屋の準備は整っております","Oh, wise one,
+we will not hear from you until
+your room is ready!"
 "覚者の統率でいる重圧もあることでしょう
-体調に響かぬよう、休息もお取りください",
+体調に響かぬよう、休息もお取りください","I'm sure you are under a lot of pressure being the leader of the enlightened
+Please take some rest and don't let it affect your health!"
 "あの禍々しい《滅びの渦》――
 あんなものを作りだす敵に
-果たして人の身で敵うものでしょうか",
+果たして人の身で敵うものでしょうか","That horrific ""vortex of destruction""--
+I wonder if a human body can really compete with an enemy that can create something like that.
+"
 "十分にお休みいただくほか
-何もできないのが歯がゆくもありますな",
+何もできないのが歯がゆくもありますな","I hope you have a good night's rest.
+I'm sorry I can't do anything for you."
