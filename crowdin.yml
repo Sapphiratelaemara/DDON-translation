@@ -3,5 +3,4 @@ bundles:
 files:
   - source: /splits/*.csv
     translation: '%original_file_name%'
-    first_line_contains_header: 1
-    scheme: 'source_phrase,en'
+    scheme: 'identifier,context,source_phrase,translation'
