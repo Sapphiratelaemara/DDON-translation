@@ -1,2 +1,6 @@
 bundles:
   - 2
+files:
+  - source: /splits/*.csv
+    translation: '%original_file_name%'
+    scheme: 'identifier,context,source_phrase,translation'
