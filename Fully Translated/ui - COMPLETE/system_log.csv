@@ -1,464 +1,464 @@
-"key","old","new"
-"syslog_battle_danger_tg","<NAME TARGET>が行動不能になりました","<NAME TARGET> has been incapacitated."
-"syslog_battle_danger","<VAL> 秒で最後に立ち寄った拠点から再開されます","You will be returned home in <VAL> seconds."
-"syslog_battle_die","あと<VAL>秒で最後に立ち寄った拠点から再開されます","After <VAL> seconds, you will be returned home."
-"syslog_tail_on","<NAME TARGET>に追従オートランしました","You began following <NAME TARGET> with autorun."
-"syslog_tail_off","追従オートランが解除されました","Autorun has been canceled."
-"syslog_archieve_get","アチーブメント「<NAME ACHIEVE>」を獲得しました","Earned achievement ""<NAME ACHIEVE>""."
-"syslog_error_tell","<NAME TARGET>にメッセージが送れませんでした","Could not send message to <NAME TARGET>."
-"syslog_error_clan","クランに加入していません","You are not a member of that clan."
-"syslog_error_entryb","エントリーボードに登録していません","You are not registered at the entry board."
-"syslog_error_party_member_0","パーティーメンバーがいません","You have no party members."
-"syslog_friend_request","<NAME TARGET>にフレンド申請をしました","You sent <NAME TARGET> a friend request."
-"syslog_friend_requested","<NAME TARGET>からフレンド申請されました","<NAME TARGET> has sent you a friend request."
-"syslog_friend_ok","<NAME TARGET>とフレンドになりました","<NAME TARGET> is now your friend."
-"syslog_friend_cancel_by_decline","<NAME TARGET>のフレンド申請を断りました","The friend request from <NAME TARGET> was declined."
-"syslog_party_request","<NAME TARGET>にパーティー要請しました","Sent <NAME TARGET> a party request."
-"syslog_party_requested","<NAME TARGET>にパーティー要請されました","<NAME TARGET> has sent you a party request."
-"syslog_party_decline","<NAME TARGET>のパーティー要請を拒否しました","You declined the party request from <NAME TARGET>."
-"syslog_party_declined","<NAME TARGET>へのパーティー要請がキャンセルされました","<NAME TARGET> has declined your party request."
-"syslog_party_takeback","<NAME TARGET>からのパーティー要請が取り消されました","The party request from <NAME TARGET> has been canceled."
-"syslog_party_join_me","<NAME TARGET>のパーティーに加わりました","You joined <NAME TARGET>'s party."
-"syslog_party_join_someone","<NAME TARGET>がパーティーに加わりました","<NAME TARGET> has joined the party."
-"syslog_party_join_pawn","<NAME PAWN>がパーティーに加わりました","<NAME PAWN> has joined the party."
-"syslog_party_leave_me","パーティーから抜けました","You have left the party."
-"syslog_party_leave_someone","<NAME TARGET>がパーティーから抜けました","<NAME TARGET> has left the party."
-"syslog_party_leave_pawn","<NAME PAWN>がパーティーから抜けました","<NAME PAWN> has left the party."
-"syslog_status_down_me","<NAME PLAYER>が行動不能になりました","<NAME PLAYER> has been incapacitated."
-"syslog_status_down_someone","<NAME TARGET>が行動不能になりました","<NAME TARGET> has been incapacitated."
-"syslog_status_down_pawn","<NAME PAWN>が行動不能になりました","<NAME PAWN> has been incapacitated."
-"syslog_status_die_me","<NAME PLAYER>が死亡状態になりました","<NAME PLAYER> has died."
-"syslog_status_die_someone","<NAME TARGET>が死亡状態になりました","<NAME TARGET> has died."
-"syslog_status_die_pawn","<NAME PAWN>が死亡状態になりました","<NAME PAWN> has died."
-"syslog_status_resurrection_me","<NAME PLAYER>が復活しました","<NAME PLAYER> has been resurrected."
-"syslog_status_resurrection_someone","<NAME TARGET>が復活しました","<NAME TARGET> has been resurrected."
-"syslog_status_resurrection_pawn","<NAME PAWN>が復活しました","<NAME PAWN> has been resurrected."
-"syslog_favorite_login","<NAME TARGET>がログインしました","<NAME TARGET> has logged in."
-"syslog_pawn_rescue_start","<NAME PAWN>を救出してください","Please rescue <NAME PAWN>."
-"syslog_pawn_rescue_faild","<NAME PAWN>の救出に失敗しました","<NAME PAWN> rescue failed."
-"syslog_pawn_rescue_success","<NAME PAWN>の救出に成功しました。奥に進みポーンを解放しましょう","<NAME PAWN> was successfully rescued.
+key,old,new
+syslog_battle_danger_tg,<NAME TARGET>が行動不能になりました,<NAME TARGET> has been incapacitated.
+syslog_battle_danger,<VAL> 秒で最後に立ち寄った拠点から再開されます,You will be returned home in <VAL> seconds.
+syslog_battle_die,あと<VAL>秒で最後に立ち寄った拠点から再開されます,"After <VAL> seconds, you will be returned home."
+syslog_tail_on,<NAME TARGET>に追従オートランしました,You began following <NAME TARGET> with autorun.
+syslog_tail_off,追従オートランが解除されました,Autorun has been canceled.
+syslog_archieve_get,アチーブメント「<NAME ACHIEVE>」を獲得しました,"Earned achievement ""<NAME ACHIEVE>""."
+syslog_error_tell,<NAME TARGET>にメッセージが送れませんでした,Could not send message to <NAME TARGET>.
+syslog_error_clan,クランに加入していません,You are not a member of that clan.
+syslog_error_entryb,エントリーボードに登録していません,You are not registered at the entry board.
+syslog_error_party_member_0,パーティーメンバーがいません,You have no party members.
+syslog_friend_request,<NAME TARGET>にフレンド申請をしました,You sent <NAME TARGET> a friend request.
+syslog_friend_requested,<NAME TARGET>からフレンド申請されました,<NAME TARGET> has sent you a friend request.
+syslog_friend_ok,<NAME TARGET>とフレンドになりました,<NAME TARGET> is now your friend.
+syslog_friend_cancel_by_decline,<NAME TARGET>のフレンド申請を断りました,The friend request from <NAME TARGET> was declined.
+syslog_party_request,<NAME TARGET>にパーティー要請しました,Sent <NAME TARGET> a party request.
+syslog_party_requested,<NAME TARGET>にパーティー要請されました,<NAME TARGET> has sent you a party request.
+syslog_party_decline,<NAME TARGET>のパーティー要請を拒否しました,You declined the party request from <NAME TARGET>.
+syslog_party_declined,<NAME TARGET>へのパーティー要請がキャンセルされました,<NAME TARGET> has declined your party request.
+syslog_party_takeback,<NAME TARGET>からのパーティー要請が取り消されました,The party request from <NAME TARGET> has been canceled.
+syslog_party_join_me,<NAME TARGET>のパーティーに加わりました,You joined <NAME TARGET>'s party.
+syslog_party_join_someone,<NAME TARGET>がパーティーに加わりました,<NAME TARGET> has joined the party.
+syslog_party_join_pawn,<NAME PAWN>がパーティーに加わりました,<NAME PAWN> has joined the party.
+syslog_party_leave_me,パーティーから抜けました,You have left the party.
+syslog_party_leave_someone,<NAME TARGET>がパーティーから抜けました,<NAME TARGET> has left the party.
+syslog_party_leave_pawn,<NAME PAWN>がパーティーから抜けました,<NAME PAWN> has left the party.
+syslog_status_down_me,<NAME PLAYER>が行動不能になりました,<NAME PLAYER> has been incapacitated.
+syslog_status_down_someone,<NAME TARGET>が行動不能になりました,<NAME TARGET> has been incapacitated.
+syslog_status_down_pawn,<NAME PAWN>が行動不能になりました,<NAME PAWN> has been incapacitated.
+syslog_status_die_me,<NAME PLAYER>が死亡状態になりました,<NAME PLAYER> has died.
+syslog_status_die_someone,<NAME TARGET>が死亡状態になりました,<NAME TARGET> has died.
+syslog_status_die_pawn,<NAME PAWN>が死亡状態になりました,<NAME PAWN> has died.
+syslog_status_resurrection_me,<NAME PLAYER>が復活しました,<NAME PLAYER> has been resurrected.
+syslog_status_resurrection_someone,<NAME TARGET>が復活しました,<NAME TARGET> has been resurrected.
+syslog_status_resurrection_pawn,<NAME PAWN>が復活しました,<NAME PAWN> has been resurrected.
+syslog_favorite_login,<NAME TARGET>がログインしました,<NAME TARGET> has logged in.
+syslog_pawn_rescue_start,<NAME PAWN>を救出してください,Please rescue <NAME PAWN>.
+syslog_pawn_rescue_faild,<NAME PAWN>の救出に失敗しました,<NAME PAWN> rescue failed.
+syslog_pawn_rescue_success,<NAME PAWN>の救出に成功しました。奥に進みポーンを解放しましょう,"<NAME PAWN> was successfully rescued.
 Proceed to the end to finish the mission."
-"syslog_pawn_rescue_resurrection","<NAME PAWN>が復活して待機状態に戻り、再呼び出し可能になりました","<NAME PAWN> has been rescued
+syslog_pawn_rescue_resurrection,<NAME PAWN>が復活して待機状態に戻り、再呼び出し可能になりました,"<NAME PAWN> has been rescued
 and returned to standby state."
-"syslog_quest_accept_solo","<NAME QUEST>を受注しました","<NAME QUEST> has been accepted."
-"syslog_quest_accept_party","<NAME TARGET>が<NAME QUEST>を受注しました","<NAME TARGET> has accepted <NAME QUEST>."
-"syslog_quest_discover_solo","<NAME QUEST>を発見しました","<NAME QUEST> has been discovered."
-"syslog_quest_discover_party","<NAME TARGET>が<NAME QUEST>を発見しました","<NAME TARGET> has discovered <NAME QUEST>."
-"syslog_quest_clear","<NAME QUEST>をクリアしました","<NAME QUEST> has been completed."
-"syslog_quest_assist","<NAME QUEST>のクリアをアシストしました","<NAME QUEST> has been completed with your assistance."
-"syslog_quest_happen","<NAME QUEST>に異常事態が発生しました","<NAME QUEST> has updated."
-"syslog_quest_dog_solo","<NAME ITEM>×<VAL>を納品しました","<NAME ITEM> x<VAL> delivered."
-"syslog_quest_dog_party","<NAME TARGET>が<NAME ITEM>×<VAL>を納品しました","<NAME TARGET> delivered <NAME ITEM> x<VAL>."
-"syslog_quest_dog_clear","<NAME ITEM>の納品が完了しました","<NAME ITEM> delivery completed."
-"syslog_quest_order_wait","パーティーリーダーが<NAME QUEST>を受注待ちです","Wait for the party leader to accept <NAME QUEST>."
-"syslog_quest_order","＜<NAME QUEST>＞が受注待ちになりました","""<NAME QUEST>"" is awaiting acceptance."
-"syslog_quest_discontinue","進行不可能になったクエストがあります","This quest is not able to progress."
-"syslog_reward_box_limit_notion","報酬ボックスの報酬件数が残り少なくなっています
+syslog_quest_accept_solo,<NAME QUEST>を受注しました,<NAME QUEST> has been accepted.
+syslog_quest_accept_party,<NAME TARGET>が<NAME QUEST>を受注しました,<NAME TARGET> has accepted <NAME QUEST>.
+syslog_quest_discover_solo,<NAME QUEST>を発見しました,<NAME QUEST> has been discovered.
+syslog_quest_discover_party,<NAME TARGET>が<NAME QUEST>を発見しました,<NAME TARGET> has discovered <NAME QUEST>.
+syslog_quest_clear,<NAME QUEST>をクリアしました,<NAME QUEST> has been completed.
+syslog_quest_assist,<NAME QUEST>のクリアをアシストしました,<NAME QUEST> has been completed with your assistance.
+syslog_quest_happen,<NAME QUEST>に異常事態が発生しました,<NAME QUEST> has updated.
+syslog_quest_dog_solo,<NAME ITEM>×<VAL>を納品しました,<NAME ITEM> x<VAL> delivered.
+syslog_quest_dog_party,<NAME TARGET>が<NAME ITEM>×<VAL>を納品しました,<NAME TARGET> delivered <NAME ITEM> x<VAL>.
+syslog_quest_dog_clear,<NAME ITEM>の納品が完了しました,<NAME ITEM> delivery completed.
+syslog_quest_order_wait,パーティーリーダーが<NAME QUEST>を受注待ちです,Wait for the party leader to accept <NAME QUEST>.
+syslog_quest_order,＜<NAME QUEST>＞が受注待ちになりました,"""<NAME QUEST>"" is awaiting acceptance."
+syslog_quest_discontinue,進行不可能になったクエストがあります,This quest is not able to progress.
+syslog_reward_box_limit_notion,"報酬ボックスの報酬件数が残り少なくなっています
 古い報酬を失う可能性があります","The reward box is running low on space.
 There is a possibility of losing old rewards."
-"syslog_quest_update","<NAME QUEST>：≪小目的用テキスト≫","<NAME QUEST>：≪Text for Sub-objective≫"
-"syslog_quest_dialog","<NAME QUEST>：≪汎用アナウンス用テキスト≫","<NAME QUEST>：≪General announcement text≫"
-"syslog_quest_partyquest_set","<NAME QUEST>がパーティークエストに設定されました","<NAME QUEST> was set as a party quest."
-"syslog_quest_partyquest_unset","<NAME QUEST>がパーティークエストから外されました","<NAME QUEST> was removed from the party's quests."
-"syslog_quest_ready_start","<NAME TARGET>がイベント準備・パーティー招集を行いました","<NAME TARGET> prepared for the event and convened the party."
-"syslog_quest_ready_ready","<NAME TARGET>が進行準備完了になりました","<NAME TARGET> is now ready to proceed!"
-"syslog_quest_meinquest_enable","<NAME QUEST>が受注可能になりました","<NAME QUEST> is now available for completion."
-"syslog_quest_stopedquest_enable","進行不能が解除されたクエストがあります","There are quests that have been released from being unable to progress."
-"syslog_quest_cancel","<NAME QUEST>を破棄しました","<NAME QUEST> has been canceled."
-"syslog_quest_accept_max","クエスト受注数が最大になりました","Your quest log has reached the
+syslog_quest_update,<NAME QUEST>：≪小目的用テキスト≫,<NAME QUEST>：≪Text for Sub-objective≫
+syslog_quest_dialog,<NAME QUEST>：≪汎用アナウンス用テキスト≫,<NAME QUEST>：≪General announcement text≫
+syslog_quest_partyquest_set,<NAME QUEST>がパーティークエストに設定されました,<NAME QUEST> was set as a party quest.
+syslog_quest_partyquest_unset,<NAME QUEST>がパーティークエストから外されました,<NAME QUEST> was removed from the party's quests.
+syslog_quest_ready_start,<NAME TARGET>がイベント準備・パーティー招集を行いました,<NAME TARGET> prepared for the event and convened the party.
+syslog_quest_ready_ready,<NAME TARGET>が進行準備完了になりました,<NAME TARGET> is now ready to proceed!
+syslog_quest_meinquest_enable,<NAME QUEST>が受注可能になりました,<NAME QUEST> is now available for completion.
+syslog_quest_stopedquest_enable,進行不能が解除されたクエストがあります,There are quests that have been released from being unable to progress.
+syslog_quest_cancel,<NAME QUEST>を破棄しました,<NAME QUEST> has been canceled.
+syslog_quest_accept_max,クエスト受注数が最大になりました,"Your quest log has reached the
 maximum and you cannot accept more."
-"syslog_areamaster_ap_get","<NAME AREA>のエリアポイント
+syslog_areamaster_ap_get,"<NAME AREA>のエリアポイント
 <VAL AP>を獲得しました","Area points for <NAME AREA>:
 Gained <VAL AP>."
-"syslog_areamaster_rankup_ready","<NAME AREA>のエリアランクアップが
+syslog_areamaster_rankup_ready,"<NAME AREA>のエリアランクアップが
 可能になりました","Area rank up is now available
 for <NAME AREA>."
-"syslog_areamaster_spot_open","<NAME SPOT>が解放されました","<NAME SPOT> unlocked."
-"syslog_jobmaster_job_get","新ジョブ「<NAME JOB>」への転職が可能になりました","Job ""<NAME JOB>"" has been unlocked."
-"syslog_jobmaster_skill_get","「<NAME SKILL> <VAL LV>」へのレベルアップが可能になりました","""<NAME SKILL> <VAL LV>"" can now be learned."
-"syslog_jobmaster_order_clear","ジョブ修練ログ「<VAL>」の課題を達成しました
+syslog_areamaster_spot_open,<NAME SPOT>が解放されました,<NAME SPOT> unlocked.
+syslog_jobmaster_job_get,新ジョブ「<NAME JOB>」への転職が可能になりました,"Job ""<NAME JOB>"" has been unlocked."
+syslog_jobmaster_skill_get,「<NAME SKILL> <VAL LV>」へのレベルアップが可能になりました,"""<NAME SKILL> <VAL LV>"" can now be learned."
+syslog_jobmaster_order_clear,"ジョブ修練ログ「<VAL>」の課題を達成しました
 ジョブマスターに報告するか、ジョブ修練ログを開いてください","Job Training Log challenge ""<VAL>"" achieved.
 Report to the Job Master or open
 the Job Training Log."
-"syslog_entryboard_creat","<NAME QUEST>のエントリーボードを作成しました","<NAME QUEST> entry board has been created."
-"syslog_entryboard_entry","<NAME QUEST>にエントリーしました","<NAME QUEST> has been applied for entry."
-"syslog_entryboard_cancel","<NAME QUEST>のエントリーを取り消しました","<NAME QUEST> entry has been canceled."
-"syslog_content_start","<NAME QUEST>を開始しました","<NAME QUEST> has begun."
-"syslog_content_update","<NAME QUEST>：≪小目的テキスト≫","<NAME QUEST>: <<Text for Sub-objective>>"
-"syslog_content_enemy_engage","<EMNM n>が乱入しました","<EMNM> has intruded."
-"syslog_content_convoy_hp_half","<NAME TARGET>のHPが50％をきりました","<NAME TARGET>'s HP has dropped below 50%."
-"syslog_content_convoy_hp_little","<NAME TARGET>のHPが瀕死状態です","<NAME TARGET>'s HP is in critical condition"
-"syslog_content_convoy_hp_zero","<NAME TARGET>が倒れました","<NAME TARGET> has been defeated."
-"syslog_content_pawn_rescure_success","<NAME TARGET>(共闘ポーン名)の援護に成功しました","<NAME TARGET>(name of co-op pawn) has been successfully covered!"
-"syslog_content_pawn_add_reward","セカンドポーンの恩恵により<NAME QUEST>に報酬が追加されました","With the benefit of the Second Pawn, rewards have been added to <NAME QUEST>."
-"syslog_content_pawn_get_pawn","セカンドポーンが仲間に加わりました","A second pawn has joined the group."
-"syslog_content_boss_beat","<EMNM n>を退けました","<EMNM n>has been repelled."
-"syslog_content_boss_defeat","<EMNM n>を討伐しました","<EMNM n>was defeated."
-"syslog_content_end_by_clear","<NAME QUEST>をクリアにより終了します","<NAME QUEST> has been cleared."
-"syslog_content_end_by_escape","<NAME QUEST>を離脱により終了します","<NAME QUEST> ended by leaving."
-"syslog_content_end_by_friends_down","<NAME QUEST>を<NAME TARGET>が倒れたため、終了します","The quest <NAME QUEST> will end as <NAME TARGET> has fallen."
-"syslog_content_end_by_timeup","<NAME QUEST>をタイムアップにより終了します","<NAME QUEST> ended due to the time limit."
-"syslog_content_anounce_prepare","<NAME QUEST>が準備期間中です","<NAME QUEST> is currently in the preparation period."
-"syslog_content_anounce_hold","<NAME QUEST>が開催期間中です","<NAME QUEST> is currently in progress."
-"syslog_content_anounce_calcurate","<NAME QUEST>が集計期間中です","<NAME QUEST> is currently in progress."
-"syslog_content_anounce_reward","<NAME QUEST>が報酬受取期間中です","<NAME QUEST> has a reward available to claim."
-"syslog_content_reward_get_boarder","<NAME QUEST>の累計スコア報酬が保管ボックスに入りました","<NAME QUEST> total score reward has been placed into the storage box."
-"syslog_content_reward_get_ranked","<NAME QUEST>のランキング報酬が保管ボックスに入りました","<NAME QUEST> ranking reward has been placed into the storage box."
-"syslog_pawnrestore_start","<NAME PAWN>を救出せよ","<NAME PAWN> rescue started."
-"syslog_pawnrestore_success","<NAME PAWN>の救出に成功しました","<NAME PAWN> rescue suceeded."
-"syslog_pawnrestore_failure","<NAME PAWN>の救出に失敗しました","<NAME PAWN> rescue failed."
-"syslog_pawnrestore_restore","<NAME PAWN>が復活しました","<NAME PAWN> has been resurrected."
-"syslog_craft_consume_item","<NAME ITEM>を<VAL>個、消費しました","<NAME ITEM> x<VAL> consumed."
-"syslog_craft_consume_gold","<VAL GOLD>を消費しました","<VAL GOLD> spent."
-"syslog_craft_start","<NAME PAWN>が<NAME ITEM>の生産を開始しました","<NAME PAWN> has begun crafting <NAME ITEM>."
-"syslog_craft_recieve","<NAME ITEM>を受け取りました","<NAME ITEM> has been received from crafting."
-"syslog_craft_exp_get","<NAME PAWN>がクラフト経験値<VAL XP>を取得しました","<NAME PAWN> has gained <VAL XP> for crafting."
-"syslog_craft_sophistcate","<NAME ITEM>がグレードアップしました","<NAME ITEM> has been enhanced."
-"syslog_craft_crest_break","クレストを破壊しました","The crest has been broken."
-"syslog_craft_levelup","<NAME PAWN>のクラフトレベルが<VAL>になりました","<NAME PAWN> has reached craft level <VAL>."
-"syslog_craft_complete","クラフトが完成しました","Crafting has completed."
-"syslog_om_door_open_by_key","<NAME TARGET>は鍵を使って扉を開けた","<NAME TARGET> has opened the door using a key."
-"syslog_om_door_open_by_enemy","閉ざされていた道が開けた","A path that was closed is now open."
-"syslog_om_door_open_by_gimmik","仕掛けにより扉が開いた","The door has been opened by the gimmick."
-"syslog_om_rock_remove","岩壁が爆破された","Rock wall has been blown open."
-"syslog_om_rock_fall","鍾乳石が落下した！","Stalactite has fallen!"
-"syslog_om_trap","天井の罠が発動した！","Ceiling trap has been activated!"
-"syslog_om_warp","<NAME TARGET>はリム転移した","<NAME TARGET> has teleported through the rift."
-"syslog_om_crank","<NAME TARGET>はレバーを動かした","<NAME TARGET> has moved the lever."
-"syslog_om_gimmik","仕掛けが作動した","Gimmick has been activated."
-"syslog_om_waterfall","滝の流れが止まった","The waterfall's flow has stopped."
-"syslog_om_treasure_trap","宝箱のトラップが発動した！","The treasure chest's trap has been triggered!"
-"syslog_om_treasure_untrap","<NAME TARGET>は宝箱のトラップを解除した","<NAME TARGET> has released the treasure chest's trap."
-"syslog_achieve_open","<NAME ACHIEVE>を解放しました","<NAME ACHIEVE> is now available."
-"syslog_achieve_unlock","アチーブメント報酬を獲得しました！","Obtained an achievement reward!"
-"syslog_tutorial_open","<NAME TUTORIAL>がチュートリアルガイドに追加されました","<NAME TUTORIAL> has been added to the tutorial guide."
-"syslog_map_freemarker_on","マップにフリーマーカーを記入しました","Place the free marker on the map."
-"syslog_map_freemarker_off","マップのフリーマーカーを消去しました","You erased the free marker from the map."
-"syslog_map_freemarker_described","<NAME TARGET>がマップにフリーマーカーを記入しました","<NAME TARGET> has placed a free marker on the map."
-"syslog_map_freemarker_removed","<NAME TARGET>がマップのフリーマーカーを消去しました","<NAME TARGET> has erased the free marker from the map."
-"syslog_levelup_job_me","<NAME PLAYER>が<VAL LV>になりました","<NAME PLAYER> has reached <VAL LV>."
-"syslog_levelup_job_someone","<NAME TARGET>が<VAL LV>になりました","<NAME TARGET> has reached <VAL LV>."
-"syslog_levelup_job_pawn","<NAME PAWN>が<VAL LV>になりました","<NAME PAWN> has reached <VAL LV>."
-"syslog_money_get","<VAL G>を入手しました","<VAL G> obtained."
-"syslog_rim_get","<VAL R>を入手しました","<VAL R> obtained."
-"syslog_bo_get","<VAL BO>を入手しました","<VAL BO> obtained."
-"syslog_bless_get","復活力 が回復しました","Revival power recovered."
-"syslog_item_consume","<NAME ITEM>を<VAL>個、使用しました","<NAME ITEM> x<VAL> used."
-"syslog_item_get","<NAME ITEM>を<VAL>個、獲得しました","<NAME ITEM> x<VAL> obtained."
-"syslog_bazaar_put","バザーに<NAME ITEM>を出品しました","<NAME ITEM> has been exhibited in the bazaar."
-"syslog_bazaar_reput","バザーに<NAME ITEM>を再出品しました","<NAME ITEM> has been re-exhibited in the bazaar."
-"syslog_bazaar_cancel","バザーに出品中の<NAME ITEM>を取り消しました","<NAME ITEM> has been withdrawn from the bazaar."
-"syslog_bazaar_sell","バザーに出品中の<NAME ITEM>が取引成立しました","<NAME ITEM> has sold on the bazaar."
-"syslog_item_lost","<NAME ITEM>を<VAL>個、失いました","<NAME ITEM> x<VAL> was lost."
-"syslog_item_fortify","<NAME ITEM>を強化しました","<NAME ITEM> has been enhanced."
-"syslog_item_sold","<NAME ITEM>を<VAL>個、売却しました","<NAME ITEM> x<VAL> was sold."
-"system_chat_renzoku","同一のテキストは連続して発言できません","Please wait a moment before speaking again."
-"syslog_item_error","アイテムの処理に失敗しました","Item failed to process."
-"syslog_chatmacro_error","そのコマンドは実行できません","Command failed to execute."
-"syslog_clan_create","クランを作成しました","The clan has been created."
-"syslog_clan_invite","<NAME TARGET>からクランへの招待があります","<NAME TARGET> has been invited to the clan."
-"syslog_clan_req","<NAME TARGET>からクラン加入申請がありました","<NAME TARGET> has requested to join the clan."
-"syslog_clan_join_other","<NAME TARGET>がクランに加入しました","<NAME TARGET> has joined the clan."
-"syslog_clan_join","<NAME TARGET>がクランに加入しました","<NAME TARGET> has joined the clan."
-"syslog_clan_chg_master","<NAME TARGET>がクランマスターになりました","<NAME TARGET> is now the clan master."
-"syslog_clan_chg_leader","<NAME TARGET>がクランリーダーになりました","<NAME TARGET> is now the clan leader."
-"syslog_party_chg_leader","<NAME TARGET>がパーティーリーダーになりました","<NAME TARGET> is now the party leader."
-"syslog_party_kicked","パーティーからはずれました","You have been kicked from the party."
-"syslog_party_request_ok","パーティー要請が受諾されました","Party request has been accepted."
-"syslog_pawn_lost_escape","<NAME PAWN>がロストを回避してリムストーンに帰還しました","<NAME PAWN> has been lost and sent to the Riftstone."
-"syslog_charge_course_start","<NAME ETC> が発動しました","<NAME ETC> has been activated."
-"syslog_charge_course_limit_1h","<NAME ETC> の効果が、残り1時間をきりました","<NAME ETC> has under one hour remaining."
-"syslog_charge_course_limit_24h","<NAME ETC> の効果が、残り24時間をきりました","<NAME ETC> has under 24 hours remaining."
-"syslog_charge_course_end","<NAME ETC> が切れました","<NAME ETC> has expired."
-"syslog_content_entry","エクストリームミッションにエントリーしました","You have applied for the Extreme Mission."
-"syslog_mission_quit_reject","コンテンツ途中離脱が拒否されました","Mission did not end because the request was rejected."
-"syslog_mission_end","コンテンツを終了します","Mission has ended."
-"syslog_mission_result_guid","リザルト確認後、担当NPC前に帰還します","After confirming the results, you will be
+syslog_entryboard_creat,<NAME QUEST>のエントリーボードを作成しました,<NAME QUEST> entry board has been created.
+syslog_entryboard_entry,<NAME QUEST>にエントリーしました,<NAME QUEST> has been applied for entry.
+syslog_entryboard_cancel,<NAME QUEST>のエントリーを取り消しました,<NAME QUEST> entry has been canceled.
+syslog_content_start,<NAME QUEST>を開始しました,<NAME QUEST> has begun.
+syslog_content_update,<NAME QUEST>：≪小目的テキスト≫,<NAME QUEST>: <<Text for Sub-objective>>
+syslog_content_enemy_engage,<EMNM n>が乱入しました,<EMNM> has intruded.
+syslog_content_convoy_hp_half,<NAME TARGET>のHPが50％をきりました,<NAME TARGET>'s HP has dropped below 50%.
+syslog_content_convoy_hp_little,<NAME TARGET>のHPが瀕死状態です,<NAME TARGET>'s HP is in critical condition
+syslog_content_convoy_hp_zero,<NAME TARGET>が倒れました,<NAME TARGET> has been defeated.
+syslog_content_pawn_rescure_success,<NAME TARGET>(共闘ポーン名)の援護に成功しました,<NAME TARGET>(name of co-op pawn) has been successfully covered!
+syslog_content_pawn_add_reward,セカンドポーンの恩恵により<NAME QUEST>に報酬が追加されました,"With the benefit of the Second Pawn, rewards have been added to <NAME QUEST>."
+syslog_content_pawn_get_pawn,セカンドポーンが仲間に加わりました,A second pawn has joined the group.
+syslog_content_boss_beat,<EMNM n>を退けました,<EMNM n>has been repelled.
+syslog_content_boss_defeat,<EMNM n>を討伐しました,<EMNM n>was defeated.
+syslog_content_end_by_clear,<NAME QUEST>をクリアにより終了します,<NAME QUEST> has been cleared.
+syslog_content_end_by_escape,<NAME QUEST>を離脱により終了します,<NAME QUEST> ended by leaving.
+syslog_content_end_by_friends_down,<NAME QUEST>を<NAME TARGET>が倒れたため、終了します,The quest <NAME QUEST> will end as <NAME TARGET> has fallen.
+syslog_content_end_by_timeup,<NAME QUEST>をタイムアップにより終了します,<NAME QUEST> ended due to the time limit.
+syslog_content_anounce_prepare,<NAME QUEST>が準備期間中です,<NAME QUEST> is currently in the preparation period.
+syslog_content_anounce_hold,<NAME QUEST>が開催期間中です,<NAME QUEST> is currently in progress.
+syslog_content_anounce_calcurate,<NAME QUEST>が集計期間中です,<NAME QUEST> is currently in progress.
+syslog_content_anounce_reward,<NAME QUEST>が報酬受取期間中です,<NAME QUEST> has a reward available to claim.
+syslog_content_reward_get_boarder,<NAME QUEST>の累計スコア報酬が保管ボックスに入りました,<NAME QUEST> total score reward has been placed into the storage box.
+syslog_content_reward_get_ranked,<NAME QUEST>のランキング報酬が保管ボックスに入りました,<NAME QUEST> ranking reward has been placed into the storage box.
+syslog_pawnrestore_start,<NAME PAWN>を救出せよ,<NAME PAWN> rescue started.
+syslog_pawnrestore_success,<NAME PAWN>の救出に成功しました,<NAME PAWN> rescue suceeded.
+syslog_pawnrestore_failure,<NAME PAWN>の救出に失敗しました,<NAME PAWN> rescue failed.
+syslog_pawnrestore_restore,<NAME PAWN>が復活しました,<NAME PAWN> has been resurrected.
+syslog_craft_consume_item,<NAME ITEM>を<VAL>個、消費しました,<NAME ITEM> x<VAL> consumed.
+syslog_craft_consume_gold,<VAL GOLD>を消費しました,<VAL GOLD> spent.
+syslog_craft_start,<NAME PAWN>が<NAME ITEM>の生産を開始しました,<NAME PAWN> has begun crafting <NAME ITEM>.
+syslog_craft_recieve,<NAME ITEM>を受け取りました,<NAME ITEM> has been received from crafting.
+syslog_craft_exp_get,<NAME PAWN>がクラフト経験値<VAL XP>を取得しました,<NAME PAWN> has gained <VAL XP> for crafting.
+syslog_craft_sophistcate,<NAME ITEM>がグレードアップしました,<NAME ITEM> has been enhanced.
+syslog_craft_crest_break,クレストを破壊しました,The crest has been broken.
+syslog_craft_levelup,<NAME PAWN>のクラフトレベルが<VAL>になりました,<NAME PAWN> has reached craft level <VAL>.
+syslog_craft_complete,クラフトが完成しました,Crafting has completed.
+syslog_om_door_open_by_key,<NAME TARGET>は鍵を使って扉を開けた,<NAME TARGET> has opened the door using a key.
+syslog_om_door_open_by_enemy,閉ざされていた道が開けた,A path that was closed is now open.
+syslog_om_door_open_by_gimmik,仕掛けにより扉が開いた,The door has been opened by the gimmick.
+syslog_om_rock_remove,岩壁が爆破された,Rock wall has been blown open.
+syslog_om_rock_fall,鍾乳石が落下した！,Stalactite has fallen!
+syslog_om_trap,天井の罠が発動した！,Ceiling trap has been activated!
+syslog_om_warp,<NAME TARGET>はリム転移した,<NAME TARGET> has teleported through the rift.
+syslog_om_crank,<NAME TARGET>はレバーを動かした,<NAME TARGET> has moved the lever.
+syslog_om_gimmik,仕掛けが作動した,Gimmick has been activated.
+syslog_om_waterfall,滝の流れが止まった,The waterfall's flow has stopped.
+syslog_om_treasure_trap,宝箱のトラップが発動した！,The treasure chest's trap has been triggered!
+syslog_om_treasure_untrap,<NAME TARGET>は宝箱のトラップを解除した,<NAME TARGET> has released the treasure chest's trap.
+syslog_achieve_open,<NAME ACHIEVE>を解放しました,<NAME ACHIEVE> is now available.
+syslog_achieve_unlock,アチーブメント報酬を獲得しました！,Obtained an achievement reward!
+syslog_tutorial_open,<NAME TUTORIAL>がチュートリアルガイドに追加されました,<NAME TUTORIAL> has been added to the tutorial guide.
+syslog_map_freemarker_on,マップにフリーマーカーを記入しました,Place the free marker on the map.
+syslog_map_freemarker_off,マップのフリーマーカーを消去しました,You erased the free marker from the map.
+syslog_map_freemarker_described,<NAME TARGET>がマップにフリーマーカーを記入しました,<NAME TARGET> has placed a free marker on the map.
+syslog_map_freemarker_removed,<NAME TARGET>がマップのフリーマーカーを消去しました,<NAME TARGET> has erased the free marker from the map.
+syslog_levelup_job_me,<NAME PLAYER>が<VAL LV>になりました,<NAME PLAYER> has reached <VAL LV>.
+syslog_levelup_job_someone,<NAME TARGET>が<VAL LV>になりました,<NAME TARGET> has reached <VAL LV>.
+syslog_levelup_job_pawn,<NAME PAWN>が<VAL LV>になりました,<NAME PAWN> has reached <VAL LV>.
+syslog_money_get,<VAL G>を入手しました,<VAL G> obtained.
+syslog_rim_get,<VAL R>を入手しました,<VAL R> obtained.
+syslog_bo_get,<VAL BO>を入手しました,<VAL BO> obtained.
+syslog_bless_get,復活力 が回復しました,Revival power recovered.
+syslog_item_consume,<NAME ITEM>を<VAL>個、使用しました,<NAME ITEM> x<VAL> used.
+syslog_item_get,<NAME ITEM>を<VAL>個、獲得しました,<NAME ITEM> x<VAL> obtained.
+syslog_bazaar_put,バザーに<NAME ITEM>を出品しました,<NAME ITEM> has been exhibited in the bazaar.
+syslog_bazaar_reput,バザーに<NAME ITEM>を再出品しました,<NAME ITEM> has been re-exhibited in the bazaar.
+syslog_bazaar_cancel,バザーに出品中の<NAME ITEM>を取り消しました,<NAME ITEM> has been withdrawn from the bazaar.
+syslog_bazaar_sell,バザーに出品中の<NAME ITEM>が取引成立しました,<NAME ITEM> has sold on the bazaar.
+syslog_item_lost,<NAME ITEM>を<VAL>個、失いました,<NAME ITEM> x<VAL> was lost.
+syslog_item_fortify,<NAME ITEM>を強化しました,<NAME ITEM> has been enhanced.
+syslog_item_sold,<NAME ITEM>を<VAL>個、売却しました,<NAME ITEM> x<VAL> was sold.
+system_chat_renzoku,同一のテキストは連続して発言できません,Please wait a moment before speaking again.
+syslog_item_error,アイテムの処理に失敗しました,Item failed to process.
+syslog_chatmacro_error,そのコマンドは実行できません,Command failed to execute.
+syslog_clan_create,クランを作成しました,The clan has been created.
+syslog_clan_invite,<NAME TARGET>からクランへの招待があります,<NAME TARGET> has been invited to the clan.
+syslog_clan_req,<NAME TARGET>からクラン加入申請がありました,<NAME TARGET> has requested to join the clan.
+syslog_clan_join_other,<NAME TARGET>がクランに加入しました,<NAME TARGET> has joined the clan.
+syslog_clan_join,<NAME TARGET>がクランに加入しました,<NAME TARGET> has joined the clan.
+syslog_clan_chg_master,<NAME TARGET>がクランマスターになりました,<NAME TARGET> is now the clan master.
+syslog_clan_chg_leader,<NAME TARGET>がクランリーダーになりました,<NAME TARGET> is now the clan leader.
+syslog_party_chg_leader,<NAME TARGET>がパーティーリーダーになりました,<NAME TARGET> is now the party leader.
+syslog_party_kicked,パーティーからはずれました,You have been kicked from the party.
+syslog_party_request_ok,パーティー要請が受諾されました,Party request has been accepted.
+syslog_pawn_lost_escape,<NAME PAWN>がロストを回避してリムストーンに帰還しました,<NAME PAWN> has been lost and sent to the Riftstone.
+syslog_charge_course_start,<NAME ETC> が発動しました,<NAME ETC> has been activated.
+syslog_charge_course_limit_1h,<NAME ETC> の効果が、残り1時間をきりました,<NAME ETC> has under one hour remaining.
+syslog_charge_course_limit_24h,<NAME ETC> の効果が、残り24時間をきりました,<NAME ETC> has under 24 hours remaining.
+syslog_charge_course_end,<NAME ETC> が切れました,<NAME ETC> has expired.
+syslog_content_entry,エクストリームミッションにエントリーしました,You have applied for the Extreme Mission.
+syslog_mission_quit_reject,コンテンツ途中離脱が拒否されました,Mission did not end because the request was rejected.
+syslog_mission_end,コンテンツを終了します,Mission has ended.
+syslog_mission_result_guid,リザルト確認後、担当NPC前に帰還します,"After confirming the results, you will be
 returned in front of the NPC in charge."
-"syslog_mission_npc_dying","護衛対象の体力が残りわずかです","The escort target only has little health remaining."
-"syslog_mission_time_add","残り時間が<VAL>秒追加されました","Remaining time extended by <VAL> seconds."
-"syslog_mission_time_less_60sec","残り60秒になりました","Less than 60 seconds remain in the mission."
-"syslog_mission_time_less_30sec","残り30秒になりました","Less than 30 seconds remain in the mission."
-"syslog_mission_time_less_10sec","残り10秒になりました","Less than 10 seconds remain in the mission."
-"syslog_mission_time_over","時間切れになりました","Time is up."
-"syslog_mission_quit_suggest","コンテンツ途中離脱の提案を行いました","A request has been made to end the mission."
-"syslog_mission_quit_receive","コンテンツ途中離脱の提案がありました","You have received a request to end the mission."
-"syslog_mission_quit_decide","コンテンツ途中離脱が決定されました","The request to end the mission was successful."
-"syslog_pawn_adventure_dec","<NAME PAWN>の冒険回数が減りました","The remaining adventures of <NAME PAWN> has been reduced by 1."
-"syslog_pawn_adventure_zero","<NAME PAWN>の冒険回数が0になりました
+syslog_mission_npc_dying,護衛対象の体力が残りわずかです,The escort target only has little health remaining.
+syslog_mission_time_add,残り時間が<VAL>秒追加されました,Remaining time extended by <VAL> seconds.
+syslog_mission_time_less_60sec,残り60秒になりました,Less than 60 seconds remain in the mission.
+syslog_mission_time_less_30sec,残り30秒になりました,Less than 30 seconds remain in the mission.
+syslog_mission_time_less_10sec,残り10秒になりました,Less than 10 seconds remain in the mission.
+syslog_mission_time_over,時間切れになりました,Time is up.
+syslog_mission_quit_suggest,コンテンツ途中離脱の提案を行いました,A request has been made to end the mission.
+syslog_mission_quit_receive,コンテンツ途中離脱の提案がありました,You have received a request to end the mission.
+syslog_mission_quit_decide,コンテンツ途中離脱が決定されました,The request to end the mission was successful.
+syslog_pawn_adventure_dec,<NAME PAWN>の冒険回数が減りました,The remaining adventures of <NAME PAWN> has been reduced by 1.
+syslog_pawn_adventure_zero,"<NAME PAWN>の冒険回数が0になりました
 パーティーから外れます","The remaining adventures of <NAME PAWN> is now 0.
 They will leave the party."
-"syslog_pawn_crafter_dec","<NAME PAWN>のクラフト回数が減りました","The remaining crafts of <NAME PAWN> has been reduced by 1."
-"syslog_pawn_crafter_zero","<NAME PAWN>のクラフト回数が0になりました","The remaining crafts of <NAME PAWN> is now 0."
-"syslog_item_deliver","<NAME ITEM>を<VAL>個、納品しました","<NAME ITEM> x<VAL> has been delivered."
-"syslog_stamp_bonus_day","受け取っていない連続スタンプボーナスがあります","There is a consecutive stamp bonus
+syslog_pawn_crafter_dec,<NAME PAWN>のクラフト回数が減りました,The remaining crafts of <NAME PAWN> has been reduced by 1.
+syslog_pawn_crafter_zero,<NAME PAWN>のクラフト回数が0になりました,The remaining crafts of <NAME PAWN> is now 0.
+syslog_item_deliver,<NAME ITEM>を<VAL>個、納品しました,<NAME ITEM> x<VAL> has been delivered.
+syslog_stamp_bonus_day,受け取っていない連続スタンプボーナスがあります,"There is a consecutive stamp bonus
 you have not claimed."
-"syslog_stamp_bonus_cumulative","受け取っていない累計スタンプボーナスがあります","There is a cumulative stamp bonus
+syslog_stamp_bonus_cumulative,受け取っていない累計スタンプボーナスがあります,"There is a cumulative stamp bonus
 you have not claimed."
-"syslog_mission_interruption","コンテンツを中断します","The mission has been interrupted."
-"syslog_touchom_areamaster_lock","エリアマスターにより封鎖されている――","This has been blocked by the Area Master."
-"syslog_soloquest_lock","現在クエストを受注する事は出来ません。謁見の間でレオに話しかけてメインクエストを進行してください","You cannot accept personal quests at the moment. Please progress through the main quest by speaking to Leo."
-"syslog_areamaster_ap_get_ex","<NAME AREA>のエリアポイント
+syslog_mission_interruption,コンテンツを中断します,The mission has been interrupted.
+syslog_touchom_areamaster_lock,エリアマスターにより封鎖されている――,This has been blocked by the Area Master.
+syslog_soloquest_lock,現在クエストを受注する事は出来ません。謁見の間でレオに話しかけてメインクエストを進行してください,You cannot accept personal quests at the moment. Please progress through the main quest by speaking to Leo.
+syslog_areamaster_ap_get_ex,"<NAME AREA>のエリアポイント
 <VAL> (+<VAL>) <UNIT AP>を獲得しました","Area points for <NAME AREA>:
 Gained <VAL> (+<VAL>) <UNIT AP>."
-"syslog_mission_jp_get","ジョブポイントを<VAL JP>獲得しました","Gained <VAL JP>."
-"syslog_mission_jp_get_ex","ジョブポイントを<VAL> (+<VAL>) <UNIT JP>獲得しました","Obtained <VAL> (+<VAL>) <UNIT JP>."
-"syslog_quest_pawn_xp_get","<NAME PAWN>が<VAL XP>獲得しました","<NAME PAWN> gained <VAL XP>."
-"syslog_quest_pawn_xp_get_ex","<NAME PAWN>が<VAL> (+<VAL>) <UNIT XP>獲得しました","<NAME PAWN> gained <VAL> (+<VAL>) <UNIT XP>."
-"syslog_mission_pawn_jp","<NAME PAWN>が<VAL JP>獲得しました","<NAME PAWN> gained <VAL JP>."
-"syslog_mission_pawn_jp_ex","<NAME PAWN>が<VAL> (+<VAL>) <UNIT JP>獲得しました","<NAME PAWN> gained <VAL> (+<VAL>) <UNIT JP>."
-"syslog_goldstone_get","黄金石を<VAL>個、入手しました（所持数：<VAL>）","Golden Gemstones x<VAL> obtained (have: <VAL>)."
-"syslog_silvertickets_get","シルバーチケットを<VAL>枚、入手しました（所持数：<VAL>）","Silver Tickets x<VAL> (have: <VAL>)."
-"syslog_success_input_eventcode","イベントコードの入力に成功しました","Event code input was successful."
-"syslog_receipt_mailitem","メールで特典アイテムをお受け取りください","Please check your mail to
+syslog_mission_jp_get,ジョブポイントを<VAL JP>獲得しました,Gained <VAL JP>.
+syslog_mission_jp_get_ex,ジョブポイントを<VAL> (+<VAL>) <UNIT JP>獲得しました,Obtained <VAL> (+<VAL>) <UNIT JP>.
+syslog_quest_pawn_xp_get,<NAME PAWN>が<VAL XP>獲得しました,<NAME PAWN> gained <VAL XP>.
+syslog_quest_pawn_xp_get_ex,<NAME PAWN>が<VAL> (+<VAL>) <UNIT XP>獲得しました,<NAME PAWN> gained <VAL> (+<VAL>) <UNIT XP>.
+syslog_mission_pawn_jp,<NAME PAWN>が<VAL JP>獲得しました,<NAME PAWN> gained <VAL JP>.
+syslog_mission_pawn_jp_ex,<NAME PAWN>が<VAL> (+<VAL>) <UNIT JP>獲得しました,<NAME PAWN> gained <VAL> (+<VAL>) <UNIT JP>.
+syslog_goldstone_get,黄金石を<VAL>個、入手しました（所持数：<VAL>）,Golden Gemstones x<VAL> obtained (have: <VAL>).
+syslog_silvertickets_get,シルバーチケットを<VAL>枚、入手しました（所持数：<VAL>）,Silver Tickets x<VAL> (have: <VAL>).
+syslog_success_input_eventcode,イベントコードの入力に成功しました,Event code input was successful.
+syslog_receipt_mailitem,メールで特典アイテムをお受け取りください,"Please check your mail to
 receive the items."
-"syslog_party_num_talk","パーティーメンバーがあと<VAL>人話しかけていません","There are <VAL> party members who haven't spoken yet."
-"syslog_quest_end_dist_cancel","＜<VAL>＞の配信期間が終了したためクエスト破棄されました","Quest ""<VAL>"" has expired."
-"syslog_awaitquest_auto_cancel","受注待ちクエスト＜<VAL>＞を破棄しました","Abandoned pending quest <VAL>"
-"syslog_craft_recieve2","<NAME ITEM>を<VAL>個、受け取りました","<NAME ITEM> x<VAL> obtained."
-"syslog_silvertichet_lost","シルバーチケットを<VAL>枚、消費しました（所持数：<VAL>）","Silver Tickets x<VAL> spent (have: <VAL>)."
-"syslog_goldstone_lost","黄金石を<VAL>個、消費しました（所持数：<VAL>）","Golden Gemstones x<VAL> spent (have: <VAL>)."
-"syslog_bo_lost","<VAL BO>を消費しました","<VAL BO> spent."
-"syslog_rim_lost","<VAL R>を消費しました","<VAL R> spent."
-"syslog_money_lost","<VAL G>を消費しました","<VAL G> spent."
-"syslog_login_unclaimed_qreward","保管ボックスに未受け取りのクエスト報酬があります","There are quest rewards that can be
+syslog_party_num_talk,パーティーメンバーがあと<VAL>人話しかけていません,There are <VAL> party members who haven't spoken yet.
+syslog_quest_end_dist_cancel,＜<VAL>＞の配信期間が終了したためクエスト破棄されました,"Quest ""<VAL>"" has expired."
+syslog_awaitquest_auto_cancel,受注待ちクエスト＜<VAL>＞を破棄しました,Abandoned pending quest <VAL>
+syslog_craft_recieve2,<NAME ITEM>を<VAL>個、受け取りました,<NAME ITEM> x<VAL> obtained.
+syslog_silvertichet_lost,シルバーチケットを<VAL>枚、消費しました（所持数：<VAL>）,Silver Tickets x<VAL> spent (have: <VAL>).
+syslog_goldstone_lost,黄金石を<VAL>個、消費しました（所持数：<VAL>）,Golden Gemstones x<VAL> spent (have: <VAL>).
+syslog_bo_lost,<VAL BO>を消費しました,<VAL BO> spent.
+syslog_rim_lost,<VAL R>を消費しました,<VAL R> spent.
+syslog_money_lost,<VAL G>を消費しました,<VAL G> spent.
+syslog_login_unclaimed_qreward,保管ボックスに未受け取りのクエスト報酬があります,"There are quest rewards that can be
 claimed at the Storage Box."
-"syslog_quest_repeat_reward","＜<NAME QUEST>＞の報酬に、繰り返しボーナスが適用されました","Earned a bonus reward for repeating ""<NAME QUEST>""."
-"syslog_quest_undiscover_reward","＜<NAME QUEST>＞の未公開報酬を獲得しました","Earned the hidden reward for ""<NAME QUEST>""."
-"syslog_quest_help_reward","リーダーが＜<NAME QUEST>＞をクリアしたため、アシスト報酬を獲得しました","Party leader has cleared ""<NAME QUEST>"" and you have received a reward for assisting."
-"syslog_quest_party_bonus","パーティーでの＜<NAME QUEST>＞クリアにより、報酬にパーティーボーナスが適用されました","Party has completed ""<NAME QUEST>"" and you have received a party bonus."
-"syslog_quest_cannot_progress_party","リーダーと進行状況が異なるため、<NAME TARGET>の＜<NAME QUEST>＞が進行保留になりました","The quest progress between the party leader and <NAME TARGET> for ""<NAME QUEST>"" is different."
-"syslog_quest_can_progress_party","<NAME TARGET>の＜<NAME QUEST>＞が進行可能になりました","<NAME TARGET>'s quest ""<NAME QUEST>"" can now progress."
-"syslog_quest_wait_order","パーティーリーダーの＜<NAME QUEST>＞が受注待ちになりました","The party leader's quest ""<NAME QUEST>"" has orders waiting."
-"syslog_quest_can_progress_leader","パーティーリーダーの＜<NAME QUEST>＞が進行可能になりました","Because of the party leader, ""<NAME QUEST>"" can now progress."
-"syslog_quest_can_progress","＜<NAME QUEST>＞が進行可能になりました","""<NAME QUEST>"" can now progress."
-"syslog_quest_cannot_progress_leader","パーティーリーダーの＜<NAME QUEST>＞が進行不可になりました","Because of the party leader, ""<NAME QUEST>"" can no longer progress."
-"syslog_quest_cannot_progress","＜<NAME QUEST>＞が進行不可になりました","""<NAME QUEST>"" can no longer progress."
-"syslog_quest_party_progress_myself","＜<VAL>＞を進行しようとしました（あと<VAL>人で進行）","Attempted to progress with <VAL> (progress with <VAL> more people)"
-"syslog_quest_party_progress","＜<VAL>＞をパーティーメンバーが進行しようとしました（あと<VAL>人で進行）","Party members attempted to progress with <VAL> (progress with <VAL> more people)"
-"syslog_quest_party_order_myself","＜<VAL>＞を受注しようとしました（あと<VAL>人で受注）","Tried to accept <VAL> (accept with <VAL> more people)"
-"syslog_quest_party_order","＜<VAL>＞をパーティーメンバーが受注しようとしました（あと<VAL>人で受注）","Party members attempted to accept <VAL> (accept with <VAL> more people)"
-"syslog_reward_box_limit_over","報酬ボックスの報酬件数がいっぱいです
+syslog_quest_repeat_reward,＜<NAME QUEST>＞の報酬に、繰り返しボーナスが適用されました,"Earned a bonus reward for repeating ""<NAME QUEST>""."
+syslog_quest_undiscover_reward,＜<NAME QUEST>＞の未公開報酬を獲得しました,"Earned the hidden reward for ""<NAME QUEST>""."
+syslog_quest_help_reward,リーダーが＜<NAME QUEST>＞をクリアしたため、アシスト報酬を獲得しました,"Party leader has cleared ""<NAME QUEST>"" and you have received a reward for assisting."
+syslog_quest_party_bonus,パーティーでの＜<NAME QUEST>＞クリアにより、報酬にパーティーボーナスが適用されました,"Party has completed ""<NAME QUEST>"" and you have received a party bonus."
+syslog_quest_cannot_progress_party,リーダーと進行状況が異なるため、<NAME TARGET>の＜<NAME QUEST>＞が進行保留になりました,"The quest progress between the party leader and <NAME TARGET> for ""<NAME QUEST>"" is different."
+syslog_quest_can_progress_party,<NAME TARGET>の＜<NAME QUEST>＞が進行可能になりました,"<NAME TARGET>'s quest ""<NAME QUEST>"" can now progress."
+syslog_quest_wait_order,パーティーリーダーの＜<NAME QUEST>＞が受注待ちになりました,"The party leader's quest ""<NAME QUEST>"" has orders waiting."
+syslog_quest_can_progress_leader,パーティーリーダーの＜<NAME QUEST>＞が進行可能になりました,"Because of the party leader, ""<NAME QUEST>"" can now progress."
+syslog_quest_can_progress,＜<NAME QUEST>＞が進行可能になりました,"""<NAME QUEST>"" can now progress."
+syslog_quest_cannot_progress_leader,パーティーリーダーの＜<NAME QUEST>＞が進行不可になりました,"Because of the party leader, ""<NAME QUEST>"" can no longer progress."
+syslog_quest_cannot_progress,＜<NAME QUEST>＞が進行不可になりました,"""<NAME QUEST>"" can no longer progress."
+syslog_quest_party_progress_myself,＜<VAL>＞を進行しようとしました（あと<VAL>人で進行）,Attempted to progress with <VAL> (progress with <VAL> more people)
+syslog_quest_party_progress,＜<VAL>＞をパーティーメンバーが進行しようとしました（あと<VAL>人で進行）,Party members attempted to progress with <VAL> (progress with <VAL> more people)
+syslog_quest_party_order_myself,＜<VAL>＞を受注しようとしました（あと<VAL>人で受注）,Tried to accept <VAL> (accept with <VAL> more people)
+syslog_quest_party_order,＜<VAL>＞をパーティーメンバーが受注しようとしました（あと<VAL>人で受注）,Party members attempted to accept <VAL> (accept with <VAL> more people)
+syslog_reward_box_limit_over,"報酬ボックスの報酬件数がいっぱいです
 容量を超えると古い報酬は失われます","Your reward box is full.
 When it exceeds capacity, the oldest reward will be lost."
-"syslog_gacha_msg_drawn_by_a_stone","黄金石<VAL>個を消費して、ロットを1回まわしました","Spending <VAL> Golden Gemstones, you drew 1 lot."
-"syslog_gacha_msg_drawn_by_stones","黄金石<VAL>個を消費して、ロットを<VAL>連続でまわしました","Spending <VAL> Golden Gemstones, you
+syslog_gacha_msg_drawn_by_a_stone,黄金石<VAL>個を消費して、ロットを1回まわしました,"Spending <VAL> Golden Gemstones, you drew 1 lot."
+syslog_gacha_msg_drawn_by_stones,黄金石<VAL>個を消費して、ロットを<VAL>連続でまわしました,"Spending <VAL> Golden Gemstones, you
 drew <VAL> lots in succession."
-"syslog_gacha_msg_drawn_by_a_ticket","チケット<VAL>枚を消費して、ロットを1回まわしました","Spending <VAL> Tickets, you drew 1 lot."
-"syslog_gacha_msg_drawn_by_a_tickets","チケット<VAL>枚を消費して、ロットを<VAL>連続でまわしました","Spending <VAL> Tickets, you
+syslog_gacha_msg_drawn_by_a_ticket,チケット<VAL>枚を消費して、ロットを1回まわしました,"Spending <VAL> Tickets, you drew 1 lot."
+syslog_gacha_msg_drawn_by_a_tickets,チケット<VAL>枚を消費して、ロットを<VAL>連続でまわしました,"Spending <VAL> Tickets, you
 drew <VAL> lots in succession."
-"syslog_pawn_instruction_others","<NAME TARGET>がポーンに
+syslog_pawn_instruction_others,"<NAME TARGET>がポーンに
 <PORD>を命令しました","<NAME TARGET> has given the pawn order of
 <PORD> to their pawns."
-"syslog_quest_decide_deliver","＜<NAME QUEST>＞の納品目標を達成しました","""<NAME QUEST>"" delivery objective achieved."
-"syslog_jp_possession_max_notice","ジョブポイントの所持量が最大に近づいています
+syslog_quest_decide_deliver,＜<NAME QUEST>＞の納品目標を達成しました,"""<NAME QUEST>"" delivery objective achieved."
+syslog_jp_possession_max_notice,"ジョブポイントの所持量が最大に近づいています
 ( <VAL> / <VAL JP> )","You are almost maxed out on Job Points.
 (<VAL>/<VAL JP>)"
-"syslog_jp_possession_max","ジョブポイントが最大に達したため、これ以上獲得できません","You have reached the maximum amount of Job Points and cannot earn any more."
-"syslog_jp_possession_max_notice_pawn","<NAME PAWN>のジョブポイントの所持量が最大に近づいています
+syslog_jp_possession_max,ジョブポイントが最大に達したため、これ以上獲得できません,You have reached the maximum amount of Job Points and cannot earn any more.
+syslog_jp_possession_max_notice_pawn,"<NAME PAWN>のジョブポイントの所持量が最大に近づいています
 ( <VAL> / <VAL JP> )","<NAME PAWN> is almost maxed out on Job Points.
 (<VAL>/<VAL JP>)"
-"syslog_jp_possession_max_pawn","<NAME PAWN>のジョブポイントが最大に達したため、これ以上獲得できません","<NAME PAWN> has reached the maximum amount of Job Points and cannot earn any more."
-"syslog_rentalpoint_get","レンタルポイントを<VAL RP>獲得しました","Obtained <VAL RP>."
-"syslog_rentalpoint_get_ex","レンタルポイントを<VAL> (+<VAL>) <UNIT RP>獲得しました","Obtained <VAL> (+<VAL>) <UNIT RP>."
-"syslog_rentalpoint_lost","レンタルポイントを<VAL RP>消費しました","<VAL RP> consumed."
-"syslog_break_region_raid_boss","<VAL>の部位破壊に成功！
+syslog_jp_possession_max_pawn,<NAME PAWN>のジョブポイントが最大に達したため、これ以上獲得できません,<NAME PAWN> has reached the maximum amount of Job Points and cannot earn any more.
+syslog_rentalpoint_get,レンタルポイントを<VAL RP>獲得しました,Obtained <VAL RP>.
+syslog_rentalpoint_get_ex,レンタルポイントを<VAL> (+<VAL>) <UNIT RP>獲得しました,Obtained <VAL> (+<VAL>) <UNIT RP>.
+syslog_rentalpoint_lost,レンタルポイントを<VAL RP>消費しました,<VAL RP> consumed.
+syslog_break_region_raid_boss,"<VAL>の部位破壊に成功！
 討伐成功時にボーナス追加！","Successfully broke part of <VAL>!
 Additional bonus on clear!"
-"syslog_quest_progress_failed","＜<NAME QUEST>＞の進行に失敗しました
-クエストログで進行状況を確認してください","The progress of ＜<NAME QUEST>＞ has failed. Please check the quest log for status updates."
-"syslog_break_region_lose_raid_boss","<VAL>の部位が壊れた！","Part of <VAL> has broken!"
-"syslog_clan_member_login","%sがログインしました","%s has logged in."
-"syslog_clan_member_getachievement","%sがアチーブメント「%s」を獲得しました","%s earned achievement ""%s""."
-"syslog_quiq_mach_purpose","冒険目的＜<NAME ETC>＞
+syslog_quest_progress_failed,"＜<NAME QUEST>＞の進行に失敗しました
+クエストログで進行状況を確認してください",The progress of ＜<NAME QUEST>＞ has failed. Please check the quest log for status updates.
+syslog_break_region_lose_raid_boss,<VAL>の部位が壊れた！,Part of <VAL> has broken!
+syslog_clan_member_login,%sがログインしました,%s has logged in.
+syslog_clan_member_getachievement,%sがアチーブメント「%s」を獲得しました,"%s earned achievement ""%s""."
+syslog_quiq_mach_purpose,"冒険目的＜<NAME ETC>＞
 小目的＜<NAME ETC>＞の条件でマッチングしました","Adventure Purpose <<NAME ETC>>
 Matching conditions for Secondary Purpose <<NAME ETC>> met."
-"syslog_name_etc_use","<NAME ETC> を使用しました","<NAME ETC> has been used."
-"syslog_name_etc_buy","<NAME ETC> を購入しました","Purchased <NAME ETC>."
-"syslog_captrophy_complete","カプトロフィーの条件を達成しました","Achieved the conditions of a Cap Trophy."
-"syslog_exm_divide_player","<VAL>が強制転移させられた","<VAL>was forcibly teleported"
-"syslog_exm_return_player","パーティーメンバーが転移先から復帰した！","A party member has returned from their teleportation!"
-"syslog_quest_stop_content_reset","クエストが進行不能のため、コンテンツ中断をおこなってください","Due to the impossibility of progressing the quest, please cancel the current Content."
-"syslog_quest_root_reward","条件が満たされたため、＜<NAME QUEST>＞の
+syslog_name_etc_use,<NAME ETC> を使用しました,<NAME ETC> has been used.
+syslog_name_etc_buy,<NAME ETC> を購入しました,Purchased <NAME ETC>.
+syslog_captrophy_complete,カプトロフィーの条件を達成しました,Achieved the conditions of a Cap Trophy.
+syslog_exm_divide_player,<VAL>が強制転移させられた,<VAL>was forcibly teleported
+syslog_exm_return_player,パーティーメンバーが転移先から復帰した！,A party member has returned from their teleportation!
+syslog_quest_stop_content_reset,クエストが進行不能のため、コンテンツ中断をおこなってください,"Due to the impossibility of progressing the quest, please cancel the current Content."
+syslog_quest_root_reward,"条件が満たされたため、＜<NAME QUEST>＞の
 クリア報酬が変化します","Because you satisfied the conditions, the clear reward of ""<NAME QUEST>"" will change."
-"syslog_not_speak_a_while","しばらく発言できません","Cannot speak for a while."
-"syslog_pp_get","<VAL PP>を入手しました","<VAL PP> obtained."
-"syslog_pp_get_ex","<VAL> (+<VAL>) <UNIT PP>を入手しました","<VAL> (+<VAL>) <UNIT PP> obtained."
-"syslog_pp_lost","<VAL PP>を消費しました","<VAL PP> spent."
-"syslog_clan_base_released","<STG 210>を解放しました","<STG 210> is now available."
-"syslog_clan_point_use","%s %sが、%sを購入しました（-%d <UNIT CP>）","%s %s purchased %s (-%d <UNIT CP>)"
-"syslog_change_xp_mode","%sの入手ポイントを%sに切り替えました","Switched %s to %s-earning mode."
-"syslog_cp_get","<VAL CP>を入手しました","<VAL CP> obtained."
-"syslog_clanquest_enable_clear_over","クランクエスト＜<VAL>＞の
-CP報酬の有効クリア回数が上限に達しました","The maximum number of times to receive CP rewards for the Clan Quest <VAL> has been reached."
-"syslog_clanlevelup","クランレベルが<VAL>になりました","Clan level is now <VAL>."
-"syslog_item_get_send_itempost","<NAME ITEM>を<VAL>個、アイテムポストに送りました","<NAME ITEM> x<VAL> sent to Item Post."
-"syslog_pawn_expedition_sp_delivery","強化派遣により、希少なアイテムを持ち帰りました","I brought back a rare item through reinforcement dispatch."
-"syslog_clan_base_release_possible","<STG 210>が解放可能になりました
+syslog_not_speak_a_while,しばらく発言できません,Cannot speak for a while.
+syslog_pp_get,<VAL PP>を入手しました,<VAL PP> obtained.
+syslog_pp_get_ex,<VAL> (+<VAL>) <UNIT PP>を入手しました,<VAL> (+<VAL>) <UNIT PP> obtained.
+syslog_pp_lost,<VAL PP>を消費しました,<VAL PP> spent.
+syslog_clan_base_released,<STG 210>を解放しました,<STG 210> is now available.
+syslog_clan_point_use,%s %sが、%sを購入しました（-%d <UNIT CP>）,%s %s purchased %s (-%d <UNIT CP>)
+syslog_change_xp_mode,%sの入手ポイントを%sに切り替えました,Switched %s to %s-earning mode.
+syslog_cp_get,<VAL CP>を入手しました,<VAL CP> obtained.
+syslog_clanquest_enable_clear_over,"クランクエスト＜<VAL>＞の
+CP報酬の有効クリア回数が上限に達しました",The maximum number of times to receive CP rewards for the Clan Quest <VAL> has been reached.
+syslog_clanlevelup,クランレベルが<VAL>になりました,Clan level is now <VAL>.
+syslog_item_get_send_itempost,<NAME ITEM>を<VAL>個、アイテムポストに送りました,<NAME ITEM> x<VAL> sent to Item Post.
+syslog_pawn_expedition_sp_delivery,強化派遣により、希少なアイテムを持ち帰りました,I brought back a rare item through reinforcement dispatch.
+syslog_clan_base_release_possible,"<STG 210>が解放可能になりました
 クラン酒場にいるキビザを訪ねてください","<STG 210> is now available for unlocking.
 Please visit Kibiza at the Clan Tavern."
-"syslog_gacha_msg_drawn_by_a_free","無料で、ロットを1回まわしました","For free, you drew 1 lot."
-"syslog_gacha_msg_drawn_by_free","無料で、ロットを<VAL>連続でまわしました","For free, you drew <VAL> lots in succession."
-"syslog_pawn_expedition_expiration_hotspot_ite","特別なアイテムを持ち帰りました","I brought back a special Item."
-"syslog_quest_assist_accept","＜<NAME QUEST>＞の受注条件を満たしていないため、アシスト状態で受注しました","You do not meet the conditions of ""<NAME QUEST>"", so it was accepted in assist mode."
-"syslog_clan_clue_discover","%s が %s を発見しました","%s has discovered %s"
-"syslog_clan_dungeon_unlock","クランダンジョン %s が解放されました","The clan dungeon %s is now open!"
-"syslog_clan_common_unlock","%s が解放されました","%s unlocked."
-"syslog_dp_get","<VAL DP>を入手しました","<VAL DP> obtained."
-"syslog_dp_get_ex","<VAL> (+<VAL>) <UNIT DP>を入手しました","<VAL> (+<VAL>) <UNIT DP> obtained."
-"syslog_dp_lost","<VAL DP>を消費しました","<VAL DP> spent."
-"syslog_hb_get","<VAL HB>を入手しました","<VAL HB> obtained."
-"syslog_hb_get_ex","<VAL> (+<VAL>) <UNIT HB>を入手しました","<VAL> (+<VAL>) <UNIT HB> obtained."
-"syslog_hb_lost","<VAL HB>を消費しました","<VAL HB> spent."
-"syslog_xp_get","<VAL XP>を入手しました","<VAL XP> obtained."
-"syslog_xp_get_ex","<VAL> (+<VAL>) <UNIT XP>を入手しました","<VAL> (+<VAL>) <UNIT XP> obtained."
-"syslog_pgexp_get","<NAME PAWN>が<VAL PTP>獲得しました","<NAME PAWN> gained <VAL PTP>."
-"syslog_pgexp_get_ex","<NAME PAWN>が<VAL> (+<VAL>) <UNIT PTP>獲得しました","<NAME PAWN> gained <VAL> (+<VAL>) <UNIT PTP>."
-"syslog_mandragora_grow_up","マンドラゴラの育成が完了しました","Mandragora raising completed."
-"syslog_pap_get","<NAME PAWN>に戦術育成が行えます","<NAME PAWN> can now do Tactics Training."
-"syslog_craft_exp_get_ex","<NAME PAWN>がクラフト経験値<VAL> (+<VAL>) <UNIT XP>を取得しました","<NAME PAWN> has gained <VAL> (+<VAL>) <UNIT XP> for crafting."
-"syslog_pq_seq_ana_start","＜<VAL>＞の使命＜<VAL>＞を開始しました","""<VAL>"" mission ""<VAL>"" has begun."
-"syslog_pq_seq_ana_acv_up","＜<VAL>＞の使命＜<VAL>＞の達成度が上昇しました","""<VAL>"" mission ""<VAL>"" progress increased."
-"syslog_pq_seq_ana_acv_down","＜<VAL>＞の使命＜<VAL>＞の達成度が減少しました","""<VAL>"" mission ""<VAL>"" progress decreased."
-"syslog_pq_seq_ana_seqcomp","＜<VAL>＞の使命＜<VAL>＞を達成しました","""<VAL>"" mission ""<VAL>"" achieved."
-"syslog_pq_seq_ana_pacend","＜<VAL>＞のすべての使命を達成しました","All ""<VAL>"" missions achieved."
-"syslog_wm_statement_gauge_0_defeat","戦況が最悪化し、敗戦状態となりました","The war situation has deteriorated, and we are in a state of defeat."
-"syslog_release_area_spot","<VAL>の<VAL>が解放されました","<VAL>'s <VAL> unlocked."
-"syslog_pap_limit_up","<NAME PAWN>の<UNTN PAP>の最大値が増加しました","Maximum <UNTN PAP> for <NAME PAWN> has increased."
-"syslog_mission_time_down","残り時間が<VAL>秒削減されました","The remaining time was reduced by <VAL> seconds."
-"syslog_tp_get","<VAL TP>を入手しました","<VAL TP> obtained."
-"syslog_tp_lost","<VAL TP>を消費しました","<VAL TP> spent."
-"syslog_tp_possession_max_notice","<UNTN TP>の所持量が最大に近づいています
+syslog_gacha_msg_drawn_by_a_free,無料で、ロットを1回まわしました,"For free, you drew 1 lot."
+syslog_gacha_msg_drawn_by_free,無料で、ロットを<VAL>連続でまわしました,"For free, you drew <VAL> lots in succession."
+syslog_pawn_expedition_expiration_hotspot_ite,特別なアイテムを持ち帰りました,I brought back a special Item.
+syslog_quest_assist_accept,＜<NAME QUEST>＞の受注条件を満たしていないため、アシスト状態で受注しました,"You do not meet the conditions of ""<NAME QUEST>"", so it was accepted in assist mode."
+syslog_clan_clue_discover,%s が %s を発見しました,%s has discovered %s
+syslog_clan_dungeon_unlock,クランダンジョン %s が解放されました,The clan dungeon %s is now open!
+syslog_clan_common_unlock,%s が解放されました,%s unlocked.
+syslog_dp_get,<VAL DP>を入手しました,<VAL DP> obtained.
+syslog_dp_get_ex,<VAL> (+<VAL>) <UNIT DP>を入手しました,<VAL> (+<VAL>) <UNIT DP> obtained.
+syslog_dp_lost,<VAL DP>を消費しました,<VAL DP> spent.
+syslog_hb_get,<VAL HB>を入手しました,<VAL HB> obtained.
+syslog_hb_get_ex,<VAL> (+<VAL>) <UNIT HB>を入手しました,<VAL> (+<VAL>) <UNIT HB> obtained.
+syslog_hb_lost,<VAL HB>を消費しました,<VAL HB> spent.
+syslog_xp_get,<VAL XP>を入手しました,<VAL XP> obtained.
+syslog_xp_get_ex,<VAL> (+<VAL>) <UNIT XP>を入手しました,<VAL> (+<VAL>) <UNIT XP> obtained.
+syslog_pgexp_get,<NAME PAWN>が<VAL PTP>獲得しました,<NAME PAWN> gained <VAL PTP>.
+syslog_pgexp_get_ex,<NAME PAWN>が<VAL> (+<VAL>) <UNIT PTP>獲得しました,<NAME PAWN> gained <VAL> (+<VAL>) <UNIT PTP>.
+syslog_mandragora_grow_up,マンドラゴラの育成が完了しました,Mandragora raising completed.
+syslog_pap_get,<NAME PAWN>に戦術育成が行えます,<NAME PAWN> can now do Tactics Training.
+syslog_craft_exp_get_ex,<NAME PAWN>がクラフト経験値<VAL> (+<VAL>) <UNIT XP>を取得しました,<NAME PAWN> has gained <VAL> (+<VAL>) <UNIT XP> for crafting.
+syslog_pq_seq_ana_start,＜<VAL>＞の使命＜<VAL>＞を開始しました,"""<VAL>"" mission ""<VAL>"" has begun."
+syslog_pq_seq_ana_acv_up,＜<VAL>＞の使命＜<VAL>＞の達成度が上昇しました,"""<VAL>"" mission ""<VAL>"" progress increased."
+syslog_pq_seq_ana_acv_down,＜<VAL>＞の使命＜<VAL>＞の達成度が減少しました,"""<VAL>"" mission ""<VAL>"" progress decreased."
+syslog_pq_seq_ana_seqcomp,＜<VAL>＞の使命＜<VAL>＞を達成しました,"""<VAL>"" mission ""<VAL>"" achieved."
+syslog_pq_seq_ana_pacend,＜<VAL>＞のすべての使命を達成しました,"All ""<VAL>"" missions achieved."
+syslog_wm_statement_gauge_0_defeat,戦況が最悪化し、敗戦状態となりました,"The war situation has deteriorated, and we are in a state of defeat."
+syslog_release_area_spot,<VAL>の<VAL>が解放されました,<VAL>'s <VAL> unlocked.
+syslog_pap_limit_up,<NAME PAWN>の<UNTN PAP>の最大値が増加しました,Maximum <UNTN PAP> for <NAME PAWN> has increased.
+syslog_mission_time_down,残り時間が<VAL>秒削減されました,The remaining time was reduced by <VAL> seconds.
+syslog_tp_get,<VAL TP>を入手しました,<VAL TP> obtained.
+syslog_tp_lost,<VAL TP>を消費しました,<VAL TP> spent.
+syslog_tp_possession_max_notice,"<UNTN TP>の所持量が最大に近づいています
 ( <VAL> / <VAL TP> )","You are almost maxed out on
 <UNTN TP>s. (<VAL>/<VAL TP>)"
-"syslog_tp_possession_max","<UNTN TP>が最大に達したため、これ以上獲得できません","You have reached the maximum amount of <UNTN TP>s and cannot earn any more."
-"syslog_evoticket_get","<UNTN MS>を<VAL><UNIT MS>、入手しました","<UNTN MS> <UNIT MS><VAL> obtained."
-"syslog_evoticket_lost","<UNTN MS>を<VAL><UNIT MS>、消費しました","<UNTN MS> <UNIT MS><VAL> spent."
-"syslog_action_tornado_target","<NAME TARGET> が竜巻に狙われている","<NAME TARGET> has become the target of the tornado."
-"syslog_action_tornado_sign","<NAME TARGET> が竜巻を起こそうとしている","<NAME TARGET> is about to create a tornado."
-"syslog_action_humanhateup_target","<NAME TARGET> が周囲の敵の標的になった","<NAME TARGET> has become the target of the surrounding enemies."
-"syslog_pawn_expedition_hotsign","そろそろホットスポットが見つかりそうです","A hotspot is likely to be found soon."
-"syslog_wm_limited_condition_open","<VAL>が期間限定で開催決定！
+syslog_tp_possession_max,<UNTN TP>が最大に達したため、これ以上獲得できません,You have reached the maximum amount of <UNTN TP>s and cannot earn any more.
+syslog_evoticket_get,<UNTN MS>を<VAL><UNIT MS>、入手しました,<UNTN MS> <UNIT MS><VAL> obtained.
+syslog_evoticket_lost,<UNTN MS>を<VAL><UNIT MS>、消費しました,<UNTN MS> <UNIT MS><VAL> spent.
+syslog_action_tornado_target,<NAME TARGET> が竜巻に狙われている,<NAME TARGET> has become the target of the tornado.
+syslog_action_tornado_sign,<NAME TARGET> が竜巻を起こそうとしている,<NAME TARGET> is about to create a tornado.
+syslog_action_humanhateup_target,<NAME TARGET> が周囲の敵の標的になった,<NAME TARGET> has become the target of the surrounding enemies.
+syslog_pawn_expedition_hotsign,そろそろホットスポットが見つかりそうです,A hotspot is likely to be found soon.
+syslog_wm_limited_condition_open,"<VAL>が期間限定で開催決定！
 詳しくは、レスタニアニュースをご覧ください","<VAL> will be held for a limited time!
 For details, please see the Lestania News"
-"syslog_action_fog_sign","異界の霧が吐き零されていく――","Otherworldly fog is spreading out..."
-"syslog_action_alldestroy_rest_num","殲滅まで残り<VAL>体","<VAL> Remaining until extermination"
-"syslog_reward_box_limit_over_item","報酬ボックスのアイテム枠がいっぱいです
+syslog_action_fog_sign,異界の霧が吐き零されていく――,Otherworldly fog is spreading out...
+syslog_action_alldestroy_rest_num,殲滅まで残り<VAL>体,<VAL> Remaining until extermination
+syslog_reward_box_limit_over_item,"報酬ボックスのアイテム枠がいっぱいです
 報酬件数に関わらず古い報酬は失われます","The item slots in your reward box are full. Regardless of the number of rewards, old rewards will be lost."
-"syslog_reward_box_limit_notion_item","報酬ボックスのアイテム枠が残り少なくなっています
-報酬件数に関わらず古い報酬を失う可能性があります","The item slots of the reward box are running low. There is a possibility of losing old rewards."
-"syslog_action_fog_clear","殲滅に成功　異界の霧が晴れてゆく――","Successfully destroyed. The otherworldly fog is clearing up"
-"syslog_bo_get_ex","<VAL> (+<VAL>) <UNIT BO>を入手しました","<VAL> (+<VAL>) <UNIT BO> obtained."
-"syslog_money_get_ex","<VAL> (+<VAL>) <UNIT G>を入手しました","<VAL> (+<VAL>) <UNIT G> obtained."
-"syslog_rim_get_ex","<VAL> (+<VAL>) <UNIT R>を入手しました","<VAL> (+<VAL>) <UNIT R> obtained."
-"syslog_boardquest_sp_allclear_log","このクエストボードから配信されている
+syslog_reward_box_limit_notion_item,"報酬ボックスのアイテム枠が残り少なくなっています
+報酬件数に関わらず古い報酬を失う可能性があります",The item slots of the reward box are running low. There is a possibility of losing old rewards.
+syslog_action_fog_clear,殲滅に成功　異界の霧が晴れてゆく――,Successfully destroyed. The otherworldly fog is clearing up
+syslog_bo_get_ex,<VAL> (+<VAL>) <UNIT BO>を入手しました,<VAL> (+<VAL>) <UNIT BO> obtained.
+syslog_money_get_ex,<VAL> (+<VAL>) <UNIT G>を入手しました,<VAL> (+<VAL>) <UNIT G> obtained.
+syslog_rim_get_ex,<VAL> (+<VAL>) <UNIT R>を入手しました,<VAL> (+<VAL>) <UNIT R> obtained.
+syslog_boardquest_sp_allclear_log,"このクエストボードから配信されている
 すべてのクエストを一括してクリア状態にしました","All quests posted to this Quest Board
 have been cleared."
-"syslog_hardboardquest_reload_log","スペシャルクエストボードがリロードされました
+syslog_hardboardquest_reload_log,"スペシャルクエストボードがリロードされました
 （本日<VAL>回目）","Special Quest Board has been
 reloaded. (<VAL> time today)"
-"syslog_action_summon_enemy01","<NAME TARGET> が魔物を呼び寄せている――","<NAME TARGET> is calling monsters"
-"syslog_action_summon_enemy_clear","召喚された魔物を一掃した――","Summoned monsters have been eliminated"
-"syslog_action_ensa","怨嗟の声が渦巻いている――","Voice of Resentment is whirling"
-"syslog_action_ensa_target_i","邪悪な怨念に憑りつかれた
+syslog_action_summon_enemy01,<NAME TARGET> が魔物を呼び寄せている――,<NAME TARGET> is calling monsters
+syslog_action_summon_enemy_clear,召喚された魔物を一掃した――,Summoned monsters have been eliminated
+syslog_action_ensa,怨嗟の声が渦巻いている――,Voice of Resentment is whirling
+syslog_action_ensa_target_i,"邪悪な怨念に憑りつかれた
 祓うには、“怨塊”を破壊せよ――","You have been possessed by evil spirits
 Destroy your Grudge Pillar to purify"
-"syslog_action_ensa_target_p","仲間が怨念に憑りつかれた
+syslog_action_ensa_target_p,"仲間が怨念に憑りつかれた
 祓うには、“怨塊”を破壊せよ――","Comrades have been possessed
 Destroy Grudge Pillars to purify them"
-"syslog_action_ensa_clear","“怨塊”を失い、<NAME TARGET> の力が弱まっていく――","Grudge Pillars have been destroyed, <NAME TARGET> is weakening"
-"syslog_action_summon_enemy02","<NAME TARGET> が魔物を召喚しようとしている――","<NAME TARGET> is summoning monsters"
-"syslog_action_ikai_01","<NAME TARGET> が異界に飛ばされた――","<NAME TARGET> was teleported to a different world"
-"syslog_action_ikai_02","“魔物”を倒し、魂を集めて異界の扉を開け――","Defeat monsters and collect their souls to open Door to the Other World"
-"syslog_action_ikai_03","異界から救い出すには、“怨塊”を破壊せよ――","Destroy Grudge Pillars to rescue comrade from the other world"
-"syslog_action_ikai_04","異界の扉が開かれた――","Door to the Other World has opened"
-"syslog_action_ikai_05","仲間によって“怨塊”が破壊されたことで
+syslog_action_ensa_clear,“怨塊”を失い、<NAME TARGET> の力が弱まっていく――,"Grudge Pillars have been destroyed, <NAME TARGET> is weakening"
+syslog_action_summon_enemy02,<NAME TARGET> が魔物を召喚しようとしている――,<NAME TARGET> is summoning monsters
+syslog_action_ikai_01,<NAME TARGET> が異界に飛ばされた――,<NAME TARGET> was teleported to a different world
+syslog_action_ikai_02,“魔物”を倒し、魂を集めて異界の扉を開け――,Defeat monsters and collect their souls to open Door to the Other World
+syslog_action_ikai_03,異界から救い出すには、“怨塊”を破壊せよ――,Destroy Grudge Pillars to rescue comrade from the other world
+syslog_action_ikai_04,異界の扉が開かれた――,Door to the Other World has opened
+syslog_action_ikai_05,"仲間によって“怨塊”が破壊されたことで
 異界の扉が開かれた――","Your comrades have destroyed the Grudge Pillars
 and Door to the Other World has opened"
-"syslog_pawn_get_spskill_stack","<NAME PAWN>が
-<VAL>を閃きました","<NAME PAWN> was inspired with <VAL>."
-"syslog_action_staff_of_wise","“竜角の杖”の殲滅まで残り<VAL>本","The number of remaining ""Dragon Horn Staffs"" until extermination: <VAL>."
-"syslog_action_safety_dome","杖から“護身の結界”が展開された","A ""protective barrier"" was deployed from the staff."
-"syslog_gdm_get","<UNTN GDM>を<VAL><UNIT GDM>、入手しました","<UNTN GDM> <UNIT GDM><VAL> obtained."
-"syslog_sdm_get","<UNTN SDM>を<VAL><UNIT SDM>、入手しました","<UNTN SDM> <UNIT SDM><VAL> obtained."
-"syslog_rdm_get","<UNTN RDM>を<VAL><UNIT RDM>、入手しました","<UNTN RDM> <UNIT RDM><VAL> obtained."
-"syslog_gdm_lost","<UNTN GDM>を<VAL><UNIT GDM>、消費しました","<UNTN GDM> <UNIT GDM><VAL> spent."
-"syslog_sdm_lost","<UNTN SDM>を<VAL><UNIT SDM>、消費しました","<UNTN SDM> <UNIT SDM><VAL> spent."
-"syslog_rdm_lost","<UNTN RDM>を<VAL><UNIT RDM>、消費しました","<UNTN RDM> <UNIT RDM><VAL> spent."
-"syslog_kt_get","<UNTN KT>を<VAL><UNIT KT>、入手しました","<UNTN KT> <UNIT KT><VAL> obtained."
-"syslog_kt_lost","<UNTN KT>を<VAL><UNIT KT>、消費しました","<UNTN KT> <UNIT KT><VAL> spent."
-"syslog_action_ikai_06","異界の扉が、より多くの魂を求めている――","Door to the Other World desires more souls"
-"syslog_action_ikai_07","残り半分の魂を捧げれば、扉は開かれる――","The door will open after you offer some more souls"
-"syslog_action_ikai_08","残りわずかな魂で、異界の扉が開く――","The door will open after just a few more souls"
-"syslog_bbi_item_embody","<VAL>に<NAME ITEM>を<VAL>個、持ち帰りました","Brought back into <VAL> is <NAME ITEM> x<VAL>."
-"syslog_kt_possession_max","<UNTN KT>が最大まで補充されました","<UNTN KT> has been replenished to the maximum."
-"syslog_content_buff_get","“<VAL>”の効果が付与されました","""<VAL>"" effect has been applied."
-"syslog_content_buff_lost","“<VAL>”の効果が解除されました","""<VAL>"" effect has been removed."
-"syslog_action_ikai_09","異界に飛ばされた――","Teleported to a different world"
-"syslog_action_em_escape","周囲から <NAME TARGET> の気配が消えた","The sign of <NAME TARGET> has disappeared from the surroundings."
-"syslog_action_ikai_10","残っている“怨塊”を、すべて破壊せよ――","Destroy all of the remaining ""Grudge Pillars"""
-"syslog_item_lockset","アイテムをセーフティ設定しました","Item safety setting enabled."
-"syslog_item_lockset_off","アイテムのセーフティ設定を解除しました","Item safety setting disabled."
-"syslog_action_staff_of_wise_break","“竜角の杖”を破壊せよ――","Destroy the ""Dragon Horn Staff."""
-"syslog_action_ikai_11","怨塊 残り“<VAL>個”――","""<VAL>"" Grudge Pillars left"
-"syslog_action_ikai_12","<NAME TARGET> が凶骨の祭壇へ運ばれた
+syslog_pawn_get_spskill_stack,"<NAME PAWN>が
+<VAL>を閃きました",<NAME PAWN> was inspired with <VAL>.
+syslog_action_staff_of_wise,“竜角の杖”の殲滅まで残り<VAL>本,"The number of remaining ""Dragon Horn Staffs"" until extermination: <VAL>."
+syslog_action_safety_dome,杖から“護身の結界”が展開された,"A ""protective barrier"" was deployed from the staff."
+syslog_gdm_get,<UNTN GDM>を<VAL><UNIT GDM>、入手しました,<UNTN GDM> <UNIT GDM><VAL> obtained.
+syslog_sdm_get,<UNTN SDM>を<VAL><UNIT SDM>、入手しました,<UNTN SDM> <UNIT SDM><VAL> obtained.
+syslog_rdm_get,<UNTN RDM>を<VAL><UNIT RDM>、入手しました,<UNTN RDM> <UNIT RDM><VAL> obtained.
+syslog_gdm_lost,<UNTN GDM>を<VAL><UNIT GDM>、消費しました,<UNTN GDM> <UNIT GDM><VAL> spent.
+syslog_sdm_lost,<UNTN SDM>を<VAL><UNIT SDM>、消費しました,<UNTN SDM> <UNIT SDM><VAL> spent.
+syslog_rdm_lost,<UNTN RDM>を<VAL><UNIT RDM>、消費しました,<UNTN RDM> <UNIT RDM><VAL> spent.
+syslog_kt_get,<UNTN KT>を<VAL><UNIT KT>、入手しました,<UNTN KT> <UNIT KT><VAL> obtained.
+syslog_kt_lost,<UNTN KT>を<VAL><UNIT KT>、消費しました,<UNTN KT> <UNIT KT><VAL> spent.
+syslog_action_ikai_06,異界の扉が、より多くの魂を求めている――,Door to the Other World desires more souls
+syslog_action_ikai_07,残り半分の魂を捧げれば、扉は開かれる――,The door will open after you offer some more souls
+syslog_action_ikai_08,残りわずかな魂で、異界の扉が開く――,The door will open after just a few more souls
+syslog_bbi_item_embody,<VAL>に<NAME ITEM>を<VAL>個、持ち帰りました,Brought back into <VAL> is <NAME ITEM> x<VAL>.
+syslog_kt_possession_max,<UNTN KT>が最大まで補充されました,<UNTN KT> has been replenished to the maximum.
+syslog_content_buff_get,“<VAL>”の効果が付与されました,"""<VAL>"" effect has been applied."
+syslog_content_buff_lost,“<VAL>”の効果が解除されました,"""<VAL>"" effect has been removed."
+syslog_action_ikai_09,異界に飛ばされた――,Teleported to a different world
+syslog_action_em_escape,周囲から <NAME TARGET> の気配が消えた,The sign of <NAME TARGET> has disappeared from the surroundings.
+syslog_action_ikai_10,残っている“怨塊”を、すべて破壊せよ――,"Destroy all of the remaining ""Grudge Pillars"""
+syslog_item_lockset,アイテムをセーフティ設定しました,Item safety setting enabled.
+syslog_item_lockset_off,アイテムのセーフティ設定を解除しました,Item safety setting disabled.
+syslog_action_staff_of_wise_break,“竜角の杖”を破壊せよ――,"Destroy the ""Dragon Horn Staff."""
+syslog_action_ikai_11,怨塊 残り“<VAL>個”――,"""<VAL>"" Grudge Pillars left"
+syslog_action_ikai_12,"<NAME TARGET> が凶骨の祭壇へ運ばれた
 助けなければ、全員に厄災が降りかかる――","<NAME TARGET> was taken to the Bone Altar.
 If you don't rescue them, everyone will meet with disaster"
-"syslog_action_ikai_13","生贄として、<NAME TARGET> が祭壇に捧げられ
+syslog_action_ikai_13,"生贄として、<NAME TARGET> が祭壇に捧げられ
 全員に厄災が降りかかった――","<NAME TARGET> was sacrificed at the Altar.
 Everyone has met with disaster"
-"syslog_auto_cancel_navigate","冒険ガイドにクエストが存在しないため
+syslog_auto_cancel_navigate,"冒険ガイドにクエストが存在しないため
 現在のナビゲート設定を解除しました","Because there is no quest in the Adventure Guide,
 I have now canceled the current navigation settings."
-"syslog_action_evildra_01","マグマから炎の力を吸収しようとしている――","Trying to absorb the power of flames from magma."
-"syslog_action_evildra_02","悪しき竜は“火焔の竜晶”を召喚しようとしている――","The Wicked Dragon is about to summon a
+syslog_action_evildra_01,マグマから炎の力を吸収しようとしている――,Trying to absorb the power of flames from magma.
+syslog_action_evildra_02,悪しき竜は“火焔の竜晶”を召喚しようとしている――,"The Evil Dragon is about to summon a
 ""Dragon Crystal of Flame""."
-"syslog_action_evildra_03","“火焔の竜晶”の出現により
+syslog_action_evildra_03,"“火焔の竜晶”の出現により
 マグマが溜まっていく――","Magma is rising because of the ""Dragon Crystal of Flame""."
-"syslog_action_evildra_04","大量のマグマが溜まってきている
+syslog_action_evildra_04,"大量のマグマが溜まってきている
 悪しき竜が炎の力を吸収する時が近付く――","There is a large amount of magma built up, the time
-the Wicked Dragon absorbs the flames power draws near."
-"syslog_action_evildra_05","死力を尽くした咆哮に、火垂れ山が揺れている――","The fire dripping mountain is shaken by the frantic roar."
-"syslog_action_evildra_06","マグマが上昇し始めた――","Magma has begun to rise."
-"syslog_action_evildra_07","ここから、山頂へ脱出せよ――","From here, escape to the summit."
-"syslog_action_evildra_08","“火焔の竜晶”の出現により
+the Evil Dragon absorbs the flames power draws near."
+syslog_action_evildra_05,死力を尽くした咆哮に、火垂れ山が揺れている――,The fire dripping mountain is shaken by the frantic roar.
+syslog_action_evildra_06,マグマが上昇し始めた――,Magma has begun to rise.
+syslog_action_evildra_07,ここから、山頂へ脱出せよ――,"From here, escape to the summit."
+syslog_action_evildra_08,"“火焔の竜晶”の出現により
 マグマの滝が流れ出した――","Magma is flowing out from the waterfall because of the
 ""Dragon Crystal of Flame""."
-"syslog_action_evildra_09","火口内にある“火焔の竜晶”を破壊したことで
+syslog_action_evildra_09,"火口内にある“火焔の竜晶”を破壊したことで
 マグマの量が減り、戦闘エリアが広がった――","Destroying the ""Dragon Crystals of Flame"" in the crater
 reduces the amount of magma, expanding your foothold."
-"syslog_action_evildra_10","火口内にある“火焔の竜晶”をすべて破壊したことで
+syslog_action_evildra_10,"火口内にある“火焔の竜晶”をすべて破壊したことで
 マグマの量が減り、戦闘エリアが大きく広がった――","Destroying all ""Dragon Crystals of Flame"" in the crater has
 reduced the amount of magma, greatly expanding the battle area."
-"syslog_action_evildra_11","“魔炎の竜晶”の出現により
+syslog_action_evildra_11,"“魔炎の竜晶”の出現により
 地表からマグマが噴き上がる――","Magma is flowing out from the surface because of the
 ""Dragon Crystal of Flame""."
-"syslog_action_evildra_12","“魔岩の竜晶”の出現により
+syslog_action_evildra_12,"“魔岩の竜晶”の出現により
 空から火山弾が降り注ぐ――","Meteors are falling down because of the
 ""Dragon Crystal of Flame""."
-"syslog_action_evildra_13","“魔風の竜晶”の出現により
+syslog_action_evildra_13,"“魔風の竜晶”の出現により
 熱風が吹き荒れている――","Hot steam of airs is blowing out because of the
 ""Dragon Crystal of Flame""."
-"syslog_action_evildra_14","悪しき竜が最後の命を燃やそうとしている――","The Wicked Dragon is trying to burn its last fragment of life."
-"syslog_gdm_get_ex","<UNTN GDM>を<VAL>(+<VAL>)<UNIT GDM>、入手しました","Obtained <VAL> (+<VAL>) <UNIT GDM> of <UNTN GDM>."
-"syslog_sdm_get_ex","<UNTN SDM>を<VAL>(+<VAL>)<UNIT SDM>、入手しました","Retrieved <VAL>(+<VAL>)<UNIT SDM> at <UNTN SDM>"
-"syslog_rdm_get_ex","<UNTN RDM>を<VAL>(+<VAL>)<UNIT RDM>、入手しました","<VAL>(+<VAL>)<UNIT RDM> obtained from <UNTN RDM>"
-"syslog_ds_info_enemy_01","敵が闇の炎をまとった！","The enemy is shrouded in dark flame!"
-"syslog_ds_info_enemy_02","敵の魔法攻撃力が上昇した！","Magick attack of the enemy has increased!"
-"syslog_ds_info_enemy_03","敵の物理攻撃力が上昇した！","Physical attack of the enemy has increased!"
-"syslog_ds_info_enemy_04","敵の鎧が硬化した！","The armor of enemy has hardened!"
-"syslog_ds_support_ana_01","竜の祝福により報酬が強化された","Blessing of the Dragons have improved the reward."
-"syslog_ds_support_ana_02","敵の部位を破壊しやすくなった","It is now easier to break destructible parts."
-"syslog_ds_support_ana_03","敵の防御を破り、プレイヤーの攻撃力が強化された","Break through their defense to enhance your offensive power."
-"syslog_pp_possession_max","プレイポイントが最大に達したため、これ以上獲得できません","You have reached the maximum amount of PP and cannot earn any more."
-"syslog_g_possession_max","<UNTN G>が最大に達したため、これ以上獲得できません","You have reached the maximum amount of <UNTN G> and cannot earn any more."
-"syslog_r_possession_max","<UNTN R>が最大に達したため、これ以上獲得できません","You have reached the maximum amount of <UNTN R> and cannot earn any more."
-"syslog_bo_possession_max","<UNTN BO>が最大に達したため、これ以上獲得できません","You have reached the maximum amount of <UNTN BO> and cannot earn any more."
-"syslog_ho_possession_max","<UNTN HB>が最大に達したため、これ以上獲得できません","You have reached the maximum amount of <UNTN HB> and cannot earn any more."
-"syslog_rp_possession_max","<UNTN RP>が最大に達したため、これ以上獲得できません","You have reached the maximum amount of <UNTN RP> and cannot earn any more."
-"syslog_ms_possession_max","<UNTN MS>が最大に達したため、これ以上獲得できません","You have reached the maximum amount of <UNTN MS> and cannot earn any more."
-"syslog_darkgauge_rise","“破滅の力”の高まりを感じる――
+syslog_action_evildra_14,悪しき竜が最後の命を燃やそうとしている――,The Evil Dragon is trying to burn its last fragment of life.
+syslog_gdm_get_ex,<UNTN GDM>を<VAL>(+<VAL>)<UNIT GDM>、入手しました,Obtained <VAL> (+<VAL>) <UNIT GDM> of <UNTN GDM>.
+syslog_sdm_get_ex,<UNTN SDM>を<VAL>(+<VAL>)<UNIT SDM>、入手しました,Retrieved <VAL>(+<VAL>)<UNIT SDM> at <UNTN SDM>
+syslog_rdm_get_ex,<UNTN RDM>を<VAL>(+<VAL>)<UNIT RDM>、入手しました,<VAL>(+<VAL>)<UNIT RDM> obtained from <UNTN RDM>
+syslog_ds_info_enemy_01,敵が闇の炎をまとった！,The enemy is shrouded in dark flame!
+syslog_ds_info_enemy_02,敵の魔法攻撃力が上昇した！,Magick attack of the enemy has increased!
+syslog_ds_info_enemy_03,敵の物理攻撃力が上昇した！,Physical attack of the enemy has increased!
+syslog_ds_info_enemy_04,敵の鎧が硬化した！,The armor of enemy has hardened!
+syslog_ds_support_ana_01,竜の祝福により報酬が強化された,Blessing of the Dragons have improved the reward.
+syslog_ds_support_ana_02,敵の部位を破壊しやすくなった,It is now easier to break destructible parts.
+syslog_ds_support_ana_03,敵の防御を破り、プレイヤーの攻撃力が強化された,Break through their defense to enhance your offensive power.
+syslog_pp_possession_max,プレイポイントが最大に達したため、これ以上獲得できません,You have reached the maximum amount of PP and cannot earn any more.
+syslog_g_possession_max,<UNTN G>が最大に達したため、これ以上獲得できません,You have reached the maximum amount of <UNTN G> and cannot earn any more.
+syslog_r_possession_max,<UNTN R>が最大に達したため、これ以上獲得できません,You have reached the maximum amount of <UNTN R> and cannot earn any more.
+syslog_bo_possession_max,<UNTN BO>が最大に達したため、これ以上獲得できません,You have reached the maximum amount of <UNTN BO> and cannot earn any more.
+syslog_ho_possession_max,<UNTN HB>が最大に達したため、これ以上獲得できません,You have reached the maximum amount of <UNTN HB> and cannot earn any more.
+syslog_rp_possession_max,<UNTN RP>が最大に達したため、これ以上獲得できません,You have reached the maximum amount of <UNTN RP> and cannot earn any more.
+syslog_ms_possession_max,<UNTN MS>が最大に達したため、これ以上獲得できません,You have reached the maximum amount of <UNTN MS> and cannot earn any more.
+syslog_darkgauge_rise,"“破滅の力”の高まりを感じる――
 ゲージが十分に溜まるとすべてが滅びる！","The Power of Destruction is growing...
 When it reaches maximum power, all life will perish!"
-"syslog_darkgauge_growup","“破滅の力”のゲージが徐々に上昇してゆく！","The Power of Destruction is rising!"
-"syslog_darkgauge_spdown","“黄金竜の一撃”によって“破滅の力”のゲージが減少した！","The attack of Golden Dragon has reduced the Power of Destruction!"
+syslog_darkgauge_growup,“破滅の力”のゲージが徐々に上昇してゆく！,The Power of Destruction is rising!
+syslog_darkgauge_spdown,“黄金竜の一撃”によって“破滅の力”のゲージが減少した！,The attack of Golden Dragon has reduced the Power of Destruction!
