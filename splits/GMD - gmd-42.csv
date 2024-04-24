@@ -73,8 +73,8 @@
 　このセンスが分かる、見る目がある奴には
 　術について教えてやってもいいぞ」と","そして、こう言われた
 「こだわりは胸当てと編み上げレギンスだ
-　このセンスが分かる、見る目がある奴には
-　術について教えてやってもいいぞ」と",ui\00_message\quest\q60000015.gmd,\quest\q60000015.arc,q60000015.arc,27
+このセンスが分かる、見る目がある奴には
+術について教えてやってもいいぞ」と",ui\00_message\quest\q60000015.gmd,\quest\q60000015.arc,q60000015.arc,27
 0,,"この術は《着飾り装備の術》と言うらしい
 もともと魔女達が本来の外見を覆い
 他者を惑わすために編み出した技だそうだ","この術は《着飾り装備の術》と言うらしい
@@ -134,7 +134,7 @@
 伝授してあげるわ",ui\00_message\quest\q60000015.gmd,\quest\q60000015.arc,q60000015.arc,42
 0,,"“汝が手に触れし衣よ、
 　包み重なりてその姿を変えよ――”","“汝が手に触れし衣よ、
-　包み重なりてその姿を変えよ――”",ui\00_message\quest\q60000015.gmd,\quest\q60000015.arc,q60000015.arc,43
+包み重なりてその姿を変えよ――”",ui\00_message\quest\q60000015.gmd,\quest\q60000015.arc,q60000015.arc,43
 0,,"――はい、これで伝授は終了
 装備を身に付ける時に、《着飾り装備》
 が選べるようになっているわ","――はい、これで伝授は終了
@@ -411,12 +411,14 @@
 0,,覚者として強くなるための第一歩よ――頑張ってね,覚者として強くなるための第一歩よ――頑張ってね,ui\00_message\quest\q60000016.gmd,\quest\q60000016.arc,q60000016.arc,70
 0,,【ヒント：覚者のさらなる成長について】,【ヒント：覚者のさらなる成長について】,ui\00_message\quest\q60000016.gmd,\quest\q60000016.arc,q60000016.arc,71
 0,,メインポーンが編成可能となり戦力が強化されました,メインポーンが編成可能となり戦力が強化されました,ui\00_message\quest\q60000016.gmd,\quest\q60000016.arc,q60000016.arc,72
-0,,覚者のさらなる成長をイリスやセネカから学び<COL ff7575>メインクエスト＜紅の結晶＞</COL>を進めましょう,覚者のさらなる成長をイリスやセネカから学び<COL ff7575>メインクエスト＜紅の結晶＞</COL>を進めましょう,ui\00_message\quest\q60000016.gmd,\quest\q60000016.arc,q60000016.arc,73
+0,,覚者のさらなる成長をイリスやセネカから学び<COL ff7575>メインクエスト＜紅の結晶＞</COL>を進めましょう,"覚者のさらなる成長をイリスやセネカから学び<COL
+ff7575>メインクエスト＜紅の結晶＞</COL>を進めましょう",ui\00_message\quest\q60000016.gmd,\quest\q60000016.arc,q60000016.arc,73
 0,q60000016_00_18,クラフトで伝える心,Crafted Token of the Heart,ui\00_message\quest_info\q60000016_00.gmd,\quest\q60000016.arc,q60000016.arc,0
 1,q60000016_00_18,"イリスの依頼を聞き入れ
 ポーンのクラフト能力を用いアイテムを生産する","イリスの依頼を聞き入れ
 ポーンのクラフト能力を用いアイテムを生産する",ui\00_message\quest_info\q60000016_00.gmd,\quest\q60000016.arc,q60000016.arc,1
-2,q60000016_00_1193,神殿内の中央広場にあるクラフトルームに向かう,Head to the Craft Room in the Temple central square,ui\00_message\quest_info\q60000016_00.gmd,\quest\q60000016.arc,q60000016.arc,2
+2,q60000016_00_1193,神殿内の中央広場にあるクラフトルームに向かう,"Head to the Craft Room in the Temple central
+square",ui\00_message\quest_info\q60000016_00.gmd,\quest\q60000016.arc,q60000016.arc,2
 3,q60000016_00_1205,クラフトルームにいるソニアと話す,Speak with Sonia in the Craft Room,ui\00_message\quest_info\q60000016_00.gmd,\quest\q60000016.arc,q60000016.arc,3
 4,q60000016_00_1194,＜青銅鉱＞と＜ベビーハーブ＞を１つずつ入手する,Obtain a Bronze Ore and a Baby Herb,ui\00_message\quest_info\q60000016_00.gmd,\quest\q60000016.arc,q60000016.arc,4
 5,q60000016_00_1121,ソニアに話して＜そよかぜのリング＞を作成する,"Speak to Sonia and craft a ""Zephyr Ring""",ui\00_message\quest_info\q60000016_00.gmd,\quest\q60000016.arc,q60000016.arc,5
@@ -428,13 +430,19 @@
 修練の祠にて試練に挑む","In order to learn the fundamentals of combat,
 challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,1
 2,q60000017_00_1220,修練の祠内のウィルソンと話す,Speak with Wilson in the Training Chapel,ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,2
-3,q60000017_00_1221,敵にしがみつきライドセイントオーラを成功させよ,Cling to the enemy and successfully use Ride Holy Aura,ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,3
-4,q60000017_00_1222,敵にしがみつきライドヒールオーラを成功させよ,Cling to the enemy and successfully use Ride Heal Aura,ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,4
-5,q60000017_00_1223,しがみつき中に敵の振りほどき（黄）から耐えろ,Use Resist to endure the enemy's swing (yellow icon) while climbing them,ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,5
-6,q60000017_00_1224,しがみつき中に敵の引きはがし（赤）から離脱せよ,"While climbing the enemy, jump off during their knock-away attack (red icon)",ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,6
+3,q60000017_00_1221,敵にしがみつきライドセイントオーラを成功させよ,"Cling to the enemy and successfully use Ride Holy
+Aura",ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,3
+4,q60000017_00_1222,敵にしがみつきライドヒールオーラを成功させよ,"Cling to the enemy and successfully use Ride Heal
+Aura",ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,4
+5,q60000017_00_1223,しがみつき中に敵の振りほどき（黄）から耐えろ,"Use Resist to endure the enemy's swing (yellow
+icon) while climbing them",ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,5
+6,q60000017_00_1224,しがみつき中に敵の引きはがし（赤）から離脱せよ,"While climbing the enemy, jump off during their
+knock-away attack (red icon)",ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,6
 7,q60000017_00_1225,攻撃して敵を怒らせよ,Attack and enrage the enemy,ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,7
-8,q60000017_00_1261,ヒールオーラで怒る敵のシークレットコアを発見せよ,Reveal the enemy's secret core during their enraged state with Heal Aura,ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,8
-9,q60000017_00_1277,怒った敵を揺さぶって疲れさせろ,Shake the enemy while they are enraged and tire them,ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,9
+8,q60000017_00_1261,ヒールオーラで怒る敵のシークレットコアを発見せよ,"Reveal the enemy's secret core during their
+enraged state with Heal Aura",ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,8
+9,q60000017_00_1277,怒った敵を揺さぶって疲れさせろ,"Shake the enemy while they are enraged and tire
+them",ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,9
 10,q60000017_00_1226,サイクロプスを倒せ,Defeat the Cyclops,ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,10
 11,q60000017_00_1242,最奥にある＜破攻の証＞を入手する,Collect the proof of completing the trial,ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,11
 12,q60000017_00_1227,白竜神殿のレンテンに経緯を報告する,Report back to Renton in the White Dragon Temple,ui\00_message\quest_info\q60000017_00.gmd,\quest\q60000017.arc,q60000017.arc,12
@@ -445,12 +453,12 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000017_0
 「五つ――《ヒールオーラ》にて弱点を探れ」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,0
 0,,"「<ICON STG_ATTACK_0>を押し、
 　ヒールオーラ効果内に敵を接触させる」","「<ICON STG_ATTACK_0>を押し、
-　ヒールオーラ効果内に敵を接触させる」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,1
+ヒールオーラ効果内に敵を接触させる」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,1
 0,,"「敵の弱点《シークレットコア》をあぶり出す
 　事ができ、他の仲間に敵の狙いどころを
 　伝えることができる」","「敵の弱点《シークレットコア》をあぶり出す
-　事ができ、他の仲間に敵の狙いどころを
-　伝えることができる」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,2
+事ができ、他の仲間に敵の狙いどころを
+伝えることができる」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,2
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 
 「六つ――しがみつきからの
@@ -461,7 +469,7 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000017_0
 0,,「しがみつき中に<ICON STG_ATTACK_0>を押す、再度押すと解除」,「しがみつき中に<ICON STG_ATTACK_0>を押す、再度押すと解除」,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,4
 0,,"「しがみつき中にヒールオーラで
 　仲間の回復と敵の弱点発見を同時にできる」","「しがみつき中にヒールオーラで
-　仲間の回復と敵の弱点発見を同時にできる」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,5
+仲間の回復と敵の弱点発見を同時にできる」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,5
 0,,《破攻の証》を手に入れた！,《破攻の証》を手に入れた！,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,6
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 
@@ -472,8 +480,8 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000017_0
 0,,"「巨大な敵を倒すには一人では困難である
 　そのためにパーティーで挑む事が大事で
 　敵を怒らせてスキを作る必要がある」","「巨大な敵を倒すには一人では困難である
-　そのためにパーティーで挑む事が大事で
-　敵を怒らせてスキを作る必要がある」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,9
+そのためにパーティーで挑む事が大事で
+敵を怒らせてスキを作る必要がある」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,9
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 
 「二つ――敵は《揺さぶり》にて崩すべし」","何者かが刻んだ教えの言葉が浮かび上がっている――
@@ -481,12 +489,12 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000017_0
 「二つ――敵は《揺さぶり》にて崩すべし」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,10
 0,,"「怒り状態の大型敵に近づいて、
 　<ICON STG_TOUCH>でしがみついた状態で<ICON STG_ATTACK_1>を押す」","「怒り状態の大型敵に近づいて、
-　<ICON STG_TOUCH>でしがみついた状態で<ICON STG_ATTACK_1>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,11
+<ICON STG_TOUCH>でしがみついた状態で<ICON STG_ATTACK_1>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,11
 0,,"「怒った敵にしがみつき揺さぶる事で
 　疲れさせてダウン状態に持っていく
 　ことで倒す事ができる」","「怒った敵にしがみつき揺さぶる事で
-　疲れさせてダウン状態に持っていく
-　ことで倒す事ができる」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,12
+疲れさせてダウン状態に持っていく
+ことで倒す事ができる」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,12
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 
 「四つ――敵の引き剥がし攻撃から離脱せよ」","何者かが刻んだ教えの言葉が浮かび上がっている――
@@ -495,15 +503,15 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000017_0
 0,,"「怒り状態の敵にしがみつき中に
 　敵の体力ゲージ上にバーストアイコン（赤色）が
 　出たら<ICON UI_DECIDE>or<ICON UI_CANCEL>を押す」","「怒り状態の敵にしがみつき中に
-　敵の体力ゲージ上にバーストアイコン（赤色）が
-　出たら<ICON UI_DECIDE>or<ICON UI_CANCEL>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,14
+敵の体力ゲージ上にバーストアイコン（赤色）が
+出たら<ICON UI_DECIDE>or<ICON UI_CANCEL>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,14
 0,,"「怒り状態の敵はしがみつき中に
 　引き剥がす行動に出る時がある
 　その時はしがみつきから離脱して
 　回避する事が重要である」","「怒り状態の敵はしがみつき中に
-　引き剥がす行動に出る時がある
-　その時はしがみつきから離脱して
-　回避する事が重要である」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,15
+引き剥がす行動に出る時がある
+その時はしがみつきから離脱して
+回避する事が重要である」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,15
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 
 「三つ――敵の振り解き攻撃から耐えるべし」","何者かが刻んだ教えの言葉が浮かび上がっている――
@@ -512,11 +520,11 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000017_0
 0,,"「怒り状態の敵にしがみついた状態で
 　振り払いアイコン（黄色）が出たら
 　<ICON STG_TOUCH>を押す」","「怒り状態の敵にしがみついた状態で
-　振り払いアイコン（黄色）が出たら
-　<ICON STG_TOUCH>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,17
+振り払いアイコン（黄色）が出たら
+<ICON STG_TOUCH>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,17
 0,,"「怒った敵が振り払い行動が出す時は
 　耐えて回避して揺さぶりを継続できる」","「怒った敵が振り払い行動が出す時は
-　耐えて回避して揺さぶりを継続できる」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,18
+耐えて回避して揺さぶりを継続できる」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,18
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 
 「七つ――しがみつきからの
@@ -524,30 +532,40 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000017_0
 
 「七つ――しがみつきからの
 《ライドセイントオーラ》を展開せよ」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,19
-0,,「しがみつき中に<ICON STG_MAIN_WEP>を押しながら<ICON STG_TOUCH>を押す、再度押すと解除」,「しがみつき中に<ICON STG_MAIN_WEP>を押しながら<ICON STG_TOUCH>を押す、再度押すと解除」,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,20
+0,,「しがみつき中に<ICON STG_MAIN_WEP>を押しながら<ICON STG_TOUCH>を押す、再度押すと解除」,"「しがみつき中に<ICON STG_MAIN_WEP>を押しながら<ICON
+STG_TOUCH>を押す、再度押すと解除」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,20
 0,,"「巨大な敵にしがみついた状態でも
 　セイントオーラで攻撃もできる」","「巨大な敵にしがみついた状態でも
-　セイントオーラで攻撃もできる」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,21
+セイントオーラで攻撃もできる」",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,21
 0,,ライドセイントオーラは敵にしがみつき中に攻撃できるぞ,ライドセイントオーラは敵にしがみつき中に攻撃できるぞ,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,22
 0,,ライドヒールオーラは敵にしがみついて行うスキルで敵が怒り状態だとシークレットコアを発見もできるぞ,ライドヒールオーラは敵にしがみついて行うスキルで敵が怒り状態だとシークレットコアを発見もできるぞ,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,23
-0,,敵にしがみつき中に敵の体力ゲージ下に出るアイコン（黄）が出たら耐えろ――失敗するとレバガチャで振りほどかれないように注意しろ,敵にしがみつき中に敵の体力ゲージ下に出るアイコン（黄）が出たら耐えろ――失敗するとレバガチャで振りほどかれないように注意しろ,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,24
+0,,敵にしがみつき中に敵の体力ゲージ下に出るアイコン（黄）が出たら耐えろ――失敗するとレバガチャで振りほどかれないように注意しろ,"
+敵にしがみつき中に敵の体力ゲージ下に出るアイコン（黄）が出たら耐えろ――失敗するとレバガチャで振りほどかれないように注意しろ",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,24
 0,,敵にしがみつき中に敵が体力ゲージ下に出るアイコン（赤）の時に離れろー失敗するとダメージを負うぞ,敵にしがみつき中に敵が体力ゲージ下に出るアイコン（赤）の時に離れろー失敗するとダメージを負うぞ,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,25
 0,,敵を攻撃してダメージを与えろーそうする事で敵を怒らせることができる,敵を攻撃してダメージを与えろーそうする事で敵を怒らせることができる,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,26
 0,,敵が怒り中にヒールオーラの発動範囲にいれるとシークレットコアを発見できるぞ,敵が怒り中にヒールオーラの発動範囲にいれるとシークレットコアを発見できるぞ,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,27
-0,,怒り状態の敵にしがみつき揺さぶるんだ――ゲージを０にすると敵が疲労状態になるのでダメージを与えるチャンスだ,怒り状態の敵にしがみつき揺さぶるんだ――ゲージを０にすると敵が疲労状態になるのでダメージを与えるチャンスだ,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,28
+0,,怒り状態の敵にしがみつき揺さぶるんだ――ゲージを０にすると敵が疲労状態になるのでダメージを与えるチャンスだ,"
+怒り状態の敵にしがみつき揺さぶるんだ――ゲージを０にすると敵が疲労状態になるのでダメージを与えるチャンスだ",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,28
 0,,今まで学んだ事を生かして敵を倒せ,今まで学んだ事を生かして敵を倒せ,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,29
 0,,よくやった――あとは最奥にある証を手に入れて試練は終わりだ,よくやった――あとは最奥にある証を手に入れて試練は終わりだ,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,30
 0,,まずは祠の奥へ向かい、大型敵と対峙するんだ！,まずは祠の奥へ向かい、大型敵と対峙するんだ！,ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,0
 0,,そして<COL ff7575><KCT TOUCH></COL>でヤツにしがみつけ！,そして<COL ff7575><KCT TOUCH></COL>でヤツにしがみつけ！,ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,1
-0,,その状態で<COL ff7575><KCT SKILL_NORMAL1></COL>でライドセイントオーラ！再度押すと解除だ,その状態で<COL ff7575><KCT SKILL_NORMAL1></COL>でライドセイントオーラ！再度押すと解除だ,ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,2
-0,,次にしがみついた状態で<COL ff7575><KCT ATTACK1></COL>でライドヒールオーラ！,次にしがみついた状態で<COL ff7575><KCT ATTACK1></COL>でライドヒールオーラ！,ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,3
-0,,しがみつき中に黄色いマークが出たら、<COL ff7575><KCT TOUCH>長押し</COL>で耐えろ！成功するまで何度もやってみるんだ,しがみつき中に黄色いマークが出たら、<COL ff7575><KCT TOUCH>長押し</COL>で耐えろ！成功するまで何度もやってみるんだ,ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,4
-0,,しがみつき中に赤いマークが出たら危険だ！<COL ff7575><KCT JUMP></COL>でジャンプし、すぐ離脱しろ！,しがみつき中に赤いマークが出たら危険だ！<COL ff7575><KCT JUMP></COL>でジャンプし、すぐ離脱しろ！,ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,5
+0,,その状態で<COL ff7575><KCT SKILL_NORMAL1></COL>でライドセイントオーラ！再度押すと解除だ,"その状態で<COL ff7575><KCT
+SKILL_NORMAL1></COL>でライドセイントオーラ！再度押すと解除だ",ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,2
+0,,次にしがみついた状態で<COL ff7575><KCT ATTACK1></COL>でライドヒールオーラ！,"次にしがみついた状態で<COL ff7575><KCT
+ATTACK1></COL>でライドヒールオーラ！",ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,3
+0,,しがみつき中に黄色いマークが出たら、<COL ff7575><KCT TOUCH>長押し</COL>で耐えろ！成功するまで何度もやってみるんだ,"しがみつき中に黄色いマークが出たら、<COL ff7575><KCT
+TOUCH>長押し</COL>で耐えろ！成功するまで何度もやってみるんだ",ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,4
+0,,しがみつき中に赤いマークが出たら危険だ！<COL ff7575><KCT JUMP></COL>でジャンプし、すぐ離脱しろ！,"しがみつき中に赤いマークが出たら危険だ！<COL ff7575><KCT
+JUMP></COL>でジャンプし、すぐ離脱しろ！",ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,5
 0,,攻撃し、ヤツを怒らせるんだ。怒った敵は体が赤く輝くぞ！,攻撃し、ヤツを怒らせるんだ。怒った敵は体が赤く輝くぞ！,ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,6
-0,,怒り状態の敵に、ヒールオーラかライドヒールオーラを当てるんだ！隠された弱点シークレットコアを暴きだせ！,怒り状態の敵に、ヒールオーラかライドヒールオーラを当てるんだ！隠された弱点シークレットコアを暴きだせ！,ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,7
+0,,怒り状態の敵に、ヒールオーラかライドヒールオーラを当てるんだ！隠された弱点シークレットコアを暴きだせ！,"
+怒り状態の敵に、ヒールオーラかライドヒールオーラを当てるんだ！隠された弱点シークレットコアを暴きだせ！",ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,7
 0,,<COL ff7575><KCT TOUCH></COL>でヤツにしがみつき、,<COL ff7575><KCT TOUCH></COL>でヤツにしがみつき、,ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,8
-0,,<COL ff7575><KCT CLIMB_JOLT></COL>で揺さぶり、疲れさせろ！敵スタミナゲージを減らすんだ,<COL ff7575><KCT CLIMB_JOLT></COL>で揺さぶり、疲れさせろ！敵スタミナゲージを減らすんだ,ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,9
-0,,揺さぶるかシークレットコアを攻撃してヤツを疲れさせ、一気に仕留めてしまえ！敵が怒ったら疲れさせ、ダウンを奪うんだ。覚えておけよ！,揺さぶるかシークレットコアを攻撃してヤツを疲れさせ、一気に仕留めてしまえ！敵が怒ったら疲れさせ、ダウンを奪うんだ。覚えておけよ！,ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,10
+0,,<COL ff7575><KCT CLIMB_JOLT></COL>で揺さぶり、疲れさせろ！敵スタミナゲージを減らすんだ,"<COL ff7575><KCT
+CLIMB_JOLT></COL>で揺さぶり、疲れさせろ！敵スタミナゲージを減らすんだ",ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,9
+0,,揺さぶるかシークレットコアを攻撃してヤツを疲れさせ、一気に仕留めてしまえ！敵が怒ったら疲れさせ、ダウンを奪うんだ。覚えておけよ！,"
+揺さぶるかシークレットコアを攻撃してヤツを疲れさせ、一気に仕留めてしまえ！敵が怒ったら疲れさせ、ダウンを奪うんだ。覚えておけよ！",ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,10
 0,,試練完了、よくやったな！　奥にある＜破攻の証＞を受け取り、神殿のレンテンに報告するがいい,試練完了、よくやったな！　奥にある＜破攻の証＞を受け取り、神殿のレンテンに報告するがいい,ui\00_message\quest\q60000017.gmd,\quest\q60000017.arc,q60000017.arc,11
 0,,"おめでとう、覚者よ
 これにて戦術試練は完了だ！","おめでとう、覚者よ
@@ -622,11 +640,15 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000017_0
 修練の祠にて試練に挑む","In order to learn the fundamentals of combat,
 challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000018_00.gmd,\quest\q60000018.arc,q60000018.arc,1
 2,q60000018_00_1228,修練の祠内のウィルソンと話す,Speak with Wilson in the Training Chapel,ui\00_message\quest_info\q60000018_00.gmd,\quest\q60000018.arc,q60000018.arc,2
-3,q60000018_00_1229,敵にしがみついてウィークライトを成功させよ,"Cling to the enemy, and successfully use Weak Light",ui\00_message\quest_info\q60000018_00.gmd,\quest\q60000018.arc,q60000018.arc,3
-4,q60000018_00_1230,しがみつき中に敵の振りほどき（黄）から耐えろ,Use Resist to endure the enemy's swing (yellow icon) while climbing them,ui\00_message\quest_info\q60000018_00.gmd,\quest\q60000018.arc,q60000018.arc,4
-5,q60000018_00_1231,しがみつき中に敵の引きはがし（赤）から離脱せよ,"While climbing the enemy, jump off during their knock-away attack (red icon)",ui\00_message\quest_info\q60000018_00.gmd,\quest\q60000018.arc,q60000018.arc,5
+3,q60000018_00_1229,敵にしがみついてウィークライトを成功させよ,"Cling to the enemy, and successfully use Weak
+Light",ui\00_message\quest_info\q60000018_00.gmd,\quest\q60000018.arc,q60000018.arc,3
+4,q60000018_00_1230,しがみつき中に敵の振りほどき（黄）から耐えろ,"Use Resist to endure the enemy's swing (yellow
+icon) while climbing them",ui\00_message\quest_info\q60000018_00.gmd,\quest\q60000018.arc,q60000018.arc,4
+5,q60000018_00_1231,しがみつき中に敵の引きはがし（赤）から離脱せよ,"While climbing the enemy, jump off during their
+knock-away attack (red icon)",ui\00_message\quest_info\q60000018_00.gmd,\quest\q60000018.arc,q60000018.arc,5
 6,q60000018_00_1232,攻撃して敵を怒らせよ,Attack and enrage the enemy,ui\00_message\quest_info\q60000018_00.gmd,\quest\q60000018.arc,q60000018.arc,6
-7,q60000018_00_1262,怒った敵を揺さぶって疲れさせろ,Shake the enemy while they are enraged and tire them,ui\00_message\quest_info\q60000018_00.gmd,\quest\q60000018.arc,q60000018.arc,7
+7,q60000018_00_1262,怒った敵を揺さぶって疲れさせろ,"Shake the enemy while they are enraged and tire
+them",ui\00_message\quest_info\q60000018_00.gmd,\quest\q60000018.arc,q60000018.arc,7
 8,q60000018_00_1233,サイクロプスを倒せ,Defeat the Cyclops,ui\00_message\quest_info\q60000018_00.gmd,\quest\q60000018.arc,q60000018.arc,8
 9,q60000018_00_1243,最奥にある＜破攻の証＞を入手する,Collect the proof of completing the trial,ui\00_message\quest_info\q60000018_00.gmd,\quest\q60000018.arc,q60000018.arc,9
 10,q60000018_00_1234,白竜神殿のレンテンに経緯を報告する,Report back to Renton in the White Dragon Temple,ui\00_message\quest_info\q60000018_00.gmd,\quest\q60000018.arc,q60000018.arc,10
@@ -639,8 +661,8 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000018_0
 0,,"「巨大な敵を倒すには一人では困難である
 　そのためにパーティーで挑む事が大事で
 　敵を怒らせてスキを作る必要がある」","「巨大な敵を倒すには一人では困難である
-　そのためにパーティーで挑む事が大事で
-　敵を怒らせてスキを作る必要がある」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,2
+そのためにパーティーで挑む事が大事で
+敵を怒らせてスキを作る必要がある」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,2
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 
 「二つ――敵は《揺さぶり》にて崩すべし」","何者かが刻んだ教えの言葉が浮かび上がっている――
@@ -648,12 +670,12 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000018_0
 「二つ――敵は《揺さぶり》にて崩すべし」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,3
 0,,"「怒り状態の大型敵に近づいて、
 　<ICON STG_TOUCH>でしがみついた状態で<ICON STG_ATTACK_1>を押す」","「怒り状態の大型敵に近づいて、
-　<ICON STG_TOUCH>でしがみついた状態で<ICON STG_ATTACK_1>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,4
+<ICON STG_TOUCH>でしがみついた状態で<ICON STG_ATTACK_1>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,4
 0,,"「怒った敵にしがみつき揺さぶる事で
 　疲れさせてダウン状態に持っていく
 　ことで倒す事ができる」","「怒った敵にしがみつき揺さぶる事で
-　疲れさせてダウン状態に持っていく
-　ことで倒す事ができる」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,5
+疲れさせてダウン状態に持っていく
+ことで倒す事ができる」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,5
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 
 「三つ――敵の振り解き攻撃から耐えるべし」","何者かが刻んだ教えの言葉が浮かび上がっている――
@@ -662,11 +684,11 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000018_0
 0,,"「怒り状態の敵にしがみついた状態で
 　振り払いアイコン（黄色）が出たら
 　<ICON STG_TOUCH>を押す」","「怒り状態の敵にしがみついた状態で
-　振り払いアイコン（黄色）が出たら
-　<ICON STG_TOUCH>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,7
+振り払いアイコン（黄色）が出たら
+<ICON STG_TOUCH>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,7
 0,,"「怒った敵が振り払い行動が出す時は
 　耐えて回避して揺さぶりを継続できる」","「怒った敵が振り払い行動が出す時は
-　耐えて回避して揺さぶりを継続できる」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,8
+耐えて回避して揺さぶりを継続できる」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,8
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 
 「四つ――敵の引き剥がし攻撃から離脱せよ」","何者かが刻んだ教えの言葉が浮かび上がっている――
@@ -675,35 +697,39 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000018_0
 0,,"「怒り状態の敵にしがみつき中に
 　敵の体力ゲージ上にバーストアイコン（赤色）が
 　出たら<ICON UI_DECIDE>or<ICON UI_CANCEL>を押す」","「怒り状態の敵にしがみつき中に
-　敵の体力ゲージ上にバーストアイコン（赤色）が
-　出たら<ICON UI_DECIDE>or<ICON UI_CANCEL>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,10
+敵の体力ゲージ上にバーストアイコン（赤色）が
+出たら<ICON UI_DECIDE>or<ICON UI_CANCEL>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,10
 0,,"「怒り状態の敵はしがみつき中に
 　引き剥がす行動に出る時がある
 　その時はしがみつきから離脱して
 　回避する事が重要である」","「怒り状態の敵はしがみつき中に
-　引き剥がす行動に出る時がある
-　その時はしがみつきから離脱して
-　回避する事が重要である」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,11
+引き剥がす行動に出る時がある
+その時はしがみつきから離脱して
+回避する事が重要である」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,11
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 
 「五つ――敵にしがみつき《ウィークライト》で
 　攻撃せよ」","何者かが刻んだ教えの言葉が浮かび上がっている――
 
 「五つ――敵にしがみつき《ウィークライト》で
-　攻撃せよ」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,12
+攻撃せよ」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,12
 0,,「しがみつき中に<ICON STG_ATTACK_0>を押す」,「しがみつき中に<ICON STG_ATTACK_0>を押す」,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,13
 0,,"「敵にしがみついてる時でも
 　直接ダメージを与える事ができる」","「敵にしがみついてる時でも
-　直接ダメージを与える事ができる」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,14
+直接ダメージを与える事ができる」",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,14
 0,,《破攻の証》を手に入れた！,《破攻の証》を手に入れた！,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,15
 0,,まずは祠の奥へ向かい、大型敵と対峙するんだ！,まずは祠の奥へ向かい、大型敵と対峙するんだ！,ui\00_message\quest\q60000018.gmd,\quest\q60000018.arc,q60000018.arc,0
 0,,そして<COL ff7575><KCT TOUCH></COL>でヤツにしがみつけ！,そして<COL ff7575><KCT TOUCH></COL>でヤツにしがみつけ！,ui\00_message\quest\q60000018.gmd,\quest\q60000018.arc,q60000018.arc,1
-0,,その状態で<COL ff7575><KCT ATTACK1></COL>でウィークライト！属性異常攻撃だ！,その状態で<COL ff7575><KCT ATTACK1></COL>でウィークライト！属性異常攻撃だ！,ui\00_message\quest\q60000018.gmd,\quest\q60000018.arc,q60000018.arc,2
-0,,しがみつき中に黄色いマークが出たら、<COL ff7575><KCT TOUCH>長押し</COL>で耐えろ！成功するまで何度もやってみるんだ,しがみつき中に黄色いマークが出たら、<COL ff7575><KCT TOUCH>長押し</COL>で耐えろ！成功するまで何度もやってみるんだ,ui\00_message\quest\q60000018.gmd,\quest\q60000018.arc,q60000018.arc,3
-0,,しがみつき中に赤いマークが出たら危険だ！<COL ff7575><KCT JUMP></COL>でジャンプし、すぐ離脱しろ！,しがみつき中に赤いマークが出たら危険だ！<COL ff7575><KCT JUMP></COL>でジャンプし、すぐ離脱しろ！,ui\00_message\quest\q60000018.gmd,\quest\q60000018.arc,q60000018.arc,4
+0,,その状態で<COL ff7575><KCT ATTACK1></COL>でウィークライト！属性異常攻撃だ！,"その状態で<COL ff7575><KCT
+ATTACK1></COL>でウィークライト！属性異常攻撃だ！",ui\00_message\quest\q60000018.gmd,\quest\q60000018.arc,q60000018.arc,2
+0,,しがみつき中に黄色いマークが出たら、<COL ff7575><KCT TOUCH>長押し</COL>で耐えろ！成功するまで何度もやってみるんだ,"しがみつき中に黄色いマークが出たら、<COL ff7575><KCT
+TOUCH>長押し</COL>で耐えろ！成功するまで何度もやってみるんだ",ui\00_message\quest\q60000018.gmd,\quest\q60000018.arc,q60000018.arc,3
+0,,しがみつき中に赤いマークが出たら危険だ！<COL ff7575><KCT JUMP></COL>でジャンプし、すぐ離脱しろ！,"しがみつき中に赤いマークが出たら危険だ！<COL ff7575><KCT
+JUMP></COL>でジャンプし、すぐ離脱しろ！",ui\00_message\quest\q60000018.gmd,\quest\q60000018.arc,q60000018.arc,4
 0,,攻撃し、ヤツを怒らせるんだ。怒った敵は体が赤く輝くぞ！,攻撃し、ヤツを怒らせるんだ。怒った敵は体が赤く輝くぞ！,ui\00_message\quest\q60000018.gmd,\quest\q60000018.arc,q60000018.arc,5
 0,,<COL ff7575><KCT TOUCH></COL>でヤツにしがみつき、,<COL ff7575><KCT TOUCH></COL>でヤツにしがみつき、,ui\00_message\quest\q60000018.gmd,\quest\q60000018.arc,q60000018.arc,6
-0,,<COL ff7575><KCT CLIMB_JOLT></COL>で揺さぶり、疲れさせろ！敵スタミナゲージを減らすんだ,<COL ff7575><KCT CLIMB_JOLT></COL>で揺さぶり、疲れさせろ！敵スタミナゲージを減らすんだ,ui\00_message\quest\q60000018.gmd,\quest\q60000018.arc,q60000018.arc,7
+0,,<COL ff7575><KCT CLIMB_JOLT></COL>で揺さぶり、疲れさせろ！敵スタミナゲージを減らすんだ,"<COL ff7575><KCT
+CLIMB_JOLT></COL>で揺さぶり、疲れさせろ！敵スタミナゲージを減らすんだ",ui\00_message\quest\q60000018.gmd,\quest\q60000018.arc,q60000018.arc,7
 0,,よし、その調子だ。一気に仕留めてしまえ！敵が怒ったら疲れさせ、ダウンを奪うんだ。覚えておけよ！,よし、その調子だ。一気に仕留めてしまえ！敵が怒ったら疲れさせ、ダウンを奪うんだ。覚えておけよ！,ui\00_message\quest\q60000018.gmd,\quest\q60000018.arc,q60000018.arc,8
 0,,試練完了、よくやったな！奥にある＜破攻の証＞を受け取り、神殿のレンテンに報告するがいい,試練完了、よくやったな！奥にある＜破攻の証＞を受け取り、神殿のレンテンに報告するがいい,ui\00_message\quest\q60000018.gmd,\quest\q60000018.arc,q60000018.arc,9
 0,,"おめでとう、覚者よ
@@ -777,11 +803,15 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000018_0
 修練の祠にて試練に挑む","In order to learn the fundamentals of combat,
 challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000019_00.gmd,\quest\q60000019.arc,q60000019.arc,1
 2,q60000019_00_1235,修練の祠内のウィルソンと話す,Speak with Wilson in the Training Chapel,ui\00_message\quest_info\q60000019_00.gmd,\quest\q60000019.arc,q60000019.arc,2
-3,q60000019_00_1236,敵にしがみついて矢じり斬りで攻撃せよ,"Cling to the enemy, and hit them with Arrowhead Strike",ui\00_message\quest_info\q60000019_00.gmd,\quest\q60000019.arc,q60000019.arc,3
-4,q60000019_00_1237,しがみつき中に敵の振りほどき（黄）から耐えろ,Use Resist to endure the enemy's swing (yellow icon) while climbing them,ui\00_message\quest_info\q60000019_00.gmd,\quest\q60000019.arc,q60000019.arc,4
-5,q60000019_00_1238,しがみつき中に敵の引きはがし（赤）から離脱せよ,"While climbing the enemy, jump off during their knock-away attack (red icon)",ui\00_message\quest_info\q60000019_00.gmd,\quest\q60000019.arc,q60000019.arc,5
+3,q60000019_00_1236,敵にしがみついて矢じり斬りで攻撃せよ,"Cling to the enemy, and hit them with Arrowhead
+Strike",ui\00_message\quest_info\q60000019_00.gmd,\quest\q60000019.arc,q60000019.arc,3
+4,q60000019_00_1237,しがみつき中に敵の振りほどき（黄）から耐えろ,"Use Resist to endure the enemy's swing (yellow
+icon) while climbing them",ui\00_message\quest_info\q60000019_00.gmd,\quest\q60000019.arc,q60000019.arc,4
+5,q60000019_00_1238,しがみつき中に敵の引きはがし（赤）から離脱せよ,"While climbing the enemy, jump off during their
+knock-away attack (red icon)",ui\00_message\quest_info\q60000019_00.gmd,\quest\q60000019.arc,q60000019.arc,5
 6,q60000019_00_1239,攻撃して敵を怒らせよ,Attack and enrage the enemy,ui\00_message\quest_info\q60000019_00.gmd,\quest\q60000019.arc,q60000019.arc,6
-7,q60000019_00_1263,怒った敵を揺さぶって疲れさせろ,Shake the enemy while they are enraged and tire them,ui\00_message\quest_info\q60000019_00.gmd,\quest\q60000019.arc,q60000019.arc,7
+7,q60000019_00_1263,怒った敵を揺さぶって疲れさせろ,"Shake the enemy while they are enraged and tire
+them",ui\00_message\quest_info\q60000019_00.gmd,\quest\q60000019.arc,q60000019.arc,7
 8,q60000019_00_1240,サイクロプスを倒せ,Defeat the Cyclops,ui\00_message\quest_info\q60000019_00.gmd,\quest\q60000019.arc,q60000019.arc,8
 9,q60000019_00_1244,最奥にある＜破攻の証＞を入手する,Collect the proof of completing the trial,ui\00_message\quest_info\q60000019_00.gmd,\quest\q60000019.arc,q60000019.arc,9
 10,q60000019_00_1241,白竜神殿のレンテンに経緯を報告する,Report back to Renton in the White Dragon Temple,ui\00_message\quest_info\q60000019_00.gmd,\quest\q60000019.arc,q60000019.arc,10
@@ -794,8 +824,8 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000019_0
 0,,"「巨大な敵を倒すには一人では困難である
 　そのためにパーティーで挑む事が大事で
 　敵を怒らせてスキを作る必要がある」","「巨大な敵を倒すには一人では困難である
-　そのためにパーティーで挑む事が大事で
-　敵を怒らせてスキを作る必要がある」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,2
+そのためにパーティーで挑む事が大事で
+敵を怒らせてスキを作る必要がある」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,2
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 
 「二つ――敵は《揺さぶり》にて崩すべし」","何者かが刻んだ教えの言葉が浮かび上がっている――
@@ -803,12 +833,12 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000019_0
 「二つ――敵は《揺さぶり》にて崩すべし」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,3
 0,,"「怒り状態の大型敵に近づいて、
 　<ICON STG_TOUCH>でしがみついた状態で<ICON STG_ATTACK_1>を押す」","「怒り状態の大型敵に近づいて、
-　<ICON STG_TOUCH>でしがみついた状態で<ICON STG_ATTACK_1>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,4
+<ICON STG_TOUCH>でしがみついた状態で<ICON STG_ATTACK_1>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,4
 0,,"「怒った敵にしがみつき揺さぶる事で
 　疲れさせてダウン状態に持っていく
 　ことで倒す事ができる」","「怒った敵にしがみつき揺さぶる事で
-　疲れさせてダウン状態に持っていく
-　ことで倒す事ができる」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,5
+疲れさせてダウン状態に持っていく
+ことで倒す事ができる」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,5
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 
 「三つ――敵の振り解き攻撃から耐えるべし」","何者かが刻んだ教えの言葉が浮かび上がっている――
@@ -817,11 +847,11 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000019_0
 0,,"「怒り状態の敵にしがみついた状態で
 　振り払いアイコン（黄色）が出たら
 　<ICON STG_TOUCH>を押す」","「怒り状態の敵にしがみついた状態で
-　振り払いアイコン（黄色）が出たら
-　<ICON STG_TOUCH>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,7
+振り払いアイコン（黄色）が出たら
+<ICON STG_TOUCH>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,7
 0,,"「怒った敵が振り払い行動が出す時は
 　耐えて回避して揺さぶりを継続できる」","「怒った敵が振り払い行動が出す時は
-　耐えて回避して揺さぶりを継続できる」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,8
+耐えて回避して揺さぶりを継続できる」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,8
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 
 「四つ――敵の引き剥がし攻撃から離脱せよ」","何者かが刻んだ教えの言葉が浮かび上がっている――
@@ -830,35 +860,38 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000019_0
 0,,"「怒り状態の敵にしがみつき中に
 　敵の体力ゲージ上にバーストアイコン（赤色）が
 　出たら<ICON UI_DECIDE>or<ICON UI_CANCEL>を押す」","「怒り状態の敵にしがみつき中に
-　敵の体力ゲージ上にバーストアイコン（赤色）が
-　出たら<ICON UI_DECIDE>or<ICON UI_CANCEL>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,10
+敵の体力ゲージ上にバーストアイコン（赤色）が
+出たら<ICON UI_DECIDE>or<ICON UI_CANCEL>を押す」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,10
 0,,"「怒り状態の敵はしがみつき中に
 　引き剥がす行動に出る時がある
 　その時はしがみつきから離脱して
 　回避する事が重要である」","「怒り状態の敵はしがみつき中に
-　引き剥がす行動に出る時がある
-　その時はしがみつきから離脱して
-　回避する事が重要である」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,11
+引き剥がす行動に出る時がある
+その時はしがみつきから離脱して
+回避する事が重要である」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,11
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 
 「五つ――しがみついて《矢じり斬り》を
 　仕掛けよ」","何者かが刻んだ教えの言葉が浮かび上がっている――
 
 「五つ――しがみついて《矢じり斬り》を
-　仕掛けよ」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,12
+仕掛けよ」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,12
 0,,「しがみつき中に<ICON STG_ATTACK_0>を押す」,「しがみつき中に<ICON STG_ATTACK_0>を押す」,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,13
 0,,"「敵にしがみついてる時でも
 　直接ダメージを与える事ができる」","「敵にしがみついてる時でも
-　直接ダメージを与える事ができる」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,14
+直接ダメージを与える事ができる」",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,14
 0,,《破攻の証》を手に入れた！,《破攻の証》を手に入れた！,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,15
 0,,まずは祠の奥へ向かい、大型敵と対峙するんだ！,まずは祠の奥へ向かい、大型敵と対峙するんだ！,ui\00_message\quest\q60000019.gmd,\quest\q60000019.arc,q60000019.arc,0
 0,,そして<COL ff7575><KCT TOUCH></COL>でヤツにしがみつけ！,そして<COL ff7575><KCT TOUCH></COL>でヤツにしがみつけ！,ui\00_message\quest\q60000019.gmd,\quest\q60000019.arc,q60000019.arc,1
 0,,その状態で<COL ff7575><KCT ATTACK1></COL>で矢じり斬りだ！,その状態で<COL ff7575><KCT ATTACK1></COL>で矢じり斬りだ！,ui\00_message\quest\q60000019.gmd,\quest\q60000019.arc,q60000019.arc,2
-0,,しがみつき中に黄色いマークが出たら、<COL ff7575><KCT TOUCH>長押し</COL>で耐えろ！成功するまで何度もやってみるんだ,しがみつき中に黄色いマークが出たら、<COL ff7575><KCT TOUCH>長押し</COL>で耐えろ！成功するまで何度もやってみるんだ,ui\00_message\quest\q60000019.gmd,\quest\q60000019.arc,q60000019.arc,3
-0,,しがみつき中に赤いマークが出たら危険だ！<COL ff7575><KCT JUMP></COL>でジャンプし、すぐ離脱しろ！,しがみつき中に赤いマークが出たら危険だ！<COL ff7575><KCT JUMP></COL>でジャンプし、すぐ離脱しろ！,ui\00_message\quest\q60000019.gmd,\quest\q60000019.arc,q60000019.arc,4
+0,,しがみつき中に黄色いマークが出たら、<COL ff7575><KCT TOUCH>長押し</COL>で耐えろ！成功するまで何度もやってみるんだ,"しがみつき中に黄色いマークが出たら、<COL ff7575><KCT
+TOUCH>長押し</COL>で耐えろ！成功するまで何度もやってみるんだ",ui\00_message\quest\q60000019.gmd,\quest\q60000019.arc,q60000019.arc,3
+0,,しがみつき中に赤いマークが出たら危険だ！<COL ff7575><KCT JUMP></COL>でジャンプし、すぐ離脱しろ！,"しがみつき中に赤いマークが出たら危険だ！<COL ff7575><KCT
+JUMP></COL>でジャンプし、すぐ離脱しろ！",ui\00_message\quest\q60000019.gmd,\quest\q60000019.arc,q60000019.arc,4
 0,,攻撃し、ヤツを怒らせるんだ。怒った敵は体が赤く輝くぞ！,攻撃し、ヤツを怒らせるんだ。怒った敵は体が赤く輝くぞ！,ui\00_message\quest\q60000019.gmd,\quest\q60000019.arc,q60000019.arc,5
 0,,<COL ff7575><KCT TOUCH></COL>でヤツにしがみつき、,<COL ff7575><KCT TOUCH></COL>でヤツにしがみつき、,ui\00_message\quest\q60000019.gmd,\quest\q60000019.arc,q60000019.arc,6
-0,,<COL ff7575><KCT CLIMB_JOLT></COL>で揺さぶり、疲れさせろ！敵スタミナゲージを減らすんだ,<COL ff7575><KCT CLIMB_JOLT></COL>で揺さぶり、疲れさせろ！敵スタミナゲージを減らすんだ,ui\00_message\quest\q60000019.gmd,\quest\q60000019.arc,q60000019.arc,7
+0,,<COL ff7575><KCT CLIMB_JOLT></COL>で揺さぶり、疲れさせろ！敵スタミナゲージを減らすんだ,"<COL ff7575><KCT
+CLIMB_JOLT></COL>で揺さぶり、疲れさせろ！敵スタミナゲージを減らすんだ",ui\00_message\quest\q60000019.gmd,\quest\q60000019.arc,q60000019.arc,7
 0,,よし、その調子だ。一気に仕留めてしまえ！敵が怒ったら疲れさせ、ダウンを奪うんだ。覚えておけよ！,よし、その調子だ。一気に仕留めてしまえ！敵が怒ったら疲れさせ、ダウンを奪うんだ。覚えておけよ！,ui\00_message\quest\q60000019.gmd,\quest\q60000019.arc,q60000019.arc,8
 0,,試練完了、よくやったな！奥にある＜破攻の証＞を受け取り、神殿のレンテンに報告するがいい,試練完了、よくやったな！奥にある＜破攻の証＞を受け取り、神殿のレンテンに報告するがいい,ui\00_message\quest\q60000019.gmd,\quest\q60000019.arc,q60000019.arc,9
 0,,"おめでとう、覚者よ
@@ -931,7 +964,8 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000019_0
 1,q60000020_00_84,"クランの新たな魅力について
 クラン酒場にいるキビザから話を聞く","クランの新たな魅力について
 クラン酒場にいるキビザから話を聞く",ui\00_message\quest_info\q60000020_00.gmd,\quest\q60000020.arc,q60000020.arc,1
-2,q60000020_00_1757,ゲームメニューのクラン管理からクラン検索を行う,Perform a Clan Search from Clan Management in the Game Menu,ui\00_message\quest_info\q60000020_00.gmd,\quest\q60000020.arc,q60000020.arc,2
+2,q60000020_00_1757,ゲームメニューのクラン管理からクラン検索を行う,"Perform a Clan Search from Clan Management in the
+Game Menu",ui\00_message\quest_info\q60000020_00.gmd,\quest\q60000020.arc,q60000020.arc,2
 3,q60000020_00_1758,キビザに報告する,Report to Kibiza,ui\00_message\quest_info\q60000020_00.gmd,\quest\q60000020.arc,q60000020.arc,3
 4,q60000020_00_1759,ゲームメニューからエリアリストを確認する,Check the Area List in the Game Menu,ui\00_message\quest_info\q60000020_00.gmd,\quest\q60000020.arc,q60000020.arc,4
 5,q60000020_00_1760,キビザに再度報告する,Report back to Kibiza,ui\00_message\quest_info\q60000020_00.gmd,\quest\q60000020.arc,q60000020.arc,5
@@ -1491,7 +1525,7 @@ challenge the trial of the Training Chapel",ui\00_message\quest_info\q60000019_0
 神殿としても協力は惜しみません",ui\00_message\quest\q60000101.gmd,\quest\q60000101.arc,q60000101.arc,6
 0,,"最後に――
 強き武具を入手して挑むことをお勧めします　","最後に――
-強き武具を入手して挑むことをお勧めします　",ui\00_message\quest\q60000101.gmd,\quest\q60000101.arc,q60000101.arc,7
+強き武具を入手して挑むことをお勧めします",ui\00_message\quest\q60000101.gmd,\quest\q60000101.arc,q60000101.arc,7
 0,,"目安となるのはLv58の武具です
 必要な素材はワールドクエストで得られますので
 今まで通り、レスタニアニュースもご活用ください","目安となるのはLv58の武具です
@@ -1579,7 +1613,8 @@ for some time now",ui\00_message\quest\q60010001.gmd,\quest\q60010001.arc,q60010
 ハイデル地下霊廟　深部を調査し
 疫病の原因と脅威に対処する",ui\00_message\quest_info\q60010002_00.gmd,\quest\q60010002.arc,q60010002.arc,1
 2,q60010002_00_1387,ハイデル地下霊廟深部で災いの源を探す,ハイデル地下霊廟深部で災いの源を探す,ui\00_message\quest_info\q60010002_00.gmd,\quest\q60010002.arc,q60010002.arc,2
-3,q60010002_00_1386,災いの源たる敵を討伐する,Defeat the the enemy who are the source of calamity,ui\00_message\quest_info\q60010002_00.gmd,\quest\q60010002.arc,q60010002.arc,3
+3,q60010002_00_1386,災いの源たる敵を討伐する,"Defeat the the enemy who are the source of
+calamity",ui\00_message\quest_info\q60010002_00.gmd,\quest\q60010002.arc,q60010002.arc,3
 4,q60010002_00_1385,テル村のアルフレドに報告する,Report to Alfred in Tel village,ui\00_message\quest_info\q60010002_00.gmd,\quest\q60010002.arc,q60010002.arc,4
 0,,"では、《ハイデル地下霊廟　深部》調査の前に
 手帳から得た情報を話しておこう","では、《ハイデル地下霊廟　深部》調査の前に
@@ -1610,8 +1645,8 @@ for some time now",ui\00_message\quest\q60010001.gmd,\quest\q60010001.arc,q60010
 0,,"“後世に、私達の罪を遺すことを許してほしい
  勇気ある者よ、もしあの男がテルに
  災いをもたらした時は、どうか――”","“後世に、私達の罪を遺すことを許してほしい
- 勇気ある者よ、もしあの男がテルに
- 災いをもたらした時は、どうか――”",ui\00_message\quest\q60010002.gmd,\quest\q60010002.arc,q60010002.arc,6
+勇気ある者よ、もしあの男がテルに
+災いをもたらした時は、どうか――”",ui\00_message\quest\q60010002.gmd,\quest\q60010002.arc,q60010002.arc,6
 0,,"――面倒をかけてばかりだが、この通りだ
 どうか貴君の力でテルの闇を
 突きとめてくれ","――面倒をかけてばかりだが、この通りだ
@@ -1657,7 +1692,8 @@ for some time now",ui\00_message\quest\q60010001.gmd,\quest\q60010001.arc,q60010
 2,q60020001_00_1457,ローテス村のオニールと話す,Speak with O'Neill in Rotes village,ui\00_message\quest_info\q60020001_00.gmd,\quest\q60020001.arc,q60020001.arc,2
 3,q60020001_00_1458,ブリア海岸エリアランクを2に上げる,Raise your area rank in Breya Coast to 2,ui\00_message\quest_info\q60020001_00.gmd,\quest\q60020001.arc,q60020001.arc,3
 4,q60020001_00_1459,隠れ浜へ向かいならず者を探す,隠れ浜へ向かいならず者を探す,ui\00_message\quest_info\q60020001_00.gmd,\quest\q60020001.arc,q60020001.arc,4
-5,q60020001_00_1389,隠れ浜に現れたならず者を討伐する,Defeat the ruffians that appeared in the Hidden Beach,ui\00_message\quest_info\q60020001_00.gmd,\quest\q60020001.arc,q60020001.arc,5
+5,q60020001_00_1389,隠れ浜に現れたならず者を討伐する,"Defeat the ruffians that appeared in the Hidden
+Beach",ui\00_message\quest_info\q60020001_00.gmd,\quest\q60020001.arc,q60020001.arc,5
 6,q60020001_00_1390,ローテス村のオニールに報告する,Report to O'Neill in Rotes village,ui\00_message\quest_info\q60020001_00.gmd,\quest\q60020001.arc,q60020001.arc,6
 0,,"――そうでした！
 ワールドクエストに挑むことになった覚者さまに
@@ -1801,7 +1837,7 @@ for some time now",ui\00_message\quest\q60010001.gmd,\quest\q60010001.arc,q60010
 0,,①《エリア情報》から《スポット情報》を選択,①《エリア情報》から《スポット情報》を選択,ui\00_message\quest\q60020001.gmd,\quest\q60020001.arc,q60020001.arc,31
 0,,"②スポット情報で、「入手可能アイテム」と
 　「魔物情報」を確認","②スポット情報で、「入手可能アイテム」と
-　「魔物情報」を確認",ui\00_message\quest\q60020001.gmd,\quest\q60020001.arc,q60020001.arc,32
+「魔物情報」を確認",ui\00_message\quest\q60020001.gmd,\quest\q60020001.arc,q60020001.arc,32
 0,q60020002_00_56,ブリア海岸　試練：財宝を追いかけて,ブリア海岸　試練：財宝を追いかけて,ui\00_message\quest_info\q60020002_00.gmd,\quest\q60020002.arc,q60020002.arc,0
 1,q60020002_00_56,"ブリア海岸に伝わる財宝をさがすため
 潮騒洞窟を調査する","ブリア海岸に伝わる財宝をさがすため
@@ -1990,7 +2026,8 @@ for some time now",ui\00_message\quest\q60010001.gmd,\quest\q60010001.arc,q60010
 0,,"大変かもしれないけれど、重要なことなの
 よろしくお願いね","大変かもしれないけれど、重要なことなの
 よろしくお願いね",ui\00_message\quest\q60030001.gmd,\quest\q60030001.arc,q60030001.arc,12
-0,q60030002_00_58,ミスリウ森林　試練：討伐！　魔獅子シンガ,"Mysree Forest Trial: Elimination - Singa, the Ensorcelled One",ui\00_message\quest_info\q60030002_00.gmd,\quest\q60030002.arc,q60030002.arc,0
+0,q60030002_00_58,ミスリウ森林　試練：討伐！　魔獅子シンガ,"Mysree Forest Trial: Elimination - Singa, the
+Ensorcelled One",ui\00_message\quest_info\q60030002_00.gmd,\quest\q60030002.arc,q60030002.arc,0
 1,q60030002_00_58,"ミスリウ森林の問題解決のため
 ミスリウ鍾乳洞へ向かい脅威を排除する","ミスリウ森林の問題解決のため
 ミスリウ鍾乳洞へ向かい脅威を排除する",ui\00_message\quest_info\q60030002_00.gmd,\quest\q60030002.arc,q60030002.arc,1
@@ -2072,20 +2109,21 @@ for some time now",ui\00_message\quest\q60010001.gmd,\quest\q60010001.arc,q60010
 4,q60040001_00_1400,キノザ鉱泉のロイに報告する,Report to Roy in Kinoza Mineral Springs,ui\00_message\quest_info\q60040001_00.gmd,\quest\q60040001.arc,q60040001.arc,4
 0,,"やぁ、ありがたい！
 《ボルド大坑道》の様子見、お願いできますか","You have my thanks!
-Might I ask of you to investigate the Volden Mines Large Tunnels?",ui\00_message\quest\q60040001.gmd,\quest\q60040001.arc,q60040001.arc,0
+Might I ask of you to investigate the Volden
+Mines Large Tunnels?",ui\00_message\quest\q60040001.gmd,\quest\q60040001.arc,q60040001.arc,0
 0,,"お話しした通り、大坑道の崩落は
 巨人族出現のせいでしてね","As the story goes, the Volden
 Tunnels' collapse is credited to a creature
 of grand proportions.",ui\00_message\quest\q60040001.gmd,\quest\q60040001.arc,q60040001.arc,1
 0,,"覚者さんにはずばり、再開発の妨げに
 なりそうな巨人の有無を見て来て頂きたい
-わけです","Arisen, I would ask that you 
+わけです","Arisen, I would ask that you
 confirm the existence of such a troublesome
 beast once and for all.",ui\00_message\quest\q60040001.gmd,\quest\q60040001.arc,q60040001.arc,2
 0,,"で、居た場合は討伐の方もぜひ！
 サイクロプスくらい、あなたほどの覚者さんなら
 退治したことはおありでしょう","Fell the giant should it exist!
-Defeating the likes of a cyclops would come 
+Defeating the likes of a cyclops would come
 natural to an Arisen of your prowess.",ui\00_message\quest\q60040001.gmd,\quest\q60040001.arc,q60040001.arc,3
 0,,"そうそう、入り口のガレキは撤去しましたが
 坑道内部はまだ崩落しているかもしれません","Also, while the rubble blocking
@@ -2094,11 +2132,12 @@ like to be weak rock formations inside.",ui\00_message\quest\q60040001.gmd,\ques
 0,,"岩盤で道が塞がっている時は
 近くに掘削用の《火薬樽》が残っているはずです
 それを使って発破するといいですよ","Should your path be blocked
-by rubble, there should be gunpowder barrels nearby.
+by rubble, there should be gunpowder barrels
+nearby.
 You can use them to blast your way through.",ui\00_message\quest\q60040001.gmd,\quest\q60040001.arc,q60040001.arc,5
 0,,"――しかし、サイクロプスが坑道に入り込んだ
 って話はよく聞きますが、岩盤崩落とは
-そこまでの力があるんですかねぇ――？","――Otherwise, I've often heard that a 
+そこまでの力があるんですかねぇ――？","――Otherwise, I've often heard that a
 cyclops lurks the tunnels. That sort of strength
 might also work just as well!",ui\00_message\quest\q60040001.gmd,\quest\q60040001.arc,q60040001.arc,6
 0,,"なんと！？
@@ -2372,7 +2411,8 @@ Pray, make use of our spas at your leisure!",ui\00_message\quest\q60040001.gmd,\
 討伐する","ディナン深層林の問題解決のため
 神花のテラスを荒らすコカトリスを
 討伐する",ui\00_message\quest_info\q60070001_00.gmd,\quest\q60070001.arc,q60070001.arc,1
-2,q60070001_00_1418,神花のテラスにてコカトリスを発見する,Search for the Cockatrice in the Divine Blossom Terrace,ui\00_message\quest_info\q60070001_00.gmd,\quest\q60070001.arc,q60070001.arc,2
+2,q60070001_00_1418,神花のテラスにてコカトリスを発見する,"Search for the Cockatrice in the Divine Blossom
+Terrace",ui\00_message\quest_info\q60070001_00.gmd,\quest\q60070001.arc,q60070001.arc,2
 3,q60070001_00_1419,遺跡のコカトリスを討伐する,Defeat the Cockatrice at the ruins,ui\00_message\quest_info\q60070001_00.gmd,\quest\q60070001.arc,q60070001.arc,3
 4,q60070001_00_1420,秘弓師の住居のロンドジールに報告する,Report to Rondejeel in the Secret Bowmaker's Home,ui\00_message\quest_info\q60070001_00.gmd,\quest\q60070001.arc,q60070001.arc,4
 0,,"やってくれるんだね
@@ -2435,7 +2475,7 @@ Pray, make use of our spas at your leisure!",ui\00_message\quest\q60040001.gmd,\
 ありがとう！　","エルテ・ディナンのアーマ区画――
 《レ・カルバス・アーマ》の調査
 引き受けてくれるのかい？
-ありがとう！　",ui\00_message\quest\q60070002.gmd,\quest\q60070002.arc,q60070002.arc,0
+ありがとう！",ui\00_message\quest\q60070002.gmd,\quest\q60070002.arc,q60070002.arc,0
 0,,"君が前にコカトリスを倒してくれた
 《神花のテラス》で、気になる手記を
 発見したんだ","君が前にコカトリスを倒してくれた
@@ -2507,7 +2547,8 @@ Pray, make use of our spas at your leisure!",ui\00_message\quest\q60040001.gmd,\
 脅威の有無を調査する","バートランド平原の問題解決のため
 バートランド地下墓地に向かい
 脅威の有無を調査する",ui\00_message\quest_info\q60080001_00.gmd,\quest\q60080001.arc,q60080001.arc,1
-2,q60080001_00_1424,バートランド墓地にて脅威がないか調べる,Investigate if there is a threat in the Betland Cemetery,ui\00_message\quest_info\q60080001_00.gmd,\quest\q60080001.arc,q60080001.arc,2
+2,q60080001_00_1424,バートランド墓地にて脅威がないか調べる,"Investigate if there is a threat in the Betland
+Cemetery",ui\00_message\quest_info\q60080001_00.gmd,\quest\q60080001.arc,q60080001.arc,2
 3,q60080001_00_1425,脅威となる敵を討伐する,Defeat the enemy threat,ui\00_message\quest_info\q60080001_00.gmd,\quest\q60080001.arc,q60080001.arc,3
 4,q60080001_00_1426,グリッテン砦のスケルツォに報告する,Report to Scherzo in Gritten Fort,ui\00_message\quest_info\q60080001_00.gmd,\quest\q60080001.arc,q60080001.arc,4
 0,,"よ、よし！　受けてくれるんだな？
@@ -2603,7 +2644,7 @@ Pray, make use of our spas at your leisure!",ui\00_message\quest\q60040001.gmd,\
 できるとしたらお前くらいだと思ってるんだ
 また頼りにさせてもらうぞ",ui\00_message\quest\q60080002.gmd,\quest\q60080002.arc,q60080002.arc,5
 0,,"おお、どうだった！？　
-《戦鬼の影穴》は――","おお、どうだった！？　
+《戦鬼の影穴》は――","おお、どうだった！？
 《戦鬼の影穴》は――",ui\00_message\quest\q60080002.gmd,\quest\q60080002.arc,q60080002.arc,6
 0,,"なるほど――
 奴らのアジトはあの枯れ井戸から
@@ -2714,7 +2755,8 @@ Pray, make use of our spas at your leisure!",ui\00_message\quest\q60040001.gmd,\
 0,,"ドラワンは慢性的に資源不足だからねぇ
 使えるものが見つかるといいけど","ドラワンは慢性的に資源不足だからねぇ
 使えるものが見つかるといいけど",ui\00_message\quest\q60090001.gmd,\quest\q60090001.arc,q60090001.arc,12
-0,q60090002_00_70,バートランド平原北部　試練：暴走の軍竜,Northern Betland Plains Trial: The Rampaging War Dragon,ui\00_message\quest_info\q60090002_00.gmd,\quest\q60090002.arc,q60090002.arc,0
+0,q60090002_00_70,バートランド平原北部　試練：暴走の軍竜,"Northern Betland Plains Trial: The Rampaging War
+Dragon",ui\00_message\quest_info\q60090002_00.gmd,\quest\q60090002.arc,q60090002.arc,0
 1,q60090002_00_70,"バートランド平原北部の問題解決のため
 ガルドノック哨戒地に出現した
 軍竜ベヘモットを討伐する","バートランド平原北部の問題解決のため
@@ -2821,7 +2863,7 @@ Pray, make use of our spas at your leisure!",ui\00_message\quest\q60040001.gmd,\
 お願い申し上げます",ui\00_message\quest\q60100002.gmd,\quest\q60100002.arc,q60100002.arc,0
 0,,"“彼女の叫びは聞く人間の魂を凍らせ
 　歌は死を呼ぶ――”","“彼女の叫びは聞く人間の魂を凍らせ
-　歌は死を呼ぶ――”",ui\00_message\quest\q60100002.gmd,\quest\q60100002.arc,q60100002.arc,1
+歌は死を呼ぶ――”",ui\00_message\quest\q60100002.gmd,\quest\q60100002.arc,q60100002.arc,1
 0,,"優れた術を駆使したメルゴダの民をして
 そう言わしめたほどの
 恐ろしの魔鳥なのです","優れた術を駆使したメルゴダの民をして
@@ -2887,14 +2929,16 @@ Pray, make use of our spas at your leisure!",ui\00_message\quest\q60040001.gmd,\
 ゴーレムの対処、お願いね","《東ザンドラ廃墟群》に現れた
 ゴーレムの対処、お願いね",ui\00_message\quest\q60110001.gmd,\quest\q60110001.arc,q60110001.arc,8
 0,,結構燃えてるらしいから、気をつけて,結構燃えてるらしいから、気をつけて,ui\00_message\quest\q60110001.gmd,\quest\q60110001.arc,q60110001.arc,9
-0,q60110002_00_74,ザンドラ東部　試練：亡霊騎士と呪いの秘宝,Eastern Zandora Trial: The Spectral Knight's Cursed Treasure,ui\00_message\quest_info\q60110002_00.gmd,\quest\q60110002.arc,q60110002.arc,0
+0,q60110002_00_74,ザンドラ東部　試練：亡霊騎士と呪いの秘宝,"Eastern Zandora Trial: The Spectral Knight's
+Cursed Treasure",ui\00_message\quest_info\q60110002_00.gmd,\quest\q60110002.arc,q60110002.arc,0
 1,q60110002_00_74,"ザンドラ東部の問題解決のため
 死王の迷宮の深部に挑み
 亡霊騎士と呪われし秘宝の正体を確かめる","ザンドラ東部の問題解決のため
 死王の迷宮の深部に挑み
 亡霊騎士と呪われし秘宝の正体を確かめる",ui\00_message\quest_info\q60110002_00.gmd,\quest\q60110002.arc,q60110002.arc,1
 2,q60110002_00_1445,死王の迷宮にて呪われし秘宝を探す,死王の迷宮にて呪われし秘宝を探す,ui\00_message\quest_info\q60110002_00.gmd,\quest\q60110002.arc,q60110002.arc,2
-3,q60110002_00_1446,迷宮の亡霊騎士とその従者を討伐する,Defeat the spectral knight and its followers in the labyrinth,ui\00_message\quest_info\q60110002_00.gmd,\quest\q60110002.arc,q60110002.arc,3
+3,q60110002_00_1446,迷宮の亡霊騎士とその従者を討伐する,"Defeat the spectral knight and its followers in
+the labyrinth",ui\00_message\quest_info\q60110002_00.gmd,\quest\q60110002.arc,q60110002.arc,3
 4,q60110002_00_1447,ゾマ村のナディアに報告する,Report to Nadia in Zoma village,ui\00_message\quest_info\q60110002_00.gmd,\quest\q60110002.arc,q60110002.arc,4
 0,,"――そう、《死王の迷宮》に挑むのね
 ならあの場所についてもう少し話をさせて","――そう、《死王の迷宮》に挑むのね
@@ -3169,7 +3213,8 @@ Pray, make use of our spas at your leisure!",ui\00_message\quest\q60040001.gmd,\
 6,q60200000_00_1988,バートンの娘ジュリアに再度話す,Speak with Barton's daughter Julia again,ui\00_message\quest_info\q60200000_00.gmd,\quest\q60200000.arc,q60200000.arc,6
 7,q60200000_00_1989,設定したパートナーポーンにプレゼントを渡す,設定したパートナーポーンにプレゼントを渡す,ui\00_message\quest_info\q60200000_00.gmd,\quest\q60200000.arc,q60200000.arc,7
 8,q60200000_00_1990,バートンの娘ジュリアに報告する,Report to Barton's daughter Julia,ui\00_message\quest_info\q60200000_00.gmd,\quest\q60200000.arc,q60200000.arc,8
-0,q60200001_00_86,戦技の継承　新たなる白竜の導き,Skill Augmentation: Guidance of a Renewed White Dragon,ui\00_message\quest_info\q60200001_00.gmd,\quest\q60200001.arc,q60200001.arc,0
+0,q60200001_00_86,戦技の継承　新たなる白竜の導き,"Skill Augmentation: Guidance of a Renewed White
+Dragon",ui\00_message\quest_info\q60200001_00.gmd,\quest\q60200001.arc,q60200001.arc,0
 1,q60200001_00_86,"白竜より新たな戦技の継承を
 教示してもらう","白竜より新たな戦技の継承を
 教示してもらう",ui\00_message\quest_info\q60200001_00.gmd,\quest\q60200001.arc,q60200001.arc,1
@@ -3262,13 +3307,15 @@ Pray, make use of our spas at your leisure!",ui\00_message\quest\q60040001.gmd,\
 誰にもわかっちゃいないがな",ui\00_message\quest\q60200003.gmd,\quest\q60200003.arc,q60200003.arc,5
 0,q60200003_00_141,混沌の兆し,Signs of Chaos,ui\00_message\quest_info\q60200003_00.gmd,\quest\q60200003.arc,q60200003.arc,0
 1,q60200003_00_141,新たな任務を受けるため、再びアイザックを訪ねる,Visit Isaac again to receive a new mission,ui\00_message\quest_info\q60200003_00.gmd,\quest\q60200003.arc,q60200003.arc,1
-2,q60200003_00_1972,覚者隊の騎士から詳細を確認する,Confirm the details from the Arisen Corps Regimental Soldier,ui\00_message\quest_info\q60200003_00.gmd,\quest\q60200003.arc,q60200003.arc,2
+2,q60200003_00_1972,覚者隊の騎士から詳細を確認する,"Confirm the details from the Arisen Corps
+Regimental Soldier",ui\00_message\quest_info\q60200003_00.gmd,\quest\q60200003.arc,q60200003.arc,2
 3,q60200003_00_1992,白竜神殿のアイザックを訪ねる,Visit Isaac in the White Dragon Temple,ui\00_message\quest_info\q60200003_00.gmd,\quest\q60200003.arc,q60200003.arc,3
 0,q60200004_00_255,至高の輝き,Supreme Radiance,ui\00_message\quest_info\q60200004_00.gmd,\quest\q60200004.arc,q60200004.arc,0
 1,q60200004_00_255,"依頼者から詳細を聞き
 必要な情報を手に入れる","依頼者から詳細を聞き
 必要な情報を手に入れる",ui\00_message\quest_info\q60200004_00.gmd,\quest\q60200004.arc,q60200004.arc,1
-2,q60200004_00_3139,<STG 202>に向かい<NPC 1026>から詳細を確認する,Head to <STG 202> and confirm details from <NPC 1026>,ui\00_message\quest_info\q60200004_00.gmd,\quest\q60200004.arc,q60200004.arc,2
+2,q60200004_00_3139,<STG 202>に向かい<NPC 1026>から詳細を確認する,"Head to <STG 202> and confirm details from <NPC
+1026>",ui\00_message\quest_info\q60200004_00.gmd,\quest\q60200004.arc,q60200004.arc,2
 0,,"あ、そうだ
 お前に言っときたいことがあってさ――
 《プレイポイント》の使い道についてなんだけど","あ、そうだ
