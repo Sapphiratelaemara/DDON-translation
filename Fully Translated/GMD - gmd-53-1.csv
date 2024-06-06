@@ -1,0 +1,2551 @@
+19,CUSTOM_SKILL_COMMAND_03_198,セットボタンで構え後、<KC SHOOT>で発射,"While holding the assigned button, <KC SHOOT> to
+shoot.",ui\00_message\skill\custom_skill_command_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,19
+20,CUSTOM_SKILL_COMMAND_03_199,セットボタンで構え後、<KC SHOOT>で発射,"While holding the assigned button, <KC SHOOT> to
+shoot.",ui\00_message\skill\custom_skill_command_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,20
+21,CUSTOM_SKILL_COMMAND_03_200,セットボタンで構え後、<KC SHOOT>で発射,"While holding the assigned button, <KC SHOOT> to
+shoot.",ui\00_message\skill\custom_skill_command_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,21
+0,CUSTOM_SKILL_INFO_03_32,"複数の矢を連続で放ち
+敵を大きくのけぞらせる
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で矢の発射数増加（３→５）</COL>","Fire multiple arrows in quick succession.
+Staggers large enemies.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases arrows fired (3→5).</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,0
+1,CUSTOM_SKILL_INFO_03_37,"貫通力のある矢を放つ
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で貫通時のヒット間隔が短縮し
+連続ヒットしやすくなる</COL>","Fires a shot capable of piercing multiple targets.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Shortens the interval between hits,
+increasing the likelihood of hitting more
+times.</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,1
+2,CUSTOM_SKILL_INFO_03_33,"複数の矢を同時に扇状に放つ
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で矢の発射数増加（３→５）</COL>","Fires three arrows in a wedge pattern.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases arrows fired (3→5).</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,2
+3,CUSTOM_SKILL_INFO_03_34,"敵のガードを崩す爆音火薬を巻いた矢を放つ
+爆音に巻き込むことで周囲の敵をも怯ませる
+<COL ffdc78>LV UP毎に吹き飛ばし力の上昇
+LV.６で攻撃範囲拡大</COL>","Fires an arrow that produces a deafening
+blare on impact, breaking enemy guard.
+Will also launch nearby enemies.
+<COL ffdc78>LV UP: Increases blow power.
+LV.6: Increases the range of the effect.</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,3
+4,CUSTOM_SKILL_INFO_03_36,"矢筒内のすべての矢を直上に放ち、
+敵の頭上に降らせる
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で攻撃ヒット数増加</COL>","Sends a wall of arrows skyward to
+rain down on a broad area.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases number of hits.</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,4
+5,CUSTOM_SKILL_INFO_03_38,"着弾時に回転し多段攻撃を加える矢を放つ
+特に状態異常矢の使用時に効果的
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で攻撃ヒット数増加</COL>","Looses a spinning arrow that delivers a
+barrage of hits to an area.
+Especially effective with status arrows.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases number of hits.</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,5
+6,CUSTOM_SKILL_INFO_03_39,"装填中のすべての矢に気絶効果のある火薬を
+巻きつけ強化する
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で攻撃範囲拡大</COL>","Applies an explosive stun effect to all
+arrows loaded. Increases damage inflicted.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases the range of the effect.</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,6
+7,CUSTOM_SKILL_INFO_03_35,"渾身の力で弓を引き、高威力の矢を放つ
+溜め満了の瞬間に矢を放つと威力が
+大幅に上昇する
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で溜め段階拡張（１→２）</COL>","Draws the bow with all the user's might,
+then looses a shot straight ahead.
+Power greatly increases if released as
+maximum charge is reached.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases total charge stages (1→2).</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,7
+8,CUSTOM_SKILL_INFO_03_42,"素早く後方に移動する
+敵との間合いを素早く離す
+<COL ffdc78>LV UP毎にスタミナ消費減少／発動中の耐久力上昇
+LV.６でモーション変化／すり抜け時間延長</COL>","Quickly dodges backwards, creating distance
+between you and your enemies.
+<COL ffdc78>LV UP: Decreases Stamina cost.
+Increases Endurance during usage.
+LV.6: Motion changes. Increases invulnerability
+time.</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,8
+9,CUSTOM_SKILL_INFO_03_40,"火薬を巻きつけた複数の矢を、
+渾身の力で空に放ち、敵の頭上に降らせる
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で矢の発射数増加（３→５）</COL>","Coat multiple arrows in gunpowder and send them
+skyward to rain down on a broad area.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases arrows fired (3→5).</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,9
+10,CUSTOM_SKILL_INFO_03_41,"ボタンの連打で射撃回数が増加する
+また、射撃回数が増えるにつれ
+敵を怯ませやすくなる
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で攻撃速度上昇</COL>","Continously shoot multiple arrows as you press
+the button. As you shoot more arrows, it becomes
+easier to stagger enemies.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases attack speed.</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,10
+11,CUSTOM_SKILL_INFO_03_43,"絶大な威力の矢を放つ。溜め満了の瞬間に放つと
+威力が大幅に上昇し、残り体力が低い敵ほど
+効果が高い
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で溜め時間短縮</COL>","Draw the bow back with all your might and loose
+an arrow
+of extraordinary power. Further increase damage
+if fired
+just as the charge is completed. The lower the
+enemy's
+health, the higher the damage of this skill.
+<COL ffdc78>LV UP: Increases damage of the skill.
+LV.6: Decreases charge time.</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,11
+12,CUSTOM_SKILL_INFO_03_131,"連鎖的に爆発する火薬を巻きつけた矢を
+上空に放つ
+射撃時にボタン長押しで起爆高度が上昇
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で爆発回数増加</COL>","Loose an arrow wrapped with explosive powder into
+the sky. Detonation altitude rises the longer the
+button is
+held while firing.
+<COL ffdc78>LV UP: Increases damage of the skill.
+LV.6: Increases the number of explosions.</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,12
+13,CUSTOM_SKILL_INFO_03_132,"敵に密着し、複数の矢を番えて渾身の力で放つ
+しがみつき状態からでも可能
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で溜め段階上昇（２→３）
+ボタン入力回数減少</COL>","Tightly bind together all the arrows in the
+quiver, and
+unleash them with your entire body's might.
+Can be activated while climbing an enemy.
+<COL ffdc78>LV UP: Increases damage of the skill.
+LV.6: Increases maximum charge (2→3) and reduces
+number of
+button presses needed to advance to the next
+level of charge.</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,13
+14,CUSTOM_SKILL_INFO_03_162,"【ＥＸ追加効果】
+発射数が増加（５→６）
+連なり射ち 剛に付与した紅蓮爆矢の攻撃威力が上昇","EX Additional Effects:
+Increase the number of arrows shot (5→6).
+Further increase the damage and blow power when
+using in conjuction with Crimson Arrow.",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,14
+15,CUSTOM_SKILL_INFO_03_163,"【ＥＸ追加効果】
+構え中の移動速度が上昇
+最適距離の範囲が拡張
+射程距離が延長","EX Additional Effects:
+Increase moving speed during bow stance.
+Extend the optimal shooting range.
+Extend the shooting range.",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,15
+16,CUSTOM_SKILL_INFO_03_164,"【ＥＸ追加効果】
+ダメージ量が増加
+状態異常値が増加
+<COL ff7878>獣／有翼／侵食系の敵に与えるダメージ量が増加</COL>","EX Additional Effects:
+Increase damage.
+Increase debilitation rate.
+<COL ff7878>Further increase damage to
+Beast/Winged/Infected enemies.</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,16
+17,CUSTOM_SKILL_INFO_03_165,"【ＥＸ追加効果】
+チャンス攻力と疲労攻力が増加
+気絶攻力が増加
+<COL ff7878>戦甲を攻撃時、ダメージ量が増加</COL>","EX Additional Effects:
+Increase chance attack and exhaust power.
+Increase knockout power.
+<COL ff7878>Further increase damage against
+War-Ready enemies.</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,17
+18,CUSTOM_SKILL_INFO_03_197,"【ＥＸ追加効果】
+溜め段階２の攻撃ヒット数が増加","EX Additional Effects:
+Increase number of hits on second charge.",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,18
+19,CUSTOM_SKILL_INFO_03_198,"【ＥＸ追加効果】
+構え中の移動速度が上昇
+最適距離の範囲が拡張
+射程距離が延長","EX Additional Effects:
+Increase moving speed during bow stance.
+Extend the optimal shooting range.
+Extend the shooting range.",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,19
+20,CUSTOM_SKILL_INFO_03_199,"【ＥＸ追加効果】
+溜め時間短縮
+起爆時の爆発ダメージ量が増加
+溜め２段階で、中央の爆発の攻撃ヒット数が増加","EX Additional Effects:
+Reduce charge time.
+Increase explosion damage.
+Increase number of hits at the center on second
+charge.",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,20
+21,CUSTOM_SKILL_INFO_03_200,"【ＥＸ追加効果】
+溜め時間短縮
+爆薬矢に継続ダメージを付与
+攻撃により起爆しなくなり
+時間による起爆時の威力が増加","EX Additional Effects:
+Reduce charge time.
+Arrows deal continuous damage.
+Arrows cannot be detonated by attack.",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,21
+0,CUSTOM_SKILL_COMMAND_04_48,セットボタンを押して詠唱、詠唱完了で発動、再度押すと解除,"Press the assigned button to chant,
+activated on completion,
+press again to cancel.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,0
+1,CUSTOM_SKILL_COMMAND_04_49,セットボタンを押して詠唱、詠唱完了で発動、再度押すと解除,"Press the assigned button to chant,
+activated on completion,
+press again to cancel.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,1
+2,CUSTOM_SKILL_COMMAND_04_46,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,2
+3,CUSTOM_SKILL_COMMAND_04_50,セットボタンを押して詠唱、詠唱完了で発動、再度押すと解除,"Press the assigned button to chant,
+activated on completion,
+press again to cancel.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,3
+4,CUSTOM_SKILL_COMMAND_04_44,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,4
+5,CUSTOM_SKILL_COMMAND_04_45,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,5
+6,CUSTOM_SKILL_COMMAND_04_47,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,6
+7,CUSTOM_SKILL_COMMAND_04_54,セットボタンを押して詠唱、詠唱完了で発動、再度押すと解除,"Press the assigned button to chant,
+activated on completion,
+press again to cancel.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,7
+8,CUSTOM_SKILL_COMMAND_04_55,セットボタンを押して詠唱、詠唱完了で発動、再度押すと解除,"Press the assigned button to chant,
+activated on completion,
+press again to cancel.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,8
+9,CUSTOM_SKILL_COMMAND_04_52,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,9
+10,CUSTOM_SKILL_COMMAND_04_53,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,10
+11,CUSTOM_SKILL_COMMAND_04_51,"セットボタンを押して詠唱、詠唱完了で発動
+展開後、その場に留まることで展開時間を延長","Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,11
+12,CUSTOM_SKILL_COMMAND_04_133,セットボタンを押して詠唱、詠唱完了で発動、再度押すと解除,"Press the assigned button to chant,
+activated on completion,
+press again to cancel.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,12
+13,CUSTOM_SKILL_COMMAND_04_134,セットボタンを押して詠唱、詠唱完了で発動、再度押すと解除,"Press the assigned button to chant,
+activated on completion,
+press again to cancel.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,13
+14,CUSTOM_SKILL_COMMAND_04_166,セットボタンを押して詠唱、詠唱完了で発動、再度押すと解除,"Press the assigned button to chant,
+activated on completion,
+press again to cancel.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,14
+15,CUSTOM_SKILL_COMMAND_04_167,セットボタンを押して詠唱、詠唱完了で発動、再度押すと解除,"Press the assigned button to chant,
+activated on completion,
+press again to cancel.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,15
+16,CUSTOM_SKILL_COMMAND_04_168,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,16
+17,CUSTOM_SKILL_COMMAND_04_169,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,17
+18,CUSTOM_SKILL_COMMAND_04_218,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,18
+19,CUSTOM_SKILL_COMMAND_04_217,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,19
+20,CUSTOM_SKILL_COMMAND_04_219,セットボタンを押して詠唱、詠唱完了で発動、再度押すと解除,"Press the assigned button to chant,
+activated on completion,
+press again to cancel.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,20
+21,CUSTOM_SKILL_COMMAND_04_220,セットボタンを押して詠唱、詠唱完了で発動、再度押すと解除,"Press the assigned button to chant,
+activated on completion,
+press again to cancel.",ui\00_message\skill\custom_skill_command_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,21
+0,CUSTOM_SKILL_INFO_04_48,"自身を中心に物理攻撃力と魔法攻撃力を
+一時的に強化する魔法エリアを展開する
+フィールドシフトに対応
+<COL ffdc78>LV UP毎に離脱後の効果持続時間延長
+LV.６で展開エリアのサイズ拡張</COL>","Emits an aura of Attack and Magick power.
+Applies a temporary increase to nearby allies.
+Can be used with Field Shift.
+<COL ffdc78>LV UP: Increases duration after
+leaving the aura.
+LV.6: Increases the size of the effect.</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,0
+1,CUSTOM_SKILL_INFO_04_49,"自身を中心に物理防御力と魔法防御力を
+一時的に強化する魔法エリアを展開する
+フィールドシフトに対応
+<COL ffdc78>LV UP毎に離脱後の効果持続時間延長
+LV.６で展開エリアのサイズ拡張</COL>","Emits an aura of Attack and Magick defense.
+Applies a temporary increase to nearby allies.
+Can be used with Field Shift.
+<COL ffdc78>LV UP: Increases duration after
+leaving the aura.
+LV.6: Increases the size of the effect.</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,1
+2,CUSTOM_SKILL_INFO_04_46,"魔力を溜めた後、杖を振って追尾性能を持つ
+聖属性の魔法球を複数放つ
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で魔法球増加（３→５）</COL>","After charging, launch tracking projectiles.
+Fires magick spheres of Holy attribute.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases number of magick spheres
+(3→5).</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,2
+3,CUSTOM_SKILL_INFO_04_50,"自身を中心に高速に旋回する魔球を生成
+受けた攻撃を魔球の数だけ無効化する
+<COL ffdc78>LV UP毎に持続時間延長
+LV.６で魔球数増加（３→５）</COL>","Generates magick spheres that revolve
+around oneself. The spheres will each
+nullify one attack.
+<COL ffdc78>LV UP: Increases duration of the
+effect.
+LV.6: Increases number of magick spheres
+(3→5).</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,3
+4,CUSTOM_SKILL_INFO_04_44,"急速に体力を回復させる魔法エリアを発現させる
+（最大回復量は治癒上限値）（対不死には攻撃）
+<COL ffdc78>LV UP毎に設置持続時間が延長
+LV.６で展開エリアのサイズ拡張</COL>","Creates a magick area that rapidly regenerates
+health.
+(Maximum healing limited to grey health)
+(Inflicts damage to undead)
+<COL ffdc78>LV UP: Increases duration of the
+effect.
+LV.6: Increases the size of the effect.</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,4
+5,CUSTOM_SKILL_INFO_04_45,"一部の状態異常を瞬時に治療する魔法エリアを
+発現させる（対不死には攻撃）
+<COL ffdc78>LV UP毎に設置持続時間が延長
+LV.６で展開エリアのサイズ拡張</COL>","Creates a magick area that instantly
+cures debilitations.
+(Inflicts damage to undead)
+<COL ffdc78>LV UP: Increases duration of the
+effect.
+LV.6: Increases the size of the effect.</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,5
+6,CUSTOM_SKILL_INFO_04_47,"魔力を溜めた後、広範囲に向けて
+聖属性の強い光を放射する魔球を展開する
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で攻撃範囲拡大</COL>","After charging, fire a magick sphere that emits
+an intense light of the Holy attribute in a wide
+area.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases the range of the effect.</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,6
+7,CUSTOM_SKILL_INFO_04_54,"自身の体に魔力を溜め込み、体力が尽きると同時に
+大爆発を起こし、周囲の敵に大ダメージを与える
+<COL ffdc78>LV UP毎に発動中のスタミナ消費減少
+LV.６で攻撃威力の上昇／攻撃範囲拡大</COL>","Charge magick within your body. When your health
+is
+exhausted, create a wide explosion dealing
+large damage to enemies.
+<COL ffdc78>LV UP: Decreases Stamina consumption.
+LV.6: Increases the damage and range of the
+effect.</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,7
+8,CUSTOM_SKILL_INFO_04_55,"自身を中心に、耐久力を
+一時的に強化する魔法エリアを展開する
+フィールドシフトに対応
+<COL ffdc78>LV UP毎に離脱後の効果持続時間延長
+LV.６で展開エリアのサイズ拡張</COL>","Emits an aura of Endurance.
+Applies a temporary increase to nearby allies.
+Can be used with Field Shift.
+<COL ffdc78>LV UP: Increases duration after
+leaving the aura.
+LV.6: Increases the size of the effect.</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,8
+9,CUSTOM_SKILL_INFO_04_52,"急速にスタミナを回復させる魔法エリアを
+発現させる（対不死には攻撃）
+<COL ffdc78>LV UP毎に設置持続時間が延長
+LV.６で展開エリアのサイズ拡張</COL>","Creates a magick area that rapidly regenerates
+Stamina.
+(Inflicts damage to undead)
+<COL ffdc78>LV UP: Increases duration of the
+effect.
+LV.6: Increases the size of the effect.</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,9
+10,CUSTOM_SKILL_INFO_04_53,"自身を中心に聖属性の巨大な魔法エリアを展開し
+侵入してきた敵に攻撃を与える
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で攻撃範囲拡大</COL>","Creates a wide magick area of the Holy attribute
+centered on yourself, dealing damage to enemies.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases the range of the effect.</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,10
+11,CUSTOM_SKILL_INFO_04_51,"精神を集中し、自身を中心に味方の技発動時間を
+大幅に短縮する祈りを捧げる
+ゲージが表示される全ての溜め行動、詠唱が対象
+<COL ffdc78>LV UP毎に展開中のスタミナ消費減少
+LV.６で展開エリアのサイズ拡張</COL>","Focus a prayer on nearby allies, hastening the
+charging of all their skills that display a
+charge gauge.
+<COL ffdc78>LV UP: Decreases stamina consumption
+of the skill.
+LV.6: Increases the range of effect.</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,11
+12,CUSTOM_SKILL_INFO_04_133,"自身を中心に、生命治癒力を
+一時的に上昇させる魔法エリアを展開する
+フィールドシフトに対応
+<COL ffdc78>LV UP毎に離脱後の効果持続時間延長
+LV.６で展開エリアのサイズ拡張</COL>","Release a magickal aura around yourself that
+increases
+healing power for nearby allies.
+Can be used with Field Shift.
+<COL ffdc78>LV UP: Extends duration of effect
+after Field Shifting.
+LV.6: Increases the range of effect.</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,12
+13,CUSTOM_SKILL_INFO_04_134,"自身がブラストビットで放った魔法球と
+同数の魔法球を放つ砲台を一定時間生成する
+<COL ffdc78>LV UP毎に魔法砲台の出現時間延長
+LV.６で魔法球の威力上昇／魔法砲台増加（１→２）</COL>","Call forth a magickal orb that acts as a turret
+and when hit
+by Blast Bit, will generate additional Blast Bits
+from itself.
+<COL ffdc78>LV UP: Increases duration of the
+magickal orb.
+LV.6: Increases the damage of the magickal orb,
+and the amount
+that are placed (1→2).</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,13
+14,CUSTOM_SKILL_INFO_04_166,"【ＥＸ追加効果】
+魔法エリア内にいる味方の
+治癒上限値を徐々に回復する","EX Additional Effects:
+Gradually recover the healable limit of allies
+within the area.",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,14
+15,CUSTOM_SKILL_INFO_04_167,"【ＥＸ追加効果】
+敵にダメージを与えた時、体力が回復する効果を付与
+離脱後の効果時間大幅延長","EX Additional Effects:
+Recover health when attacking enemies.
+Duration of effect after Field Shift is greatly
+increased.",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,15
+16,CUSTOM_SKILL_INFO_04_168,"【ＥＸ追加効果】
+魔法球増加（５→７）
+ダメージ量と吹き飛ばし力が増加
+チャンス攻力と疲労攻力が増加
+<COL ff7878>骸骨／腐死／呪詛／霊体系の敵へのダメージ量増加</COL>","EX Additional Effects:
+Increase the number of magick spheres (5→7).
+Increase damage and blow force.
+Increase chance attack and exhaust attack.
+<COL ff7878>Further increase damage against
+Skeleton/Undead/Cursed/Spirit enemies.</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,16
+17,CUSTOM_SKILL_INFO_04_169,"【ＥＸ追加効果】
+魔法球の発現時間が延長
+体力回復とシークレットコア発現が
+可能な魔法球を発射
+<COL ff7878>戦甲を攻撃時、ダメージ量が増加</COL>","EX Additional Effects:
+Extend duration of magick spheres.
+Magick spheres can recover health and reveal
+secret core.
+<COL ff7878>Further increase damage against
+War-Ready enemies.</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,17
+18,CUSTOM_SKILL_INFO_04_218,"【ＥＸ追加効果】
+石化／黄金化／侵食を死亡確定前であれば治療可能になる
+ステータスダウン系の状態異常を治療可能になる
+詠唱時間を短縮","EX Additional Effects:
+Can cure Petrification/Gilded/Infected before
+death occurs.
+Can cure Status Reduction debilitations.
+Reduce cast time.",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,18
+19,CUSTOM_SKILL_INFO_04_217,"【ＥＸ追加効果】
+魔法エリアに入ると一定時間
+キュアスポットの効果が付与される
+同時に展開できる魔法エリア数が増加（１→２）","EX Additional Effects:
+When enter the magick area, the curing effect
+lingers for an amount of time.
+Increase the number of magick spots you can
+deploy (1→2).",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,19
+20,CUSTOM_SKILL_INFO_04_219,"【ＥＸ追加効果】
+フィールドシフト時、
+１度だけ攻撃を無効化する魔球を付与","EX Additional Effects:
+When Field Shifting, grant each ally one magick
+sphere that
+nullifies one attack.",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,20
+21,CUSTOM_SKILL_INFO_04_220,"【ＥＸ追加効果】
+風圧と地震を無効にする","EX Additional Effects:
+Nullify Wind Pressure and Tremor.",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,21
+0,CUSTOM_SKILL_COMMAND_05_56,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,0
+1,CUSTOM_SKILL_COMMAND_05_58,"セットボタンを押す
+<KC JUMP>で終了
+<PADM>右スティック<KEYM>マウス移動</KEYM>で照射角度を調整","Press the assigned button.
+End with <KC JUMP>.
+Change direction of the light by moving
+the <PADM>right stick<KEYM>mouse</KEYM>.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,1
+2,CUSTOM_SKILL_COMMAND_05_59,"セットボタンを押す
+<KC JUMP>で終了
+<PADM>右スティック<KEYM>マウス移動</KEYM>で照射角度を調整","Press the assigned button.
+End with <KC JUMP>.
+Change direction of the light by moving
+the <PADM>right stick<KEYM>mouse</KEYM>.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,2
+3,CUSTOM_SKILL_COMMAND_05_60,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,3
+4,CUSTOM_SKILL_COMMAND_05_62,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,4
+5,CUSTOM_SKILL_COMMAND_05_61,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,5
+6,CUSTOM_SKILL_COMMAND_05_63,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,6
+7,CUSTOM_SKILL_COMMAND_05_57,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,7
+8,CUSTOM_SKILL_COMMAND_05_65,"セットボタンを押す
+<KC JUMP>で終了
+<PADM>右スティック<KEYM>マウス移動</KEYM>で照射角度を調整","Press the assigned button.
+End with <KC JUMP>.
+Change direction of the light by moving
+the <PADM>right stick<KEYM>mouse</KEYM>.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,8
+9,CUSTOM_SKILL_COMMAND_05_66,敵の攻撃を引きつけてセットボタンを押す,"Just as an enemy attacks,
+press the assigned button.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,9
+10,CUSTOM_SKILL_COMMAND_05_64,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,10
+11,CUSTOM_SKILL_COMMAND_05_67,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,11
+12,CUSTOM_SKILL_COMMAND_05_136,"セットボタンを押す
+<KC JUMP>で終了
+<PADM>右スティック<KEYM>マウス移動</KEYM>で照射角度を調整","Press the assigned button.
+End with <KC JUMP>.
+Change direction of the light by moving
+the <PADM>right stick<KEYM>mouse</KEYM>.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,12
+13,CUSTOM_SKILL_COMMAND_05_135,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,13
+14,CUSTOM_SKILL_COMMAND_05_170,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,14
+15,CUSTOM_SKILL_COMMAND_05_171,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,15
+16,CUSTOM_SKILL_COMMAND_05_172,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,16
+17,CUSTOM_SKILL_COMMAND_05_173,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,17
+18,CUSTOM_SKILL_COMMAND_05_205,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,18
+19,CUSTOM_SKILL_COMMAND_05_206,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,19
+20,CUSTOM_SKILL_COMMAND_05_207,"セットボタンを押して詠唱、詠唱完了で発動
+発動後、再度セットボタンを押すと攻撃","Press the assigned button to chant; activation
+upon completion.
+After activation, pressing the assigned button
+again will initiate an attack.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,20
+21,CUSTOM_SKILL_COMMAND_05_208,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,21
+0,CUSTOM_SKILL_INFO_05_56,"大盾に一定時間、敵の攻撃を防いだ瞬間に
+衝撃波を放つ効果を付与する
+<COL ffdc78>LV UP毎に効果持続時間延長
+LV.６で攻撃威力の上昇</COL>","For a period of time, when an attack is blocked,
+a shockwave will be emitted.
+<COL ffdc78>LV UP: Increases duration of the
+effect.
+LV.6: Increases damage.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,0
+1,CUSTOM_SKILL_INFO_05_58,"ロッドの放射光を敵に照らしつづけることで
+敵に遅延の状態異常値を蓄積させる
+フォースゲージ１本以上の時、消費して技性能上昇
+<COL ffdc78>LV UP毎に遅延の異常値上昇
+LV.６で照射範囲拡大</COL>","Channel a light from your rod towards the enemy.
+Slowly accumulates the Torpor debilitation over
+time.
+With more than 1 Force Gauge, the effect will
+increase.
+<COL ffdc78>LV UP: Increases the rate of Torpor
+accumulation.
+LV.6: Increases the range of the effect.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,1
+2,CUSTOM_SKILL_INFO_05_59,"ロッドの放射光を敵に照らしつづけることで
+敵に睡眠の状態異常値を蓄積させる
+フォースゲージ１本以上の時、消費して技性能上昇
+<COL ffdc78>LV UP毎に睡眠の異常値上昇
+LV.６で照射範囲拡大</COL>","Channel a light from your rod towards the enemy.
+Slowly accumulates the Sleep debilitation over
+time.
+With more than 1 Force Gauge, the effect will
+increase.
+<COL ffdc78>LV UP: Increases the rate of Sleep
+accumulation.
+LV.6: Increases the range of the effect.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,2
+3,CUSTOM_SKILL_INFO_05_60,"大盾を構え前方に突進し、進行線上の敵を吹き飛ばす
+フォースゲージ１本以上の時、消費して技性能上昇
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で移動距離上昇／ヒット数増加</COL>","Rush forward with your greatshield, blowing away
+enemies.
+With more than 1 Force Gauge, the effect will
+increase.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases moving distance and number of
+hits.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,3
+4,CUSTOM_SKILL_INFO_05_62,"属性ダメージと異常値の軽減効果を味方に付与する
+（ロッドに付与した炎・氷・雷・聖・闇のいずれか）
+フォースゲージ１本以上の時、消費して時間大幅延長
+<COL ffdc78>LV UP毎に持続時間延長／軽減値上昇
+LV.６で効果範囲拡大</COL>","Decreases attribute damage taken and debilitation
+build-up
+for nearby allies (determined by element granted
+to rod).
+With more than 1 Force Gauge, the duration will
+increase.
+<COL ffdc78>LV UP: Increases duration and power
+of the effect.
+LV.6: Increases the range of the effect.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,4
+5,CUSTOM_SKILL_INFO_05_61,"地を揺らし、広範囲の敵をよろめかせる
+大型の敵や一部の強敵には無効
+フォースゲージ１本以上の時、消費して詠唱時間短縮
+<COL ffdc78>LV UP毎に詠唱時間短縮
+LV.６で攻撃範囲拡大</COL>","Shake the earth, staggering enemies in a
+wide range. Staggers large enemies and
+some formidable foes.
+フォースゲージ１本以上の時、消費して詠唱時間短縮
+<COL ffdc78>LV UP: Shortens casting time.
+LV.6: Increases the range of the effect.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,5
+6,CUSTOM_SKILL_INFO_05_63,"魔法のアンカーを射出し、敵を一定時間拘束する
+大型の敵や一部の強敵には、物攻低下・魔攻低下・
+物防低下・魔防低下の状態異常値を蓄積させる
+<COL ffdc78>LV UP毎に拘束中スタミナ消費減少／状態異常値上昇
+LV.６で射程距離延長</COL>","Use magick to create an anchor, binding the enemy.
+Inflicts ATK Down, MATK Down, and slowly builds
+DEF Down, MDEF Down to large and some formidable
+enemies.
+<COL ffdc78>LV UP: Decrease Stamina cost.
+Increase Debilitation rate.
+LV.6: Increases the range of the effect.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,6
+7,CUSTOM_SKILL_INFO_05_57,"大盾に広範囲を防御できる魔法の壁を付加する
+<COL ffdc78>LV UP毎に効果持続時間延長
+LV.６で防御範囲が全方位化</COL>","Create walls of magick that increase the range
+of your shield's ability to block.
+<COL ffdc78>LV UP: Increases duration of the
+effect.
+LV.6: Makes the effect protect all of your
+sides.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,7
+8,CUSTOM_SKILL_INFO_05_65,"属性防御の低下異常値を敵に蓄積させる放射光を放つ
+（ロッドに付与した炎・氷・雷・聖・闇のいずれか）
+フォースゲージ１本以上の時、消費して技性能上昇
+<COL ffdc78>LV UP毎に選択中属性の異常値上昇
+LV.６で照射範囲拡大</COL>","Channel a light from your rod towards the enemy.
+Slowly accumulates a debilitation that decreases
+attribute
+defense of enemies (determined by element granted
+to rod).
+<COL ffdc78>LV UP: Increases the rate of
+debilitation accumulation.
+LV.6: Increases the range of the effect.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,8
+9,CUSTOM_SKILL_INFO_05_66,"大盾で敵の攻撃を弾き返し、敵に気絶の
+状態異常値を蓄積させる衝撃を与える
+フォースゲージ１本以上の時、消費して技性能上昇
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で受付時間延長</COL>","Deflect enemy attacks with your greatshield,
+stunning them.
+The impact will accumulate debilitations on
+enemies.
+With more than 1 Force Gauge, the effect will
+increase.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases the duration of the counter
+stance.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,9
+10,CUSTOM_SKILL_INFO_05_64,"法力で守護された空間を発現し、
+空間内にいる味方へのダメージを無効化する
+<COL ffdc78>LV UP毎に詠唱時間短縮
+LV.６で展開エリアのサイズ拡張</COL>","Guard an area around you,
+nullifying damage for all allies nearby.
+<COL ffdc78>LV UP: Shortens casting time.
+LV.6: Increases the size of the effect.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,10
+11,CUSTOM_SKILL_INFO_05_67,"魔法のアンカーを射出し、捕らえた敵から攻力を
+吸収することでフォースゲージを溜める
+ヒット中、<PADM>左スティック<KEYM>移動キー</KEYM>で任意方向へ移動可能
+<COL ffdc78>LV UP毎にヒット中のスタミナ消費減少
+LV.６で射程距離延長</COL>","Fire a magickal anchor towards a foe, and
+gradually
+fill the force gauge and aggression meter if it
+hits.
+While the anchor is active, you can move in any
+direction
+with <PADM>the left stick.<KEYM>the movement
+keys.</KEYM>
+<COL ffdc78>LV UP: Decreases stamina consumption
+for each additional
+hit while the anchor is active.
+LV.6: Increases range of the skill.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,11
+12,CUSTOM_SKILL_INFO_05_136,"ロッドの放射光を敵に照らしつづけることで
+敵に石化の状態異常値を蓄積させる
+フォースゲージ１本以上の時、消費して技性能上昇
+<COL ffdc78>LV UP毎に石化の異常値上昇
+LV.６で照射範囲拡大</COL>","Keep the rod focused on an enemy, and radiate a
+light that
+builds up the Petrified status abnormality on
+them.
+When the Force Gauge has one or more charges,
+they will be
+automatically consumed to increase the skill's
+performance.
+<COL ffdc78>LV UP: Increases Petrified status
+accumulation.
+LV.6: Increases the range of the light.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,12
+13,CUSTOM_SKILL_INFO_05_135,"周囲の敵を巻きこみながら大盾を振り払う
+敵の攻撃を防ぎながら発動で威力が上昇
+フォースゲージ１本以上の時、消費して技性能上昇
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で盾ガード値上昇／ヒット数増加</COL>","Shake the Greatshield about while running around
+enemies,
+preventing their attacks and increasing
+aggression.
+When the Force Gauge has one or more charges,
+they will be
+automatically consumed to increase the skill's
+performance.
+<COL ffdc78>LV UP: Increases damage of the skill.
+LV.6: Increases Guard Power and number of
+hits.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,13
+14,CUSTOM_SKILL_INFO_05_170,"【ＥＸ追加効果】
+岩石を吹き飛ばし、ダメージを与える
+<COL ff7878>戦甲を攻撃時、ダメージ量が増加</COL>","EX Additional Effects:
+Blow off the rocks from earth and deal damage to
+enemies.
+Increase damage agaisnt War-ready enemies.",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,14
+15,CUSTOM_SKILL_INFO_05_171,"【ＥＸ追加効果】
+周囲の敵の注目を素早く集める
+エンチャントが付与されている際は
+エンチャント属性の状態異常を発生させることも可能","EX Additional Effects:
+Attract enemies within the area.
+Cause status abnormality of the currently
+enchanted element
+of your weapon.",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,15
+16,CUSTOM_SKILL_INFO_05_172,"【ＥＸ追加効果】
+詠唱速度が上昇
+ダメージ量が増加
+ガードブレイク性能を持つ攻撃もガード可能","EX Additional Effects:
+Increase casting speed.
+Increase damage.
+Possible to block guard-break attacks.",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,16
+17,CUSTOM_SKILL_INFO_05_173,"【ＥＸ追加効果】
+発動中は攻力吸収量が増加
+敵を引き付けて攻撃を防御するとスタミナが回復","EX Additional Effects:
+Increase Force Gauge gained by blocking.
+Restore stamina when blocking attacks
+and attracting enemies.",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,17
+18,CUSTOM_SKILL_INFO_05_205,"【ＥＸ追加効果】
+ダメージ量と気絶攻力が増加
+フォースゲージ消費時に威力が上昇／ヒット数増加
+<COL ff7878>造魔／魔族／戦甲系の敵に与えるダメージ量が増加</COL>","EX Additional Effects:
+Increase damage and knockout power.
+Further increase damage and number of hits
+when a Force Gauge is consumed.
+<COL ff7878> Further increase damage against
+Construct/Demon/War-Ready type enemies.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,18
+19,CUSTOM_SKILL_INFO_05_206,"【ＥＸ追加効果】
+スキル発動中ガード状態になる
+敵の攻撃を防いだ後、攻撃を敵に接触させる度に
+フォースゲージが増加する","EX Additional Effects:
+Guard yourself during execution.
+After blocking an enemy's attack,
+Force Gauge increases with every hit.",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,19
+20,CUSTOM_SKILL_INFO_05_207,"【ＥＸ追加効果】
+詠唱時間短縮
+展開中に魔法の壁を解放して聖属性の攻撃が可能
+敵の攻撃を防ぐと魔法の壁のエネルギーが蓄積し
+解放時のダメージ量が増加する","EX Additional Effects:
+Reduce charge time.
+Can release magick wall and attack surrounding
+enemies.
+Blocking attacks will accumulate the energy of
+the wall,
+increasing damage.",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,20
+21,CUSTOM_SKILL_INFO_05_208,"【ＥＸ追加効果】
+展開中、物理防御力／魔法防御力／耐久力が増加","EX Additional Effects:
+Increase Physical/Magick defense and Endurance.",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,21
+0,CUSTOM_SKILL_COMMAND_06_68,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,0
+1,CUSTOM_SKILL_COMMAND_06_72,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,1
+2,CUSTOM_SKILL_COMMAND_06_74,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,2
+3,CUSTOM_SKILL_COMMAND_06_71,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,3
+4,CUSTOM_SKILL_COMMAND_06_69,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,4
+5,CUSTOM_SKILL_COMMAND_06_73,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,5
+6,CUSTOM_SKILL_COMMAND_06_75,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,6
+7,CUSTOM_SKILL_COMMAND_06_70,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,7
+8,CUSTOM_SKILL_COMMAND_06_76,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,8
+9,CUSTOM_SKILL_COMMAND_06_78,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,9
+10,CUSTOM_SKILL_COMMAND_06_77,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,10
+11,CUSTOM_SKILL_COMMAND_06_79,"セットボタンを押して詠唱、詠唱完了で発動
+発動後、一定時間攻撃範囲を<PADM>左スティック上下<KEYM>移動キー<KC MOVE_FORWARD><KC MOVE_BACKWARD></KEYM>で調整可能
+<KC TOUCH>で攻撃範囲を決定","Press the assigned button to chant,
+activated on completion.
+After activation, adjust attack range
+<PADM>by moving the left stick up and
+down<KEYM>with movement keys <KC MOVE_FORWARD><KC
+MOVE_BACKWARD></KEYM>.
+Change attack range with <KC TOUCH>.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,11
+12,CUSTOM_SKILL_COMMAND_06_137,"セットボタンを押して詠唱、詠唱完了で氷塊発現
+発現後、セットボタン<PADM>または<ICON PAD_L2>か<ICON PAD_R2></PADM>を押すと射出
+<KC TOUCH>を押すと氷塊解除","Press the assigned button to chant,
+giant snowflake conjured on completion.
+After conjuring, press the assigned button
+<PADM>or <ICON PAD_L2> or <ICON PAD_R2> </PADM>to
+shoot.
+Press <KC TOUCH> to release the giant snowflake.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,12
+13,CUSTOM_SKILL_COMMAND_06_138,"セットボタンを押して詠唱、詠唱完了で魔法杭発現
+発現後、再度セットボタンを押すと放電開始","Press the assigned button to chant,
+magickal stake conjured on completion.
+After conjuring, press the assigned button again
+to start discharging it.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,13
+14,CUSTOM_SKILL_COMMAND_06_176,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,14
+15,CUSTOM_SKILL_COMMAND_06_177,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,15
+16,CUSTOM_SKILL_COMMAND_06_178,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,16
+17,CUSTOM_SKILL_COMMAND_06_179,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,17
+18,CUSTOM_SKILL_COMMAND_06_221,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,18
+19,CUSTOM_SKILL_COMMAND_06_222,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,19
+20,CUSTOM_SKILL_COMMAND_06_223,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,20
+21,CUSTOM_SKILL_COMMAND_06_224,セットボタンを押して詠唱、詠唱完了で発動,"Press the assigned button to chant,
+activated on completion.",ui\00_message\skill\custom_skill_command_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,21
+0,CUSTOM_SKILL_INFO_06_68,"魔力を溜めた後、
+広範囲に向けてブレス状の炎を放つ
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で動作終了間際に追加入力することで
+往復攻撃可能</COL>","After charging magick,
+release a breath-like flame in front of you.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Press the button right before the end
+to repeat the spell.</COL>",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,0
+1,CUSTOM_SKILL_INFO_06_72,"自身を中心に、一定範囲をカバーする
+雷属性の魔法を放つ
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で攻撃範囲拡大</COL>","Emit lightning in a range outwards from you.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases the range of the effect.</COL>",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,1
+2,CUSTOM_SKILL_INFO_06_74,"魔力を溜めた後、闇の霧を発生させる
+霧は敵にまとわりつき、継続ダメージを与える
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で継続時間延長／攻撃ヒット数増加</COL>","After charging magick, generate a dark fog.
+The fog will cling to enemies, dealing damage
+over time.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases duration of the effect.
+Increases the number of hits.</COL>",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,2
+3,CUSTOM_SKILL_INFO_06_71,"魔力を溜めた後、
+敵の足元から巨大な氷の塊を出現させる
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で術始動時に範囲攻撃追加</COL>","After charging magick,
+generate a giant spire of ice at the enemy's feet.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Adds an additional attack at the start
+of the effect.</COL>",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,3
+4,CUSTOM_SKILL_INFO_06_69,"魔力を溜めた後、
+高い炎の壁を作り出す
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で攻撃範囲拡大</COL>","After charging magick,
+generate a towering wall of flame.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases the range of the effect.</COL>",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,4
+5,CUSTOM_SKILL_INFO_06_73,"魔力を溜めた後、大杖を振りかざして
+雷・斬属性を持つ円月状の衝撃波を放つ
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で衝撃波が３方向化</COL>","After charging magick, brandish your archistaff,
+releasing a blade-shaped shockwave.
+Inflicts damage with Lightning and Slash
+attributes.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Shockwave will fire in 3 directions.</COL>",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,5
+6,CUSTOM_SKILL_INFO_06_75,"魔力を溜めた後、地を揺らし岩塊を隆起させ、
+闇・打属性によるダメージを与える
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で岩塊数が増加（１→２）</COL>","After charging magick, shake the earth,
+sending eruptions of stone high into the air.
+Inflicts damage with Darkness and Impact
+attributes.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases number of rocks (1→2).</COL>",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,6
+7,CUSTOM_SKILL_INFO_06_70,"魔力を溜めた後、
+敵の頭上に燃え盛る隕石を落下させる
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で隕石弾数が増加（４→７）</COL>","After charging magick, call meteors down from
+the heavens to land around the enemy.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases number of meteors (4→7).</COL>",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,7
+8,CUSTOM_SKILL_INFO_06_76,"魔力を溜めた後、敵の頭上に落雷を発生させる
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で落雷数が増加（３→５）</COL>","After charging magick, smite the enemy
+from above with tongues of lightning.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases number of lightning strikes
+(3→5).</COL>",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,8
+9,CUSTOM_SKILL_INFO_06_78,"魔力を溜めた後、上空に濃い闇の霧を発生させる
+霧に侵入した全ての敵に継続ダメージを与える
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で攻撃範囲拡大</COL>","After charging magick, conjure a dense
+dark fog overhead that deals continous
+damage to enemies within.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases the range of the effect.</COL>",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,9
+10,CUSTOM_SKILL_INFO_06_77,"魔力を溜めた後、氷の槍を発現させ前方に放つ
+氷・射属性によるダメージを与える
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で攻撃範囲拡大</COL>","After charging magick, conjure a twisting spike
+of ice that thrusts forward from the ground.
+Inflicts damage with Ice and Shot attributes.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases the range of the effect.</COL>",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,10
+11,CUSTOM_SKILL_INFO_06_79,"魔力を溜めて凝縮し、無属性の魔球を発現させる
+周囲に魔力を解放し大ダメージを与える
+爆発範囲は調節可能で、狭いほど高威力
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で爆発範囲の限界幅が拡張</COL>","After charging magick, conjure a non-elemental
+magick orb.
+The magickal power stored within the orb is
+released over
+an adjustable area, dealing a great deal of
+damage to foes
+within its range. Power increases as the orb
+becomes smaller.
+<COL ffdc78>LV UP: Increases damage of the skill.
+LV.6: Expands the range of the explosion.</COL>",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,11
+12,CUSTOM_SKILL_INFO_06_137,"魔力を溜めた後、氷の矢を放つ氷塊を発現させ、
+任意のタイミングで矢を高速射出する
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で矢の数が増加／溜め攻撃が可能</COL>","After charging magick, conjure a giant snowflake
+that calls forth and fires arrows of ice at high
+velocities.
+<COL ffdc78>LV UP: Increases damage of the skill.
+LV.6: Increases number of arrows formed and
+allows the skill
+to be charged.</COL>",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,12
+13,CUSTOM_SKILL_INFO_06_138,"魔力を溜めて雷を引き寄せる魔法杭を発現させ、
+自身の杖との間に稲妻を発生させる
+<COL ffdc78>LV UP毎にスタミナ消費量の減少
+LV.６で攻撃威力上昇／攻撃ヒット数増加</COL>","Conjure a magickal stake that gathers magickal
+power from
+your staff, and calls down lightning when
+charged.
+<COL ffdc78>LV UP: Decreases stamina cost of
+skill.
+LV.6: Increases damage of the skill and number of
+hits.</COL>",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,13
+14,CUSTOM_SKILL_INFO_06_176,"【ＥＸ追加効果】
+闇の霧の中心部分のダメージ量が増加
+<COL ff7878>亜人／鬼人／巨人の敵に与えるダメージ量が増加</COL>","EX Additional Effects:
+Increase damage to enemies at the center of the
+mist.
+<COL ff7878>Further increase damage to
+Giant/Ogre/Demihuman enemies.</COL>",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,14
+15,CUSTOM_SKILL_INFO_06_177,"【ＥＸ追加効果】
+毒／睡眠の状態異常を付与","EX Additional Effects:
+Accumulate poison/sleep status effects.",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,15
+16,CUSTOM_SKILL_INFO_06_178,"【ＥＸ追加効果】
+ダメージ量が増加
+攻撃ヒット数が増加","EX Additional Effects:
+Increase damage.
+Increase number of hits",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,16
+17,CUSTOM_SKILL_INFO_06_179,"【ＥＸ追加効果】
+空中詠唱可能
+のけぞり、吹き飛び中でも発動可能","EX Additional Effects:
+Possible to cast in the air or
+when being knocked back.",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,17
+18,CUSTOM_SKILL_INFO_06_221,"【ＥＸ追加効果】
+中央に巨大な爆炎が追加で発生","EX Additional Effects:
+Create a huge explosion at the center.",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,18
+19,CUSTOM_SKILL_INFO_06_222,"【ＥＸ追加効果】
+攻撃範囲の高度が拡張
+延焼エリアに吹き飛ばし力が追加され
+展開時間が延長される","EX Additional Effects:
+Increase the altitude range of the attack.
+Add blow power to the lingering hits.
+Increase duration of the skill.",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,19
+20,CUSTOM_SKILL_INFO_06_223,"【ＥＸ追加効果】
+攻撃ヒット数が増加
+凍結の状態異常蓄積値が増加","EX Additional Effects:
+Increase number of hits.
+Increase Freeze accumulation.",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,20
+21,CUSTOM_SKILL_INFO_06_224,"【ＥＸ追加効果】
+氷の塊消滅後、氷粒の渦を展開
+氷防低下の状態異常を付与","EX Additional Effects:
+Leave an icy vortex after the ice pillar
+disappears.
+Add Ice Resist Down accumulation.",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,21
+0,CUSTOM_SKILL_COMMAND_07_80,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,0
+1,CUSTOM_SKILL_COMMAND_07_82,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,1
+2,CUSTOM_SKILL_COMMAND_07_81,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,2
+3,CUSTOM_SKILL_COMMAND_07_83,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,3
+4,CUSTOM_SKILL_COMMAND_07_84,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,4
+5,CUSTOM_SKILL_COMMAND_07_85,セットボタン押しっぱなし,Hold the assigned button.,ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,5
+6,CUSTOM_SKILL_COMMAND_07_87,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,6
+7,CUSTOM_SKILL_COMMAND_07_86,敵の攻撃を引きつけてセットボタンを押す,"Just as an enemy attacks,
+press the assigned button.",ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,7
+8,CUSTOM_SKILL_COMMAND_07_90,敵の攻撃を引きつけてセットボタンを押す,"Just as an enemy attacks,
+press the assigned button.",ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,8
+9,CUSTOM_SKILL_COMMAND_07_89,セットボタンを連続して押す,Repeatedly press the assigned button.,ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,9
+10,CUSTOM_SKILL_COMMAND_07_91,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,10
+11,CUSTOM_SKILL_COMMAND_07_88,"セットボタン押しっぱなし
+<COL ff7878>溜め満了で戦甲へのカウンターに特化</COL>","Hold the assigned button.
+<COL ff7878>Effective against War-Ready enemies
+if this skill is executed
+at full gauge.</COL>",ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,11
+12,CUSTOM_SKILL_COMMAND_07_139,"しがみつき中にセットボタンを押す
+抉り中にセットボタン長押し、または
+ボタン連打を止めると引き抜き攻撃","While climbing an enemy,
+press the assigned button.",ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,12
+13,CUSTOM_SKILL_COMMAND_07_140,"セットボタン押しっぱなし
+空中ではセットボタンを押す","Hold the assigned button.
+While in the air, press the assigned button.",ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,13
+14,CUSTOM_SKILL_COMMAND_07_180,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,14
+15,CUSTOM_SKILL_COMMAND_07_181,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,15
+16,CUSTOM_SKILL_COMMAND_07_182,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,16
+17,CUSTOM_SKILL_COMMAND_07_183,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,17
+18,CUSTOM_SKILL_COMMAND_07_225,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,18
+19,CUSTOM_SKILL_COMMAND_07_226,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,19
+20,CUSTOM_SKILL_COMMAND_07_227,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,20
+21,CUSTOM_SKILL_COMMAND_07_228,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,21
+0,CUSTOM_SKILL_INFO_07_80,"大剣を突き刺し、勢いよく斬り上げる
+敵を高く打ち上げることが可能
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６でモーション変化／攻撃ヒット数増加</COL>","Stabs foes then fiercely slashes upward.
+Can send foes flying high into the air.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Motion changes. Increases number of
+hits.</COL>",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,0
+1,CUSTOM_SKILL_INFO_07_82,"大剣の切っ先を前方に構え、
+敵を押しこみながら突進する
+<PADM>左スティック<KEYM>移動キー</KEYM>で任意方向へ移動できる
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で移動距離が延長／攻撃ヒット数増加</COL>","Charges forward with the blade extended,
+knocking down any caught in its path.
+Use the <PADM>left stick<KEYM>move key</KEYM> to
+control the direction.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases movement distance. Increases
+number of hits.</COL>",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,1
+2,CUSTOM_SKILL_INFO_07_81,"前方に踏み込みながら剣の柄を打ち込む
+敵を怯ませやすく、怒り状態の敵のスタミナも
+減らしやすい
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６でスタミナ消費減少／攻撃範囲拡大</COL>","Lunges in while driving the hilt of the blade into
+the target. Though limited in range it easily
+stuns
+foes and reduces the Stamina of enraged enemies.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Reduces Stamina cost. Increases range of
+the effect.</COL>",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,2
+3,CUSTOM_SKILL_INFO_07_83,"後方へ避けつつ攻撃を繰り出す
+とっさの回避手段としても有効
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６でモーション変化／追加入力で追加攻撃
+敵の攻撃を直前回避時、追加攻撃の威力上昇</COL>","Steps backward in a swift evasive maneuver
+while delivering a slashing blow.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Motion changes with an additional attack.
+Adds an additional input.</COL>",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,3
+4,CUSTOM_SKILL_INFO_07_84,"素早く大剣を回転させ、
+自身の全周囲になぎ払い攻撃を繰り出す
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で攻撃範囲拡大</COL>","Spins the blade in a swift circle,
+slashing at foes all around the user.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases the range of the effect.</COL>",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,4
+5,CUSTOM_SKILL_INFO_07_85,"力を溜め、刀身で敵を叩きつける
+敵を気絶させやすい
+溜め満了の瞬間にボタンを離すと威力大幅上昇
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で溜め段階拡張（１→２）</COL>","Build up strength before striking enemies with
+the side
+of your blade. Has high stunning power. Release
+the attack
+as the charge finishes to increase power
+significantly.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases total charge stages (1→2).</COL>",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,5
+6,CUSTOM_SKILL_INFO_07_87,"上空に対して鋭い突きを繰り出す
+空中の敵などに有効
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で攻撃範囲拡大／攻撃ヒット数増加</COL>","Thrust your blade with great force into the air.
+Especially effective against aerial enemies.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases the range of the effect.
+Increases number of hits.</COL>",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,6
+7,CUSTOM_SKILL_INFO_07_86,"大剣を構えて待機、敵の攻撃を弾き返した後、
+連続動作で反撃する
+敵の攻撃を弾き返したときのみ、連続行動を行う
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で攻撃ヒット数増加／受付時間延長</COL>","Hold the blade in wait. Upon deflecting an
+enemy's attack, the user will unleash a series of
+blows.
+Only a successful counter will perform multiple
+blows.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases number of hits. Increases counter
+duration.</COL>",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,7
+8,CUSTOM_SKILL_INFO_07_90,"一歩踏み込み、敵の攻撃を受けとめる。様々な動作
+から発動することができる（連続では行えない）
+攻撃を受けとめるとリベンジゲージが大きく増加
+<COL ffdc78>LV UP毎にリベンジゲージ蓄積値上昇
+LV.６でのけぞり、吹き飛び中でも発動可能</COL>","Step inward to receive an enemy's attack.
+Can be used out of many different actions. Upon
+successfully
+receiving an attack, the revenge gauge will fill
+greatly.
+<COL ffdc78>LV UP: Increases revenge gauge
+accumulation.
+LV.6: Can be used even during stagger and
+knockback.</COL>",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,8
+9,CUSTOM_SKILL_INFO_07_89,"大剣を左右交互に振り下ろし、連続して敵を斬り刻む
+ボタンの連打で攻撃回数が増加する
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で最大攻撃回数増加（７→１１）</COL>","Swing your blade in fierce downward motions left
+and right,
+repeatedly cutting into foes in succession.
+Continuously
+pressing the skill button increases the number of
+attacks.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases the maximum number of attacks
+(7→11).</COL>",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,9
+10,CUSTOM_SKILL_INFO_07_91,"高く跳躍し、一点集中で力強く大剣を突き立てる
+攻撃範囲は狭いが威力は絶大
+落下距離により威力が上昇
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で攻撃ヒット数増加</COL>","Jump high upward, viciously thrusting the blade at
+a concentrated point with great force. The
+attack's
+range is very narrow, but it carries tremendous
+power.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases number of hits.</COL>",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,10
+11,CUSTOM_SKILL_INFO_07_88,"力を十分に溜めた後、渾身の一撃を繰り出す
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で剣に風圧が追加／攻撃ヒット数増加</COL>","After channeling enough energy, release
+a devastating slash with your body's entire might.
+<COL ffdc78>LV UP: Increases damage of skill.
+LV.6: Adds wind pressure to the blade and
+increases number
+of hits.</COL>",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,11
+12,CUSTOM_SKILL_INFO_07_139,"しがみついた状態から大剣で揺さぶりながら抉る
+ボタンの連打で揺さぶり回数が増加する
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で一定回数揺さぶると攻撃速度が上昇し
+引き抜き時の攻撃ヒット数が増加する</COL>","While climbing an enemy, thrust the blade
+deep into them and vigorously shake it around.
+The number of shakes increases with repeated
+button presses.
+<COL ffdc78>LV UP: Increases damage of skill.
+LV.6: Increases maximum number of shakes.</COL>",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,12
+13,CUSTOM_SKILL_INFO_07_140,"渾身の力で大剣を地面に突き刺し、大地を揺るがす
+地上ではボタンの長押し、空中では発動時の落下距離
+により威力が上昇。倒れた状態の敵に対し真価を発揮
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で溜め段階上昇（１→２）</COL>","Slam the blade into the ground with the entire
+body's might and shake the earth. Performing the
+skill
+from high altitudes while in the air, or holding
+the
+assigned button on the ground increases the
+damage of the skill.
+Especially effective against downed enemies.
+<COL ffdc78>LV UP: Increases damage of the skill.
+LV.6: Increases maximum charge amount (1→2)</COL>",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,13
+14,CUSTOM_SKILL_INFO_07_180,"【ＥＸ追加効果】
+ダメージ量が増加
+リベンジゲージ最大時に威力が上昇／ヒット数増加
+<COL ff7878>亜人／鬼人／巨人系の敵に与えるダメージ量が増加</COL>","EX Additional Effects:
+Increase damage.
+Further increase damage when revenge gauge is
+full.
+<COL ff7878>Further increase damage to
+Demihuman/Ogre/Giant enemies.</COL>",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,14
+15,CUSTOM_SKILL_INFO_07_181,"【ＥＸ追加効果】
+攻撃を受ける瞬間に発動すると
+ダメージ量が増加すると同時に
+攻撃を敵に接触させる度にリベンジゲージが増加
+スタミナが続くか中断しない限り、突進を継続できる","EX Additional Effects:
+If this skill is used before being hit, damage
+increases and
+revenge gauge increases as you hit enemies.",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,15
+16,CUSTOM_SKILL_INFO_07_182,"【ＥＸ追加効果】
+ダメージ量が増加
+気絶攻力が増加
+攻撃回数が増加（１→２）
+２回目の攻撃はボタン長押しで溜め可能","EX Additional Effects:
+Increase damage.
+Increase knockout power.
+Increase the number of hits (1→2).
+The second hit can be activated by pressing
+and holding the assigned button.",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,16
+17,CUSTOM_SKILL_INFO_07_183,"【ＥＸ追加効果】
+チャンス攻力がやや増加
+疲労攻力がやや増加
+<COL ff7878>戦甲を攻撃時、ダメージ量が増加</COL>","EX Additional Effects:
+Slightly increase chance attack.
+Slightly increase exhaust power.
+<COL ff7878>Further increase damage against
+War-Ready enemies</COL>",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,17
+18,CUSTOM_SKILL_INFO_07_225,"【ＥＸ追加効果】
+ダメージ量が増加
+リベンジゲージ最大時に威力が上昇
+敵の攻撃を直前回避すると追加攻撃のすり抜け時間が延長","EX Additional Effects:
+Increase damage.
+Further increase damage when revenge gauge is
+full.
+Increase invulnerability duration if you avoid
+the enemy at the
+closest possible moment.",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,18
+19,CUSTOM_SKILL_INFO_07_226,"【ＥＸ追加効果】
+敵の攻撃を直前回避すると
+追加攻撃のダメージ量が増加すると同時に
+攻撃を敵に接触させる度にリベンジゲージが増加","EX Additional Effects:
+Increase damage of the additional hits after
+evasion
+if you avoid the enemy at the closest possible
+moment.
+Increase revenge gauge as you hit enemies.",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,19
+20,CUSTOM_SKILL_INFO_07_227,"【ＥＸ追加効果】
+モーションが変化し、攻撃ヒット数が増加
+のけぞり中にも発動可能","EX Additional Effects:
+Change motions, increase the number of hits.
+Can be used when staggered.",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,20
+21,CUSTOM_SKILL_INFO_07_228,"【ＥＸ追加効果】
+吹き飛ばし力が増加
+前方への攻撃範囲が大幅に拡張","EX Additional Effects:
+Increase blow power.
+Extend the range of the attack forward.",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,21
+0,CUSTOM_SKILL_COMMAND_08_95,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,0
+1,CUSTOM_SKILL_COMMAND_08_92,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,1
+2,CUSTOM_SKILL_COMMAND_08_93,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,2
+3,CUSTOM_SKILL_COMMAND_08_94,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,3
+4,CUSTOM_SKILL_COMMAND_08_97,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,4
+5,CUSTOM_SKILL_COMMAND_08_98,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,5
+6,CUSTOM_SKILL_COMMAND_08_99,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,6
+7,CUSTOM_SKILL_COMMAND_08_96,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,7
+8,CUSTOM_SKILL_COMMAND_08_100,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,8
+9,CUSTOM_SKILL_COMMAND_08_101,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,9
+10,CUSTOM_SKILL_COMMAND_08_102,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,10
+11,CUSTOM_SKILL_COMMAND_08_103,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,11
+12,CUSTOM_SKILL_COMMAND_08_141,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,12
+13,CUSTOM_SKILL_COMMAND_08_142,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,13
+14,CUSTOM_SKILL_COMMAND_08_184,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,14
+15,CUSTOM_SKILL_COMMAND_08_185,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,15
+16,CUSTOM_SKILL_COMMAND_08_186,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,16
+17,CUSTOM_SKILL_COMMAND_08_187,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,17
+18,CUSTOM_SKILL_COMMAND_08_201,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,18
+19,CUSTOM_SKILL_COMMAND_08_202,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,19
+20,CUSTOM_SKILL_COMMAND_08_203,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,20
+21,CUSTOM_SKILL_COMMAND_08_204,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
+then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,21
+0,CUSTOM_SKILL_INFO_08_95,"氷属性の複数の魔矢を一点に集中して放つ
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で魔矢の本数増加（４→６）</COL>","Fire multiple magickal arrows with
+the Ice attribute at a single point.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases magickal arrows fired (4→6).</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,0
+1,CUSTOM_SKILL_INFO_08_92,"体力回復に加え、物理攻撃力と魔法攻撃力の
+強化効果のある魔矢を放つ（対不死には攻撃）
+味方に接触させれば魔法球が吸着する
+<COL ffdc78>LV UP毎に回復力上昇／展開エリア拡張
+LV.６でターゲット数増加（３→７）</COL>","Fire magickal arrows that emit an area of health
+restoration at the impact point (inflicts damage
+to undead).
+The field will attach to an ally if the arrow
+makes contact.
+<COL ffdc78>LV UP: Increases healing power.
+Increases size of the effect.
+LV.6: Increases number of targets (2→4).</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,1
+2,CUSTOM_SKILL_INFO_08_93,"一部の状態異常回復に加え、物理防御力と魔法防御力の
+強化効果のある魔矢を放つ（対不死には攻撃）
+味方に接触させれば魔法球が吸着する
+<COL ffdc78>LV UP毎にスタミナ消費減少
+LV.６でターゲット数増加（３→７）</COL>","Fire magickal arrows that emit an area of
+debilitation
+recovery at the impact point (inflicts damage to
+undead).
+The field will attach to an ally if the arrow
+makes contact.
+<COL ffdc78>LV UP: Reduces Stamina cost.
+LV.6: Increases number of targets (2→3).</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,2
+3,CUSTOM_SKILL_INFO_08_94,"起爆性のある魔矢を放つ
+敵に刺さった魔矢への攻撃には爆発がともなう
+爆発に接触した周囲の敵は中心地に吹き飛ぶ
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で爆発範囲が拡張</COL>","Loose a magickal arrow that attaches to enemies.
+Upon attacking the magickal arrow, it will
+trigger an explosion.
+Enemies in contact with the explosion will be
+knocked away.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases the range of the explosions.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,3
+4,CUSTOM_SKILL_INFO_08_97,"聖属性の魔矢を放ち、着弾場所に魔法球を
+展開する。敵に接触させた場合魔法球が付着し
+継続して体力を奪う
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で魔法球継続時間が延長／攻撃ヒット数増加</COL>","Fire magickal arrows of the Holy attribute. The
+arrows
+will emit a magickal sphere upon impact. Enemies
+in
+contact with the sphere will continously take
+damage.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases duration of spheres. Increases
+number of hits.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,4
+5,CUSTOM_SKILL_INFO_08_98,"敵の物理攻撃力と魔法攻撃力を
+一定時間低下させる魔矢を放つ
+<COL ffdc78>LV UP毎に低下力の強化
+LV.６でターゲット数増加（３→５）</COL>","Fire magickal arrows that decrease the
+Physical and Magickal attack power of
+enemies for a period of time.
+<COL ffdc78>LV UP: Increases the rate of
+debilitation accumulation.
+LV.6: Increases number of targets (3→5).</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,5
+6,CUSTOM_SKILL_INFO_08_99,"敵の物理防御力と魔法防御力を
+一定時間低下させる魔矢を放つ
+<COL ffdc78>LV UP毎に低下力の強化
+LV.６でターゲット数増加（３→５）</COL>","Fire magickal arrows that decrease the
+Physical and Magickal defense of
+enemies for a period of time.
+<COL ffdc78>LV UP: Increases the rate of
+debilitation accumulation.
+LV.6: Increases number of targets (3→5).</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,6
+7,CUSTOM_SKILL_INFO_08_96,"壁に反射し、敵を追従する雷属性の魔矢を放つ
+反射させる度に威力が上昇する
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で反射回数が増加</COL>","Loose a magickal arrow that increases in
+power as it ricochets towards its target.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases the number of ricochets.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,7
+8,CUSTOM_SKILL_INFO_08_100,"スタミナ回復効果のある魔矢を放つ（対不死には攻撃）
+味方に接触させれば魔法球が吸着する
+<COL ffdc78>LV UP毎に魔法球継続時間の延長／展開エリア拡張
+LV.６で魔力増加速度の上昇／ターゲット数増加（３→７）</COL>","Fire magickal arrows that emit an area of Stamina
+restoration at the impact point (inflicts damage
+to undead).
+The field will attach to an ally if the arrow
+makes contact.
+<COL ffdc78>LV UP: Increases duration. Increases
+size of the effect.
+LV.6: Increases casting speed.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,8
+9,CUSTOM_SKILL_INFO_08_101,"敵の耐久力を一定時間低下させる魔矢を放つ
+<COL ffdc78>LV UP毎に低下力の強化
+LV.６で魔力増加速度の上昇／
+ターゲット数増加（５→７）</COL>","Fire magickal arrows that decrease the
+Endurance of enemies for a period of time.
+<COL ffdc78>LV UP: Increases the rate of
+debilitation accumulation.
+LV.6: Increases casting speed.
+Increases number of targets (5→7).</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,9
+10,CUSTOM_SKILL_INFO_08_102,"怒り中の敵のシークレットコアにのみ有効な魔矢
+攻撃を加えることで敵スタミナを大幅に低下させる
+魔法球を展開する。コアは構え中に発見可能
+<COL ffdc78>LV UP毎に低下力の強化
+LV.６で魔法球継続時間が延長</COL>","Loose a magickal arrow that attaches to revealed
+weakpoints of enemies and forms a sphere. Greatly
+decreases the Stamina of enemies when attacked.
+<COL ffdc78>LV UP: Increases the stamina
+reduction.
+LV.6: Increases the duration of the sphere.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,10
+11,CUSTOM_SKILL_INFO_08_103,"魔力を十分に溜めた後、特大威力の聖属性魔矢を放つ
+<PADM>左スティック<KEYM>移動キー</KEYM>で軌道操作可能。威力はスタミナ依存
+なお当たった部位は暫く自動的に魔矢の標的になる
+<COL ffdc78>LV UP毎に攻撃威力／魔力増加速度の上昇
+LV.６で攻撃ヒット数増加</COL>","After gathering sufficient magickal power, let
+loose
+an extraordinarily powerful Holy arrow.
+The arrow can be controlled mid-flight with the
+<PADM>Left Stick<KEYM>Movement Keys</KEYM>.
+The power of the skill depends on the stamina
+available.
+The hit spot will automatically be targeted by
+the magickal
+arrows for a while.
+<COL ffdc78>LV UP: Increases damage and cast
+speed of the skill.
+LV.6: Increases number of hits.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,11
+12,CUSTOM_SKILL_INFO_08_141,"癒しの力を込めた魔矢を放ち、上空で起爆させる
+矢は起爆時に強い光を放ち、照らされた味方の
+体力を一定量回復する（対不死には攻撃）
+<COL ffdc78>LV UP毎に回復量上昇
+LV.６で起爆時の閃光効果強化</COL>","Let loose a holy magickal arrow imbued with the
+power to heal
+into the sky and detonate it. The arrow emits a
+strong flash at
+the time of detonation, recovering a portion of
+health for allies.
+(Damages Undead)
+<COL ffdc78>LV UP: Increases health recovery
+amount.
+LV.6: Increases the power of the flash at
+detonation.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,12
+13,CUSTOM_SKILL_INFO_08_142,"魔矢を放ち、接触した敵を引き裂く触手を発生させる
+触手は攻撃対象を自ら追尾し、攻撃が連鎖する
+連鎖回数は敵の大きさで変動。侵食核の破壊に有効
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で連鎖回数増加</COL>","Let loose a magickal arrow that tears apart the
+enemy it contacts
+with tentacles. The tentacles will seek out
+additional enemies or
+continue to attack current target depending on
+its size.
+Effective for destroying Infected Sprouts.
+<COL ffdc78>LV UP: Increases damage of skill.
+LV.6: Increases the target chain amount.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,13
+14,CUSTOM_SKILL_INFO_08_184,"【ＥＸ追加効果】
+ダメージ量が増加
+魔矢が刺さった敵の体力を継続して奪う","EX Additional Effects:
+Increase damage.
+Continuously cause damage at the point the arrow
+landed.",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,14
+15,CUSTOM_SKILL_INFO_08_185,"【ＥＸ追加効果】
+魔矢が刺さった敵へ攻撃した際の
+状態異常値を増加させる","EX Additional Effects:
+Increase status effect accumulation when
+attacking enemies hit by
+this skill.",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,15
+16,CUSTOM_SKILL_INFO_08_186,"【ＥＸ追加効果】
+ダメージが追加
+吹き飛ばし力が増加
+魔矢の速度が上昇","EX Additional Effects:
+Add damage to the skill.
+Increase blow force.
+Increase arrow's speed.",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,16
+17,CUSTOM_SKILL_INFO_08_187,"【ＥＸ追加効果】
+ダメージが追加
+封印の状態異常を付与／気絶攻力が増加
+魔矢の速度が上昇","EX Additional Effects:
+Add damage to the skill.
+Add Skill Stiffling status abnormality
+and knockout power.
+Increase arrow's speed.",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,17
+18,CUSTOM_SKILL_INFO_08_201,"【ＥＸ追加効果】
+HP回復量アップ
+<COL ff7878>骸骨／腐死／呪詛／霊体系の敵へ
+与えるダメージ量と攻撃ヒット数増加</COL>","EX Additional Effects:
+Increase the amount of health recovered.
+<COL ff7878>Increase damage and number of hits
+against
+Skeleton/Undead/Cursed/Spirit type enemies</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,18
+19,CUSTOM_SKILL_INFO_08_202,"【ＥＸ追加効果】
+治癒上限値を回復する
+シークレットコア露出時間／触芽封印時間／
+戦甲の修復停止時間が延長","EX Additional Effects:
+Recover healable limit of affected allies.
+Increase duration of Secret Core reveal, Infected
+seal and
+War-Ready Armor reveal.",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,19
+20,CUSTOM_SKILL_INFO_08_203,"【EX追加効果】
+闇属性のダメージが追加
+溜め時間短縮
+ターゲット数増加（５→７）","EX Additional Effects:
+Add Dark-attribute damage.
+Reduce charge time.
+Increase the number of target locks (5→7).",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,20
+21,CUSTOM_SKILL_INFO_08_204,"【EX追加効果】
+最適距離の範囲が拡張
+魔道弓に付与されている属性の
+防御力を低下させる状態異常を付与","EX Additional Effects:
+Extend the optimal range.
+Add Elemental Resist Down accumulation that
+matches your
+weapon's element.",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,21
+0,CUSTOM_SKILL_COMMAND_09_105,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,0
+1,CUSTOM_SKILL_COMMAND_09_104,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,1
+2,CUSTOM_SKILL_COMMAND_09_108,"<PADM>セットボタンを押し、左スティックを倒して５属性を選択<KEYM>セットボタンを押し、マウス移動で５属性を選択</KEYM>
+再度セットボタンを押して属性決定","Press <PADM>the assigned button<KEYM>the assigned
+button</KEYM>, then select from
+<PADM>5<KEYM>5</KEYM>
+elements using <PADM>the left stick<KEYM>mouse
+movement</KEYM>.
+Press <KC ATTACK1> or <KC ATTACK2> to confirm
+element choice.",ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,2
+3,CUSTOM_SKILL_COMMAND_09_109,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,3
+4,CUSTOM_SKILL_COMMAND_09_107,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,4
+5,CUSTOM_SKILL_COMMAND_09_106,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,5
+6,CUSTOM_SKILL_COMMAND_09_110,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,6
+7,CUSTOM_SKILL_COMMAND_09_111,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,7
+8,CUSTOM_SKILL_COMMAND_09_112,"セットボタンを押す
+<COL ff7878>錬成値が最大の状態での発動で
+戦甲へのカウンターに特化</COL>","Press the assigned button.
+<COL ff7878>Effective against War-Ready enemies
+if this skill is executed
+on a full elixir stack.</COL>",ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,8
+9,CUSTOM_SKILL_COMMAND_09_113,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,9
+10,CUSTOM_SKILL_COMMAND_09_114,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,10
+11,CUSTOM_SKILL_COMMAND_09_115,"セットボタンを連続して押す
+展開後、その場に留まることで展開時間を延長","Repeatedly press the assigned button.
+After deployment, extend duration by
+staying in place.",ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,11
+12,CUSTOM_SKILL_COMMAND_09_189,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,12
+13,CUSTOM_SKILL_COMMAND_09_190,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,13
+14,CUSTOM_SKILL_COMMAND_09_191,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,14
+15,CUSTOM_SKILL_COMMAND_09_192,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,15
+16,CUSTOM_SKILL_COMMAND_09_229,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,16
+17,CUSTOM_SKILL_COMMAND_09_230,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,17
+18,CUSTOM_SKILL_COMMAND_09_231,"<PADM>セットボタンを押し、左スティックを倒して５属性を選択<KEYM>セットボタンを押し、マウス移動で５属性を選択</KEYM>
+再度セットボタンを押して属性決定","Press <PADM>the assigned button<KEYM>the assigned
+button</KEYM>, then select from
+<PADM>5<KEYM>5</KEYM>
+elements using <PADM>the left stick<KEYM>mouse
+movement</KEYM>.
+Press <KC ATTACK1> or <KC ATTACK2> to confirm
+element choice.",ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,18
+19,CUSTOM_SKILL_COMMAND_09_232,"<PADM>セットボタンを押し、左スティックを倒して５属性を選択<KEYM>セットボタンを押し、マウス移動で５属性を選択</KEYM>
+再度セットボタンを押して属性決定","Press <PADM>the assigned button<KEYM>the assigned
+button</KEYM>, then select from
+<PADM>5<KEYM>5</KEYM>
+elements using <PADM>the left stick<KEYM>mouse
+movement</KEYM>.
+Press <KC ATTACK1> or <KC ATTACK2> to confirm
+element choice.",ui\00_message\skill\custom_skill_command_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,19
+0,CUSTOM_SKILL_INFO_09_105,"拳を地面に突き立て、自身を囲むように
+柱状の錬成物質を生成する。高所から行うことで
+威力が上昇する。空中でも発動可能
+<COL ffdc78>LV UP毎に錬成値の上昇
+LV.６で錬成物質の生成回数増加（１→２）</COL>","Slam your fist into the ground and surround
+yourself
+with pillars of alchemical metal. When performed
+from high altitudes, the power of the attack
+rises.
+Can be activated even while in the air.
+<COL ffdc78>LV UP: Increases amount of stakes
+planted upon contact.
+LV.6: Increases the times the pillars raise
+(1→2).</COL>",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,0
+1,CUSTOM_SKILL_INFO_09_104,"掌を地面に添え、振り上げると同時に
+地を這う錬成物質の波を放つ
+<COL ffdc78>LV UP毎に錬成値の上昇
+LV.６で錬成物質の本数増加（３→５）／
+敵を転倒させる効果追加</COL>","Place your palm on the ground and upon raising it,
+create waves of alchemical substances that spike
+up along the ground.
+<COL ffdc78>LV UP: Increases amount of stakes
+planted upon contact.
+LV.6: Increases number of waves (3→5) and adds the
+ability to juggle enemies.</COL>",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,1
+2,CUSTOM_SKILL_INFO_09_108,"炎、氷、雷の主要３属性を纏った
+錬成式を地面から生成し空中に配置する
+<COL ffdc78>LV UP毎に錬成式の継続時間が延長
+LV.６で聖・闇の２属性追加</COL>","Create an elemental orb that bestows one of the
+three main attributes of fire, ice, or lightning,
+from the ground and place it in the air.
+<COL ffdc78>LV UP: Increases duration of the
+skill.
+LV.6: Unlocks the final two elements, Holy and
+Darkness.</COL>",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,2
+3,CUSTOM_SKILL_INFO_09_109,"乗った者を高所へ跳ね上げる効果を持つ
+錬成式を地面に配置する
+<COL ffdc78>LV UP毎に錬成式の継続時間が延長
+LV.６で空中にも設置可能になり、
+空中に配置された場合は横方向に跳躍可能</COL>","Place an alchemical trampoline on the ground
+that launches those who jump on it to high
+altitudes.
+<COL ffdc78>LV UP: Increases duration of the
+skill.
+LV.6: Allows placement in the air. When placed
+mid-air, you can be launched horizontally.</COL>",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,3
+4,CUSTOM_SKILL_INFO_09_107,"風を纏った錬成物質を生成し配置する
+後退後に風の錬成球を叩くと、風圧が発生する
+<COL ffdc78>LV UP毎に錬成球の継続時間が延長
+LV.６で叩いた時に発生する風圧範囲が拡張</COL>","Create a ball of wind-wrapped alchemical
+substances.
+Wind pressure is generated when striking the ball
+after placement.
+<COL ffdc78>LV UP: Increases duration of the
+skill.
+LV.6: Increases range of wind pressure generated
+when struck.</COL>",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,4
+5,CUSTOM_SKILL_INFO_09_106,"素早く敵との間合いを詰め、錬成杭を打ち込む
+杭を叩くと錬成値が増加する
+<COL ffdc78>LV UP毎に杭の継続時間が延長
+LV.６で移動距離が延長／始動後に範囲攻撃追加
+杭を叩いた時の錬成値が上昇</COL>","Drive alchemical piles into enemies, and quickly
+draw
+their aggression. If a pile is struck, the amount
+of
+stakes on it will increase.
+<COL ffdc78>LV UP: Increases duration of the
+skill.
+LV.6: Increases chase range of skill, and amount
+of
+alchemical stakes gained upon striking the
+pile.</COL>",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,5
+6,CUSTOM_SKILL_INFO_09_110,"錬成物質で罠を生成する。この罠に敵が
+近付くと自動的に棘が放出され、対象を貫く
+<COL ffdc78>LV UP毎に錬成罠の起動回数増加
+LV.６で棘の本数が増加（１→３）</COL>","Generate a trap from an alchemical substance.
+When enemies approach the trap, pillars spike out
+from it and penetrate them.
+<COL ffdc78>LV UP: Increases number of trap
+activations.
+LV.6: Increases the number of pillar spikes
+(1→3).</COL>",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,6
+7,CUSTOM_SKILL_INFO_09_111,"自身の体を金で覆い、敵の攻撃を遮断する
+さらに攻撃した敵に対し黄金化の異常値を与える
+空中でも発動可能
+<COL ffdc78>LV UP毎に黄金化の異常値上昇
+LV.６でダウン、拘束中を除きいつでも発動可能</COL>","Coat yourself in gold and deflect enemy attacks.
+Enemies
+that attack will build up the ""Gilded"" status
+abnormality.
+Can be activated even while in the air.
+<COL ffdc78>LV UP: Increases rate of Gilding
+build-up.
+LV.6: Can activate the skill at anytime except
+when grabbed.</COL>",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,7
+8,CUSTOM_SKILL_INFO_09_112,"敵を直接攻撃し、攻撃対象に付着している錬成物質を
+解放して大爆発を起こす。しがみつき状態から発動可
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６でヒット数増加／爆発に周囲の敵を巻き込む</COL>","Directly strike the enemy and detonate alchemical
+stake on
+target, creating a large explosion. Can be used
+when climbing.
+<COL ffdc78>LV UP: Increases damage of skill.
+LV.6: Increases number of hits and the surrounding
+enemies are affected by the explosion.</COL>",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,8
+9,CUSTOM_SKILL_INFO_09_113,"垂直に跳び上がり、空中に錬成物質で生成した罠を
+配置する。その後、後方に素早く身を引く
+<COL ffdc78>LV UP毎に罠の攻撃回数上昇
+LV.６で空中でも発動可能</COL>","Jump up and form a trap from an alchemical
+substance
+in the air. When deployed, quickly launch
+backwards.
+<COL ffdc78>LV UP: Increases number of trap
+activations.
+LV.6: Allows activation while mid-air.</COL>",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,9
+10,CUSTOM_SKILL_INFO_09_114,"放射状に錬成物質の粒を発射する
+近距離で複数ヒットすると敵を弾き飛ばす
+空中でも発動可能
+<COL ffdc78>LV UP毎に攻撃性能上昇
+LV.６で攻撃範囲拡大／ヒット数増加（３→５）</COL>","Shoot alchemical substances radially toward you.
+If you are close to the enemies, all substances
+will hit.
+Can be activated in mid-air.
+<COL ffdc78>LV UP: Increases damage.
+LV.6: Increases range and the number of
+substances (3→5).</COL>",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,10
+11,CUSTOM_SKILL_INFO_09_115,"味方へのダメージを無効化し、敵へエリクシルの
+状態異常を付与する支援エリアを生成する
+タイミングよくボタンを押すと展開時間が延長する
+<COL ffdc78>LV UP毎に状態異常値上昇
+LV.６で最大入力回数が増加し、展開時間が延長</COL>","Generate an area that nullifies damage for all
+allies inside.
+Enemies within the area are affected by your
+chosen Elixir.
+The duration is greatly increased with correct
+timing.
+<COL ffdc78>LV UP: Increases debilitation rate.
+LV.6: Number of inputs increased, extending the
+duration.</COL>",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,11
+12,CUSTOM_SKILL_INFO_09_189,"【ＥＸ追加効果】
+ダメージ量が増加
+打ち込まれた錬成杭の錬成値が徐々に増加する
+しがみついた状態で発動可能","EX Additional Effects:
+Increase damage.
+The stake struck by this skill slowly builds up
+automatically.
+Can be used when climbing.",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,12
+13,CUSTOM_SKILL_INFO_09_190,"【ＥＸ追加効果】
+錬成杭を打ち込んだ敵へ放った
+エリクシル／アルケム・バーストの
+状態異常値が上昇","EX Additional Effects:
+Increase status effect accumulation when
+detonating the
+stake struck by this skill using
+Elixir/Alchemical Burst.",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,13
+14,CUSTOM_SKILL_INFO_09_191,"【ＥＸ追加効果】
+ダメージ量が増加
+黄金化の状態異常を付与
+<COL ff7878>人間／竜族／錬金系の敵に与えるダメージ量が増加</COL>","EX Additional Effects:
+Increase damage.
+Add Gilded status abnormality.
+<COL ff7878>Further increase damage against
+Human/Dragonkin/Alchemized enemies.</COL>",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,14
+15,CUSTOM_SKILL_INFO_09_192,"【ＥＸ追加効果】
+発動中は物理防御力と魔法防御力が増加しつつ
+攻撃を受けても体勢を崩されにくくなる
+敵に与える錬成値と吹き飛ばし力が増加
+のけぞり、吹き飛び中でも発動可能","EX Additional Effects:
+Increase physical and magick defense during
+execution.
+Increase endurance during execution.
+Increase the amount of alchemical substance and
+blow force.
+Possible to use when being knocked back.",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,15
+16,CUSTOM_SKILL_INFO_09_229,"【ＥＸ追加効果】
+錬成物質が強化されダメージ量と錬成値が増加
+強化される錬成物質の数は一定確率で変化するが
+カウンテラ・アウルム発動時は全ての錬成物質が強化される","EX Additional Effects:
+May employ strengthened alchemical substances
+that deal
+more damage and has faster alchemical buildup.
+Normal alchemical substance has a chance to be
+strengthened.
+If used in conjunction with Counterra Aurum, all
+substances
+are strengthened.",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,16
+17,CUSTOM_SKILL_INFO_09_230,"【ＥＸ追加効果】
+錬成物質の生成数と生成速度が増加し
+攻撃距離が延長される
+物防低下／魔防低下の状態異常を付与","EX Additional Effects:
+Increase the number of alchemical waves created
+and
+generation speed.
+Increase attack distance.
+Inflict Physic/Magick Defense Down effects.",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,17
+18,CUSTOM_SKILL_INFO_09_231,"【ＥＸ追加効果】
+エンチャントの効果を受けると
+自身のみエンチャント属性の状態異常蓄積値が
+大幅に増加","EX Additional Effects:
+When you receive the enchant from this skill,
+elemental
+debilitation is greatly increased only on
+yourself.",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,18
+19,CUSTOM_SKILL_INFO_09_232,"【ＥＸ追加効果】
+設置時のみ広範囲にエンチャント効果を付与","EX Additional Effects:
+Grant enchantment to surrounding allies when you
+place the
+orb.",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,19
+0,CUSTOM_SKILL_COMMAND_10_143,"セットボタンを押す
+LV.６で再度セットボタンを押すと派生斬り
+アタックブーストで強化可能","Press the assigned button.
+At LV.6, press the assigned button again to
+invert slash direction.
+Further enhanced with Attack Boost.",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,0
+1,CUSTOM_SKILL_COMMAND_10_144,"セットボタンを押す
+アタックブーストで強化可能","Press the assigned button.
+Further enhanced with Attack Boost.",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,1
+2,CUSTOM_SKILL_COMMAND_10_146,"セットボタンを押す
+アタックブーストで強化可能","Press the assigned button.
+Further enhanced with Attack Boost.",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,2
+3,CUSTOM_SKILL_COMMAND_10_149,"セットボタンを押す
+ヒールブーストで強化可能","Press the assigned button.
+Further enhanced with Heal Boost.",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,3
+4,CUSTOM_SKILL_COMMAND_10_145,"セットボタンを連続して押す
+アタックブーストで強化可能","Repeatedly press the assigned button.
+Further enhanced with Attack Boost.",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,4
+5,CUSTOM_SKILL_COMMAND_10_147,"セットボタンを押す
+発現後、再度セットボタンを押すと起爆
+アタックブーストで強化可能","Press the assigned button.
+After conjuring, press the assigned button
+again to detonate.
+Further enhanced with Attack Boost.",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,5
+6,CUSTOM_SKILL_COMMAND_10_150,"セットボタンを押す
+展開後、その場に留まることで展開時間を延長
+ヒールブーストで強化可能","Press the assigned button.
+After deployment, extend duration by
+staying in place.
+Further enhanced with Heal Boost.",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,6
+7,CUSTOM_SKILL_COMMAND_10_148,"セットボタンを押す
+発現後、再度セットボタンを押すと攻撃
+アタックブーストで強化可能 
+<COL ff7878>バリアの霊力最大時の発動で戦甲へのカウンターに特化</COL>","Press the assigned button.
+After forming the barrier, press the assigned
+button
+to release energy. Further enhanced with Attack
+Boost.
+<COL ff7878>Effective against War-Ready enemies
+if this skill is executed
+at maximum spiritual accumulation.</COL>",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,7
+8,CUSTOM_SKILL_COMMAND_10_153,"セットボタンを押す
+アタックブーストで強化可能","Press the assigned button.
+Further enhanced with Attack Boost.",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,8
+9,CUSTOM_SKILL_COMMAND_10_188,"セットボタンを押す
+ヒールブーストで強化可能","Press the assigned button.
+Further enhanced with Heal Boost.",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,9
+10,CUSTOM_SKILL_COMMAND_10_195,"セットボタンを押す
+ヒールブーストで強化可能","Press the assigned button.
+Further enhanced with Heal Boost.",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,10
+11,CUSTOM_SKILL_COMMAND_10_196,"セットボタンを押す
+ヒールブーストで強化可能","Press the assigned button.
+Further enhanced with Heal Boost.",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,11
+12,CUSTOM_SKILL_COMMAND_10_193,"セットボタンを押す
+再度セットボタンを押すと派生斬り
+アタックブーストで強化可能","Press the assigned button.
+Press the assigned button again to invert slash
+direction.
+Further enhanced with Attack Boost.",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,12
+13,CUSTOM_SKILL_COMMAND_10_194,"セットボタンを押す
+再度セットボタンを押すと派生斬り
+アタックブーストで強化可能","Press the assigned button.
+Press the assigned button again to invert slash
+direction.
+Further enhanced with Attack Boost.",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,13
+14,CUSTOM_SKILL_COMMAND_10_233,"セットボタンを押す
+アタックブーストで強化可能","Press the assigned button.
+Further enhanced with Attack Boost.",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,14
+15,CUSTOM_SKILL_COMMAND_10_234,"セットボタンを押す
+アタックブーストで強化可能","Press the assigned button.
+Further enhanced with Attack Boost.",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,15
+16,CUSTOM_SKILL_COMMAND_10_235,"セットボタンを押す
+展開後、その場に留まることで展開時間を延長
+ヒールブーストで強化可能","Press the assigned button.
+After deployment, extend duration by
+staying in place.
+Further enhanced with Heal Boost.",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,16
+17,CUSTOM_SKILL_COMMAND_10_236,"セットボタンを押す
+展開後、その場に留まることで展開時間を延長
+ヒールブーストで強化可能","Press the assigned button.
+After deployment, extend duration by
+staying in place.
+Further enhanced with Heal Boost.",ui\00_message\skill\custom_skill_command_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,17
+0,CUSTOM_SKILL_INFO_10_143,"斬り上げながら敵を打ち上げる
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６でボタンの追加入力により派生斬りが発動</COL>","Launch enemies upward with a slash.
+<COL ffdc78>LV UP: Increases damage of skill.
+LV.6: Invert direction of slash with an additional
+button press.</COL>",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,0
+1,CUSTOM_SKILL_INFO_10_144,"槍を振り払い、周囲を巻き込みながら攻撃する
+空中発動可能
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６でのけぞり、吹き飛び中でも発動可能</COL>","Swing the lance around, and attack
+the surrounding area. Can be used in mid-air.
+<COL ffdc78>LV UP: Increases damage of skill.
+LV.6: Can be used while taking damage, and even
+while
+being knocked off an enemy.</COL>",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,1
+2,CUSTOM_SKILL_INFO_10_146,"力を溜めて離れた敵を攻撃する
+初段がヒットすることで連続ヒットする追撃が発生
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で溜め段階拡張（１→２）</COL>","Gather energy and thrust forward,
+releasing a blast of energy. The first strike
+always
+chases an enemy.
+<COL ffdc78>LV UP: Increases damage of the skill.
+LV.6:Increases number of hits (1→2).</COL>",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,2
+3,CUSTOM_SKILL_INFO_10_149,"体力回復と防御力上昇効果の霊力エリアを展開する
+エリアに接触した味方へ一定時間効果を付与
+<COL ffdc78>LV UP毎に効果時間延長
+LV.６で展開エリアの設置時間延長</COL>","Form a pool of spiritual energy that
+recovers health and grants allies whom walk into
+it
+a Defense boost for a period of time.
+<COL ffdc78>LV UP: Increases duration of effect.
+LV.6: Increases duration of pool.</COL>",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,3
+4,CUSTOM_SKILL_INFO_10_145,"前方に連続して攻撃を繰り出す
+攻撃回数によって最後の一撃の威力が変化する
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で最大攻撃回数増加</COL>","Spin the lance all-around, continuously slashing
+forward. The last blow's power changes according
+to the number of
+attacks made.
+<COL ffdc78>LV UP: Increases damage of skill.
+LV.6: Increases maximum number of attacks.</COL>",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,4
+5,CUSTOM_SKILL_INFO_10_147,"攻撃すると衝撃波が発生する霊球を発現する
+霊球は攻撃を受けることで霊力が溜まり
+起爆することも可能／起爆は空中発動可能
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６で霊力最大の起爆ヒット数増加／溜まる霊力増加</COL> ","Form a spirit orb that generates shockwaves when
+attacked.
+The orb gathers spiritual energy when attacked.
+It can also
+be detonated both on the ground and mid-air
+manually.
+<COL ffdc78>LV UP: Increases damage of skill.
+LV.6: Increases maximum hits of the detonation
+and amount of
+spirit energy gained.</COL>",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,5
+6,CUSTOM_SKILL_INFO_10_150,"自身を中心に体力回復と状態異常回復の霊球を展開
+溜め時間に応じて範囲が拡大し
+最大範囲になることで性能が上昇する
+<COL ffdc78>LV UP毎に展開時間延長
+LV.６で展開エリアの最大サイズが拡張</COL>","Form spiritual spheres around yourself that
+recovers health
+and status abnormalities. The range grows
+dependingon the
+charge time. The effectiveness rises upon a full
+charge.
+<COL ffdc78>LV UP: Increases duration of skill.
+LV.6: Increases the area of effect of the
+skill.</COL>",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,6
+7,CUSTOM_SKILL_INFO_10_148,"敵の攻撃を防ぐバリアを発現する。展開中に敵を攻撃すると
+バリアに霊力が溜まり、セットボタンで霊力を使って攻撃可能
+しがみつき状態から攻撃発動可
+<COL ffdc78>LV UP毎に攻撃威力の上昇／バリア展開時間延長
+LV.６でバリアの耐久値増加（１→２）</COL>","Form a barrier around yourself to prevent enemy
+attacks.
+When attacking enemies while the barrier is
+active, spiritual
+energy gathers in the barrier. You can unleash
+the energy
+by pressing the assigned button.
+<COL ffdc78>LV UP: Increases damage of skill and
+duration.
+LV.6: Increase maximum barrier durability
+(1→2).</COL>",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,7
+8,CUSTOM_SKILL_INFO_10_153,"強力な攻撃を広範囲に繰り出す
+初段を敵に接触させれば連撃に移行する
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.６でモーション変化／攻撃ヒット数増加</COL>","A high power skill that covers a wide area.
+If the first hit is successfully landed, it will
+become
+a full on combo attack.
+<COL ffdc78>LV UP: Increases damage of the skill.
+LV.6: Increases the number of hits in the attack,
+and
+changes the motion of the skill.</COL>",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,8
+9,CUSTOM_SKILL_INFO_10_188,"クレストを含むエンチャント攻撃力と吹き飛ばし力を
+増加する霊力エリアを展開。攻撃を受け流し発動すると
+展開サイズを拡張しつつ自身の強化性能を更に上昇させる
+<COL ffdc78>LV UP毎に効果時間延長
+LV.６でエンチャント強化と吹き飛ばし力強化の性能上昇</COL>","Expand a spiritual area that increases damage and
+blow force
+of enchantment of nearby allies including
+enchantment from
+crests. If used as a counter, the effect is
+greatly increased
+and the deployment size is expanded.
+<COL ffdc78>LV UP: Increases duration of effect.
+LV.6: Increases the effectiveness of the
+buff.</COL>",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,9
+10,CUSTOM_SKILL_INFO_10_195,"【ＥＸ追加効果】
+防御力の上昇量が増加
+ヒールブースト時の攻撃力の上昇量が増加","EX Additional Effects:
+Increase defense buff value.
+Increase attack buff value during Heal Boost.",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,10
+11,CUSTOM_SKILL_INFO_10_196,"【ＥＸ追加効果】
+攻撃を敵に接触させると
+スタミナが回復する効果を付与
+霊球の展開時間と効果時間が延長","EX Additional Effects:
+Recover stamina when attacking enemies.
+Extend the duration of the pool.",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,11
+12,CUSTOM_SKILL_INFO_10_193,"【ＥＸ追加効果】
+ダメージ量が増加
+<COL ff7878>造魔／魔族／戦甲系の敵に与えるダメージ量が増加</COL>","EX Additional Effects:
+Increase damage.
+<COL ff7878>Further increase damage to
+Construct/Demon/War-Ready enemies.</COL>",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,12
+13,CUSTOM_SKILL_INFO_10_194,"【ＥＸ追加効果】
+派生斬りを初段経由せずに空中で発動可能
+スピリットゲージ蓄積量が増加","EX Additional Effects:
+Possible to activate in the air without
+executing the first hit.
+Increase Spirit Gauge accumulation.",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,13
+14,CUSTOM_SKILL_INFO_10_233,"【ＥＸ追加効果】
+溜め満了の瞬間に攻撃を放つと威力が上昇する","EX Additional Effects:
+Increase damage if you release the attack
+just as the charge is completed.",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,14
+15,CUSTOM_SKILL_INFO_10_234,"【ＥＸ追加効果】
+攻撃が最初にヒットした敵に
+エイド／エイド・モールを吸着させる","EX Additional Effects:
+Attach an Aid/Aid More sphere at the impact point.",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,15
+16,CUSTOM_SKILL_INFO_10_235,"【ＥＸ追加効果】
+治癒上限値を徐々に回復する
+ヒールブースト時の攻撃力の上昇量が増加","EX Additional Effects:
+Gradually recover the healable limit of allies.
+Further increase attack power during Heal Boost.",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,16
+17,CUSTOM_SKILL_INFO_10_236,"【ＥＸ追加効果】
+耐久力を強化する効果を付与","EX Additional Effects:
+Increase Endurance for allies inside.",ui\00_message\skill\custom_skill_info_10.gmd,\skill\custom_skill_data_10.arc,custom_skill_data_10.arc,17
+0,CUSTOM_SKILL_COMMAND_11_237,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_11.gmd,\skill\custom_skill_data_11.arc,custom_skill_data_11.arc,0
+1,CUSTOM_SKILL_COMMAND_11_241,"セットボタンを押す
+　カテゴリ：補助魔法
+　魔力１ゲージ消費で発動可能","Press the assigned button.
+Category: Support Magick.
+Consumes 1 magick gauge on activation.",ui\00_message\skill\custom_skill_command_11.gmd,\skill\custom_skill_data_11.arc,custom_skill_data_11.arc,1
+2,CUSTOM_SKILL_COMMAND_11_244,"セットボタンを押す
+　カテゴリ：純魔法
+　魔力１スタック消費で発動可能","Press the assigned button.
+Category: Pure Magick.
+Consumes 1 magick stack on activation.",ui\00_message\skill\custom_skill_command_11.gmd,\skill\custom_skill_data_11.arc,custom_skill_data_11.arc,2
+3,CUSTOM_SKILL_COMMAND_11_240,セットボタンを押す,Press the assigned button.,ui\00_message\skill\custom_skill_command_11.gmd,\skill\custom_skill_data_11.arc,custom_skill_data_11.arc,3
+4,CUSTOM_SKILL_COMMAND_11_238,"セットボタンを押す
+　カテゴリ：補助魔法
+　魔力１ゲージ消費で発動可能","Press the assigned button.
+Category: Support Magick.
+Consumes 1 magick gauge on activation.",ui\00_message\skill\custom_skill_command_11.gmd,\skill\custom_skill_data_11.arc,custom_skill_data_11.arc,4
+5,CUSTOM_SKILL_COMMAND_11_242,"セットボタンを押す
+　カテゴリ：純魔法
+　魔力２スタック消費で発動可能","Press the assigned button.
+Category: Pure Magick.
+Consumes 2 magick stacks on activation.",ui\00_message\skill\custom_skill_command_11.gmd,\skill\custom_skill_data_11.arc,custom_skill_data_11.arc,5
+6,CUSTOM_SKILL_COMMAND_11_239,"セットボタンを押す
+　カテゴリ：純魔法
+　魔力２スタック消費で発動可能","Press the assigned button.
+Category: Pure Magick.
+Consumes 2 magick stacks on activation.",ui\00_message\skill\custom_skill_command_11.gmd,\skill\custom_skill_data_11.arc,custom_skill_data_11.arc,6
+7,CUSTOM_SKILL_COMMAND_11_243,"セットボタンを押す
+発動後、再度セットボタンを押すと攻撃
+　カテゴリ：補助魔法
+　魔力４スタック消費で発動可能","Press the assigned button. After activating,
+press the assigned button again to attack.
+Category: Support Magick.
+Consumes 4 magick stacks on activation.",ui\00_message\skill\custom_skill_command_11.gmd,\skill\custom_skill_data_11.arc,custom_skill_data_11.arc,7
+0,CUSTOM_SKILL_INFO_11_237,"聖属性の魔力を付与した剣で、周囲を薙ぎ払う
+魔印が最大に成長している時、性能上昇
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.6で空中でも発動可能</COL>","Imbue your sword with Holy attribute and
+attack surrounding enemies.
+Damage increases when the Magick Glyph grows.
+<COL ffdc78>LV UP Increases damage of skill.
+LV.6 Can be activated in the air.</COL>",ui\00_message\skill\custom_skill_info_11.gmd,\skill\custom_skill_data_11.arc,custom_skill_data_11.arc,0
+1,CUSTOM_SKILL_INFO_11_241,"幻影を作り出し、前方へ瞬間移動する魔法
+移動中に接触した敵に対して、魔力の斬撃を浴びせる
+空中での連続発動は2回まで可能
+<COL ffdc78>LV UP毎に再発動禁止時間が短縮
+LV.6で攻撃アクション中であればいつでも発動可能</COL>","Create a phantom and teleport forward.
+If user comes into contact with enemy
+while teleporting, deal magick damage.
+Can use twice while mid air.
+<COL ffdc78>LV UP Reduce cooldown between
+activation.
+LV.6 Can be used at any time during attack.</COL>",ui\00_message\skill\custom_skill_info_11.gmd,\skill\custom_skill_data_11.arc,custom_skill_data_11.arc,1
+2,CUSTOM_SKILL_INFO_11_244,"その場で剣を構え、振り下ろすと同時に
+前方に複数の魔力の刃を放つ
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.6で攻撃ヒット回数が増加</COL>","Ready your sword and slice downwards, releases
+several
+magick blades towards enemies infont of you.
+<COL ffdc78>LV UP Increases damage of skill.
+LV.6 Increases number of hit.</COL>",ui\00_message\skill\custom_skill_info_11.gmd,\skill\custom_skill_data_11.arc,custom_skill_data_11.arc,2
+3,CUSTOM_SKILL_INFO_11_240,"闇属性の魔力を付与した剣で
+逆手に敵を突き、直後に引き抜く
+魔印が最大に成長している時、性能上昇
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+LV.6でしがみつき中でも発動可能</COL>","Thrusts the blade imbued with dark magick into
+the target's body before pulling it out.
+Damage is increased when the Magick Glyph grows.
+<COL ffdc78>LV UP Increases damage of skill.
+LV.6 Can be used when climbing.</COL>",ui\00_message\skill\custom_skill_info_11.gmd,\skill\custom_skill_data_11.arc,custom_skill_data_11.arc,3
+4,CUSTOM_SKILL_INFO_11_238,"自身の前方に魔力の盾を一定時間展開する
+純魔法発動時は展開時間が減少しない
+<COL ffdc78>LV UP毎に展開時間延長
+LV.6で敵の攻撃に合わせて発動した際、展開時間延長</COL>","Create a magickal barrier in front of you for a
+certain amount of
+time. Barrier duration does not decrease when
+using pure magick.
+<COL ffdc78>LV UP: Increases duration of the
+barrier.
+LV.6 When invoked just before an enemy's attack
+connects,
+duration is further increased.</COL>",ui\00_message\skill\custom_skill_info_11.gmd,\skill\custom_skill_data_11.arc,custom_skill_data_11.arc,4
+5,CUSTOM_SKILL_INFO_11_242,"魔力の刃を敵に撃ち込み
+闇・斬属性による継続ダメージを与える
+ボタンの追加入力で攻撃ヒット数が増加
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+Lv.6で追加入力時の攻撃ヒット数増加</COL>","Bombard an enemy with Magick Blade, dealing
+continuous
+Dark and Slash damage to enemy.
+Number of hits increases with consecutive button
+presses.
+<COL ffdc78>LV UP Increases damage of skill.
+LV.6 Increases number of hits with consecutive
+button presses.</COL>",ui\00_message\skill\custom_skill_info_11.gmd,\skill\custom_skill_data_11.arc,custom_skill_data_11.arc,5
+6,CUSTOM_SKILL_INFO_11_239,"魔力を収束させ、聖・打属性の魔力の渦を発生させる
+<COL ffdc78>LV UP毎に攻撃威力の上昇
+Lv.6で攻撃ヒット回数が増加</COL>","Create a vortex that deals Holy and Impact damage.
+<COL ffdc78>LV UP Increases damage of skill
+LV.6 Increases number of hits.</COL>",ui\00_message\skill\custom_skill_info_11.gmd,\skill\custom_skill_data_11.arc,custom_skill_data_11.arc,6
+7,CUSTOM_SKILL_INFO_11_243,"刃に魔力を帯び、ノーマルスキルの剣技に残像を追加する
+ボタン再入力で、残像の攻撃回数に応じて強化された
+魔力吸収特化の一撃を放つ。発動中は魔力を消費し続ける
+<COL ffdc78>LV UP毎に発動中の魔力消費量が減少
+LV.6で再入力時の攻撃回数による強化段階が増加（１→２）","Imbue magickal power on your sword, adding
+afterimage to the
+core sword skills. Press the assigned button
+again to release
+an attack that absorbs an amount of magick based
+on the number
+of afterimage attacks. Slowly drain magick during
+activation.
+<COL ffdc78>LV UP Reduces magick drain during
+activation.
+LV.6 Increases maximum number of charges from
+attacks (1→2).</COL>",ui\00_message\skill\custom_skill_info_11.gmd,\skill\custom_skill_data_11.arc,custom_skill_data_11.arc,7
+0,NORMAL_SKILL_INFO_01_4,剣による連続攻撃を繰り出す,Perform a continuous attack with your sword.,ui\00_message\skill\normal_skill_info_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,0
+1,NORMAL_SKILL_INFO_01_5,剣による連続一点集中攻撃を繰り出す,"Pausing after your first swing allows you to
+follow
+up with a powerful concentrated attack.",ui\00_message\skill\normal_skill_info_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,1
+2,NORMAL_SKILL_INFO_01_13,"剣による一撃で敵のガード状態を崩し気絶を誘う
+ボタンの長押しで威力が増し
+敵を転倒させることができる
+<COL ffdc78>LV UPで攻撃威力が上昇し
+長押しなしで敵を転倒させる＜強斬り崩し＞に進化</COL>","Perform a strong overhead swing, holding down
+longer
+for increased power that's capable of breaking an
+enemies
+guard. It is also possible to topple the enemy.
+<COL ffdc78>LV UP Increase attack power
+Evolve into ""Strong Guard Break"" allowing you to
+guard
+break without max power.</COL>",ui\00_message\skill\normal_skill_info_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,2
+3,NORMAL_SKILL_INFO_01_14,"剣による渾身の一撃で敵のガード状態を崩し
+転倒させる。さらに気絶させやすくなる
+ボタンの長押しで威力が増す","Perform a stronger overhead swing capable of
+breaking
+an enemies guard, holding down longer for
+increased power.
+A longer hold has a better chance to topple.",ui\00_message\skill\normal_skill_info_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,3
+4,NORMAL_SKILL_INFO_01_18,空中で剣を振り払う,Swing your sword while in the air.,ui\00_message\skill\normal_skill_info_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,4
+5,NORMAL_SKILL_INFO_01_19,"空中で剣を縦に振り下ろす
+高所から行うことで威力が上昇する","Slash downwards while airborne, falling down onto
+the
+enemy. Increased power at an increased height.",ui\00_message\skill\normal_skill_info_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,5
+6,NORMAL_SKILL_INFO_01_15,"盾を構え敵の攻撃を防ぐ
+空中でも発動可能","Hold your shield strong to block enemy attacks.
+Can also be activated while in the air.",ui\00_message\skill\normal_skill_info_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,6
+7,NORMAL_SKILL_INFO_01_16,"盾を素早く構え敵の攻撃をはじき返す
+空中でも発動可能","Timing your block just as the enemy attacks you,
+will deflect their attack.
+Can also be activated while in the air.",ui\00_message\skill\normal_skill_info_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,7
+8,NORMAL_SKILL_INFO_01_17,"腰を落とした姿勢で構え、
+近接してきた仲間を上方に放りあげる","Hold yourself in a crouched position, and toss
+nearby allies into the air.",ui\00_message\skill\normal_skill_info_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,8
+9,NORMAL_SKILL_INFO_01_22,敵に吹き飛ばされた際に転倒を回避する,Avoid falls when knocked away by enemies.,ui\00_message\skill\normal_skill_info_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,9
+10,NORMAL_SKILL_INFO_01_23,"しがみついた状態から、剣を突き刺し連続してえぐる
+ボタンの連打で攻撃回数が増加する","While clinging onto an enemy, thrust your sword
+into
+them. Continuous presses increase attack count.",ui\00_message\skill\normal_skill_info_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,10
+0,NORMAL_SKILL_COMMAND_01_4,<KC ATTACK1>を連続して押す,Repeatedly press <KC ATTACK1>.,ui\00_message\skill\normal_skill_command_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,0
+1,NORMAL_SKILL_COMMAND_01_5,<KC ATTACK1>後、少し遅らせて<KC ATTACK1>を連続して押す,"After <KC ATTACK1>, delay a moment then
+repeatedly press <KC ATTACK1>.",ui\00_message\skill\normal_skill_command_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,1
+2,NORMAL_SKILL_COMMAND_01_13,<KC ATTACK2>長押し後、離すと発動,Hold <KC ATTACK2> for a moment then release.,ui\00_message\skill\normal_skill_command_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,2
+3,NORMAL_SKILL_COMMAND_01_14,<KC ATTACK2>長押し後、離すと発動,Hold <KC ATTACK2> for a moment then release.,ui\00_message\skill\normal_skill_command_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,3
+4,NORMAL_SKILL_COMMAND_01_18,空中で<KC ATTACK1>を押す,"While in the air, press <KC ATTACK1>.",ui\00_message\skill\normal_skill_command_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,4
+5,NORMAL_SKILL_COMMAND_01_19,空中で<KC ATTACK2>を押す,"While in the air, press <KC ATTACK2>.",ui\00_message\skill\normal_skill_command_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,5
+6,NORMAL_SKILL_COMMAND_01_15,<KC WEAPON_SUB>を押す,Press <KC WEAPON_SUB>.,ui\00_message\skill\normal_skill_command_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,6
+7,NORMAL_SKILL_COMMAND_01_16,敵の攻撃を引きつけて<KC WEAPON_SUB>を押す,"Just as an enemy attacks,
+press <KC WEAPON_SUB>.",ui\00_message\skill\normal_skill_command_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,7
+8,NORMAL_SKILL_COMMAND_01_17,<KC CATAPULT>を押す,Press <KC CATAPULT>.,ui\00_message\skill\normal_skill_command_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,8
+9,NORMAL_SKILL_COMMAND_01_22,吹き飛ばされ中に<KC JUMP>を押す,"While being knocked away, press <KC JUMP>.",ui\00_message\skill\normal_skill_command_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,9
+10,NORMAL_SKILL_COMMAND_01_23,しがみつき中に<KC ATTACK1>を押す,"While climbing an enemy,
+press <KC ATTACK1>.",ui\00_message\skill\normal_skill_command_01.gmd,\skill\normal_skill_data_01.arc,normal_skill_data_01.arc,10
+0,NORMAL_SKILL_INFO_02_24,ダガーによる連撃を繰り出す,Perform consecutive dagger attacks.,ui\00_message\skill\normal_skill_info_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,0
+1,NORMAL_SKILL_INFO_02_25,攻撃範囲の広い回し蹴りを連続して繰り出す,Perform a wide range of consecutive kicks.,ui\00_message\skill\normal_skill_info_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,1
+2,NORMAL_SKILL_INFO_02_26,"ダガーによる素早い連続斬りを繰り出す
+ボタンの連打で攻撃回数が増加する
+<COL ffdc78>LV UPでより攻撃回数が増加する
+＜阿修羅斬り＞に進化</COL>","Perform a series of quick dagger slashes.
+The number of attacks rises with consecutive
+button presses.
+<COL ffdc78>LV UP: Further increases the number
+of attacks.
+Evolves into (Hundred Kisses).</COL>",ui\00_message\skill\normal_skill_info_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,2
+3,NORMAL_SKILL_INFO_02_27,"ダガーによるさらに高速の連続斬りを繰り出す
+ボタンの連打で攻撃回数が増加する","Perform a faster series of quick dagger slashes.
+The number of attacks rises with consecutive
+button presses.",ui\00_message\skill\normal_skill_info_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,3
+4,NORMAL_SKILL_INFO_02_32,空中でダガーによる連撃を繰り出す,"Perform consecutive dagger slashes while in the
+air.",ui\00_message\skill\normal_skill_info_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,4
+5,NORMAL_SKILL_INFO_02_33,"空中でダガーによる回転攻撃を繰り出す
+高所から行うことで威力が上昇し気絶させやすくなる","Perform a continuous somersault in the air with
+daggers
+extended. When performed from a high place, the
+damage increases and it is
+easier to stagger enemies.",ui\00_message\skill\normal_skill_info_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,5
+6,NORMAL_SKILL_INFO_02_28,"シーカーロープを構えて狙いをつける
+空中でも発動可能","Hold the Seeker Rope and take aim.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,6
+7,NORMAL_SKILL_INFO_02_29,"構えたシーカーロープを狙った対象に放つ
+空中でも発動可能","Throw the seeker rope towards the target aimed at.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,7
+8,NORMAL_SKILL_INFO_02_30,身を跳び退かせ、敵の攻撃を避ける,Duck and roll to avoid an enemy attack.,ui\00_message\skill\normal_skill_info_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,8
+9,NORMAL_SKILL_INFO_02_31,"腰を落とした姿勢で構え、
+近接してきた仲間を上方に放りあげる","Hold yourself in a crouched position, and toss
+nearby allies into the air.",ui\00_message\skill\normal_skill_info_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,9
+10,NORMAL_SKILL_INFO_02_36,空中で壁蹴りを行い、より遠方にジャンプする,"Kick off the wall while airbone, propelling
+yourself
+to further distances.",ui\00_message\skill\normal_skill_info_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,10
+11,NORMAL_SKILL_INFO_02_37,ジャンプ中、再度ジャンプを行う,"While jumping, perform a double jump.",ui\00_message\skill\normal_skill_info_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,11
+12,NORMAL_SKILL_INFO_02_38,"しがみついた状態から、素早い連続斬りを繰り出す
+ボタンの連打で攻撃回数が増加する
+<COL ffdc78>LV UPでより攻撃回数が増加する
+＜大乱斬り＞に進化</COL>","While climbing an enemy, perform a series of
+quick dagger slashes.
+The number of attacks rises with consecutive
+button presses.
+<COL ffdc78>LV UP: Further increases the number
+of attacks.
+Evolves into (Hundred Kisses).</COL>",ui\00_message\skill\normal_skill_info_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,12
+13,NORMAL_SKILL_INFO_02_39,"しがみついた状態から、
+より素早い連続斬りを繰り出す
+ボタンの連打で攻撃回数が増加する","While climbing an enemy, perform a series of
+quick dagger slashes.
+The number of attacks rises with consecutive
+button presses.",ui\00_message\skill\normal_skill_info_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,13
+0,NORMAL_SKILL_COMMAND_02_24,<KC ATTACK1>を連続して押す,Repeatedly press <KC ATTACK1>.,ui\00_message\skill\normal_skill_command_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,0
+1,NORMAL_SKILL_COMMAND_02_25,<KC ATTACK1>後、少し遅らせて<KC ATTACK1>を連続して押す,"After <KC ATTACK1>, delay a moment then
+repeatedly press <KC ATTACK1>.",ui\00_message\skill\normal_skill_command_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,1
+2,NORMAL_SKILL_COMMAND_02_26,<KC ATTACK2>を連続して押す,Repeatedly press <KC ATTACK2>.,ui\00_message\skill\normal_skill_command_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,2
+3,NORMAL_SKILL_COMMAND_02_27,<KC ATTACK2>を連続して押す,Repeatedly press <KC ATTACK2>.,ui\00_message\skill\normal_skill_command_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,3
+4,NORMAL_SKILL_COMMAND_02_32,空中で<KC ATTACK1>を連続して押す,Press <KC ATTACK1> while in the air.,ui\00_message\skill\normal_skill_command_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,4
+5,NORMAL_SKILL_COMMAND_02_33,空中で<KC ATTACK2>を押す,"While in the air, press <KC ATTACK2>.",ui\00_message\skill\normal_skill_command_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,5
+6,NORMAL_SKILL_COMMAND_02_28,<KC WEAPON_SUB>を押す,Press <KC WEAPON_SUB>.,ui\00_message\skill\normal_skill_command_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,6
+7,NORMAL_SKILL_COMMAND_02_29,<KC WEAPON_SUB>を押しながら<KC THROW_ROPE>を押す,"Hold <KC WEAPON_SUB>, then press <KC THROW_ROPE>.",ui\00_message\skill\normal_skill_command_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,7
+8,NORMAL_SKILL_COMMAND_02_30,<KC ROLLING>を押す,Press <KC ROLLING>.,ui\00_message\skill\normal_skill_command_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,8
+9,NORMAL_SKILL_COMMAND_02_31,<KC CATAPULT>を押す,Press <KC CATAPULT>.,ui\00_message\skill\normal_skill_command_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,9
+10,NORMAL_SKILL_COMMAND_02_36,<PADM>空中で壁に対して逆に左スティックを倒しながら<KC JUMP>を押す<KEYM>空中で壁に対して逆に移動キーを押しながら<KC JUMP>を押す,"Press <PADM><KC JUMP><KEYM><KC JUMP></KEYM> while
+holding the <PADM>left stick<KEYM>movement
+key</KEYM>
+opposite a wall while in the air.",ui\00_message\skill\normal_skill_command_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,10
+11,NORMAL_SKILL_COMMAND_02_37,空中で<KC JUMP>を押す,"While in the air, press <KC JUMP>.",ui\00_message\skill\normal_skill_command_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,11
+12,NORMAL_SKILL_COMMAND_02_38,しがみつき中に<KC ATTACK1>を連続して押す,"While climbing an enemy,
+repeatedly press <KC ATTACK1>",ui\00_message\skill\normal_skill_command_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,12
+13,NORMAL_SKILL_COMMAND_02_39,しがみつき中に<KC ATTACK1>を連続して押す,"While climbing an enemy,
+repeatedly press <KC ATTACK1>",ui\00_message\skill\normal_skill_command_02.gmd,\skill\normal_skill_data_02.arc,normal_skill_data_02.arc,13
+0,NORMAL_SKILL_INFO_03_40,"前方に向け弓を構える
+空中でも発動可能","Hold the bow forward.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,0
+1,NORMAL_SKILL_INFO_03_41,"弓構えの状態から矢を放つ
+空中でも発動可能","Loose arrows while in a bow stance.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,1
+2,NORMAL_SKILL_INFO_03_42,"矢を放った後、次の矢をつがえる速度が速くなる
+空中でも発動可能","After landing a hit with an arrow, the speed
+of the next arrow is increased.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,2
+3,NORMAL_SKILL_INFO_03_46,狙撃照準に切り替わり、正確に敵を狙い射てる,"Hone your sight, and precisely aim at the enemy.",ui\00_message\skill\normal_skill_info_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,3
+4,NORMAL_SKILL_INFO_03_43,"<PADM>爆薬矢をつがえ弓を上方に構える<KEYM>通常の弓構えか、上方に向ける
+爆矢構えかを選択する</KEYM>
+空中でも発動可能","<PADM>Hold an explosive arrow, and keep the bow
+pointed upwards.
+<KEYM>Point the bow upwards while in a normal bow
+stance,
+and decide the destination of the explosive
+arrows.</KEYM>
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,4
+5,NORMAL_SKILL_INFO_03_44,"爆薬矢を上方に放つ
+爆薬矢は一定時間で自動起爆するが
+攻撃により起爆させるとダメージが上昇する
+空中でも発動可能","Loose an explosive arrow upwards.
+The explosive arrow will detonate automatically
+after a period of time,
+but the damage increases by detonating when
+struck by an attack.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,5
+6,NORMAL_SKILL_INFO_03_45,"爆薬矢の準備動作が高速化される
+空中でも発動可能","Speed up the time it takes to prepare an
+explosive arrow.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,6
+7,NORMAL_SKILL_INFO_03_47,"前方に蹴りを放つ
+空中でも発動可能","Kick forward.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,7
+8,NORMAL_SKILL_INFO_03_48,矢筒に矢を補充する,Replenish the quiver with arrows.,ui\00_message\skill\normal_skill_info_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,8
+9,NORMAL_SKILL_INFO_03_49,矢筒に矢を高速補充する,Quickly replenish the quiver with arrows.,ui\00_message\skill\normal_skill_info_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,9
+10,NORMAL_SKILL_INFO_03_50,"矢の種類を切り替える
+空中でも発動可能","Switch the type of arrow.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,10
+11,NORMAL_SKILL_INFO_03_60,"しがみついた状態から
+装備中の矢の先端で突き刺す
+ボタン連打で攻撃回数が増加する","While climbing an enemy, stab into them with
+the tip of the arrow that is equipped.
+The number of attacks rises with repeated button
+presses.",ui\00_message\skill\normal_skill_info_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,11
+0,NORMAL_SKILL_COMMAND_03_40,<KC HOLD_BOW>を押す,Press <KC HOLD_BOW>.,ui\00_message\skill\normal_skill_command_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,0
+1,NORMAL_SKILL_COMMAND_03_41,弓構え中に<KC SHOOT>を押す,"While aiming, press <KC SHOOT>.",ui\00_message\skill\normal_skill_command_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,1
+2,NORMAL_SKILL_COMMAND_03_42,<KC HOLD_BOW>を押す,Press <KC HOLD_BOW>.,ui\00_message\skill\normal_skill_command_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,2
+3,NORMAL_SKILL_COMMAND_03_46,弓構え中に<KC CHANGE_MODE>を押す,"While aiming, press <KC CHANGE_MODE>.",ui\00_message\skill\normal_skill_command_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,3
+4,NORMAL_SKILL_COMMAND_03_43,<PADM><KC WEAPON_MAIN>を押す<KEYM>構え中に<ICON MOUSE_WHL_4>前後で選択（初期設定の場合）,"<PADM>Press <KC WEAPON_MAIN><KEYM>While aiming,
+select with <ICON MOUSE_WHL_4> (default
+setting)</KEYM>.",ui\00_message\skill\normal_skill_command_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,4
+5,NORMAL_SKILL_COMMAND_03_44,<PADM><KC WEAPON_MAIN>を押しながら<KC SHOOT>を押す<KEYM>爆矢構え中に<KC SHOOT>を押す,"<PADM>Hold <KC WEAPON_MAIN>, then press <KC
+SHOOT><KEYM>During Explosive Stance, press <KC
+SHOOT></KEYM>.",ui\00_message\skill\normal_skill_command_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,5
+6,NORMAL_SKILL_COMMAND_03_45,<PADM><KC WEAPON_MAIN>を押す<KEYM>構え中に<ICON MOUSE_WHL_4>前後で選択（初期設定の場合）,"<PADM>Press <KC WEAPON_MAIN><KEYM>While aiming,
+select with <ICON MOUSE_WHL_4> (default
+setting)</KEYM>.",ui\00_message\skill\normal_skill_command_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,6
+7,NORMAL_SKILL_COMMAND_03_47,<KC ATTACK1>を押す,Press <KC ATTACK1>.,ui\00_message\skill\normal_skill_command_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,7
+8,NORMAL_SKILL_COMMAND_03_48,<KC RELOAD>を押す,Press <KC RELOAD>.,ui\00_message\skill\normal_skill_command_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,8
+9,NORMAL_SKILL_COMMAND_03_49,<PADM>矢の装填中、特定のタイミングで<KC TOUCH>を押す<KEYM>矢の装填中、特定のタイミングで<KC RELOAD>を押す,"While reloading arrows, press <PADM><KC
+TOUCH><KEYM><KC RELOAD></KEYM>
+with perfect timing.",ui\00_message\skill\normal_skill_command_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,9
+10,NORMAL_SKILL_COMMAND_03_50,<KC CHANGE_ARROW>を押す,Press <KC CHANGE_ARROW>.,ui\00_message\skill\normal_skill_command_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,10
+11,NORMAL_SKILL_COMMAND_03_60,しがみつき中に<KC ATTACK1>を押す,"While climbing an enemy,
+press <KC ATTACK1>.",ui\00_message\skill\normal_skill_command_03.gmd,\skill\normal_skill_data_03.arc,normal_skill_data_03.arc,11
+0,NORMAL_SKILL_INFO_04_61,"杖から魔法球を放つ
+ボタンの長押しで弾数、威力が上昇する
+空中でも発動可能（ボタン長押しは地上のみ）","Fire magickal bolts from the tip of the cane.
+Holding the button down will increase the number
+and damage of bolts.
+Can be activated even while in the air, but can
+only charge on the ground.",ui\00_message\skill\normal_skill_info_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,0
+1,NORMAL_SKILL_INFO_04_62,"自身を中心に体力回復効果のある魔法エリアを
+展開する（最大回復量は治癒上限値）
+空中でも発動可能、フィールドシフトに対応
+<COL ffdc78>LV UPで回復力が上昇し、より広範囲に
+エリア展開する＜ヒールオーラエクス＞に進化</COL>","Release a magickal aura around yourself that
+recovers
+the health of those within it. (Maximum recovery
+amount scales with healing power.)
+Can be activated even while in the air, and works
+with Field Shift.
+<COL ffdc78>LV UP: Increases healing power, and
+becomes a larger radius
+form (Great Heal Aura).</COL>",ui\00_message\skill\normal_skill_info_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,1
+2,NORMAL_SKILL_INFO_04_63,"自身を中心に体力回復効果のある
+魔法エリアを広範囲に展開する
+空中でも発動可能、フィールドシフトに対応","Release a magical aura around yourself that
+recovers
+the health of those within it.
+Can be activated even while in the air, and works
+with Field Shift.",ui\00_message\skill\normal_skill_info_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,2
+3,NORMAL_SKILL_INFO_04_64,"自身を中心に聖属性を帯びた攻撃魔法エリアを
+展開する
+空中でも発動可能、フィールドシフトに対応
+<COL ffdc78>LV UPで攻撃威力が上昇し、より広範囲に
+エリア展開する＜セイントオーラエクス＞に進化</COL>","Release a damaging Holy aura around yourself.
+Can be activated even while in the air, and works
+with Field Shift.
+<COL ffdc78>LV UP: Increases damage of the skill,
+and becomes
+a larger radius form (Greater Holy Aura).</COL>",ui\00_message\skill\normal_skill_info_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,3
+4,NORMAL_SKILL_INFO_04_65,"自身を中心に聖属性を帯びた攻撃魔法エリアを
+広範囲に展開する
+空中でも発動可能、フィールドシフトに対応","Release a damaging Holy aura around yourself.
+Can be activated even while in the air, and works
+with Field Shift.",ui\00_message\skill\normal_skill_info_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,4
+5,NORMAL_SKILL_INFO_04_66,"自身が展開している魔法エリアを
+味方全員に移し付与する",Transfer an active magickal aura to an ally.,ui\00_message\skill\normal_skill_info_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,5
+6,NORMAL_SKILL_INFO_04_68,"ジャンプ中の落下速度を抑制し
+滞空時間を延長する","Slow your descent while falling, and
+extend the duration you stay in the air.",ui\00_message\skill\normal_skill_info_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,6
+7,NORMAL_SKILL_INFO_04_69,"しがみついた状態から、癒しの魔法陣を展開させる
+魔法陣の内部は味方の体力が回復する","While climbing an enemy, form a healing aura
+around yourself
+that recovers the health of allies inside of it.",ui\00_message\skill\normal_skill_info_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,7
+8,NORMAL_SKILL_INFO_04_146,"しがみついた状態から、自身を中心に
+聖属性の攻撃魔法エリアを展開する","While climbing an enemy, form a damaging holy
+aura around yourself.",ui\00_message\skill\normal_skill_info_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,8
+0,NORMAL_SKILL_COMMAND_04_61,<KC ATTACK2>を押す,Press <KC ATTACK2>.,ui\00_message\skill\normal_skill_command_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,0
+1,NORMAL_SKILL_COMMAND_04_62,<KC ATTACK1>を押す、再度押すと解除,"Press <KC ATTACK1>, press again to cancel.",ui\00_message\skill\normal_skill_command_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,1
+2,NORMAL_SKILL_COMMAND_04_63,<KC ATTACK1>を押す、再度押すと解除,"Press <KC ATTACK1>, press again to cancel.",ui\00_message\skill\normal_skill_command_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,2
+3,NORMAL_SKILL_COMMAND_04_64,<KC SKILL_NORMAL1>を押す、再度押すと解除,"Press <KC SKILL_NORMAL1>, press again to cancel.",ui\00_message\skill\normal_skill_command_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,3
+4,NORMAL_SKILL_COMMAND_04_65,<KC SKILL_NORMAL1>を押す、再度押すと解除,"Press <KC SKILL_NORMAL1>, press again to cancel.",ui\00_message\skill\normal_skill_command_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,4
+5,NORMAL_SKILL_COMMAND_04_66,<KC SKILL_NORMAL2>を押す,Press <KC SKILL_NORMAL2>.,ui\00_message\skill\normal_skill_command_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,5
+6,NORMAL_SKILL_COMMAND_04_68,空中で<KC JUMP>を押す,"While in the air, press <KC JUMP>.",ui\00_message\skill\normal_skill_command_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,6
+7,NORMAL_SKILL_COMMAND_04_69,しがみつき中に<KC ATTACK1>を押す、再度押すと解除,"While climbing an enemy,
+press <KC ATTACK1>, press again to cancel.",ui\00_message\skill\normal_skill_command_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,7
+8,NORMAL_SKILL_COMMAND_04_146,しがみつき中に<KC SKILL_NORMAL1>を押す、再度押すと解除,"While climbing an enemy,
+press <KC SKILL_NORMAL1>, press again to cancel.",ui\00_message\skill\normal_skill_command_04.gmd,\skill\normal_skill_data_04.arc,normal_skill_data_04.arc,8
+0,NORMAL_SKILL_INFO_05_70,大盾で殴りつける,Attack with your greatshield.,ui\00_message\skill\normal_skill_info_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,0
+1,NORMAL_SKILL_INFO_05_83,空中から大盾で殴りつける,Attack with your greatshield in the air.,ui\00_message\skill\normal_skill_info_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,1
+2,NORMAL_SKILL_INFO_05_72,"ロッドに属性効果を付与する
+（炎・氷・雷のいずれか）
+空中でも発動可能
+<COL ffdc78>LV UPで選択可能属性が聖・闇を含む
+５属性の＜ペンタエレメントチェンジ＞に進化</COL>","Change the elemental attribute on your rod.
+(Ice/Fire/Thunder)
+Can be activated in the air.
+<COL ffdc78>LV UP: Add the elements of Light and
+Darkness
+to the elements you can change to.</COL>",ui\00_message\skill\normal_skill_info_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,2
+3,NORMAL_SKILL_INFO_05_73,"ロッドに属性効果を付与する
+（炎・氷・雷・聖・闇のいずれか）
+空中でも発動可能","Change the elemental attribute on your rod.
+(Ice/Fire/Thunder/Light/Darkness)
+Can be activated in the air.",ui\00_message\skill\normal_skill_info_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,3
+4,NORMAL_SKILL_INFO_05_74,"大盾で敵の攻撃を自動的に防ぎ、攻力を吸収する
+ロッドの選択属性と受けた攻撃が同属性だと
+吸収量増加。空中でも発動可能","Block the enemy's attack with your greatshield to
+charge the gauge with the current element on your
+rod.
+Can be activated in the air.",ui\00_message\skill\normal_skill_info_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,4
+5,NORMAL_SKILL_INFO_05_75,"大盾を構え、防御方向を固定する
+固定中は攻力吸収量が上がり、スキが減少
+ロッドの選択属性と受けた攻撃が同属性だと
+吸収量増加。空中でも発動可能","Affix your greatshield towards the enemy,
+increasing
+the rate of gauge gain. Gauge increase is larger
+if the attack matches the element on your rod.
+Can be activated in the air.",ui\00_message\skill\normal_skill_info_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,5
+6,NORMAL_SKILL_INFO_05_76,"大盾で敵の攻撃をタイミングよく直前防御する
+多量の攻力を吸収し、スタミナ消費もゼロになる
+ロッドの選択属性と受けた攻撃が同属性だと
+吸収量増加。空中でも発動可能","Activate the greatshield as an enemy strikes you
+to
+increase the gauge by a large amount. Gauge
+increase
+is larger if the attack matches the element on
+your rod. Consumes no Stamina on block.",ui\00_message\skill\normal_skill_info_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,6
+7,NORMAL_SKILL_INFO_05_77,"大盾に蓄積した攻力を敵に放つ
+空中でも発動可能
+フォースゲージ１本消費で発動可能","Fire a ball of elemental energy at the enemy.
+The element is the same as the current selected.
+Consumes 1 bar of Force Gauge.",ui\00_message\skill\normal_skill_info_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,7
+8,NORMAL_SKILL_INFO_05_78,"ロッドの閃光で敵の注目を集め、自身を狙わせる
+注目を集めている間、フォースゲージがやや増加する
+空中でも発動可能
+<COL ffdc78>LV UPで敵の注目を奪う効果がより大きい
+＜モアアトラクト＞に進化</COL>","Attract the attention of the enemies.
+Increases Force Gauge slightly during execution.
+<COL ffdc78>LV UP Increases the amount of
+attraction.</COL>",ui\00_message\skill\normal_skill_info_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,8
+9,NORMAL_SKILL_INFO_05_79,"ロッドの閃光で敵の注目をより集め、自身を狙わせる
+注目を集めている間、フォースゲージがやや増加する
+空中でも発動可能","Attract the attention of enemies by a large
+amount.
+Increases Force Gauge slightly during execution.
+Can be activated in the air.",ui\00_message\skill\normal_skill_info_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,9
+10,NORMAL_SKILL_INFO_05_80,"大盾に蓄積した攻力（炎・氷・雷・聖・闇いずれか）
+を属性化し味方に付与する。空中でも発動可能
+フォースゲージ１本消費で発動可能","Consumes 1 bar of Force Gauge to enchant ally
+weapons with the currently selected rod element.
+Can be activated in the air.",ui\00_message\skill\normal_skill_info_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,10
+11,NORMAL_SKILL_INFO_05_81,"敵の攻撃を大盾で防いだ直後、敵の注意を引く
+属性攻撃をするか、素早く後方に身を逸らす
+攻撃時フォースゲージ1本以上なら消費し技性能上昇","Immediately after blocking, either attack
+the enemy to increase enmity or dodge backwards.
+Will consume 1 Force Gauge to increase effects if
+available.",ui\00_message\skill\normal_skill_info_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,11
+12,NORMAL_SKILL_INFO_05_91,"しがみついた状態から、付与した属性の異常値を
+敵に蓄積させる放射光を放つ
+フォースゲージ１本以上の時、消費して技性能上昇","While clinging to an enemy, attack with the
+currently
+selected attribute. Will consume 1 bar of force
+gauge to enhance the effect if available.",ui\00_message\skill\normal_skill_info_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,12
+0,NORMAL_SKILL_COMMAND_05_70,<KC ATTACK1>を押す,Press <KC ATTACK1>.,ui\00_message\skill\normal_skill_command_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,0
+1,NORMAL_SKILL_COMMAND_05_83,空中で<KC ATTACK1>を押す,"While in the air, press <KC ATTACK1>.",ui\00_message\skill\normal_skill_command_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,1
+2,NORMAL_SKILL_COMMAND_05_72,"<PADM><KC ATTACK2>を押し、左スティックを倒して３属性を選択<KEYM><KC ATTACK2>を押し、マウス移動で３属性を選択</KEYM>
+<PADM><KC ATTACK2>を押して属性決定<KEYM><KC ATTACK1>または<KC ATTACK2>を押して属性決定","Press <PADM><KC ATTACK2><KEYM><KC
+ATTACK2></KEYM>, then select from
+<PADM>3<KEYM>3</KEYM> elements
+using <PADM>the left stick<KEYM>mouse
+movement</KEYM>.
+Press <PADM><KC ATTACK2><KEYM><KC ATTACK1> or <KC
+ATTACK2></KEYM> to confirm element choice.",ui\00_message\skill\normal_skill_command_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,2
+3,NORMAL_SKILL_COMMAND_05_73,"<PADM><KC ATTACK2>を押し、左スティックを倒して５属性を選択<KEYM><KC ATTACK2>を押し、マウス移動で５属性を選択</KEYM>
+<PADM><KC ATTACK2>を押して属性決定<KEYM><KC ATTACK1>または<KC ATTACK2>を押して属性決定","Press <PADM><KC ATTACK2><KEYM><KC
+ATTACK2></KEYM>, then select from
+<PADM>5<KEYM>5</KEYM> elements
+using <PADM>the left stick<KEYM>mouse
+movement</KEYM>.
+Press <PADM><KC ATTACK2><KEYM><KC ATTACK1> or <KC
+ATTACK2></KEYM> to confirm element choice.",ui\00_message\skill\normal_skill_command_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,3
+4,NORMAL_SKILL_COMMAND_05_74,敵の攻撃を受ける（スキル発動中を除く）,Block an enemy attack (except when using skills).,ui\00_message\skill\normal_skill_command_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,4
+5,NORMAL_SKILL_COMMAND_05_75,<KC WEAPON_SUB>を押す,Press <KC WEAPON_SUB>.,ui\00_message\skill\normal_skill_command_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,5
+6,NORMAL_SKILL_COMMAND_05_76,敵の攻撃を引きつけて<KC WEAPON_SUB>を押す,"Just as an enemy attacks,
+press <KC WEAPON_SUB>.",ui\00_message\skill\normal_skill_command_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,6
+7,NORMAL_SKILL_COMMAND_05_77,<KC SKILL_NORMAL2>を押す,Press <KC SKILL_NORMAL2>.,ui\00_message\skill\normal_skill_command_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,7
+8,NORMAL_SKILL_COMMAND_05_78,<KC WEAPON_MAIN>を押し続ける,Hold <KC WEAPON_MAIN>,ui\00_message\skill\normal_skill_command_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,8
+9,NORMAL_SKILL_COMMAND_05_79,<KC WEAPON_MAIN>を押し続ける,Hold <KC WEAPON_MAIN>,ui\00_message\skill\normal_skill_command_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,9
+10,NORMAL_SKILL_COMMAND_05_80,<KC SKILL_NORMAL1>を押す,Press <KC SKILL_NORMAL1>.,ui\00_message\skill\normal_skill_command_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,10
+11,NORMAL_SKILL_COMMAND_05_81,敵の攻撃を防いだ直後、<PADM>左スティックを素早く後方から前方で反撃、前方から後方で後退<KEYM><KC MOVE_FORWARD>を素早く２回押すと反撃、<KC MOVE_BACKWARD>を素早く２回押すと後退</KEYM>,"Immediately after guarding against an enemy
+attack,
+<PADM>quickly tap the left stick to counterattack,
+quickly tap the left stick twice to
+retreat.<KEYM>quickly press <KC MOVE_FORWARD>
+twice to counterattack,
+quickly press <KC MOVE_BACKWARD> twice to retreat.",ui\00_message\skill\normal_skill_command_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,11
+12,NORMAL_SKILL_COMMAND_05_91,しがみつき中に<KC ATTACK1>を押す,"While climbing an enemy,
+press <KC ATTACK1>.",ui\00_message\skill\normal_skill_command_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,12
+0,NORMAL_SKILL_INFO_06_92,"魔法弾を放つ
+空中でも発動可能","Release a magickal bolt.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_06.gmd,\skill\normal_skill_data_06.arc,normal_skill_data_06.arc,0
+1,NORMAL_SKILL_INFO_06_93,"魔法の罠を敵の足元に展開する
+空中でも発動可能","Summon a Magickal Trap at an enemy's feet.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_06.gmd,\skill\normal_skill_data_06.arc,normal_skill_data_06.arc,1
+2,NORMAL_SKILL_INFO_06_94,"マジックボールの弾数と
+マジックトラップの範囲を上昇させる
+空中でも発動可能","Increases the number of Magick Bolts released and
+extends the range of Magick Traps.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_06.gmd,\skill\normal_skill_data_06.arc,normal_skill_data_06.arc,2
+3,NORMAL_SKILL_INFO_06_95,"魔法詠唱中スペルサークルに示される順序で
+<PADM>スティック入力<KEYM>マウス移動</KEYM>を行い、魔法の威力を増加させる","Move the <PADM> Right Stick;KEYM>Mouse</KEYM> in
+the order shown in the magic circle while casting
+a spell to increase its power.",ui\00_message\skill\normal_skill_info_06.gmd,\skill\normal_skill_data_06.arc,normal_skill_data_06.arc,3
+4,NORMAL_SKILL_INFO_06_96,後方にすばやく移動する,Quickly dodge backwards.,ui\00_message\skill\normal_skill_info_06.gmd,\skill\normal_skill_data_06.arc,normal_skill_data_06.arc,4
+5,NORMAL_SKILL_INFO_06_101,"ジャンプ中の落下速度を抑制し
+滞空時間を延長する","Slow your descent while falling, and
+extend the duration you stay in the air.",ui\00_message\skill\normal_skill_info_06.gmd,\skill\normal_skill_data_06.arc,normal_skill_data_06.arc,5
+6,NORMAL_SKILL_INFO_06_102,"しがみついた状態から、敵の体に魔印を刻む
+魔印に攻撃を加えると魔法波で敵を攻撃する","While climbing an enemy, place a magickal orb on
+them
+that when attacked, will explode into waves of
+powerful magick.",ui\00_message\skill\normal_skill_info_06.gmd,\skill\normal_skill_data_06.arc,normal_skill_data_06.arc,6
+0,NORMAL_SKILL_COMMAND_06_92,<KC ATTACK1>を押して詠唱、詠唱完了で発動,"Press <KC ATTACK1> to chant,
+activated on completion.",ui\00_message\skill\normal_skill_command_06.gmd,\skill\normal_skill_data_06.arc,normal_skill_data_06.arc,0
+1,NORMAL_SKILL_COMMAND_06_93,<KC ATTACK2>を押して詠唱、詠唱完了で発動,"Press <KC ATTACK2> to chant,
+activated on completion.",ui\00_message\skill\normal_skill_command_06.gmd,\skill\normal_skill_data_06.arc,normal_skill_data_06.arc,1
+2,NORMAL_SKILL_COMMAND_06_94,"マジックボール、マジックトラップ使用時に
+自動的に発動","Automatically activated when you use
+Magick Bolts or Magick Trap.",ui\00_message\skill\normal_skill_command_06.gmd,\skill\normal_skill_data_06.arc,normal_skill_data_06.arc,2
+3,NORMAL_SKILL_COMMAND_06_95,"詠唱中、<KC CHANGE_MODE>でスペリング入力モードに切り替え
+<PADM>右スティックで規定コマンド入力<KEYM>マウス移動で規定コマンド入力</KEYM>","During a chant, switch to glyph
+input mode with <KC CHANGE_MODE>.
+Input the shown glyph with <PADM>the right
+stick<KEYM>mouse movement</KEYM>.",ui\00_message\skill\normal_skill_command_06.gmd,\skill\normal_skill_data_06.arc,normal_skill_data_06.arc,3
+4,NORMAL_SKILL_COMMAND_06_96,<KC AVOID>を押す,Press <KC AVOID>.,ui\00_message\skill\normal_skill_command_06.gmd,\skill\normal_skill_data_06.arc,normal_skill_data_06.arc,4
+5,NORMAL_SKILL_COMMAND_06_101,空中で<KC JUMP>を押す,"While in the air, press <KC JUMP>.",ui\00_message\skill\normal_skill_command_06.gmd,\skill\normal_skill_data_06.arc,normal_skill_data_06.arc,5
+6,NORMAL_SKILL_COMMAND_06_102,しがみつき中に<KC ATTACK1>を押す,"While climbing an enemy,
+press <KC ATTACK1>.",ui\00_message\skill\normal_skill_command_06.gmd,\skill\normal_skill_data_06.arc,normal_skill_data_06.arc,6
+0,NORMAL_SKILL_INFO_07_103,"大剣で斬りつける
+攻撃を当てることで連続斬りが可能","Deliver slashes with a large sword.
+Landing the first hit will allow further
+consecutive slashes.",ui\00_message\skill\normal_skill_info_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,0
+1,NORMAL_SKILL_INFO_07_104,"大剣で広範囲に対して斬撃を放つ
+攻撃を当てることで連続斬りが可能","Deliver slashes over a wide area with a large
+sword.
+Landing the first hit will allow further
+consecutive slashes.",ui\00_message\skill\normal_skill_info_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,1
+2,NORMAL_SKILL_INFO_07_105,"振り上げた大剣に力を溜め、振り下ろす
+溜め満了の瞬間にボタンを離すと威力大幅上昇
+リベンジゲージ蓄積量に応じて、さらに威力が増加
+<COL ffdc78>LV UPでさらに攻撃威力が上昇する
+＜真・魔人斬り＞に進化</COL>","Channel energy into the blade, and slam it down.
+When the button is released the moment the charge
+finishes, the damage
+increases significantly.
+Increases in damage as the Revenge Gauge rises.
+<COL ffdc78>LV UP: Increases damage of the skill.
+Becomes (Indomitable Lash).</COL>",ui\00_message\skill\normal_skill_info_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,2
+3,NORMAL_SKILL_INFO_07_106,"振り上げた大剣に力を溜め、渾身の力で振り下ろす
+溜め満了の瞬間にボタンを離すと威力大幅上昇
+リベンジゲージ蓄積量に応じて、さらに威力が増加","Channel energy into the blade, and slam it down
+with
+the force of the entire body. When the button is
+released the moment the charge
+finishes, the damage increases significantly.
+Increases in damage as the Revenge Gauge rises.",ui\00_message\skill\normal_skill_info_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,3
+4,NORMAL_SKILL_INFO_07_107,"身を固め、敵の攻撃に耐える
+攻撃を受けとめるとリベンジゲージが増加する","Steel yourself, and endure an enemy's attack.
+Increases the Revenge Gauge a bit when hit by an
+attack.",ui\00_message\skill\normal_skill_info_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,4
+5,NORMAL_SKILL_INFO_07_108,"腰を落とした姿勢で構え、
+近接してきた仲間を上方に放りあげる","Hold yourself in a crouched position, and toss
+nearby allies into the air.",ui\00_message\skill\normal_skill_info_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,5
+6,NORMAL_SKILL_INFO_07_109,空中で大剣の一撃を振るう,Deliver slashes with the blade while in the air.,ui\00_message\skill\normal_skill_info_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,6
+7,NORMAL_SKILL_INFO_07_110,"空中から多段ヒット性能を持つ振り下ろし攻撃を放つ
+高所から行うことで威力が上昇する","Slam the blade downward while in the air,
+delivering multiple hits.
+Damage rises when performed from high altitudes.",ui\00_message\skill\normal_skill_info_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,7
+8,NORMAL_SKILL_INFO_07_111,転倒を回避し体勢を立て直す,Recover from being knocked away while in the air.,ui\00_message\skill\normal_skill_info_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,8
+9,NORMAL_SKILL_INFO_07_112,"しがみついた状態から力を溜め、
+破壊力のある一撃を放つ","While clinging to an enemy, the user readies the
+blade briefly, and delivers a single devastating
+blow.",ui\00_message\skill\normal_skill_info_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,9
+0,NORMAL_SKILL_COMMAND_07_103,<KC ATTACK1>を連続して押す,Repeatedly press <KC ATTACK1>.,ui\00_message\skill\normal_skill_command_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,0
+1,NORMAL_SKILL_COMMAND_07_104,<KC ATTACK1>後、少し遅らせて<KC ATTACK1>を連続して押す,"After <KC ATTACK1>, delay a moment then
+repeatedly press <KC ATTACK1>.",ui\00_message\skill\normal_skill_command_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,1
+2,NORMAL_SKILL_COMMAND_07_105,<KC ATTACK2>長押し後、離すと発動,Hold <KC ATTACK2> for a moment then release.,ui\00_message\skill\normal_skill_command_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,2
+3,NORMAL_SKILL_COMMAND_07_106,<KC ATTACK2>長押し後、離すと発動,Hold <KC ATTACK2> for a moment then release.,ui\00_message\skill\normal_skill_command_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,3
+4,NORMAL_SKILL_COMMAND_07_107,<KC AVOID>を押す,Press <KC AVOID>.,ui\00_message\skill\normal_skill_command_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,4
+5,NORMAL_SKILL_COMMAND_07_108,<KC CATAPULT>を押す,Press <KC CATAPULT>.,ui\00_message\skill\normal_skill_command_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,5
+6,NORMAL_SKILL_COMMAND_07_109,空中で<KC ATTACK1>を押す,"While in the air, press <KC ATTACK1>.",ui\00_message\skill\normal_skill_command_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,6
+7,NORMAL_SKILL_COMMAND_07_110,空中で<KC ATTACK2>を押す,"While in the air, press <KC ATTACK2>.",ui\00_message\skill\normal_skill_command_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,7
+8,NORMAL_SKILL_COMMAND_07_111,吹き飛ばされ中に<KC JUMP>を押す,"While being knocked away, press <KC JUMP>.",ui\00_message\skill\normal_skill_command_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,8
+9,NORMAL_SKILL_COMMAND_07_112,しがみつき中に<KC ATTACK1>長押し後、離すと発動,"While climbing an enemy,
+hold <KC ATTACK1> for a moment then release.",ui\00_message\skill\normal_skill_command_07.gmd,\skill\normal_skill_data_07.arc,normal_skill_data_07.arc,9
+0,NORMAL_SKILL_INFO_08_113,"闘波の矢を生成し、魔道弓を前方に向けて構える
+空中でも発動可能","Hold the Magick Bow forward, and create Seeker
+Arrows.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_08.gmd,\skill\normal_skill_data_08.arc,normal_skill_data_08.arc,0
+1,NORMAL_SKILL_INFO_08_114,"魔道弓を敵に向け、対象を捉える
+捉える敵が多いほど、闘波の矢の威力上昇速度が
+速くなる。空中でも発動可能","Face the Magick Bow towards the enemy, and
+capture them within its sights. The more enemies
+that are targeted,
+the higher the rate at which the Seeker Arrow
+charges.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_08.gmd,\skill\normal_skill_data_08.arc,normal_skill_data_08.arc,1
+2,NORMAL_SKILL_INFO_08_115,"捉えた敵に向けて闘波の矢を放ち、攻撃を与える
+空中でも発動可能","Fire the Seeker Arrow towards the
+targeted enemy.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_08.gmd,\skill\normal_skill_data_08.arc,normal_skill_data_08.arc,2
+3,NORMAL_SKILL_INFO_08_116,"闘波の矢の威力を強化する
+空中でも発動可能","Increases damage of the Seeker Arrow.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_08.gmd,\skill\normal_skill_data_08.arc,normal_skill_data_08.arc,3
+4,NORMAL_SKILL_INFO_08_117,"助真の矢を生成し、魔道弓を前方に向けて構える
+空中でも発動可能","Hold the Magick Bow forward, and create True Aid
+Arrows.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_08.gmd,\skill\normal_skill_data_08.arc,normal_skill_data_08.arc,4
+5,NORMAL_SKILL_INFO_08_118,"魔道弓を味方に向け、対象を捉える
+捉える味方が多いほど、助真の矢の回復力
+上昇速度が速くなる。空中でも発動可能","Face the Magick Bow towards an ally, and
+capture them within its sights. The more allies
+that are targeted,
+the higher the rate at which the True Aid Arrow
+charges.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_08.gmd,\skill\normal_skill_data_08.arc,normal_skill_data_08.arc,5
+6,NORMAL_SKILL_INFO_08_119,"捉えた味方に向けて助真の矢を放ち、味方の傷を癒す
+空中でも発動可能","Fire the True Aid Arrow at a targeted ally
+and heal their wounds.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_08.gmd,\skill\normal_skill_data_08.arc,normal_skill_data_08.arc,6
+7,NORMAL_SKILL_INFO_08_120,"助真の矢の威力を強化する
+空中でも発動可能","Enhances the recovery power of the True Aid Arrow.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_08.gmd,\skill\normal_skill_data_08.arc,normal_skill_data_08.arc,7
+8,NORMAL_SKILL_INFO_08_121,"前方に蹴りを放つ
+空中でも発動可能","Kick forward.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_08.gmd,\skill\normal_skill_data_08.arc,normal_skill_data_08.arc,8
+9,NORMAL_SKILL_INFO_08_122,"自身の傷を癒す
+空中でも発動可能","Heal your wounds.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_08.gmd,\skill\normal_skill_data_08.arc,normal_skill_data_08.arc,9
+10,NORMAL_SKILL_INFO_08_123,"照準をより多数の目標に合わせ、狙いを定める
+空中でも発動可能","Increase the maximum number of targets
+that can be locked on while aiming.
+Can be activated even while in the air.",ui\00_message\skill\normal_skill_info_08.gmd,\skill\normal_skill_data_08.arc,normal_skill_data_08.arc,10
