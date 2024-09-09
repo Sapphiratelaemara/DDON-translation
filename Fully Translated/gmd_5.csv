@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
 8,GREAT_PURPOSE_9,エリアミッション《力に呑まれし王者》を攻略せよ！,"Clear Area Mission ""The Ruler Overwhelmed by
 Power""!",ui\00_message\achievement\greate_purpose_6.gmd,\ui\uGUIGreatPurpose.arc,uGUIGreatPurpose.arc,8
 9,GREAT_PURPOSE_10,エピタフロード《英霊眠りし道 メガドシスの記憶》を攻略せよ！,"Clear the Epitaph Road ""Heroic Spirit Sleeping
@@ -964,7 +964,7 @@ anniversary.",ui\00_message\clan_shop\clan_shop_lineups.gmd,\ui\uGUIPopBuffBonus
 42,CONDITION_NAME_52,闇攻付加,Add Dark Attack,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,42
 43,CONDITION_NAME_53,体力上昇,Max Health Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,43
 44,CONDITION_NAME_54,スタミナ上昇,Max Stamina Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,44
-45,CONDITION_NAME_57,強化,Enhance,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,45
+45,CONDITION_NAME_57,強化,Strengthed,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,45
 46,CONDITION_NAME_58,侵食・軽度,Slight Corruption,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,46
 47,CONDITION_NAME_59,侵食・重度,Severe Corruption,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,47
 48,CONDITION_NAME_60,侵食・危険,Critical Corruption,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,48
@@ -1272,7 +1272,8 @@ lv</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uG
 より敵の体勢を崩しやすくなる
 <COL ffdc78>LV毎に吹き飛ばし力がより増加</COL>","Increases the Blow Power of Magic Trap,
 allowing it to break enemy posture more easily.
-<COL ffdc78>LV UP: Further increases Blow Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,80
+<COL ffdc78>LV UP: Further increases Blow
+Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,80
 81,IDX_208,"スペリング入力の成功時にスタミナが回復する
 <COL ffdc78>LV毎にスタミナ回復量がより増加</COL>","Restores Stamina upon successful spell inputs.
 <COL ffdc78>LV UP: Increases Stamina restored

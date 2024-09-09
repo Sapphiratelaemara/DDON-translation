@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
 13,q00030420_00_5014,悪しき竜のねぐらへ向かい黒剣を探す,,ui\00_message\quest_info\q00030420_00.gmd,\quest\q00030420.arc,q00030420.arc,13
 13,q00030420_00_5014,悪しき竜のねぐらへ向かい黒剣を探す,,ui\00_message\quest_info\q00030420_00.gmd,\ui\history\history_data_001.arc,history_data_001.arc,13
 14,q00030420_00_5015,魔物を倒し黒剣を破壊する,,ui\00_message\quest_info\q00030420_00.gmd,\quest\q00030420.arc,q00030420.arc,14
@@ -1062,7 +1062,8 @@ Extract information related to <NPC 681>",ui\00_message\quest_info\q10320401_00.
 こないだも道端で困っている風なご同業がいたけど
 なんて言えばいいかわからなくて、通り過ぎたんだ
 自分の思い切りのなさに、ほんと呆れるよ",,ui\00_message\quest_info\q20000001_00.gmd,\quest\q20000001.arc,q20000001.arc,3
-4,q20000001_00_1124,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q20000001_00.gmd,\quest\q20000001.arc,q20000001.arc,4
+4,q20000001_00_1124,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q20000001_00.gmd,\quest\q20000001.arc,q20000001.arc,4
 0,q20000002_00_27,輸送係の悲劇,A Transporter's Tragedy,ui\00_message\quest_info\q20000002_00.gmd,\quest\q20000002.arc,q20000002.arc,0
 1,q20000002_00_27,"依頼者の願いを聞き入れ
 望む物品を集める",,ui\00_message\quest_info\q20000002_00.gmd,\quest\q20000002.arc,q20000002.arc,1
@@ -1083,8 +1084,8 @@ Extract information related to <NPC 681>",ui\00_message\quest_info\q10320401_00.
 0,q20000003_00_29,助手の助手,An Assistant's Assistant,ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,0
 1,q20000003_00_29,"クラウスの依頼を聞き
 神殿各所に営業許可証を届ける","Listen to Klaus' request
-and deliver business permits
-to various locations in the Temple.",ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,1
+and deliver business permits to 
+various locations in the Temple.",ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,1
 2,q20000003_00_29,"<NAME AREA>には今
 覚者の助けを欲する者がいるらしい","It seems that in <NAME AREA>, 
 there are people seeking the Arisen's help.",ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,2
@@ -1093,25 +1094,25 @@ there are people seeking the Arisen's help.",ui\00_message\quest_info\q20000003_
 しておられた
 ご自身の研究のことで考え事でもされていたのか
 あるいは急ぎの用事でも思い出されたのか――
-ふむ、お声をかけておくべきだったかな","Master Klaus,
-who always seems to be lost in thought,
+ふむ、お声をかけておくべきだったかな","Master Klaus, who always seems to be lost in thought,
 had a rather serious expression on his face 
 when I saw him earlier.
+
 I wonder if he was pondering something 
-about his research, or if he had remembered
-an urgent matter.
+about his research,
+or if he had remembered an urgent matter.
 Hmm, perhaps I should have spoken to him.",ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,3
 4,q20000003_00_811,神殿内の商人に営業許可証を渡す（残り８）,Deliver the permits to the merchants (8 left),ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,4
-12,q20000003_00_896,クラウスに報告する,Report to Klaus,ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,12
-14,q20000003_00_896,クラウスに報告する,Report to Klaus,ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,14
-5,q20000003_00_1069,神殿内の商人に営業許可証を渡す（残り７）,Deliver the permits to the merchants (7 left),ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,5
-6,q20000003_00_1070,神殿内の商人に営業許可証を渡す（残り６）,Deliver the permits to the merchants (6 left),ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,6
-7,q20000003_00_1071,神殿内の商人に営業許可証を渡す（残り５）,Deliver the permits to the merchants (5 left),ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,7
-8,q20000003_00_1072,神殿内の商人に営業許可証を渡す（残り４）,Deliver the permits to the merchants (4 left),ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,8
-9,q20000003_00_1073,神殿内の商人に営業許可証を渡す（残り３）,Deliver the permits to the merchants (3 left),ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,9
-10,q20000003_00_1074,神殿内の商人に営業許可証を渡す（残り２）,Deliver the permits to the merchants (2 left),ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,10
-11,q20000003_00_1075,神殿内の商人に営業許可証を渡す（残り１）,Deliver the permits to the merchants (1 left),ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,11
-13,q20000003_00_1131,グリッテン砦のタルコットに許可証を渡す,Give the Permit to Talcott at Gritten Fort,ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,13
+12,q20000003_00_896,クラウスに報告する,Deliver the permits to the merchants (7 left),ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,12
+14,q20000003_00_896,クラウスに報告する,Deliver the permits to the merchants (6 left),ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,14
+5,q20000003_00_1069,神殿内の商人に営業許可証を渡す（残り７）,Deliver the permits to the merchants (5 left),ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,5
+6,q20000003_00_1070,神殿内の商人に営業許可証を渡す（残り６）,Deliver the permits to the merchants (4 left),ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,6
+7,q20000003_00_1071,神殿内の商人に営業許可証を渡す（残り５）,Deliver the permits to the merchants (3 left),ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,7
+8,q20000003_00_1072,神殿内の商人に営業許可証を渡す（残り４）,Deliver the permits to the merchants (2 left),ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,8
+9,q20000003_00_1073,神殿内の商人に営業許可証を渡す（残り３）,Deliver the permits to the merchants (1 left),ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,9
+10,q20000003_00_1074,神殿内の商人に営業許可証を渡す（残り２）,Report to Klaus,ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,10
+11,q20000003_00_1075,神殿内の商人に営業許可証を渡す（残り１）,Give the Permit to Talcott of Gritten Fort,ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,11
+13,q20000003_00_1131,グリッテン砦のタルコットに許可証を渡す,Report to Klaus,ui\00_message\quest_info\q20000003_00.gmd,\quest\q20000003.arc,q20000003.arc,13
 0,q20000004_00_28,嘆願書対応　廃墟魔物退治,A Petition to Rid of Demons in Ruins,ui\00_message\quest_info\q20000004_00.gmd,\quest\q20000004.arc,q20000004.arc,0
 1,q20000004_00_28,"ジョゼフの話を聞き
 嘆願書の案件を解決する",,ui\00_message\quest_info\q20000004_00.gmd,\quest\q20000004.arc,q20000004.arc,1

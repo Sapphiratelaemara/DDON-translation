@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
 121,EDIT_MSG_SUB_TITLE_EYEBROW,Eyebrow,Brows,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,121
 117,EDIT_MSG_SUB_TITLE_FACE,Face,Face,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,117
 117,EDIT_MSG_SUB_TITLE_FACE,Face,Face,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,117
@@ -384,8 +384,8 @@ Notes
 99,EDIT_MSG_TYPE_PERSONAL_ACTIVE,アクティブ,Active,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,99
 101,EDIT_MSG_TYPE_PERSONAL_COOL,クール,Cool,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,101
 101,EDIT_MSG_TYPE_PERSONAL_COOL,クール,Cool,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,101
-97,EDIT_MSG_TYPE_PERSONAL_NORMAL,ノーマル,Normal,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,97
-97,EDIT_MSG_TYPE_PERSONAL_NORMAL,ノーマル,Normal,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,97
+97,EDIT_MSG_TYPE_PERSONAL_NORMAL,ノーマル,Middle,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,97
+97,EDIT_MSG_TYPE_PERSONAL_NORMAL,ノーマル,Middle,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,97
 102,EDIT_MSG_TYPE_PERSONAL_PURE,ピュア,Pure,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,102
 102,EDIT_MSG_TYPE_PERSONAL_PURE,ピュア,Pure,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,102
 104,EDIT_MSG_TYPE_PERSONAL_SEXY,セクシー,Sexy,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,104
@@ -982,12 +982,12 @@ Do not turn off the power of the PC",ui\00_message\ui\character_edit_dialog_win.
 1,EDIT_MSG_DIALOG_REPLY_NO,いいえ,No,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,1
 1,EDIT_MSG_DIALOG_REPLY_NO,いいえ,Cancel,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUISaveListComment.arc,uGUISaveListComment.arc,1
 1,EDIT_MSG_DIALOG_REPLY_NO,いいえ,Cancel,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUISaveListPC.arc,uGUISaveListPC.arc,1
-2,EDIT_MSG_DIALOG_REPLY_OK,OK,Confirm,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,2
-2,EDIT_MSG_DIALOG_REPLY_OK,OK,Confirm,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,2
-2,EDIT_MSG_DIALOG_REPLY_OK,OK,Confirm,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,2
-2,EDIT_MSG_DIALOG_REPLY_OK,OK,Confirm,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,2
-2,EDIT_MSG_DIALOG_REPLY_OK,OK,Confirm,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUISaveListComment.arc,uGUISaveListComment.arc,2
-2,EDIT_MSG_DIALOG_REPLY_OK,OK,Confirm,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUISaveListPC.arc,uGUISaveListPC.arc,2
+2,EDIT_MSG_DIALOG_REPLY_OK,OK,OK,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,2
+2,EDIT_MSG_DIALOG_REPLY_OK,OK,Choose,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,2
+2,EDIT_MSG_DIALOG_REPLY_OK,OK,Choose,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,2
+2,EDIT_MSG_DIALOG_REPLY_OK,OK,Choose,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,2
+2,EDIT_MSG_DIALOG_REPLY_OK,OK,Choose,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUISaveListComment.arc,uGUISaveListComment.arc,2
+2,EDIT_MSG_DIALOG_REPLY_OK,OK,Choose,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUISaveListPC.arc,uGUISaveListPC.arc,2
 7,EDIT_MSG_DIALOG_REPLY_ONLINESHOP,オンラインショップで購入する,Buy from Online Shop,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,7
 7,EDIT_MSG_DIALOG_REPLY_ONLINESHOP,オンラインショップで購入する,Buy from Online Shop,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,7
 7,EDIT_MSG_DIALOG_REPLY_ONLINESHOP,オンラインショップで購入する,Buy from Online Shop,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,7
@@ -1531,8 +1531,8 @@ different name.",ui\00_message\ui\character_edit_job.gmd,\ui\uGUICharacterEditPo
 different name.",ui\00_message\ui\character_edit_job.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,18
 8,EDIT_MSG_DIALOG_JOB_REPLY_NO,いいえ,No,ui\00_message\ui\character_edit_job.gmd,\ui\uGUICharacterEditPopCard.arc,uGUICharacterEditPopCard.arc,8
 8,EDIT_MSG_DIALOG_JOB_REPLY_NO,いいえ,No,ui\00_message\ui\character_edit_job.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,8
-9,EDIT_MSG_DIALOG_JOB_REPLY_OK,OK,Confirm,ui\00_message\ui\character_edit_job.gmd,\ui\uGUICharacterEditPopCard.arc,uGUICharacterEditPopCard.arc,9
-9,EDIT_MSG_DIALOG_JOB_REPLY_OK,OK,Confirm,ui\00_message\ui\character_edit_job.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,9
+9,EDIT_MSG_DIALOG_JOB_REPLY_OK,OK,Choose,ui\00_message\ui\character_edit_job.gmd,\ui\uGUICharacterEditPopCard.arc,uGUICharacterEditPopCard.arc,9
+9,EDIT_MSG_DIALOG_JOB_REPLY_OK,OK,Choose,ui\00_message\ui\character_edit_job.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,9
 7,EDIT_MSG_DIALOG_JOB_REPLY_YES,はい,Yes,ui\00_message\ui\character_edit_job.gmd,\ui\uGUICharacterEditPopCard.arc,uGUICharacterEditPopCard.arc,7
 7,EDIT_MSG_DIALOG_JOB_REPLY_YES,はい,Yes,ui\00_message\ui\character_edit_job.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,7
 6,EDIT_MSG_DIALOG_JOB_SELECT,"このジョブでよろしいですか？
@@ -1691,7 +1691,7 @@ from the facility in the game)",ui\00_message\ui\character_edit_job.gmd,\ui\uGUI
 14,CLAN_EDHIT_MSG_OK,完了,Finish,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,14
 13,CLAN_EDHIT_MSG_OPEN_INFO,公開情報,Public Information,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,13
 11,CLAN_EDHIT_MSG_REWARDS,リワード,Reward,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,11
-8,CLAN_EDHIT_MSG_STATUS,ステータス,Status,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,8
+8,CLAN_EDHIT_MSG_STATUS,ステータス,Progress,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,8
 4,CLAN_EDHIT_MSG_STYLE,クランの特徴,Style,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,4
 20,CLAN_EDIT_BBS,伝言メモ,Message,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,20
 21,CLAN_EDIT_INDEX_EN,Clan Edit,Clan Edit,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,21
@@ -1700,7 +1700,7 @@ from the facility in the game)",ui\00_message\ui\character_edit_job.gmd,\ui\uGUI
 6,CLAN_EME_TEXT_CANCEL,キャンセル,Cancel,ui\00_message\ui\clan_emblem_edit.gmd,\ui\uGUIEmblemEdit.arc,uGUIEmblemEdit.arc,6
 2,CLAN_EME_TEXT_COL_M,ベースカラー(白地),Base Color (White Background),ui\00_message\ui\clan_emblem_edit.gmd,\ui\uGUIEmblemEdit.arc,uGUIEmblemEdit.arc,2
 3,CLAN_EME_TEXT_COL_S,ベースカラー(灰地),Base Color (Gray Background),ui\00_message\ui\clan_emblem_edit.gmd,\ui\uGUIEmblemEdit.arc,uGUIEmblemEdit.arc,3
-5,CLAN_EME_TEXT_DECIDE,決定,Confirm,ui\00_message\ui\clan_emblem_edit.gmd,\ui\uGUIEmblemEdit.arc,uGUIEmblemEdit.arc,5
+5,CLAN_EME_TEXT_DECIDE,決定,Choose,ui\00_message\ui\clan_emblem_edit.gmd,\ui\uGUIEmblemEdit.arc,uGUIEmblemEdit.arc,5
 0,CLAN_EME_TEXT_MARK,マーク,Mark,ui\00_message\ui\clan_emblem_edit.gmd,\ui\uGUIEmblemEdit.arc,uGUIEmblemEdit.arc,0
 4,CLAN_EME_TEXT_PREV,Preview,Preview,ui\00_message\ui\clan_emblem_edit.gmd,\ui\uGUIEmblemEdit.arc,uGUIEmblemEdit.arc,4
 7,CLAN_EME_TEXT_TITLE_EN,Emblem Edit,Emblem Edit,ui\00_message\ui\clan_emblem_edit.gmd,\ui\uGUIEmblemEdit.arc,uGUIEmblemEdit.arc,7
@@ -1818,16 +1818,16 @@ Cost: <VAL CP>",ui\00_message\ui\clan_kyoten.gmd,\ui\uGUIClanShop.arc,uGUIClanSh
 24,CLAN_SCOUT_COMMENT_JP,Comment,Comment,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,24
 21,CLAN_SCOUT_INDEX_EN,Scout Entry,Scout,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,21
 22,CLAN_SCOUT_INDEX_JP,スカウトエントリー,Scout,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,22
-25,CLAN_SCOUT_JOB_LV,ジョブ,Vocation,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,25
+25,CLAN_SCOUT_JOB_LV,ジョブ,Jobs,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,25
 19,CLAN_SCOUT_MEMBER_LIMIT,%d～%d人まで,%d to %d people,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,19
 20,CLAN_SCOUT_MEMBER_NUM,<VAL>名,<VAL>,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,20
 3,CLAN_SCOUT_MSG_ATIME,活動時間帯,Activity Time,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,3
 12,CLAN_SCOUT_MSG_CANCEL,キャンセル,Cancel,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,12
 7,CLAN_SCOUT_MSG_COMMENT_E,Comment,Comment,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,7
 8,CLAN_SCOUT_MSG_COMMENT_J,コメント,Comment,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,8
-13,CLAN_SCOUT_MSG_DECIDE,決定,Confirm,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,13
+13,CLAN_SCOUT_MSG_DECIDE,決定,Choose,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,13
 10,CLAN_SCOUT_MSG_INFO,スカウト申請のメッセージを入力してください,Please enter the applicant scout message.,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,10
-6,CLAN_SCOUT_MSG_JOB,ジョブ,Vocation,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,6
+6,CLAN_SCOUT_MSG_JOB,ジョブ,Jobs,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,6
 1,CLAN_SCOUT_MSG_MEMBER,メンバー数,Members,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,1
 2,CLAN_SCOUT_MSG_MOTTO,モットー,Motto,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,2
 5,CLAN_SCOUT_MSG_NAME,名前,Name,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,5

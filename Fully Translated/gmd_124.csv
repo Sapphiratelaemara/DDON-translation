@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
 28,CLAN_STATUS_MSG_HISTORY_ITEM_0,ヒストリーがありません,There is no history,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,28
 29,CLAN_STATUS_MSG_HISTORY_ITEM_1,%s が %s を購入しました(-%d%s),%s purchased %s (-%d%s),ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,29
 30,CLAN_STATUS_MSG_HISTORY_ITEM_2,クランレベルが %d になりました,Clan level is now %d,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,30
@@ -14,7 +14,7 @@
 5,CLAN_STATUS_MSG_NAME,名前,Name,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,5
 24,CLAN_STATUS_MSG_NOT_AFFILIATION_CLAN,クランに加入していません,Not currently in the clan.,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,24
 14,CLAN_STATUS_MSG_PARTY,パーティ,Party Members,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,14
-4,CLAN_STATUS_MSG_STATUS,ステータス,Status,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,4
+4,CLAN_STATUS_MSG_STATUS,ステータス,Progress,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,4
 3,CLAN_STATUS_MSG_STYLE,クランの特徴,Style,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,3
 19,CLAN_STATUS_MSG_TOP_EN,Clan Status,Clan Status,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,19
 18,CLAN_STATUS_MSG_TOP_JP,クランステータス,Clan Status,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,18
@@ -1129,7 +1129,7 @@ you cannot unlock this Portcrystal.",ui\00_message\ui\common_dialog.gmd,\ui\gui_
 57,common_date_format,%Y/%m/%d,%Y/%m/%d,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,57
 57,common_date_format,%Y/%m/%d,%Y/%m/%d,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,57
 3,common_decide,決定,OK,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,3
-3,common_decide,決定,Confirm,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
+3,common_decide,決定,Choose,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
 59,common_delete,削除,Delete,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,59
 59,common_delete,削除,Delete,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,59
 150,common_double,倍,Double,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,150
@@ -1159,7 +1159,7 @@ you cannot unlock this Portcrystal.",ui\00_message\ui\common_dialog.gmd,\ui\gui_
 89,common_edit_savedata_sex,性別：,Gender:,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,89
 89,common_edit_savedata_sex,性別：,Gender:,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,89
 6,common_end,終了,Exit,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,6
-6,common_end,終了,Exit,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6
+6,common_end,終了,Ended,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6
 122,common_enemy,魔物,Enemy,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,122
 122,common_enemy,魔物,Enemy,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,122
 138,common_enemy_transform_armed_01,・軽装,(Light Armor),ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,138
@@ -1201,13 +1201,13 @@ you cannot unlock this Portcrystal.",ui\00_message\ui\common_dialog.gmd,\ui\gui_
 50,common_guide_close,閉じる,Close,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,50
 50,common_guide_close,閉じる,Close,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,50
 52,common_guide_decide,決定,OK,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,52
-52,common_guide_decide,決定,Confirm,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,52
+52,common_guide_decide,決定,Choose,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,52
 71,common_guide_drag,つかむ,Drag,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,71
 71,common_guide_drag,つかむ,Grab,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,71
 103,common_guide_drag_mousedrag,つかむ(ドラッグ操作),Drag,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,103
 103,common_guide_drag_mousedrag,つかむ(ドラッグ操作),Grab,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,103
 54,common_guide_end,終了,Exit,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,54
-54,common_guide_end,終了,Exit,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54
+54,common_guide_end,終了,Ended,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54
 53,common_guide_execute,実行,Execute,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,53
 53,common_guide_execute,実行,Execute,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53
 72,common_guide_goto_itembag,アイテムバッグに移動,Go to Item Bag,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,72
@@ -1307,7 +1307,7 @@ ffdc78>(Rewards UP)</COL>",ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,g
 161,common_msg_reward,探索,Reward,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,161
 161,common_msg_reward,探索,Reward,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,161
 160,common_msg_state_progress,進行状況,Status,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,160
-160,common_msg_state_progress,進行状況,Progression,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,160
+160,common_msg_state_progress,進行状況,Progress,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,160
 165,common_msg_visit_off,訪問を許可しない,Visit Denied,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,165
 165,common_msg_visit_off,訪問を許可しない,Visit Denied,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,165
 164,common_msg_visit_on,訪問を許可する,Visit Allowed,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,164
@@ -1333,7 +1333,7 @@ ffdc78>(Rewards UP)</COL>",ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,g
 39,common_off,OFF,OFF,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,39
 39,common_off,OFF,OFF,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,39
 9,common_ok,OK,OK,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,9
-9,common_ok,OK,Confirm,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9
+9,common_ok,OK,Choose,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9
 191,common_on,ON,ON,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,191
 191,common_on,ON,ON,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,191
 34,common_open_bracket,(,(,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,34
@@ -1383,7 +1383,7 @@ ffdc78>(Rewards UP)</COL>",ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,g
 145,common_slash,/,/,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,145
 145,common_slash,/,/,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,145
 108,common_switch_deposit,通常枠,Normal,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,108
-108,common_switch_deposit,通常枠,Normal,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,108
+108,common_switch_deposit,通常枠,Middle,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,108
 115,common_switch_deposit_ex01,拡張枠,Expansion,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,115
 115,common_switch_deposit_ex01,拡張枠,Expansion,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,115
 79,common_switch_expand,拡張枠,Expansion,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,79
@@ -1393,7 +1393,7 @@ ffdc78>(Rewards UP)</COL>",ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,g
 82,common_switch_storagebox,保管ボックス,Storage Box,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,82
 82,common_switch_storagebox,保管ボックス,Storage Box,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,82
 80,common_switch_strage,通常枠,Normal,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,80
-80,common_switch_strage,通常枠,Normal,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,80
+80,common_switch_strage,通常枠,Middle,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,80
 85,common_system_savedata,システムセーブデータ,System Save Data,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,85
 85,common_system_savedata,システムセーブデータ,System Save Data,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,85
 75,common_time_after,後,After,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,75

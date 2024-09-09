@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
 2,q20080000_00_181,"詳細ははっきりしないが、何らかの助けを欲する者が
 <NAME AREA>にいるらしい",,ui\00_message\quest_info\q20080000_00.gmd,\quest\q20080000.arc,q20080000.arc,2
 3,q20080000_00_181,"あたしの旦那の事なんだけれどさ
@@ -508,7 +508,8 @@ Expedition",ui\00_message\quest_info\q20095014_00.gmd,\quest\q20095014.arc,q2009
 俺にはさっぱり分からないねぇ
 ただ、彼の生み出す料理の美味さには
 いつも感動しちまうね！",,ui\00_message\quest_info\q20100001_00.gmd,\quest\q20100001.arc,q20100001.arc,3
-4,q20100001_00_1124,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q20100001_00.gmd,\quest\q20100001.arc,q20100001.arc,4
+4,q20100001_00_1124,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q20100001_00.gmd,\quest\q20100001.arc,q20100001.arc,4
 0,q20100002_00_150,壮麗なる残滓,The Remains of Splendor,ui\00_message\quest_info\q20100002_00.gmd,\quest\q20100002.arc,q20100002.arc,0
 1,q20100002_00_150,"クリストフの願いを聞き入れ
 望む物品を集める",,ui\00_message\quest_info\q20100002_00.gmd,\quest\q20100002.arc,q20100002.arc,1
@@ -661,8 +662,10 @@ Expedition",ui\00_message\quest_info\q20105008_00.gmd,\quest\q20105008.arc,q2010
 お探しのようでした
 なんとなくですが、どんな用向きかは
 想像できちゃいますけどね",,ui\00_message\quest_info\q20990001_00.gmd,\quest\q20990001.arc,q20990001.arc,3
-4,q20990001_00_1060,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、テオドールに渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to Theodor (need:<SQDI DNUM>),ui\00_message\quest_info\q20990001_00.gmd,\quest\q20990001.arc,q20990001.arc,4
-5,q20990001_00_1060,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、テオドールに渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to Theodor (need:<SQDI DNUM>),ui\00_message\quest_info\q20990001_00.gmd,\quest\q20990001.arc,q20990001.arc,5
+4,q20990001_00_1060,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、テオドールに渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to Theodor (need:
+<SQDI DNUM>)",ui\00_message\quest_info\q20990001_00.gmd,\quest\q20990001.arc,q20990001.arc,4
+5,q20990001_00_1060,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、テオドールに渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to Theodor (need:
+<SQDI DNUM>)",ui\00_message\quest_info\q20990001_00.gmd,\quest\q20990001.arc,q20990001.arc,5
 0,q20990002_00_284,眠りし叡智,A Deathly Wisdom,ui\00_message\quest_info\q20990002_00.gmd,\quest\q20990002.arc,q20990002.arc,0
 1,q20990002_00_284,"アクタイオンの願いを聞き入れ
 メルゴダ王宮に残る資料を回収する",,ui\00_message\quest_info\q20990002_00.gmd,\quest\q20990002.arc,q20990002.arc,1
@@ -795,7 +798,8 @@ Ruins (3 left)",ui\00_message\quest_info\q20990002_00.gmd,\quest\q20990002.arc,q
 どうしても手に入らないのです
 もちろん相応の対価はお支払いいたします
 どなたかお譲りいただけないでしょうか――",,ui\00_message\quest_info\q20995006_00.gmd,\quest\q20995006.arc,q20995006.arc,3
-4,q20995006_00_1124,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q20995006_00.gmd,\quest\q20995006.arc,q20995006.arc,4
+4,q20995006_00_1124,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q20995006_00.gmd,\quest\q20995006.arc,q20995006.arc,4
 0,q20995007_00_278,メルゴダ資源事情,Mergoda's Resource Issue,ui\00_message\quest_info\q20995007_00.gmd,\quest\q20995007.arc,q20995007.arc,0
 1,q20995007_00_278,"依頼者の願いを聞き入れ
 指定の物品を集める",,ui\00_message\quest_info\q20995007_00.gmd,\quest\q20995007.arc,q20995007.arc,1
@@ -807,7 +811,8 @@ Ruins (3 left)",ui\00_message\quest_info\q20990002_00.gmd,\quest\q20990002.arc,q
 もちろん物流も途絶えて久しく、
 我々も資源の確保に躍起になっている
 どうか力を貸してもらえないだろうか",,ui\00_message\quest_info\q20995007_00.gmd,\quest\q20995007.arc,q20995007.arc,3
-4,q20995007_00_1124,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q20995007_00.gmd,\quest\q20995007.arc,q20995007.arc,4
+4,q20995007_00_1124,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q20995007_00.gmd,\quest\q20995007.arc,q20995007.arc,4
 0,q20995008_00_279,狂える竜脈,,ui\00_message\quest_info\q20995008_00.gmd,\quest\q20995008.arc,q20995008.arc,0
 1,q20995008_00_279,遭遇した敵を討伐する,Defeat the encountered enemy,ui\00_message\quest_info\q20995008_00.gmd,\quest\q20995008.arc,q20995008.arc,1
 2,q20995008_00_279,"<NAME AREA>あたりで
@@ -900,7 +905,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 そしたら、不気味な黒い影が視界を覆ってさ――
 ああ、思い出しただけで気を失いそうだ
 あんな恐怖は二度と味わいたくないね",,ui\00_message\quest_info\q21000001_00.gmd,\quest\q21000001.arc,q21000001.arc,3
-4,q21000001_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000001_00.gmd,\quest\q21000001.arc,q21000001.arc,4
+4,q21000001_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000001_00.gmd,\quest\q21000001.arc,q21000001.arc,4
 5,q21000001_00_1167,指定された場所へ魔物を探しに行く,,ui\00_message\quest_info\q21000001_00.gmd,\quest\q21000001.arc,q21000001.arc,5
 6,q21000001_00_1168,発見した魔物を討伐する,Defeat the found demons,ui\00_message\quest_info\q21000001_00.gmd,\quest\q21000001.arc,q21000001.arc,6
 7,q21000001_00_1169,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q21000001_00.gmd,\quest\q21000001.arc,q21000001.arc,7
@@ -914,7 +920,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 物騒な連中がウロウロしてるし、住民に笑顔は少ない
 なんかこう、ブリアの皆を笑顔にしてくれる人
 現れないかねぇ――",,ui\00_message\quest_info\q21000002_00.gmd,\quest\q21000002.arc,q21000002.arc,3
-4,q21000002_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000002_00.gmd,\quest\q21000002.arc,q21000002.arc,4
+4,q21000002_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000002_00.gmd,\quest\q21000002.arc,q21000002.arc,4
 5,q21000002_00_1167,指定された場所へ魔物を探しに行く,,ui\00_message\quest_info\q21000002_00.gmd,\quest\q21000002.arc,q21000002.arc,5
 6,q21000002_00_1168,発見した魔物を討伐する,Defeat the found demons,ui\00_message\quest_info\q21000002_00.gmd,\quest\q21000002.arc,q21000002.arc,6
 7,q21000002_00_1169,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q21000002_00.gmd,\quest\q21000002.arc,q21000002.arc,7
@@ -944,7 +951,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 とって喰われでもするんじゃないかってのう――
 子どもが呪文なんか唱えた日にゃ
 驚いてそのまま昇天しそうじゃわい",,ui\00_message\quest_info\q21000004_00.gmd,\quest\q21000004.arc,q21000004.arc,3
-4,q21000004_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000004_00.gmd,\quest\q21000004.arc,q21000004.arc,4
+4,q21000004_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000004_00.gmd,\quest\q21000004.arc,q21000004.arc,4
 0,q21000005_00_317,【高難度】森のパトロール,High Difficulty: Forest Patrol,ui\00_message\quest_info\q21000005_00.gmd,\quest\q21000005.arc,q21000005.arc,0
 1,q21000005_00_317,"【連続討伐クエスト】
 エリアマスターの願いを聞き入れ
@@ -979,7 +987,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 どっかの洞窟にいて、そこに集めてるらしいぜ――
 まったく、魔物のくせに貯金たぁ世も末だぜ
 俺の給料より多かったら嫌になっちまうぜ――",,ui\00_message\quest_info\q21000006_00.gmd,\quest\q21000006.arc,q21000006.arc,3
-4,q21000006_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000006_00.gmd,\quest\q21000006.arc,q21000006.arc,4
+4,q21000006_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000006_00.gmd,\quest\q21000006.arc,q21000006.arc,4
 5,q21000006_00_1167,指定された場所へ魔物を探しに行く,,ui\00_message\quest_info\q21000006_00.gmd,\quest\q21000006.arc,q21000006.arc,5
 6,q21000006_00_1168,発見した魔物を討伐する,Defeat the found demons,ui\00_message\quest_info\q21000006_00.gmd,\quest\q21000006.arc,q21000006.arc,6
 7,q21000006_00_1169,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q21000006_00.gmd,\quest\q21000006.arc,q21000006.arc,7
@@ -1039,7 +1048,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 魔物のせいで商品の仕入れが滞ってて
 納得のいく品揃えにできないみたい
 私としても晩のおかずのメニューが減るのは嫌だし",,ui\00_message\quest_info\q21000010_00.gmd,\quest\q21000010.arc,q21000010.arc,3
-4,q21000010_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000010_00.gmd,\quest\q21000010.arc,q21000010.arc,4
+4,q21000010_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000010_00.gmd,\quest\q21000010.arc,q21000010.arc,4
 0,q21000011_00_323,【高難度】喧騒の元,High Difficulty: The Source of Commotion,ui\00_message\quest_info\q21000011_00.gmd,\quest\q21000011.arc,q21000011.arc,0
 1,q21000011_00_323,"【連続討伐クエスト】
 エリアマスターの願いを聞き入れ
@@ -1104,7 +1114,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 ああいう人がいるとさ、俺も頑張って
 このブリアのために何かできないか――
 なんて思っちゃうんだよな",,ui\00_message\quest_info\q21000014_00.gmd,\quest\q21000014.arc,q21000014.arc,3
-4,q21000014_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000014_00.gmd,\quest\q21000014.arc,q21000014.arc,4
+4,q21000014_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000014_00.gmd,\quest\q21000014.arc,q21000014.arc,4
 0,q21000015_00_327,【高難度】静寂を裂く呻き声,High Difficulty: A Silence-Breaking Roar,ui\00_message\quest_info\q21000015_00.gmd,\quest\q21000015.arc,q21000015.arc,0
 1,q21000015_00_327,"【連続討伐クエスト】
 エリアマスターの願いを聞き入れ
@@ -1136,7 +1147,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 《燐光虫の洞窟》に忍び込む者が増えた
 あそこは危険だから近づくなと言っておるのじゃが
 まあ、探検したいという気持ちも分からんでもないが",,ui\00_message\quest_info\q21000016_00.gmd,\quest\q21000016.arc,q21000016.arc,3
-4,q21000016_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000016_00.gmd,\quest\q21000016.arc,q21000016.arc,4
+4,q21000016_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000016_00.gmd,\quest\q21000016.arc,q21000016.arc,4
 5,q21000016_00_1167,指定された場所へ魔物を探しに行く,,ui\00_message\quest_info\q21000016_00.gmd,\quest\q21000016.arc,q21000016.arc,5
 6,q21000016_00_1168,発見した魔物を討伐する,Defeat the found demons,ui\00_message\quest_info\q21000016_00.gmd,\quest\q21000016.arc,q21000016.arc,6
 7,q21000016_00_1169,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q21000016_00.gmd,\quest\q21000016.arc,q21000016.arc,7
@@ -1165,7 +1177,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 このままじゃ砦の皆は飢え死にだぜ？
 助けてやりたいが、俺はごめんだな
 あんまり好きじゃないんだ、あいつ",,ui\00_message\quest_info\q21000018_00.gmd,\quest\q21000018.arc,q21000018.arc,3
-4,q21000018_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000018_00.gmd,\quest\q21000018.arc,q21000018.arc,4
+4,q21000018_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000018_00.gmd,\quest\q21000018.arc,q21000018.arc,4
 5,q21000018_00_1167,指定された場所へ魔物を探しに行く,,ui\00_message\quest_info\q21000018_00.gmd,\quest\q21000018.arc,q21000018.arc,5
 6,q21000018_00_1168,発見した魔物を討伐する,Defeat the found demons,ui\00_message\quest_info\q21000018_00.gmd,\quest\q21000018.arc,q21000018.arc,6
 7,q21000018_00_1169,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q21000018_00.gmd,\quest\q21000018.arc,q21000018.arc,7
@@ -1216,7 +1229,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 驚いたね――俺？　俺にはムリムリ
 カミさんにすら勝てない俺が
 猛獣相手に生き残れるかっての――",,ui\00_message\quest_info\q21000021_00.gmd,\quest\q21000021.arc,q21000021.arc,3
-4,q21000021_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000021_00.gmd,\quest\q21000021.arc,q21000021.arc,4
+4,q21000021_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000021_00.gmd,\quest\q21000021.arc,q21000021.arc,4
 0,q21000022_00_334,騎士の誇りに懸けて,,ui\00_message\quest_info\q21000022_00.gmd,\quest\q21000022.arc,q21000022.arc,0
 1,q21000022_00_334,"【死亡チェッククエスト】
 依頼者の願いを聞き入れ
@@ -1242,7 +1256,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 やっぱりこの島は何かがおかしいね、うん
 なんで水路なんて見に行ったかって？
 そりゃあ任務をサボ――いや、なんでもないよ",,ui\00_message\quest_info\q21000023_00.gmd,\quest\q21000023.arc,q21000023.arc,3
-4,q21000023_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000023_00.gmd,\quest\q21000023.arc,q21000023.arc,4
+4,q21000023_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000023_00.gmd,\quest\q21000023.arc,q21000023.arc,4
 5,q21000023_00_1167,指定された場所へ魔物を探しに行く,,ui\00_message\quest_info\q21000023_00.gmd,\quest\q21000023.arc,q21000023.arc,5
 6,q21000023_00_1168,発見した魔物を討伐する,Defeat the found demons,ui\00_message\quest_info\q21000023_00.gmd,\quest\q21000023.arc,q21000023.arc,6
 7,q21000023_00_1169,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q21000023_00.gmd,\quest\q21000023.arc,q21000023.arc,7
@@ -1344,7 +1359,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 おっと――ひよっこは行かない方がいい
 腕を上げるどころか、顔を上げることすら
 できなくなる、大層なエモノが待ってるからな――",,ui\00_message\quest_info\q21000030_00.gmd,\quest\q21000030.arc,q21000030.arc,3
-4,q21000030_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000030_00.gmd,\quest\q21000030.arc,q21000030.arc,4
+4,q21000030_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000030_00.gmd,\quest\q21000030.arc,q21000030.arc,4
 5,q21000030_00_1167,指定された場所へ魔物を探しに行く,,ui\00_message\quest_info\q21000030_00.gmd,\quest\q21000030.arc,q21000030.arc,5
 6,q21000030_00_1168,発見した魔物を討伐する,Defeat the found demons,ui\00_message\quest_info\q21000030_00.gmd,\quest\q21000030.arc,q21000030.arc,6
 7,q21000030_00_1169,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q21000030_00.gmd,\quest\q21000030.arc,q21000030.arc,7
@@ -1382,7 +1398,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 ひいおばあちゃんも大好きだった場所なの
 あたしだって小さき時から抱っこされて
 よく連れてきてもらったのよ",,ui\00_message\quest_info\q21000032_00.gmd,\quest\q21000032.arc,q21000032.arc,3
-4,q21000032_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000032_00.gmd,\quest\q21000032.arc,q21000032.arc,4
+4,q21000032_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000032_00.gmd,\quest\q21000032.arc,q21000032.arc,4
 5,q21000032_00_1167,指定された場所へ魔物を探しに行く,,ui\00_message\quest_info\q21000032_00.gmd,\quest\q21000032.arc,q21000032.arc,5
 6,q21000032_00_1168,発見した魔物を討伐する,Defeat the found demons,ui\00_message\quest_info\q21000032_00.gmd,\quest\q21000032.arc,q21000032.arc,6
 7,q21000032_00_1169,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q21000032_00.gmd,\quest\q21000032.arc,q21000032.arc,7
@@ -1412,7 +1429,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 でもあまり癒着しすぎるのはオススメしない
 相手はゴブリンだよ？　いつ狡猾な要求をしてくるか
 わからない――何事もほどほどが一番だね",,ui\00_message\quest_info\q21000034_00.gmd,\quest\q21000034.arc,q21000034.arc,3
-4,q21000034_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000034_00.gmd,\quest\q21000034.arc,q21000034.arc,4
+4,q21000034_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000034_00.gmd,\quest\q21000034.arc,q21000034.arc,4
 0,q21000035_00_347,【高難度】天秤に架けた誇り,High Difficulty: An Uncertain Pride,ui\00_message\quest_info\q21000035_00.gmd,\quest\q21000035.arc,q21000035.arc,0
 1,q21000035_00_347,"【連続討伐クエスト】
 エリアマスターの願いを聞き入れ
@@ -1566,7 +1584,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 でも俺は知ってんだ
 こういう時にこそ折れなかった奴が
 最終的に日の目を見るってことをな",,ui\00_message\quest_info\q21000044_00.gmd,\quest\q21000044.arc,q21000044.arc,3
-4,q21000044_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000044_00.gmd,\quest\q21000044.arc,q21000044.arc,4
+4,q21000044_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000044_00.gmd,\quest\q21000044.arc,q21000044.arc,4
 5,q21000044_00_1167,指定された場所へ魔物を探しに行く,,ui\00_message\quest_info\q21000044_00.gmd,\quest\q21000044.arc,q21000044.arc,5
 6,q21000044_00_1168,発見した魔物を討伐する,Defeat the found demons,ui\00_message\quest_info\q21000044_00.gmd,\quest\q21000044.arc,q21000044.arc,6
 7,q21000044_00_1169,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q21000044_00.gmd,\quest\q21000044.arc,q21000044.arc,7
@@ -1594,7 +1613,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 ここに永住を決め込んでしまう人も少なくはない
 そうやってこの町が賑わっていけば
 僕としては一向に構わないのだけどね",,ui\00_message\quest_info\q21000046_00.gmd,\quest\q21000046.arc,q21000046.arc,3
-4,q21000046_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000046_00.gmd,\quest\q21000046.arc,q21000046.arc,4
+4,q21000046_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000046_00.gmd,\quest\q21000046.arc,q21000046.arc,4
 0,q21000047_00_359,【高難度】崩壊への狂宴,High Difficulty: A Revelry of Ruin,ui\00_message\quest_info\q21000047_00.gmd,\quest\q21000047.arc,q21000047.arc,0
 1,q21000047_00_359,"【連続討伐クエスト】
 エリアマスターの願いを聞き入れ
@@ -1628,7 +1648,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 おっと、この話は絶対内密、他言は無用だからな
 誰にもばれずに美味しい思いができるって
 たまらねえなぁ～！",,ui\00_message\quest_info\q21000048_00.gmd,\quest\q21000048.arc,q21000048.arc,3
-4,q21000048_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000048_00.gmd,\quest\q21000048.arc,q21000048.arc,4
+4,q21000048_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000048_00.gmd,\quest\q21000048.arc,q21000048.arc,4
 5,q21000048_00_1167,指定された場所へ魔物を探しに行く,,ui\00_message\quest_info\q21000048_00.gmd,\quest\q21000048.arc,q21000048.arc,5
 6,q21000048_00_1168,発見した魔物を討伐する,Defeat the found demons,ui\00_message\quest_info\q21000048_00.gmd,\quest\q21000048.arc,q21000048.arc,6
 7,q21000048_00_1169,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q21000048_00.gmd,\quest\q21000048.arc,q21000048.arc,7
@@ -1657,7 +1678,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 運良く、腰を痛めるくらいならいいけどねぇ
 そういや、腰を痛めて不便をしてるって人がいるって
 どっかで聞いたな",,ui\00_message\quest_info\q21000050_00.gmd,\quest\q21000050.arc,q21000050.arc,3
-4,q21000050_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000050_00.gmd,\quest\q21000050.arc,q21000050.arc,4
+4,q21000050_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000050_00.gmd,\quest\q21000050.arc,q21000050.arc,4
 5,q21000050_00_1167,指定された場所へ魔物を探しに行く,,ui\00_message\quest_info\q21000050_00.gmd,\quest\q21000050.arc,q21000050.arc,5
 6,q21000050_00_1168,発見した魔物を討伐する,Defeat the found demons,ui\00_message\quest_info\q21000050_00.gmd,\quest\q21000050.arc,q21000050.arc,6
 7,q21000050_00_1169,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q21000050_00.gmd,\quest\q21000050.arc,q21000050.arc,7
@@ -1734,7 +1756,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 そんなの、ゾマじゃいつもの事だと思うが――
 どうしてこうも、吸い寄せられるように
 人が集まってきやがる？　不気味だぜ",,ui\00_message\quest_info\q21000055_00.gmd,\quest\q21000055.arc,q21000055.arc,3
-4,q21000055_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000055_00.gmd,\quest\q21000055.arc,q21000055.arc,4
+4,q21000055_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000055_00.gmd,\quest\q21000055.arc,q21000055.arc,4
 5,q21000055_00_1167,指定された場所へ魔物を探しに行く,,ui\00_message\quest_info\q21000055_00.gmd,\quest\q21000055.arc,q21000055.arc,5
 6,q21000055_00_1168,発見した魔物を討伐する,Defeat the found demons,ui\00_message\quest_info\q21000055_00.gmd,\quest\q21000055.arc,q21000055.arc,6
 7,q21000055_00_1169,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q21000055_00.gmd,\quest\q21000055.arc,q21000055.arc,7
@@ -1771,7 +1794,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 ちょっと僕には真似できません
 犠牲にするものが大きすぎます
 だからこそ、尊敬の念を持つのですがね",,ui\00_message\quest_info\q21000057_00.gmd,\quest\q21000057.arc,q21000057.arc,3
-4,q21000057_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000057_00.gmd,\quest\q21000057.arc,q21000057.arc,4
+4,q21000057_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000057_00.gmd,\quest\q21000057.arc,q21000057.arc,4
 0,q21000058_00_377,身近に潜みし魔,,ui\00_message\quest_info\q21000058_00.gmd,\quest\q21000058.arc,q21000058.arc,0
 1,q21000058_00_377,"【死亡チェッククエスト】
 依頼者の願いを聞き入れ
@@ -1796,7 +1820,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 遠く分かたれても、友情って続くんだろうか
 時間場所も越えて続く関係
 それこそまさに友情だよなぁ――",,ui\00_message\quest_info\q21000059_00.gmd,\quest\q21000059.arc,q21000059.arc,3
-4,q21000059_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000059_00.gmd,\quest\q21000059.arc,q21000059.arc,4
+4,q21000059_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000059_00.gmd,\quest\q21000059.arc,q21000059.arc,4
 0,q21000060_00_379,騎士として,,ui\00_message\quest_info\q21000060_00.gmd,\quest\q21000060.arc,q21000060.arc,0
 1,q21000060_00_379,"【死亡チェッククエスト】
 依頼者の願いを聞き入れ
@@ -1837,7 +1862,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 そんで、全員返り討ちなんだってさ――
 まったく、世話をするクラリッサの奴が
 気の毒だよ――",,ui\00_message\quest_info\q21000062_00.gmd,\quest\q21000062.arc,q21000062.arc,3
-4,q21000062_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000062_00.gmd,\quest\q21000062.arc,q21000062.arc,4
+4,q21000062_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000062_00.gmd,\quest\q21000062.arc,q21000062.arc,4
 5,q21000062_00_1167,指定された場所へ魔物を探しに行く,,ui\00_message\quest_info\q21000062_00.gmd,\quest\q21000062.arc,q21000062.arc,5
 6,q21000062_00_1168,発見した魔物を討伐する,Defeat the found demons,ui\00_message\quest_info\q21000062_00.gmd,\quest\q21000062.arc,q21000062.arc,6
 7,q21000062_00_1169,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q21000062_00.gmd,\quest\q21000062.arc,q21000062.arc,7
@@ -1923,7 +1949,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 見た目が美しいだけに、もったいない話だね
 どこかに遺跡を守っている
 兄妹がいるって話を聞いたけどな――",,ui\00_message\quest_info\q21000067_00.gmd,\quest\q21000067.arc,q21000067.arc,3
-4,q21000067_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000067_00.gmd,\quest\q21000067.arc,q21000067.arc,4
+4,q21000067_00_1166,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼者に渡す（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000067_00.gmd,\quest\q21000067.arc,q21000067.arc,4
 5,q21000067_00_1167,指定された場所へ魔物を探しに行く,,ui\00_message\quest_info\q21000067_00.gmd,\quest\q21000067.arc,q21000067.arc,5
 6,q21000067_00_1168,発見した魔物を討伐する,Defeat the found demons,ui\00_message\quest_info\q21000067_00.gmd,\quest\q21000067.arc,q21000067.arc,6
 7,q21000067_00_1169,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q21000067_00.gmd,\quest\q21000067.arc,q21000067.arc,7
@@ -1938,7 +1965,8 @@ Expedition",ui\00_message\quest_info\q20995012_00.gmd,\quest\q20995012.arc,q2099
 とにかく大変だって話よ！
 なによ、何か言いたいの？！
 私だって知りたいんだから！",,ui\00_message\quest_info\q21000068_00.gmd,\quest\q21000068.arc,q21000068.arc,3
-4,q21000068_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to the requester (need: <SQDI DNUM>),ui\00_message\quest_info\q21000068_00.gmd,\quest\q21000068.arc,q21000068.arc,4
+4,q21000068_00_1179,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、依頼先に届ける（残り:<SQDI DNUM>）,"Deliver <SQDI NAME> x<SQDI NUM> to the requester
+(need: <SQDI DNUM>)",ui\00_message\quest_info\q21000068_00.gmd,\quest\q21000068.arc,q21000068.arc,4
 0,q21000069_00_388,猪突猛進,,ui\00_message\quest_info\q21000069_00.gmd,\quest\q21000069.arc,q21000069.arc,0
 1,q21000069_00_388,"【死亡チェッククエスト】
 依頼者の願いを聞き入れ

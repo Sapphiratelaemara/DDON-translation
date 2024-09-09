@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
 4,NORMAL_SKILL_COMMAND_11_167,<KC ATTACK2>を押す,Press <KC ATTACK2>.,ui\00_message\skill\normal_skill_command_11.gmd,\skill\normal_skill_data_11.arc,normal_skill_data_11.arc,4
 7,NORMAL_SKILL_COMMAND_11_168,<KC WEAPON_SUB>を押しながら<KC MARK_SHOT>を押す,"Hold <KC WEAPON_SUB>, then press <KC MARK_SHOT>.",ui\00_message\skill\normal_skill_command_11.gmd,\skill\normal_skill_data_11.arc,normal_skill_data_11.arc,7
 6,NORMAL_SKILL_COMMAND_11_169,<KC WEAPON_SUB>を押す,Press <KC WEAPON_SUB>.,ui\00_message\skill\normal_skill_command_11.gmd,\skill\normal_skill_data_11.arc,normal_skill_data_11.arc,6
@@ -741,42 +741,52 @@ Aid Stance)",ui\00_message\skill\normal_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cm
 覚者としてあなたが紡ぐ、この地レスタニアと
 そこで生きる人々の物語を体験するクエストです","The <COL ffdc78>""Main Quest""</COL>
 is an adventure where you, the Arisen,
-will experience the story of this land,
-Lestania, and the people residing within.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,0
+will experience the story of this
+land Lestania and the people living
+here.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,0
 1,TUTORIAL_STEP_34,"進行中のクエスト詳細は、いつでも【<KC UI_GAME_MENU>】
 ゲームメニュー《クエスト》の<COL ffdc78>《クエストログ》</COL>
 で見ることができます
 概要、現在の目的、成功報酬などを
 知りたい場合はここで確認しましょう","The [<KC UI_GAME_MENU>] Game Menu
-will show you details about quests in progress
-under ""Quest"" in the <COL ffdc78>""Quest Log""</COL>.
-If you wish to see the quest summary,
-current objective, completion reward, et cetera,
-you can view it here.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,1
+will show you details about
+quests in progress under
+""Quest"" in the <COL ffdc78>""Quest Log""</COL>.
+If you want to see the quest
+summary, current objective,
+completion reward, etc, you
+can view it here.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,1
 2,TUTORIAL_STEP_195,"<COL ffdc78>メインクエストで指定の魔物討伐が目的の
 場合、対象敵はミニマップに赤の丸で示されます</COL>
 また過去のクエスト経緯は
 《謁見の間》にいる神官ジョゼフが
 報告書形式で管理しています
 これまでの出来事を振り返りたい場合は
-彼を訪ねましょう","<COL ffdc78>When the Main Quest's objective is to defeat monsters,
-the target enemies will be marked on the minimap with a red circle.</COL>
-Also, a history of previous quests
-is available from the Priest Joseph in the ""Audience Room.""
-If you wish to look back on previous exploits,
-give him a visit.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,2
+彼を訪ねましょう","<COL ffdc78>When the Main Quest's objective
+is to defeat monsters, the
+target enemies will be marked
+on the minimap with a red circle.</COL>
+Also, a history of previous
+quests is available from Priest
+Joseph in the ""Audience Room"".
+If you wish to look back on
+previous exploits, give him
+a visit.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,2
 0,TUTORIAL_STEP_71,"ゲームメニュー《ワールド》の<COL ffdc78>《マップ》</COL>では
 ミニマップより広域のマップを見ることができます
 冒険に役立つさまざまな情報
 （パーティーメンバーの現在位置、敵や施設、
 　地名やクエスト目的地など）
-が確認できるため、ぜひ活用してください","In the Game Menu, selecting ""World,""
-then <COLffdc78>""Map""</COL> will show
-a wider view of the world than the mini-map.
-Please use it to check various information
-that may be useful to your adventure such as:
-party members' current locations, enemies,
-buildings, place names or quest objectives.",ui\00_message\tutorial_guide\steps\tutorial_guide_step24.gmd,\tguide\tutorial_guide_24.arc,tutorial_guide_24.arc,0
+が確認できるため、ぜひ活用してください","In the Game Menu, selecting ""World"", then <COL
+ffdc78>""Map""</COL>
+will show a wider view of the world than the
+mini-map.
+To check various information useful to your
+adventure
+(Party member's current locations, enemies,
+buildings,
+place names or quest objectives), make sure to
+use it.",ui\00_message\tutorial_guide\steps\tutorial_guide_step24.gmd,\tguide\tutorial_guide_24.arc,tutorial_guide_24.arc,0
 1,TUTORIAL_STEP_223,"ゲームメニュー《マップ》の操作
 ＜地図切替　詳細／フィールド／広域＞
 　【<KC UI_LB>／<KC UI_RB>】で切替
@@ -788,7 +798,8 @@ buildings, place names or quest objectives.",ui\00_message\tutorial_guide\steps\
 Local/Field/Global Switch:
 [<KC UI_LB>/<KC UI_RB>] Switch Left/Right
 Display Change:
-[<KC UI_MAP_ZOOM_IN>/<KC UI_MAP_ZOOM_OUT>] Zoom in/out
+[<KC UI_MAP_ZOOM_IN>/<KC UI_MAP_ZOOM_OUT>] Zoom
+in/out
 [<KC UI_Y>] Change transparency
 Free Marker:
 [<KC UI_MAP_FREEMARKER>] Place/Remove (Hold)",ui\00_message\tutorial_guide\steps\tutorial_guide_step24.gmd,\tguide\tutorial_guide_24.arc,tutorial_guide_24.arc,1
@@ -797,7 +808,9 @@ Free Marker:
 <COL ffdc78>ダッシュ：</COL><PADM>移動中【<KC DASH>】押し込み<KEYM>同じ移動キーを２回押す
 （初期設定の場合）</KEYM>
 <COL ffdc78>ジャンプ：</COL>【<KC JUMP>】","First, Basic Operation
-<COL ffdc78>Movement: </COL><PADM>[LeftStick]<KEYM>[<KC MOVE_FORWARD<KCMOVE_LEFT><KCMOVE_BACKWARD><KC MOVE_RIGHT>]</KEYM>
+<COL ffdc78>Movement: </COL><PADM>[Left
+Stick]<KEYM>[<KC MOVE_FORWARD><KC MOVE_LEFT><KC
+MOVE_BACKWARD><KC MOVE_RIGHT>]</KEYM>
 <COL ffdc78>Sprint: </COL><PADM>Press [<KC DASH>]
 while moving<KEYM>Double tap movement key
 (By default)</KEYM>
@@ -807,23 +820,28 @@ while moving<KEYM>Double tap movement key
 <COL ffdc78>視点のリセット：</COL>【<KC CAMERA_RESET>】
 <COL ffdc78>視点距離の切替：</COL><PADM>【<KC CAMERA_RESET>】素早く２回押し<KEYM>【<ICON MOUSE_WHL_4>前後】</KEYM>","Next, Camera Controls
 <COL ffdc78>Camera (POV) Operation:
-</COL><PADM>[Right Stick]<KEYM>[Move <ICONMOUSE>]</KEYM>
+</COL><PADM>[Right Stick]<KEYM>[Move <ICON
+MOUSE>]</KEYM>
 <COL ffdc78>Reset View: </COL>[<KC CAMERA_RESET>]
-<COL ffdc78>Change View Distance：</COL><PADM>[<KCCAMERA_RESET>]Double click<KEYM>[<ICONMOUSE_WHL_4>up and down]</KEYM>",ui\00_message\tutorial_guide\steps\tutorial_guide_step27.gmd,\tguide\tutorial_guide_27.arc,tutorial_guide_27.arc,1
+<COL ffdc78>Change View Distance：</COL><PADM>[<KC
+CAMERA_RESET>]Double click<KEYM>[<ICON
+MOUSE_WHL_4>up and down]</KEYM>",ui\00_message\tutorial_guide\steps\tutorial_guide_step27.gmd,\tguide\tutorial_guide_27.arc,tutorial_guide_27.arc,1
 0,TUTORIAL_STEP_145,"<COL ffdc78>《ショートカット》</COL>はさまざまな機能を
 楽なボタンで呼び出せる便利な短縮操作です
 回復アイテム、チャット定型文、メニューや
 ポーン命令など、とっさの使用が
 生死を分けることもあります
 すぐ使いたいアイテムや機能は
-あらかじめ登録しておきましょう","<COL ffdc78>""Shortcuts""</COL> are a convenient way
-to execute game functions with a simple button combination.
+あらかじめ登録しておきましょう","<COL ffdc78>""Shortcuts""</COL> are a convenient
+way to execute
+game functions with a simple button
+combination.
 The use of healing items, chat messages,
 menu/pawn commands and more in an instant
 can be the difference between life and death.
-If you have an item or feature
-you might want to use in a hurry,
-make sure to register it in advance.",ui\00_message\tutorial_guide\steps\tutorial_guide_step29.gmd,\tguide\tutorial_guide_29.arc,tutorial_guide_29.arc,0
+If you have an item or feature you might
+want to use in a hurry, make sure to
+register it in advance.",ui\00_message\tutorial_guide\steps\tutorial_guide_step29.gmd,\tguide\tutorial_guide_29.arc,tutorial_guide_29.arc,0
 1,TUTORIAL_STEP_408,"＜登録方法：マルチショートカット＞
 【<KC UI_GAME_MENU>】ゲームメニューから、登録したい
 メニューを選択
@@ -970,12 +988,12 @@ or magic appear.
 more powerful.</COL>
 Fight against enemies that match your level.",ui\00_message\tutorial_guide\steps\tutorial_guide_step33.gmd,\tguide\tutorial_guide_33.arc,tutorial_guide_33.arc,0
 1,TUTORIAL_STEP_50,"また、白竜神殿はいくつかの区画に分かれています
-《中央広場》...皆が集う神殿の中心部
-《商店区》　...武具や素材など各種店舗が集まる場
-《宿場区》　...宿と酒場の憩いの場
-《クラフトルーム》...ポーンのアイテム工房
-《港洞》　　...海洋任務に備える停船所
-《謁見の間》...白竜や重要人物との対話の場","The White Dragon temple is divided into several
+《中央広場》…皆が集う神殿の中心部
+《商店区》　…武具や素材など各種店舗が集まる場
+《宿場区》　…宿と酒場の憩いの場
+《クラフトルーム》…ポーンのアイテム工房
+《港洞》　　…海洋任務に備える停船所
+《謁見の間》…白竜や重要人物との対話の場","The White Dragon temple is divided into several
 districts.
 ""Central Square"" It's the center of the Temple
 and where everyone gathers.
@@ -1146,10 +1164,10 @@ Be sure to check the recommended level!
 appears
 on your Mini Map as a blue circle.",ui\00_message\tutorial_guide\steps\tutorial_guide_step42.gmd,\tguide\tutorial_guide_42.arc,tutorial_guide_42.arc,0
 2,TUTORIAL_STEP_36,"＜公開クエスト＞：通常報酬
-　...全てのプレイヤーに発生場所や報酬、敵などが
+　…全てのプレイヤーに発生場所や報酬、敵などが
 　　公開されているクエストです
 ＜未公開クエスト＞：ボーナス報酬追加
-　...自力で探索し見つけ出すか、エリアマスターに
+　…自力で探索し見つけ出すか、エリアマスターに
 　　情報料を払う必要があるクエストです
 　<COL ffdc78>クリア時１度のみ、未公開ボーナス報酬が付きます</COL>","""Public Quests"": gives normal rewards.
 The location of the enemy and the quest rewards
@@ -2243,10 +2261,10 @@ the mission.",ui\00_message\tutorial_guide\steps\tutorial_guide_step107.gmd,\tgu
 <COL ffdc78>《ブラッドオーブ》を獲得し白竜に捧げることで
 《竜力の継承》を行い、あなたはさらに成長します</COL>
 上げたいカテゴリーを選び、白竜に伝えましょう
-　《生命力》　...体力やスタミナなど基本能力
-　《冒険力》　...アイテム所持数や資本力
-　《攻力》　　...肉体面の力強さ
-　《魔法力》　...魔力面の力強さ","<COL 78f5ff>The Dragon Force Augmentation has
+　《生命力》　…体力やスタミナなど基本能力
+　《冒険力》　…アイテム所持数や資本力
+　《攻力》　　…肉体面の力強さ
+　《魔法力》　…魔力面の力強さ","<COL 78f5ff>The Dragon Force Augmentation has
 been unlocked!</COL>
 <COL ffdc78>By acquiring the《Blood Orb》and
 offering it to the White Dragon,
@@ -2389,10 +2407,10 @@ TOUCH> button to assist the Arisen or Pawn.",ui\00_message\tutorial_guide\steps\
 1,TUTORIAL_STEP_59,"しかし、<COL ffdc78>他のプレイヤーがいない時や一定時間を
 超えてしまった場合は、３つの復活手段から
 どれかを選び復活</COL>することになります
-　《復活力》を使う　...体力全快でその場復活
-　《黄金石》を使う　...体力全快、【強化】状態で
+　《復活力》を使う　…体力全快でその場復活
+　《黄金石》を使う　…体力全快、【強化】状態で
 　　　　　　　　　　　その場復活
-　　拠点に戻る　　　...【弱化】状態となり
+　　拠点に戻る　　　…【弱化】状態となり
 　　　　　　　　　　　直前の拠点で復活","However, when there are no other players present
 or when a certain amount of time has passed, you
 will have to choose one of the three revival
@@ -2639,9 +2657,9 @@ let's encourage the growth of the main pawn.",ui\00_message\tutorial_guide\steps
 雇い主の覚者が倒れたポーンに触れ《復活力》か
 《黄金石》を与えることで、復活させられます</COL>
 　自身の《復活力》を与える
-　　　　　...体力全快でその場復活
+　　　　　…体力全快でその場復活
 　自身の《黄金石》を与える
-　　　　　...体力全快、【強化】状態でその場復活","<COL ffdc78>If assistance cannot be provided
+　　　　　…体力全快、【強化】状態でその場復活","<COL ffdc78>If assistance cannot be provided
 within a certain period of time, the Arisen
 employer can revive the fallen Pawn by touching
 them and providing either their own Revival Force
@@ -3410,7 +3428,7 @@ go along!",ui\00_message\tutorial_guide\steps\tutorial_guide_step174.gmd,\tguide
 増やすことができます</COL>
 新たなポーンとの契約には、次の２つが必要です
 　①<SPAI NAME>（<SPAI NUM>個）
-　　　......エリアマスター支援品、エリア試練クエスト
+　　　……エリアマスター支援品、エリア試練クエスト
 　　　　　などで獲得可能
 　②メインポーン契約枠","<COL ffdc78>《Main Pawn》conversation with the
 White Dragon.
@@ -3649,9 +3667,9 @@ opportunity. Let's strike all at once.",ui\00_message\tutorial_guide\steps\tutor
 出た場合は、すぐ対応しなければ振り払われたり
 ダメージを受けてしまいます
 　①黄色：《振り払いアクション合図》
-　　　　...【<KC TOUCH>押しっぱなし】で耐える
+　　　　…【<KC TOUCH>押しっぱなし】で耐える
 　②赤色：《バーストアクション合図》
-　　　　...【<KC JUMP>】離れる","【Part 1・Additional Information】
+　　　　…【<KC JUMP>】離れる","【Part 1・Additional Information】
 However, when someone clings to the enemy for
 《shaking》, the enemy will resist.
 If a special icon appears below the enemy gauge,
@@ -4231,11 +4249,13 @@ will be reflected.",ui\00_message\tutorial_guide\steps\tutorial_guide_step238.gm
 再確認できます
 カテゴリー別にゲームの各種情報が
 いつでも見られますので
-迷った時はまず目を通してみましょう","These game explanations can be found in the【<KC UI_GAME_MENU>】game menu,
-under the <COL ffdc78>Tutorial Guide</COL> in ""World.""
+迷った時はまず目を通してみましょう","These game explanations can be found in the <KC
+UI_GAME_MENU> game menu, under the <COL
+ffdc78>Tutorial Guide</COL> in <World>.
 You can always refer to them again.
-By checking the various game information categorized within,
-you can easily find the answers when you are unsure.",ui\00_message\tutorial_guide\steps\tutorial_guide_step239.gmd,\tguide\tutorial_guide_239.arc,tutorial_guide_239.arc,0
+By checking the various game information
+categorized, you can easily find the answers when
+you are unsure.",ui\00_message\tutorial_guide\steps\tutorial_guide_step239.gmd,\tguide\tutorial_guide_239.arc,tutorial_guide_239.arc,0
 0,TUTORIAL_STEP_382,"一定のクラフトレベルに達したメインポーンは
 <COL ffdc78>《クラフトレベル昇格試験》</COL>に挑むことが
 できます
@@ -4366,16 +4386,17 @@ that have been allocated can be reallocated</COL>",ui\00_message\tutorial_guide\
 を行いましょう
 なお、《黄金石》を使い復活すれば、弱化に
 かかっていても《強化》が反映されます","<COL ffdc78>After selecting ""Revive at Last Camp""
-to revive after death, your maximum health
-and other abilities will be significantly decreased.
-You will enter a weakened state called ""Weakened.""</COL>
-The ""Weakened"" state will resolve itself
-after a certain amount of time,
-but if you wish to receive treatment,
-<COL ffdc78>visit an Inn to ""Treat Weakness""</COL>.
+to revive after death, your maximum health and
+other abilities will be significantly decreased.
+You will enter a weakened state called
+""Weakened"".</COL>
+The ""Weakened"" state will be resolved after a
+certain amount of time, but if you wish to receive
+treatment, <COL ffdc78>visit the Inn and undergo
+""Treat Weakness""</COL>.
 Moreover, even if you are in a weakened state,
-using a ""Golden Gemstone"" to revive
-will still apply the ""Strengthed"" state.",ui\00_message\tutorial_guide\steps\tutorial_guide_step247.gmd,\tguide\tutorial_guide_247.arc,tutorial_guide_247.arc,0
+using a ""Golden Gemstone"" to revive will still
+apply the ""Strengthed"" state.",ui\00_message\tutorial_guide\steps\tutorial_guide_step247.gmd,\tguide\tutorial_guide_247.arc,tutorial_guide_247.arc,0
 0,TUTORIAL_STEP_395,"他のプレイヤーから《パーティー要請》を
 受けた場合は【<KC UI_GAME_MENU>】で
 受諾するかどうか返答できます
@@ -4397,62 +4418,61 @@ canceled.",ui\00_message\tutorial_guide\steps\tutorial_guide_step249.gmd,\tguide
 倒れたとしても戦闘を続けられます
 <COL ffdc78>閉鎖空間での戦闘時は《拠点に戻る》
 を選択した場合であっても、例外的に《弱化》に
-かかるもののその場で復活可能です</COL>","During the main quest,
-if you are unable to defeat the boss,
-you can continue the battle
-even if you have been knocked down
-by using ""Revival Force"" or ""Golden Gemstone"".
-<COL ffdc78>If you choose to ""Revive at Last Camp""
-during a battle in a closed space,
-you can still revive on the spot,
-although you will be temporarily ""Weakened"".</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step250.gmd,\tguide\tutorial_guide_250.arc,tutorial_guide_250.arc,0
+かかるもののその場で復活可能です</COL>","During the main quest, if you are unable to
+defeat the boss, you can continue the battle even
+if you have been knocked down by using ""Revival
+Force"" or ""Golden Gemstone"".
+<COL ffdc78>If you choose to ""Revive at Last
+Camp"" during a battle in a closed space, you can
+still revive on the spot, although you will be
+temporarily ""Weakened"".</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step250.gmd,\tguide\tutorial_guide_250.arc,tutorial_guide_250.arc,0
 1,TUTORIAL_STEP_402,"勝ち目がなく、準備し出直したい場合は
 ゲームメニュー《クエスト》の<COL ffdc78>《コンテンツ中断》</COL>
 から参加しているパーティーメンバーに
 途中離脱の提案が行えます
 <COL ffdc78>メンバーから提案があった時は
 《ワールドアナウンス》で通知が届きます</COL>","If there is no chance of winning and you want to
-start over, you can propose a withdrawal
-during the quest by selecting <COL ffdc78>""Exit Content""</COL>
-in the game menu.
-<COL ffdc78>The proposal will be sent to the party members
-participating in the quest.
-When a proposal is received from a member,
-you will be notified through ""World Announcement.""</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step250.gmd,\tguide\tutorial_guide_250.arc,tutorial_guide_250.arc,1
+start over, you can propose a withdrawal during
+the quest by selecting <COL ffdc78>""Exit
+Content""</COL> in the game menu.
+<COL ffdc78>The proposal will be sent to the
+party members participating in the quest. When a
+proposal is received from a member, you will be
+notified through ""World Announcement"".</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step250.gmd,\tguide\tutorial_guide_250.arc,tutorial_guide_250.arc,1
 2,TUTORIAL_STEP_403,"<COL ffdc78>途中離脱するかしないかは
 パーティーメンバーの投票で決まり
 投票者中、過半数を占めた方が採用されます</COL>
 離脱の提案アナウンスが届いた場合は
 【<KC UI_GAME_MENU>】ゲームメニューで【<KC UI_X>】
-を押し、投票画面を呼び出して投票してください","<COL ffdc78>The decision to withdraw
-depends on the votes of the party members.
-If you receive a withdrawal proposal, please press 【<KC UI_GAME_MENU>】 
-in the game menu and vote on the voting screen.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step250.gmd,\tguide\tutorial_guide_250.arc,tutorial_guide_250.arc,2
+を押し、投票画面を呼び出して投票してください","<COL ffdc78>Whether to withdraw or not depends on
+the votes of the party members. If you receive a
+withdrawal proposal, please press 【<KC
+UI_GAME_MENU>】 in the game menu and vote on the
+voting screen.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step250.gmd,\tguide\tutorial_guide_250.arc,tutorial_guide_250.arc,2
 3,TUTORIAL_STEP_404,"なお、投票は一定時間で締め切られるため
 ご注意ください
 反対多数で提案が拒否された場合は
 一定時間提案できなくなりますのでその点も
-ご留意ください","Please note that voting will be closed
-after a certain amount of time.
+ご留意ください","Please note that voting will be closed after a
+certain amount of time.
 If the proposal is rejected by a majority vote,
-it will not be eligible for reconsideration
-for a certain period of time.
-Please also keep this in mind.",ui\00_message\tutorial_guide\steps\tutorial_guide_step250.gmd,\tguide\tutorial_guide_250.arc,tutorial_guide_250.arc,3
+it will not be eligible for reconsideration for a
+certain period of time. Please also keep this in
+mind.",ui\00_message\tutorial_guide\steps\tutorial_guide_step250.gmd,\tguide\tutorial_guide_250.arc,tutorial_guide_250.arc,3
 0,TUTORIAL_STEP_417,"　<COL 78f5ff>レスタニア序節：「神の目覚め」到達！</COL>
 　“かくして選ばれし覚者の活躍により
 　　白竜は目覚め、歴史は大きく動き出した
 　　人、エルフ、そしてオーク――
 　　それぞれの存亡と運命を賭けた第二節が、
-　　静かに幕を開けようとしている”","<COL 78f5ff>The Lestanian Prologue:
-""The God's Awakening"" has been reached!</COL>
+　　静かに幕を開けようとしている”","<COL 78f5ff>The Lestanian Prologue: ""The God's
+Awakening"" has been reached!</COL>
 ""Thus, by the actions of the chosen Arisen,
-The White Dragon awakens,
-and history begins to shift dramatically.
+The White Dragon awakens, and history begins to
+shift dramatically.
 Humans, Elves, and Orcs -
-The second chapter,
-risking their respective
+The second chapter, risking their respective
 survival and destinies,
-is quietly about to unfold.""",ui\00_message\tutorial_guide\steps\tutorial_guide_step252.gmd,\tguide\tutorial_guide_252.arc,tutorial_guide_252.arc,0
+Is quietly about to unfold.""",ui\00_message\tutorial_guide\steps\tutorial_guide_step252.gmd,\tguide\tutorial_guide_252.arc,tutorial_guide_252.arc,0
 1,TUTORIAL_STEP_418,"バートランド平原に辿り着けば、
 この後さらに強力な魔物と戦うことができます
 各エリアマスターの支援品レベルを上げ、彼らから
@@ -5816,7 +5836,7 @@ bag</COL>.
 The higher level the enemy, the more <COL
 ffdc78>food will be lost at once</COL>, so please
 be cautious.",ui\00_message\tutorial_guide\steps\tutorial_guide_step340.gmd,\tguide\tutorial_guide_340.arc,tutorial_guide_340.arc,2
-3,TUTORIAL_STEP_694,"<COL ffdc78>＜食料がなくなると...＞</COL>
+3,TUTORIAL_STEP_694,"<COL ffdc78>＜食料がなくなると…＞</COL>
 <COL ffdc78>《食料ゲージ》が０になる</COL>と
 そのクエストは失敗となります
 失敗すると、<COL ffdc78>もう一度大食堂から出直す</COL>
@@ -7480,8 +7500,8 @@ their attacks.",ui\00_message\tutorial_guide\steps\tutorial_guide_step388.gmd,\t
 １本ゲージが溜まるごとに<COL ffdc78>《魔力スタック》</COL>が
 １つ増加します
 溜めた魔力は以下の２種の魔法として使用します
-<COL ffdc78>《純魔法》</COL>　...魔力スタックを消費する高威力の魔法
-<COL ffdc78>《補助魔法》</COL>　...魔力ゲージを消費するサポート魔法","When you absorb magic power from an enemy, your
+<COL ffdc78>《純魔法》</COL>　…魔力スタックを消費する高威力の魔法
+<COL ffdc78>《補助魔法》</COL>　…魔力ゲージを消費するサポート魔法","When you absorb magic power from an enemy, your
 <COL ffdc78>""Magick Gauge""</COL> fills up.
 For each filled gauge, your <COL ffdc78>""Magick
 Stack""</COL> increases by one.
@@ -7914,21 +7934,21 @@ Necessary to explore Bitterblack Maze again.",ui\00_message\tutorial_guide\steps
 レスタニア大陸を旅する覚者たちに
 今できることを教えてくれるガイドです
 クエスト内容によって項目分けされているので
-目的に合ったクエストを見つけて挑戦しましょう！","The <COL ffdc78>《Adventure Guide》</COL> holds info
-for Arisen who travel the Lestania continent
-on what they can do now.
-It is divided into sections
-based on the quest content,
-so let's find a quest that suits our purpose
-and challenge it!",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,0
+目的に合ったクエストを見つけて挑戦しましょう！","The <COL ffdc78>《Adventure Guide》</COL> is a
+guide that teaches Arisen who travel the Lestania
+continent what they can do now.
+It is divided into sections based on the quest
+content, so let's find a quest that suits our
+purpose and challenge it!",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,0
 1,TUTORIAL_STEP_750,"冒険ガイドは
 【<KC UI_GAME_MENU>】ゲームメニュー《クエスト》の
 <COL ffdc78>《冒険ガイド》</COL>からいつでも確認できます
 また白竜神殿のアイザックからも
 確認することができます","The <COL ffdc78>Adventure Guide</COL> can always
-be checked from the ""Quest"" section with【<KC UI_GAME_MENU>】.
-You can also check it from Isaac
-at the White Dragon Temple.",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,1
+be checked from the ""Quest"" section in the <KC
+UI_GAME_MENU>.
+You can also check it from Isaac at the White
+Dragon Temple.",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,1
 2,TUTORIAL_STEP_751,"表示される項目には以下のようなものがあります
 <COL ffdc78>《メインクエスト》</COL>
 現在の進行に応じた、メインクエストの紹介
@@ -7937,11 +7957,11 @@ at the White Dragon Temple.",ui\00_message\tutorial_guide\steps\tutorial_guide_s
 <COL ffdc78>《冒険に役立つクエスト》</COL>
 施設や機能が解放されるクエストの紹介","The following items are displayed:
 <COL ffdc78>《Main Quest》</COL>
-Introduction of main quests
-according to the current progress
-<COL ffdc78>《Level Up Missions》 / 《Level Up Quests》</COL>
-Introduction of leveling methods
-according to vocations
+Introduction of main quests according to the
+current progress
+<COL ffdc78>《Level Up Missions》 / 《Level Up
+Quests》</COL>
+Introduction of leveling methods according to jobs
 <COL ffdc78>《Useful Quests for Adventure》</COL>
 Introduction of quests that release facilities
 and functions",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,2
@@ -7953,24 +7973,24 @@ and functions",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tg
 クエスト受注までの距離や受注できる場所が
 明確に分かるようになります
 ※ワイルドハントは《ナビゲート設定》ができません
-　《地図で確認》は受注することで可能になります","You can order ""Level Up Missions""
-by selecting <COL ffdc78>""Join""</COL> from the Adventure Guide.
-For other quests, select <COL ffdc78>""Navigate Settings""</COL>
-from the Adventure Guide to clearly see
-the distance to the quests
-and where you can receive them.
-Please note that ""Wild Hunt"" quests
-cannot be set through the ""Navigate Setting.""
-You can use the ""Check Map"" option
-by accepting the quest.",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,4
+　《地図で確認》は受注することで可能になります","You can order ""Level Up Missions"" by selecting
+<COL ffdc78>""Join""</COL>from the Adventure Guide
+For other quests, select <COL ffdc78>""Navigate
+Settings""</COL>
+from the Adventure Guide to clearly see the
+distance to the quests and where you can receive
+them
+Please note that ""Wild Hunt"" quests cannot be set
+through the ""Navigate Setting"". You can use the
+""Check Map"" option by accepting the quest.",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,4
 3,TUTORIAL_STEP_789,"<COL ffdc78>《コラボ/シーズナルクエスト》</COL>
 現在、開催されているイベント系クエストの紹介
 <COL ffdc78>《エリア試練/エリアミッション》</COL>
 現在受注可能な、エリア試練とエリアミッションの紹介","<COL ffdc78>Collaboration/Seasonal Quests</COL>
 Introduction of current event-related quests
 <COL ffdc78>《Area Trials/Area Missions》</COL>
-Introduction of current area trials
-and area missions that can be ordered.",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,3
+Introduction of current area trials and area
+missions that can be ordered.",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,3
 0,TUTORIAL_STEP_752,"<COL ffdc78>《霧の森の死闘》</COL>は
 最大８人のパーティーを結成して
 悪しき竜軍に占領された霧の森を
@@ -9243,15 +9263,17 @@ Equipment.",ui\00_message\tutorial_guide\steps\tutorial_guide_step443.gmd,\tguid
 なかでも、<COL 78f5ff>《白竜神殿発行・リワードメダル》</COL>は
 リワードミッションでしか入手できない
 特別なアイテムです
-リサが様々な品物と交換してくれるでしょう","<COL 78f5ff>《Reward Missions》have been unlocked!</COL>
-<COL ffdc78>You can check the details of the Reward Missions
-by talking to Lisa in the Relay Station District.</COL>
+リサが様々な品物と交換してくれるでしょう","<COL 78f5ff>《Reward Missions》have been
+unlocked!</COL>
+<COL ffdc78>You can check the details of the
+Reward Missions by talking to Lisa in the Relay
+Station District.</COL>
 Depending on the number of missions you complete,
 you can earn special rewards.
-Among them,
-the <COL 78f5ff>《White Dragon Temple-issued Reward Medal》</COL>
-can only be obtained through Reward Missions.
-It is a special item.
+Among them, the <COL 78f5ff>《White Dragon
+Temple-issued Reward Medal》</COL> can only be
+obtained through Reward Missions. It is a special
+item.
 Lisa will exchange it for various items.",ui\00_message\tutorial_guide\steps\tutorial_guide_step444.gmd,\tguide\tutorial_guide_444.arc,tutorial_guide_444.arc,0
 1,TUTORIAL_STEP_858,"リワードミッションには
 <COL 78f5ff>《毎日更新》</COL>されるミッションや
@@ -9260,15 +9282,15 @@ Lisa will exchange it for various items.",ui\00_message\tutorial_guide\steps\tut
 すべての報酬を手に入れられるよう
 日々のミッションに挑みましょう
 <COL ffdc78>※大竜晶破壊戦をクリアすることでは
-　エクストリームミッションのクリア回数は増えません</COL>","For reward missions, there are missions
-that are updated <COL 78f5ff>daily</COL>
-and missions that are updated <COL 78f5ff>weekly. </COL>
+　エクストリームミッションのクリア回数は増えません</COL>","For reward missions, there are missions that are
+updated <COL 78f5ff>daily</COL> and missions that
+are updated <COL 78f5ff>weekly. </COL>
 <COL ffdc78>The rewards are also reset on the day
-the missions update. </COL>
-Try challenging the daily missions
-to obtain all rewards.
-<COL ffdc78>※ Clearing the The Great Dragon Crystal War
-does not increase the number of clears
+of mission update. </COL>
+Let's challenge daily missions to obtain all
+rewards.
+<COL ffdc78>※ Clearing the The Great Dragon
+Crystal War does not increase the number of clears
 for extreme missions.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step444.gmd,\tguide\tutorial_guide_444.arc,tutorial_guide_444.arc,1
 0,TUTORIAL_STEP_854,"悪しき魔物が鎮座する<COL 78f5ff>《滅びの渦》</COL>に突入する為には
 <COL 78f5ff>《<ITEM 24728>》</COL>が必要となります

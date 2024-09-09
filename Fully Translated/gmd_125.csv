@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
 24,common_unitname_bo,ブラッドオーブ,Blood Orb,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,24
 24,common_unitname_bo,ブラッドオーブ,Blood Orb,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,24
 121,common_unitname_cp,クランポイント,Clan Point,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,121
@@ -40,12 +40,12 @@
 29,cpf_bt_cancel,キャンセル,Cancel,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,29
 9,cpf_bt_change,変更,Change,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,9
 10,cpf_bt_close,閉じる,Close,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,10
-28,cpf_bt_decision,決定,Confirm,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,28
+28,cpf_bt_decision,決定,Choose,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,28
 1,cpf_clan_authority_setting_cap01,メンバー加入の権限付与,Inviting,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,1
 4,cpf_clan_authority_setting_cap01_01,勧誘する権限,Authority to Invite,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,4
 5,cpf_clan_authority_setting_cap01_02,加入を許可する権限,Authority to Review Applications,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,5
 6,cpf_clan_authority_setting_cap01_03,直接招待する権限,Authority to Direct Invite,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,6
-2,cpf_clan_authority_setting_cap02,その他,Other,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,2
+2,cpf_clan_authority_setting_cap02,その他,Players,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,2
 7,cpf_clan_authority_setting_cap02_01,クランポイントを使用する権限,Authority to use Clan Points,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,7
 41,cpf_clan_authority_setting_cap02_02,拠点のレイアウトを使用する権限,You do not have permission to use the Hall Layout.,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,41
 3,cpf_clan_authority_setting_cap03,役職,Position,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,3
@@ -56,7 +56,7 @@ been changed.",ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUI
 13,cpf_clan_authority_setting_err_02,インターバル期間中のため変更できません,"Cannot change it because it is during the
 Interval Duration.",ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,13
 0,cpf_clan_authority_setting_title,クランの権限設定,Clan permission settings,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,0
-15,cpf_craft_filter_cap01,ジョブ,Vocation,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,15
+15,cpf_craft_filter_cap01,ジョブ,Jobs,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,15
 19,cpf_craft_filter_cap01_01,全て,All,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,19
 16,cpf_craft_filter_cap02,アイテムランク,Item Rank,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,16
 20,cpf_craft_filter_cap02_01,アイテムランクを絞り込む,Filter Item Rank,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,20
@@ -520,7 +520,7 @@ the synthesis material for Dragon Abilities.",ui\00_message\ui\ds_fusion.gmd,\ui
 105,entry_board_mission_info_bt_solo,ソロプレイ,Solo Play,ui\00_message\ui\entry_board.gmd,\ui\uGUIEntryBoard.arc,uGUIEntryBoard.arc,105
 46,entry_board_mission_info_cancel,キャンセル,Cancel,ui\00_message\ui\entry_board.gmd,\ui\uGUIEntryBoard.arc,uGUIEntryBoard.arc,46
 56,entry_board_mission_info_condition,受注条件,Accept Requirements,ui\00_message\ui\entry_board.gmd,\ui\uGUIEntryBoard.arc,uGUIEntryBoard.arc,56
-45,entry_board_mission_info_decide,決定,Confirm,ui\00_message\ui\entry_board.gmd,\ui\uGUIEntryBoard.arc,uGUIEntryBoard.arc,45
+45,entry_board_mission_info_decide,決定,Choose,ui\00_message\ui\entry_board.gmd,\ui\uGUIEntryBoard.arc,uGUIEntryBoard.arc,45
 42,entry_board_mission_info_entry_num,<VAL>人専用コンテンツ,<VAL> People-specific content,ui\00_message\ui\entry_board.gmd,\ui\uGUIEntryBoard.arc,uGUIEntryBoard.arc,42
 86,entry_board_mission_info_ir_condition,アイテムランクが<VAL>以上 （現在のIR.<VAL>）,Item Rank <VAL> or more (Current IR. <VAL>),ui\00_message\ui\entry_board.gmd,\ui\uGUIEntryBoard.arc,uGUIEntryBoard.arc,86
 43,entry_board_mission_info_recommand,推奨,Recommendation,ui\00_message\ui\entry_board.gmd,\ui\uGUIEntryBoard.arc,uGUIEntryBoard.arc,43
@@ -1181,9 +1181,9 @@ is not enough space in storage.",ui\00_message\ui\equip_status_win.gmd,\ui\uGUIP
 41,status_orb_title,竜力の継承,Dragon Force Augmentation,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,41
 41,status_orb_title,竜力の継承,Dragon Force Augmentation,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPopItemSelect.arc,uGUIPopItemSelect.arc,41
 41,status_orb_title,竜力の継承,Dragon Force Augmentation,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPresetEquip.arc,uGUIPresetEquip.arc,41
-53,status_other_title,Other,Other,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,53
-53,status_other_title,Other,Other,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPopItemSelect.arc,uGUIPopItemSelect.arc,53
-53,status_other_title,Other,Other,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPresetEquip.arc,uGUIPresetEquip.arc,53
+53,status_other_title,Other,Players,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,53
+53,status_other_title,Other,Players,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPopItemSelect.arc,uGUIPopItemSelect.arc,53
+53,status_other_title,Other,Players,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPresetEquip.arc,uGUIPresetEquip.arc,53
 13,status_pawn_owner,Arisen:,Arisen:,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,13
 13,status_pawn_owner,Arisen:,Arisen:,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPopItemSelect.arc,uGUIPopItemSelect.arc,13
 13,status_pawn_owner,Arisen:,Arisen:,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPresetEquip.arc,uGUIPresetEquip.arc,13
@@ -1256,9 +1256,9 @@ is not enough space in storage.",ui\00_message\ui\equip_status_win.gmd,\ui\uGUIP
 1,status_tab_equip,ステータス・装備,Status / Equipment,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,1
 1,status_tab_equip,ステータス・装備,Status / Equipment,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPopItemSelect.arc,uGUIPopItemSelect.arc,1
 1,status_tab_equip,ステータス・装備,Status / Equipment,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPresetEquip.arc,uGUIPresetEquip.arc,1
-61,status_tab_job,ジョブ,Vocation,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,61
-61,status_tab_job,ジョブ,Vocation,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPopItemSelect.arc,uGUIPopItemSelect.arc,61
-61,status_tab_job,ジョブ,Vocation,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPresetEquip.arc,uGUIPresetEquip.arc,61
+61,status_tab_job,ジョブ,Jobs,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,61
+61,status_tab_job,ジョブ,Jobs,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPopItemSelect.arc,uGUIPopItemSelect.arc,61
+61,status_tab_job,ジョブ,Jobs,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPresetEquip.arc,uGUIPresetEquip.arc,61
 3,status_tab_job_arisenpower,ジョブ・竜力の継承,Jobs / Dragon Force,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,3
 3,status_tab_job_arisenpower,ジョブ・竜力の継承,Jobs / Dragon Force,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPopItemSelect.arc,uGUIPopItemSelect.arc,3
 3,status_tab_job_arisenpower,ジョブ・竜力の継承,Jobs / Dragon Force,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPresetEquip.arc,uGUIPresetEquip.arc,3
@@ -1274,9 +1274,9 @@ is not enough space in storage.",ui\00_message\ui\equip_status_win.gmd,\ui\uGUIP
 0,status_title_equip_status,ステータス・装備,Status / Equipment,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,0
 0,status_title_equip_status,ステータス・装備,Status / Equipment,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPopItemSelect.arc,uGUIPopItemSelect.arc,0
 0,status_title_equip_status,ステータス・装備,Status / Equipment,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPresetEquip.arc,uGUIPresetEquip.arc,0
-40,status_title_equip_status_eng,Status,Status,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,40
-40,status_title_equip_status_eng,Status,Status,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPopItemSelect.arc,uGUIPopItemSelect.arc,40
-40,status_title_equip_status_eng,Status,Status,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPresetEquip.arc,uGUIPresetEquip.arc,40
+40,status_title_equip_status_eng,Status,Progress,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,40
+40,status_title_equip_status_eng,Status,Progress,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPopItemSelect.arc,uGUIPopItemSelect.arc,40
+40,status_title_equip_status_eng,Status,Progress,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPresetEquip.arc,uGUIPresetEquip.arc,40
 52,status_total_job_level,Total <VAL LV>,Total <VAL LV>,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,52
 52,status_total_job_level,Total <VAL LV>,Total <VAL LV>,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPopItemSelect.arc,uGUIPopItemSelect.arc,52
 52,status_total_job_level,Total <VAL LV>,Total <VAL LV>,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPresetEquip.arc,uGUIPresetEquip.arc,52
