@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
 20,error_jp,所持<UNIT JP>が不足しています,You do not have enough <UNIT JP>.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUIPopSkillInfo.arc,uGUIPopSkillInfo.arc,20
 20,error_jp,所持<UNIT JP>が不足しています,You do not have enough <UNIT JP>.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUISkill.arc,uGUISkill.arc,20
 75,error_not_reach_condition,使用条件を満たしていません,You do not meet the requirements.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,75
@@ -93,10 +93,10 @@
 59,job_msg_custom_skill_j,カスタムスキル,Custom Skill,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,59
 59,job_msg_custom_skill_j,カスタムスキル,Custom Skill,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUIPopSkillInfo.arc,uGUIPopSkillInfo.arc,59
 59,job_msg_custom_skill_j,カスタムスキル,Custom Skill,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUISkill.arc,uGUISkill.arc,59
-56,job_msg_job,ジョブ,Jobs,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,56
-56,job_msg_job,ジョブ,Jobs,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,56
-56,job_msg_job,ジョブ,Jobs,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUIPopSkillInfo.arc,uGUIPopSkillInfo.arc,56
-56,job_msg_job,ジョブ,Jobs,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUISkill.arc,uGUISkill.arc,56
+56,job_msg_job,ジョブ,Vocation,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,56
+56,job_msg_job,ジョブ,Vocation,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,56
+56,job_msg_job,ジョブ,Vocation,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUIPopSkillInfo.arc,uGUIPopSkillInfo.arc,56
+56,job_msg_job,ジョブ,Vocation,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUISkill.arc,uGUISkill.arc,56
 58,job_msg_normal_skill_j,ノーマルスキル,Core Skills,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,58
 58,job_msg_normal_skill_j,ノーマルスキル,Core Skills,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,58
 58,job_msg_normal_skill_j,ノーマルスキル,Core Skills,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUIPopSkillInfo.arc,uGUIPopSkillInfo.arc,58
@@ -228,7 +228,7 @@
 23,keyname_Blank,Blank,Blank,ui\00_message\ui\key_name_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,23
 39,keyname_Ctrl,Ctrl,Ctrl,ui\00_message\ui\key_name_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,39
 45,keyname_Delete,Delete,Delete,ui\00_message\ui\key_name_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,45
-47,keyname_End,End,Ended,ui\00_message\ui\key_name_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,47
+47,keyname_End,End,End,ui\00_message\ui\key_name_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,47
 43,keyname_Enter,Enter,Enter,ui\00_message\ui\key_name_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,43
 24,keyname_Esc,Esc,Esc,ui\00_message\ui\key_name_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,24
 25,keyname_F1,F1,F1,ui\00_message\ui\key_name_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,25
@@ -421,8 +421,7 @@ DAEEF3>(Sh)</COL> Force Burst",ui\00_message\ui\keyconfig_detail.gmd,\ui\uGUIKey
 75,kcd_075,<COL DAEEF3>【Ｓｅ】</COL>転身　<COL DAEEF3>【Ｈｉ】</COL>避翻斬,"<COL DAEEF3>(Se)</COL> Forward Roll <COL
 DAEEF3>(Hi)</COL> Dodge Counter Slash",ui\00_message\ui\keyconfig_detail.gmd,\ui\uGUIKeyConfig.arc,uGUIKeyConfig.arc,75
 76,kcd_076,<COL DAEEF3>【Ｓｅ】</COL>ロープ投げ（ロープ構え中）,<COL DAEEF3>(Se)</COL> Throw Rope (Rope Holding),ui\00_message\ui\keyconfig_detail.gmd,\ui\uGUIKeyConfig.arc,uGUIKeyConfig.arc,76
-77,kcd_077,<COL DAEEF3>【Ｈｕ】</COL>矢の装填　　<COL DAEEF3>【Ｅｌ】</COL>魔眼転移,"<COL DAEEF3>(Hu)</COL> Reload Arrows <COL
-DAEEF3>(El)</COL>魔眼転移",ui\00_message\ui\keyconfig_detail.gmd,\ui\uGUIKeyConfig.arc,uGUIKeyConfig.arc,77
+77,kcd_077,<COL DAEEF3>【Ｈｕ】</COL>矢の装填　　<COL DAEEF3>【Ｅｌ】</COL>魔眼転移,,ui\00_message\ui\keyconfig_detail.gmd,\ui\uGUIKeyConfig.arc,uGUIKeyConfig.arc,77
 78,kcd_078,<COL DAEEF3>【Ａｌ】</COL>エリクシル・チェンジ　<COL DAEEF3>【Ｓｐ】</COL>アタックブースト,"<COL DAEEF3>(Al)</COL> Change Elixir <COL
 DAEEF3>(Sp)</COL> Attack Boost",ui\00_message\ui\keyconfig_detail.gmd,\ui\uGUIKeyConfig.arc,uGUIKeyConfig.arc,78
 79,kcd_079,"<COL DAEEF3>【Ｈｕ】</COL><COL DAEEF3>【Ｅｌ】</COL>構え変更（弓構え中）
@@ -519,7 +518,7 @@ Stance)",ui\00_message\ui\keyconfig_detail.gmd,\ui\uGUIKeyConfig.arc,uGUIKeyConf
 24,menu_cmn_header_storage,Storage,Storage,ui\00_message\ui\menu_common.gmd,\ui\menu_cmn.arc,menu_cmn.arc,24
 11,menu_cmn_hp,HP,HP,ui\00_message\ui\menu_common.gmd,\ui\menu_cmn.arc,menu_cmn.arc,11
 27,menu_cmn_item,アイテム,Item,ui\00_message\ui\menu_common.gmd,\ui\menu_cmn.arc,menu_cmn.arc,27
-15,menu_cmn_job,Job,Jobs,ui\00_message\ui\menu_common.gmd,\ui\menu_cmn.arc,menu_cmn.arc,15
+15,menu_cmn_job,Job,Vocation,ui\00_message\ui\menu_common.gmd,\ui\menu_cmn.arc,menu_cmn.arc,15
 13,menu_cmn_max,MAX,MAX,ui\00_message\ui\menu_common.gmd,\ui\menu_cmn.arc,menu_cmn.arc,13
 9,menu_cmn_next,Next,Next,ui\00_message\ui\menu_common.gmd,\ui\menu_cmn.arc,menu_cmn.arc,9
 25,menu_cmn_open_online_shop,オンラインショップを開く,Open online shop,ui\00_message\ui\menu_common.gmd,\ui\menu_cmn.arc,menu_cmn.arc,25
@@ -652,10 +651,7 @@ ffdc78>with golden stones</COL>",ui\00_message\ui\myroom.gmd,\MyRoom.arc,MyRoom.
 36,myroom_mandragora_4A0_2_dialog_title,マンドラゴラの名前を設定,Set the name of the mandragora,ui\00_message\ui\myroom.gmd,\MyRoom.arc,MyRoom.arc,36
 37,myroom_mandragora_4A0_3_dialog_attention,"注意事項
 ・半角２文字～１２文字まで入力可能です
-・半角英数字と一部の記号 '.,:;!?&-_ が使用可能です","Notes
-・2 to 12 half-width characters can be entered
-・Half-width alphanumeric characters and some
-symbols '. &-_ can be used. &-_ can be used.",ui\00_message\ui\myroom.gmd,\MyRoom.arc,MyRoom.arc,37
+・半角英数字と一部の記号 '.,:;!?&-_ が使用可能です",,ui\00_message\ui\myroom.gmd,\MyRoom.arc,MyRoom.arc,37
 38,myroom_mandragora_4A0_4_dialog_button,完了,Complete,ui\00_message\ui\myroom.gmd,\MyRoom.arc,MyRoom.arc,38
 39,myroom_mandragora_4A0_5_dialog_button,中止,suspension,ui\00_message\ui\myroom.gmd,\MyRoom.arc,MyRoom.arc,39
 56,myroom_mandragora_4A0_6_dialog,名前を変更しました,Name changed.,ui\00_message\ui\myroom.gmd,\MyRoom.arc,MyRoom.arc,56
@@ -702,7 +698,7 @@ Training!!!",ui\00_message\ui\myroom.gmd,\MyRoom.arc,MyRoom.arc,61
 114,OPTION_MSG_BATTLETIME,交戦中の表示をする,Display Combat Warning,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,114
 311,OPTION_MSG_BATTLE_EFFECTTARGET,プレイヤー・バトルエフェクトを表示する対象,Display Combat Effects,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,311
 18,OPTION_MSG_BGM_BATTLE,戦闘BGM,Combat BGM,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,18
-165,OPTION_MSG_BGM_OTHER,その他のBGM,Players,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,165
+165,OPTION_MSG_BGM_OTHER,その他のBGM,Other BGM,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,165
 214,OPTION_MSG_BUTTONCALIBRATION,ボタンの配置,Calibration,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,214
 179,OPTION_MSG_BUTTON_APPLY,適用,Apply,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,179
 325,OPTION_MSG_BUTTON_EDIT,編集,Edit,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,325
@@ -723,7 +719,7 @@ Training!!!",ui\00_message\ui\myroom.gmd,\MyRoom.arc,MyRoom.arc,61
 66,OPTION_MSG_CAPTION_ARISENCARD,覚者プロフィール,Arisen Profile,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,66
 45,OPTION_MSG_CAPTION_CCONTROLL,カメラ操作,Camera Control,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,45
 295,OPTION_MSG_CAPTION_CHARACTOR,キャラクター,Character,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,295
-215,OPTION_MSG_CAPTION_CHARGE,その他,Players,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,215
+215,OPTION_MSG_CAPTION_CHARGE,その他,Other,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,215
 60,OPTION_MSG_CAPTION_CHATLOG,チャットログ設定,Settings,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,60
 62,OPTION_MSG_CAPTION_CHATSE,チャット着信時のSE,Ringtone,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,62
 53,OPTION_MSG_CAPTION_CINFO,キャラクター情報,Character Information,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,53
@@ -749,7 +745,7 @@ Training!!!",ui\00_message\ui\myroom.gmd,\MyRoom.arc,MyRoom.arc,61
 280,OPTION_MSG_CAPTION_OBJECT,オブジェクト全般,General,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,280
 59,OPTION_MSG_CAPTION_OBJ_DISP,オブジェクト,Objects,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,59
 41,OPTION_MSG_CAPTION_ONLINESTATES,ネットワークステータス,Online Status,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,41
-57,OPTION_MSG_CAPTION_OTHERS_DISP,他人,Players,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,57
+57,OPTION_MSG_CAPTION_OTHERS_DISP,他人,Other Players,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,57
 211,OPTION_MSG_CAPTION_PAD,<PFWD 0>設定,<PFWD 0> Setting,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,211
 56,OPTION_MSG_CAPTION_PARTY_DISP,パーティーメンバー,Party Members,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,56
 193,OPTION_MSG_CAPTION_PAWNCARD,ポーンプロフィール,Pawn profile,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,193
@@ -831,7 +827,7 @@ Training!!!",ui\00_message\ui\myroom.gmd,\MyRoom.arc,MyRoom.arc,61
 307,OPTION_MSG_ENVIRONMENT_EFFECTQUARITY,エフェクト品質,Quality,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,307
 162,OPTION_MSG_EXIT_APLLY,適用して終了,Apply and Exit,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,162
 164,OPTION_MSG_EXIT_CANCEL,キャンセル,Cancel,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,164
-163,OPTION_MSG_EXIT_NOAPPRY,適用せず終了,Ended,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,163
+163,OPTION_MSG_EXIT_NOAPPRY,適用せず終了,Exit without applying,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,163
 161,OPTION_MSG_EXIT_NOTION,"変更を適用していない項目があります
 このまま終了しますか？","There are settings that have been changed.
 Are you sure you want to exit configuration?",ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,161
@@ -937,14 +933,14 @@ the window",ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.ar
 172,OPTION_MSG_NAMETIPE3,名前の表示タイプ,Name Display Type,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,172
 371,OPTION_MSG_NAVIGATION_DISP,ナビゲーションを表示する,Display Navigation,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,371
 20,OPTION_MSG_NOISE_ENEMY,敵,Enemy,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,20
-166,OPTION_MSG_NOISE_OTHER,その他,Players,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,166
+166,OPTION_MSG_NOISE_OTHER,その他,Other,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,166
 22,OPTION_MSG_NOISE_PARTY,パーティーメンバー等,Party Members,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,22
 21,OPTION_MSG_NOISE_PLAYER,プレイヤー,Player,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,21
 19,OPTION_MSG_NOISE_SURROUND,環境音,Ambient,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,19
 287,OPTION_MSG_OBJECT_EFFECTIVERENGTH,生存距離,Range,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,287
 281,OPTION_MSG_OBJECT_PRESET,オブジェクト品質のプリセット,Preset of object quality,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,281
 67,OPTION_MSG_ONLINESTATES,自分のネットワークステータス,Your Status,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,67
-5,OPTION_MSG_OTHERS,その他,Players,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,5
+5,OPTION_MSG_OTHERS,その他,Other,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,5
 329,OPTION_MSG_OTHER_PL_VFX_TRANSPARENCY,他プレイヤーのエフェクト透明度,Visibility of Other Player's Effects,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,329
 337,OPTION_MSG_OTHER_PL_VFX_TRANSPARENCY_MORETHIN,かなり薄い,Very Low,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,337
 332,OPTION_MSG_OTHER_PL_VFX_TRANSPARENCY_NONE,無し,None,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,332
@@ -982,7 +978,7 @@ the window",ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.ar
 207,OPTION_MSG_SCREEN_MODE,スクリーンモード設定,Display Mode,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,207
 113,OPTION_MSG_SERVERCHANNEL,ワールド情報を表示する,Display World,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,113
 185,OPTION_MSG_SE_CF,着信音,Ringtone,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,185
-11,OPTION_MSG_SE_OTHERSYSTEMS,その他のシステム音,Players,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,11
+11,OPTION_MSG_SE_OTHERSYSTEMS,その他のシステム音,Other System Sound,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,11
 10,OPTION_MSG_SE_TELL,チャットログ受信音,Tell Sound,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,10
 261,OPTION_MSG_SHADE_ATLOBBY,ロビー内でのランタンによる影,The shadow by lantern in the lobby,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,261
 251,OPTION_MSG_SHADE_EFFECTIVERENGTH,カメラ演出を許可する,Enable Camera Effects,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,251
@@ -1016,7 +1012,7 @@ the window",ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.ar
 265,OPTION_MSG_S_S2_ON,,,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,265
 269,OPTION_MSG_S_S3_OFF,,,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,269
 268,OPTION_MSG_S_S3_ON,,,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,268
-33,OPTION_MSG_TAB_ANYONE,他人,Players,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,33
+33,OPTION_MSG_TAB_ANYONE,他人,Other Players,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,33
 7,OPTION_MSG_TAB_BGM,BGM,BGM,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,7
 32,OPTION_MSG_TAB_CHARACAR,キャラクター,Character,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,32
 305,OPTION_MSG_TAB_EFFECT,効果,Effects,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,305
@@ -1064,7 +1060,7 @@ the window",ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.ar
 322,OPTION_MSG_WINDOW_WINDOW,ウィンドウモード,Window mode,ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.arc,322
 157,character_height,身長,Height,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,157
 158,character_hp,体力,Health Points,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,158
-179,character_job_level,ジョブレベル,Job Level,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,179
+179,character_job_level,ジョブレベル,Vocation LV.,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,179
 180,character_job_xp,ジョブ経験値,Job Experience,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,180
 182,character_jp,ジョブポイント,Job Point,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,182
 184,character_magic_attack,魔力,Magick,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,184
@@ -1119,7 +1115,7 @@ the window",ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.ar
 1,item_category,カテゴリ,Category,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,1
 107,item_categoryname_key,キーアイテム,Key Items,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,107
 105,item_categoryname_material,素材,Raw Material,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,105
-108,item_categoryname_special,ジョブ専用,Jobs,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,108
+108,item_categoryname_special,ジョブ専用,Voc. Exclusive,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,108
 104,item_categoryname_use,消費,Consumable,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,104
 106,item_categoryname_weapon,装備品,Equip,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,106
 27,item_chance,チャンス攻力,Chance Attack,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,27

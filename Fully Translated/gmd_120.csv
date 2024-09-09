@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
 66,TITLE_POINT_ASSIGN,クラフトステータス,Craft Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,66
 66,TITLE_POINT_ASSIGN,クラフトステータス,Craft Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,66
 66,TITLE_POINT_ASSIGN,クラフトステータス,Craft Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,66
@@ -94,11 +94,11 @@ as well.</COL>",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubReci
 107,TITLE_REQUEST_FAILURE,リクエストに失敗しました,The request failed.,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,107
 107,TITLE_REQUEST_FAILURE,リクエストに失敗しました,The request failed.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,107
 107,TITLE_REQUEST_FAILURE,リクエストに失敗しました,The request failed.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,107
-38,TITLE_STATUS,Status,Progress,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,38
-38,TITLE_STATUS,Status,Progress,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,38
-38,TITLE_STATUS,Status,Progress,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,38
-38,TITLE_STATUS,Status,Progress,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,38
-38,TITLE_STATUS,Status,Progress,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,38
+38,TITLE_STATUS,Status,Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,38
+38,TITLE_STATUS,Status,Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,38
+38,TITLE_STATUS,Status,Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,38
+38,TITLE_STATUS,Status,Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,38
+38,TITLE_STATUS,Status,Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,38
 32,TITLE_TOTAL,Performance,Performance,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,32
 32,TITLE_TOTAL,Performance,Performance,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,32
 32,TITLE_TOTAL,Performance,Performance,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,32
@@ -116,7 +116,7 @@ Mail.",ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMissi
 受取先を選択してください","Please select a destination to receive all reward
 items.",ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,20
 32,daily_mission_get_reward_wallet_title,報酬をすべて受け取りますか？,Do you want to receive all rewards?,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,32
-31,daily_mission_limit_finish,終了,Ended,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,31
+31,daily_mission_limit_finish,終了,Close,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,31
 30,daily_mission_limit_until_end,終了まで,Ends in,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,30
 29,daily_mission_limit_until_start,開始まで,Starts in,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,29
 7,daily_mission_list_limit_title,期限：,Time Limit:,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,7
@@ -126,7 +126,7 @@ items.",ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMiss
 10,daily_mission_list_reward_get,受取済,Received,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,10
 11,daily_mission_list_reward_get_enable,<COL ffdc78>受取可能</COL>,<COL ffdc78>Receivable</COL>,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,11
 26,daily_mission_list_reward_send,メール配信済,Mail has been sent.,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,26
-12,daily_mission_list_reward_still,ー,ー,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,12
+12,daily_mission_list_reward_still,ー,,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,12
 6,daily_mission_list_reward_title,報酬：,Reward:,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,6
 28,daily_mission_no_reward,受取可能な報酬がありません,No Rewards available for pick up.,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,28
 27,daily_mission_no_time_event,配信されている期間イベントがありません,There are no currently ongoing scheduled events.,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,27
@@ -148,7 +148,7 @@ items.",ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMiss
 39,daily_mission_title_sub_time_event,期間イベント,Time Event,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,39
 38,daily_mission_title_time_event,TimeEvent,Time Event,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,38
 0,DialogTextBox_res_5778,新たなポーンの名前を入力してください,Please enter the name of the new pawn,ui\00_message\ui\DialogTextBox_res.gmd,\ui\uGUIDialogTextBox.arc,uGUIDialogTextBox.arc,0
-10,EFC_SEALED_DECIDE_BTN,決定,Choose,ui\00_message\ui\EfcSealed_res.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,10
+10,EFC_SEALED_DECIDE_BTN,決定,Confirm,ui\00_message\ui\EfcSealed_res.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,10
 14,EFC_SEALED_ERROR_DECIDE_NO_SELECT,何も選択していない為、封印することができません,"You can't seal anything because nothing is
 selected",ui\00_message\ui\EfcSealed_res.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,14
 11,EFC_SEALED_ERROR_NOT_ENOUGH_COST,費用が足りません,Insufficient funds,ui\00_message\ui\EfcSealed_res.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,11
@@ -187,7 +187,7 @@ RDM> <VAL RDM></COL>?",ui\00_message\ui\EfcSealed_res.gmd,\ui\uGUIEffectSealed.a
 8,fgc_button_invitation,メンバーを招待,Invite Members,ui\00_message\ui\FreeGroupChat.gmd,\ui\uGUIFreeGroupChat.arc,uGUIFreeGroupChat.arc,8
 9,fgc_button_roomout,グループから退室,Leave Group,ui\00_message\ui\FreeGroupChat.gmd,\ui\uGUIFreeGroupChat.arc,uGUIFreeGroupChat.arc,9
 6,fgc_cate_comment,コメント,Comment,ui\00_message\ui\FreeGroupChat.gmd,\ui\uGUIFreeGroupChat.arc,uGUIFreeGroupChat.arc,6
-3,fgc_cate_joblv,ジョブレベル,Job Level,ui\00_message\ui\FreeGroupChat.gmd,\ui\uGUIFreeGroupChat.arc,uGUIFreeGroupChat.arc,3
+3,fgc_cate_joblv,ジョブレベル,Vocation LV.,ui\00_message\ui\FreeGroupChat.gmd,\ui\uGUIFreeGroupChat.arc,uGUIFreeGroupChat.arc,3
 4,fgc_cate_lobby,ワールド,World,ui\00_message\ui\FreeGroupChat.gmd,\ui\uGUIFreeGroupChat.arc,uGUIFreeGroupChat.arc,4
 2,fgc_cate_name,名前,Name,ui\00_message\ui\FreeGroupChat.gmd,\ui\uGUIFreeGroupChat.arc,uGUIFreeGroupChat.arc,2
 7,fgc_cate_number_of_participants,参加人数,Participants,ui\00_message\ui\FreeGroupChat.gmd,\ui\uGUIFreeGroupChat.arc,uGUIFreeGroupChat.arc,7
@@ -218,7 +218,7 @@ purchase.",ui\00_message\ui\GPShopDialog_res.gmd,\ui\uGUIGPShopDialog.arc,uGUIGP
 11,OSD_effectivedate_text2,まで有効の黄金石,Gemstones expire,ui\00_message\ui\GPShopDialog_res.gmd,\ui\uGUIGPShopDialog.arc,uGUIGPShopDialog.arc,11
 15,OSD_eventcode_index_en,Event Code,Event Code,ui\00_message\ui\GPShopDialog_res.gmd,\ui\uGUIGPShopDialog.arc,uGUIGPShopDialog.arc,15
 16,OSD_eventcode_index_jp,イベントコードの入力,Input event code,ui\00_message\ui\GPShopDialog_res.gmd,\ui\uGUIGPShopDialog.arc,uGUIGPShopDialog.arc,16
-18,OSD_eventcode_ok,決定,Choose,ui\00_message\ui\GPShopDialog_res.gmd,\ui\uGUIGPShopDialog.arc,uGUIGPShopDialog.arc,18
+18,OSD_eventcode_ok,決定,Confirm,ui\00_message\ui\GPShopDialog_res.gmd,\ui\uGUIGPShopDialog.arc,uGUIGPShopDialog.arc,18
 17,OSD_eventcode_title,16ケタのイベントコードを入力してください,Please enter your 16-digit event code,ui\00_message\ui\GPShopDialog_res.gmd,\ui\uGUIGPShopDialog.arc,uGUIGPShopDialog.arc,17
 19,OSD_eventcode_warning,イベントコードに関する注意,Note about event codes,ui\00_message\ui\GPShopDialog_res.gmd,\ui\uGUIGPShopDialog.arc,uGUIGPShopDialog.arc,19
 20,OSD_eventcode_warning_text,"イベントコード入力を5回失敗すると、
@@ -231,7 +231,7 @@ currently logged in character.",ui\00_message\ui\GPShopDialog_res.gmd,\ui\uGUIGP
 14,OSD_free,無料分,Free,ui\00_message\ui\GPShopDialog_res.gmd,\ui\uGUIGPShopDialog.arc,uGUIGPShopDialog.arc,14
 21,OSD_histry_information,最新50件(古い履歴から順に削除されます),"The last 50 entries are shown (Older entries are
 deleted)",ui\00_message\ui\GPShopDialog_res.gmd,\ui\uGUIGPShopDialog.arc,uGUIGPShopDialog.arc,21
-0,OSD_index_en,Status,Progress,ui\00_message\ui\GPShopDialog_res.gmd,\ui\uGUIGPShopDialog.arc,uGUIGPShopDialog.arc,0
+0,OSD_index_en,Status,Status,ui\00_message\ui\GPShopDialog_res.gmd,\ui\uGUIGPShopDialog.arc,uGUIGPShopDialog.arc,0
 1,OSD_index_jp,黄金石の確認,Check Golden Gemstones,ui\00_message\ui\GPShopDialog_res.gmd,\ui\uGUIGPShopDialog.arc,uGUIGPShopDialog.arc,1
 30,OSD_msg_loginbornus,ログインボーナス,Login Bonus,ui\00_message\ui\GPShopDialog_res.gmd,\ui\uGUIGPShopDialog.arc,uGUIGPShopDialog.arc,30
 31,OSD_msg_no_history,履歴はありません,There is no history.,ui\00_message\ui\GPShopDialog_res.gmd,\ui\uGUIGPShopDialog.arc,uGUIGPShopDialog.arc,31
@@ -340,7 +340,7 @@ information.",ui\00_message\ui\GPShop_res.gmd,\ui\uGUIGPShop.arc,uGUIGPShop.arc,
 8,OS_relogin,"COGのログインが切れています
 ブラウザからCOG認証を行ってください","COG login has expired
 Please use your browser to authenticate COG",ui\00_message\ui\GPShop_res.gmd,\ui\uGUIGPShop.arc,uGUIGPShop.arc,8
-19,OS_status,ステータス,Progress,ui\00_message\ui\GPShop_res.gmd,\ui\uGUIGPShop.arc,uGUIGPShop.arc,19
+19,OS_status,ステータス,Status,ui\00_message\ui\GPShop_res.gmd,\ui\uGUIGPShop.arc,uGUIGPShop.arc,19
 11,OS_status_bkbtn,黄金石ショップ,Golden Gemstone Shop,ui\00_message\ui\GPShop_res.gmd,\ui\uGUIGPShop.arc,uGUIGPShop.arc,11
 13,OS_status_cticket,シルバーチケット,Silver Ticket,ui\00_message\ui\GPShop_res.gmd,\ui\uGUIGPShop.arc,uGUIGPShop.arc,13
 18,OS_status_history,黄金石使用履歴,GG Usage History,ui\00_message\ui\GPShop_res.gmd,\ui\uGUIGPShop.arc,uGUIGPShop.arc,18
@@ -451,7 +451,7 @@ It seems to be one of the following items.",ui\00_message\ui\ItemJudge.gmd,\ui\u
 5,MenuCmdPawn_res_3859,実行,Execute,ui\00_message\ui\MenuCmdPawn_res.gmd,\ui\uGUIMenuCmdPawn.arc,uGUIMenuCmdPawn.arc,5
 6,MenuCmdPawn_res_3860,サブメニュー,Submenu,ui\00_message\ui\MenuCmdPawn_res.gmd,\ui\uGUIMenuCmdPawn.arc,uGUIMenuCmdPawn.arc,6
 7,MenuCmdPawn_res_3861,ショートカット登録,Register Shortcut,ui\00_message\ui\MenuCmdPawn_res.gmd,\ui\uGUIMenuCmdPawn.arc,uGUIMenuCmdPawn.arc,7
-8,MenuCmdPawn_res_3862,決定,Choose,ui\00_message\ui\MenuCmdPawn_res.gmd,\ui\uGUIMenuCmdPawn.arc,uGUIMenuCmdPawn.arc,8
+8,MenuCmdPawn_res_3862,決定,Confirm,ui\00_message\ui\MenuCmdPawn_res.gmd,\ui\uGUIMenuCmdPawn.arc,uGUIMenuCmdPawn.arc,8
 9,MenuCmdPawn_res_3863,キャンセル,Cancel,ui\00_message\ui\MenuCmdPawn_res.gmd,\ui\uGUIMenuCmdPawn.arc,uGUIMenuCmdPawn.arc,9
 10,MenuCmdPawn_res_3864,（なし）,(None),ui\00_message\ui\MenuCmdPawn_res.gmd,\ui\uGUIMenuCmdPawn.arc,uGUIMenuCmdPawn.arc,10
 36,mr_msg_contents_failed_break,コンテンツ中断/失敗,Exit Content/Failed,ui\00_message\ui\MissionResult_res.gmd,\ui\uGUIMissionResult.arc,uGUIMissionResult.arc,36
@@ -523,21 +523,7 @@ results.",ui\00_message\ui\MissionResult_res.gmd,\ui\uGUIMissionResult.arc,uGUIM
 　・レベルや進行度の差による報酬ペナルティ無効
 　※対象クエストはデイリーで変化します
 　※各クエストの受注画面、ログの報酬欄にて
-　　ボーナス詳細が確認できます","■ <COL ffdc78>""Today's Party Bonus""</COL> Details
-Bonus Condition:
-・Complete the target World Quest with other
-players. With a full party, clear the
-quest <VAL> times.
-(Hybrid party with player and pawn is OK)
-Bonus Content:
-・The quest reward (XP/G/R/AP) will be
-increased.
-・The bonus may be penalized/disabled if
-level difference is high/quests are not
-on the same progress.
-※Target quest will change daily.
-※Within the quest log, you can check the
-details of the bonuses.",ui\00_message\ui\Newspaper_res.gmd,\ui\uGUINewspaper.arc,uGUINewspaper.arc,59
+　　ボーナス詳細が確認できます",,ui\00_message\ui\Newspaper_res.gmd,\ui\uGUINewspaper.arc,uGUINewspaper.arc,59
 60,np_msg_dailybonus_bo,"■<COL ffdc78>《本日のパーティーボーナス》</COL>詳細
 ＜ボーナス発生条件＞
 　・対象のワールドクエストを他のプレイヤーと
@@ -549,24 +535,9 @@ details of the bonuses.",ui\00_message\ui\Newspaper_res.gmd,\ui\uGUINewspaper.ar
 　・レベルや進行度の差による報酬ペナルティ無効
 　※対象クエストはデイリーで変化します
 　※各クエストの受注画面、ログの報酬欄にて
-　　ボーナス詳細が確認できます","■<COL ffdc78>""Today's Party Bonus""</COL> Details
-＜Bonus Condition＞
-・Complete the target World Quest with other
-players. With a full party, clear the
-quest <VAL> times.
-(Hybrid party with players and pawns is OK)
-＜Bonus Content＞
-<COL ffdc78>★Today, ""</COL><VAL BO><COL ffdc78>
-Blood Orbs"" will be added!</COL>
-・The quest reward (XP/G/R/AP) will be increased.
-・The bonus may be penalized/disabled if level
-difference is high/quests are not
-on the same progress.
-※Target quest will change daily.
-※Within the quest log, you can check the
-details of the bonuses.",ui\00_message\ui\Newspaper_res.gmd,\ui\uGUINewspaper.arc,uGUINewspaper.arc,60
+　　ボーナス詳細が確認できます",,ui\00_message\ui\Newspaper_res.gmd,\ui\uGUINewspaper.arc,uGUINewspaper.arc,60
 19,np_msg_decision_cansel,キャンセル,Cancel,ui\00_message\ui\Newspaper_res.gmd,\ui\uGUINewspaper.arc,uGUINewspaper.arc,19
-18,np_msg_decision_decide,決定,Choose,ui\00_message\ui\Newspaper_res.gmd,\ui\uGUINewspaper.arc,uGUINewspaper.arc,18
+18,np_msg_decision_decide,決定,Confirm,ui\00_message\ui\Newspaper_res.gmd,\ui\uGUINewspaper.arc,uGUINewspaper.arc,18
 16,np_msg_dialog_jump_check,"<NAME AREA> に転移します
 必要リム：<VAL RIM>
 所持リム：<VAL RIM>","You will teleport to <NAME AREA>.
@@ -662,7 +633,7 @@ event.",ui\00_message\ui\Newspaper_res.gmd,\ui\uGUINewspaper.arc,uGUINewspaper.a
 30,party_list_guide_switch,表示切り替え,Switch Display,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,30
 2,party_list_invite,パーティーへの招待がきています,You have been sent a party invite.,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,2
 29,party_list_inviting,（招待中）,(Pending),ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,29
-15,party_list_job,ジョブレベル,Job Level,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,15
+15,party_list_job,ジョブレベル,Vocation LV.,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,15
 9,party_list_leave,パーティーから抜ける,Leave,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,9
 16,party_list_lobby,ワールド,World,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,16
 17,party_list_location,Location,Location,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,17
@@ -677,7 +648,7 @@ event.",ui\00_message\ui\Newspaper_res.gmd,\ui\uGUINewspaper.arc,uGUINewspaper.a
 22,party_list_object,Object,Object,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,22
 37,party_list_party_link,（合流中）,(Merging in progress),ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,37
 23,party_list_pawn,Pawn,Pawn,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,23
-32,party_list_pawn_joblv,ジョブ／クラフトレベル,Job / Craft Level,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,32
+32,party_list_pawn_joblv,ジョブ／クラフトレベル,Vocation / Craft Level,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,32
 41,party_list_pl_name_empty,(指定なし),(None),ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,41
 7,party_list_pl_search,プレイヤー検索,Player Search,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,7
 40,party_list_pl_search_notfound,一致する情報は見つかりませんでした,There were no results.,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,40
@@ -695,11 +666,11 @@ event.",ui\00_message\ui\Newspaper_res.gmd,\ui\uGUINewspaper.arc,uGUINewspaper.a
 34,party_list_support_pawn_count,雇用状況：,Contracts:,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,34
 3,party_list_time,<VAL>:<VAL>,<VAL>:<VAL>,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,3
 0,party_list_title_en,Party List,Party List,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,0
-1,party_list_title_jp,パーティー管理,Party,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,1
+1,party_list_title_jp,パーティー管理,Party Management,ui\00_message\ui\PartyList_res.gmd,\ui\uGUIPartyList.arc,uGUIPartyList.arc,1
 1,pawnreviewedit_msg_battle_edit,冒険評価編集,Edit Combat Rating,ui\00_message\ui\PawnReviewEdit_res.gmd,\ui\uGUIPawnReviewEdit.arc,uGUIPawnReviewEdit.arc,1
 4,pawnreviewedit_msg_cancel,キャンセル,Cancel,ui\00_message\ui\PawnReviewEdit_res.gmd,\ui\uGUIPawnReviewEdit.arc,uGUIPawnReviewEdit.arc,4
 2,pawnreviewedit_msg_craft_edit,クラフト評価編集,Edit Craft Rating,ui\00_message\ui\PawnReviewEdit_res.gmd,\ui\uGUIPawnReviewEdit.arc,uGUIPawnReviewEdit.arc,2
-3,pawnreviewedit_msg_decide,決定,Choose,ui\00_message\ui\PawnReviewEdit_res.gmd,\ui\uGUIPawnReviewEdit.arc,uGUIPawnReviewEdit.arc,3
+3,pawnreviewedit_msg_decide,決定,Confirm,ui\00_message\ui\PawnReviewEdit_res.gmd,\ui\uGUIPawnReviewEdit.arc,uGUIPawnReviewEdit.arc,3
 0,pawnreviewedit_msg_looks_edit,外見評価編集,Edit Appearance Rating,ui\00_message\ui\PawnReviewEdit_res.gmd,\ui\uGUIPawnReviewEdit.arc,uGUIPawnReviewEdit.arc,0
 3,pawnreview_msg_battle_review,冒険評価,Combat Rating,ui\00_message\ui\PawnReview_res.gmd,\ui\uGUIPawnReview.arc,uGUIPawnReview.arc,3
 8,pawnreview_msg_choice_cancel,キャンセル,Cancel,ui\00_message\ui\PawnReview_res.gmd,\ui\uGUIPawnReview.arc,uGUIPawnReview.arc,8
@@ -773,10 +744,10 @@ a while.",ui\00_message\ui\Photo_Upload.gmd,\ui\uGUIPhotoUpload.arc,uGUIPhotoUpl
 31,pop_detail_bbi_002,<COL ffdc78>？？？（入手すると判明します）</COL>,<COL ffdc78>??? (identified when obtained)</COL>,ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,31
 6,pop_detail_caption,Details,Details,ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,6
 13,pop_detail_comparison_eq,比較装備：,Equip Compare:,ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,13
-5,pop_detail_craft,Craft,Crafting,ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,5
+5,pop_detail_craft,Craft,Craft Menu,ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,5
 11,pop_detail_eq_crest_slot,装着クレスト：スロット,Equipped Crest: Slot,ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,11
 0,pop_detail_item_rank,Item Rank,Item Rank,ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,0
-2,pop_detail_ok,OK,Choose,ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,2
+2,pop_detail_ok,OK,Confirm,ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,2
 3,pop_detail_powerup_point,強化ポイント,Enhancement,ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,3
 7,pop_detail_sale,売却額,Sell,ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,7
 17,pop_detail_shop_aggregate1,集計開始まであと,Tally Starts:,ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,17
@@ -791,14 +762,14 @@ a while.",ui\00_message\ui\Photo_Upload.gmd,\ui\uGUIPhotoUpload.arc,uGUIPhotoUpl
 20,pop_detail_shop_unlock_condition_3_1,(まだランキングは確定していません),(The rankings have not yet been finalised.),ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,20
 21,pop_detail_shop_unlock_condition_3_2,(参加者はランキングボードを確認してください),(Participants should check the ranking board),ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,21
 22,pop_detail_shop_unlock_condition_3_3,(最終結果%d位),(Final result %d Rank),ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,22
-4,pop_detail_status,Status,Progress,ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,4
+4,pop_detail_status,Status,Status,ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,4
 10,pop_detail_target,目玉報酬,Featured Rewards,ui\00_message\ui\PopDetail01_res.gmd,\ui\uGUIPopDetail01.arc,uGUIPopDetail01.arc,10
 1,PopPartyMember_res_ButtonText,閉じる,Close,ui\00_message\ui\PopPartyMember_res.gmd,\ui\uGUIPopPartyMember.arc,uGUIPopPartyMember.arc,1
 0,PopPartyMember_res_Title,パーティー詳細,Party List,ui\00_message\ui\PopPartyMember_res.gmd,\ui\uGUIPopPartyMember.arc,uGUIPopPartyMember.arc,0
 18,RIM_POP_MSG_BTN_SEARCH,検索する,Search,ui\00_message\ui\PopRimStone_res.gmd,\ui\uGUIPopRimStone.arc,uGUIPopRimStone.arc,18
 4,RIM_POP_MSG_CHARACTER_M_CHARACTER,性別,Gender,ui\00_message\ui\PopRimStone_res.gmd,\ui\uGUIPopRimStone.arc,uGUIPopRimStone.arc,4
 25,RIM_POP_MSG_CHARACTER_M_IR,アイテムランク指定,Specify Item Rank,ui\00_message\ui\PopRimStone_res.gmd,\ui\uGUIPopRimStone.arc,uGUIPopRimStone.arc,25
-1,RIM_POP_MSG_CHARACTER_M_JOB,ジョブ,Jobs,ui\00_message\ui\PopRimStone_res.gmd,\ui\uGUIPopRimStone.arc,uGUIPopRimStone.arc,1
+1,RIM_POP_MSG_CHARACTER_M_JOB,ジョブ,Vocation,ui\00_message\ui\PopRimStone_res.gmd,\ui\uGUIPopRimStone.arc,uGUIPopRimStone.arc,1
 2,RIM_POP_MSG_CHARACTER_M_LV,ジョブレベル指定,Specify Vocation Level,ui\00_message\ui\PopRimStone_res.gmd,\ui\uGUIPopRimStone.arc,uGUIPopRimStone.arc,2
 3,RIM_POP_MSG_CHARACTER_M_SKILL,スキル,Skills,ui\00_message\ui\PopRimStone_res.gmd,\ui\uGUIPopRimStone.arc,uGUIPopRimStone.arc,3
 0,RIM_POP_MSG_HEADER_M_HEADER,検索条件,Search Criteria,ui\00_message\ui\PopRimStone_res.gmd,\ui\uGUIPopRimStone.arc,uGUIPopRimStone.arc,0
@@ -814,7 +785,7 @@ a while.",ui\00_message\ui\Photo_Upload.gmd,\ui\uGUIPhotoUpload.arc,uGUIPhotoUpl
 17,RIM_POP_MSG_OWNER_M_PAWN,ポーンの名前を指定,Pawn Name,ui\00_message\ui\PopRimStone_res.gmd,\ui\uGUIPopRimStone.arc,uGUIPopRimStone.arc,17
 24,RIM_POP_MSG_SEARCH_CRAFTSKILL,クラフトスキル,Craft Skills,ui\00_message\ui\PopRimStone_res.gmd,\ui\uGUIPopRimStone.arc,uGUIPopRimStone.arc,24
 26,RIM_POP_MSG_SEARCH_DRASKILL,ドラゴンアビリティ,Dragon Ability,ui\00_message\ui\PopRimStone_res.gmd,\ui\uGUIPopRimStone.arc,uGUIPopRimStone.arc,26
-23,RIM_POP_MSG_SEARCH_JOB,ジョブ,Jobs,ui\00_message\ui\PopRimStone_res.gmd,\ui\uGUIPopRimStone.arc,uGUIPopRimStone.arc,23
+23,RIM_POP_MSG_SEARCH_JOB,ジョブ,Vocation,ui\00_message\ui\PopRimStone_res.gmd,\ui\uGUIPopRimStone.arc,uGUIPopRimStone.arc,23
 7,RIM_POP_MSG_SKILL_M_LV,クラフトレベル,Craft Level,ui\00_message\ui\PopRimStone_res.gmd,\ui\uGUIPopRimStone.arc,uGUIPopRimStone.arc,7
 8,RIM_POP_MSG_SKILL_M_SKILL00,クラフトスキル,Craft Skills,ui\00_message\ui\PopRimStone_res.gmd,\ui\uGUIPopRimStone.arc,uGUIPopRimStone.arc,8
 9,RIM_POP_MSG_SKILL_M_SKILL01,生産作業スピード,Production Speed,ui\00_message\ui\PopRimStone_res.gmd,\ui\uGUIPopRimStone.arc,uGUIPopRimStone.arc,9

@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
 209,EVENT_NAME_st0889ev000,EX2.3黒騎士登場デモ,EM2.3 Black Knight appears demo,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,209
 210,EVENT_NAME_st0889ev005,EX2.3黒騎士討伐デモ,EM2.3 Defeating Black Knight Demo,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,210
 217,EVENT_NAME_st0890ev000,EX2.3メガダンジョン攻略開始,EM2.3 Mega dungeon attack begins.,ui\00_message\event\event_name.gmd,\EventViewRoom.arc,EventViewRoom.arc,217
@@ -272,8 +272,7 @@ unpleasant...",ui\00_message\event\st0100\ev035.gmd,\event\st0100\st0100ev035.ar
 let them escape!",ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,0
 0,,エルフ！　エルフ！,Elf! Elf!,ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,1
 0,,"メイリーフ
-俺から離れるな！","Mayleaf,
-Don't leave me!",ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,2
+俺から離れるな！","Mayleaf, don't leave my side!",ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,2
 0,,奴らは僕が引きつける,I'll draw their attention.,ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,3
 0,,メイリーフを頼む,Please ask Mayleaf.,ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,4
 0,,いや、敵は俺たちが引き受ける,"No, we will accept the enemy.",ui\00_message\event\st0100\ev040.gmd,\event\st0100\st0100ev040.arc,st0100ev040.arc,5
@@ -739,43 +738,41 @@ fought alongside comrades.",ui\00_message\event\st0100\ev160.gmd,\event\st0100\s
 0,,,,ui\00_message\event\st0101\ev005.gmd,\event\st0101\st0101ev005.arc,st0101ev005.arc,0
 0,,ハァ、ハァ、ハァ―,"Haa, haa, haa―",ui\00_message\event\st0101\ev005.gmd,\event\st0101\st0101ev005.arc,st0101ev005.arc,1
 0,,フゥゥゥ、フゥゥゥ―,"Fuuuu, fuuuu―",ui\00_message\event\st0101\ev005.gmd,\event\st0101\st0101ev005.arc,st0101ev005.arc,2
-0,,新人覚者だな？,You are a rookie?,ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,0
+0,,新人覚者だな？,Newly Arisen?,ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,0
 0,,待っていろ,Wait there.,ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,1
-0,,――よし,Very well then.,ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,2
+0,,――よし,Alright.,ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,2
 0,,"この臭いを忘れるな
 オークの接近は臭いでわかる","Don't forget this smell.
 The approach of an Orc can be detected by its
 odor.",ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,3
-0,,いつか鼻がバカになるだろうが――,"Someday, you might become a fool too—",ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,4
+0,,いつか鼻がバカになるだろうが――,My nose grows madder by the day.,ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,4
 0,,"その頃まで生きのびていれば
-オークごときにやられることはない","If you manage to survive until then, there is
-nothing an Orc can do to you.",ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,5
-0,,あれが――,That—,ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,6
+オークごときにやられることはない","If you manage to survive until then,
+there is nothing an Orc can do to you.",ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,5
+0,,あれが――,That way—,ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,6
 0,,"グリッテン砦だ
 走るぞ","It's Fort Gritten.
-Let's run!",ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,7
+We must hurry.",ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,7
 0,,"急いで――
 ほら、オークちゃんが逃げちゃうよ！","Hurry up--
 Look, the Orc is going to escape!",ui\00_message\event\st0101\ev010.gmd,\event\st0101\st0101ev010.arc,st0101ev010.arc,8
 0,,『おまえたちを覚者にしてやろう』,"""I shall make you Arisen,""",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,29
 0,,『その代わりに――』,"""and now""",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,30
 0,,"『たったひとりの人間の野心が世界のありようを
-変えてしまったのですから』","'Because one man's ambition has changed the way
-the world
-is.'",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,1
+変えてしまったのですから』","""...for the ambitions of one man
+had changed the state of a whole world.""",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,1
 0,,『まだ消えるわけにはいかない』,"""For I cannot yet cease away,""",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,32
 0,,『わたしを守ってくれ』,"""you shall protect me instead.""",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,31
 0,,『レスタニアを愛する者たちよ――』,"""so you who have love for Lestania,""",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,33
 0,,『堅き砦となり、わたしを守ってくれ』,"""build a stronghold to protect me.""",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,34
 0,,"『大いなる理（ことわり）は我々が信じているよりも
-ずっと脆かったと考えるより他はありません』","'We have no choice but to believe that the Great
-Order is far
-more fragile than we have been led to believe.'",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,0
+ずっと脆かったと考えるより他はありません』","""The great order of the world is far more fragile
+than we believe it to be...""",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,0
 0,,『理の内に押し戻さねば――』,"""restored to the land.""",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,36
 0,,『秩序をなくしたこの地を――』,"""Order must be""",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,35
 0,,かなわず――,"alas, it could not.",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,25
 0,,しかし,"However,",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,10
-0,,そして,And thus,ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,22
+0,,そして,"And thus,",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,22
 0,,そしてまた,"And now,",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,39
 0,,そののちの３００有余年――,"And for the next some 300 years,",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,37
 0,,その豊穣なる大地の名はレスタニア――,"The ancient manuscripts discovered in Erte Deenan
@@ -821,13 +818,11 @@ outcome with bated breath.",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.
 tried to climb and soar back into the skies;",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,24
 0,,３２３年前――,"323 years ago,",ui\00_message\event\st0101\ev070.gmd,\menu.arc,menu.arc,11
 0,,"『大いなる理（ことわり）は我々が信じているよりも
-ずっと脆かったと考えるより他はありません』","'We have no choice but to believe that the Great
-Order is far
-more fragile than we have been led to believe.'",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,0
+ずっと脆かったと考えるより他はありません』","""The great order of the world is far more fragile
+than we believe it to be...""",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,0
 0,,"『たったひとりの人間の野心が世界のありようを
-変えてしまったのですから』","'Because one man's ambition has changed the way
-the world
-is.'",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,1
+変えてしまったのですから』","""...for the ambitions of one man
+had changed the state of a whole world.""",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,1
 0,,エルテ・ディナンで見つかった古文書より,From the ancient document found at Erte Deenan,ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,2
 0,,その豊穣なる大地の名はレスタニア――,"The ancient manuscripts discovered in Erte Deenan
 told of the great kingdom of Lestania,",ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,3
@@ -884,13 +879,11 @@ number of the Arisen, one at a time.",ui\00_message\event\st0101\ev070.gmd,\ui\u
 0,,新たな覚者が,a newly Arisen,ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,40
 0,,レスタニアの大地に立とうとしていた,will stand on the grounds of Lestania.,ui\00_message\event\st0101\ev070.gmd,\ui\uGUITitle.arc,uGUITitle.arc,41
 0,,"『大いなる理（ことわり）は我々が信じているよりも
-ずっと脆かったと考えるより他はありません』","'We have no choice but to believe that the Great
-Order is far
-more fragile than we have been led to believe.'",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,0
+ずっと脆かったと考えるより他はありません』","""The great order of the world is far more fragile
+than we believe it to be...""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,0
 0,,"『たったひとりの人間の野心が世界のありようを
-変えてしまったのですから』","'Because one man's ambition has changed the way
-the world
-is.'",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,1
+変えてしまったのですから』","""...for the ambitions of one man
+had changed the state of a whole world.""",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,1
 0,,エルテ・ディナンで見つかった古文書より,From the ancient document found at Erte Deenan,ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,2
 0,,その豊穣なる大地の名はレスタニア――,"The ancient manuscripts discovered in Erte Deenan
 told of the great kingdom of Lestania,",ui\00_message\event\st0101\ev070.gmd,\event\st0101\st0101ev070.arc,st0101ev070.arc,3
@@ -1248,11 +1241,11 @@ They're coming towards us!",ui\00_message\event\st0120\ev005.gmd,\event\st0120\s
 0,,会いに来てくれるなんて！,To think you came to see me!,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,1
 0,,いや、様子がおかしい！,"No, something seems off!",ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,2
 0,,セシリー、逃げろ！,"Cecily, run!",ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,3
-0,,うわっー,Wow--,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,4
-0,,うわっー,Wow--,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,5
-0,,うわっー,Wow--,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,6
-0,,うわっー,Wow--,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,7
-0,,うわっー,Wow--,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,8
+0,,うわっー,Wah!,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,4
+0,,うわっー,Wah!,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,5
+0,,うわっー,Wah!,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,6
+0,,うわっー,Wah!,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,7
+0,,うわっー,Wah!,ui\00_message\event\st0120\ev010.gmd,\event\st0120\st0120ev010.arc,st0120ev010.arc,8
 0,,"セシリー！？
 無事に戻ったというのは本当だったのだな",Cecily!? So it was true that you returned safely.,ui\00_message\event\st0120\ev015.gmd,\event\st0120\st0120ev015.arc,st0120ev015.arc,0
 0,,一緒に来たってずーっと言ってるじゃねえかよ！,You keep saying that you came together with me!,ui\00_message\event\st0120\ev015.gmd,\event\st0120\st0120ev015.arc,st0120ev015.arc,1

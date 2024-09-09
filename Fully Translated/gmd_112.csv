@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
 7,q90000113_00_1316,発見した急襲部隊を撃破で戦功ボーナス,"Defeat the ambush unit you discovered and receive
 a War Merit Bonus.",ui\00_message\quest_info\q90000113_00.gmd,\quest\q90000113.arc,q90000113.arc,7
 8,q90000113_00_1469,大隊長を撃破し、防衛を完遂せよ,"Defeat the battalion commander and complete the
@@ -1240,8 +1240,8 @@ appeared (1 min left)",ui\00_message\quest_info\q90030104_00.gmd,\quest\q9003010
 31,CHAT_COM_33,さすが！,As expected!,ui\00_message\simple_com\chat_com_text_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,31
 32,CHAT_COM_34,ナイスです！,Nice!,ui\00_message\simple_com\chat_com_text_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,32
 33,CHAT_COM_35,気にしないで！,Don't worry about it!,ui\00_message\simple_com\chat_com_text_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,33
-34,CHAT_COM_36,お気になさらず,Without favoriting,ui\00_message\simple_com\chat_com_text_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,34
-35,CHAT_COM_37,それではまた！,Well then... again!,ui\00_message\simple_com\chat_com_text_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,35
+34,CHAT_COM_36,お気になさらず,I don't mind.,ui\00_message\simple_com\chat_com_text_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,34
+35,CHAT_COM_37,それではまた！,"Well, see you!",ui\00_message\simple_com\chat_com_text_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,35
 36,CHAT_COM_38,次こそは！,Next time!,ui\00_message\simple_com\chat_com_text_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,36
 0,CHAT_COM_39,誰ですか？,Who?,ui\00_message\simple_com\chat_com_text_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0
 1,CHAT_COM_40,どちらですか？,Which?,ui\00_message\simple_com\chat_com_text_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1
@@ -1274,8 +1274,7 @@ appeared (1 min left)",ui\00_message\quest_info\q90030104_00.gmd,\quest\q9003010
 4,CHAT_COM_67,わかりました,Understood,ui\00_message\simple_com\chat_com_text_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4
 5,CHAT_COM_68,後でまたお話ししてください,Please tell me the story later,ui\00_message\simple_com\chat_com_text_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5
 6,CHAT_COM_69,今は個人行動を優先中です,Every man for themselves,ui\00_message\simple_com\chat_com_text_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6
-7,CHAT_COM_70,答えたいですが、表現がわかりません,"I want to answer, but I don't understand the
-expression.",ui\00_message\simple_com\chat_com_text_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
+7,CHAT_COM_70,答えたいですが、表現がわかりません,"I want to answer, but I don't understand the expression.",ui\00_message\simple_com\chat_com_text_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
 8,CHAT_COM_71,なるほど,I see,ui\00_message\simple_com\chat_com_text_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8
 9,CHAT_COM_72,せっかくですが遠慮します,It's rare but I'll hold back,ui\00_message\simple_com\chat_com_text_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9
 10,CHAT_COM_73,へぇー,That's interesting,ui\00_message\simple_com\chat_com_text_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10
@@ -1309,7 +1308,7 @@ expression.",ui\00_message\simple_com\chat_com_text_03.gmd,\ui\gui_cmn.arc,gui_c
 11,CHAT_COM_101,知りません,I don't know,ui\00_message\simple_com\chat_com_text_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11
 12,CHAT_COM_102,使ったばかりです,Just used it,ui\00_message\simple_com\chat_com_text_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12
 13,CHAT_COM_103,経験値が欲しいです,I want experience points,ui\00_message\simple_com\chat_com_text_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13
-14,CHAT_COM_104,間違えました,Oops,ui\00_message\simple_com\chat_com_text_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14
+14,CHAT_COM_104,間違えました,I've made a mistake...,ui\00_message\simple_com\chat_com_text_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14
 15,CHAT_COM_105,すでに誘われています,I already have an invite,ui\00_message\simple_com\chat_com_text_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15
 16,CHAT_COM_106,すでに持っています,I already have one,ui\00_message\simple_com\chat_com_text_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16
 17,CHAT_COM_107,募集が終わりました,No longer recruiting,ui\00_message\simple_com\chat_com_text_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17
@@ -1384,8 +1383,8 @@ distance",ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.
 38,CHAT_COM_174,そこにいてください,Stay there,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,38
 39,CHAT_COM_175,これから向かいます,On my way,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,39
 40,CHAT_COM_176,すぐ戻ります,Will be right back,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,40
-41,CHAT_COM_177,どんまい！,I don't mind!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,41
-42,CHAT_COM_178,気にするな！,Never mind!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,42
+41,CHAT_COM_177,どんまい！,Don't fret!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,41
+42,CHAT_COM_178,気にするな！,Never mind it!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,42
 44,CHAT_COM_179,大丈夫です！,It's okay!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,44
 45,CHAT_COM_180,申し訳ない！,I'm sorry!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,45
 46,CHAT_COM_181,すみません！,Pardon me!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,46
@@ -1396,9 +1395,9 @@ distance",ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.
 54,CHAT_COM_186,この敵は倒そう！,Kill this enemy!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54
 56,CHAT_COM_187,先に行ってください,Please go ahead,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,56
 57,CHAT_COM_188,急ごう！,Hurry!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,57
-59,CHAT_COM_189,焦らずに,Stay calm,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,59
+59,CHAT_COM_189,焦らずに,Steady...,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,59
 60,CHAT_COM_190,助かりました！,Rescued!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,60
-61,CHAT_COM_191,う、動けない！,"Ooh, it cannot move!",ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,61
+61,CHAT_COM_191,う、動けない！,I... I cannot move!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,61
 62,CHAT_COM_192,少し準備します,Preparing a bit,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,62
 63,CHAT_COM_193,手を出すな,Hand it in,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,63
 65,CHAT_COM_194,敵を引きつける,Attract the enemy,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,65
@@ -1418,7 +1417,7 @@ distance",ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.
 89,CHAT_COM_208,弱点を攻撃しよう！,Attack its weakspot!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,89
 90,CHAT_COM_209,スタミナを減らそう！,Decrease its stamina!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,90
 91,CHAT_COM_210,一気に揺さぶろう！,Shake it without stopping!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,91
-92,CHAT_COM_211,今助ける！,Help now!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,92
+92,CHAT_COM_211,今助ける！,I'll aid you at once!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,92
 94,CHAT_COM_212,こっちだ、跳ね上げる！,"Over here, jump!",ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,94
 96,CHAT_COM_213,おきろ！,Get up!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,96
 98,CHAT_COM_214,トドメだ！,Take that!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,98
@@ -1435,7 +1434,7 @@ distance",ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.
 48,CHAT_COM_226,私が！,I!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,48
 51,CHAT_COM_227,エンチャントをお願い！,Please enchant!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,51
 53,CHAT_COM_228,ザコは無視しましょう！,Ignoring it!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53
-55,CHAT_COM_229,この敵は倒しましょう！,Killing this enemy!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,55
+55,CHAT_COM_229,この敵は倒しましょう！,Let's kill this enemy!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,55
 58,CHAT_COM_230,急ぎましょう！,Make haste!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,58
 64,CHAT_COM_231,手を出さないで,Do not hand it in,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,64
 66,CHAT_COM_232,敵を引きつけます,Drawing enemy over,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,66
@@ -1448,7 +1447,7 @@ distance",ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.
 80,CHAT_COM_239,状態異常にします！,Debilitating it!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,80
 82,CHAT_COM_240,弱点を攻撃して！,Strike at its weak point!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,82
 84,CHAT_COM_241,別れて戦いましょう！,Split up and fight!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,84
-93,CHAT_COM_242,今助けます！,Assist now!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,93
+93,CHAT_COM_242,今助けます！,I'll assist you!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,93
 95,CHAT_COM_243,こっちです、跳ね上げます！,"This way, leap!",ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,95
 97,CHAT_COM_244,起きて！,Rise!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,97
 100,CHAT_COM_245,仕切り直しましょう！,Let's go back and start again!,ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,100
@@ -1513,7 +1512,7 @@ distance",ui\00_message\simple_com\chat_com_text_06.gmd,\ui\gui_cmn.arc,gui_cmn.
 58,CHAT_COM_305,ワーイ！,Yay!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,58
 59,CHAT_COM_306,カッコイイ！,Cool!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,59
 60,CHAT_COM_307,カワイイ！,Cute!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,60
-61,CHAT_COM_308,ステキ！,Wonderful,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,61
+61,CHAT_COM_308,ステキ！,Lovely!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,61
 62,CHAT_COM_309,ビューティフル！,Beautiful!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,62
 63,CHAT_COM_310,メリークリスマス！,Merry Christmas!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,63
 64,CHAT_COM_311,ハッピーニューイヤー！,Happy New Year!,ui\00_message\simple_com\chat_com_text_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,64

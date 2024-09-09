@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
 121,EDIT_MSG_SUB_TITLE_EYEBROW,Eyebrow,Brows,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,121
 117,EDIT_MSG_SUB_TITLE_FACE,Face,Face,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,117
 117,EDIT_MSG_SUB_TITLE_FACE,Face,Face,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,117
@@ -149,14 +149,7 @@
  ・半角スペースは使用できません
  ・名前の頭文字は半角英字のみ使用可能です
  ・名前の頭文字は大文字に変換されます
- ・名前の頭文字以外は小文字に変換されます","Please enter the name you want.
-Notes
-・' (apostrophe) can be used
-・Numbers cannot be used
-・Spaces cannot be used
-・Initials of name may only be a single character
-・Initials of name will be changed to uppercase
-・Rest of name will be changed to lowercase",ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,22
+ ・名前の頭文字以外は小文字に変換されます",,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,22
 22,EDIT_MSG_TYPE_NAME_GUIDE,"付けたい名前を入力してください
 注意事項
  ・半角英字と'(アポストロフィー)が使用可能です
@@ -164,14 +157,7 @@ Notes
  ・半角スペースは使用できません
  ・名前の頭文字は半角英字のみ使用可能です
  ・名前の頭文字は大文字に変換されます
- ・名前の頭文字以外は小文字に変換されます","Please enter the name you want.
-Notes
-・' (apostrophe) can be used
-・Numbers cannot be used
-・Spaces cannot be used
-・Initials of name may only be a single character
-・Initials of name will be changed to uppercase
-・Rest of name will be changed to lowercase",ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,22
+ ・名前の頭文字以外は小文字に変換されます",,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,22
 23,EDIT_MSG_TYPE_NAME_GUIDE_ATTENTION,"ファースト/ファミリーネーム
 両方に入力してください
 注意事項
@@ -180,15 +166,7 @@ Notes
  ・半角スペースは使用できません
  ・名前の頭文字は半角英字のみ使用可能です
  ・名前の頭文字は大文字に変換されます
- ・名前の頭文字以外は小文字に変換されます","First/last name.
-Please enter both.
-Notes
-・' (apostrophe) can be used
-・Numbers cannot be used
-・Spaces cannot be used
-・Initials of name may only be a single character
-・Initials of name will be changed to uppercase
-・Rest of the will be changed to lowercase",ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,23
+ ・名前の頭文字以外は小文字に変換されます",,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,23
 23,EDIT_MSG_TYPE_NAME_GUIDE_ATTENTION,"ファースト/ファミリーネーム
 両方に入力してください
 注意事項
@@ -197,15 +175,7 @@ Notes
  ・半角スペースは使用できません
  ・名前の頭文字は半角英字のみ使用可能です
  ・名前の頭文字は大文字に変換されます
- ・名前の頭文字以外は小文字に変換されます","First/last name.
-Please enter both.
-Notes
-・' (apostrophe) can be used
-・Numbers cannot be used
-・Spaces cannot be used
-・Initials of name may only be a single character
-・Initials of name will be changed to uppercase
-・Rest of the will be changed to lowercase",ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,23
+ ・名前の頭文字以外は小文字に変換されます",,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,23
 26,EDIT_MSG_TYPE_NAME_GUIDE_ERROR_CHARACTER,"<COL AA1414>使用できない文字が含まれています</COL>
 注意事項
  ・半角英字と'(アポストロフィー)が使用可能です
@@ -213,15 +183,7 @@ Notes
  ・半角スペースは使用できません
  ・名前の頭文字は半角英字のみ使用可能です
  ・名前の頭文字は大文字に変換されます
- ・名前の頭文字以外は小文字に変換されます","<COL AA1414>Contains unacceptable
-characters.</COL>
-Notes
-・' (apostrophe) can be used
-・Numbers cannot be used
-・Spaces cannot be used
-・Initials of name may only be a single character
-・Initials of name will be changed to uppercase
-・Rest of name will be changed to lowercase",ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,26
+ ・名前の頭文字以外は小文字に変換されます",,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,26
 26,EDIT_MSG_TYPE_NAME_GUIDE_ERROR_CHARACTER,"<COL AA1414>使用できない文字が含まれています</COL>
 注意事項
  ・半角英字と'(アポストロフィー)が使用可能です
@@ -229,15 +191,7 @@ Notes
  ・半角スペースは使用できません
  ・名前の頭文字は半角英字のみ使用可能です
  ・名前の頭文字は大文字に変換されます
- ・名前の頭文字以外は小文字に変換されます","<COL AA1414>Contains unacceptable
-characters.</COL>
-Notes
-・' (apostrophe) can be used
-・Numbers cannot be used
-・Spaces cannot be used
-・Initials of name may only be a single character
-・Initials of name will be changed to uppercase
-・Rest of name will be changed to lowercase",ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,26
+ ・名前の頭文字以外は小文字に変換されます",,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,26
 25,EDIT_MSG_TYPE_NAME_GUIDE_ERROR_NUMBER,"<COL AA1414>文字数が不足、またはオーバーしています</COL>
 注意事項
  ・半角英字と'(アポストロフィー)が使用可能です
@@ -245,16 +199,7 @@ Notes
  ・半角スペースは使用できません
  ・名前の頭文字は半角英字のみ使用可能です
  ・名前の頭文字は大文字に変換されます
- ・名前の頭文字以外は小文字に変換されます","<COL AA1414>Too short, or too long.</COL>
-Notes
-・' (apostrophe) can be used
-・Numbers cannot be used
-・Spaces cannot be used
-・Initials of the name may only be a single
-character
-・Initials of the name will be changed to
-uppercase
-・Rest of the name will be changed to lowercase",ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,25
+ ・名前の頭文字以外は小文字に変換されます",,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,25
 25,EDIT_MSG_TYPE_NAME_GUIDE_ERROR_NUMBER,"<COL AA1414>文字数が不足、またはオーバーしています</COL>
 注意事項
  ・半角英字と'(アポストロフィー)が使用可能です
@@ -262,16 +207,7 @@ uppercase
  ・半角スペースは使用できません
  ・名前の頭文字は半角英字のみ使用可能です
  ・名前の頭文字は大文字に変換されます
- ・名前の頭文字以外は小文字に変換されます","<COL AA1414>Too short, or too long.</COL>
-Notes
-・' (apostrophe) can be used
-・Numbers cannot be used
-・Spaces cannot be used
-・Initials of the name may only be a single
-character
-・Initials of the name will be changed to
-uppercase
-・Rest of the name will be changed to lowercase",ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,25
+ ・名前の頭文字以外は小文字に変換されます",,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,25
 28,EDIT_MSG_TYPE_NAME_GUIDE_ERROR_USED,"<COL AA1414>すでに使用されている名前です</COL>
 注意事項
  ・半角英字と'(アポストロフィー)が使用可能です
@@ -279,14 +215,7 @@ uppercase
  ・半角スペースは使用できません
  ・名前の頭文字は半角英字のみ使用可能です
  ・名前の頭文字は大文字に変換されます
- ・名前の頭文字以外は小文字に変換されます","<COL AA1414>Name already in use.</COL>
-Notes
-・' (apostrophe) can be used
-・Numbers cannot be used
-・Spaces cannot be used
-・Initials of name may only be a single character
-・Initials of name will be changed to uppercase
-・Rest of name will be changed to lowercase",ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,28
+ ・名前の頭文字以外は小文字に変換されます",,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,28
 28,EDIT_MSG_TYPE_NAME_GUIDE_ERROR_USED,"<COL AA1414>すでに使用されている名前です</COL>
 注意事項
  ・半角英字と'(アポストロフィー)が使用可能です
@@ -294,14 +223,7 @@ Notes
  ・半角スペースは使用できません
  ・名前の頭文字は半角英字のみ使用可能です
  ・名前の頭文字は大文字に変換されます
- ・名前の頭文字以外は小文字に変換されます","<COL AA1414>Name already in use.</COL>
-Notes
-・' (apostrophe) can be used
-・Numbers cannot be used
-・Spaces cannot be used
-・Initials of name may only be a single character
-・Initials of name will be changed to uppercase
-・Rest of name will be changed to lowercase",ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,28
+ ・名前の頭文字以外は小文字に変換されます",,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,28
 27,EDIT_MSG_TYPE_NAME_GUIDE_ERROR_WORD,"<COL AA1414>使用できない文字列が含まれています</COL>
 注意事項
  ・半角英字と'(アポストロフィー)が使用可能です
@@ -309,14 +231,7 @@ Notes
  ・半角スペースは使用できません
  ・名前の頭文字は半角英字のみ使用可能です
  ・名前の頭文字は大文字に変換されます
- ・名前の頭文字以外は小文字に変換されます","<COL AA1414>Contains unacceptable word.</COL>
-Notes
-・' (apostrophe) can be used
-・Numbers cannot be used
-・Spaces cannot be used
-・Initials of name may only be a single character
-・Initials of name will be changed to uppercase
-・Rest of name will be changed to lowercase",ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,27
+ ・名前の頭文字以外は小文字に変換されます",,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,27
 27,EDIT_MSG_TYPE_NAME_GUIDE_ERROR_WORD,"<COL AA1414>使用できない文字列が含まれています</COL>
 注意事項
  ・半角英字と'(アポストロフィー)が使用可能です
@@ -324,14 +239,7 @@ Notes
  ・半角スペースは使用できません
  ・名前の頭文字は半角英字のみ使用可能です
  ・名前の頭文字は大文字に変換されます
- ・名前の頭文字以外は小文字に変換されます","<COL AA1414>Contains unacceptable word.</COL>
-Notes
-・' (apostrophe) can be used
-・Numbers cannot be used
-・Spaces cannot be used
-・Initials of name may only be a single character
-・Initials of name will be changed to uppercase
-・Rest of name will be changed to lowercase",ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,27
+ ・名前の頭文字以外は小文字に変換されます",,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,27
 24,EDIT_MSG_TYPE_NAME_GUIDE_OK,"<COL A39A70>入力ＯＫ</COL>
 注意事項
  ・半角英字と'(アポストロフィー)が使用可能です
@@ -339,14 +247,7 @@ Notes
  ・半角スペースは使用できません
  ・名前の頭文字は半角英字のみ使用可能です
  ・名前の頭文字は大文字に変換されます
- ・名前の頭文字以外は小文字に変換されます","<COL A39A70>Input OK.</COL>
-Notes
-・' (apostrophe) can be used
-・Numbers cannot be used
-・Spaces cannot be used
-・Initials of name may only be a single character
-・Initials of name will be changed to uppercase
-・Rest of name will be changed to lowercase",ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,24
+ ・名前の頭文字以外は小文字に変換されます",,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,24
 24,EDIT_MSG_TYPE_NAME_GUIDE_OK,"<COL A39A70>入力ＯＫ</COL>
 注意事項
  ・半角英字と'(アポストロフィー)が使用可能です
@@ -354,14 +255,7 @@ Notes
  ・半角スペースは使用できません
  ・名前の頭文字は半角英字のみ使用可能です
  ・名前の頭文字は大文字に変換されます
- ・名前の頭文字以外は小文字に変換されます","<COL A39A70>Input OK.</COL>
-Notes
-・' (apostrophe) can be used
-・Numbers cannot be used
-・Spaces cannot be used
-・Initials of name may only be a single character
-・Initials of name will be changed to uppercase
-・Rest of name will be changed to lowercase",ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,24
+ ・名前の頭文字以外は小文字に変換されます",,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,24
 20,EDIT_MSG_TYPE_NAME_LIMIT1,ファーストネーム（半角2～12文字）,First name (up to 2-12 characters),ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,20
 20,EDIT_MSG_TYPE_NAME_LIMIT1,ファーストネーム（半角2～12文字）,First name (up to 2-12 characters),ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,20
 21,EDIT_MSG_TYPE_NAME_LIMIT2,ファミリーネーム（半角2～8文字）,Last name (up to 2-8 characters),ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,21
@@ -380,12 +274,12 @@ Notes
 61,EDIT_MSG_TYPE_NOSE_POS_Y,鼻の位置,Nose Vertical Position,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,61
 62,EDIT_MSG_TYPE_NOSE_SIZE_X,鼻の幅,Nose Width,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,62
 62,EDIT_MSG_TYPE_NOSE_SIZE_X,鼻の幅,Nose Width,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,62
-99,EDIT_MSG_TYPE_PERSONAL_ACTIVE,アクティブ,Active,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,99
-99,EDIT_MSG_TYPE_PERSONAL_ACTIVE,アクティブ,Active,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,99
+99,EDIT_MSG_TYPE_PERSONAL_ACTIVE,アクティブ,Peppy,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,99
+99,EDIT_MSG_TYPE_PERSONAL_ACTIVE,アクティブ,Peppy,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,99
 101,EDIT_MSG_TYPE_PERSONAL_COOL,クール,Cool,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,101
 101,EDIT_MSG_TYPE_PERSONAL_COOL,クール,Cool,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,101
-97,EDIT_MSG_TYPE_PERSONAL_NORMAL,ノーマル,Middle,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,97
-97,EDIT_MSG_TYPE_PERSONAL_NORMAL,ノーマル,Middle,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,97
+97,EDIT_MSG_TYPE_PERSONAL_NORMAL,ノーマル,Normal,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,97
+97,EDIT_MSG_TYPE_PERSONAL_NORMAL,ノーマル,Normal,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,97
 102,EDIT_MSG_TYPE_PERSONAL_PURE,ピュア,Pure,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,102
 102,EDIT_MSG_TYPE_PERSONAL_PURE,ピュア,Pure,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,102
 104,EDIT_MSG_TYPE_PERSONAL_SEXY,セクシー,Sexy,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,104
@@ -982,12 +876,12 @@ Do not turn off the power of the PC",ui\00_message\ui\character_edit_dialog_win.
 1,EDIT_MSG_DIALOG_REPLY_NO,いいえ,No,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,1
 1,EDIT_MSG_DIALOG_REPLY_NO,いいえ,Cancel,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUISaveListComment.arc,uGUISaveListComment.arc,1
 1,EDIT_MSG_DIALOG_REPLY_NO,いいえ,Cancel,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUISaveListPC.arc,uGUISaveListPC.arc,1
-2,EDIT_MSG_DIALOG_REPLY_OK,OK,OK,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,2
-2,EDIT_MSG_DIALOG_REPLY_OK,OK,Choose,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,2
-2,EDIT_MSG_DIALOG_REPLY_OK,OK,Choose,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,2
-2,EDIT_MSG_DIALOG_REPLY_OK,OK,Choose,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,2
-2,EDIT_MSG_DIALOG_REPLY_OK,OK,Choose,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUISaveListComment.arc,uGUISaveListComment.arc,2
-2,EDIT_MSG_DIALOG_REPLY_OK,OK,Choose,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUISaveListPC.arc,uGUISaveListPC.arc,2
+2,EDIT_MSG_DIALOG_REPLY_OK,OK,Confirm,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,2
+2,EDIT_MSG_DIALOG_REPLY_OK,OK,Confirm,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,2
+2,EDIT_MSG_DIALOG_REPLY_OK,OK,Confirm,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,2
+2,EDIT_MSG_DIALOG_REPLY_OK,OK,Confirm,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,2
+2,EDIT_MSG_DIALOG_REPLY_OK,OK,Confirm,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUISaveListComment.arc,uGUISaveListComment.arc,2
+2,EDIT_MSG_DIALOG_REPLY_OK,OK,Confirm,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUISaveListPC.arc,uGUISaveListPC.arc,2
 7,EDIT_MSG_DIALOG_REPLY_ONLINESHOP,オンラインショップで購入する,Buy from Online Shop,ui\00_message\ui\character_edit_dialog_win.gmd,\character_edit_select.arc,character_edit_select.arc,7
 7,EDIT_MSG_DIALOG_REPLY_ONLINESHOP,オンラインショップで購入する,Buy from Online Shop,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,7
 7,EDIT_MSG_DIALOG_REPLY_ONLINESHOP,オンラインショップで購入する,Buy from Online Shop,ui\00_message\ui\character_edit_dialog_win.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,7
@@ -1531,8 +1425,8 @@ different name.",ui\00_message\ui\character_edit_job.gmd,\ui\uGUICharacterEditPo
 different name.",ui\00_message\ui\character_edit_job.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,18
 8,EDIT_MSG_DIALOG_JOB_REPLY_NO,いいえ,No,ui\00_message\ui\character_edit_job.gmd,\ui\uGUICharacterEditPopCard.arc,uGUICharacterEditPopCard.arc,8
 8,EDIT_MSG_DIALOG_JOB_REPLY_NO,いいえ,No,ui\00_message\ui\character_edit_job.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,8
-9,EDIT_MSG_DIALOG_JOB_REPLY_OK,OK,Choose,ui\00_message\ui\character_edit_job.gmd,\ui\uGUICharacterEditPopCard.arc,uGUICharacterEditPopCard.arc,9
-9,EDIT_MSG_DIALOG_JOB_REPLY_OK,OK,Choose,ui\00_message\ui\character_edit_job.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,9
+9,EDIT_MSG_DIALOG_JOB_REPLY_OK,OK,Confirm,ui\00_message\ui\character_edit_job.gmd,\ui\uGUICharacterEditPopCard.arc,uGUICharacterEditPopCard.arc,9
+9,EDIT_MSG_DIALOG_JOB_REPLY_OK,OK,Confirm,ui\00_message\ui\character_edit_job.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,9
 7,EDIT_MSG_DIALOG_JOB_REPLY_YES,はい,Yes,ui\00_message\ui\character_edit_job.gmd,\ui\uGUICharacterEditPopCard.arc,uGUICharacterEditPopCard.arc,7
 7,EDIT_MSG_DIALOG_JOB_REPLY_YES,はい,Yes,ui\00_message\ui\character_edit_job.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,7
 6,EDIT_MSG_DIALOG_JOB_SELECT,"このジョブでよろしいですか？
@@ -1556,20 +1450,20 @@ from the facility in the game)",ui\00_message\ui\character_edit_job.gmd,\ui\uGUI
 0,EDIT_MSG_TITLE_JOB_SELECT,Job Select,Vocation Select,ui\00_message\ui\character_edit_job.gmd,\ui\uGUICharacterEditPopCard.arc,uGUICharacterEditPopCard.arc,0
 0,EDIT_MSG_TITLE_JOB_SELECT,Job Select,Vocation Select,ui\00_message\ui\character_edit_job.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,0
 0,EDIT_MSG_TYPE_VOICE_VAL,ボイス<VAL>,Voice <VAL>,ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,0
-5,EDIT_MSG_TYPE_VOICE_VAL_F_SP4,ボイス<VAL> （水樹奈々）,Voice <VAL> Nana Mizuki (水樹奈々),ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,5
-6,EDIT_MSG_TYPE_VOICE_VAL_F_SP5,ボイス<VAL> （坂本真綾）,Voice <VAL> Maaya Sakamoto (坂本真綾),ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,6
-7,EDIT_MSG_TYPE_VOICE_VAL_F_SP6,ボイス<VAL> （田中理恵）,Voice <VAL> Rie Tanaka (田中理恵),ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,7
-8,EDIT_MSG_TYPE_VOICE_VAL_F_SP7,ボイス<VAL> （斎藤千和）,Voice <VAL> Chiwa Saito (斎藤千和),ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,8
-11,EDIT_MSG_TYPE_VOICE_VAL_F_SP8,ボイス<VAL> （堀江由衣）,Voice <VAL> Yui Horie (堀江由衣),ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,11
-12,EDIT_MSG_TYPE_VOICE_VAL_F_SP9,ボイス<VAL> （加藤英美里）,Voice <VAL> Emiri Kato (加藤英美里),ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,12
-14,EDIT_MSG_TYPE_VOICE_VAL_F_SP10,ボイス<VAL> （早見沙織）,Voice <VAL> Saori Hayami (早見沙織),ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,14
-1,EDIT_MSG_TYPE_VOICE_VAL_M_SP4,ボイス<VAL> （神谷浩史）,Voice <VAL> Hiroshi Kamiya (神谷浩史),ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,1
-2,EDIT_MSG_TYPE_VOICE_VAL_M_SP5,ボイス<VAL> （中村悠一）,Voice <VAL> Yuichi Nakamura (中村悠一),ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,2
-3,EDIT_MSG_TYPE_VOICE_VAL_M_SP6,ボイス<VAL> （安元洋貴）,Voice <VAL> Hiroki Yasumoto (安元洋貴),ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,3
-4,EDIT_MSG_TYPE_VOICE_VAL_M_SP7,ボイス<VAL> （柿原徹也）,Voice <VAL> Tetsuya Kakihara (柿原徹也),ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,4
-9,EDIT_MSG_TYPE_VOICE_VAL_M_SP8,ボイス<VAL> （櫻井孝宏）,Voice <VAL> Takahiro Sakurai (櫻井孝宏),ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,9
-10,EDIT_MSG_TYPE_VOICE_VAL_M_SP9,ボイス<VAL> （森川智之）,Voice <VAL> Toshiyuki Morikawa (森川智之),ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,10
-13,EDIT_MSG_TYPE_VOICE_VAL_M_SP10,ボイス<VAL> （梶裕貴）,Voice <VAL> Yuki Kaji (梶裕貴),ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,13
+5,EDIT_MSG_TYPE_VOICE_VAL_F_SP4,ボイス<VAL> （水樹奈々）,,ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,5
+6,EDIT_MSG_TYPE_VOICE_VAL_F_SP5,ボイス<VAL> （坂本真綾）,,ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,6
+7,EDIT_MSG_TYPE_VOICE_VAL_F_SP6,ボイス<VAL> （田中理恵）,,ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,7
+8,EDIT_MSG_TYPE_VOICE_VAL_F_SP7,ボイス<VAL> （斎藤千和）,,ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,8
+11,EDIT_MSG_TYPE_VOICE_VAL_F_SP8,ボイス<VAL> （堀江由衣）,,ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,11
+12,EDIT_MSG_TYPE_VOICE_VAL_F_SP9,ボイス<VAL> （加藤英美里）,,ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,12
+14,EDIT_MSG_TYPE_VOICE_VAL_F_SP10,ボイス<VAL> （早見沙織）,,ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,14
+1,EDIT_MSG_TYPE_VOICE_VAL_M_SP4,ボイス<VAL> （神谷浩史）,,ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,1
+2,EDIT_MSG_TYPE_VOICE_VAL_M_SP5,ボイス<VAL> （中村悠一）,,ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,2
+3,EDIT_MSG_TYPE_VOICE_VAL_M_SP6,ボイス<VAL> （安元洋貴）,,ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,3
+4,EDIT_MSG_TYPE_VOICE_VAL_M_SP7,ボイス<VAL> （柿原徹也）,,ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,4
+9,EDIT_MSG_TYPE_VOICE_VAL_M_SP8,ボイス<VAL> （櫻井孝宏）,,ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,9
+10,EDIT_MSG_TYPE_VOICE_VAL_M_SP9,ボイス<VAL> （森川智之）,,ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,10
+13,EDIT_MSG_TYPE_VOICE_VAL_M_SP10,ボイス<VAL> （梶裕貴）,,ui\00_message\ui\character_edit_voicecast.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,13
 0,chat_macro_help_5405,,,ui\00_message\ui\chat_macro_help.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0
 1,chat_macro_help_5406,,,ui\00_message\ui\chat_macro_help.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1
 2,chat_macro_help_5407,,,ui\00_message\ui\chat_macro_help.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
@@ -1675,23 +1569,17 @@ from the facility in the game)",ui\00_message\ui\character_edit_job.gmd,\ui\uGUI
 0,CLAN_EDHIT_MSG_NAME,クランの名前,Clan Name,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,0
 17,CLAN_EDHIT_MSG_NAME_INPUT_TEXT,"注意事項
 ・半角２文字～１２文字まで入力可能です
-・半角英数字と一部の記号 '.,:;!?&-_ が使用可能です","Notes:
-・You can input up to 2 to 12 characters.
-・Alphanumeric characters and some symbols
-'.,:;!?&-_ can be used.",ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,17
+・半角英数字と一部の記号 '.,:;!?&-_ が使用可能です",,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,17
 16,CLAN_EDHIT_MSG_NAME_INPUT_TITLE,クランの名前を設定,Enter clan name,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,16
 1,CLAN_EDHIT_MSG_NAME_S,クランの略称,Clan tag,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,1
 19,CLAN_EDHIT_MSG_NAME_S_INPUT_TEXT,"注意事項
 ・半角２文字～３文字まで入力可能です
-・半角英数字と一部の記号 '.,:;!?&-_ が使用可能です","Notes:
-・You can input up to 2 to 3 characters.
-・Alphanumeric characters and some symbols
-'.,:;!?&-_ can be used.",ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,19
+・半角英数字と一部の記号 '.,:;!?&-_ が使用可能です",,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,19
 18,CLAN_EDHIT_MSG_NAME_S_INPUT_TITLE,クランの略称を設定,Enter clan tag,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,18
 14,CLAN_EDHIT_MSG_OK,完了,Finish,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,14
 13,CLAN_EDHIT_MSG_OPEN_INFO,公開情報,Public Information,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,13
 11,CLAN_EDHIT_MSG_REWARDS,リワード,Reward,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,11
-8,CLAN_EDHIT_MSG_STATUS,ステータス,Progress,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,8
+8,CLAN_EDHIT_MSG_STATUS,ステータス,Status,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,8
 4,CLAN_EDHIT_MSG_STYLE,クランの特徴,Style,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,4
 20,CLAN_EDIT_BBS,伝言メモ,Message,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,20
 21,CLAN_EDIT_INDEX_EN,Clan Edit,Clan Edit,ui\00_message\ui\clan_edit.gmd,\ui\uGUIClanEdit.arc,uGUIClanEdit.arc,21
@@ -1700,7 +1588,7 @@ from the facility in the game)",ui\00_message\ui\character_edit_job.gmd,\ui\uGUI
 6,CLAN_EME_TEXT_CANCEL,キャンセル,Cancel,ui\00_message\ui\clan_emblem_edit.gmd,\ui\uGUIEmblemEdit.arc,uGUIEmblemEdit.arc,6
 2,CLAN_EME_TEXT_COL_M,ベースカラー(白地),Base Color (White Background),ui\00_message\ui\clan_emblem_edit.gmd,\ui\uGUIEmblemEdit.arc,uGUIEmblemEdit.arc,2
 3,CLAN_EME_TEXT_COL_S,ベースカラー(灰地),Base Color (Gray Background),ui\00_message\ui\clan_emblem_edit.gmd,\ui\uGUIEmblemEdit.arc,uGUIEmblemEdit.arc,3
-5,CLAN_EME_TEXT_DECIDE,決定,Choose,ui\00_message\ui\clan_emblem_edit.gmd,\ui\uGUIEmblemEdit.arc,uGUIEmblemEdit.arc,5
+5,CLAN_EME_TEXT_DECIDE,決定,Confirm,ui\00_message\ui\clan_emblem_edit.gmd,\ui\uGUIEmblemEdit.arc,uGUIEmblemEdit.arc,5
 0,CLAN_EME_TEXT_MARK,マーク,Mark,ui\00_message\ui\clan_emblem_edit.gmd,\ui\uGUIEmblemEdit.arc,uGUIEmblemEdit.arc,0
 4,CLAN_EME_TEXT_PREV,Preview,Preview,ui\00_message\ui\clan_emblem_edit.gmd,\ui\uGUIEmblemEdit.arc,uGUIEmblemEdit.arc,4
 7,CLAN_EME_TEXT_TITLE_EN,Emblem Edit,Emblem Edit,ui\00_message\ui\clan_emblem_edit.gmd,\ui\uGUIEmblemEdit.arc,uGUIEmblemEdit.arc,7
@@ -1818,16 +1706,16 @@ Cost: <VAL CP>",ui\00_message\ui\clan_kyoten.gmd,\ui\uGUIClanShop.arc,uGUIClanSh
 24,CLAN_SCOUT_COMMENT_JP,Comment,Comment,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,24
 21,CLAN_SCOUT_INDEX_EN,Scout Entry,Scout,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,21
 22,CLAN_SCOUT_INDEX_JP,スカウトエントリー,Scout,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,22
-25,CLAN_SCOUT_JOB_LV,ジョブ,Jobs,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,25
+25,CLAN_SCOUT_JOB_LV,ジョブ,Vocation,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,25
 19,CLAN_SCOUT_MEMBER_LIMIT,%d～%d人まで,%d to %d people,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,19
 20,CLAN_SCOUT_MEMBER_NUM,<VAL>名,<VAL>,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,20
 3,CLAN_SCOUT_MSG_ATIME,活動時間帯,Activity Time,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,3
 12,CLAN_SCOUT_MSG_CANCEL,キャンセル,Cancel,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,12
 7,CLAN_SCOUT_MSG_COMMENT_E,Comment,Comment,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,7
 8,CLAN_SCOUT_MSG_COMMENT_J,コメント,Comment,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,8
-13,CLAN_SCOUT_MSG_DECIDE,決定,Choose,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,13
+13,CLAN_SCOUT_MSG_DECIDE,決定,Confirm,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,13
 10,CLAN_SCOUT_MSG_INFO,スカウト申請のメッセージを入力してください,Please enter the applicant scout message.,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,10
-6,CLAN_SCOUT_MSG_JOB,ジョブ,Jobs,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,6
+6,CLAN_SCOUT_MSG_JOB,ジョブ,Vocation,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,6
 1,CLAN_SCOUT_MSG_MEMBER,メンバー数,Members,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,1
 2,CLAN_SCOUT_MSG_MOTTO,モットー,Motto,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,2
 5,CLAN_SCOUT_MSG_NAME,名前,Name,ui\00_message\ui\clan_scout.gmd,\ui\uGUIClanScout.arc,uGUIClanScout.arc,5
