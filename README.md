@@ -4,7 +4,7 @@ This is a repository for data used to build translation patches for Dragon's Dog
 This is a community project. Contributions welcome!
 
 ## Contributing
-If you would like to contribute to the translation effort, please [read through the Contribution Guide](https://github.com/riftcrystal/DDO-Translation/wiki/Contribution-Guide).
+If you would like to contribute to the translation effort, please [Join the development discord](https://discord.gg/Rvut5D8zGP).
 
 ## External Credits
 
