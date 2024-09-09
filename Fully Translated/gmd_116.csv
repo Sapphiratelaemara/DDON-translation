@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
 54,ABILITY_NAME_177,湧恨,Overflowing Hatred,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54
 90,ABILITY_NAME_178,熟怨,Malice,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,90
 269,ABILITY_NAME_179,延恨,Prolonged Hatred,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,269
@@ -1709,11 +1709,11 @@ Extend the range of the attack forward.",ui\00_message\skill\custom_skill_info_0
 強化効果のある魔矢を放つ（対不死には攻撃）
 味方に接触させれば魔法球が吸着する
 <COL ffdc78>LV UP毎に回復力上昇／展開エリア拡張
-LV.６でターゲット数増加（３→７）</COL>","Fire magickal arrows that emit an area of health
-restoration at the impact point (inflicts damage
-to undead).
-The field will attach to an ally if the arrow
-makes contact.
+LV.６でターゲット数増加（３→７）</COL>","Fire magickal arrows that emit an area
+of health restoration at the impact point.
+(Damages Undead)
+The field will attach to an ally
+if the arrow makes contact.
 <COL ffdc78>LV UP: Increases healing power.
 Increases size of the effect.
 LV.6: Increases number of targets (2→4).</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,1
@@ -1721,12 +1721,11 @@ LV.6: Increases number of targets (2→4).</COL>",ui\00_message\skill\custom_ski
 強化効果のある魔矢を放つ（対不死には攻撃）
 味方に接触させれば魔法球が吸着する
 <COL ffdc78>LV UP毎にスタミナ消費減少
-LV.６でターゲット数増加（３→７）</COL>","Fire magickal arrows that emit an area of
-debilitation
-recovery at the impact point (inflicts damage to
-undead).
-The field will attach to an ally if the arrow
-makes contact.
+LV.６でターゲット数増加（３→７）</COL>","Fire magickal arrows that emit an area
+of debilitation recovery at the impact point.
+(Damages Undead)
+The field will attach to an ally
+if the arrow makes contact.
 <COL ffdc78>LV UP: Reduces Stamina cost.
 LV.6: Increases number of targets (2→3).</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,2
 3,CUSTOM_SKILL_INFO_08_94,"起爆性のある魔矢を放つ
@@ -1734,128 +1733,115 @@ LV.6: Increases number of targets (2→3).</COL>",ui\00_message\skill\custom_ski
 爆発に接触した周囲の敵は中心地に吹き飛ぶ
 <COL ffdc78>LV UP毎に攻撃威力の上昇
 LV.６で爆発範囲が拡張</COL>","Loose a magickal arrow that attaches to enemies.
-Upon attacking the magickal arrow, it will
-trigger an explosion.
-Enemies in contact with the explosion will be
-knocked away.
+Upon attacking the magickal arrow,
+it will trigger an explosion.
+Enemies in contact with the explosion 
+will be knocked away.
 <COL ffdc78>LV UP: Increases damage.
 LV.6: Increases the range of the explosions.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,3
 0,CUSTOM_SKILL_INFO_08_95,"氷属性の複数の魔矢を一点に集中して放つ
 <COL ffdc78>LV UP毎に攻撃威力の上昇
-LV.６で魔矢の本数増加（４→６）</COL>","Fire multiple magickal arrows with
-the Ice attribute at a single point.
+LV.６で魔矢の本数増加（４→６）</COL>","Fire multiple magickal arrows
+with the Ice attribute at a single point.
 <COL ffdc78>LV UP: Increases damage.
 LV.6: Increases magickal arrows fired (4→6).</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,0
 7,CUSTOM_SKILL_INFO_08_96,"壁に反射し、敵を追従する雷属性の魔矢を放つ
 反射させる度に威力が上昇する
 <COL ffdc78>LV UP毎に攻撃威力の上昇
-LV.６で反射回数が増加</COL>","Loose a magickal arrow that increases in
-power as it ricochets towards its target.
+LV.６で反射回数が増加</COL>","Loose a magickal arrow that increases in power
+as it ricochets towards its target.
 <COL ffdc78>LV UP: Increases damage.
 LV.6: Increases the number of ricochets.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,7
 4,CUSTOM_SKILL_INFO_08_97,"聖属性の魔矢を放ち、着弾場所に魔法球を
 展開する。敵に接触させた場合魔法球が付着し
 継続して体力を奪う
 <COL ffdc78>LV UP毎に攻撃威力の上昇
-LV.６で魔法球継続時間が延長／攻撃ヒット数増加</COL>","Fire magickal arrows of the Holy attribute. The
-arrows
-will emit a magickal sphere upon impact. Enemies
-in
-contact with the sphere will continously take
-damage.
+LV.６で魔法球継続時間が延長／攻撃ヒット数増加</COL>","Fire magickal arrows of the Holy attribute.
+The arrows will emit a magickal sphere upon impact.
+Enemies in contact with the sphere
+will continously take damage.
 <COL ffdc78>LV UP: Increases damage.
-LV.6: Increases duration of spheres. Increases
-number of hits.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,4
+LV.6: Increases duration of spheres.
+Increases number of hits.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,4
 5,CUSTOM_SKILL_INFO_08_98,"敵の物理攻撃力と魔法攻撃力を
 一定時間低下させる魔矢を放つ
 <COL ffdc78>LV UP毎に低下力の強化
-LV.６でターゲット数増加（３→５）</COL>","Fire magickal arrows that decrease the
-Physical and Magickal attack power of
-enemies for a period of time.
-<COL ffdc78>LV UP: Increases the rate of
-debilitation accumulation.
+LV.６でターゲット数増加（３→５）</COL>","Fire magickal arrows that decrease
+Physical and Magickal attack power 
+of enemies for a period of time.
+<COL ffdc78>LV UP: Increases the rate of debilitation accumulation.
 LV.6: Increases number of targets (3→5).</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,5
 6,CUSTOM_SKILL_INFO_08_99,"敵の物理防御力と魔法防御力を
 一定時間低下させる魔矢を放つ
 <COL ffdc78>LV UP毎に低下力の強化
-LV.６でターゲット数増加（３→５）</COL>","Fire magickal arrows that decrease the
-Physical and Magickal defense of
-enemies for a period of time.
-<COL ffdc78>LV UP: Increases the rate of
-debilitation accumulation.
+LV.６でターゲット数増加（３→５）</COL>","Fire magickal arrows that decrease
+Physical and Magickal defense
+of enemies for a period of time.
+<COL ffdc78>LV UP: Increases the rate of debilitation accumulation.
 LV.6: Increases number of targets (3→5).</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,6
 8,CUSTOM_SKILL_INFO_08_100,"スタミナ回復効果のある魔矢を放つ（対不死には攻撃）
 味方に接触させれば魔法球が吸着する
 <COL ffdc78>LV UP毎に魔法球継続時間の延長／展開エリア拡張
-LV.６で魔力増加速度の上昇／ターゲット数増加（３→７）</COL>","Fire magickal arrows that emit an area of Stamina
-restoration at the impact point (inflicts damage
-to undead).
-The field will attach to an ally if the arrow
-makes contact.
-<COL ffdc78>LV UP: Increases duration. Increases
-size of the effect.
+LV.６で魔力増加速度の上昇／ターゲット数増加（３→７）</COL>","Fire magickal arrows that emit 
+an area of Stamina restoration at the impact point.
+(Damages Undead)
+The field will attach to an ally
+if the arrow makes contact.
+<COL ffdc78>LV UP: Increases duration. 
+Increases size of the effect.
 LV.6: Increases casting speed.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,8
 9,CUSTOM_SKILL_INFO_08_101,"敵の耐久力を一定時間低下させる魔矢を放つ
 <COL ffdc78>LV UP毎に低下力の強化
 LV.６で魔力増加速度の上昇／
-ターゲット数増加（５→７）</COL>","Fire magickal arrows that decrease the
-Endurance of enemies for a period of time.
-<COL ffdc78>LV UP: Increases the rate of
-debilitation accumulation.
+ターゲット数増加（５→７）</COL>","Fire magickal arrows
+that decrease the Endurance of enemies
+for a period of time.
+<COL ffdc78>LV UP: Increases the rate of debilitation accumulation.
 LV.6: Increases casting speed.
 Increases number of targets (5→7).</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,9
 10,CUSTOM_SKILL_INFO_08_102,"怒り中の敵のシークレットコアにのみ有効な魔矢
 攻撃を加えることで敵スタミナを大幅に低下させる
 魔法球を展開する。コアは構え中に発見可能
 <COL ffdc78>LV UP毎に低下力の強化
-LV.６で魔法球継続時間が延長</COL>","Loose a magickal arrow that attaches to revealed
-weakpoints of enemies and forms a sphere. Greatly
-decreases the Stamina of enemies when attacked.
-<COL ffdc78>LV UP: Increases the stamina
-reduction.
+LV.６で魔法球継続時間が延長</COL>","Loose a magickal arrow that attaches a sphere
+to revealed weakpoints of enemies.
+Greatly decreases the Stamina of enemies when attacked.
+<COL ffdc78>LV UP: Increases the stamina reduction.
 LV.6: Increases the duration of the sphere.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,10
 11,CUSTOM_SKILL_INFO_08_103,"魔力を十分に溜めた後、特大威力の聖属性魔矢を放つ
 <PADM>左スティック<KEYM>移動キー</KEYM>で軌道操作可能。威力はスタミナ依存
 なお当たった部位は暫く自動的に魔矢の標的になる
 <COL ffdc78>LV UP毎に攻撃威力／魔力増加速度の上昇
-LV.６で攻撃ヒット数増加</COL>","After gathering sufficient magickal power, let
-loose
-an extraordinarily powerful Holy arrow.
-The arrow can be controlled mid-flight with the
-<PADM>Left Stick<KEYM>Movement Keys</KEYM>.
-The power of the skill depends on the stamina
-available.
-The hit spot will automatically be targeted by
-the magickal
-arrows for a while.
-<COL ffdc78>LV UP: Increases damage and cast
-speed of the skill.
+LV.６で攻撃ヒット数増加</COL>","After gathering sufficient magickal power, 
+let loose an extraordinarily powerful Holy arrow.
+The arrow can be controlled mid-flight
+with the <PADM>Left Stick<KEYM>Movement Keys</KEYM>.
+The power of the skill depends on the stamina available.
+The hit spot will automatically be targeted
+by the magickal arrows for a while.
+<COL ffdc78>LV UP: Increases damage and cast speed of the skill.
 LV.6: Increases number of hits.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,11
 12,CUSTOM_SKILL_INFO_08_141,"癒しの力を込めた魔矢を放ち、上空で起爆させる
 矢は起爆時に強い光を放ち、照らされた味方の
 体力を一定量回復する（対不死には攻撃）
 <COL ffdc78>LV UP毎に回復量上昇
-LV.６で起爆時の閃光効果強化</COL>","Let loose a holy magickal arrow imbued with the
-power to heal
-into the sky and detonate it. The arrow emits a
-strong flash at
-the time of detonation, recovering a portion of
-health for allies.
+LV.６で起爆時の閃光効果強化</COL>","Let loose a holy magickal arrow
+imbued with the power to heal
+into the sky and detonate it.
+The arrow emits a strong flash at the time of detonation,
+recovering a portion of health for allies.
 (Damages Undead)
-<COL ffdc78>LV UP: Increases health recovery
-amount.
-LV.6: Increases the power of the flash at
-detonation.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,12
+<COL ffdc78>LV UP: Increases health recovery amount.
+LV.6: Increases the power of the flash at detonation.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,12
 13,CUSTOM_SKILL_INFO_08_142,"魔矢を放ち、接触した敵を引き裂く触手を発生させる
 触手は攻撃対象を自ら追尾し、攻撃が連鎖する
 連鎖回数は敵の大きさで変動。侵食核の破壊に有効
 <COL ffdc78>LV UP毎に攻撃威力の上昇
 LV.６で連鎖回数増加</COL>","Let loose a magickal arrow that tears apart the
-enemy it contacts
-with tentacles. The tentacles will seek out
-additional enemies or
-continue to attack current target depending on
-its size.
+enemy it contacts with tentacles.
+The tentacles will seek out additional enemies
+or continue to attack current target
+depending on its size.
 Effective for destroying Infected Sprouts.
 <COL ffdc78>LV UP: Increases damage of skill.
 LV.6: Increases the target chain amount.</COL>",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,13

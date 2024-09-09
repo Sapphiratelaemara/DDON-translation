@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
 34,poptop_crest_attach,クレスト装着,Mount Crest,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIMenuAreaInfo.arc,uGUIMenuAreaInfo.arc,34
 34,poptop_crest_attach,クレスト装着,Mount Crest,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIPopTopSel.arc,uGUIPopTopSel.arc,34
 102,poptop_daily_mission,ミッションリスト,Mission List,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,102
@@ -750,8 +750,8 @@ Selling price: <VAL GOLD>",ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUISho
 47,shop_title_clan_quest,Clan Quest,Clan Quest,ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,47
 48,shop_title_clan_quest_sub,クランクエスト,Clan Quest,ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,48
 2,shop_title_clan_sub,クラン,Clan Members,ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
-7,shop_title_craft,Craft,Crafting,ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
-8,shop_title_craft_sub,クラフト,Craft,ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8
+7,shop_title_craft,Craft,Craft Menu,ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
+8,shop_title_craft_sub,クラフト," ",ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8
 3,shop_title_cycle_contents,Grand Mission,Grand Mission,ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
 4,shop_title_cycle_contents_sub,グランドミッション,Grand Mission,ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4
 60,shop_title_daily_mission,リワードミッション,Reward Mission,ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,60
@@ -798,7 +798,7 @@ Selling price: <VAL GOLD>",ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUISho
 1,shortcut_setting_527,選択されている項目は登録可能です,The selected item is eligible for registration.,ui\00_message\ui\shortcut_setting.gmd,\ui\uGUIFKeyPalette.arc,uGUIFKeyPalette.arc,1
 13,SC_MSG_ADDSCM_J,ショートカット登録,Register Shortcut,ui\00_message\ui\simple_communication.gmd,\ui\uGUIMenuComm.arc,uGUIMenuComm.arc,13
 15,SC_MSG_CANCEL_J,キャンセル,Cancel,ui\00_message\ui\simple_communication.gmd,\ui\uGUIMenuComm.arc,uGUIMenuComm.arc,15
-14,SC_MSG_DECIDE_J,決定,Choose,ui\00_message\ui\simple_communication.gmd,\ui\uGUIMenuComm.arc,uGUIMenuComm.arc,14
+14,SC_MSG_DECIDE_J,決定,Confirm,ui\00_message\ui\simple_communication.gmd,\ui\uGUIMenuComm.arc,uGUIMenuComm.arc,14
 21,SC_MSG_DIALOG_TOLL,"選択したボイス定型文は未購入の定型文です
 オンラインショップで購入できます","The selected voice phrase is an unpurchased
 phrase. You can purchase it in the online shop",ui\00_message\ui\simple_communication.gmd,\ui\uGUIMenuComm.arc,uGUIMenuComm.arc,21
@@ -1020,13 +1020,13 @@ phrase. You can purchase it in the online shop",ui\00_message\ui\simple_communic
 195,simple_text_9154,ザコは無視しよう！,Ignore it!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,195
 196,simple_text_9155,ザコは無視しましょう！,Ignoring it!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,196
 197,simple_text_9156,この敵は倒そう！,Kill this enemy!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,197
-198,simple_text_9157,この敵は倒しましょう！,Killing this enemy!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,198
+198,simple_text_9157,この敵は倒しましょう！,Let's kill this enemy!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,198
 199,simple_text_9158,先に行ってください,Please go ahead,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,199
 200,simple_text_9189,急ごう！,Hurry!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,200
-201,simple_text_9190,急ぎましょう！,Make haste!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,201
-202,simple_text_9191,焦らずに,Stay calm,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,202
+201,simple_text_9190,急ぎましょう！,Let's hurry!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,201
+202,simple_text_9191,焦らずに,No need to rush,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,202
 203,simple_text_9192,助かりました！,Rescued!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,203
-204,simple_text_9193,う、動けない！,"Ooh, it cannot move!",ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,204
+204,simple_text_9193,う、動けない！,I...I cannot move!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,204
 205,simple_text_9194,少し準備します,Preparing a bit,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,205
 206,simple_text_9195,手を出すな,Hand it in,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,206
 207,simple_text_9196,手を出さないで,Do not hand it in,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,207
@@ -1057,8 +1057,8 @@ phrase. You can purchase it in the online shop",ui\00_message\ui\simple_communic
 232,simple_text_9221,弱点を攻撃しよう！,Attack its weakspot!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,232
 233,simple_text_9222,スタミナを減らそう！,Decrease its stamina!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,233
 234,simple_text_9223,一気に揺さぶろう！,Shake it without stopping!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,234
-235,simple_text_9224,今助ける！,Help now!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,235
-236,simple_text_9225,今助けます！,Assist now!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,236
+235,simple_text_9224,今助ける！,I'll aid you now!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,235
+236,simple_text_9225,今助けます！,I'll assist you now!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,236
 237,simple_text_9226,こっちだ、跳ね上げる！,"Over here, jump!",ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,237
 238,simple_text_9227,こっちです、跳ね上げます！,"This way, leap!",ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,238
 239,simple_text_9228,おきろ！,Get up!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,239
@@ -1070,7 +1070,7 @@ phrase. You can purchase it in the online shop",ui\00_message\ui\simple_communic
 0,simple_text_category_191,あいさつ,Greetings,ui\00_message\ui\simple_text_category.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0
 1,simple_text_category_192,質問,Questions,ui\00_message\ui\simple_text_category.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1
 2,simple_text_category_193,返答,Replies,ui\00_message\ui\simple_text_category.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
-3,simple_text_category_194,説明,Description,ui\00_message\ui\simple_text_category.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
+3,simple_text_category_194,説明,Explanations,ui\00_message\ui\simple_text_category.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
 4,simple_text_category_195,編成,Organize,ui\00_message\ui\simple_text_category.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4
 5,simple_text_category_196,戦術,Tactics,ui\00_message\ui\simple_text_category.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5
 118,syslog_achieve_open,<NAME ACHIEVE>を解放しました,<NAME ACHIEVE> is now available.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,118

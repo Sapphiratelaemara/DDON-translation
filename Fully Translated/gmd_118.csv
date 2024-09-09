@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
 104,TUTORIAL_226,パーティー同行リム転移,Rift Teleport with Party,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,104
 105,TUTORIAL_227,コンテンツの途中離脱,Withdrawing,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,105
 106,TUTORIAL_229,ロストポーンの救出,Pawn Rescue,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,106
@@ -286,7 +286,7 @@ Let's use it to confirm spot information.",ui\00_message\ui\AreaMaster_res.gmd,\
 60,ARISEN_CARD_TEXT_CLASS,Class <VAL>,Class <VAL>,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,60
 36,ARISEN_CARD_TEXT_CM,<VAL> cm,<VAL> cm,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,36
 42,ARISEN_CARD_TEXT_COST,Cost,Cost,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,42
-43,ARISEN_CARD_TEXT_CRAFT,Craft,Crafting,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,43
+43,ARISEN_CARD_TEXT_CRAFT,Craft,Crafting T,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,43
 64,ARISEN_CARD_TEXT_CRAFTNUM,クラフト回数,Craft Total,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,64
 83,ARISEN_CARD_TEXT_CRAFTUSENUM,クラフト使用数,Craft Usage Count,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,83
 67,ARISEN_CARD_TEXT_CRAFTVALUE,クラフト評価,Craft Rating,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,67
@@ -311,9 +311,9 @@ Let's use it to confirm spot information.",ui\00_message\ui\AreaMaster_res.gmd,\
 11,ARISEN_CARD_TEXT_LGOAL,冒険目的,Adventure Purpose,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,11
 65,ARISEN_CARD_TEXT_LOOKSVALUE,外見評価,Appearance Rating,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,65
 10,ARISEN_CARD_TEXT_LV,LV.,LV.,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,10
-73,ARISEN_CARD_TEXT_MAGIC,魔力,Magick,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,73
-22,ARISEN_CARD_TEXT_MAGICALATK,魔法攻撃力,Magick Attack,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,22
-24,ARISEN_CARD_TEXT_MAGICALDEF,魔法防御力,Magick Defense,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,24
+73,ARISEN_CARD_TEXT_MAGIC,魔力,Magicka,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,73
+22,ARISEN_CARD_TEXT_MAGICALATK,魔法攻撃力,Magick Atk,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,22
+24,ARISEN_CARD_TEXT_MAGICALDEF,魔法防御力,Magick Def,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,24
 7,ARISEN_CARD_TEXT_MEMBER,メンバー数,Members,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,7
 53,ARISEN_CARD_TEXT_NOJOIN,クランには所属していません。,Does not belong to a clan.,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,53
 41,ARISEN_CARD_TEXT_NORMALSKILL,ノーマルスキル,Core Skills,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,41
@@ -321,7 +321,7 @@ Let's use it to confirm spot information.",ui\00_message\ui\AreaMaster_res.gmd,\
 77,ARISEN_CARD_TEXT_NOTITLE,称号設定なし,No Title Set,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,77
 85,ARISEN_CARD_TEXT_NOWRENTAL,レンタル中,Currently Renting,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,85
 25,ARISEN_CARD_TEXT_OFFENCE,Offence,Offence,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,25
-58,ARISEN_CARD_TEXT_OHTER,その他,Players,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,58
+58,ARISEN_CARD_TEXT_OHTER,その他,Other,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,58
 59,ARISEN_CARD_TEXT_ORBTITLE,- Dedication Orb -,- Dedication Orb -,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,59
 49,ARISEN_CARD_TEXT_OWNER,覚者：,Arisen:,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,49
 34,ARISEN_CARD_TEXT_PARCENT,<VAL> %,<VAL> %,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,34
@@ -342,7 +342,7 @@ Let's use it to confirm spot information.",ui\00_message\ui\AreaMaster_res.gmd,\
 38,ARISEN_CARD_TEXT_SKILL,Skill,Skill,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,38
 35,ARISEN_CARD_TEXT_SLASH,/ <VAL>,/ <VAL>,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,35
 52,ARISEN_CARD_TEXT_ST,ST,ST,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,52
-20,ARISEN_CARD_TEXT_STATUS,Status,Progress,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,20
+20,ARISEN_CARD_TEXT_STATUS,Status,Status,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,20
 26,ARISEN_CARD_TEXT_STRENGTH,筋力,Strength,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,26
 13,ARISEN_CARD_TEXT_STYLE,プレイスタイル,Play Style,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,13
 17,ARISEN_CARD_TEXT_TABHISTORY,ヒストリー,History,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,17
@@ -350,7 +350,7 @@ Let's use it to confirm spot information.",ui\00_message\ui\AreaMaster_res.gmd,\
 18,ARISEN_CARD_TEXT_TABPLAYER,功績・覚者力,Achievements and the power of the Arisen,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,18
 14,ARISEN_CARD_TEXT_TABPROFILE,プロフィール,Profile,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,14
 16,ARISEN_CARD_TEXT_TABSKILLABI,スキル・アビリティ,Skills / Augments,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,16
-15,ARISEN_CARD_TEXT_TABSTATUS,ステータス,Progress,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,15
+15,ARISEN_CARD_TEXT_TABSTATUS,ステータス,Status,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,15
 28,ARISEN_CARD_TEXT_TIREDATK,疲労攻力,Exhaust Attack,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,28
 76,ARISEN_CARD_TEXT_TITLE,称号,Title,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,76
 61,ARISEN_CARD_TEXT_TOTALVALUE,総合評価,Comprehensive Evaluation,ui\00_message\ui\ArisenCard.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,61
@@ -364,7 +364,7 @@ Let's use it to confirm spot information.",ui\00_message\ui\AreaMaster_res.gmd,\
 1,arisenpop_title_change,称号の設定,Change Title,ui\00_message\ui\ArisenCard_pop.gmd,\ui\uGUIArisenCardPop.arc,uGUIArisenCardPop.arc,1
 2,arisenpop_pawn_cancel,キャンセル,Cancel,ui\00_message\ui\ArisenCard_pop_pawn.gmd,\ui\uGUIArisenCardPopPawn.arc,uGUIArisenCardPopPawn.arc,2
 0,arisenpop_pawn_comment,コメントの設定,Comment settings,ui\00_message\ui\ArisenCard_pop_pawn.gmd,\ui\uGUIArisenCardPopPawn.arc,uGUIArisenCardPopPawn.arc,0
-1,arisenpop_pawn_decided,決定,Choose,ui\00_message\ui\ArisenCard_pop_pawn.gmd,\ui\uGUIArisenCardPopPawn.arc,uGUIArisenCardPopPawn.arc,1
+1,arisenpop_pawn_decided,決定,Confirm,ui\00_message\ui\ArisenCard_pop_pawn.gmd,\ui\uGUIArisenCardPopPawn.arc,uGUIArisenCardPopPawn.arc,1
 39,ARISEN_CARD_TEXT_ABILITY,Abilities,Augments,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,39
 39,ARISEN_CARD_TEXT_ABILITY,Abilities,Augments,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,39
 80,ARISEN_CARD_TEXT_ACHIEVEMENT,アチーブメント,Achievement,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,80
@@ -405,8 +405,8 @@ Let's use it to confirm spot information.",ui\00_message\ui\AreaMaster_res.gmd,\
 36,ARISEN_CARD_TEXT_CM,<VAL> cm,<VAL> cm,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,36
 42,ARISEN_CARD_TEXT_COST,Cost,Cost,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,42
 42,ARISEN_CARD_TEXT_COST,Cost,Cost,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,42
-43,ARISEN_CARD_TEXT_CRAFT,Craft,Crafting,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,43
-43,ARISEN_CARD_TEXT_CRAFT,Craft,Crafting,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,43
+43,ARISEN_CARD_TEXT_CRAFT,Craft,Crafting 1,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,43
+43,ARISEN_CARD_TEXT_CRAFT,Craft,Crafting 2,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,43
 64,ARISEN_CARD_TEXT_CRAFTNUM,クラフト回数,Craft Total,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,64
 64,ARISEN_CARD_TEXT_CRAFTNUM,クラフト回数,Craft Total,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,64
 83,ARISEN_CARD_TEXT_CRAFTUSENUM,残りクラフト回数,Remaining Crafts,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,83
@@ -461,8 +461,8 @@ Let's use it to confirm spot information.",ui\00_message\ui\AreaMaster_res.gmd,\
 10,ARISEN_CARD_TEXT_LV,LV.,LV.,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,10
 73,ARISEN_CARD_TEXT_MAGIC,魔力,Magick,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,73
 73,ARISEN_CARD_TEXT_MAGIC,魔力,Magick,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,73
-22,ARISEN_CARD_TEXT_MAGICALATK,魔法攻撃力,Magick Attack,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,22
-22,ARISEN_CARD_TEXT_MAGICALATK,魔法攻撃力,Magick Attack,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,22
+22,ARISEN_CARD_TEXT_MAGICALATK,魔法攻撃力,Magick Atk,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,22
+22,ARISEN_CARD_TEXT_MAGICALATK,魔法攻撃力,Magick Atk,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,22
 24,ARISEN_CARD_TEXT_MAGICALDEF,魔法防御力,Magick Defense,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,24
 24,ARISEN_CARD_TEXT_MAGICALDEF,魔法防御力,Magick Defense,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,24
 7,ARISEN_CARD_TEXT_MEMBER,メンバー数,Members,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,7
@@ -483,8 +483,8 @@ Let's use it to confirm spot information.",ui\00_message\ui\AreaMaster_res.gmd,\
 85,ARISEN_CARD_TEXT_NOWRENTAL,レンタル中,Currently Renting,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,85
 25,ARISEN_CARD_TEXT_OFFENCE,Attack,Attack,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,25
 25,ARISEN_CARD_TEXT_OFFENCE,Attack,Attack,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,25
-58,ARISEN_CARD_TEXT_OHTER,その他,Players,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,58
-58,ARISEN_CARD_TEXT_OHTER,その他,Players,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,58
+58,ARISEN_CARD_TEXT_OHTER,その他,Other,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,58
+58,ARISEN_CARD_TEXT_OHTER,その他,Other,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,58
 59,ARISEN_CARD_TEXT_ORBTITLE,- Orb Tree -,- Orb Tree -,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,59
 59,ARISEN_CARD_TEXT_ORBTITLE,- Orb Tree -,- Orb Tree -,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,59
 97,ARISEN_CARD_TEXT_ORB_TREE,竜力の継承,Dragon Force Augmentation,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,97
@@ -509,10 +509,10 @@ Let's use it to confirm spot information.",ui\00_message\ui\AreaMaster_res.gmd,\
 101,ARISEN_CARD_TEXT_PAWNTHINK_TOTALNUM,育成LV,Training LV,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,101
 44,ARISEN_CARD_TEXT_PHARMACY,生産作業スピード,Production Speed,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,44
 44,ARISEN_CARD_TEXT_PHARMACY,生産作業スピード,Production Speed,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,44
-21,ARISEN_CARD_TEXT_PHYSICALATK,物理攻撃力,Phys. Attack,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,21
-21,ARISEN_CARD_TEXT_PHYSICALATK,物理攻撃力,Phys. Attack,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,21
-23,ARISEN_CARD_TEXT_PHYSICALDEF,物理防御力,Physical Defense,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,23
-23,ARISEN_CARD_TEXT_PHYSICALDEF,物理防御力,Physical Defense,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,23
+21,ARISEN_CARD_TEXT_PHYSICALATK,物理攻撃力,Phys. Atk,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,21
+21,ARISEN_CARD_TEXT_PHYSICALATK,物理攻撃力,Phys. Atk,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,21
+23,ARISEN_CARD_TEXT_PHYSICALDEF,物理防御力,Phys. Def,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,23
+23,ARISEN_CARD_TEXT_PHYSICALDEF,物理防御力,Phys. Def,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,23
 87,ARISEN_CARD_TEXT_PLAYABLEJOB,遊びたいジョブ,Preferred Job,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,87
 87,ARISEN_CARD_TEXT_PLAYABLEJOB,遊びたいジョブ,Preferred Job,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,87
 9,ARISEN_CARD_TEXT_PROFILE,Profile,Profile,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,9
@@ -569,8 +569,8 @@ Let's use it to confirm spot information.",ui\00_message\ui\AreaMaster_res.gmd,\
 104,ARISEN_CARD_TEXT_TABSKILL,スキル,Skills,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,104
 16,ARISEN_CARD_TEXT_TABSKILLABI,スキル・アビリティ,Skills / Augments,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,16
 16,ARISEN_CARD_TEXT_TABSKILLABI,スキル・アビリティ,Skills / Augments,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,16
-15,ARISEN_CARD_TEXT_TABSTATUS,ステータス,Progress,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,15
-15,ARISEN_CARD_TEXT_TABSTATUS,ステータス,Progress,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,15
+15,ARISEN_CARD_TEXT_TABSTATUS,ステータス,Status,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,15
+15,ARISEN_CARD_TEXT_TABSTATUS,ステータス,Status,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,15
 28,ARISEN_CARD_TEXT_TIREDATK,疲労攻力,Exhaust Attack,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,28
 28,ARISEN_CARD_TEXT_TIREDATK,疲労攻力,Exhaust Attack,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIPawnThinkList.arc,uGUIPawnThinkList.arc,28
 76,ARISEN_CARD_TEXT_TITLE,称号,Title,ui\00_message\ui\ArisenCard_win.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,76
@@ -626,9 +626,9 @@ results",ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlCon
 ・チェックポイントなどの進行データ (※1)
 ・<COL d7b450>進行中の宝箱や報酬データ</COL> (※2)
 ・<COL d7b450>入手したすべてのアイテム</COL> (※3)
-※1…固定されているルートが<COL d7b450>変更可能になります</COL>
-※2…<COL d7b450>黒呪の迷宮を再周回するために必ず必要です</COL>
-※3…<COL d7b450><ITEM 21630></COL>や、<COL d7b450><ITEM 23364></COL>
+※1...固定されているルートが<COL d7b450>変更可能になります</COL>
+※2...<COL d7b450>黒呪の迷宮を再周回するために必ず必要です</COL>
+※3...<COL d7b450><ITEM 21630></COL>や、<COL d7b450><ITEM 23364></COL>
 　　  <COL d7b450><ITEM 21651></COL>等は大変貴重です。ご注意ください","Using <UNTN KT> <UNIT KT>%d.
 Do you want to <COL d7b450>reset rewards
 and progress</COL>? (<UNIT KT>%d remaining)
@@ -638,10 +638,10 @@ The following contents will be reset:
 ・<COL d7b450>In-progress treasure chests
 and reward data.</COL> (※2)
 ・<COL d7b450>All acquired items.</COL> (※3)
-※１…固定されているルートが<COL d7b450>変更可能になります</COL>
-※２…<COL d7b450>Always necessary to reclaim
+※１...固定されているルートが<COL d7b450>変更可能になります</COL>
+※２...<COL d7b450>Always necessary to reclaim
 Bitterblack Maze.</COL>
-※３…<COL d7b450><ITEM 21630></COL>, <COL
+※３...<COL d7b450><ITEM 21630></COL>, <COL
 d7b450><ITEM 23364></COL>
 <COL d7b450><ITEM 21651></COL> are very valuable.
 Please be careful.",ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,5
@@ -650,24 +650,24 @@ Please be careful.",ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset
 ・覚者、ポーンのレベル
 ・チェックポイントなどの進行データ (※1)(※2)
 ・<COL d7b450>入手したすべてのアイテム</COL> (※3)
-※1…<COL d7b450>一度でも冥府1をクリアしている場合</COL>
+※1...<COL d7b450>一度でも冥府1をクリアしている場合</COL>
 　　  進行と報酬のリセットをするまで
 　　  <COL d7b450>ルートは変更できません</COL>
-※2…<COL d7b450>宝箱などの報酬はリセットされません</COL>
+※2...<COL d7b450>宝箱などの報酬はリセットされません</COL>
 　　  友人と最初から遊ぶ場合に活用します
-※3…<COL d7b450><ITEM 21630></COL>や、<COL d7b450><ITEM 23364></COL>
+※3...<COL d7b450><ITEM 21630></COL>や、<COL d7b450><ITEM 23364></COL>
 　　  <COL d7b450><ITEM 21651></COL>等は大変貴重です。ご注意ください","Do you want to <COL d7b450>reset progress</COL>?
 The following items will be reset:
 ・Arisen, Pawn levels.
 ・Progress data such as checkpoints. (※1)(※2)
 ・<COL d7b450>All acquired items.</COL> (※3)
-※１…<COL d7b450>一度でも冥府1をクリアしている場合</COL>
+※１...<COL d7b450>一度でも冥府1をクリアしている場合</COL>
 進行と報酬のリセットをするまで
 <COL d7b450>ルートは変更できません</COL>
-※２…<COL d7b450>Rewards such as treasure chests
+※２...<COL d7b450>Rewards such as treasure chests
 are not reset.</COL> Useful for playing
 from beginning with friends.
-※３…<COL d7b450><ITEM 21630></COL>, <COL
+※３...<COL d7b450><ITEM 21630></COL>, <COL
 d7b450><ITEM 23364></COL>,
 <COL d7b450><ITEM 21651></COL> are very valuable.
 Please be careful.",ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,4
@@ -704,9 +704,9 @@ the Golden Gemstone reset:
 - Increase in clear rewards for reporting search
 results",ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,16
 12,BTL_CONTENT_RESET_SUCCESS_REWARD,報酬を受け取りました,Reward received,ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,12
-16,CALI_MSG_BUTTONGUID_END,設定中止,Ended,ui\00_message\ui\Calibration_res_win.gmd,\ui\uGUICalibration.arc,uGUICalibration.arc,16
+16,CALI_MSG_BUTTONGUID_END,設定中止,Cancel setting,ui\00_message\ui\Calibration_res_win.gmd,\ui\uGUICalibration.arc,uGUICalibration.arc,16
 3,CALI_MSG_BUTTON_EDIT,配置変更,Calibrate,ui\00_message\ui\Calibration_res_win.gmd,\ui\uGUICalibration.arc,uGUICalibration.arc,3
-4,CALI_MSG_BUTTON_END,終了,Ended,ui\00_message\ui\Calibration_res_win.gmd,\ui\uGUICalibration.arc,uGUICalibration.arc,4
+4,CALI_MSG_BUTTON_END,終了,Close,ui\00_message\ui\Calibration_res_win.gmd,\ui\uGUICalibration.arc,uGUICalibration.arc,4
 17,CALI_MSG_BUTTON_RETRY,やり直す,Redo,ui\00_message\ui\Calibration_res_win.gmd,\ui\uGUICalibration.arc,uGUICalibration.arc,17
 0,CALI_MSG_CAPTION,<PFWD 0>のボタン配置設定,<PFWD 0> Calibration,ui\00_message\ui\Calibration_res_win.gmd,\ui\uGUICalibration.arc,uGUICalibration.arc,0
 20,CALI_MSG_DETECTED_PAD,認証<PFWD 0>,Detected <PFWD 0>,ui\00_message\ui\Calibration_res_win.gmd,\ui\uGUICalibration.arc,uGUICalibration.arc,20
@@ -745,9 +745,8 @@ settings.",ui\00_message\ui\CharacterSelect_res.gmd,\ui\uGUICharacterSelect.arc,
 29,char_sel_clan_notice_conf_yes,通知を行う,Notify,ui\00_message\ui\CharacterSelect_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,29
 25,char_sel_clan_notice_info,クランメンバーへ自分のステータスを通知する,Provide Status to Your Clan,ui\00_message\ui\CharacterSelect_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,25
 8,char_sel_code,確認コード：,Confirmation Code:,ui\00_message\ui\CharacterSelect_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,8
-7,char_sel_code_text,確認コード <COL AA1414><VAL></COL> を入力してください,"Please enter the confirmation code <COL
-AA1414><VAL></COL>.",ui\00_message\ui\CharacterSelect_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,7
-9,char_sel_decide,決定,Choose,ui\00_message\ui\CharacterSelect_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,9
+7,char_sel_code_text,確認コード <COL AA1414><VAL></COL> を入力してください,Please enter the confirmation code: <COL AA1414><VAL></COL>,ui\00_message\ui\CharacterSelect_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,7
+9,char_sel_decide,決定,Confirm,ui\00_message\ui\CharacterSelect_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,9
 11,char_sel_del,削除,Delete,ui\00_message\ui\CharacterSelect_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,11
 13,char_sel_del_alert,を削除します,Will Delete,ui\00_message\ui\CharacterSelect_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,13
 5,char_sel_del_chara_select,"削除するキャラクターを選択してください
@@ -768,9 +767,9 @@ The deleted character cannot be restored.",ui\00_message\ui\CharacterSelect_res.
 26,char_sel_on,ON,ON,ui\00_message\ui\CharacterSelect_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,26
 12,char_sel_plz_wait,しばらくお待ちください,Please wait.,ui\00_message\ui\CharacterSelect_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,12
 3,char_sel_profile,Profile,Profile,ui\00_message\ui\CharacterSelect_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,3
-2,char_sel_status,Status,Progress,ui\00_message\ui\CharacterSelect_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,2
-17,CHAT_MSG_INPUTMODE_JP,あ,The,ui\00_message\ui\Chat_res.gmd,\ui\GUIGame.arc,GUIGame.arc,17
-17,CHAT_MSG_INPUTMODE_JP,あ,Ah,ui\00_message\ui\Chat_res.gmd,\ui\uGUIChat.arc,uGUIChat.arc,17
+2,char_sel_status,Status,Status,ui\00_message\ui\CharacterSelect_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,2
+17,CHAT_MSG_INPUTMODE_JP,あ,あ,ui\00_message\ui\Chat_res.gmd,\ui\GUIGame.arc,GUIGame.arc,17
+17,CHAT_MSG_INPUTMODE_JP,あ,あ,ui\00_message\ui\Chat_res.gmd,\ui\uGUIChat.arc,uGUIChat.arc,17
 18,MSG_ADDCH,チャンネルの追加,Add Channel,ui\00_message\ui\Chat_res.gmd,\ui\GUIGame.arc,GUIGame.arc,18
 18,MSG_ADDCH,チャンネルの追加,Add Channel,ui\00_message\ui\Chat_res.gmd,\ui\uGUIChat.arc,uGUIChat.arc,18
 23,MSG_ADDRESS_MEMO,Memo,Memo,ui\00_message\ui\Chat_res.gmd,\ui\GUIGame.arc,GUIGame.arc,23
@@ -979,11 +978,11 @@ They acquired <VAL> crafting skill points.",ui\00_message\ui\Craft_res.gmd,\ui\u
 261,BUTTON_MATERIALS_CHANGE,変更,Change,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,261
 261,BUTTON_MATERIALS_CHANGE,変更,Change,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,261
 261,BUTTON_MATERIALS_CHANGE,変更,Change,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,261
-75,BUTTON_REINFOECE,強化,Strengthed,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,75
-75,BUTTON_REINFOECE,強化,Strengthed,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,75
-75,BUTTON_REINFOECE,強化,Strengthed,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,75
-75,BUTTON_REINFOECE,強化,Strengthed,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,75
-75,BUTTON_REINFOECE,強化,Strengthed,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,75
+75,BUTTON_REINFOECE,強化,Enhance,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,75
+75,BUTTON_REINFOECE,強化,Enhance,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,75
+75,BUTTON_REINFOECE,強化,Enhance,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,75
+75,BUTTON_REINFOECE,強化,Enhance,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,75
+75,BUTTON_REINFOECE,強化,Enhance,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,75
 24,BUTTON_START,作成開始,Start,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,24
 24,BUTTON_START,作成開始,Start,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,24
 24,BUTTON_START,作成開始,Start,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,24
@@ -1124,16 +1123,16 @@ They acquired <VAL> crafting skill points.",ui\00_message\ui\Craft_res.gmd,\ui\u
 269,CRAFT_MSG_DS_BONUS_UP,Dragon Ability Level,Dragon Ability Level,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,269
 269,CRAFT_MSG_DS_BONUS_UP,Dragon Ability Level,Dragon Ability Level,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,269
 269,CRAFT_MSG_DS_BONUS_UP,Dragon Ability Level,Dragon Ability Level,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,269
-0,CRAFT_MSG_TITLE01,Craft,Crafting,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,0
+0,CRAFT_MSG_TITLE01,Craft,Crafting 3,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,0
 0,CRAFT_MSG_TITLE01,Craft,Crafting,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,0
-0,CRAFT_MSG_TITLE01,Craft,Crafting,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,0
-0,CRAFT_MSG_TITLE01,Craft,Crafting,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,0
-0,CRAFT_MSG_TITLE01,Craft,Crafting,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,0
-1,CRAFT_MSG_TITLE02,クラフト,Craft,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,1
-1,CRAFT_MSG_TITLE02,クラフト,Craft,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,1
-1,CRAFT_MSG_TITLE02,クラフト,Craft,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,1
-1,CRAFT_MSG_TITLE02,クラフト,Craft,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,1
-1,CRAFT_MSG_TITLE02,クラフト,Craft,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,1
+0,CRAFT_MSG_TITLE01,Craft,Crafting 5,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,0
+0,CRAFT_MSG_TITLE01,Craft,Crafting 6,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,0
+0,CRAFT_MSG_TITLE01,Craft,Crafting 7,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,0
+1,CRAFT_MSG_TITLE02,クラフト,Craft 8,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,1
+1,CRAFT_MSG_TITLE02,クラフト,"  ",ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,1
+1,CRAFT_MSG_TITLE02,クラフト,Craft 10,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,1
+1,CRAFT_MSG_TITLE02,クラフト,Craft 11,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,1
+1,CRAFT_MSG_TITLE02,クラフト,Craft 12,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,1
 184,CRAFT_NUM_CLASS_A,A級,A Grade,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,184
 184,CRAFT_NUM_CLASS_A,A級,A Grade,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,184
 184,CRAFT_NUM_CLASS_A,A級,A Grade,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,184

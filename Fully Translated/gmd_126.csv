@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
 102,gacha_msg_dialog_service_benefits,"<COL ffdc78>サービス特典</COL>は＜<OPCS>＞の発動中に
 利用可能となります","<COL ffdc78>Service benefit</COL>will be
 available while <<OPCS>> is in effect",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,102
@@ -76,7 +76,7 @@ the lot <VAL> times,
 62,gacha_msg_pray_select,<VAL>プレイ（以下からお選びいただけます）,<VAL> plays (you can choose the following),ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,62
 61,gacha_msg_pray_trial,お試しプレイ,Trial,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,61
 35,gacha_msg_preview_goldenstone,黄金石の確認,Check Golden Gemstones,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,35
-30,gacha_msg_quit,終了,Ended,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,30
+30,gacha_msg_quit,終了,Exit,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,30
 42,gacha_msg_rate,提供割合,Chances,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,42
 43,gacha_msg_rate_num,<VAL>%,<VAL>%,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,43
 70,gacha_msg_remaining,残り,Left,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,70
@@ -192,7 +192,7 @@ to receive all reward items.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInf
 3,menu_newspaper,レスタニアニュース,Lestania News,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
 34,menu_option_chr,ゲーム設定,Game Config,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,34
 15,menu_option_sys,デバイス設定,System Config,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15
-10,menu_party,パーティー管理,Party,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10
+10,menu_party,パーティー管理,Party Management,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10
 57,menu_partyboard,募集掲示板,Recruitment Board,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,57
 58,menu_partyboard_dialog,パーティー募集掲示板のカテゴリを選択してください,"Please select
 Party Recruitment Board category.",ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,58
@@ -1026,8 +1026,8 @@ Unlockable Items]",ui\00_message\ui\item_work.gmd,\ui\uGUIPopDetail01.arc,uGUIPo
 7,JMMH_MSG_JOB_MASTER_STR,Job Master,Job Master,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobMaster.arc,uGUIJobMaster.arc,7
 8,JMMH_MSG_JOB_MASTER_STR_JP,ジョブマスター,Job Master,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobExam.arc,uGUIJobExam.arc,8
 8,JMMH_MSG_JOB_MASTER_STR_JP,ジョブマスター,Job Master,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobMaster.arc,uGUIJobMaster.arc,8
-20,JMMH_MSG_JOB_STR,ジョブ,Jobs,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobExam.arc,uGUIJobExam.arc,20
-20,JMMH_MSG_JOB_STR,ジョブ,Jobs,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobMaster.arc,uGUIJobMaster.arc,20
+20,JMMH_MSG_JOB_STR,ジョブ,Vocation,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobExam.arc,uGUIJobExam.arc,20
+20,JMMH_MSG_JOB_STR,ジョブ,Vocation,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobMaster.arc,uGUIJobMaster.arc,20
 1,JMMH_MSG_LV_STR,LV.,LV.,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobExam.arc,uGUIJobExam.arc,1
 1,JMMH_MSG_LV_STR,LV.,LV.,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobMaster.arc,uGUIJobMaster.arc,1
 10,JMMH_MSG_LV_STR_2,Level,Level,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobExam.arc,uGUIJobExam.arc,10
@@ -1052,8 +1052,8 @@ Master.",ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobExam.arc,uGUIJobExam.arc,2
 Master.",ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobMaster.arc,uGUIJobMaster.arc,2
 16,JOBEXAM_MSG_ABILITYGET_STR,<NAME ABILITY>の習得を認められた,<NAME ABILITY> is ready to learn,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobExam.arc,uGUIJobExam.arc,16
 16,JOBEXAM_MSG_ABILITYGET_STR,<NAME ABILITY>の習得を認められた,<NAME ABILITY> is ready to learn,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobMaster.arc,uGUIJobMaster.arc,16
-14,JOBEXAM_MSG_DECIDE_STR,OK,Choose,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobExam.arc,uGUIJobExam.arc,14
-14,JOBEXAM_MSG_DECIDE_STR,OK,Choose,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobMaster.arc,uGUIJobMaster.arc,14
+14,JOBEXAM_MSG_DECIDE_STR,OK,Confirm,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobExam.arc,uGUIJobExam.arc,14
+14,JOBEXAM_MSG_DECIDE_STR,OK,Confirm,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobMaster.arc,uGUIJobMaster.arc,14
 15,JOBEXAM_MSG_SKILLGET_STR,<NAME SKILL>の習得を認められた,<NAME SKILL> is ready to learn,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobExam.arc,uGUIJobExam.arc,15
 15,JOBEXAM_MSG_SKILLGET_STR,<NAME SKILL>の習得を認められた,<NAME SKILL> is ready to learn,ui\00_message\ui\jmaster_hb.gmd,\ui\uGUIJobMaster.arc,uGUIJobMaster.arc,15
 36,job_emblem_break_confirm,"選択したスロットのクレストを破壊します
@@ -1126,7 +1126,7 @@ with the same jewelry?",ui\00_message\ui\job_emblem.gmd,\ui\uGUIJobEmblem.arc,uG
 25,job_emblem_guide_add,足す,Add,ui\00_message\ui\job_emblem.gmd,\ui\uGUIJobEmblem.arc,uGUIJobEmblem.arc,25
 26,job_emblem_guide_sub,減らす,Reduce,ui\00_message\ui\job_emblem.gmd,\ui\uGUIJobEmblem.arc,uGUIJobEmblem.arc,26
 3,job_emblem_header_base,ベース,Base,ui\00_message\ui\job_emblem.gmd,\ui\uGUIJobEmblem.arc,uGUIJobEmblem.arc,3
-4,job_emblem_header_status,ステータス,Progress,ui\00_message\ui\job_emblem.gmd,\ui\uGUIJobEmblem.arc,uGUIJobEmblem.arc,4
+4,job_emblem_header_status,ステータス,Status,ui\00_message\ui\job_emblem.gmd,\ui\uGUIJobEmblem.arc,uGUIJobEmblem.arc,4
 27,job_emblem_item_sel_title,ジュエリーを選択してください,Please choose a jewelry,ui\00_message\ui\job_emblem.gmd,\ui\uGUIJobEmblem.arc,uGUIJobEmblem.arc,27
 5,job_emblem_not_have_emblem,"対象アイテムを装備していない
 またはアイテムバッグ、保管ボックスにないため

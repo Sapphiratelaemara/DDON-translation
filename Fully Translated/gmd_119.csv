@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
 182,CRAFT_NUM_TO_NUM,（<VAL>→<VAL>）,（<VAL>→<VAL>）,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,182
 182,CRAFT_NUM_TO_NUM,（<VAL>→<VAL>）,（<VAL>→<VAL>）,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,182
 182,CRAFT_NUM_TO_NUM,（<VAL>→<VAL>）,（<VAL>→<VAL>）,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,182
@@ -469,16 +469,11 @@ lost.</COL>",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,
 <COL aa1414>※素材・費用・クラフト回数は消費されます</COL>","Are you sure you want to stop crafting?
 <COL aa1414>※Materials and crafting cost will be
 lost.</COL>",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,68
-217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,"Create using Golden Gemstones (immediate
-completion)",ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,217
-217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,"Create using Golden Gemstones (immediate
-completion)",ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,217
-217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,"Create using Golden Gemstones (immediate
-completion)",ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,217
-217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,"Create using Golden Gemstones (immediate
-completion)",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,217
-217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,"Create using Golden Gemstones (immediate
-completion)",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,217
+217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,Create using Golden Gemstones (instant complete),ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,217
+217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,Create using Golden Gemstones (instant complete),ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,217
+217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,Create using Golden Gemstones (instant complete),ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,217
+217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,Create using Golden Gemstones (instant complete),ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,217
+217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,Create using Golden Gemstones (instant complete),ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,217
 221,DIALOG_CONFIRM_TYPE_JUMP_ONLINESHOP,オンラインショップを開く,Open online shop,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,221
 221,DIALOG_CONFIRM_TYPE_JUMP_ONLINESHOP,オンラインショップを開く,Open online shop,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,221
 221,DIALOG_CONFIRM_TYPE_JUMP_ONLINESHOP,オンラインショップを開く,Open online shop,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,221
@@ -704,11 +699,11 @@ change.",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,
 257,GUIDE_MATERIALS_CHANGE,品質変更する装備を選択してください,Please select the equipment to change quality.,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,257
 257,GUIDE_MATERIALS_CHANGE,品質変更する装備を選択してください,Please select the equipment to change quality.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,257
 257,GUIDE_MATERIALS_CHANGE,品質変更する装備を選択してください,Please select the equipment to change quality.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,257
-268,GUIDE_MSG_BUY_BAZAAR,バザーで必要素材を購入する,Purchase necessary materials in the bazaar,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,268
-268,GUIDE_MSG_BUY_BAZAAR,バザーで必要素材を購入する,Purchase necessary materials in the bazaar,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,268
-268,GUIDE_MSG_BUY_BAZAAR,バザーで必要素材を購入する,Purchase necessary materials in the bazaar,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,268
-268,GUIDE_MSG_BUY_BAZAAR,バザーで必要素材を購入する,Purchase necessary materials in the bazaar,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,268
-268,GUIDE_MSG_BUY_BAZAAR,バザーで必要素材を購入する,Purchase necessary materials in the bazaar,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,268
+268,GUIDE_MSG_BUY_BAZAAR,バザーで必要素材を購入する,Purchase materials from the bazaar,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,268
+268,GUIDE_MSG_BUY_BAZAAR,バザーで必要素材を購入する,Purchase materials from the bazaar,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,268
+268,GUIDE_MSG_BUY_BAZAAR,バザーで必要素材を購入する,Purchase materials from the bazaar,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,268
+268,GUIDE_MSG_BUY_BAZAAR,バザーで必要素材を購入する,Purchase materials from the bazaar,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,268
+268,GUIDE_MSG_BUY_BAZAAR,バザーで必要素材を購入する,Purchase materials from the bazaar,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,268
 204,GUIDE_MSG_CHARACTER_CHANGE,試着切り替え,Switch Preview,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,204
 204,GUIDE_MSG_CHARACTER_CHANGE,試着切り替え,Switch Preview,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,204
 204,GUIDE_MSG_CHARACTER_CHANGE,試着切り替え,Switch Preview,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,204
@@ -874,11 +869,11 @@ change.",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,
 21,HEADING_LEADER,リーダー,Leader,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,21
 21,HEADING_LEADER,リーダー,Leader,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,21
 21,HEADING_LEADER,リーダー,Leader,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,21
-19,HEADING_MAKE_ITEM,作成アイテム,Created Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,19
-19,HEADING_MAKE_ITEM,作成アイテム,Created Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,19
-19,HEADING_MAKE_ITEM,作成アイテム,Created Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,19
-19,HEADING_MAKE_ITEM,作成アイテム,Created Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,19
-19,HEADING_MAKE_ITEM,作成アイテム,Created Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,19
+19,HEADING_MAKE_ITEM,作成アイテム,Item to be crafted,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,19
+19,HEADING_MAKE_ITEM,作成アイテム,Item to be crafted,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,19
+19,HEADING_MAKE_ITEM,作成アイテム,Item to be crafted,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,19
+19,HEADING_MAKE_ITEM,作成アイテム,Item to be crafted,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,19
+19,HEADING_MAKE_ITEM,作成アイテム,Item to be crafted,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,19
 256,HEADING_MATERIALS_CHANGE,Materials Change,Materials Change,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,256
 256,HEADING_MATERIALS_CHANGE,Materials Change,Materials Change,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,256
 256,HEADING_MATERIALS_CHANGE,Materials Change,Materials Change,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,256
@@ -899,11 +894,11 @@ change.",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,
 74,HEADING_REINFORCE_POINT,強化ポイント,Enhancement,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,74
 74,HEADING_REINFORCE_POINT,強化ポイント,Enhancement,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,74
 74,HEADING_REINFORCE_POINT,強化ポイント,Enhancement,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,74
-73,HEADING_REINFORCE_TARGET,強化アイテム,Enhanced Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,73
-73,HEADING_REINFORCE_TARGET,強化アイテム,Enhanced Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,73
-73,HEADING_REINFORCE_TARGET,強化アイテム,Enhanced Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,73
-73,HEADING_REINFORCE_TARGET,強化アイテム,Enhanced Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,73
-73,HEADING_REINFORCE_TARGET,強化アイテム,Enhanced Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,73
+73,HEADING_REINFORCE_TARGET,強化アイテム,Enhance Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,73
+73,HEADING_REINFORCE_TARGET,強化アイテム,Enhance Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,73
+73,HEADING_REINFORCE_TARGET,強化アイテム,Enhance Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,73
+73,HEADING_REINFORCE_TARGET,強化アイテム,Enhance Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,73
+73,HEADING_REINFORCE_TARGET,強化アイテム,Enhance Item,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,73
 65,HEADING_REMAIN,残りポイント,Remaining Points,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,65
 65,HEADING_REMAIN,残りポイント,Remaining Points,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,65
 65,HEADING_REMAIN,残りポイント,Remaining Points,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,65
@@ -1084,11 +1079,11 @@ You can now change the color.",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.
 171,RECIPE_CATE_MATERIAL_INGOT,インゴット,Ingot,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,171
 171,RECIPE_CATE_MATERIAL_INGOT,インゴット,Ingot,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,171
 171,RECIPE_CATE_MATERIAL_INGOT,インゴット,Ingot,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,171
-206,RECIPE_CATE_MATERIAL_OTHER,その他,Players,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,206
-206,RECIPE_CATE_MATERIAL_OTHER,その他,Players,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,206
-206,RECIPE_CATE_MATERIAL_OTHER,その他,Players,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,206
-206,RECIPE_CATE_MATERIAL_OTHER,その他,Players,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,206
-206,RECIPE_CATE_MATERIAL_OTHER,その他,Players,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,206
+206,RECIPE_CATE_MATERIAL_OTHER,その他,Other,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,206
+206,RECIPE_CATE_MATERIAL_OTHER,その他,Other,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,206
+206,RECIPE_CATE_MATERIAL_OTHER,その他,Other,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,206
+206,RECIPE_CATE_MATERIAL_OTHER,その他,Other,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,206
+206,RECIPE_CATE_MATERIAL_OTHER,その他,Other,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,206
 174,RECIPE_CATE_MATERIAL_SCROLL,スクロール,Scroll,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,174
 174,RECIPE_CATE_MATERIAL_SCROLL,スクロール,Scroll,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,174
 174,RECIPE_CATE_MATERIAL_SCROLL,スクロール,Scroll,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,174
@@ -1224,11 +1219,11 @@ You can now change the color.",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.
 40,ROW_REQUIRED,必要数,Num,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,40
 40,ROW_REQUIRED,必要数,Num,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,40
 40,ROW_REQUIRED,必要数,Num,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,40
-30,ROW_STATUS,Status,Progress,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,30
-30,ROW_STATUS,Status,Progress,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,30
-30,ROW_STATUS,Status,Progress,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,30
-30,ROW_STATUS,Status,Progress,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,30
-30,ROW_STATUS,Status,Progress,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,30
+30,ROW_STATUS,Status,Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,30
+30,ROW_STATUS,Status,Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,30
+30,ROW_STATUS,Status,Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,30
+30,ROW_STATUS,Status,Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,30
+30,ROW_STATUS,Status,Status,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,30
 60,SUCCESS,Success!,Success!,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,60
 60,SUCCESS,Success!,Success!,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,60
 60,SUCCESS,Success!,Success!,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,60

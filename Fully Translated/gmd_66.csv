@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
 0,,"ああ、今回の取り分は送っておいたぞ！
 保管ボックスを確認するといい
 次の出航が今から楽しみだ！
@@ -660,9 +660,8 @@ No, it's endless--
 --it's troubling.",ui\00_message\npc\base\n1045.gmd,\npc\n1045.arc,n1045.arc,13
 0,,"ん――？
 覚者様、今別のことを
-されているんじゃないですか？","Hmmm--?
-Arisen, are you not busy with something else
-right now?",ui\00_message\npc\base\n1045.gmd,\npc\n1045.arc,n1045.arc,14
+されているんじゃないですか？","Hmmm...?
+Arisen, do you not have a task at hand already?",ui\00_message\npc\base\n1045.gmd,\npc\n1045.arc,n1045.arc,14
 0,,"ボクは、ご紹介するダンジョンには
 きっちり集中して
 挑んでいただきたいんですよね――","I'd like you to
@@ -678,8 +677,8 @@ can you finish your other mission or
 decline and then come back
 again--I'm sorry.",ui\00_message\npc\base\n1045.gmd,\npc\n1045.arc,n1045.arc,16
 0,,"ハァイ！
-なになに？　私にどんなご用かしら！","Hi!
-What's going on?　What can I do for you?",ui\00_message\npc\base\n1046.gmd,\npc\n1046.arc,n1046.arc,0
+なになに？　私にどんなご用かしら！","Hi! How goes it?
+What can I do fer you?",ui\00_message\npc\base\n1046.gmd,\npc\n1046.arc,n1046.arc,0
 0,,"実はね、覚者様との接点がほしくて
 クラン執務官に志願してたのよ
 だけど、かなり前からあの二人――
@@ -712,12 +711,10 @@ What do you think?",ui\00_message\npc\base\n1046.gmd,\npc\n1046.arc,n1046.arc,5
 0,,"あら、お疲れだったら
 ココの仮眠室にご案内するわ！
 備品の維持なんかに結構かかるから
-<VAL PRICE_INN>いただくけど、いいかしら？","Oh, well, if you're tired, I can show you to a
-nap room at
-!
-It costs quite a bit to maintain the equipment,
-so I'll take
-<VAL PRICE_INN>if you don't mind.",ui\00_message\npc\base\n1046.gmd,\npc\n1046.arc,n1046.arc,6
+<VAL PRICE_INN>いただくけど、いいかしら？","Ah, well, if you're tired,
+I can show you to a nap room.
+It costs a pretty penny to maintain the equipment,
+so I'm asking for <VAL PRICE_INN> if you don't mind.",ui\00_message\npc\base\n1046.gmd,\npc\n1046.arc,n1046.arc,6
 0,,はい,Yes,ui\00_message\npc\base\n1046.gmd,\npc\n1046.arc,n1046.arc,7
 0,,いいえ,No,ui\00_message\npc\base\n1046.gmd,\npc\n1046.arc,n1046.arc,8
 0,,"覚者様、お疲れだったら
@@ -1192,7 +1189,7 @@ bring it to me
 and I'll take back what I can use.",ui\00_message\npc\base\n1200.gmd,\npc\n1200.arc,n1200.arc,1
 0,,どうだい、必要なものはあるかい？,"So, do you have what you need?",ui\00_message\npc\base\n1200.gmd,\npc\n1200.arc,n1200.arc,2
 0,,"やぁ、見てってくれ
-各種素材を扱ってるよ","Hey, take a look at
+各種素材を扱ってるよ","Hey, take a look.
 I deal with all kinds of materials.",ui\00_message\npc\base\n1200.gmd,\npc\n1200.arc,n1200.arc,3
 0,,"素材はその土地その土地
 とれるものが違うんだ","The materials differ depending on the area
@@ -1205,7 +1202,7 @@ bring it to me
 and I'll take back what I can use.",ui\00_message\npc\base\n1200.gmd,\npc\n1200.arc,n1200.arc,1
 0,,どうだい、必要なものはあるかい？,"So, do you have what you need?",ui\00_message\npc\base\n1200.gmd,\npc\n1200.arc,n1200.arc,2
 0,,"やぁ、見てってくれ
-各種素材を扱ってるよ","Hey, take a look at
+各種素材を扱ってるよ","Hey, take a look.
 I deal with all kinds of materials.",ui\00_message\npc\base\n1200.gmd,\npc\n1200.arc,n1200.arc,3
 0,,"雨の日は露店だと困るんだよね
 商品は濡れちゃうし、地面も冷たいし","It's a problem when it's a stall on a rainy day.
@@ -1224,9 +1221,8 @@ We're the best when it comes to seafood.",ui\00_message\npc\base\n1201.gmd,\npc\
 lighthouse, just for a
 moment and see what it's all about?",ui\00_message\npc\base\n1201.gmd,\npc\n1201.arc,n1201.arc,4
 0,,"こんにちは
-採取道具に日用品まで、いろいろ揃えてるよ","Hello
-, we have various collection tools and daily
-necessities available",ui\00_message\npc\base\n1201.gmd,\npc\n1201.arc,n1201.arc,5
+採取道具に日用品まで、いろいろ揃えてるよ","Good day, we have various tools
+and daily necessities available.",ui\00_message\npc\base\n1201.gmd,\npc\n1201.arc,n1201.arc,5
 0,,"雨の日は露店だと困るんだよね
 商品は濡れちゃうし、地面も冷たいし","It's a problem when it's a stall on a rainy day.
 The products get wet and the ground is cold.",ui\00_message\npc\base\n1201.gmd,\npc\n1201.arc,n1201.arc,0
@@ -1244,14 +1240,13 @@ We're the best when it comes to seafood.",ui\00_message\npc\base\n1201.gmd,\npc\
 lighthouse, just for a
 moment and see what it's all about?",ui\00_message\npc\base\n1201.gmd,\npc\n1201.arc,n1201.arc,4
 0,,"こんにちは
-採取道具に日用品まで、いろいろ揃えてるよ","Hello
-, we have various collection tools and daily
-necessities available",ui\00_message\npc\base\n1201.gmd,\npc\n1201.arc,n1201.arc,5
+採取道具に日用品まで、いろいろ揃えてるよ","Good day, we have various tools
+and daily necessities available.",ui\00_message\npc\base\n1201.gmd,\npc\n1201.arc,n1201.arc,5
 0,,"休憩していってはどうですか？
 魚料理もついて、一泊
 <VAL PRICE_INN>ですよ！","Why don't you take a break?
-It's
-<VAL PRICE_INN>per night, including a fish dinner!",ui\00_message\npc\base\n1202.gmd,\npc\n1202.arc,n1202.arc,0
+It's <VAL PRICE_INN>per night,
+including a fish dinner!",ui\00_message\npc\base\n1202.gmd,\npc\n1202.arc,n1202.arc,0
 0,,はい,Yes,ui\00_message\npc\base\n1202.gmd,\npc\n1202.arc,n1202.arc,1
 0,,いいえ,No,ui\00_message\npc\base\n1202.gmd,\npc\n1202.arc,n1202.arc,2
 0,,"おお、お疲れですか？
@@ -1291,8 +1286,8 @@ We would be grateful for your help!",ui\00_message\npc\base\n1202.gmd,\npc\n1202
 0,,"休憩していってはどうですか？
 魚料理もついて、一泊
 <VAL PRICE_INN>ですよ！","Why don't you take a break?
-It's
-<VAL PRICE_INN>per night, including a fish dinner!",ui\00_message\npc\base\n1202.gmd,\npc\n1202.arc,n1202.arc,0
+It's <VAL PRICE_INN>per night,
+including a fish dinner!",ui\00_message\npc\base\n1202.gmd,\npc\n1202.arc,n1202.arc,0
 0,,はい,Yes,ui\00_message\npc\base\n1202.gmd,\npc\n1202.arc,n1202.arc,1
 0,,いいえ,No,ui\00_message\npc\base\n1202.gmd,\npc\n1202.arc,n1202.arc,2
 0,,"おお、お疲れですか？
@@ -1330,7 +1325,7 @@ the 《Quest Board》 at
 We would be grateful for your help!",ui\00_message\npc\base\n1202.gmd,\npc\n1202.arc,n1202.arc,12
 0,,ようこそ、海竜亭へ！,Welcome to the Sea Dragon's Inn!,ui\00_message\npc\base\n1202.gmd,\npc\n1202.arc,n1202.arc,13
 0,,"ブリアには、表の浜辺の南側にも
-《青爪浜》って浜辺があるんだよ","In Bria, there is another beach called
+《青爪浜》って浜辺があるんだよ","In Breya, there is another beach called
 《青爪浜》 to the south of the front beach.",ui\00_message\npc\base\n1203.gmd,\npc\n1203.arc,n1203.arc,0
 0,,"そこには昔、《ルフロー》っていう村があったんだが
 一夜にして誰も居なくなったそうなんだ","There used to be a village there called Leflor.
@@ -1357,7 +1352,7 @@ famous
 priest-knight.",ui\00_message\npc\base\n1203.gmd,\npc\n1203.arc,n1203.arc,5
 0,,ああ、こんにちは,"Oh, hello.",ui\00_message\npc\base\n1203.gmd,\npc\n1203.arc,n1203.arc,6
 0,,"ブリアには、表の浜辺の南側にも
-《青爪浜》って浜辺があるんだよ","In Bria, there is another beach called
+《青爪浜》って浜辺があるんだよ","In Breya, there is another beach called
 《青爪浜》 to the south of the front beach.",ui\00_message\npc\base\n1203.gmd,\npc\n1203.arc,n1203.arc,0
 0,,"そこには昔、《ルフロー》っていう村があったんだが
 一夜にして誰も居なくなったそうなんだ","There used to be a village there called Leflor.
@@ -1409,25 +1404,24 @@ Take your time.",ui\00_message\npc\base\n1204.gmd,\npc\n1204.arc,n1204.arc,3
 そういえば良いニュースがあるんだ","Ah, Ser Arisen!
 By the way, I have good news.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,0
 0,,"ブリアにある《辺境の礎》ってやつが
-全部使えるようになったらしいよ！","I heard that the sub-crystal in Bria is now
-available at
-all of them!",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,1
+全部使えるようになったらしいよ！","I heard that all the sub-crystals in Breya
+are now functional again!",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,1
 0,,"俺はアレの使い方、いまいちわかってないんだけど
 何でも、覚者さんが今までに触ったことのない礎も
 このブリア内にある分は全部使えるんだってさ","I'm not quite sure how I'm supposed to use that
 thing, but whatever.
 Even the Keystones that the Arisen has never
 touched before,he can use all of the ones in this
-briar.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,2
+Breyar.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,2
 0,,"覚者さんがよくブリアに来るからって
 神殿の人たちが手配してくれたんだ
 今まで行きにくかった場所にも
 一瞬で行けるんだってね","The people at Temple arranged it because Arisen
-often come to Bria.
+often come to Breya.
 They said he can go to places that have been hard
 to get to in an instant.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,3
 0,,"探索しやすくなったブリアを
-そしてローテスを、これからもよろしく！","Keep up the good work with Bria
+そしてローテスを、これからもよろしく！","Keep up the good work with Breya
 and Rotes, which is now easier to explore!",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,4
 0,,"そうそう、覚者さんにお願いしたいことがあってさ
 ルドルフォ爺さんの家の近くに古い井戸があるだろ
@@ -1500,26 +1494,26 @@ I'd appreciate it if you'd give me a shout before
 you leave.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,16
 0,,"覚者さんがブリアに寄ってくれるようになって
 本当に助かってるんだ
-いつもありがとう！","Arisen, thank you so much for coming to Breya
-I really appreciate it
-Thank you always!",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,17
+いつもありがとう！","Arisen, thank you so much for coming to Breya.
+I really appreciate it.
+Thank you, as always!",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,17
 0,,"俺も少しは覚者さんの力になりたいからさ
-今まで以上に良いものを渡せるように頑張るよ","I also want to be of help to you, Arisen
-I'll do my best to give you even better things
-than before",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,18
+今まで以上に良いものを渡せるように頑張るよ","I also want to be of help to you, Arisen.
+I'll do my best to give you
+even better things than before.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,18
 0,,"今や覚者さんあってのブリアだからさ！
-今後ともよろしく頼むよ！","Now it's thanks to you, Arisen, that there is
-Breya!
+今後ともよろしく頼むよ！","Now it's thanks to you, Arisen,
+that Breya still stands!
 I'll rely on you from now on too!",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,19
 0,,"覚者さん、《クエストボード》見てくれよ！
-手伝ってもらえたらローテスも大助かりさ","Arisen, please check the ""quest board""!
-If you can help, it will be a great help to Rotes
-too",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,20
-0,,岬のモルトバ灯台へはもう行ったか？,"Have you already been to Moltova Lighthouse on
-the cape?",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,21
+手伝ってもらえたらローテスも大助かりさ","Arisen, please check the Quest Board!
+If you can lend your aid,
+it will be a great help to Rotes too.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,20
+0,,岬のモルトバ灯台へはもう行ったか？,"Have you already been
+to Moltova Lighthouse on the cape?",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,21
 0,,"ルドルフォの爺さんに会ったら
-よろしく伝えといてくれ","If you see old Rudolfo, tell him I said
-hello.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,22
+よろしく伝えといてくれ","If you see ole Rudolfo,
+tell him I said hello.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,22
 0,,"海のロマンはやっぱでっかさだろ！
 たまに来る漂流船なんか最高さ！","The romance of the sea is the size of it!
 The occasional drifting ship is the best!",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,23
@@ -1529,7 +1523,7 @@ It doesn't look like it's the Temple's Western
 blasting ship.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,24
 0,,"――もう、何ていうかさ
 あんたがローテスに来てくれて
-本当に良かったよ","-You know, I was really glad when you came to
+本当に良かったよ","You know, I was really glad when you came to
 Rotes.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,25
 0,,"今まで騎士団も神殿も、ここまで
 親身になってくれた人はいなかったしな
@@ -1540,34 +1534,32 @@ I'll help you as much as I can, too.",ui\00_message\npc\base\n1205.gmd,\npc\n120
 0,,"こんにちは、あらためて自己紹介ね
 俺はこの一帯、ブリア海岸の
 エリアマスターをやってるオニールだ","Hi, I'd like to introduce myself again.
-I'm O'Neill, the
-area master for this part of the Brier Coast.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,27
+I'm O'Neill, the Area Master
+for this part of the Breya Coast.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,27
 0,,"自慢の海と砂浜は見てくれたかい？
 ちょっとばかりのんびりした気分に
-なってしまうけど、見た目よりずっと危険だよ","Have you seen our boastful ocean and sandy
-beaches?
-It makes you feel a little more relaxed
-but it's a lot more dangerous than it looks!",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,28
+なってしまうけど、見た目よりずっと危険だよ","Have you seen our boastful ocean
+and sandy beaches?
+It makes you feel a little more relaxed.
+But it's a lot more dangerous than it looks!",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,28
 0,,"海の影響だろうけど魔物もハイデルや
 ミスリウとは違うから気をつけてくれ","I know it's probably the influence of the ocean,
-but be careful, the demons aren't the same as
-Heidel or
-Misriu.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,29
+but be careful, the demons aren't the same
+as Hiddell or Mysree.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,29
 0,,"あとは――目下の問題と言えば
 海賊まがいのならず者《ブリア宝奪団》だな
-今はそれが一番の悩みの種だね","The other thing - the problem at hand is
-the pirate-like ruffians, the Briar Treasure
-Robbers.
+今はそれが一番の悩みの種だね","The other thing - the problem at hand
+is the pirate-like ruffians,
+the Breya Treasure Robbers.
 That's the biggest problem we have right now.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,30
 0,,"まあ、わからないことがあったら
 とりあえず聞いてくれよ","Well, if there's something you don't understand,
-please ask me
-for now",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,31
+please do not hesistate to ask.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,31
 0,,"いやー、さすが覚者さん！
 何かと任せちゃって申し訳ない
 これからもよろしくな","Wow, you're truly an Arisen!
-I'm sorry for relying on you so much
-From now on, please take care of me as well",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,32
+I'm sorry for relying on you from now on,
+please take care of me as well",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,32
 0,,"やぁ、ありがとう
 また仕事手伝ってくれよな","Hey, thank you
 Please help me with my work again",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,33
@@ -1583,7 +1575,7 @@ There's a ""Hidden Beach"" right behind the village.",ui\00_message\npc\base\n12
 例の《ブリア宝奪団》の奴らかなぁ","Especially lately, there seems to be a lot of bad
 guys
 going in and out of there every now and then.
-I wonder if they're from the Briar Treasure Troop.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,37
+I wonder if they're from the Breya Treasure Troop.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,37
 0,,とにかく、怪しいのがいたら何とかしてくれよ,"Anyway, if you see something suspicious, please
 take care of it.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,38
 0,,"お、そうだ！
@@ -1718,16 +1710,16 @@ treasure, either.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,65
 昨日宿に寄った旅人が言ってたんだよ――","So, near that Leflor, a traveler who stopped by
 the inn yesterday
 said he saw a figure wandering
-around, muttering something--.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,66
+around, muttering something...",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,66
 0,,"――これって、もしかして幽霊――？
 ほら覚者さんも気になるだろ？
-だからさ、ほら。確かめてきてくれよ","-Is this, perhaps, a ghost...?
+だからさ、ほら。確かめてきてくれよ","Is this, perhaps, a ghost...?
 Hey, Arisen, I'm sure you're curious too, right?
-So, come on. Please go and check it out.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,67
+So, come on. Will you investigate?",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,67
 0,,"――もう、何ていうかさ
 あんたがローテスに来てくれて
-本当に良かったよ","-You know, I was really glad when you came to
-Rotes.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,68
+本当に良かったよ","You know, I was really glad
+to see the Arisen came to Rotes.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,68
 0,,"今まで騎士団も神殿も、ここまで
 親身になってくれた人はいなかったし
 俺も、できる限りあんたを支援するよ","No Knighthood or Temple has ever been so
@@ -1754,31 +1746,30 @@ it is the Arisen!
 I can't think of anything else.
 You've got to fight that guy off somehow!",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,74
 0,,"よう！　ブリア海岸近辺の事なら
-何でも聞いてくれ","Yo!　If you're in the vicinity of the Brier Coast,
-, ask me anything you want.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,75
+何でも聞いてくれ","Yo!　If you're in the vicinity of the Breya Coast,
+ask me anything you want.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,75
 0,,"あっ、覚者さん！
 そういえば良いニュースがあるんだ","Ah, Ser Arisen!
 By the way, I have good news.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,0
 0,,"ブリアにある《辺境の礎》ってやつが
-全部使えるようになったらしいよ！","I heard that the sub-crystal in Bria is now
-available at
-all of them!",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,1
+全部使えるようになったらしいよ！","I heard that all the sub-crystals in Breya
+are now functional again!",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,1
 0,,"俺はアレの使い方、いまいちわかってないんだけど
 何でも、覚者さんが今までに触ったことのない礎も
-このブリア内にある分は全部使えるんだってさ","I'm not quite sure how I'm supposed to use that
-thing, but whatever.
-Even the Keystones that the Arisen has never
-touched before,he can use all of the ones in this
-briar.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,2
+このブリア内にある分は全部使えるんだってさ","I'm not quite sure how I'm supposed to
+use that thing, but whatever.
+Even the Keystones that the Arisen 
+has never touched before,
+he can use all of the ones in Breya.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,2
 0,,"覚者さんがよくブリアに来るからって
 神殿の人たちが手配してくれたんだ
 今まで行きにくかった場所にも
-一瞬で行けるんだってね","The people at Temple arranged it because Arisen
-often come to Bria.
-They said he can go to places that have been hard
-to get to in an instant.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,3
+一瞬で行けるんだってね","The people at Temple arranged it
+because Arisen often come to Breya.
+They said he can go to places 
+that have been hard to get to in an instant.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,3
 0,,"探索しやすくなったブリアを
-そしてローテスを、これからもよろしく！","Keep up the good work with Bria
+そしてローテスを、これからもよろしく！","Keep up the good work with Breya
 and Rotes, which is now easier to explore!",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,4
 0,,"そうそう、覚者さんにお願いしたいことがあってさ
 ルドルフォ爺さんの家の近くに古い井戸があるだろ
@@ -1892,7 +1883,7 @@ I'll help you as much as I can, too.",ui\00_message\npc\base\n1205.gmd,\npc\n120
 俺はこの一帯、ブリア海岸の
 エリアマスターをやってるオニールだ","Hi, I'd like to introduce myself again.
 I'm O'Neill, the
-area master for this part of the Brier Coast.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,27
+area master for this part of the Breya Coast.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,27
 0,,"自慢の海と砂浜は見てくれたかい？
 ちょっとばかりのんびりした気分に
 なってしまうけど、見た目よりずっと危険だよ","Have you seen our boastful ocean and sandy
@@ -1907,7 +1898,7 @@ Misriu.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,29
 0,,"あとは――目下の問題と言えば
 海賊まがいのならず者《ブリア宝奪団》だな
 今はそれが一番の悩みの種だね","The other thing - the problem at hand is
-the pirate-like ruffians, the Briar Treasure
+the pirate-like ruffians, the Breya Treasure
 Robbers.
 That's the biggest problem we have right now.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,30
 0,,"まあ、わからないことがあったら
@@ -1934,7 +1925,7 @@ There's a ""Hidden Beach"" right behind the village.",ui\00_message\npc\base\n12
 例の《ブリア宝奪団》の奴らかなぁ","Especially lately, there seems to be a lot of bad
 guys
 going in and out of there every now and then.
-I wonder if they're from the Briar Treasure Troop.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,37
+I wonder if they're from the Breya Treasure Troop.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,37
 0,,とにかく、怪しいのがいたら何とかしてくれよ,"Anyway, if you see something suspicious, please
 take care of it.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,38
 0,,"お、そうだ！
@@ -2105,7 +2096,7 @@ it is the Arisen!
 I can't think of anything else.
 You've got to fight that guy off somehow!",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,74
 0,,"よう！　ブリア海岸近辺の事なら
-何でも聞いてくれ","Yo!　If you're in the vicinity of the Brier Coast,
+何でも聞いてくれ","Yo!　If you're in the vicinity of the Breya Coast,
 , ask me anything you want.",ui\00_message\npc\base\n1205.gmd,\npc\n1205.arc,n1205.arc,75
 0,,"そ、そうだ！
 灯台の方にいくなら、《鳥寄せ岩》の
@@ -2176,14 +2167,13 @@ has been there for a long time",ui\00_message\npc\base\n1207.gmd,\npc\n1207.arc,
 0,,"あら、冒険者の方？
 もし良ければなのですが、奥にいるアニスに
 外の話を聞かせてやってくれません？","Oh, are you an adventurer?
-If you don't mind, could you go inside and tell
-Anise
-the news from outside?",ui\00_message\npc\base\n1208.gmd,\npc\n1208.arc,n1208.arc,0
+If you don't mind, could you go inside
+and tell Anise the news from outside?",ui\00_message\npc\base\n1208.gmd,\npc\n1208.arc,n1208.arc,0
 0,,"アニス――
 私の子は足が不自由で
-可哀そうな想いをさせてしまっているんです","Ennis--
-my boy is crippled
-and I feel sorry for him.",ui\00_message\npc\base\n1208.gmd,\npc\n1208.arc,n1208.arc,1
+可哀そうな想いをさせてしまっているんです","Anise...
+My child is crippled.
+I feel sorry for her.",ui\00_message\npc\base\n1208.gmd,\npc\n1208.arc,n1208.arc,1
 0,,"冒険者さん、あなた方は色々な所へ
 旅されているんでしょうね","Adventurers, I know you guys travel a lot
 ",ui\00_message\npc\base\n1208.gmd,\npc\n1208.arc,n1208.arc,2
@@ -2193,14 +2183,13 @@ Thanks for coming all the way out here!",ui\00_message\npc\base\n1208.gmd,\npc\n
 0,,"あら、冒険者の方？
 もし良ければなのですが、奥にいるアニスに
 外の話を聞かせてやってくれません？","Oh, are you an adventurer?
-If you don't mind, could you go inside and tell
-Anise
-the news from outside?",ui\00_message\npc\base\n1208.gmd,\npc\n1208.arc,n1208.arc,0
+If you don't mind, could you go inside
+and tell Anise the news from outside?",ui\00_message\npc\base\n1208.gmd,\npc\n1208.arc,n1208.arc,0
 0,,"アニス――
 私の子は足が不自由で
-可哀そうな想いをさせてしまっているんです","Ennis--
-my boy is crippled
-and I feel sorry for him.",ui\00_message\npc\base\n1208.gmd,\npc\n1208.arc,n1208.arc,1
+可哀そうな想いをさせてしまっているんです","Anise...
+My child is crippled.
+I feel sorry for her.",ui\00_message\npc\base\n1208.gmd,\npc\n1208.arc,n1208.arc,1
 0,,"冒険者さん、あなた方は色々な所へ
 旅されているんでしょうね","Adventurers, I know you guys travel a lot
 ",ui\00_message\npc\base\n1208.gmd,\npc\n1208.arc,n1208.arc,2
@@ -2286,7 +2275,7 @@ the fusibles in the sea
 0,,浅い所は大丈夫でありますが,Shallow areas are fine.,ui\00_message\npc\base\n1210.gmd,\npc\n1210.arc,n1210.arc,1
 0,,"このところのローテスの問題は
 《ブリア宝奪団》という海賊なのです","The problem with the Lotes these days is that
-they are pirates called the ""Briar Treasure
+they are pirates called the ""Breya Treasure
 Robbers""!",ui\00_message\npc\base\n1210.gmd,\npc\n1210.arc,n1210.arc,2
 0,,"エリアマスターのオニールさんも
 自分も、かなり困っているのです","Both Area Master O'Neill and
@@ -2330,7 +2319,7 @@ the fusibles in the sea
 0,,浅い所は大丈夫でありますが,Shallow areas are fine.,ui\00_message\npc\base\n1210.gmd,\npc\n1210.arc,n1210.arc,1
 0,,"このところのローテスの問題は
 《ブリア宝奪団》という海賊なのです","The problem with the Lotes these days is that
-they are pirates called the ""Briar Treasure
+they are pirates called the ""Breya Treasure
 Robbers""!",ui\00_message\npc\base\n1210.gmd,\npc\n1210.arc,n1210.arc,2
 0,,"エリアマスターのオニールさんも
 自分も、かなり困っているのです","Both Area Master O'Neill and
@@ -2368,7 +2357,7 @@ village!",ui\00_message\npc\base\n1210.gmd,\npc\n1210.arc,n1210.arc,10
 0,,お客さん？　こんにちは,Hello and welcome.,ui\00_message\npc\base\n1211.gmd,\npc\n1211.arc,n1211.arc,0
 0,,"行ってみたい所がたくさんあるの
 この部屋から出ることもできないのに――","There are so many places I'd like to go,
-but I can't even leave this room--",ui\00_message\npc\base\n1211.gmd,\npc\n1211.arc,n1211.arc,1
+but I can't even leave this room...",ui\00_message\npc\base\n1211.gmd,\npc\n1211.arc,n1211.arc,1
 0,,"私、歩けないの
 だからずっとここにいるよ","I can't walk,
 so I stay here all the time.",ui\00_message\npc\base\n1211.gmd,\npc\n1211.arc,n1211.arc,2
@@ -2714,9 +2703,9 @@ It costs a lot of money to feed them.",ui\00_message\npc\base\n1306.gmd,\npc\n13
 0,,"暮らしは厳しくなる一方だよ
 なのにこの頃は変な病気まで！
 あぁ、いやだいやだ","Life is getting tougher and tougher.
-And yet these days I even have a weird disease!
-Oh no no no no no no no no no no no no no no no
-no no no no no no no no no no no no",ui\00_message\npc\base\n1306.gmd,\npc\n1306.arc,n1306.arc,2
+And on top of it all, these days
+I even have a weird disease!
+Ah, it's hopeless. Just hopeless.",ui\00_message\npc\base\n1306.gmd,\npc\n1306.arc,n1306.arc,2
 0,,"たまに、枯れ井戸から変な臭いがするんだよ
 まったく嫌んなるよ","Sometimes there's a funny smell coming from a dry
 well.
@@ -2728,12 +2717,12 @@ It costs a lot of money to feed them.",ui\00_message\npc\base\n1306.gmd,\npc\n13
 0,,"暮らしは厳しくなる一方だよ
 なのにこの頃は変な病気まで！
 あぁ、いやだいやだ","Life is getting tougher and tougher.
-And yet these days I even have a weird disease!
-Oh no no no no no no no no no no no no no no no
-no no no no no no no no no no no no",ui\00_message\npc\base\n1306.gmd,\npc\n1306.arc,n1306.arc,2
+And on top of it all, these days
+I even have a weird disease!
+Ah, it's hopeless. Just hopeless.",ui\00_message\npc\base\n1306.gmd,\npc\n1306.arc,n1306.arc,2
 0,,"たまに、枯れ井戸から変な臭いがするんだよ
-まったく嫌んなるよ","Sometimes there's a funny smell coming from a dry
-well.
+まったく嫌んなるよ","Sometimes there's a strange odor
+coming from a dry well.
 It's utterly disgusting.",ui\00_message\npc\base\n1306.gmd,\npc\n1306.arc,n1306.arc,3
 0,,"どいつもこいつも！
 しみったれた面しやがってよぉ！","All of them!
@@ -3277,9 +3266,8 @@ had that crap and the
 spelling to break the blockade deep in the
 mausoleum.",ui\00_message\npc\base\n1313.gmd,\npc\n1313.arc,n1313.arc,52
 0,,"今なら、《ハイデル地下霊廟　深部》へ
-入る事ができるだろう","Now, you should be able to enter the ""Hidell
-Catacombs Depths""
-.",ui\00_message\npc\base\n1313.gmd,\npc\n1313.arc,n1313.arc,53
+入る事ができるだろう","Now, you should be able to enter
+the ""Hidell Catacombs Depths"".",ui\00_message\npc\base\n1313.gmd,\npc\n1313.arc,n1313.arc,53
 0,,"もし調査の続きを頼めるなら
 あらためて、わたしに話しかけてくれ","If you want to continue the investigation
 please talk to me again.",ui\00_message\npc\base\n1313.gmd,\npc\n1313.arc,n1313.arc,54
@@ -3380,7 +3368,7 @@ still here.",ui\00_message\npc\base\n1313.gmd,\npc\n1313.arc,n1313.arc,74
 0,,"貴君ならあの場所を調べることが
 できるかもしれん
 《ハイデル地下霊廟》を開放しよう","You might be able to check out that place
-and open up the ""Heidel Underground Mausoleum""!",ui\00_message\npc\base\n1313.gmd,\npc\n1313.arc,n1313.arc,75
+and open up the ""Heidel Underground Mausoleum!""",ui\00_message\npc\base\n1313.gmd,\npc\n1313.arc,n1313.arc,75
 0,,"どうするかは委ねるが
 行くなら頼みたいことがある
 その気があれば、あらためて話しかけてくれ","I'll leave it to you to decide what to do, but
@@ -3413,18 +3401,16 @@ Here are the support goods. Please take them.",ui\00_message\npc\base\n1313.gmd,
 often
 riddled with wild thieves, don't you?",ui\00_message\npc\base\n1313.gmd,\npc\n1313.arc,n1313.arc,82
 0,,"ヤツらの名は《黒狼団》
-東のアジトに居を構える盗賊集団だ","Their name is the Black Wolf Bandit Group
-, a bandit group that has its hideout in the east.",ui\00_message\npc\base\n1313.gmd,\npc\n1313.arc,n1313.arc,83
+東のアジトに居を構える盗賊集団だ","Their name is the Black Wolf Bandit Group,
+a bandit group that has its hideout in the east.",ui\00_message\npc\base\n1313.gmd,\npc\n1313.arc,n1313.arc,83
 0,,"神殿から指名手配され姿を消していた
 その首領ラダンが、どうやらアジトに
-戻ってきたらしい","The leader, Ladan, who was wanted by the Temple
-and disappeared
-, has apparently returned
-to his hideout!",ui\00_message\npc\base\n1313.gmd,\npc\n1313.arc,n1313.arc,84
+戻ってきたらしい","The leader, Ladan, who was wanted
+by the Temple and disappeared,
+has apparently returned to his hideout!",ui\00_message\npc\base\n1313.gmd,\npc\n1313.arc,n1313.arc,84
 0,,"連中は、高価なアクセサリーや宝飾品を
 かなりの量奪っているという話だ","It is said that they have stolen a considerable
-amount of expensive accessories and jewelry
-.",ui\00_message\npc\base\n1313.gmd,\npc\n1313.arc,n1313.arc,85
+amount of expensive accessories and jewelry.",ui\00_message\npc\base\n1313.gmd,\npc\n1313.arc,n1313.arc,85
 0,,"今や覚者隊でも騎士団でもなく、貴君が頼りだ
 ヤツらの動向に目を光らせておいてくれ","Now it's not the Sentinel Corps or the Knights,
 it's you.

@@ -1,8 +1,8 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
 8,item_use_limit,使用制限,Use Limit,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,8
 20,item_weapon_type,武器タイプ,Weapon Type,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,20
-22,magic_attack,魔法攻撃力,Magick Attack,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,22
-69,magic_difence,魔法防御力,Magick Defense,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,69
+22,magic_attack,魔法攻撃力,Magick Atk,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,22
+69,magic_difence,魔法防御力,Magick Def,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,69
 224,material_cateforyname_add_status,特質錬石,Slayer Stone,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,224
 129,material_cateforyname_alchemy,錬金材,Alchemy Material,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,129
 221,material_cateforyname_all,すべて,All,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,221
@@ -10,7 +10,7 @@
 112,material_cateforyname_cloth,布,Cloth,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,112
 227,material_cateforyname_draskill,ドラゴンアビリティ,Dragon Ability,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,227
 136,material_cateforyname_dyes,染料,Dye,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,136
-131,material_cateforyname_etc,その他,Players,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,131
+131,material_cateforyname_etc,その他,Other,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,131
 117,material_cateforyname_fang,牙,Fang,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,117
 120,material_cateforyname_feather,羽,Feather,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,120
 123,material_cateforyname_flower,花,Flower,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,123
@@ -48,7 +48,7 @@
 203,param_msg_alljob_equip,全ジョブ装備可能,All vocations can equip,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,203
 196,param_msg_anti_em,対敵,Slayer,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,196
 202,param_msg_bazaar_ng,NG,NO,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,202
-201,param_msg_bazaar_ok,OK,Choose,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,201
+201,param_msg_bazaar_ok,OK,OK,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,201
 199,param_msg_healing,体力回復,Heal,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,199
 216,param_msg_item_furniture,家具,Furniture,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,216
 206,param_msg_item_money,通貨,Currency,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,206
@@ -90,8 +90,8 @@
 170,pawn_craftskill_time,クラフトスキル：生産作業スピード,Craft Skill: Production Speed,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,170
 178,pawn_number_of_adventure,冒険回数,Craft Count,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,178
 177,pawn_number_of_support,サポート回数,Battle Count,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,177
-68,phisical_difence,物理防御力,Physical Defense,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,68
-21,physical_attack,物理攻撃力,Physical Attack,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,21
+68,phisical_difence,物理防御力,Phys. Def,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,68
+21,physical_attack,物理攻撃力,Phys. Atk,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,21
 79,resist_cought_fire,延焼耐性,Resist Catching Fire,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,79
 91,resist_curse,呪い耐性,Resist Curse,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,91
 78,resist_dark,闇耐性,Dark Resist,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,78
@@ -250,7 +250,7 @@
 27,pawn_cultivation_element_4_1,支援寄り,Support (↑),ui\00_message\ui\pawn_cultivation.gmd,\MyRoom.arc,MyRoom.arc,27
 27,pawn_cultivation_element_4_1,支援寄り,Support (↑),ui\00_message\ui\pawn_cultivation.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,27
 28,pawn_cultivation_element_4_2,普通,Normal,ui\00_message\ui\pawn_cultivation.gmd,\MyRoom.arc,MyRoom.arc,28
-28,pawn_cultivation_element_4_2,普通,Middle,ui\00_message\ui\pawn_cultivation.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,28
+28,pawn_cultivation_element_4_2,普通,Normal,ui\00_message\ui\pawn_cultivation.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,28
 29,pawn_cultivation_element_4_3,攻撃寄り,Attack (↑),ui\00_message\ui\pawn_cultivation.gmd,\MyRoom.arc,MyRoom.arc,29
 29,pawn_cultivation_element_4_3,攻撃寄り,Attack (↑),ui\00_message\ui\pawn_cultivation.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,29
 30,pawn_cultivation_element_4_4,かなり攻撃寄り,Attack (↑↑),ui\00_message\ui\pawn_cultivation.gmd,\MyRoom.arc,MyRoom.arc,30
@@ -260,7 +260,7 @@
 32,pawn_cultivation_element_5_1,狭い,Close (↑),ui\00_message\ui\pawn_cultivation.gmd,\MyRoom.arc,MyRoom.arc,32
 32,pawn_cultivation_element_5_1,狭い,Close (↑),ui\00_message\ui\pawn_cultivation.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,32
 33,pawn_cultivation_element_5_2,普通,Normal,ui\00_message\ui\pawn_cultivation.gmd,\MyRoom.arc,MyRoom.arc,33
-33,pawn_cultivation_element_5_2,普通,Middle,ui\00_message\ui\pawn_cultivation.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,33
+33,pawn_cultivation_element_5_2,普通,Normal,ui\00_message\ui\pawn_cultivation.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,33
 34,pawn_cultivation_element_5_3,広い,Far (↑),ui\00_message\ui\pawn_cultivation.gmd,\MyRoom.arc,MyRoom.arc,34
 34,pawn_cultivation_element_5_3,広い,Far (↑),ui\00_message\ui\pawn_cultivation.gmd,\ui\uGUIArisenCard.arc,uGUIArisenCard.arc,34
 35,pawn_cultivation_element_5_4,かなり広い,Far (↑↑),ui\00_message\ui\pawn_cultivation.gmd,\MyRoom.arc,MyRoom.arc,35
@@ -920,16 +920,16 @@ the Pawn Expedition Corps.",ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPopBuff
 49,pawn_fb_03_015,経験がたりないな,Not enough experience,ui\00_message\ui\pawn_feedback_comment.gmd,\ui\menu_cmn.arc,menu_cmn.arc,49
 50,pawn_fb_03_016,がんばってね,"Do your best, OK?",ui\00_message\ui\pawn_feedback_comment.gmd,\ui\menu_cmn.arc,menu_cmn.arc,50
 2,pawn_fb_03_comment,<VAL>さんのポーンと協力してクラフトをがんばった,<VAL> crafted with the pawn.,ui\00_message\ui\pawn_feedback_comment.gmd,\ui\menu_cmn.arc,menu_cmn.arc,2
-0,pawn_personality_1,ノーマル,Middle,ui\00_message\ui\pawn_personality.gmd,\ui\menu_cmn.arc,menu_cmn.arc,0
+0,pawn_personality_1,ノーマル,Normal,ui\00_message\ui\pawn_personality.gmd,\ui\menu_cmn.arc,menu_cmn.arc,0
 1,pawn_personality_2,シャイ,Shy,ui\00_message\ui\pawn_personality.gmd,\ui\menu_cmn.arc,menu_cmn.arc,1
-2,pawn_personality_3,アクティブ,Active,ui\00_message\ui\pawn_personality.gmd,\ui\menu_cmn.arc,menu_cmn.arc,2
+2,pawn_personality_3,アクティブ,Peppy,ui\00_message\ui\pawn_personality.gmd,\ui\menu_cmn.arc,menu_cmn.arc,2
 3,pawn_personality_4,スマート,Smart,ui\00_message\ui\pawn_personality.gmd,\ui\menu_cmn.arc,menu_cmn.arc,3
 4,pawn_personality_5,クール,Cool,ui\00_message\ui\pawn_personality.gmd,\ui\menu_cmn.arc,menu_cmn.arc,4
 5,pawn_personality_6,ピュア,Pure,ui\00_message\ui\pawn_personality.gmd,\ui\menu_cmn.arc,menu_cmn.arc,5
 6,pawn_personality_7,ワイルド,Wild,ui\00_message\ui\pawn_personality.gmd,\ui\menu_cmn.arc,menu_cmn.arc,6
 7,pawn_personality_8,セクシー,Sexy,ui\00_message\ui\pawn_personality.gmd,\ui\menu_cmn.arc,menu_cmn.arc,7
 11,PAWNREACTION_MSG_BUTTON_CANCEL,キャンセル,Cancel,ui\00_message\ui\pawn_reaction.gmd,\ui\uGUIPopPawnList.arc,uGUIPopPawnList.arc,11
-10,PAWNREACTION_MSG_BUTTON_DECIDE,決定,Choose,ui\00_message\ui\pawn_reaction.gmd,\ui\uGUIPopPawnList.arc,uGUIPopPawnList.arc,10
+10,PAWNREACTION_MSG_BUTTON_DECIDE,決定,Confirm,ui\00_message\ui\pawn_reaction.gmd,\ui\uGUIPopPawnList.arc,uGUIPopPawnList.arc,10
 9,PAWNREACTION_MSG_CAPTION_CHARACTAR,口調：,Personality：,ui\00_message\ui\pawn_reaction.gmd,\ui\uGUIPopPawnList.arc,uGUIPopPawnList.arc,9
 3,PAWNREACTION_MSG_IF_ADEATH,プレイヤー死亡時,Player Death,ui\00_message\ui\pawn_reaction.gmd,\ui\uGUIPopPawnList.arc,uGUIPopPawnList.arc,3
 7,PAWNREACTION_MSG_IF_ENDBATTLE,戦闘終了時,End of Combat,ui\00_message\ui\pawn_reaction.gmd,\ui\uGUIPopPawnList.arc,uGUIPopPawnList.arc,7
@@ -1127,7 +1127,7 @@ your original job.",ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList
 22,pop_prof_all,すべて,All,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,22
 8,pop_prof_cancel,キャンセル,Cancel,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,8
 3,pop_prof_comment,Comment,Comment,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,3
-7,pop_prof_decide,決定,Choose,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,7
+7,pop_prof_decide,決定,Confirm,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,7
 17,pop_prof_do,行う,Conduct,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,17
 13,pop_prof_job,Job,Jobs,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,13
 16,pop_prof_job_balance,ジョブバランス,Job Balance,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,16
@@ -1142,7 +1142,7 @@ your original job.",ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList
 1,pop_prof_mokuteki_2,活動場所,Activity Location,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,1
 19,pop_prof_mokuteki_now,現在の冒険目的,Current Adventure Purpose,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,19
 12,pop_prof_name,Name,Name,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,12
-18,pop_prof_ok,OK,Choose,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,18
+18,pop_prof_ok,OK,Confirm,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,18
 25,pop_prof_participate,パーティー参加を希望する,I would like to join a party,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,25
 26,pop_prof_participate_not,パーティー参加を希望しない,I do not wish to join a party,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,26
 4,pop_prof_party,パーティー参加要請,Party Invitation Request,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,4
@@ -1170,8 +1170,8 @@ your original job.",ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList
 8,popp_cancel,キャンセル,Cancel,ui\00_message\ui\pop_profile_res.gmd,\ui\uGUIPopProfile.arc,uGUIPopProfile.arc,8
 3,popp_comment,コメント,Comment,ui\00_message\ui\pop_profile_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,3
 3,popp_comment,コメント,Comment,ui\00_message\ui\pop_profile_res.gmd,\ui\uGUIPopProfile.arc,uGUIPopProfile.arc,3
-7,popp_decide,決定,Choose,ui\00_message\ui\pop_profile_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,7
-7,popp_decide,決定,Choose,ui\00_message\ui\pop_profile_res.gmd,\ui\uGUIPopProfile.arc,uGUIPopProfile.arc,7
+7,popp_decide,決定,Confirm,ui\00_message\ui\pop_profile_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,7
+7,popp_decide,決定,Confirm,ui\00_message\ui\pop_profile_res.gmd,\ui\uGUIPopProfile.arc,uGUIPopProfile.arc,7
 13,popp_job,遊びたいジョブ,Preferred Job,ui\00_message\ui\pop_profile_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,13
 13,popp_job,遊びたいジョブ,Preferred Job,ui\00_message\ui\pop_profile_res.gmd,\ui\uGUIPopProfile.arc,uGUIPopProfile.arc,13
 5,popp_maching_profile_en,Matching Profile,Matching Profile,ui\00_message\ui\pop_profile_res.gmd,\ui\uGUICharacterSelect.arc,uGUICharacterSelect.arc,5

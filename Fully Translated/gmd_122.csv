@@ -1,4 +1,4 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex,,
+#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
 86,QUEST_MSG_PARTYB_OFF2,"クリア報酬（アイテム以外）が最大<VAL>倍！
 ブラッドオーブが<VAL>個獲得！","Clear rewards (other than items) increased by
 x<VAL>!
@@ -1165,7 +1165,7 @@ space in storage.",ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc
 45,bazaar_msg_announce_stop,<NAME ITEM>を保管ボックスに移動しました,<NAME ITEM> has been moved to storage.,ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,45
 17,bazaar_msg_bt_buy,購入,Buy,ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,17
 18,bazaar_msg_bt_cancel,キャンセル,Cancel,ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,18
-30,bazaar_msg_bt_decision,決定,Choose,ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,30
+30,bazaar_msg_bt_decision,決定,Confirm,ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,30
 21,bazaar_msg_bt_no,いいえ,No,ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,21
 43,bazaar_msg_bt_re_exhibit,再出品,Re-Exhibit,ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,43
 37,bazaar_msg_bt_salesreceipt,売上の受け取り,Sales Receipt,ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,37
@@ -1227,7 +1227,7 @@ Sales Tax (<VAL>%): <VAL GOLD>",ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,u
 24,bazaar_msg_info_exhibit,出品中相場,Exhibit,ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,24
 22,bazaar_msg_info_switch,情報切替,Switch Information,ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,22
 23,bazaar_msg_info_trade,取引成立相場,Current Market,ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,23
-15,bazaar_msg_itemlist_disp_number_num,個,Pieces,ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,15
+15,bazaar_msg_itemlist_disp_number_num,個,Pcs,ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,15
 14,bazaar_msg_itemlist_disp_price,価格,Price,ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,14
 13,bazaar_msg_itemlist_disp_unitprice,単価,Unit Price,ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,13
 0,bazaar_msg_itemsearch_en,Item Search,Item Search,ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,0
@@ -1269,7 +1269,7 @@ Price: <VAL GOLD>",ui\00_message\ui\bazaar.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc
 0,bbi_match_msg_001,現在のパーティーメンバーのジョブ構成／進行状況,Job Composition/Progress of Current Party Members,ui\00_message\ui\bbi_match_res.gmd,\ui\uGUIKokujuMatching.arc,uGUIKokujuMatching.arc,0
 1,bbi_match_msg_002,名前,Name,ui\00_message\ui\bbi_match_res.gmd,\ui\uGUIKokujuMatching.arc,uGUIKokujuMatching.arc,1
 2,bbi_match_msg_003,ジョブレベル,Job Level,ui\00_message\ui\bbi_match_res.gmd,\ui\uGUIKokujuMatching.arc,uGUIKokujuMatching.arc,2
-3,bbi_match_msg_004,進行状況,Progress,ui\00_message\ui\bbi_match_res.gmd,\ui\uGUIKokujuMatching.arc,uGUIKokujuMatching.arc,3
+3,bbi_match_msg_004,進行状況,Progression,ui\00_message\ui\bbi_match_res.gmd,\ui\uGUIKokujuMatching.arc,uGUIKokujuMatching.arc,3
 4,bbi_match_msg_005,突入,Embark,ui\00_message\ui\bbi_match_res.gmd,\ui\uGUIKokujuMatching.arc,uGUIKokujuMatching.arc,4
 5,bbi_match_msg_006,進行状況が合わないメンバーがいるため、突入できません,"Cannot enter because there are members with
 different progress.",ui\00_message\ui\bbi_match_res.gmd,\ui\uGUIKokujuMatching.arc,uGUIKokujuMatching.arc,5
@@ -1279,7 +1279,7 @@ different progress.",ui\00_message\ui\bbi_match_res.gmd,\ui\uGUIKokujuMatching.a
 with different progress.",ui\00_message\ui\bbi_match_res.gmd,\ui\uGUIKokujuMatching.arc,uGUIKokujuMatching.arc,8
 9,bbi_match_msg_010,パーティーメンバーが揃っているため選べません,"Cannot select this option because your party is
 full.",ui\00_message\ui\bbi_match_res.gmd,\ui\uGUIKokujuMatching.arc,uGUIKokujuMatching.arc,9
-10,bbi_match_msg_011,所在状況,Progress,ui\00_message\ui\bbi_match_res.gmd,\ui\uGUIKokujuMatching.arc,uGUIKokujuMatching.arc,10
+10,bbi_match_msg_011,所在状況,Progression,ui\00_message\ui\bbi_match_res.gmd,\ui\uGUIKokujuMatching.arc,uGUIKokujuMatching.arc,10
 11,bbi_match_msg_012,所在状況が合わないメンバーがいるため、突入できません,"Cannot enter because there are members in
 different location.",ui\00_message\ui\bbi_match_res.gmd,\ui\uGUIKokujuMatching.arc,uGUIKokujuMatching.arc,11
 12,bbi_match_msg_013,所在状況が合わないメンバーがいるため、クイックパーティーできません,"Cannot use quick party because there are members
@@ -1311,8 +1311,8 @@ route)</COL>",ui\00_message\ui\bbi_situation_res.gmd,\ui\gui_game_mode_kokuju.ar
 12,button_guide_cross_jump,ジャンプ,Jump,ui\00_message\ui\button_guide.gmd,\ui\uGUIFKeyPalette.arc,uGUIFKeyPalette.arc,12
 13,button_guide_cross_qjump,一足跳び,Quick Jump,ui\00_message\ui\button_guide.gmd,\ui\uGUIActionPalette.arc,uGUIActionPalette.arc,13
 13,button_guide_cross_qjump,一足跳び,Quick Jump,ui\00_message\ui\button_guide.gmd,\ui\uGUIFKeyPalette.arc,uGUIFKeyPalette.arc,13
-26,button_guide_decide,決定,Choose,ui\00_message\ui\button_guide.gmd,\ui\uGUIActionPalette.arc,uGUIActionPalette.arc,26
-26,button_guide_decide,決定,Choose,ui\00_message\ui\button_guide.gmd,\ui\uGUIFKeyPalette.arc,uGUIFKeyPalette.arc,26
+26,button_guide_decide,決定,Confirm,ui\00_message\ui\button_guide.gmd,\ui\uGUIActionPalette.arc,uGUIActionPalette.arc,26
+26,button_guide_decide,決定,Confirm,ui\00_message\ui\button_guide.gmd,\ui\uGUIFKeyPalette.arc,uGUIFKeyPalette.arc,26
 39,button_guide_fire,発射,Fire,ui\00_message\ui\button_guide.gmd,\ui\uGUIActionPalette.arc,uGUIActionPalette.arc,39
 39,button_guide_fire,発射,Fire,ui\00_message\ui\button_guide.gmd,\ui\uGUIFKeyPalette.arc,uGUIFKeyPalette.arc,39
 25,button_guide_fire_elementsarcher,放つ,Shoot,ui\00_message\ui\button_guide.gmd,\ui\uGUIActionPalette.arc,uGUIActionPalette.arc,25
@@ -1381,8 +1381,8 @@ route)</COL>",ui\00_message\ui\bbi_situation_res.gmd,\ui\gui_game_mode_kokuju.ar
 7,EDIT_MSG_CATE_BONE,顔の輪郭,Face Shape,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,7
 14,EDIT_MSG_CATE_COLOR,カラー,Color,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,14
 14,EDIT_MSG_CATE_COLOR,カラー,Color,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,14
-19,EDIT_MSG_CATE_DECISION,決定,Choose,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,19
-19,EDIT_MSG_CATE_DECISION,決定,Choose,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,19
+19,EDIT_MSG_CATE_DECISION,決定,Confirm,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,19
+19,EDIT_MSG_CATE_DECISION,決定,Confirm,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,19
 12,EDIT_MSG_CATE_EAR,耳,Ears,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,12
 12,EDIT_MSG_CATE_EAR,耳,Ears,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEditDialog.arc,uGUICharacterEditDialog.arc,12
 8,EDIT_MSG_CATE_EYE,目,Eyes,ui\00_message\ui\character_edit.gmd,\ui\uGUICharacterEdit.arc,uGUICharacterEdit.arc,8
