@@ -63,9 +63,9 @@ Interval Duration.",ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc
 17,cpf_craft_filter_cap03,装備レベル,Equipment Level,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,17
 21,cpf_craft_filter_cap03_01,装備可能レベルを絞り込む,Filter equipment level,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,21
 18,cpf_craft_filter_cap04,性別,Gender,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,18
-22,cpf_craft_filter_cap04_01,指定なし,Any,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,22
-23,cpf_craft_filter_cap04_02,男性,Man,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,23
-24,cpf_craft_filter_cap04_03,女性,Woman,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,24
+22,cpf_craft_filter_cap04_01,指定なし,All,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,22
+23,cpf_craft_filter_cap04_02,男性,M,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,23
+24,cpf_craft_filter_cap04_03,女性,F,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,24
 14,cpf_craft_filter_title,フィルタの設定,Filter settings,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,14
 49,cpf_entry_dra_skill_001,ドラゴンアビリティ指定,Dragon Ability Designation,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,49
 50,cpf_entry_dra_skill_002,ドラゴンアビリティを指定する,Specify Dragon Abilities,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,50
@@ -605,7 +605,7 @@ the respective content NPC",ui\00_message\ui\entry_board.gmd,\ui\uGUIEntryBoard.
 1,entry_board_title_en,Entry Board,Entryboard,ui\00_message\ui\entry_board.gmd,\ui\uGUIEntryBoard.arc,uGUIEntryBoard.arc,1
 0,entry_board_title_jp,エントリーボード,Entryboard,ui\00_message\ui\entry_board.gmd,\ui\uGUIEntryBoard.arc,uGUIEntryBoard.arc,0
 65,entry_board_unsatisfied,募集条件を満たしていません,You do not meet the recruitment conditions,ui\00_message\ui\entry_board.gmd,\ui\uGUIEntryBoard.arc,uGUIEntryBoard.arc,65
-63,entry_board_unset,なし,Any,ui\00_message\ui\entry_board.gmd,\ui\uGUIEntryBoard.arc,uGUIEntryBoard.arc,63
+63,entry_board_unset,なし,None,ui\00_message\ui\entry_board.gmd,\ui\uGUIEntryBoard.arc,uGUIEntryBoard.arc,63
 114,entry_board_wm_rank_a,Ａランク ： <VAL DP>,A Rank: <VAL DP>,ui\00_message\ui\entry_board.gmd,\ui\uGUIEntryBoard.arc,uGUIEntryBoard.arc,114
 115,entry_board_wm_rank_b,Ｂランク ： <VAL DP>,B Rank: <VAL DP>,ui\00_message\ui\entry_board.gmd,\ui\uGUIEntryBoard.arc,uGUIEntryBoard.arc,115
 116,entry_board_wm_rank_c,Ｃランク ： <VAL DP>,C Rank: <VAL DP>,ui\00_message\ui\entry_board.gmd,\ui\uGUIEntryBoard.arc,uGUIEntryBoard.arc,116
@@ -1166,9 +1166,9 @@ is not enough space in storage.",ui\00_message\ui\equip_status_win.gmd,\ui\uGUIP
 28,status_money_title,Money,Money,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,28
 28,status_money_title,Money,Money,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPopItemSelect.arc,uGUIPopItemSelect.arc,28
 28,status_money_title,Money,Money,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPresetEquip.arc,uGUIPresetEquip.arc,28
-17,status_none,なし,Any,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,17
-17,status_none,なし,Any,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPopItemSelect.arc,uGUIPopItemSelect.arc,17
-17,status_none,なし,Any,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPresetEquip.arc,uGUIPresetEquip.arc,17
+17,status_none,なし,None,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,17
+17,status_none,なし,None,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPopItemSelect.arc,uGUIPopItemSelect.arc,17
+17,status_none,なし,None,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPresetEquip.arc,uGUIPresetEquip.arc,17
 9,status_option_change_equipment,装備変更,Change Equipment,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,9
 9,status_option_change_equipment,装備変更,Change Equipment,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPopItemSelect.arc,uGUIPopItemSelect.arc,9
 9,status_option_change_equipment,装備変更,Change Equipment,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPresetEquip.arc,uGUIPresetEquip.arc,9
