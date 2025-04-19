@@ -240,185 +240,293 @@
 0,,"《錬金の証》、よくぞ得た！
 ジョブについての理解も、さらに深まったようだな
 神殿に戻りレンテンに報告するがいい、覚者よ！",,ui\00_message\quest\q60000011.gmd,\quest\q60000011.arc,q60000011.arc,40
-0,,【ヒント：カスタムスキルの付け方】,,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,0
+0,,【ヒント：カスタムスキルの付け方】,【Hint: How to assign Custom Skills】,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,0
 0,,"①アーチボルトに話し、会話メニューから
-　《転職/戦技の付替え》を選択",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,1
-0,,②メニューで《スキル》を選択,,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,2
+　《転職/戦技の付替え》を選択","① Talk to Archibald and select
+《Vocation / Arts Support》from the chat menu",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,1
+0,,②メニューで《スキル》を選択,②Select 《Skills》 from the menu.,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,2
 0,,"③《カスタムスキル》からつけたいスキルを選び
-　右のボタン割り当てにセット",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,3
-0,,【ヒント：クエスト報酬アイテムの受け取り】,,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,4
-0,,①クエストクリア後、保管ボックスを調べる,,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,5
-0,,②メニューで《報酬受け取り》を選択,,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,6
+　右のボタン割り当てにセット","③Select a skill from 《Custom Skill》
+and assign it to the key combination on the right.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,3
+0,,【ヒント：クエスト報酬アイテムの受け取り】,【Hint: How to receive Quest Reward items】,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,4
+0,,①クエストクリア後、保管ボックスを調べる,"①After clearing the quest, check your Storage Box.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,5
+0,,②メニューで《報酬受け取り》を選択,②Select 《Rewards Received》 from the menu.,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,6
 0,,"③クエスト名を選び、その報酬を受け取る
 ※受け取った報酬は保管ボックスの
-　アイテム欄に送られます",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,7
-0,,【ヒント：クエスト進行】,,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,8
+　アイテム欄に送られます","③Choose the quest name and receive its reward.
+※Received rewards will be sent to the
+item section of the Storage Box.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,7
+0,,【ヒント：クエスト進行】,【Hint: Quest Progression】,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,8
 0,,"ボードクエストをクリアしました
-白竜神殿に戻りファビオに報告しましょう",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,9
-0,,【ヒント：覚者の成長について】,,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,10
+白竜神殿に戻りファビオに報告しましょう","You have completed the Board Quest.
+Let's return to the White Dragon Temple
+and report the results to Fabio.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,9
+0,,【ヒント：覚者の成長について】,【Hint: Growth of the Arisen】,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,10
 0,,"神殿内の＜宿場区＞にいるアーチボルトとレンテンは
-戦闘で強くなるために重要な人物です",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,11
+戦闘で強くなるために重要な人物です","To help you become stronger in battle,
+Archibald and Renton are important allies to visit
+in the ＜Relay Station District＞ of the Temple.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,11
 0,,"自分にあったジョブに転職も可能なので
-さっそく会いにいきましょう",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,12
+さっそく会いにいきましょう","You can switch to a Vocation that fits you better,
+so let's go see them right away.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,12
 0,,"宿場区の宿屋へ行って
-アーチボルトと話すんだ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,13
+アーチボルトと話すんだ","Head to the Inn in the Relay Station District
+and talk to Archibald.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,13
 0,,"俺はここで待っているから
-終わったら、声をかけてくれ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,14
+終わったら、声をかけてくれ","I'll be right here,
+so give me a shout once you're done.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,14
 0,,"俺は白衛騎士団のアーチボルトだ
 戦技――スキルの習得や付替え
-転職の補佐をしている",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,15
+転職の補佐をしている","I am Archibald of the White Knights.
+Skill acquisition, skill changes,
+and job transitions, that's all me.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,15
 0,,"――強くなるためにはどうすればいいか？
-それはいたってシンプルだ！",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,16
+それはいたってシンプルだ！","How does one grow in strength?
+It's very simple!",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,16
 0,,"敵と戦い己を鍛え、クエストに取り組め！
 その経験から得た《ジョブポイント》を使い
 新たな戦技――つまり、スキルやアビリティを
-獲得できるというわけだ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,17
+獲得できるというわけだ","Fight foes, train yourself, and take on Quests!
+The experience you gain earns you《Job Points》
+to unlock new combat techniques;
+namely Skills, Augments, the works.
+That's how you get 'em.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,17
 0,,"うむ？　スキル、アビリティに関しても
-簡単に説明をしておいたほうが良さそうだな",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,18
+簡単に説明をしておいたほうが良さそうだな","Hm, caught your interest?
+I'll give you a quick rundown
+of Skills and Augments.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,18
 0,,"スキルとは、すなわちジョブ固有の技！
 特にカスタムスキルという様々な技を
 習得することで、お前の身ごなしや
-戦いの幅は大きく広がるだろう！",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,19
+戦いの幅は大きく広がるだろう！","Skills define each Vocation's unique edge!
+By learning Custom Skills in particular,
+you'll have more movement and combat options!",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,19
 0,,"次に、アビリティとは能力を引き出す心得――
 職により獲得できるアビリティは異なるが
-どの職であろうと活かすことができるぞ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,20
+どの職であろうと活かすことができるぞ","Next up, Augments. Unlock your true potential.
+Augments differ depending on the Vocation,
+though you can use any of them
+regardless of your current Vocation.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,20
 0,,"まぁ、まずは何事もやってみることだ
-実際にカスタムスキルをセットしてゆけ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,21
+実際にカスタムスキルをセットしてゆけ","Well, go ahead.
+Set those Custom Skills up yourself.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,21
 0,,"俺に話しかけ、《転職／戦技の付替え》から
-《スキル》を選び試してみるがいい",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,22
+《スキル》を選び試してみるがいい","Talk to me, pick 《Vocation / Arts Support》
+then 《Skills》 to give it a try.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,22
 0,,"さぁ、まずは何事もやってみることだ
-実際にカスタムスキルをセットしてゆけ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,23
+実際にカスタムスキルをセットしてゆけ","Now, go ahead.
+Set those Custom Skills up yourself.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,23
 0,,"俺に話しかけ、《転職／戦技の付替え》から
-《スキル》を選び試してみるがいい",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,24
+《スキル》を選び試してみるがいい","Talk to me, pick 《Vocation / Arts Support》
+then 《Skills》 to give it a try.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,24
 0,,"よし、それでいい！
 カスタムスキルを身に付けることが
-できたようだな",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,25
+できたようだな","Good, that's it!
+You've got yourself a Custom Skill now.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,25
 0,,"そうだな、後は――
 今のジョブが合わないと感じたら
 転職してみることを勧めよう
-きっとお前にあったジョブが見つかるはずだ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,26
+きっとお前にあったジョブが見つかるはずだ","Now, one more thing.
+If the Vocation you've got now doesn't feel right,
+I recommend trying a different one.
+You'll find one that fits you, no doubt about it.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,26
 0,,"――ではな
 ともに精進しよう、新たな覚者よ
-白竜様のために！",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,27
+白竜様のために！","Off you go, Newly Arisen.
+We'll hone our strength together.
+For the White Dragon!",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,27
 0,,"どうだ、鍛えているか？
 戦技や転職についてであれば
 いつでも相談にのるぞ
-遠慮は無用だ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,28
+遠慮は無用だ","How's it going? Been training?
+If you've got any questions about changing
+Skills or Vocations, I'll be right here.
+There's no need to be shy.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,28
 0,,"よぉ！　覚者隊の新入りだよな？
 俺は白衛騎士団のレンテンだ、よろしくな
-――へへ、実は俺もまだ見習いでさ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,29
+――へへ、実は俺もまだ見習いでさ","Yo! You're the new to the Arisen Corps, right?
+I'm Renton of the White Knights, nice to meet ya.
+Hehe, I'm still a trainee myself, y'know.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,29
 0,,"各ジョブに必要な役割と基本的な動き
 スキルの使い方について教習してるんだ
-ほら、教えるのも勉強の内って言うだろ？",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,30
+ほら、教えるのも勉強の内って言うだろ？","I'll be showing you different combatant roles,
+basic movements, and how to master your skills.
+Hey, they say teaching is learning too, right?",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,30
 0,,"ジョブの基礎訓練をしたければ
 いつでも声を掛けてくれよ！
-《修練の祠》へ案内するからさ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,31
+《修練の祠》へ案内するからさ","Whenever you need a refresher
+on Vocation basics, just say the word!
+I'll guide you to the 《Training Chapel》.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,31
 0,,"実戦の前に、まずは訓練だぜ！
 試してみたいジョブがあるなら、声掛けてくれよ
-いつでも歓迎だからさ！",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,32
-0,,よし、挨拶完了だな？,,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,33
+いつでも歓迎だからさ！","Training comes first, then the real action!
+Got a Vocation you wanna try out? Let me know.
+You're welcome anytime!",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,32
+0,,よし、挨拶完了だな？,"Introductions out of the way, yeah?",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,33
 0,,"次は――覚者の基本、各地の問題解決だ
-ほら、目の前に《クエストボード》があるだろ？",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,34
+ほら、目の前に《クエストボード》があるだろ？","Next lesson, fixing people's problems.
+It's the price to pay, being the Arisen.
+See that Quest Board in front of you?",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,34
 0,,"あそこには、神殿や住民から俺たち
 覚者への依頼書が貼り出されている
-魔物討伐や品物補給だな",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,35
+魔物討伐や品物補給だな","On it, you'll find requests posted by locals
+and the Temple meant for us Arisen.
+Killing demons, supply runs, things of that sort.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,35
 0,,"もちろん、報酬金も出る
 生活のためにも旅の準備にも鍛えるにも
 クエストボードの依頼をこなすのが
-てっとり早いだろうな",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,36
+てっとり早いだろうな","Of course, it pays to do these Board Quests.
+Whether it's to make a living, for travel expenses,
+or honing your skills, knocking out those requests
+is the best way to go, if you ask me.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,36
 0,,"じゃあ、そういうわけで
 自分が達成できそうな依頼を選んで
-ひとつやってみな",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,37
+ひとつやってみな","Alright, with that said,
+pick a quest you think you can pull off
+and give it a go.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,37
 0,,"クエストボードは見たか？
-依頼書がいっぱいだっただろ？",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,38
+依頼書がいっぱいだっただろ？","Did you check the Quest Board?
+There's loads to do, right?",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,38
 0,,"じゃあ、そういうわけで
 どれかひとつやってみるんだ
-頑張れよ！",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,39
+頑張れよ！","So with that said, pick one and give it a go.
+Best of luck!",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,39
 0,,"よし、上出来上出来
 あんたなかなかいいセンスだよ
-思ったとおり、仲良くなれそうだな！",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,40
+思ったとおり、仲良くなれそうだな！","Well, well. Nicely handled.
+You've got some pretty good instincts.
+Just as I thought, we'll get along just fine!",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,40
 0,,"とにかくボードクエストの解決が
 金や経験を稼ぐ基本さ、覚えときな
-高望みして無茶な依頼を引き受けるなよ？",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,41
+高望みして無茶な依頼を引き受けるなよ？","Bottom line, tackling Board Quests
+is the basic way to earn coin and experience.
+And don't bite off more than you can chew.
+Know your limits, 'kay?",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,41
 0,,"もう一つ
-旅において大事なことを伝えておく",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,42
+旅において大事なことを伝えておく",One more thing you should know when you travel.,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,42
 0,,"一度に持ち歩ける所持品には制限がある
-そのため定期的に所持品を整理する必要がある",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,43
-0,,そこで目の前にあると思うが――,,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,44
+そのため定期的に所持品を整理する必要がある","There's a limit to how much you can carry.
+Best be sorting your items regularly.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,43
+0,,そこで目の前にあると思うが――,"That’s where the thing right in front of you
+will come into play...",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,44
 0,,"この《保管ボックス》が便利なんだ
 ここではいろんなクエストをクリアした時に
-報酬として手に入るアイテムを受け取ったり――",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,45
+報酬として手に入るアイテムを受け取ったり――","This 《Storage Box》 is handy.
+Here, you can receive Reward Items
+from completed Quests...",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,45
 0,,"装備品の変更やアイテム整理をして
 旅支度をする事ができる
-定期的に訪れて利用するといい",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,46
+定期的に訪れて利用するといい","...And change your Equipment or sort your Items.
+Use it regularly to prepare for your next outing.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,46
 0,,"もしかしたらもう受け取ったかもしれないが
 俺から旅に便利なアイテムをプレゼント
 としていくつか入れておいた
-報酬受け取り口ともども、確認してみてくれ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,47
+報酬受け取り口ともども、確認してみてくれ","You've probably got them already,
+but I left some useful items for you
+as a little gift from me for your journeys.
+Look in 'Rewards Received' for them.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,47
 0,,"確認できたら
-また俺に話しかけてくれ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,48
+また俺に話しかけてくれ","Once you've checked it out,
+come talk to me again.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,48
 0,,"今回は特別に、俺から
 旅に便利なアイテムをプレゼントとして
 入れておいたから、保管ボックス内のプレゼントや
-報酬がないかどうか、一度確認してみてくれ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,49
+報酬がないかどうか、一度確認してみてくれ","This time, as a special treat,
+I've left some useful travel items
+in the Storage Box as a present.
+Take a look and see if there are
+any rewards waiting for you.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,49
 0,,"確認できたら
-また俺に話しかけてくれ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,50
+また俺に話しかけてくれ","Once you've checked it out,
+come talk to me again.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,50
 0,,"保管ボックスの中身は確かめたようだな
 ここじゃなくても神殿内の各所にあるから
-上手く利用してくれ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,51
+上手く利用してくれ","Now you've checked out the Storage Box.
+You'll find similar ones all over the Temple,
+so make good use of them.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,51
 0,,"最後に、覚者の冒険を全面的に
 サポートしてくれるイイモノを紹介しよう
 この世の中――便利なものは知らないより
-知っておいた方が今どきの覚者ってやつだ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,52
+知っておいた方が今どきの覚者ってやつだ","Finally, let me introduce something great
+that fully supports the Arisen's adventure.
+These days, it’s better to be in the know
+about the useful things than to miss out.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,52
 0,,"そうだな、期待の新人覚者を応援するため
 俺がもう一肌ぬぐことにしよう
-――こんな大盤振る舞いそうないぞ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,53
+――こんな大盤振る舞いそうないぞ","Alright, since you've showed such promise,
+I'll go the extra mile for you.
+You won't find this kind of generosity often.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,53
 0,,"まずはゲームメニューから
 《オンラインショップ》に入り
 俺からのプレゼントを探して手に入れるんだ
-ん？　もちろん無料だから安心してくれ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,54
+ん？　もちろん無料だから安心してくれ","First, go to the 《Online Shop》from the Game Menu,
+look for my present and claim it for yourself.
+Hm? Don't worry, it's on the house.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,54
 0,,"ああ、待っていた
-おまえに頼みたいことがあってな――",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,55
-0,,【ヒント：オンラインショップの利用方法】,,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,56
-0,,①ゲームメニューから《オンラインショップ》選択,,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,57
-0,,②メニューにある《ピックアップ》を選択し、《【新人覚者へ】ファビオからのプレゼント》を購入,,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,58
+おまえに頼みたいことがあってな――","Ah, I've been waiting for you.
+There's something I'd like to ask of you...",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,55
+0,,【ヒント：オンラインショップの利用方法】,【Hint: How to use the Online Shop】,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,56
+0,,①ゲームメニューから《オンラインショップ》選択,①Select 《Online Shop》 from the Game Menu.,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,57
+0,,②メニューにある《ピックアップ》を選択し、《【新人覚者へ】ファビオからのプレゼント》を購入,"②Select 《Pickup》 from the Menu
+and purchase《【Present for New Arisen】From Fabio》",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,58
 0,,"まずはゲームメニューから
 《オンラインショップ》に入り
 俺からのプレゼントを探して手に入れるんだ
-ん？　もちろん無料だから安心してくれ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,59
+ん？　もちろん無料だから安心してくれ","First, go to the 《Online Shop》from the Game Menu,
+look for my present and claim it for yourself.
+Hm? Don't worry, it's on the house.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,59
 0,,"無事、プレゼントを手に入れたな
 こいつのサポートを受けて冒険に出れば
-みるみる覚者として成長できるぜ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,60
+みるみる覚者として成長できるぜ","You got the Present safe and sound.
+With this one's support on your Adventure,
+you'll grow rapidly as an Arisen.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,60
 0,,"そうそう、ささやかだけど――
 メールでおまけを送っておいたから
-あとで忘れず確認してくれ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,61
+あとで忘れず確認してくれ","Oh yeah, I sent you a little bonus by mail.
+Check it when you have a moment, yeah?",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,61
 0,,"オンラインショップには
 他にも便利なものが色々あるから
 自分にあったサポートを
-調べて使ってみるといいんじゃないか",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,62
+調べて使ってみるといいんじゃないか","There's lots of useful thing in the Online Shop.
+Why not try to find the support
+that suits you best? Won't hurt to look.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,62
 0,,"これで俺からいうべき
-旅に必要な基本知識は終わりだ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,63
+旅に必要な基本知識は終わりだ","That's it from me.
+You're set with the basics for the road ahead.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,63
 0,,"さて――
 少々改まってだな
 今から、大切な話をする
-知り合ってから、一番重要な話だ",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,64
+知り合ってから、一番重要な話だ","Now then, what I'm about to say matters―
+The most important thing I've got to tell you yet.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,64
 0,,"覚者は年をとらない
-心臓を白竜に預けてしまったからな",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,65
+心臓を白竜に預けてしまったからな","The Arisen do not age
+as we've given our hearts to the White Dragon.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,65
 0,,"だから、無茶さえしなければ
-永遠に生きられる――かもしれない",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,66
-0,,でもな、それも白竜あってこそだ,,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,67
+永遠に生きられる――かもしれない","So, as long as you don't push your luck,
+you could live forever... perhaps.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,66
+0,,でもな、それも白竜あってこそだ,"Nevertheless, that's only possible
+because of the White Dragon.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,67
 0,,"つまり白竜と俺たちは
-持ちつ持たれつ――",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,68
+持ちつ持たれつ――","In other words, the Dragon and our kind,
+we're mutually dependent...",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,68
 0,,"白竜が死んだり、あるいは、完全に
-石の塊になってしまったら――",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,69
+石の塊になってしまったら――","If the White Dragon were to die,
+rather, die for good...
+Or turn completely to stone...",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,69
 0,,"覚者はどうなるのか？
 誰も知らない――知らないが
-幸福な結末になるとは思えない",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,70
+幸福な結末になるとは思えない","What will become of us Arisen?
+No one knows, but...
+Don't think it'll end happily, though.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,70
 0,,"俺たちには自由に生きる権利がある
 でもな、イザって時は白竜のために
 戦うと、俺は決めている
-それが覚者ってもんだと、俺は思う",,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,71
-0,,――以上、真面目な話、終了だ,,ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,72
+それが覚者ってもんだと、俺は思う","We have the right to live freely as individuals.
+But if and when disaster should strike,
+I've decided I will fight for the White Dragon.
+That's what it means to be Arisen, in my book.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,71
+0,,――以上、真面目な話、終了だ,"That's it, no more heavy talk.
+I'm done.",ui\00_message\quest\q60000012.gmd,\quest\q60000012.arc,q60000012.arc,72
 0,,"無くした物が見つかるまでは
 私も心配でしょうがありません",,ui\00_message\quest\q60000013.gmd,\quest\q60000013.arc,q60000013.arc,0
 0,,"見つからないようでしたら
