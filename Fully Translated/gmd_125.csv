@@ -1,3 +1,15 @@
+11,common_unit_r,R,R,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,11
+11,common_unit_r,R,R,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11
+102,common_unit_rp,RP,RP,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,102
+102,common_unit_rp,RP,RP,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,102
+146,common_unit_silverticket,枚,x,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,146
+146,common_unit_silverticket,枚,Pieces,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,146
+132,common_unit_tp,BP,BP,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,132
+132,common_unit_tp,BP,BP,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,132
+77,common_unit_turn,回,Time,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,77
+77,common_unit_turn,回,Time,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,77
+14,common_unit_xp,XP,XP,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,14
+14,common_unit_xp,XP,XP,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14
 24,common_unitname_bo,ブラッドオーブ,Blood Orb,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,24
 24,common_unitname_bo,ブラッドオーブ,Blood Orb,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,24
 121,common_unitname_cp,クランポイント,Clan Point,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,121
@@ -1330,34 +1342,3 @@ post.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.
 16,gacha_msg_class_s,S級品,S Grade,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,16
 23,gacha_msg_contents_view,内容一覧,Contents,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,23
 24,gacha_msg_detail,詳細情報,Detailed Info,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,24
-51,gacha_msg_diable_gp_to_gacha,このトレジャーズロットでは黄金石は使用できません,"Golden Gemstones cannot be used for this Treasure
-Lot",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,51
-52,gacha_msg_diable_ticket_to_gacha,このトレジャーズロットではシルバーチケットは使用できません,"Silver Tickets cannot be used for this Treasure
-Lot",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,52
-81,gacha_msg_dialog_error_01,プレイ回数制限があります。これ以上はまわせません,"There is a play count limit. You cannot play
-again for now.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,81
-82,gacha_msg_dialog_error_02,"ボックスロット内の残り数が<VAL>個です
-選択中のプレイタイプではまわせません","The remaining number in the box slot is <VAL>.
-You cannot spin in the selected play type.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,82
-83,gacha_msg_dialog_error_03,シルバーチケットが足りません,You do not have enough Silver Tickets.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,83
-84,gacha_msg_dialog_error_04,"アイテムが受け取れない可能性があります
-アイテムポストを十分に空けてください","There is a possibility you may not receive the
-item.
-Please make sure there is enough space in your
-Item Post.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,84
-93,gacha_msg_dialog_error_05,"回数制限のため、
-選択した支払い方法ではまわせません","Due to the limited number of times, the selected
-payment method cannot be used.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,93
-85,gacha_msg_dialog_gp_lack,"黄金石が不足しています
-選択中のロットをまわすには<COL ffdc78>黄金石<VAL>個</COL>が必要です
-(所持数：<VAL>)","You do not have enough Golden Gemstones.
-To spin the selected lot, you need <COL
-ffdc78><VAL> Golden Gemstone(s)</COL>.
-(Currently owned: <VAL>)",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,85
-87,gacha_msg_dialog_reset_conf,"ボックスをリセットします。よろしいですか？
-<COL aa1414>※一度リセットすると元に戻せません</COL>","Do you want to reset the box?
-<COL aa1414>*Once reset, it cannot be
-undone.</COL>",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,87
-88,gacha_msg_dialog_reset_success,ボックスをリセットしました,Box reset.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,88
-74,gacha_msg_dialog_select_playnum,プレイタイプを選んでください,Please select play type,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,74
-92,gacha_msg_dialog_select_price,支払い方法を選んでください,Please select a payment method,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,92

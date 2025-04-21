@@ -1,3 +1,35 @@
+1,NORMAL_SKILL_COMMAND_10_150,"<KC ATTACK1>後、少し遅らせて<KC ATTACK1>を連続して押す
+アタックブーストで強化可能","Press <KC ATTACK1>, delay a moment
+and then repeatedly press <KC ATTACK1>.
+Further enhanced in Attack Boost mode.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,1
+4,NORMAL_SKILL_COMMAND_10_151,"<KC ATTACK2>を押す
+ヒールブーストで強化可能","Press <KC ATTACK2>.
+Further enhanced with Heal Boost.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,4
+5,NORMAL_SKILL_COMMAND_10_152,"<KC ATTACK2>を押す
+ヒールブーストで強化可能","Press <KC ATTACK2>.
+Further enhanced with Heal Boost.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,5
+7,NORMAL_SKILL_COMMAND_10_153,<KC AVOID>を押す,Press <KC AVOID>.,ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,7
+8,NORMAL_SKILL_COMMAND_10_155,<KC ELIXIR_CHANGE>を押す,Press <KC ELIXIR_CHANGE>.,ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,8
+9,NORMAL_SKILL_COMMAND_10_156,<KC SKILL_NORMAL1>を押す,Press <KC SKILL_NORMAL1>.,ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,9
+2,NORMAL_SKILL_COMMAND_10_158,"空中で<KC ATTACK1>を押す
+アタックブーストで強化可能","While in the air, press <KC ATTACK1>.
+Further enhanced in Attack Boost mode.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,2
+3,NORMAL_SKILL_COMMAND_10_159,"<PADM>空中で左スティックを倒しながら<KC ATTACK1>を押す<KEYM>空中で移動キーを押しながら<KC ATTACK1>を押す</KEYM>
+アタックブーストで強化可能","While in the air, press <PADM><KC ATTACK1> while
+moving the left stick<KEYM><KC ATTACK1> while
+holding movement keys</KEYM>.
+Further enhanced with Attack Boost.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,3
+11,NORMAL_SKILL_COMMAND_10_160,"しがみつき中に<KC ATTACK1>を連続して押す
+アタックブーストで強化可能","Repeatedly press <KC ATTACK1> while climbing.
+Further enhanced in Attack Boost mode.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,11
+6,NORMAL_SKILL_COMMAND_10_161,吹き飛ばされ中に<KC JUMP>を押す,"While being knocked away, press <KC JUMP>.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,6
+10,NORMAL_SKILL_COMMAND_10_162,ブースト発動中に<KC ELIXIR_CHANGE>または<KC SKILL_NORMAL1>を押す,"During boost, press <KC ELIXIR_CHANGE> or <KC
+SKILL_NORMAL1>.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,10
+12,NORMAL_SKILL_COMMAND_10_163,ブースト発動中に<KC ELIXIR_CHANGE>または<KC SKILL_NORMAL1>を押す,"During boost, press <KC ELIXIR_CHANGE> or <KC
+SKILL_NORMAL1>.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,12
+0,NORMAL_SKILL_COMMAND_11_165,<KC ATTACK1>を押す,Press <KC ATTACK1>.,ui\00_message\skill\normal_skill_command_11.gmd,\skill\normal_skill_data_11.arc,normal_skill_data_11.arc,0
+1,NORMAL_SKILL_COMMAND_11_166,<KC ATTACK1>後、少し遅らせて<KC ATTACK1>を連続して押す,"After <KC ATTACK1>, delay a moment then
+repeatedly press <KC ATTACK1>.",ui\00_message\skill\normal_skill_command_11.gmd,\skill\normal_skill_data_11.arc,normal_skill_data_11.arc,1
 4,NORMAL_SKILL_COMMAND_11_167,<KC ATTACK2>を押す,Press <KC ATTACK2>.,ui\00_message\skill\normal_skill_command_11.gmd,\skill\normal_skill_data_11.arc,normal_skill_data_11.arc,4
 7,NORMAL_SKILL_COMMAND_11_168,<KC WEAPON_SUB>を押しながら<KC MARK_SHOT>を押す,"Hold <KC WEAPON_SUB>, then press <KC MARK_SHOT>.",ui\00_message\skill\normal_skill_command_11.gmd,\skill\normal_skill_data_11.arc,normal_skill_data_11.arc,7
 6,NORMAL_SKILL_COMMAND_11_169,<KC WEAPON_SUB>を押す,Press <KC WEAPON_SUB>.,ui\00_message\skill\normal_skill_command_11.gmd,\skill\normal_skill_data_11.arc,normal_skill_data_11.arc,6
@@ -738,54 +770,48 @@ Aid Stance)",ui\00_message\skill\normal_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cm
 11,NORMAL_SKILL_NAME_11_177,受け身,Controlled Fall,ui\00_message\skill\normal_skill_name_11.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11
 0,TUTORIAL_STEP_6,"<COL ffdc78>《メインクエスト》</COL>は
 覚者としてあなたが紡ぐ、この地レスタニアと
-そこで生きる人々の物語を体験するクエストです","The <COL ffdc78>""Main Quest""</COL>
-is an adventure where you, the Arisen,
-will experience the story of this
-land Lestania and the people living
-here.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,0
+そこで生きる人々の物語を体験するクエストです","The <COL ffdc78>Main Quest</COL> is an adventure where you,
+the Arisen, will experience the story of 
+this land Lestania and the people 
+living here.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,0
 1,TUTORIAL_STEP_34,"進行中のクエスト詳細は、いつでも【<KC UI_GAME_MENU>】
 ゲームメニュー《クエスト》の<COL ffdc78>《クエストログ》</COL>
 で見ることができます
 概要、現在の目的、成功報酬などを
-知りたい場合はここで確認しましょう","The [<KC UI_GAME_MENU>] Game Menu
-will show you details about
-quests in progress under
-""Quest"" in the <COL ffdc78>""Quest Log""</COL>.
-If you want to see the quest
-summary, current objective,
-completion reward, etc, you
-can view it here.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,1
+知りたい場合はここで確認しましょう","The <KC UI_GAME_MENU> <COL ffdc78>Game Menu</COL>
+will show you details about quests in
+progress under <COL ffdc78>Quest</COL> in the <COL ffdc78>Quest Log</COL>.
+If you want to see the quest summary,
+current objective, completion reward,
+etc, you can view it here.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,1
 2,TUTORIAL_STEP_195,"<COL ffdc78>メインクエストで指定の魔物討伐が目的の
 場合、対象敵はミニマップに赤の丸で示されます</COL>
 また過去のクエスト経緯は
 《謁見の間》にいる神官ジョゼフが
 報告書形式で管理しています
 これまでの出来事を振り返りたい場合は
-彼を訪ねましょう","<COL ffdc78>When the Main Quest's objective
-is to defeat monsters, the
-target enemies will be marked
-on the minimap with a red circle.</COL>
-Also, a history of previous
-quests is available from Priest
-Joseph in the ""Audience Room"".
-If you wish to look back on
-previous exploits, give him
-a visit.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,2
+彼を訪ねましょう","<COL ffdc78>When the Main Quest's objective is to
+defeat monsters, the target enemies
+will be marked on the minimap with
+a red circle.</COL>
+Also, a history of previous quests is
+available from Priest Joseph in the
+<COL ffdc78>Audience Room.</COL>
+If you wish to look back on previous
+exploits, give him a visit.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,2
 0,TUTORIAL_STEP_71,"ゲームメニュー《ワールド》の<COL ffdc78>《マップ》</COL>では
 ミニマップより広域のマップを見ることができます
 冒険に役立つさまざまな情報
 （パーティーメンバーの現在位置、敵や施設、
 　地名やクエスト目的地など）
-が確認できるため、ぜひ活用してください","In the Game Menu, selecting ""World"", then <COL
-ffdc78>""Map""</COL>
-will show a wider view of the world than the
-mini-map.
-To check various information useful to your
-adventure
-(Party member's current locations, enemies,
-buildings,
-place names or quest objectives), make sure to
-use it.",ui\00_message\tutorial_guide\steps\tutorial_guide_step24.gmd,\tguide\tutorial_guide_24.arc,tutorial_guide_24.arc,0
+が確認できるため、ぜひ活用してください","In the Game Menu, selecting <COL ffdc78>World</COL>, 
+then <COL ffdc78>Map</COL> will show a wider view of 
+the world than the MiniMap.
+To check various information useful to 
+your adventure (Party member's current 
+locations, enemies, buildings, place 
+names or quest objectives), make sure 
+to use it.",ui\00_message\tutorial_guide\steps\tutorial_guide_step24.gmd,\tguide\tutorial_guide_24.arc,tutorial_guide_24.arc,0
 1,TUTORIAL_STEP_223,"ゲームメニュー《マップ》の操作
 ＜地図切替　詳細／フィールド／広域＞
 　【<KC UI_LB>／<KC UI_RB>】で切替
@@ -808,8 +834,7 @@ Free Marker:
 （初期設定の場合）</KEYM>
 <COL ffdc78>ジャンプ：</COL>【<KC JUMP>】","First, Basic Operation
 <COL ffdc78>Movement: </COL><PADM>[Left
-Stick]<KEYM>[<KC MOVE_FORWARD><KC MOVE_LEFT><KC
-MOVE_BACKWARD><KC MOVE_RIGHT>]</KEYM>
+Stick]<KEYM>[<KC MOVE_FORWARD><KC MOVE_LEFT><KC MOVE_BACKWARD><KC MOVE_RIGHT>]</KEYM>
 <COL ffdc78>Sprint: </COL><PADM>Press [<KC DASH>]
 while moving<KEYM>Double tap movement key
 (By default)</KEYM>
@@ -818,13 +843,9 @@ while moving<KEYM>Double tap movement key
 <COL ffdc78>カメラ（視点）操作：</COL><PADM>【右スティック】<KEYM>【<ICON MOUSE>移動】</KEYM>
 <COL ffdc78>視点のリセット：</COL>【<KC CAMERA_RESET>】
 <COL ffdc78>視点距離の切替：</COL><PADM>【<KC CAMERA_RESET>】素早く２回押し<KEYM>【<ICON MOUSE_WHL_4>前後】</KEYM>","Next, Camera Controls
-<COL ffdc78>Camera (POV) Operation:
-</COL><PADM>[Right Stick]<KEYM>[Move <ICON
-MOUSE>]</KEYM>
+<COL ffdc78>Camera (POV) Operation:</COL><PADM>[Right Stick]<KEYM>[Move <ICON MOUSE>]</KEYM>
 <COL ffdc78>Reset View: </COL>[<KC CAMERA_RESET>]
-<COL ffdc78>Change View Distance：</COL><PADM>[<KC
-CAMERA_RESET>]Double click<KEYM>[<ICON
-MOUSE_WHL_4>up and down]</KEYM>",ui\00_message\tutorial_guide\steps\tutorial_guide_step27.gmd,\tguide\tutorial_guide_27.arc,tutorial_guide_27.arc,1
+<COL ffdc78>Change View Distance：</COL><PADM>[<KC CAMERA_RESET>]Double click<KEYM>[<ICON MOUSE_WHL_4>up and down]</KEYM>",ui\00_message\tutorial_guide\steps\tutorial_guide_step27.gmd,\tguide\tutorial_guide_27.arc,tutorial_guide_27.arc,1
 0,TUTORIAL_STEP_145,"<COL ffdc78>《ショートカット》</COL>はさまざまな機能を
 楽なボタンで呼び出せる便利な短縮操作です
 回復アイテム、チャット定型文、メニューや
@@ -928,14 +949,12 @@ Be careful around cliffs.",ui\00_message\tutorial_guide\steps\tutorial_guide_ste
 住民の依頼書、さまざまな<COL ffdc78>《ボードクエスト》</COL>が
 日々寄せられています
 <COL ffdc78>「討伐クエスト」</COL>と<COL ffdc78>「納品クエスト」</COL>
-から、受注したいものを選びましょう","<COL 78f5ff>""Board Quests"" ae available!</COL>
-In various locations you will see <COL
-ffdc78>""Quest Boards""</COL>
+から、受注したいものを選びましょう","<COL 78f5ff>Board Quests are available!</COL>
+In various locations you will see <COL ffdc78>Quest Boards</COL>
 Residents make their various requests with
-<COL ffdc78>""Board Quests""</COL> Every day we
-get new requests.
-<COL ffdc78>""Elimination Quests""</COL> and <COL
-ffdc78>""Delivery Quests""</COL>,
+<COL ffdc78>Board Quests</COL>.  
+Every day we get new requests.
+<COL ffdc78>Elimination Quests</COL> and <COL ffdc78>Delivery Quests</COL>
 Choose whichever you like.",ui\00_message\tutorial_guide\steps\tutorial_guide_step32.gmd,\tguide\tutorial_guide_32.arc,tutorial_guide_32.arc,0
 1,TUTORIAL_STEP_10,"<COL ffdc78>「討伐クエスト」は指定の魔物討伐が目的と
 なり、対象敵はミニマップに緑の丸で示されます</COL>
@@ -943,16 +962,15 @@ Choose whichever you like.",ui\00_message\tutorial_guide\steps\tutorial_guide_st
 《納品ボックス》に納めることが目的となります</COL>
 なお、依頼期間（配信）が過ぎてしまった
 場合は自動的にクエスト破棄されますので
-ご注意ください","<COL ffdc78>""Elimination Quests"" are aimed at the
-suppression of monsters The target enemies are
-indicated
-by a green circle on the mini map</COL>
-<COL ffdc78>""Delivery Quests"" are about obtaining
-specific items
-and deliver them to a ""Delivery Box""</COL>
+ご注意ください","<COL ffdc78>Elimination Quests</COL> are aimed at the
+suppression of monsters. 
+The target enemies are indicated
+by a green circle on the mini map.
+<COL ffdc78>Delivery Quests</COL> are about obtaining
+specific items and deliver them to
+a <COL ffdc78>Delivery Box</COL>
 However, if the time limit for the delivery has
-passed,
-the quest will automatically fail.
+passed,the quest will automatically fail.
 Please be careful.",ui\00_message\tutorial_guide\steps\tutorial_guide_step32.gmd,\tguide\tutorial_guide_32.arc,tutorial_guide_32.arc,1
 1,TUTORIAL_STEP_79,"敵を倒すとレベルアップに必要な
 <COL ffdc78>経験値（ＸＰ）</COL>が得られます
@@ -962,14 +980,12 @@ Please be careful.",ui\00_message\tutorial_guide\steps\tutorial_guide_step32.gmd
 狙うべき弱点部位が異なります</COL>
 敵の特性を知り、弱点を突くことで
 より戦闘は有利になるでしょう","As you defeat monsters you will level up.
-<COL ffdc78>You will get Experience Points(XP)
-per kill.</COL>
+<COL ffdc78>You will get Experience Points per kill</COL>,
 And sometimes monsters will drop Items.
 Fight monsters aggressively!
-<COL ffdc78>Monsters have attributes and
-weaknesses
-Each monster is different as are their
-weaknesses.</COL>
+<COL ffdc78>Monsters have different attributes and 
+weaknesses; each monster is different 
+as are their weaknesses.</COL>
 Know your enemy and target their weak points.
 Doing so will give you an advantage.",ui\00_message\tutorial_guide\steps\tutorial_guide_step33.gmd,\tguide\tutorial_guide_33.arc,tutorial_guide_33.arc,1
 0,TUTORIAL_STEP_80,"レスタニアには、覚者や住民に襲い来る
@@ -981,10 +997,10 @@ Doing so will give you an advantage.",ui\00_message\tutorial_guide\steps\tutoria
 自分のレベルと合った敵と戦いましょう","In Lestania there are many roaming monsters
 they move in groups and attack everyone
 indiscriminately.
-And at night or in rain, monsters that use poison
-or magic appear.
-<COL ffdc78>Monsters with higher levels(Lv) are
-more powerful.</COL>
+And at night or in rain, monsters that use 
+poison or magic appear.
+<COL ffdc78>Monsters with higher levels are more 
+powerful.</COL>
 Fight against enemies that match your level.",ui\00_message\tutorial_guide\steps\tutorial_guide_step33.gmd,\tguide\tutorial_guide_33.arc,tutorial_guide_33.arc,0
 1,TUTORIAL_STEP_50,"また、白竜神殿はいくつかの区画に分かれています
 《中央広場》…皆が集う神殿の中心部
@@ -992,54 +1008,44 @@ Fight against enemies that match your level.",ui\00_message\tutorial_guide\steps
 《宿場区》　…宿と酒場の憩いの場
 《クラフトルーム》…ポーンのアイテム工房
 《港洞》　　…海洋任務に備える停船所
-《謁見の間》…白竜や重要人物との対話の場","The White Dragon temple is divided into several
-districts.
-""Central Square"" It's the center of the Temple
-and where everyone gathers.
-""Shopping District"" Here are various stores that
-sell weapons and materials.
-""Relay Station District"" Here are places to
-relax, like Inns and Taverns.
-""Craft Room"" Where Pawns can craft Items.
-""Cave harbour"" Where you can set sail to Islands
-in the open seas.
-""Audience Chamber"" Where the White Dragon and the
-nobles reside.",ui\00_message\tutorial_guide\steps\tutorial_guide_step35.gmd,\tguide\tutorial_guide_35.arc,tutorial_guide_35.arc,1
+《謁見の間》…白竜や重要人物との対話の場","The White Dragon temple is divided into 
+several districts.
+<COL ffdc78>Central Square:</COL> Temple's heart, where all gather.
+<COL ffdc78>Shopping District:</COL> Weapons, materials, and shops.
+<COL ffdc78>Relay Station District:</COL> Inns and taverns for relaxation.
+<COL ffdc78>Craft Room:</COL> Pawn item crafting workshop.
+<COL ffdc78>Cave Harbor:</COL> Mooring for maritime vessels.
+<COL ffdc78>Audience Chamber:</COL> The White Dragon & important 
+figures.",ui\00_message\tutorial_guide\steps\tutorial_guide_step35.gmd,\tguide\tutorial_guide_35.arc,tutorial_guide_35.arc,1
 0,TUTORIAL_STEP_405,"<COL ffdc78>《白竜神殿レーゼ》</COL>は、すべてのプレイヤーに
 とって冒険の起点となる重要な場所です
 覚者としての任務を受ける場所は
 <COL ffdc78>《謁見の間》</COL>となります
 マップを確認しながら《中央広場》の奥へ
-向いましょう","<COL ffdc78>""The White Dragon Temple""</COL> It's
-an important
-place for all players, its the starting point of
-their adventures.
-The place where you recieve new missions and
-quests is the
-<COL ffdc78>""Audience Chamber"".</COL>
-Check the map for the ""Central Square"",
-and go East from there",ui\00_message\tutorial_guide\steps\tutorial_guide_step35.gmd,\tguide\tutorial_guide_35.arc,tutorial_guide_35.arc,0
+向いましょう","<COL ffdc78>The White Dragon Temple</COL> is a vital location and  
+the starting point of adventure for all players.
+The <COL ffdc78>Audience Chamber</COL> is where you undertake 
+your duties as the Arisen.
+Open your map and head to the back of the 
+<COL ffdc78>Central Square</COL>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step35.gmd,\tguide\tutorial_guide_35.arc,tutorial_guide_35.arc,0
 0,TUTORIAL_STEP_11,"<COL 78f5ff>《パーソナルクエスト》が解放されました！</COL>
 緑のアイコンで表される<COL ffdc78>《パーソナルクエスト》</COL>は
 レスタニアの世界を知り、深めることができる
-優先度の高いクエストです","<COL 78f5ff>""Personal Quests"" are available!</COL>
-<COL ffdc78>""Personal Quests""</COL> are
-represented by a green icon.
-You will know and understand more of Lestania
-doing
-these quests. They are very important!",ui\00_message\tutorial_guide\steps\tutorial_guide_step36.gmd,\tguide\tutorial_guide_36.arc,tutorial_guide_36.arc,0
+優先度の高いクエストです","<COL 78f5ff>Personal Quests are available!</COL>
+<COL ffdc78>Personal Quests</COL> are represented
+by a green icon.
+You will know and understand more 
+of Lestania doing these quests. 
+They are very important!",ui\00_message\tutorial_guide\steps\tutorial_guide_step36.gmd,\tguide\tutorial_guide_36.arc,tutorial_guide_36.arc,0
 2,TUTORIAL_STEP_12,"優先設定と解除は、【<KC UI_GAME_MENU>】ゲームメニュー
 《クエスト》の<COL ffdc78>《クエストログ》</COL>から行えます
 <COL ffdc78>優先クエストは最大３つまで設定できます</COL>
 複数のクエストを同時に進めている場合も
 うまく優先の切替えをおこない、
-必要な情報をすぐ見られるようにしましょう","Quest priority can be set in the [<KC
-UI_GAME_MENU>] Game Menu,
-<COL ffdc78>""Quest Log""</COL> inside the <COL
-ffdc78>""Quest""</COL>
+必要な情報をすぐ見られるようにしましょう","Quest priority can be set in the [<KC UI_GAME_MENU>] 
+<COL ffdc78>Game Menu Quest Log</COL> inside the <COL ffdc78>Quest</COL> 
 main menu.
-<COL ffdc78>You can set up to 3 ""Priority
-Quests"".</COL>
+<COL ffdc78>You can set up to 3 Priority Quests.</COL>
 If you are progressing through multiple quests at
 the same time you should switch quest priority
 as needed, so you can easily see the information
@@ -1048,13 +1054,11 @@ that you need.",ui\00_message\tutorial_guide\steps\tutorial_guide_step36.gmd,\tg
 設定してみましょう
 目的地が離れている場合でも
 画面右上のミニマップで行き先が分かりやすく
-アシスト表示されます","A ""Personal Quest"" will appear as a <COL
-ffdc78>""Priority Quest""</COL>
-once accepted.
+アシスト表示されます","A Personal Quest will appear as a <COL ffdc78>
+Priority Quest</COL> once accepted.
 Even if your destination is far away, it will
-appear
-on the minimap in the upper-right corner of the
-screen.
+appear on the minimap in the upper-right
+corner of the screen.
 This will help you reach your objectives.",ui\00_message\tutorial_guide\steps\tutorial_guide_step36.gmd,\tguide\tutorial_guide_36.arc,tutorial_guide_36.arc,1
 1,TUTORIAL_STEP_82,"彼らに話しかけると、
 会話メニューに項目が表示されます
@@ -1089,31 +1093,28 @@ Be sure to meet them all!",ui\00_message\tutorial_guide\steps\tutorial_guide_ste
 ＜縮尺変更＞
 　【<KC UI_MINIMAP>】+【<KC UI_MAP_ZOOM_IN>／<KC UI_MAP_ZOOM_OUT>】で変更
 ＜位置固定＞
-　【<KC UI_MINIMAP>】+【<KC UI_MINIMAP_LOCK>】で固定","You can change the size and zoom of the ""Mini Map""
-at any time. Change it according to the situation.
+　【<KC UI_MINIMAP>】+【<KC UI_MINIMAP_LOCK>】で固定","You can change the size and zoom of 
+the <COL ffdc78>MiniMap</COL> at any time. 
+Change it according to the situation.
 ""Resizing""
-Change Size with [<KC UI_MINIMAP>]+[<KC
-UI_MINIMAP_SCALING>]
+Change Size with [<KC UI_MINIMAP>]+[<KC UI_MINIMAP_SCALING>]
 ""Zooming""
-Change Zoom with [<KC UI_MINIMAP>]+[<KC
-UI_MAP_ZOOM_IN>／<KC UI_MAP_ZOOM_OUT>]
-""Fixing Position""
-Fix the Mini Map with [<KC UI_MINIMAP>]+[<KC
-UI_MINIMAP_LOCK>]",ui\00_message\tutorial_guide\steps\tutorial_guide_step39.gmd,\tguide\tutorial_guide_39.arc,tutorial_guide_39.arc,1
+Change Zoom with [<KC UI_MINIMAP>]+[<KC UI_MAP_ZOOM_IN>／<KC UI_MAP_ZOOM_OUT>]
+""Lock Size""
+Lock Mini Map with [<KC UI_MINIMAP>]+[<KC UI_MINIMAP_LOCK>]",ui\00_message\tutorial_guide\steps\tutorial_guide_step39.gmd,\tguide\tutorial_guide_39.arc,tutorial_guide_39.arc,1
 0,TUTORIAL_STEP_33,"画面右上の<COL ffdc78>《ミニマップ》</COL>で
 「プレイヤーの位置」と「敵の位置」が
 すぐに確認できます
 <COL ffdc78>中央緑のカーソルがあなたの現在地
 小さな丸が敵の位置です</COL>
-倒すべき敵の位置を把握しましょう","On the upper-right corner of the screen you will
-find
-the <COL ffdc78>""Mini Map""</COL>. Here you can
-quickly see
-your position and the position of enemies.
-<COL ffdc78>The green circle at the center is
-your current location,
-and small circles represent enemies</COL>
-Use it to decide who to attack.",ui\00_message\tutorial_guide\steps\tutorial_guide_step39.gmd,\tguide\tutorial_guide_39.arc,tutorial_guide_39.arc,0
+倒すべき敵の位置を把握しましょう","On the upper-right corner of the screen 
+you will find the <COL ffdc78>MiniMap</COL>. 
+Here you can quickly see your position 
+and the position of enemies.
+<COL ffdc78>The green circle at the center is your
+current location, and small circles
+represent enemies.</COL>
+Use it to plan your next move.",ui\00_message\tutorial_guide\steps\tutorial_guide_step39.gmd,\tguide\tutorial_guide_39.arc,tutorial_guide_39.arc,0
 1,TUTORIAL_STEP_99,"<COL ffdc78>掲載されているクエストを遊びたい人
 同士のクイックパーティーや、最寄り拠点への
 リム転移も可能です</COL>
@@ -1121,60 +1122,55 @@ Use it to decide who to attack.",ui\00_message\tutorial_guide\steps\tutorial_gui
 対象のクエストは、他のプレイヤーとパーティーを
 組んでクリアするとボーナス報酬が
 得られるもので、内容はデイリーで変化します
-レスタニアニュースは日々チェックしましょう","<COL ffdc78>You can do a ""Quick Party""
-if you want to play a quest with other people,
-You can also teleport near the Quest Area.</COL>
-Also on the menu there is <COL ffdc78>""Today's
-Party Bonus"".</COL>
-This is a bonus gained when you clear a quest
-with a party.
-The bonus changes every day!
-Be sure to check the ""Lestania News"" daily!",ui\00_message\tutorial_guide\steps\tutorial_guide_step40.gmd,\tguide\tutorial_guide_40.arc,tutorial_guide_40.arc,1
+レスタニアニュースは日々チェックしましょう","For players who want to play the featured quests, 
+<COL ffdc78>Quick Parties</COL> with others and Rift Teleports 
+to the closest locations are also available.
+In addition, quests that are part of 
+<COL ffdc78>Today's Party Bonus</COL> on the Regional Menu 
+are designed to give bonus rewards when 
+cleared in a party with other players, and 
+their contents change every day.
+Be sure to check <COL ffdc78>Lestania News</COL> daily.",ui\00_message\tutorial_guide\steps\tutorial_guide_step40.gmd,\tguide\tutorial_guide_40.arc,tutorial_guide_40.arc,1
 0,TUTORIAL_STEP_100,"<COL ffdc78>《レスタニアニュース》は、
 現在各地で起こっているさまざまなトピックが
 掲載される、この世界の冒険ガイドです</COL>
 神殿のセネカや、【<KC UI_GAME_MENU>】ゲームメニュー
 <COL ffdc78>《クエスト》</COL>から読むことができます
 配信中のワールドクエストやイベントなど
-開催情報はここをチェックしましょう","<COL ffdc78>""Lestania News""
-Things happening in all of Lestania are published
-here,
-this is the guide to adventure of this
-world.</COL>
-You can read it by talking to Seneka or from the
-[<KC UI_GAME_MENU>]
-<COL ffdc78>""Quest""</COL> menu.
-You can check information about
-available ""World Quests"" and ""Grand Quests"".",ui\00_message\tutorial_guide\steps\tutorial_guide_step40.gmd,\tguide\tutorial_guide_40.arc,tutorial_guide_40.arc,0
+開催情報はここをチェックしましょう","<COL ffdc78>Lestania News</COL> is your adventure guide to this 
+world, featuring articles on various topics 
+currently happening across Lestania. 
+You can read it talking to Seneka or via the 
+<COL ffdc78>Quest</COL> option in the [<KC UI_GAME_MENU>] Game Menu. 
+Check here for the latest information on 
+ongoing World Quests, Events, and more.",ui\00_message\tutorial_guide\steps\tutorial_guide_step40.gmd,\tguide\tutorial_guide_40.arc,tutorial_guide_40.arc,0
 0,TUTORIAL_STEP_35,"<COL 78f5ff>《ワールドクエスト》が解放されました！</COL>
 <COL ffdc78>《ワールドクエスト》</COL>は、日々レスタニアを
 探索することで見つけられるクエストです
 ＮＰＣからの依頼、突発的な戦闘などさまざまです
 推奨レベルは受ける前に確認すると良いでしょう
 <COL ffdc78>ワールドクエスト指定の討伐対象敵は
-ミニマップに青の丸で示されます</COL>","<COL 78f5ff>""World Quests"" are available!</COL>
-<COL ffdc78>""World Quests""</COL> are unique to
-each area,
-they can be obtained from ""Lestania News"",
-talking to NPCs or
-Encountering an enemy in the field.
+ミニマップに青の丸で示されます</COL>","<COL 78f5ff>World Quests are available!</COL>
+<COL ffdc78>World Quests</COL> are unique to each area,
+they can be obtained from <COL ffdc78>Lestania News</COL>,
+talking to NPCs or Encountering an enemy 
+in the field.
 Be sure to check the recommended level!
-<COL ffdc78>The target enemy of the ""World Quest""
-appears
-on your Mini Map as a blue circle.",ui\00_message\tutorial_guide\steps\tutorial_guide_step42.gmd,\tguide\tutorial_guide_42.arc,tutorial_guide_42.arc,0
+The target enemy of the <COL ffdc78>World Quest</COL>
+appears on your Mini Map as a 
+<COL 78f5ff>blue circle</COL>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step42.gmd,\tguide\tutorial_guide_42.arc,tutorial_guide_42.arc,0
 2,TUTORIAL_STEP_36,"＜公開クエスト＞：通常報酬
 　…全てのプレイヤーに発生場所や報酬、敵などが
 　　公開されているクエストです
 ＜未公開クエスト＞：ボーナス報酬追加
 　…自力で探索し見つけ出すか、エリアマスターに
 　　情報料を払う必要があるクエストです
-　<COL ffdc78>クリア時１度のみ、未公開ボーナス報酬が付きます</COL>","""Public Quests"": gives normal rewards.
-The location of the enemy and the quest rewards
-can be seen by all players.
-""Hidden Quests"": gives bonus rewards.
-You need to search for yourself how to complete
-it,
-you can also pay the ""Area Master"" for hints.
+　<COL ffdc78>クリア時１度のみ、未公開ボーナス報酬が付きます</COL>","<COL ffdc78>Public Quests</COL>: give normal rewards.
+The location of the enemy and the quest 
+rewards can be seen by all players.
+<COL ffdc78>Hidden Quests</COL>: give bonus rewards.
+You need to search for yourself to find it;
+You can also pay <COL ffdc78>Area Master</COL> for hints.
 <COL ffdc78>Know that you can only get the bonus
 rewards once.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step42.gmd,\tguide\tutorial_guide_42.arc,tutorial_guide_42.arc,2
 1,TUTORIAL_STEP_300,"各地で起こっているワールドクエストとその報酬は
@@ -1184,41 +1180,39 @@ rewards once.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step42.gm
 などの詳細情報が得られます
 もう一つのポイントは
 <COL ffdc78>《公開クエスト》か《未公開クエスト》</COL>によって
-報酬や遊び方が異なることです","""World Quests"" and their rewards can be checked
-at any
-time by checking <COL ffdc78>""Lestania
-News"".</COL>
-Also, each <COL ffdc78>""Area Master"" has ""World
-Quest information"".</COL>
-You can get detailed information of what the
-enemy is or where it appears.
-Also note that <COL ffdc78>""Public quests"" and
-""Hidden Quests""</COL>
-have different rewards and objectives.",ui\00_message\tutorial_guide\steps\tutorial_guide_step42.gmd,\tguide\tutorial_guide_42.arc,tutorial_guide_42.arc,1
+報酬や遊び方が異なることです","<COL ffdc78>World Quests</COL> and their rewards can be 
+checked at any time by checking 
+<COL ffdc78>Lestania News.</COL>
+Also, each <COL ffdc78>Area Master has World Quest 
+information.</COL>
+You can get detailed information of what 
+the enemy is or where it appears.
+Also note that <COL ffdc78>Public quests and Hidden 
+Quests</COL> have different rewards and 
+objectives.",ui\00_message\tutorial_guide\steps\tutorial_guide_step42.gmd,\tguide\tutorial_guide_42.arc,tutorial_guide_42.arc,1
 0,TUTORIAL_STEP_16,"各クエストには、そのクエストがクリア可能かどうかの
 指標となる<COL ffdc78>《推奨レベル》</COL>が設定されています
 エリア難度、登場する敵レベルの目安となるため、
 自分のレベルに見合ったクエストに挑みましょう
 <COL ffdc78>また、ジョブレベルだけではなく装備品もレベルに
-見合っていることが前提です</COL>","All quests have a <COL ffdc78>""Recommended
-Level"".</COL>
-This will tell you the level of enemies that
-appear in the quest area.
+見合っていることが前提です</COL>","All quests have a <COL ffdc78>Recommended Level.</COL>
+This will tell you the level of enemies 
+that appear in the quest area.
 <COL ffdc78>Note that the recommended level not
-only
-means your vocation level but also your equipment
-level.</COL>
-Be sure to challenge quests that match your level.",ui\00_message\tutorial_guide\steps\tutorial_guide_step43.gmd,\tguide\tutorial_guide_43.arc,tutorial_guide_43.arc,0
+only means your vocation level but 
+also your equipment level.</COL>
+Be sure to challenge quests that match 
+your level.",ui\00_message\tutorial_guide\steps\tutorial_guide_step43.gmd,\tguide\tutorial_guide_43.arc,tutorial_guide_43.arc,0
 1,TUTORIAL_STEP_189,"なおワールドクエストやメインクエストにおいては
 仲間やポーンも含め、パーティー４人全員が
 《推奨レベル》に適正である事も重要です
 装備品がレベルに見合わない場合もクリア難度は
-上がるため、挑む前には準備も整えましょう","In ""World Quests"" and ""Main Quests"",
-all party memebers, be them friends or pawns,
-should also clear the ""Recommended Level"".
-If your equipment does not match your level, the
-quest
-difficulty goes up. Be sure to be prepared!",ui\00_message\tutorial_guide\steps\tutorial_guide_step43.gmd,\tguide\tutorial_guide_43.arc,tutorial_guide_43.arc,1
+上がるため、挑む前には準備も整えましょう","In <COL ffdc78>World Quests</COL> and <COL ffdc78>Main Quests</COL>, all 
+party members should also fulfil the 
+recommended level requirements.
+If your equipment does not match your 
+level, the quest difficulty goes up. 
+Be sure to be prepared!",ui\00_message\tutorial_guide\steps\tutorial_guide_step43.gmd,\tguide\tutorial_guide_43.arc,tutorial_guide_43.arc,1
 1,TUTORIAL_STEP_149,"表示させる情報はフィルタリングできます
 　【<KC UI_LB>／<KC UI_RB>】でチャンネル切替
 　（＋）からチャンネル追加
@@ -1227,13 +1221,11 @@ difficulty goes up. Be sure to be prepared!",ui\00_message\tutorial_guide\steps\
 <COL ffdc78>拡大した状態であれば、発言者を直接選んで
 話しかけたり、プロフィール確認やパーティー要請、
 フレンド申請できます</COL>","The Information that is displayed can be filtered
-with [<KC UI_LB>/<KC UI_RB>] this will switch
-channels.
+with [<KC UI_LB>/<KC UI_RB>] this will switch channels.
 Use (+) to add a channel.
-In the input field press [<KC UI_RT>] to enlarge
-the log
-Use [<KC KEY_UP>/<KC KEY_DOWN>] to scroll through
-it.",ui\00_message\tutorial_guide\steps\tutorial_guide_step46.gmd,\tguide\tutorial_guide_46.arc,tutorial_guide_46.arc,1
+In the input field press [<KC UI_RT>] to enlarge 
+the chat log.
+Use [<KC KEY_UP>/<KC KEY_DOWN>] to scroll through it.",ui\00_message\tutorial_guide\steps\tutorial_guide_step46.gmd,\tguide\tutorial_guide_46.arc,tutorial_guide_46.arc,1
 0,TUTORIAL_STEP_150,"<COL ffdc78>《チャット》</COL>は、ゲームプレイ中に
 他のプレイヤーとコミュニケーションを
 取るための基本ツールです
@@ -1241,31 +1233,30 @@ it.",ui\00_message\tutorial_guide\steps\tutorial_guide_step46.gmd,\tguide\tutori
 チャット発言が記録され、
 ゲーム中の状況告知も流れます
 【<KC UI_CHAT>】を押してチャットモードに
-切替え、発言を入力しましょう","<COL ffdc78>""Chat""</COL>
-This is the fundamental tool you use to
-communicate
-with others during gameplay.
-The <COL ffdc78>""Chat Log""</COL> records
-all messages recieved during gameplay.
-This chat gets refreshed constantly during
+切替え、発言を入力しましょう","<COL ffdc78>Chat</COL>
+This is the fundamental tool you use 
+to communicate with others during
 gameplay.
+The <COL ffdc78>Chat Log</COL> records all messages
+recieved during gameplay.
+This chat gets refreshed constantly 
+during gameplay.
 Press [<KC UI_CHAT>] to enter chat mode.
-This will switch to the chat window so you can
-input
-what you want to say.",ui\00_message\tutorial_guide\steps\tutorial_guide_step46.gmd,\tguide\tutorial_guide_46.arc,tutorial_guide_46.arc,0
+This will switch to the chat window so 
+you can input what you want to say.",ui\00_message\tutorial_guide\steps\tutorial_guide_step46.gmd,\tguide\tutorial_guide_46.arc,tutorial_guide_46.arc,0
 2,TUTORIAL_STEP_280,"<COL ffdc78>誰に対して発言するかは
 チャット入力欄上の《対象メニュー》で
 切替えられます</COL>
 不特定多数向け、パーティーメンバー向け
 グループチャットメンバー向けなど、
 話しかける相手を変えたい場合に利用しましょう
-操作方法は入力欄下のガイドで確認できます","<COL ffdc78>You can choose who you
-speak to in the ""Target menu"" in the chat
-window.</COL>
-Use it to when you want to change who you speak
-to,
-your party memebers, clan members or
-everyone else.",ui\00_message\tutorial_guide\steps\tutorial_guide_step46.gmd,\tguide\tutorial_guide_46.arc,tutorial_guide_46.arc,2
+操作方法は入力欄下のガイドで確認できます","<COL ffdc78>Who your message is directed to can be 
+switched using the Target Menu located 
+above the chat input area.</COL>
+Utilise it when you want to change the 
+recipient of your message.
+You can check the current selection below
+the input area.",ui\00_message\tutorial_guide\steps\tutorial_guide_step46.gmd,\tguide\tutorial_guide_46.arc,tutorial_guide_46.arc,2
 3,TUTORIAL_STEP_390,"チャット会話対象タイプは、以下になります
 　<COL ffdc78>Say</COL> ：周りのプレイヤー
 　<COL ffdc78>Shout</COL> ：同ワールドのプレイヤー全員
@@ -1275,8 +1266,7 @@ everyone else.",ui\00_message\tutorial_guide\steps\tutorial_guide_step46.gmd,\tg
 　<COL ffdc78>Group</COL> ：グループチャットメンバー
 　<COL ffdc78>Entry Board</COL> ：エントリーボード参加者","The chat targets are as follows:
 <COL ffdc78>Say</COL>: Surrounding players.
-<COL ffdc78>Shout</COL>: All players in the
-world.
+<COL ffdc78>Shout</COL>: All players in the world.
 <COL ffdc78>Party</COL>: Party members.
 <COL ffdc78>Tell</COL>: Specific player.
 <COL ffdc78>Clan</COL>: Clan members.
@@ -1290,6 +1280,7 @@ participants.",ui\00_message\tutorial_guide\steps\tutorial_guide_step46.gmd,\tgu
 メモログは、チャンネルタブを
 一番左に合わせることで確認できます
 また、チャットログから任意のテキストを選んで
+<<<<<<< HEAD
 「メモする」ことでメモログに記録できます","
 You can create a <COL ffdc78>Memo</COL>,
 a note that can only be seen by you, it will be
@@ -1299,6 +1290,10 @@ tab.
 Apart from notes you can also save specific
 messages
 that appear in the chat log into the Memo Log.",ui\00_message\tutorial_guide\steps\tutorial_guide_step46.gmd,\tguide\tutorial_guide_46.arc,tutorial_guide_46.arc,4
+=======,,,,,,,
+"「メモする」ことでメモログに記録できます""","You can create a <COL ffdc78>Memo</COL>, a note that can only 
+be seen by you,saved in the <COL ffdc78>Memo Log</COL>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step46.gmd,\tguide\tutorial_guide_46.arc,tutorial_guide_46.arc,4,,
+>>>>>>> pr/14,,,,,,,
 0,TUTORIAL_STEP_52,"<COL ffdc78>覚者であるあなたは、戦闘やクエストクリアで
 経験値（ＸＰ）を得て、レベルアップします</COL>
 主な成長要素は覚えておきましょう
@@ -1306,9 +1301,8 @@ that appear in the chat log into the Memo Log.",ui\00_message\tutorial_guide\ste
 　・装備できるアイテムの増加
 　・ジョブポイントの獲得
 　・新たなスキル、アビリティの習得
-なお、レベルはジョブ別に上昇します","<COL ffdc78>As an Arisen, you gain experience
-points (XP) through battles and completing quests,
-which allows you to level up.</COL>
+なお、レベルはジョブ別に上昇します","As an Arisen, you gain <COL ffdc78>EXP</COL> through battles and
+completing quests,which allows you to level up.
 Let's remember the main elements of growth:
 - Increase in stats such as strength and magic
 power
@@ -1347,27 +1341,28 @@ forward)</KEYM>",ui\00_message\tutorial_guide\steps\tutorial_guide_step53.gmd,\t
 いつも持ち歩くようにしましょう","The points where you can collect items include
 treasure chests, herbs, veins, fallen trees, and
 bodies of water. They vary in kind.
-<COL ffdc78>Some of them can only be collected
-with specific tools like a Pickaxe, so make sure
-to always carry one with you.</COL>
-You can purchase collection tools at the Item
-Shop, so be sure to keep them with you at all
-times.",ui\00_message\tutorial_guide\steps\tutorial_guide_step55.gmd,\tguide\tutorial_guide_55.arc,tutorial_guide_55.arc,1
+<COL ffdc78>Some of them can only be collected with 
+specific tools like a Pickaxe, so make 
+sure to always carry one with you.</COL>
+You can purchase collection tools at the 
+<COL ffdc78>Item Shop</COL>, so be sure to keep them with 
+you at all times.",ui\00_message\tutorial_guide\steps\tutorial_guide_step55.gmd,\tguide\tutorial_guide_55.arc,tutorial_guide_55.arc,1
 0,TUTORIAL_STEP_90,"野外やダンジョンを探索すると
 アイテムを入手することがあります
 倒した敵が落とすドロップアイテムや、
-地形を調べて得られる採取アイテムです","When exploring the wilderness or dungeons,
-you may obtain items.
-These items can be dropped by defeated enemies,
-or collected by investigating the terrain.",ui\00_message\tutorial_guide\steps\tutorial_guide_step55.gmd,\tguide\tutorial_guide_55.arc,tutorial_guide_55.arc,0
+地形を調べて得られる採取アイテムです","When exploring the wilderness or 
+dungeons, you may obtain items.
+These items can be dropped by 
+defeated enemies, or collected by 
+investigating the terrain.",ui\00_message\tutorial_guide\steps\tutorial_guide_step55.gmd,\tguide\tutorial_guide_55.arc,tutorial_guide_55.arc,0
 2,TUTORIAL_STEP_232,"一度アイテムを入手した場所であっても
 白竜神殿や拠点に戻り、もう一度訪れることで
 再び入手が可能になります
 素材の取れる場所は覚えておき、必要に
-なった時は改めて訪れてみましょう","Even if you have obtained an item once,
-you can return to the White Dragon Temple or the
-base
-and obtain it again by visiting the same place.
+なった時は改めて訪れてみましょう","Even if you have obtained an item once, 
+you can return to the White Dragon Temple 
+or the base and obtain it again by visiting 
+the same place.
 Remember where materials can be obtained
 and visit them again when necessary.",ui\00_message\tutorial_guide\steps\tutorial_guide_step55.gmd,\tguide\tutorial_guide_55.arc,tutorial_guide_55.arc,2
 0,TUTORIAL_STEP_91,"アイテムには、<COL ffdc78>消費アイテム、素材アイテム、
@@ -1881,40 +1876,38 @@ equipment.",ui\00_message\tutorial_guide\steps\tutorial_guide_step87.gmd,\tguide
 管理・保存しておく場所です
 携帯できるアイテム数には限りがあるため、
 大切なものやすぐに使わないアイテムは
-こちらに保管するといいでしょう","<COL ffdc78>The ""Storage Box""</COL>is a place to
-manage and store the items you acquire.
-The number of items you can carry is limited, so
-you may want to store important items or items you
-won't use immediately here,",ui\00_message\tutorial_guide\steps\tutorial_guide_step88.gmd,\tguide\tutorial_guide_88.arc,tutorial_guide_88.arc,0
+こちらに保管するといいでしょう","The <COL ffdc78>Storage Box</COL> is a place to manage
+and store the items you acquire.
+The number of items you can carry is limited, 
+so you may want to store important items or 
+items you won't use immediately here.",ui\00_message\tutorial_guide\steps\tutorial_guide_step88.gmd,\tguide\tutorial_guide_88.arc,tutorial_guide_88.arc,0
 1,TUTORIAL_STEP_243,"ボックス内では保管アイテムの出し入れ、
 整理や売却が行えます
 <COL ffdc78>またクエストクリアなど、各コンテンツで得た
-報酬の受け取り場所にもなります</COL>","In the box, you can move items in and out of
-storage, organize them, and sell them.
+報酬の受け取り場所にもなります</COL>","In the box, you can move items in and out 
+of storage, organize them, and sell them.
 <COL ffdc78>It is also where you receive rewards
 for completing quests and other content.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step88.gmd,\tguide\tutorial_guide_88.arc,tutorial_guide_88.arc,1
 2,TUTORIAL_STEP_306,"また、<OPCS>の効果により
 《保管ボックス》がさらに便利になります
 <COL ffdc78>保管できるアイテム枠が拡張される上、
 地方拠点で《拠点用保管ボックス》が
-利用できるようになります</COL>","In addition, the effects of <OPCS> will make the
-Storage Box even more convenient.
-You will be able to expand the number of item
-slots that can be stored, and you will also be
-able to use <COL ffdc78>Camp Storage Boxes</COL>
-at local inns.",ui\00_message\tutorial_guide\steps\tutorial_guide_step88.gmd,\tguide\tutorial_guide_88.arc,tutorial_guide_88.arc,2
+利用できるようになります</COL>","In addition, the effects of <COL ffdc78><OPCS></COL> will 
+make the <COL ffdc78>Storage Box</COL> even more convenient.
+You will be able to expand the number of item 
+slots that can be stored, and you will also be able 
+to use <COL ffdc78>Camp Storage Boxes</COL> at local inns.",ui\00_message\tutorial_guide\steps\tutorial_guide_step88.gmd,\tguide\tutorial_guide_88.arc,tutorial_guide_88.arc,2
 0,TUTORIAL_STEP_117,"神殿中央にそびえる石柱<COL ffdc78>《竜の礎（いしずえ）》</COL>は
 瞬間移動<COL ffdc78>《リム転移》</COL>を行うためのものです
 <COL ffdc78>《竜の礎》は神殿各区画のリムストーンと
 通じており、《リムストーンへ転移》を使えば
-施設への移動に便利です</COL>","In the center of the temple stands a pillar known
-as the <COL ffdc78>""Dragon's Keystone""</COL>. This
-pillar is used for <COL ffdc78>""Rift
-Teleportation""</COL>.
-<COL ffdc78>The ""Dragon's Keystone"" is connected
-to the riftstones in each section of the temple,
-and by using ""Teleport to Riftstone"", it is
-convenient for moving within the facility.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step91.gmd,\tguide\tutorial_guide_91.arc,tutorial_guide_91.arc,0
+施設への移動に便利です</COL>","In the center of the temple stands a pillar 
+known as the <COL ffdc78>Dragon's Keystone</COL>.
+This pillar is used for <COL ffdc78>Rift Teleportation</COL>.
+The Dragon's Keystone is connected
+to the riftstones in each section of the
+temple, and by using Teleport to Riftstone, 
+it is convenient for moving within the temple.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step91.gmd,\tguide\tutorial_guide_91.arc,tutorial_guide_91.arc,0
 1,TUTORIAL_STEP_244,"覚者はみな、冒険の旅先どこからでも
 【<KC UI_GAME_MENU>】ゲームメニュー《ワールド》の
 <COL ffdc78>《リム転移》</COL>により、竜の礎へ帰還できます
@@ -1922,12 +1915,12 @@ convenient for moving within the facility.</COL>",ui\00_message\tutorial_guide\s
 《拠点の礎》が存在し、一度訪れた場所へは
 《リム》を支払うことで瞬時に移動できます","All the Arisen can return to the Dragon's
 Keystone from anywhere in their adventurous
-journey using the <COL ffdc78>Rift Teleport</COL>
-in the <KC UI_GAME_MENU>Game Menu of the World.
+journey using the <COL ffdc78>Rift Teleport</COL> in the 
+[<KC UI_GAME_MENU>] Game Menu of the World.
 Furthermore, in various locations in Lestania,
 there exist Portcrystals, which allow instant
-movement to previously visited places by paying
-Rift Crystals.",ui\00_message\tutorial_guide\steps\tutorial_guide_step91.gmd,\tguide\tutorial_guide_91.arc,tutorial_guide_91.arc,1
+movement to previously visited places by 
+paying Rift Crystals.",ui\00_message\tutorial_guide\steps\tutorial_guide_step91.gmd,\tguide\tutorial_guide_91.arc,tutorial_guide_91.arc,1
 0,TUTORIAL_STEP_103,"<COL ffdc78>《宿屋》</COL>で休息すると、
 傷ついた体を癒すことができます
 体力やスタミナは最大値まで回復し
@@ -1987,38 +1980,37 @@ of the Bazaar more convenient.</COL>",ui\00_message\tutorial_guide\steps\tutoria
 《クイックパーティー》を使う場合
 そして《パーティー募集掲示板》を使う場合です","<COL 78f5ff>Party play with other Arisen has been
 unlocked!</COL>
-There are four ways to team up with other Arisen:
-1. You can become the party leader and send
+There are four ways to team up with other:
+1.You can become the party leader and send
 invitation requests to other players.
-2. You can join other parties as a guest.
-3. You can use the Quick Party feature.
-4. You can use the Party Recruitment Board.",ui\00_message\tutorial_guide\steps\tutorial_guide_step97.gmd,\tguide\tutorial_guide_97.arc,tutorial_guide_97.arc,0
+2.You can join other parties as a guest.
+3.You can use the Quick Party feature.
+4.You can use the Party Recruitment Board.",ui\00_message\tutorial_guide\steps\tutorial_guide_step97.gmd,\tguide\tutorial_guide_97.arc,tutorial_guide_97.arc,0
 2,TUTORIAL_STEP_61,"また、下記の方法でもパーティーに誘えます
 ＜プレイヤーキャラクターに話しかける＞
 　【<KC TOUCH>】で選択し会話メニューから誘う
 ＜チャットログから誘う＞
 　チャットログを【<KC UI_RT>】で拡大後【<KC KEY_UP>／<KC KEY_DOWN>】で
-　発言者名を選択して誘う","You can also invite people to your party in the
-following ways:
-<Talk to a player character>
-[<KC TOUCH>] and invite them from the
-conversation menu
-<Invite from the chat log>
+　発言者名を選択して誘う","You can also invite people to your party 
+in the following ways:
+Talk to a player character
+[<KC TOUCH>] and invite them from the conversation 
+menu. 
+Invite from the chat log.
 After expanding the chat log with [<KC UI_RT>],
-go to [<KC KEY_UP>/<KC KEY_DOWN>] and invite by
-selecting the speaker's name.",ui\00_message\tutorial_guide\steps\tutorial_guide_step97.gmd,\tguide\tutorial_guide_97.arc,tutorial_guide_97.arc,2
+go to [<KC KEY_UP>/<KC KEY_DOWN>] and invite by selecting 
+the speaker's name.",ui\00_message\tutorial_guide\steps\tutorial_guide_step97.gmd,\tguide\tutorial_guide_97.arc,tutorial_guide_97.arc,2
 5,TUTORIAL_STEP_190,"<COL ffdc78>【パーティー募集掲示板を利用する場合】</COL>
 ゲームメニュー<COL ffdc78>《募集掲示板》</COL>から
 《パーティー募集掲示板》を選択するとご利用頂けます
 エントリーボードを使った機能で
 カテゴリ別にパーティーを募集したり、
-募集中のプレイヤーを検索することができます","<COL ffdc78>To use the ""Party Recruitment Board"",
-go to</COL>
-Game Menu<COL ffdc78>《Recruitment Board》</COL>and
-select《Party Recruitment Board》
-You can use the Entry Board function to recruit
-parties by category and search for players who are
-currently recruiting!",ui\00_message\tutorial_guide\steps\tutorial_guide_step97.gmd,\tguide\tutorial_guide_97.arc,tutorial_guide_97.arc,5
+募集中のプレイヤーを検索することができます","To use the <COL ffdc78>Party Recruitment Board</COL>, go 
+to Game Menu <COL ffdc78>Recruitment Board</COL> and 
+select <COL ffdc78>Party Recruitment Board</COL>.
+You can use the Entry Board function to 
+recruit parties by category and search for 
+players who are currently recruiting!",ui\00_message\tutorial_guide\steps\tutorial_guide_step97.gmd,\tguide\tutorial_guide_97.arc,tutorial_guide_97.arc,5
 6,TUTORIAL_STEP_218,"パーティーリーダーが誰なのか
 冒険時は必ず確認しましょう
 <COL ffdc78>リーダーが不在の場合は冒険が進行できません</COL>
@@ -2026,11 +2018,11 @@ currently recruiting!",ui\00_message\tutorial_guide\steps\tutorial_guide_step97.
 に戻り、《パーティー管理》から
 新しいリーダーを決めてください","Who is the party leader?
 Make sure to confirm during adventures.
-<COL ffdc78>If the leader is absent, the
-adventure cannot proceed.</COL>
-Return to the White Dragon Temple or the base
-facility with the Rift Crystal, and select a new
-leader from the ""Party Management"".",ui\00_message\tutorial_guide\steps\tutorial_guide_step97.gmd,\tguide\tutorial_guide_97.arc,tutorial_guide_97.arc,6
+<COL ffdc78>If the leader is absent, the adventure 
+cannot proceed.</COL>
+Return to the White Dragon Temple or 
+a Rift Stone, and select a new leader 
+from the Party Management.",ui\00_message\tutorial_guide\steps\tutorial_guide_step97.gmd,\tguide\tutorial_guide_97.arc,tutorial_guide_97.arc,6
 1,TUTORIAL_STEP_388,"<COL ffdc78>【自分がリーダーとなってパーティーを作る場合】</COL>
 拠点にいる<COL ffdc78>《冒険仲介係》</COL>か
 ゲームメニュー《パーティー》の<COL ffdc78>《パーティー管理》</COL>
@@ -2039,44 +2031,45 @@ leader from the ""Party Management"".",ui\00_message\tutorial_guide\steps\tutori
 <COL ffdc78>《パーティー要請》</COL>を出してください
 ジョブ、レベルなど細かい設定での検索も可能です","<COL ffdc78>If you wish to create a party as the
 leader:</COL>
-Go to the <COL ffdc78>""Adventure Organizer""</COL>
-at the base, or access the <COL ffdc78>""Party
-Management""</COL> in the game menu.
-Send a <COL ffdc78>""Party Request""</COL> to the
-players you want to join through ""Player Search"".
-You can also search for players based on job,
-level, and other specific settings.",ui\00_message\tutorial_guide\steps\tutorial_guide_step97.gmd,\tguide\tutorial_guide_97.arc,tutorial_guide_97.arc,1
+Go to the <COL ffdc78>Adventure Organizer</COL> at the base, 
+or access the <COL ffdc78>Party Management</COL> in the 
+Game Menu.
+Send a <COL ffdc78>Party Request</COL> to the players you 
+want to join through <COL ffdc78>Player Search</COL>.
+You can also search for players based on 
+job, level, and other specific settings.",ui\00_message\tutorial_guide\steps\tutorial_guide_step97.gmd,\tguide\tutorial_guide_97.arc,tutorial_guide_97.arc,1
 3,TUTORIAL_STEP_389,"<COL ffdc78>【誰かのパーティーに参加したい場合】</COL>
 他のプレイヤーから<COL ffdc78>《パーティー要請》</COL>を
 出してもらう必要があります
 パーティー要請を受けると画面中央にアナウンスが
 表示されるので、操作に従いパーティーに
-参加しましょう","<COL ffdc78>If you want to join someone's
-party</COL>,
-you need to ask another player to send<COL
-ffdc78>a ""party request""</COL>.
-When you receive a party request, an announcement
-will appear in the center of the screen.
+参加しましょう","<COL ffdc78>If you want to join someone's party</COL>, you 
+need to ask another player to send a 
+<COL ffdc78>party request</COL>.
+When you receive a party request, an 
+announcement will appear in the 
+center of the screen.
 Follow the instructions and join the party!",ui\00_message\tutorial_guide\steps\tutorial_guide_step97.gmd,\tguide\tutorial_guide_97.arc,tutorial_guide_97.arc,3
 4,TUTORIAL_STEP_416,"<COL ffdc78>【クイックパーティーを利用する場合】</COL>
 ゲームメニュー<COL ffdc78>《クイックパーティー》</COL>の利用で
 同じ目的のプレイヤーと簡単にパーティーを
 組むことができます
 遊びたいクエストやエリアを指定し、待つだけで
-自動的にマッチングされるため、ぜひ活用ください","<COL ffdc78>【When using Quick Party】</COL>
+自動的にマッチングされるため、ぜひ活用ください","When using <COL ffdc78>Quick Party</COL>.
 By using the game menu and <COL ffdc78>Quick
 Party</COL>, you can easily form a party with
 players who have the same objective.
-Specify the quest or area you want to play and
-just wait. The matching process will be done
+Specify the quest or area you want to 
+play and just wait. 
+The matching process will be done
 automatically, so please make use of it.",ui\00_message\tutorial_guide\steps\tutorial_guide_step97.gmd,\tguide\tutorial_guide_97.arc,tutorial_guide_97.arc,4
 7,TUTORIAL_STEP_859,"特定のコンテンツでは
 <COL ffdc78>推奨ドラゴンアビリティポイント</COL>が確認できます
 また、ドラゴンアビリティを指定した検索や
-マッチングも可能です","In specific content, you can confirm the <COL
-ffdc78>recommended Dragon Ability points</COL>.
-Moreover, you can also search for and match
-Dragon Abilities.",ui\00_message\tutorial_guide\steps\tutorial_guide_step97.gmd,\tguide\tutorial_guide_97.arc,tutorial_guide_97.arc,7
+マッチングも可能です","In specific content, you can confirm the 
+recommended <COL ffdc78>Dragon Ability</COL> points.
+Moreover, you can also search for and 
+match Dragon Abilities.",ui\00_message\tutorial_guide\steps\tutorial_guide_step97.gmd,\tguide\tutorial_guide_97.arc,tutorial_guide_97.arc,7
 2,TUTORIAL_STEP_75,"また、クエスト達成時の獲得経験値、
 クリア報酬アイテムは、パーティーメンバーと
 あなたのレベル差により変化します
@@ -2144,31 +2137,29 @@ dismiss it.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step100.gmd
 <COL ffdc78>《ジョブポイント》</COL>が得られます
 ジョブポイントを使うことで、レベルに応じた
 新たな戦技<COL ffdc78>《スキル》</COL>や<COL ffdc78>《アビリティ》</COL>
-を身につけることができます","By gaining experience in your job, you can level
-up and earn <COL ffdc78>Job Points </COL>(JP).
-You can use Job Points to acquire new <COL
-ffdc78>skills</COL> and <COL
-ffdc78>abilities</COL> corresponding to your
-level.",ui\00_message\tutorial_guide\steps\tutorial_guide_step102.gmd,\tguide\tutorial_guide_102.arc,tutorial_guide_102.arc,0
+を身につけることができます","By gaining experience in your job, you can 
+level up and earn <COL ffdc78>Job Points </COL>(JP).
+You can use Job Points to acquire new <COL ffdc78>skills</COL>
+and <COL ffdc78>abilities</COL> corresponding to your level.",ui\00_message\tutorial_guide\steps\tutorial_guide_step102.gmd,\tguide\tutorial_guide_102.arc,tutorial_guide_102.arc,0
 1,TUTORIAL_STEP_55,"新たなスキルやアビリティは、
 神殿のアーチボルトや各拠点の<COL ffdc78>《戦技補佐》</COL>に
 相談し、ジョブポイントを支払って
 習得・装備しましょう
 レベルアップした時は、
 新しく使える技がないか見に行くといいでしょう","New skills and abilities can be learned and
-equipped by consulting with Archibald at the
-temple and the <COL ffdc78>Arts Support</COL> at
-each Portcrystal, and paying Job Points.
-When you level up, it would be a good idea to go
-and see if there are any new techniques that you
-can use.",ui\00_message\tutorial_guide\steps\tutorial_guide_step102.gmd,\tguide\tutorial_guide_102.arc,tutorial_guide_102.arc,1
+equipped by consulting with Archibald at
+the temple and the <COL ffdc78>Arts Support</COL> at each
+Portcrystal, and paying Job Points.
+When you level up, it would be a good idea
+to go and see if there are any new techniques
+that you can use.",ui\00_message\tutorial_guide\steps\tutorial_guide_step102.gmd,\tguide\tutorial_guide_102.arc,tutorial_guide_102.arc,1
 5,TUTORIAL_STEP_215,"今のジョブが不向きだなと感じた場合も
 アーチボルトに相談することで、
 他のジョブにすぐに<COL ffdc78>《転職》</COL>できます
 自分に合った戦闘スタイルを探しましょう","If you feel that your current job is unsuitable,
-you can consult Archibald and immediately switch
-to another job through a <COL ffdc78>Change
-Vocation</COL>.
+you can consult Archibald and immediately 
+switch to another job through a 
+<COL ffdc78>Change Vocation</COL>.
 Let's find a combat style that suits you.",ui\00_message\tutorial_guide\steps\tutorial_guide_step102.gmd,\tguide\tutorial_guide_102.arc,tutorial_guide_102.arc,5
 2,TUTORIAL_STEP_397,"獲得可能なスキルやアビリティは<COL ffdc78>【ＧＥＴ】</COL>と
 いう緑色のアイコンが表示されます
@@ -2177,12 +2168,11 @@ Let's find a combat style that suits you.",ui\00_message\tutorial_guide\steps\tu
 <COL ffdc78>獲得したスキルは、スキルアイコンを選択し
 右側のボタンに応じた《カスタムスキルセット枠》
 に割り振ることで、戦闘時使えるようになります</COL>","You can obtain skills and abilities by selecting
-the green icon labeled <COL ffdc78>【GET】</COL>
-displayed.
-Choose the skill you want to acquire and pay the
-Job Points shown below.
-<COL ffdc78>Once you have acquired a skill, you
-can allocate it to the ""Custom Skill Set"" frame on
+the green icon labeled <COL ffdc78>【GET】</COL> displayed.
+Choose the skill you want to acquire and pay
+the Job Points shown below.
+<COL ffdc78>Once you have acquired a skill, you can
+allocate it to the ""Custom Skill Set"" frame on
 the right side by selecting the skill icon and
 using the corresponding button. This will allow
 you to use the skill in combat.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step102.gmd,\tguide\tutorial_guide_102.arc,tutorial_guide_102.arc,2
@@ -2191,27 +2181,26 @@ you to use the skill in combat.</COL>",ui\00_message\tutorial_guide\steps\tutori
 <COL ffdc78>コスト上限以内であれば、自由な組み合わせで
 ジョブに関わらずアビリティを付けられます</COL>
 スキルとアビリティ次第で戦い方は
-大きく変わるため、ぜひ試してみてください","The acquired <COL ffdc78>augments</COL> each have
-a specific <COL ffdc78>Ability Cost</COL>
-required.
+大きく変わるため、ぜひ試してみてください","The acquired <COL ffdc78>augments</COL> each have a
+specific <COL ffdc78>Ability Cost</COL> required.
 As long as it is within the cost limit, you can
 freely attach augments regardless of the job.
-The way you battle can greatly vary depending on
-your skills and augments, so please give them a
-try.",ui\00_message\tutorial_guide\steps\tutorial_guide_step102.gmd,\tguide\tutorial_guide_102.arc,tutorial_guide_102.arc,3
+The way you battle can greatly vary depending 
+on your skills and augments, so please
+give them a try.",ui\00_message\tutorial_guide\steps\tutorial_guide_step102.gmd,\tguide\tutorial_guide_102.arc,tutorial_guide_102.arc,3
 4,TUTORIAL_STEP_399,"また、一度獲得したスキルやアビリティは
 <COL ffdc78>【ＬＶ　ＵＰ】</COL>を選択しジョブポイントを
 注ぐことでさらなる強化が可能です
 スキルによっては威力上昇、スキの減少や
 モーション変化が起こります
 アビリティの場合も効果が上昇するため
-戦技のレベルアップも活用しましょう","Furthermore, by selecting <COL ffdc78>[LV
-UP]</COL> and pouring job points into it, it is
-possible to further strengthen the skills and
-abilities that have been acquired.
-Depending on the skill, there may be an increase
-in power, a decrease in cost, or a change in
-motion.
+戦技のレベルアップも活用しましょう","Furthermore, by selecting <COL ffdc78>[LV UP]</COL>
+and pouring job points into it, it is
+possible to further strengthen the skills
+and abilities that have been acquired.
+Depending on the skill, there may be an
+increase in power, a decrease in cost, or
+a change in motion.
 For abilities as well, the effects will improve,
 so let's make use of leveling up our combat
 techniques.",ui\00_message\tutorial_guide\steps\tutorial_guide_step102.gmd,\tguide\tutorial_guide_102.arc,tutorial_guide_102.arc,4
@@ -2475,23 +2464,23 @@ introduction to a new job.",ui\00_message\tutorial_guide\steps\tutorial_guide_st
 使える《拠点の礎》が存在します</COL>
 瞬時に目的の拠点に到着できるため、
 よく利用する拠点は<COL ffdc78>《マイ拠点》</COL>に登録し
-探索範囲を広げましょう","<COL ffdc78>At various bases around the world,
-there are ""Portcrystals"" that can be used for
-instant teleportation. </COL>
-Register frequently used bases as <COL ffdc78>""My
-Portcrystals""</COL> to expand your exploration
+探索範囲を広げましょう","At various locations around the world,
+there are <COL ffdc78>Portcrystals</COL> that can be 
+used for instant teleportation.
+Register frequently used bases as 
+<COL ffdc78>Favorites</COL> to expand your exploration 
 range.",ui\00_message\tutorial_guide\steps\tutorial_guide_step119.gmd,\tguide\tutorial_guide_119.arc,tutorial_guide_119.arc,0
 1,TUTORIAL_STEP_95,"また、エリアごとに受注できるクエストや
 店舗の品ぞろえ、発見できるアイテムや
 魔物が異なり、冒険難度も違います
 エリアの特色を把握することで
 冒険を有利にすすめられます","Furthermore, there are quests that can be
-undertaken in each area, as well as a variety of
-items available in the shops and different enemies
-and levels of difficulty.
-By understanding the unique characteristics of
-each area, you can progress in your adventure more
-advantageously.",ui\00_message\tutorial_guide\steps\tutorial_guide_step121.gmd,\tguide\tutorial_guide_121.arc,tutorial_guide_121.arc,1
+undertaken in each area, as well as a variety
+of items available in the shops and different 
+enemies and levels of difficulty.
+By understanding the unique characteristics 
+of each area, you can progress in your 
+adventure more advantageously.",ui\00_message\tutorial_guide\steps\tutorial_guide_step121.gmd,\tguide\tutorial_guide_121.arc,tutorial_guide_121.arc,1
 0,TUTORIAL_STEP_96,"世界は大きく地域別にエリア区分されています
 エリアにはそれぞれ《ハイデル平原》、
 《ブリア海岸》、《ミスリウ森林》などの
@@ -2499,13 +2488,13 @@ advantageously.",ui\00_message\tutorial_guide\steps\tutorial_guide_step121.gmd,\
 目的地や現在地がどのエリアか【<KC UI_GAME_MENU>】
 ゲームメニュー《ワールド》の<COL ffdc78>《マップ》</COL>で
 確認するクセをつけるといいでしょう","The world is divided into different areas:
-Each area is named, such as ""Hidell Plains,""
-""Breya Coast,"" and ""Mysree Forest.""
-To find out which area your destination or
-current location is in, it's a good idea to
-develop a habit of checking the ""Map"" in the game
-menu called ""World"" (Game menu: <KC UI_GAME_MENU>)
-(Map: <COL ffdc78>""World""</COL>).",ui\00_message\tutorial_guide\steps\tutorial_guide_step121.gmd,\tguide\tutorial_guide_121.arc,tutorial_guide_121.arc,0
+Each area is named, such as <COL ffdc78>Hidell Plains</COL>,
+<COL ffdc78>Breya Coast</COL> and <COL ffdc78>Mysree Forest.</COL>
+To find out which area your destination
+or current location is in, it's a good idea 
+to develop a habit of checking the Map
+in the game menu called World 
+(Game menu: <KC UI_GAME_MENU>) (Map: <COL ffdc78>World</COL>)",ui\00_message\tutorial_guide\steps\tutorial_guide_step121.gmd,\tguide\tutorial_guide_121.arc,tutorial_guide_121.arc,0
 0,TUTORIAL_STEP_192,"《ブラッドオーブ》は、白竜以外にも
 ポーン郷のアルヴァーなど、貴重アイテムと
 交換してくれる者がいます
@@ -2522,65 +2511,66 @@ a visit and engage in a trade.",ui\00_message\tutorial_guide\steps\tutorial_guid
 起こるほか、訪れた覚者への支援品を
 受け取ることもできます
 <COL ffdc78>エリアを探索する際は、まず彼らの元へ
-立ち寄るといいでしょう</COL>","By interacting with them and engaging in local
-quests, various changes can occur in the area.
-Additionally, you can also receive support items.
-<COL ffdc78>When exploring the area, it is
-advisable to first visit them.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step123.gmd,\tguide\tutorial_guide_123.arc,tutorial_guide_123.arc,1
+立ち寄るといいでしょう</COL>","By interacting with them and engaging in 
+local quests, various changes can occur 
+in the area.
+Additionally, you can also receive support 
+items.
+<COL ffdc78>When exploring the area, it is advisable to 
+first visit them.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step123.gmd,\tguide\tutorial_guide_123.arc,tutorial_guide_123.arc,1
 0,TUTORIAL_STEP_109,"<COL 78f5ff>《エリアマスター》情報が解放されました！</COL>
 <COL ffdc78>《エリアマスター》</COL>とは、地域の事情に
 精通した人物です
 各エリアに１人ずつ存在し、その地域の
 クエストや注意すべき魔物の存在、冒険スポット
-についての情報を与えてくれます","<COL 78f5ff>""Area Master"" information has been
+についての情報を与えてくれます","<COL 78f5ff>Area Master information has been
 unlocked!</COL>
-An <COL ffdc78>""Area Master""</COL> is someone who
-is well-versed in the local situation.
-There is one person in each area who can provide
-information about quests, notable enemies to watch
-out for, and adventure spots in that region.",ui\00_message\tutorial_guide\steps\tutorial_guide_step123.gmd,\tguide\tutorial_guide_123.arc,tutorial_guide_123.arc,0
+An <COL ffdc78>Area Master</COL> is someone who is 
+well-versed in the local situation.
+There is one person in each area who 
+can provide information about quests, 
+notable enemies to watch out for, and 
+adventure spots in that region.",ui\00_message\tutorial_guide\steps\tutorial_guide_step123.gmd,\tguide\tutorial_guide_123.arc,tutorial_guide_123.arc,0
 0,TUTORIAL_STEP_62,"<COL ffdc78>《メインポーン》は覚者であるあなた同様、
 ともに冒険し経験を積むことで成長します</COL>
 <COL ffdc78>《クラフト》</COL>を行うことで
 アイテム作成能力も成長していきます
 戦技の習得や転職も可能ですので、
-あなたの目的に合った役割を与えましょう","<COL ffdc78>The ""Main Pawn"" will grow by
-adventuring and gaining experience, just like you,
-an ""Arisen"".</COL>
-By <COL ffdc78>""Crafting""</COL>, your item
-creation abilities will also grow.
-You can also learn combat skills and change
-vocations, so let's assign you a role that suits
-your goals.",ui\00_message\tutorial_guide\steps\tutorial_guide_step124.gmd,\tguide\tutorial_guide_124.arc,tutorial_guide_124.arc,0
+あなたの目的に合った役割を与えましょう","The <COL ffdc78>Main Pawn</COL> will grow by adventuring 
+and gaining experience, just like you,
+an Arisen.
+By <COL ffdc78>Crafting</COL>, your item creation abilities 
+will also grow.
+They can also learn combat skills and 
+change vocations, so lets assign them 
+a role that suits your goals.",ui\00_message\tutorial_guide\steps\tutorial_guide_step124.gmd,\tguide\tutorial_guide_124.arc,tutorial_guide_124.arc,0
 1,TUTORIAL_STEP_63,"ポーン達は冒険のなかで自律的に行動しますが
 覚者が命令を与えれば、実行可能な時は
 優先的に遂行します
 <COL ffdc78>また、ポーンがいればクラフトによる
 アイテムの作成、強化が可能です</COL>
 ポーン達は常に寄りそう冒険パートナーとして、
-いつでもあなたの力となってくれるでしょう","Pawns will act autonomously during the adventure,
-but when commanded by the Arisen, they will
-prioritize carrying out the command.
-<COL ffdc78>Additionally, with Pawns, crafting
-and enhancing items is possible.</COL>
+いつでもあなたの力となってくれるでしょう","Pawns will act autonomously during the 
+adventure,but when commanded by the 
+Arisen, they will prioritize carrying out 
+the command.
+<COL ffdc78>Additionally, with Pawns, crafting and 
+enhancing items is possible.</COL>
 The Pawns will always be there as reliable
-adventure partners,
-ready to assist you whenever you need their
-strength.",ui\00_message\tutorial_guide\steps\tutorial_guide_step125.gmd,\tguide\tutorial_guide_125.arc,tutorial_guide_125.arc,1
+adventure partners, ready to assist you 
+whenever you need their strength.",ui\00_message\tutorial_guide\steps\tutorial_guide_step125.gmd,\tguide\tutorial_guide_125.arc,tutorial_guide_125.arc,1
 0,TUTORIAL_STEP_64,"<COL 78f5ff>《ポーン》契約／雇用が解放されました！</COL>
 <COL ffdc78>《ポーン》</COL>とは、覚者であるあなたの
 忠実な従者であり、異界から現れた
 人ならざる存在です
 メインポーンは、ゲームメニュー《パーティー》の
 <COL ffdc78>《パーティー管理》</COL>、<COL ffdc78>《メインポーン》</COL>から
-呼び出せます","<COL 78f5ff>《Pawn》 contract/employment has been
-unlocked!</COL>
-<COL ffdc78>《Pawn》</COL> is a loyal servant of
-yours who is also an otherworldly being, not a
-human being.
-Main Pawns can be summoned from the <COL
-ffdc78>Party Management</COL> option in the game
-menu Party, <COL ffdc78>Main Pawn</COL>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step125.gmd,\tguide\tutorial_guide_125.arc,tutorial_guide_125.arc,0
+呼び出せます","<COL 78f5ff>Pawn contracts have been unlocked!</COL>
+<COL ffdc78>Pawns</COL> are your loyal followers, beings from 
+another world, serving you, the Arisen.
+Summon your Main Pawns from the [<KC UI_GAME_MENU>] 
+Game Menu, <COL ffdc78>Party</COL>, <COL ffdc78>Party Management</COL>, 
+<COL ffdc78>Main Pawn</COL>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step125.gmd,\tguide\tutorial_guide_125.arc,tutorial_guide_125.arc,0
 0,TUTORIAL_STEP_65,"ポーンには大きく分けて２種あります
 <COL ffdc78>あなたが契約を結んだ《メインポーン》と、
 他の覚者から雇用できる《サポートポーン》です</COL>
@@ -2918,37 +2908,35 @@ discarded.",ui\00_message\tutorial_guide\steps\tutorial_guide_step144.gmd,\tguid
 ログアウト時には
 それまでのプレイ記録が自動保存されます
 再開時は、最後に居た場所ではなく
-白竜神殿《中央広場》からスタートします","If you want to interrupt the game, please go to
-[<KC UI_GAME_MENU>] Game Menu《Options》
-and select<COL ffdc78>《Exit Game》</COL>
+白竜神殿《中央広場》からスタートします","If you want to interrupt the game,
+please go to [<KC UI_GAME_MENU>] Game Menu, <COL ffdc78>Options</COL> 
+and select <COL ffdc78>Exit Game</COL>.
 When you log out, the game will automatically
 save your previous play record.
 When you restart the game, you will start from
-the White Dragon Temple 《Central Square》, not from
-your last location.",ui\00_message\tutorial_guide\steps\tutorial_guide_step152.gmd,\tguide\tutorial_guide_152.arc,tutorial_guide_152.arc,0
+the White Dragon Temple <COL ffdc78>Central Square</COL>, not 
+from your last location.",ui\00_message\tutorial_guide\steps\tutorial_guide_step152.gmd,\tguide\tutorial_guide_152.arc,tutorial_guide_152.arc,0
 0,TUTORIAL_STEP_27,"<COL ffdc78>レスタニアに生まれし新たなる覚者へ</COL>
 覚者としてあなたが成すべき目的はマップ上に
 <COL ffdc78>赤の《メインクエストマーカー》で示されます</COL>
 まずは赤のマーカーを目指し
-白竜から授かった力を目前の敵にぶつけましょう","<COL ffdc78>The Newly Arisen of Lestania</COL>
-Your goals as an Arisen are marked on your
-map with a <COL ffdc78>Red ""Main Quest Marker""
-indication</COL>.
+白竜から授かった力を目前の敵にぶつけましょう","<COL ffdc78>The Newly Arisen of Lestania.</COL>
+Your goals as an Arisen are marked on
+your map with a <COL ffdc78>Red Main Quest 
+Marker indicator</COL>.
 First, head for the red marker on your
-minimap and use the strength given to you
-by the White Dragon!",ui\00_message\tutorial_guide\steps\tutorial_guide_step153.gmd,\tguide\tutorial_guide_153.arc,tutorial_guide_153.arc,0
+minimap and use the strength given 
+to you by the White Dragon!",ui\00_message\tutorial_guide\steps\tutorial_guide_step153.gmd,\tguide\tutorial_guide_153.arc,tutorial_guide_153.arc,0
 1,TUTORIAL_STEP_194,"冒険時は、左上に表示される
 <COL ffdc78>体力（ＨＰ）</COL>と<COL ffdc78>スタミナ（ＳＴ）</COL>が重要です
 ＨＰは敵の攻撃を受けると減少し
 アイテムや治癒の魔法で回復できます
 ＳＴは、激しいアクションにより消費し
 アクションを控えると自然回復します","While adventuring, the top left of your screen
-shows
-<COL ffdc78>Health (HP)</COL> and <COL
-ffdc78>Stamina (ST)</COL> bars.
-Health is depleted when you are harmed by enemies,
-and can be regained with recovery items and
-magicks.
+shows <COL ffdc78>Health (HP)</COL> and <COL ffdc78>Stamina (ST)</COL> bars.
+Health is depleted when you are harmed by
+enemies, and can be regained with recovery
+items and magicks.
 Stamina is depleted by using special actions
 and regenerates shortly after.",ui\00_message\tutorial_guide\steps\tutorial_guide_step153.gmd,\tguide\tutorial_guide_153.arc,tutorial_guide_153.arc,1
 0,TUTORIAL_STEP_38,"<COL ffdc78>《グリッテン砦攻防戦》</COL>は
@@ -3008,16 +2996,15 @@ limit, so be sure not to overlook them.",ui\00_message\tutorial_guide\steps\tuto
 <COL ffdc78>《アイテムバッグ》</COL>から消費アイテム
 <COL ffdc78>《ランタン火種》</COL>を使うと、一定時間
 プレイヤーの周囲を明るく照らします
-《ランタン火種》は常にいくつか携帯しましょう","At night or inside caves, visibility becomes poor
-and dark.
+《ランタン火種》は常にいくつか携帯しましょう","At night or inside caves, visibility becomes 
+poor and dark.
 <COL ffdc78>Use a lantern</COL> in the darkness.
-【<KC UI_GAME_MENU>】In the game menu, go to <COL
-ffdc78>Item Bag</COL> and use the consumable item
-<COL ffdc78>Lantern Kindling</COL> to illuminate
-the player's surroundings for a certain period of
-time.
-Always carry several <COL ffdc78>Lantern
-Kindling</COL> with you.",ui\00_message\tutorial_guide\steps\tutorial_guide_step158.gmd,\tguide\tutorial_guide_158.arc,tutorial_guide_158.arc,0
+[<KC UI_GAME_MENU>] In the game menu, go to <COL ffdc78>Item Bag</COL> and 
+use the consumable item <COL ffdc78>Lantern Kindling</COL> 
+to illuminate the player's surroundings for 
+a certain period of time.
+Always carry several <COL ffdc78>Lantern Kindling</COL> 
+with you.",ui\00_message\tutorial_guide\steps\tutorial_guide_step158.gmd,\tguide\tutorial_guide_158.arc,tutorial_guide_158.arc,0
 0,TUTORIAL_STEP_41,"プレイヤーは基本攻撃の他に
 スタミナを消費して専用アクションである
 <COL ffdc78>《カスタムスキル》</COL>が使用できます
@@ -3028,14 +3015,13 @@ Kindling</COL> with you.",ui\00_message\tutorial_guide\steps\tutorial_guide_step
 </KEYM>
 どういった技が出せるかは
 画面右下のガイドで確認しましょう","In addition to basic attacks, players can use
-<COL ffdc78>Custom Skills</COL> by consuming
-Stamina.
+<COL ffdc78>Custom Skills</COL> by consuming Stamina.
 <PADM> Press <KC WEAPON_SUB> and <KC ATTACK1>/<KC
 ATTACK2> together.
 Press <KC WEAPON_MAIN> and <KC ATTACK1>/<KC
 ATTACK2> together.
 <KEYM> Press <KC SKILL_CUSTOM3> <KC SKILL_CUSTOM4>
-Press <KC SKILL_CUSTOM1> <KC SKILL_CUSTOM2>
+ Press <KC SKILL_CUSTOM1> <KC SKILL_CUSTOM2>
 </KEYM>
 Check the guide in the bottom right of the screen
 to see what kind of techniques can be used.",ui\00_message\tutorial_guide\steps\tutorial_guide_step159.gmd,\tguide\tutorial_guide_159.arc,tutorial_guide_159.arc,0
@@ -3043,11 +3029,12 @@ to see what kind of techniques can be used.",ui\00_message\tutorial_guide\steps\
 戦闘中に試してみてください
 なお導入クエスト「覚悟と兆し」でセット
 されているカスタムスキルは
-このクエスト限定の一時的なものとなります","Depending on the job, the available custom skills
-may vary. Please try them out during combat.
-Please note that the custom skills set during the
-introductory quest ""Resolutions and Omens"" are
-temporary and exclusive to that quest.",ui\00_message\tutorial_guide\steps\tutorial_guide_step159.gmd,\tguide\tutorial_guide_159.arc,tutorial_guide_159.arc,1
+このクエスト限定の一時的なものとなります","Depending on the job, the available custom 
+skills may vary. 
+Please try them out during combat.
+Please note that the custom skills set during
+the introductory quest <COL ffdc78>Resolutions and Omens</COL>
+are temporary and exclusive to that quest.",ui\00_message\tutorial_guide\steps\tutorial_guide_step159.gmd,\tguide\tutorial_guide_159.arc,tutorial_guide_159.arc,1
 0,TUTORIAL_STEP_157,"<COL ffdc78>《ジョブ修練ログ》</COL>では、あなたがこれまでに
 ジョブマスターから受けた修練の状況が
 記録されています
@@ -3093,9 +3080,9 @@ skills.",ui\00_message\tutorial_guide\steps\tutorial_guide_step161.gmd,\tguide\t
 0,TUTORIAL_STEP_159,"<COL ffdc78>《拠点の礎》</COL>は、竜の礎同様
 リム転移に用いる便利な転送器です
 レスタニア各地に点在し、触れて《リム》を
-消費することで離れた礎へ瞬時に移動できます","<COL ffdc78>The ""Portcrystal""</COL> is a
-convenient transporter used for Rift Teleport,
-similar to the Dragon's Keystone.
+消費することで離れた礎へ瞬時に移動できます","<COL ffdc78>The Portcrystal</COL> is a convenient transporter 
+used for Rift Teleport, similar to the Dragon's 
+Keystone.
 They are scattered throughout Lestania and by
 consuming Rift Crystals, you can instantly travel
 to distant Portcrystals.",ui\00_message\tutorial_guide\steps\tutorial_guide_step163.gmd,\tguide\tutorial_guide_163.arc,tutorial_guide_163.arc,0
@@ -3104,24 +3091,25 @@ to distant Portcrystals.",ui\00_message\tutorial_guide\steps\tutorial_guide_step
 ゲームメニューの《リム転移》からも
 行き先として選べます
 リム転移とマイ拠点登録を利用すれば
-冒険はより快適になります","<COL ffdc78>Register your most frequently used
-locations in ""Favorites""</COL>
-The Portcrystals registered in ""My Locations""
+冒険はより快適になります","Register your most frequently used
+locations in <COL ffdc78>Favorites</COL>.
+The Portcrystals registered in <COL ffdc78>Favorites</COL>
 will receive a rim discount and can also be
-selected as destinations from ""Rift Teleport"" in
-the game menu.
+selected as destinations from <COL ffdc78>Rift Teleport</COL> 
+in the game menu.
 Rift Teleport and Favorites will make your
 adventures more pleasant!",ui\00_message\tutorial_guide\steps\tutorial_guide_step163.gmd,\tguide\tutorial_guide_163.arc,tutorial_guide_163.arc,1
 2,TUTORIAL_STEP_308,"ただし、リム転移の行き先に選べるのは
 一度訪れ「解放状態」にした礎のみです
 基本的には触れるだけで解放できますが、
 中には条件のクリアが必要な礎もあります","However, the only Rift Crystals that can be
-chosen as the destination for Rift Teleport are
-the ones that have been visited and put into a
-""Released State.""
-In general, you can release them just by touching
-them, but there are also some crystals that
-require specific conditions to be cleared.",ui\00_message\tutorial_guide\steps\tutorial_guide_step163.gmd,\tguide\tutorial_guide_163.arc,tutorial_guide_163.arc,2
+chosen as the destination for Rift Teleport 
+are the ones that have been visited and 
+put into a <COL ffdc78>Released State</COL>.
+In general, you can release them just by 
+touching them, but there are also some 
+crystals that require specific conditions 
+to be cleared.",ui\00_message\tutorial_guide\steps\tutorial_guide_step163.gmd,\tguide\tutorial_guide_163.arc,tutorial_guide_163.arc,2
 0,TUTORIAL_STEP_160,"敵の攻撃や高所落下など、旅に危険はつきものです
 体力の回復手段は常に用意しておきましょう
 プリーストなどの回復魔法が主な回復手段に
@@ -3359,7 +3347,7 @@ counterattacks to defend against enemy attacks.
 Deflect attacks from enemies with <KC WEAPON_SUB>.
 They can also use combination techniques to
 launch their allies into the air.
-Perform a <KC CATAPULT> linking throw.",ui\00_message\tutorial_guide\steps\tutorial_guide_step172.gmd,\tguide\tutorial_guide_172.arc,tutorial_guide_172.arc,0
+Perform a linking throw by pressing <KC CATAPULT>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step172.gmd,\tguide\tutorial_guide_172.arc,tutorial_guide_172.arc,0
 1,TUTORIAL_STEP_320,"またソロでもパーティーでもイベント進行時は
 確認を求められることがあります
 ＜進行マーカー＞
@@ -3574,11 +3562,11 @@ Actions, such as shaking, while clinging【<KC_CLIMB_JOLT>】.",ui\00_message\tu
 神殿の《商店区》や《宿場区》で旅の準備を
 整えてから出発しましょう","You can exit from the main gate on the east side
 of the temple to reach the adventure field.
-There are many dangers such as enemies lurking in
-the wilderness.
+There are many dangers such as enemies lurking
+in the wilderness.
 Let's prepare for the journey by getting healing
-items and a lantern from the Shopping District and
-Relay Station District of the temple.",ui\00_message\tutorial_guide\steps\tutorial_guide_step181.gmd,\tguide\tutorial_guide_181.arc,tutorial_guide_181.arc,0
+items and a lantern from the <COL ffdc78>Shopping District</COL> 
+and <COL ffdc78>Relay Station District</COL> of the temple.",ui\00_message\tutorial_guide\steps\tutorial_guide_step181.gmd,\tguide\tutorial_guide_181.arc,tutorial_guide_181.arc,0
 0,TUTORIAL_STEP_178,"冒険中に敵の攻撃などで<COL ffdc78>《死亡状態》</COL>に
 なってしまった場合でも
 白竜から授かった<COL ffdc78>《復活力》</COL>を使うことで
@@ -3610,21 +3598,19 @@ multiple times a day.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_s
 【<KC UI_GAME_MENU>】ゲームメニュー内
 《ワールド》の《リム転移》を選びましょう
 白竜神殿レーゼまで、リムを支払うことなく
-瞬時に帰還できます","When returning from a trip, such as a field or
-cave, to
-the White Dragon Temple, the ""Rift Teleport"" is
-convenient.
-Choose ""Rift Teleport"" in the<KC
-UI_GAME_MENU>game menu under ""World.""
-You can instantly return to the White Dragon
-Temple without paying the Rift Crystal to the
-White Dragon Temple.",ui\00_message\tutorial_guide\steps\tutorial_guide_step195.gmd,\tguide\tutorial_guide_195.arc,tutorial_guide_195.arc,0
+瞬時に帰還できます","When returning from a trip, such as a field or cave, 
+to the White Dragon Temple, the <COL 78f5ff>Rift Teleport</COL> 
+is convenient.
+Choose <COL 78f5ff>Rift Teleport</COL> in the [<KC UI_GAME_MENU>] Game Menu 
+under <COL 78f5ff>World.</COL>
+You can instantly return to the White Dragon 
+Temple without paying any fee.",ui\00_message\tutorial_guide\steps\tutorial_guide_step195.gmd,\tguide\tutorial_guide_195.arc,tutorial_guide_195.arc,0
 1,TUTORIAL_STEP_330,"また、各地の拠点を《マイ拠点》として
 登録している場合、リムを支払えば
-どこからでもマイ拠点へ瞬時に移動できます","If you have registered various places as
-""Favorites"" in different locations, you can
-instantly move to ""Favorites"" from anywhere by
-paying Rift Crystal.",ui\00_message\tutorial_guide\steps\tutorial_guide_step195.gmd,\tguide\tutorial_guide_195.arc,tutorial_guide_195.arc,1
+どこからでもマイ拠点へ瞬時に移動できます","If you have registered various places 
+as <COL 78f5ff>Favorites</COL> in different locations, 
+you can instantly move to <COL 78f5ff>Favorites</COL> from 
+anywhere by paying Rift Crystals.",ui\00_message\tutorial_guide\steps\tutorial_guide_step195.gmd,\tguide\tutorial_guide_195.arc,tutorial_guide_195.arc,1
 0,TUTORIAL_STEP_334,"大型敵は強力で、覚者にとって脅威です
 特に通常敵と異なるのは、体力がある程度
 減少すると身体が赤く輝く<COL ffdc78>《怒り状態》</COL>となり
@@ -3699,27 +3685,28 @@ attacks with high blow power are more effective.",ui\00_message\tutorial_guide\s
 ソロプレイ中でもパーティープレイ中でも
 <COL ffdc78>進行者（パーティープレイ時はリーダー）
 が《進行マーカー》に触れることで
-メインクエストは次のイベントへ進行します</COL>","During the Main Quest progress, <COL
-ffdc78>《Progress Marker》</COL> appears at the
-checkpoint location.
-Whether playing solo or in a party, the player
-leading the progression (the leader in party play)
-advances the Main Quest to the next event by
-touching the 《Progress Marker》.",ui\00_message\tutorial_guide\steps\tutorial_guide_step209.gmd,\tguide\tutorial_guide_209.arc,tutorial_guide_209.arc,0
+メインクエストは次のイベントへ進行します</COL>","During the Main Quest <COL ffdc78>Progress Marker</COL>, 
+appears at the checkpoint location.
+Whether playing solo or in a party, 
+the player leading the progression 
+(the leader in party play)
+advances the Main Quest to the next 
+event by touching the <COL ffdc78>Progress Marker</COL>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step209.gmd,\tguide\tutorial_guide_209.arc,tutorial_guide_209.arc,0
 1,TUTORIAL_STEP_338,"ただし、パーティープレイ中はメインクエスト
 の要所で進行マーカーが発生した場合、
 マーカーの元に全員集合する必要があります
 リーダーから<COL ffdc78>《パーティー招集》要請が
 届いたら、メンバーもマーカーに触れて
 《準備完了》状態になり、待機</COL>してください
-また、同様の機能をもつ扉も存在します","However, during party play, if a progress marker
-occurs at a key point in the main quest, everyone
-must gather at the marker.
-When a <COL ffdc78>""Party Summoning"" request is
-received from the leader, members should also
-touch the marker and enter a ""Preparation
-Complete"" state</COL>, then wait.
-There are also doors that have the same function.",ui\00_message\tutorial_guide\steps\tutorial_guide_step209.gmd,\tguide\tutorial_guide_209.arc,tutorial_guide_209.arc,1
+また、同様の機能をもつ扉も存在します","However, during party play, if a progress 
+marker occurs at a key point in the main 
+quest, everyone must gather at the marker.
+When a <COL ffdc78>Party Summoning</COL> request is
+received from the leader, members should 
+also touch the marker and enter a 
+<COL ffdc78>Preparation Complete</COL> state, then wait.
+There are also doors that have the same 
+function.",ui\00_message\tutorial_guide\steps\tutorial_guide_step209.gmd,\tguide\tutorial_guide_209.arc,tutorial_guide_209.arc,1
 0,TUTORIAL_STEP_340,"狙った敵にロープを投げて捉えることで
 対象に急接近することができます
 　【<KC WEAPON_SUB>】ロープ構え
@@ -4009,38 +3996,40 @@ Let's make use of it according to your needs.",ui\00_message\tutorial_guide\step
 から購入できます</COL>
 推奨レベルを確認し、挑戦したい
 ワールドクエストの情報を購入しましょう
-また、公開済み情報も同時に確認できます","Information about <COL ffdc78>""Hidden World
-Quests"" that have not yet been published in
-Lestania News can be purchased from ""World Quest
-Information"" by talking to the ""Area Master"" in
-each area.</COL>
-Check the recommended level and purchase
-information about the World Quest you want to try.
-You can also check the published information at
-the same time!",ui\00_message\tutorial_guide\steps\tutorial_guide_step231.gmd,\tguide\tutorial_guide_231.arc,tutorial_guide_231.arc,0
+また、公開済み情報も同時に確認できます","Information about <COL ffdc78>Hidden World Quests</COL> 
+that have not yet been published in
+Lestania News can be purchased from 
+<COL ffdc78>World Quest Information</COL> by talking 
+to the <COL ffdc78>Area Master</COL> in each area.
+Check the recommended level and 
+purchase information about the World 
+Quest you want to try.
+You can also check the published 
+information at the same time!",ui\00_message\tutorial_guide\steps\tutorial_guide_step231.gmd,\tguide\tutorial_guide_231.arc,tutorial_guide_231.arc,0
 1,TUTORIAL_STEP_368,"受注場所、倒すべき魔物といった
 クエスト目的、そしてクリア時の報酬など
 さまざまな情報が確認できます
 ワールドクエスト情報を利用して
-多くの未公開クエストに挑戦しましょう","You can check various information such as the
-location of the order, the monsters to defeat, the
-quest objectives, and the rewards upon completion.
-Use the World Quest information to challenge many
-undiscovered quests.",ui\00_message\tutorial_guide\steps\tutorial_guide_step231.gmd,\tguide\tutorial_guide_231.arc,tutorial_guide_231.arc,1
+多くの未公開クエストに挑戦しましょう","You can check various information such as
+the location of the order, the monsters
+to defeat, the quest objectives, and the 
+rewards upon completion.
+Use the World Quest information to 
+challenge many undiscovered quests.",ui\00_message\tutorial_guide\steps\tutorial_guide_step231.gmd,\tguide\tutorial_guide_231.arc,tutorial_guide_231.arc,1
 0,TUTORIAL_STEP_369,"ワールドクエストは常に起こっている
 わけではありません
 配信期間が終了すると
 自動的にクエストは破棄されます
 <COL ffdc78>ただし期間中は何度でも受注・クリア可能です
 繰り返し挑むことで、報酬に《繰り返しボーナス》が
-つくことがあるため、ぜひ狙ってみましょう<COL ffdc78>","World Quests are not constantly happening. They
-will be automatically discarded when the event
-period ends.
-<COL ffdc78>However, you can accept and clear
-them as many times as you want during the period.
-By attempting them repeatedly, you may receive a
-""Repeat Bonus"" as a reward, so let's aim for it!
-</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step232.gmd,\tguide\tutorial_guide_232.arc,tutorial_guide_232.arc,0
+つくことがあるため、ぜひ狙ってみましょう<COL ffdc78>","World Quests are not constantly happening. 
+They will be automatically discarded when 
+the event period ends.
+However, you can accept and clear them as 
+many times as you want during the period.
+By attempting them repeatedly, you may 
+receive a <COL ffdc78>Repeat Bonus</COL> as a reward, 
+so let's aim for it!",ui\00_message\tutorial_guide\steps\tutorial_guide_step232.gmd,\tguide\tutorial_guide_232.arc,tutorial_guide_232.arc,0
 0,TUTORIAL_STEP_370,"エリアランクが上がると、時として新たな
 強敵が<COL ffdc78>《魔物警戒スポット》</COL>に登場します
 <COL ffdc78>そういった強敵には固有の名前がついており
@@ -4192,16 +4181,15 @@ formidable enemies.",ui\00_message\tutorial_guide\steps\tutorial_guide_step237.g
 名声度<COL ffdc78>《エリアランク》</COL>が上がります</COL>
 <COL ffdc78>エリアランクが上がることで
 封鎖区域の開放、支援品の向上、新たな強敵の
-登場といった変化が発生します</COL>","By completing World Quests and Board Quests, you
-can contribute to solving regional problems and
-accumulate <COL ffdc78>Area Points.</COL>
+登場といった変化が発生します</COL>","By completing World Quests and Board Quests, 
+you can contribute to solving regional problems 
+and accumulate <COL ffdc78>Area Points.</COL>
 When you reach a certain amount of Area Points,
-the <COL ffdc78>Area Rank</COL> of the region
-will increase.
-<COL ffdc78>As the Area Rank increases,
-changes such as the opening of blocked areas,
-improvement of support goods, and the appearance
-of new powerful enemies will occur.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step238.gmd,\tguide\tutorial_guide_238.arc,tutorial_guide_238.arc,0
+the <COL ffdc78>Area Rank</COL> of the region will increase.
+<COL ffdc78>As the Area Rank increases, changes such as 
+the opening of blocked areas, improvement 
+of support goods, and the appearance of new 
+powerful enemies will occur.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step238.gmd,\tguide\tutorial_guide_238.arc,tutorial_guide_238.arc,0
 1,TUTORIAL_STEP_380,"各エリアのランクと現在のポイントは
 【<KC UI_GAME_MENU>】ゲームメニュー
 《ワールド》の<COL ffdc78>《エリアリスト》</COL>から確認できます
@@ -4209,15 +4197,16 @@ of new powerful enemies will occur.</COL>",ui\00_message\tutorial_guide\steps\tu
 訪れ、《エリア情報》を選びましょう
 そうすることでエリアランクが上がります
 各地のクエストをこなしてエリアランクを上げ
-冒険の幅を増やしましょう","The rank and current points of each area can be
-checked in the <KC UI_GAME_MENU>game menu. You can
-find them in the <COL ffdc78>""Area List""</COL> in
-the ""World"" section.
-Once you have accumulated enough points, visit
-the Area Master and choose ""Area Information"".
+冒険の幅を増やしましょう","The rank and current points of each area 
+can be checked in the [<KC UI_GAME_MENU>] Game Menu. 
+You can find them in the <COL ffdc78>Area List</COL> in the 
+<COL ffdc78>World</COL> section.
+Once you have accumulated enough points, visit 
+the Area Master and choose <COL ffdc78>Area Information</COL>.
 This will increase your area rank.
-Complete quests in various areas to increase your
-area rank and expand your adventure.",ui\00_message\tutorial_guide\steps\tutorial_guide_step238.gmd,\tguide\tutorial_guide_238.arc,tutorial_guide_238.arc,1
+Complete quests in various areas to increase 
+your area rank and expand your 
+adventure.",ui\00_message\tutorial_guide\steps\tutorial_guide_step238.gmd,\tguide\tutorial_guide_238.arc,tutorial_guide_238.arc,1
 2,TUTORIAL_STEP_412,"<COL ffdc78>ただし、エリアランクは自身が
 パーティーリーダーの時にしか
 ランクアップできません</COL>
@@ -4227,23 +4216,22 @@ area rank and expand your adventure.",ui\00_message\tutorial_guide\steps\tutoria
 している場合は、リーダー覚者のエリアランクが
 反映されるためご留意ください","<COL ffdc78>However, your Area Rank can only be
 increased when you are the party leader. </COL>
-In some cases, clearing Area Quests may be a
-requirement.
+In some cases, clearing Area Trial may 
+be a requirement.
 Please note that if you are joining another
-player's party as a guest, the leader's Area Rank
-will be reflected.",ui\00_message\tutorial_guide\steps\tutorial_guide_step238.gmd,\tguide\tutorial_guide_238.arc,tutorial_guide_238.arc,2
+player's party as a guest, the leader's Area 
+Rank will be reflected.",ui\00_message\tutorial_guide\steps\tutorial_guide_step238.gmd,\tguide\tutorial_guide_238.arc,tutorial_guide_238.arc,2
 0,TUTORIAL_STEP_381,"これらのゲーム説明は【<KC UI_GAME_MENU>】ゲームメニュー
 《ワールド》の<COL ffdc78>《チュートリアルガイド》</COL>から
 再確認できます
 カテゴリー別にゲームの各種情報が
 いつでも見られますので
-迷った時はまず目を通してみましょう","These game explanations can be found in the <KC
-UI_GAME_MENU> game menu, under the <COL
-ffdc78>Tutorial Guide</COL> in <World>.
-You can always refer to them again.
-By checking the various game information
-categorized, you can easily find the answers when
-you are unsure.",ui\00_message\tutorial_guide\steps\tutorial_guide_step239.gmd,\tguide\tutorial_guide_239.arc,tutorial_guide_239.arc,0
+迷った時はまず目を通してみましょう","This game info can be found again in the 
+[<KC UI_GAME_MENU>] Game Menu,in the <COL ffdc78>Tutorial Guide</COL> 
+under World.
+Game info is categorized and viewable 
+anytime.
+If you get stuck, start by checking there!",ui\00_message\tutorial_guide\steps\tutorial_guide_step239.gmd,\tguide\tutorial_guide_239.arc,tutorial_guide_239.arc,0
 0,TUTORIAL_STEP_382,"一定のクラフトレベルに達したメインポーンは
 <COL ffdc78>《クラフトレベル昇格試験》</COL>に挑むことが
 できます
@@ -5720,20 +5708,18 @@ Check the remaining time limit and be resourceful!",ui\00_message\tutorial_guide
 各種サービスやアイテムを購入することができます
 特典や有効期限にも注意しながら
 プレイスタイルにあったサービスを
-有効に利用しましょう","<COL ffdc78>In the ""Online Shop""</COL>,
-<COL ffdc78>""Golden Stones""</COL>can be used to
-purchase various services and items to support
-your growth and adventure.
-Pay attention to the benefits and expiration
-dates and make the most of the services that suit
-your play style!",ui\00_message\tutorial_guide\steps\tutorial_guide_step336.gmd,\tguide\tutorial_guide_336.arc,tutorial_guide_336.arc,0
+有効に利用しましょう","In the <COL ffdc78>Online Shop</COL>, <COL ffdc78>Golden Stones</COL> can be 
+used to purchase various services and items 
+to support your growth and adventure.
+Pay attention to the benefits and expiration 
+dates and make the most of the services
+that suit your play style!",ui\00_message\tutorial_guide\steps\tutorial_guide_step336.gmd,\tguide\tutorial_guide_336.arc,tutorial_guide_336.arc,0
 1,TUTORIAL_STEP_538,"購入済みの未使用コースについては
 【<KC UI_GAME_MENU>】ゲームメニュー<COL ffdc78>《オンラインショップ》にある
 《オンラインステーション》の《未使用コース》</COL>から
-確認することができます","For purchased unused courses, you can check them
-from the <KC UI_GAME_MENU>""Game Menu"" in the <COL
-ffdc78>""Online Shop"" under the ""Online
-Station"".</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step336.gmd,\tguide\tutorial_guide_336.arc,tutorial_guide_336.arc,1
+確認することができます","For purchased unused courses, you can 
+check them from the [<KC UI_GAME_MENU>] Game Menu in the 
+<COL ffdc78>Online Shop</COL> under the<COL ffdc78> Online Station.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step336.gmd,\tguide\tutorial_guide_336.arc,tutorial_guide_336.arc,1
 0,TUTORIAL_STEP_539,"覚者として日々を過ごしていると、メールを通して
 様々なイベントの通知などが送られてきます
 メールの内容は
@@ -5741,15 +5727,13 @@ Station"".</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step336.gmd,
 《メール》</COL>から確認することができます
 また、メールにアイテムが添付されていた場合は
 【<KC UI_GAME_MENU>】ゲームメニュー<COL ffdc78>《キャラクター》の
-《アイテムポスト》</COL>から受け取ることができます","As an Arisen, while spend your days, various
+《アイテムポスト》</COL>から受け取ることができます","As an Arisen, while you spend your days, various 
 event notifications are sent to you through mail.
-The content can be checked from the<COL
-ffdc78>《Communication》, ""Mail""</COL> section of
-the ""Game Menu"" 【<KC UI_GAME_MENU>】.
-<COL ffdc78>If an item is attached to the mail,
-you can receive it from the section of the
-""Character"" menu labeled 《Item Post》</COL> in the
-game menu【<KC UI_GAME_MENU>】.",ui\00_message\tutorial_guide\steps\tutorial_guide_step337.gmd,\tguide\tutorial_guide_337.arc,tutorial_guide_337.arc,0
+The contents can be checked from Mail in the
+<COL ffdc78>Communication</COL> section of the Game Menu [<KC UI_GAME_MENU>]
+If an item is attached to the mail, you can receive 
+it from the section of the Character menu labeled 
+<COL ffdc78>Item Post</COL> in the Game Menu.[<KC UI_GAME_MENU>]",ui\00_message\tutorial_guide\steps\tutorial_guide_step337.gmd,\tguide\tutorial_guide_337.arc,tutorial_guide_337.arc,0
 1,TUTORIAL_STEP_540,"イベントによっては<COL ffdc78>《イベントコード入力》</COL>による
 アイテムの受け取り方法もあります
 イベントコードを入手する事があれば
@@ -5757,15 +5741,13 @@ game menu【<KC UI_GAME_MENU>】.",ui\00_message\tutorial_guide\steps\tutorial_g
 《イベントコード入力》</COL>から入力してみましょう
 なお、コード入力によるアイテムの受け取りについても
 メールを介して《アイテムポスト》から
-確認することができます","Depending on the event, there may be a way to
-receive items through <COL ffdc78>""Event Code
-Input""</COL>.
-If you have obtained an event code, try entering
-it from the <KC UI_GAME_MENU>""Game Menu""<COL
-ffdc78>""Online Shop""</COL> and see what happens.
+確認することができます","Depending on the event, there may be a way 
+to receive items through <COL ffdc78>Event Code Input</COL>.
+If you have obtained an event code, try 
+entering it from the [<KC UI_GAME_MENU>] Game Menu 
+<COL ffdc78>Online Shop</COL> and see what happens.
 Additionally, you can confirm the receipt of
-items through the mail from the <COL ffdc78>""Item
-Post""</COL>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step337.gmd,\tguide\tutorial_guide_337.arc,tutorial_guide_337.arc,1
+items through the mail from the <COL ffdc78>Item Post</COL>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step337.gmd,\tguide\tutorial_guide_337.arc,tutorial_guide_337.arc,1
 0,TUTORIAL_STEP_542,"・食料が枯渇した砦の料理番キャリーに協力する
 ・日々話しかけてことで様々なお願いを聞く","- Assist Carrie, the chef of the fortress
 suffering from food shortages.
@@ -7897,26 +7879,25 @@ Return to level 1 and play again from the
 start. Chests and rewards are not reset.
 Use when you want to play with other players
 from the start.
-<COL ffdc78>②""Reset Rewards and Progress""</COL>
+<COL ffdc78>""Reset Rewards and Progress""</COL>
 Chests and rewards are available again.
 Necessary to explore Bitterblack Maze again.",ui\00_message\tutorial_guide\steps\tutorial_guide_step403.gmd,\tguide\tutorial_guide_403.arc,tutorial_guide_403.arc,1
 0,TUTORIAL_STEP_749,"<COL ffdc78>《冒険ガイド》</COL>は
 レスタニア大陸を旅する覚者たちに
 今できることを教えてくれるガイドです
 クエスト内容によって項目分けされているので
-目的に合ったクエストを見つけて挑戦しましょう！","The <COL ffdc78>《Adventure Guide》</COL> is a
-guide that teaches Arisen who travel the Lestania
-continent what they can do now.
-It is divided into sections based on the quest
-content, so let's find a quest that suits our
-purpose and challenge it!",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,0
+目的に合ったクエストを見つけて挑戦しましょう！","The <COL ffdc78>Adventure Guide</COL> is a guide that 
+teaches Arisen who travel the Lestanian 
+Continent what they is available to do now.
+It is divided into sections based on the 
+quest content, so let's find a quest that 
+suits your purpose and challenge it!",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,0
 1,TUTORIAL_STEP_750,"冒険ガイドは
 【<KC UI_GAME_MENU>】ゲームメニュー《クエスト》の
 <COL ffdc78>《冒険ガイド》</COL>からいつでも確認できます
 また白竜神殿のアイザックからも
-確認することができます","The <COL ffdc78>Adventure Guide</COL> can always
-be checked from the ""Quest"" section in the <KC
-UI_GAME_MENU>.
+確認することができます","The <COL ffdc78>Adventure Guide</COL> can always be checked 
+from the <COL ffdc78>Quest</COL> section in the Game Menu.[<KC UI_GAME_MENU>]
 You can also check it from Isaac at the White
 Dragon Temple.",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,1
 2,TUTORIAL_STEP_751,"表示される項目には以下のようなものがあります
@@ -7926,15 +7907,14 @@ Dragon Temple.",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\t
 ジョブに応じた、レベル上げ方法の紹介
 <COL ffdc78>《冒険に役立つクエスト》</COL>
 施設や機能が解放されるクエストの紹介","The following items are displayed:
-<COL ffdc78>《Main Quest》</COL>
-Introduction of main quests according to the
-current progress
-<COL ffdc78>《Level Up Missions》 / 《Level Up
-Quests》</COL>
-Introduction of leveling methods according to jobs
-<COL ffdc78>《Useful Quests for Adventure》</COL>
-Introduction of quests that release facilities
-and functions",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,2
+<COL ffdc78>Main Quest:</COL>
+Introduction of main quests according 
+to the current progress.
+<COL ffdc78>Leveling Missions/Leveling Quests:</COL>
+Job-Specific Leveling Methods. 
+<COL ffdc78>Quests to Aid Your Adventure:</COL>
+Introduction to quests that unlock 
+locations and functions.",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,2
 4,TUTORIAL_STEP_784,"《レベル上げミッション》は
 冒険ガイドから<COL ffdc78>《参加する》</COL>を選ぶことで
 受注することが可能です
@@ -7943,24 +7923,25 @@ and functions",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tg
 クエスト受注までの距離や受注できる場所が
 明確に分かるようになります
 ※ワイルドハントは《ナビゲート設定》ができません
-　《地図で確認》は受注することで可能になります","You can order ""Level Up Missions"" by selecting
-<COL ffdc78>""Join""</COL>from the Adventure Guide
-For other quests, select <COL ffdc78>""Navigate
-Settings""</COL>
-from the Adventure Guide to clearly see the
-distance to the quests and where you can receive
-them
-Please note that ""Wild Hunt"" quests cannot be set
-through the ""Navigate Setting"". You can use the
-""Check Map"" option by accepting the quest.",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,4
+　《地図で確認》は受注することで可能になります","You can choose <COL ffdc78>Leveling Missions</COL> by 
+selecting <COL ffdc78>Join</COL> from the Adventure 
+Guide.
+For other quests, select <COL ffdc78>Navigation Settings</COL>
+from the Adventure Guide to clearly see the 
+distance to the quests and where you 
+can receive them.
+Please note that <COL ffdc78>Wild Hunt</COL> quests cannot 
+be set through the <COL ffdc78>Navigate Setting</COL>. 
+You can use the <COL ffdc78>Check Map</COL> option by 
+accepting the quest.",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,4
 3,TUTORIAL_STEP_789,"<COL ffdc78>《コラボ/シーズナルクエスト》</COL>
 現在、開催されているイベント系クエストの紹介
 <COL ffdc78>《エリア試練/エリアミッション》</COL>
 現在受注可能な、エリア試練とエリアミッションの紹介","<COL ffdc78>Collaboration/Seasonal Quests</COL>
-Introduction of current event-related quests
-<COL ffdc78>《Area Trials/Area Missions》</COL>
+Introduction of current event-related quests.
+<COL ffdc78>Area Trials/Area Missions</COL>
 Introduction of current area trials and area
-missions that can be ordered.",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,3
+missions that can be completed.",ui\00_message\tutorial_guide\steps\tutorial_guide_step404.gmd,\tguide\tutorial_guide_404.arc,tutorial_guide_404.arc,3
 0,TUTORIAL_STEP_752,"<COL ffdc78>《霧の森の死闘》</COL>は
 最大８人のパーティーを結成して
 悪しき竜軍に占領された霧の森を
@@ -9345,7 +9326,7 @@ Enjoying a peaceful time.",ui\00_message\tutorial_guide\steps\tutorial_guide_ste
 41,TUTORIAL_93,バザー,Bazaar,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,41
 42,TUTORIAL_97,パーティー編成,Party Creation,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,42
 43,TUTORIAL_100,パーティープレイ中の注意点,Important Points of Party Play,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,43
-44,TUTORIAL_102,戦技の獲得,Acquiring Combat Manuevers,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,44
+44,TUTORIAL_102,戦技の獲得,Acquiring Combat Skills,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,44
 45,TUTORIAL_107,エクストリームミッション,Extreme Missions,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,45
 46,TUTORIAL_109,覚者のさらなる成長・竜力の継承,"Arisen's Further Growth and Dragon Force
 Augmentation",ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,46
@@ -9389,20 +9370,3 @@ Augmentation",ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.ar
 84,TUTORIAL_176,着飾り装備,Dress Equipment,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,84
 85,TUTORIAL_177,ハンターの戦法：追記,Advanced Tactics: Hunter,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,85
 86,TUTORIAL_178,プリーストの戦法：追記,Advanced Tactics: Priest,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,86
-87,TUTORIAL_179,シールドセージの戦法：追記,Advanced Tactics: Shield Sage,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,87
-88,TUTORIAL_180,しがみつき行動,Clinging,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,88
-89,TUTORIAL_181,冒険フィールドへの出発,Leaving to the Field,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,89
-90,TUTORIAL_182,復活力の回復,Recover Revival Power,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,90
-91,TUTORIAL_195,神殿への帰還,Return to Temple,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,91
-92,TUTORIAL_208,大型敵との戦い,Fighting Large Enemies,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,92
-93,TUTORIAL_209,進行マーカーの使い方,Using the Progress Marker,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,93
-94,TUTORIAL_211,シーカーの戦法：追記,Advanced Tactics: Seeker,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,94
-95,TUTORIAL_212,ソーサラーの戦法：追記,Advanced Tactics: Sorcerer,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,95
-96,TUTORIAL_214,エレメントアーチャーの戦法：追記,Advanced Tactics: Element Archer,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,96
-97,TUTORIAL_216,ウォリアーの戦法：追記,Advanced Tactics: Warrior,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,97
-98,TUTORIAL_218,アルケミストの戦法：追記,Advanced Tactics: Alchemist,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,98
-99,TUTORIAL_219,太古の強者,Ancient Warrior,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,99
-100,TUTORIAL_220,失われた秩序,The Lost Order,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,100
-101,TUTORIAL_221,眩き黄金,The Dazzling Gold,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,101
-102,TUTORIAL_222,ポーンのリアクション設定,Pawn Reaction Settings,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,102
-103,TUTORIAL_224,ポーンへの命令,Pawn Commands,ui\00_message\tutorial_guide\tutorial_guide.gmd,\tutorial_guide.arc,tutorial_guide.arc,103
