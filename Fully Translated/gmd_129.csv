@@ -271,16 +271,16 @@ display.",ui\00_message\ui\ranking_bord.gmd,\ui\uGUIRankingBoard.arc,uGUIRanking
 6,RETRY_MSG_DIALOG_GOLD_STONE,"<COL FFFF00>黄金石</COL>を<VAL>個使用して復活します
 よろしいですか？","Are you sure you want to resurrect with
 <VAL> <COL FFFF00>Golden Gemstone</COL>?",ui\00_message\ui\retry.gmd,\ui\uGUIRetrySelect.arc,uGUIRetrySelect.arc,6
-8,RETRY_MSG_DIALOG_GPSHOP_OPEN,黄金石が不足しているのでショップ画面を開きます,"The shop screen will open because you are 
-missing Golden Gemstones.",ui\00_message\ui\retry.gmd,\ui\uGUIRetry.arc,uGUIRetry.arc,8
+8,RETRY_MSG_DIALOG_GPSHOP_OPEN,黄金石が不足しているのでショップ画面を開きます,"The shop screen will open because you are missing
+Golden Gemstones.",ui\00_message\ui\retry.gmd,\ui\uGUIRetry.arc,uGUIRetry.arc,8
 8,RETRY_MSG_DIALOG_GPSHOP_OPEN,黄金石が不足しているのでショップ画面を開きます,"The shop screen will open because you are missing
 Golden Gemstones.",ui\00_message\ui\retry.gmd,\ui\uGUIRetrySelect.arc,uGUIRetrySelect.arc,8
 12,RETRY_MSG_DIALOG_PENALTY,"から再開します
 よろしいですか？
-<COL AA1414>状態異常【弱化】が発生します</COL>","Are you sure you want to 
-revive at the last camp?
-<COL AA1414>You will be afflicted with the 
-Weakness debilitation.</COL>",ui\00_message\ui\retry.gmd,\ui\uGUIRetry.arc,uGUIRetry.arc,12
+<COL AA1414>状態異常【弱化】が発生します</COL>","Are you sure you want to revive
+at the last camp?
+<COL AA1414>You will be afflicted with
+the Weakness debilitation.</COL>",ui\00_message\ui\retry.gmd,\ui\uGUIRetry.arc,uGUIRetry.arc,12
 12,RETRY_MSG_DIALOG_PENALTY,"から再開します
 よろしいですか？
 <COL AA1414>状態異常【弱化】が発生します</COL>","Are you sure you want to revive
@@ -395,7 +395,7 @@ lost</COL>.",ui\00_message\ui\retry.gmd,\ui\uGUIRetrySelect.arc,uGUIRetrySelect.
 17,RIM_MSG_TAB_SEARCH,ポーン検索,Pawn Search,ui\00_message\ui\rim_stone.gmd,\ui\uGUIRimStone.arc,uGUIRimStone.arc,17
 19,RIM_MSG_TAB_SUPPORT,サポートポーン,Support Pawns,ui\00_message\ui\rim_stone.gmd,\ui\uGUIRimStone.arc,uGUIRimStone.arc,19
 0,RIM_MSG_TITLE_M_TITLE00,Rim Stone,Riftstone Menu,ui\00_message\ui\rim_stone.gmd,\ui\uGUIRimStone.arc,uGUIRimStone.arc,0
-1,RIM_MSG_TITLE_M_TITLE01,リムストーンメニュー," ",ui\00_message\ui\rim_stone.gmd,\ui\uGUIRimStone.arc,uGUIRimStone.arc,1
+1,RIM_MSG_TITLE_M_TITLE01,リムストーンメニュー, ,ui\00_message\ui\rim_stone.gmd,\ui\uGUIRimStone.arc,uGUIRimStone.arc,1
 0,rsp_msg_000,レンタルポイントの割り振り,Allocate Rental Points,ui\00_message\ui\rim_stone_sp.gmd,\ui\uGUIPopPawnPoint.arc,uGUIPopPawnPoint.arc,0
 1,rsp_msg_001,残りレンタルポイント,Remaining Rental Points,ui\00_message\ui\rim_stone_sp.gmd,\ui\uGUIPopPawnPoint.arc,uGUIPopPawnPoint.arc,1
 2,rsp_msg_002,ジョブポイントに変換,Conversion to Job Point,ui\00_message\ui\rim_stone_sp.gmd,\ui\uGUIPopPawnPoint.arc,uGUIPopPawnPoint.arc,2
@@ -435,8 +435,8 @@ as your Favorite?",ui\00_message\ui\rim_transport.gmd,\ui\uGUIRimWarp.arc,uGUIRi
 よろしいですか？","Are you sure you want to return to
 the Bitterblack Maze Cove?",ui\00_message\ui\rim_transport.gmd,\ui\uGUIRimWarp.arc,uGUIRimWarp.arc,35
 9,dialog_transport_check,"選択した礎にリム転移します
-よろしいですか？","Do you want to teleport to the selected 
-keystone with Rift Crystals?",ui\00_message\ui\rim_transport.gmd,\ui\uGUIRimWarp.arc,uGUIRimWarp.arc,9
+よろしいですか？","Do you want to teleport to the selected keystone
+with Rift Crystals?",ui\00_message\ui\rim_transport.gmd,\ui\uGUIRimWarp.arc,uGUIRimWarp.arc,9
 15,diarog_transport_rim_check,"選択したリムストーンへ転移します
 よろしいですか？",Would you like to teleport to the Riftstone?,ui\00_message\ui\rim_transport.gmd,\ui\uGUIRimWarp.arc,uGUIRimWarp.arc,15
 26,error_already_favorite,すでにマイ拠点登録済みの礎です,"It is already a keystone registered in
@@ -456,7 +456,7 @@ Cove</COL>",ui\00_message\ui\rim_transport.gmd,\ui\uGUIRimWarp.arc,uGUIRimWarp.a
 18,notice_pt_warp_over,パーティー同行リム転移の期限が切れました,Rift Teleport with Party has expired.,ui\00_message\ui\rim_transport.gmd,\ui\uGUIRimWarp.arc,uGUIRimWarp.arc,18
 12,option_not_registration,未登録,Unregistered,ui\00_message\ui\rim_transport.gmd,\ui\uGUIRimWarp.arc,uGUIRimWarp.arc,12
 6,option_registration,マイ拠点に登録,Register to Favorites,ui\00_message\ui\rim_transport.gmd,\ui\uGUIRimWarp.arc,uGUIRimWarp.arc,6
-5,option_transport_other,各地の礎へ転移,Teleport using the Rift.,ui\00_message\ui\rim_transport.gmd,\ui\uGUIRimWarp.arc,uGUIRimWarp.arc,5
+5,option_transport_other,各地の礎へ転移,Teleport to the keystones of various lands.,ui\00_message\ui\rim_transport.gmd,\ui\uGUIRimWarp.arc,uGUIRimWarp.arc,5
 14,option_transport_rim,神殿内へ転移,Teleport to the Temple,ui\00_message\ui\rim_transport.gmd,\ui\uGUIRimWarp.arc,uGUIRimWarp.arc,14
 29,tab_all_foundation,すべての礎,All,ui\00_message\ui\rim_transport.gmd,\ui\uGUIRimWarp.arc,uGUIRimWarp.arc,29
 28,tab_favorite_foundation,マイ拠点,Favorites,ui\00_message\ui\rim_transport.gmd,\ui\uGUIRimWarp.arc,uGUIRimWarp.arc,28
@@ -731,7 +731,7 @@ Selling price: <VAL GOLD>",ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUISho
 48,shop_title_clan_quest_sub,クランクエスト,Clan Quest,ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,48
 2,shop_title_clan_sub,クラン,Clan Members,ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
 7,shop_title_craft,Craft,Craft Menu,ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
-8,shop_title_craft_sub,クラフト," ",ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8
+8,shop_title_craft_sub,クラフト, ,ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8
 3,shop_title_cycle_contents,Grand Mission,Grand Mission,ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
 4,shop_title_cycle_contents_sub,グランドミッション,Grand Mission,ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4
 60,shop_title_daily_mission,リワードミッション,Reward Mission,ui\00_message\ui\shop_title.gmd,\ui\gui_cmn.arc,gui_cmn.arc,60
@@ -1059,18 +1059,18 @@ phrase. You can purchase it in the online shop",ui\00_message\ui\simple_communic
 339,syslog_action_em_escape,周囲から <NAME TARGET> の気配が消えた,"The sign of <NAME TARGET> has disappeared from
 the surroundings.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,339
 310,syslog_action_ensa,怨嗟の声が渦巻いている――,Voice of Resentment is whirling,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,310
-313,syslog_action_ensa_clear,"""怨塊""を失い、<NAME TARGET> の力が弱まっていく――","Grudge Pillars have been destroyed, <NAME TARGET>
+313,syslog_action_ensa_clear,“怨塊”を失い、<NAME TARGET> の力が弱まっていく――,"Grudge Pillars have been destroyed, <NAME TARGET>
 is weakening",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,313
 311,syslog_action_ensa_target_i,"邪悪な怨念に憑りつかれた
-祓うには、""怨塊""を破壊せよ――","You have been possessed by evil spirits
+祓うには、“怨塊”を破壊せよ――","You have been possessed by evil spirits
 Destroy your Grudge Pillar to purify",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,311
 312,syslog_action_ensa_target_p,"仲間が怨念に憑りつかれた
-祓うには、""怨塊""を破壊せよ――","Comrades have been possessed
+祓うには、“怨塊”を破壊せよ――","Comrades have been possessed
 Destroy Grudge Pillars to purify them",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,312
 348,syslog_action_evildra_01,マグマから炎の力を吸収しようとしている――,Trying to absorb the power of flames from magma.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,348
-349,syslog_action_evildra_02,"悪しき竜は""火焔の竜晶""を召喚しようとしている――","The Evil Dragon is about to summon a
+349,syslog_action_evildra_02,悪しき竜は“火焔の竜晶”を召喚しようとしている――,"The Evil Dragon is about to summon a
 ""Dragon Crystal of Flame"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,349
-350,syslog_action_evildra_03,"""火焔の竜晶""の出現により
+350,syslog_action_evildra_03,"“火焔の竜晶”の出現により
 マグマが溜まっていく――","Magma is rising because of the ""Dragon Crystal of
 Flame"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,350
 351,syslog_action_evildra_04,"大量のマグマが溜まってきている
@@ -1082,28 +1082,28 @@ near.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,351
 frantic roar.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,352
 353,syslog_action_evildra_06,マグマが上昇し始めた――,Magma has begun to rise.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,353
 354,syslog_action_evildra_07,ここから、山頂へ脱出せよ――,"From here, escape to the summit.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,354
-355,syslog_action_evildra_08,"""火焔の竜晶""の出現により
+355,syslog_action_evildra_08,"“火焔の竜晶”の出現により
 マグマの滝が流れ出した――","Magma is flowing out from the waterfall because
 of the
 ""Dragon Crystal of Flame"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,355
-356,syslog_action_evildra_09,"火口内にある""火焔の竜晶""を破壊したことで
+356,syslog_action_evildra_09,"火口内にある“火焔の竜晶”を破壊したことで
 マグマの量が減り、戦闘エリアが広がった――","Destroying the ""Dragon Crystals of Flame"" in the
 crater
 reduces the amount of magma, expanding your
 foothold.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,356
-357,syslog_action_evildra_10,"火口内にある""火焔の竜晶""をすべて破壊したことで
+357,syslog_action_evildra_10,"火口内にある“火焔の竜晶”をすべて破壊したことで
 マグマの量が減り、戦闘エリアが大きく広がった――","Destroying all ""Dragon Crystals of Flame"" in the
 crater has
 reduced the amount of magma, greatly expanding
 the battle area.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,357
-358,syslog_action_evildra_11,"""魔炎の竜晶""の出現により
+358,syslog_action_evildra_11,"“魔炎の竜晶”の出現により
 地表からマグマが噴き上がる――","Magma is flowing out from the surface because of
 the
 ""Dragon Crystal of Flame"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,358
-359,syslog_action_evildra_12,"""魔岩の竜晶""の出現により
+359,syslog_action_evildra_12,"“魔岩の竜晶”の出現により
 空から火山弾が降り注ぐ――","Meteors are falling down because of the
 ""Dragon Crystal of Flame"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,359
-360,syslog_action_evildra_13,"""魔風の竜晶""の出現により
+360,syslog_action_evildra_13,"“魔風の竜晶”の出現により
 熱風が吹き荒れている――","Hot steam of airs is blowing out because of the
 ""Dragon Crystal of Flame"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,360
 361,syslog_action_evildra_14,悪しき竜が最後の命を燃やそうとしている――,"The Evil Dragon is trying to burn its last
@@ -1114,20 +1114,20 @@ clearing up",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,302
 295,syslog_action_humanhateup_target,<NAME TARGET> が周囲の敵の標的になった,"<NAME TARGET> has become the target of the
 surrounding enemies.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,295
 315,syslog_action_ikai_01,<NAME TARGET> が異界に飛ばされた――,<NAME TARGET> was teleported to a different world,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,315
-316,syslog_action_ikai_02,"""魔物""を倒し、魂を集めて異界の扉を開け――","Defeat monsters and collect their souls to open
+316,syslog_action_ikai_02,“魔物”を倒し、魂を集めて異界の扉を開け――,"Defeat monsters and collect their souls to open
 Door to the Other World",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,316
-317,syslog_action_ikai_03,"異界から救い出すには、""怨塊""を破壊せよ――","Destroy Grudge Pillars to rescue comrade from the
+317,syslog_action_ikai_03,異界から救い出すには、“怨塊”を破壊せよ――,"Destroy Grudge Pillars to rescue comrade from the
 other world",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,317
 318,syslog_action_ikai_04,異界の扉が開かれた――,Door to the Other World has opened,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,318
-319,syslog_action_ikai_05,"仲間によって""怨塊""が破壊されたことで
+319,syslog_action_ikai_05,"仲間によって“怨塊”が破壊されたことで
 異界の扉が開かれた――","Your comrades have destroyed the Grudge Pillars
 and Door to the Other World has opened",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,319
 331,syslog_action_ikai_06,異界の扉が、より多くの魂を求めている――,Door to the Other World desires more souls,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,331
 332,syslog_action_ikai_07,残り半分の魂を捧げれば、扉は開かれる――,The door will open after you offer some more souls,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,332
 333,syslog_action_ikai_08,残りわずかな魂で、異界の扉が開く――,The door will open after just a few more souls,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,333
 338,syslog_action_ikai_09,異界に飛ばされた――,Teleported to a different world,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,338
-340,syslog_action_ikai_10,"残っている""怨塊""を、すべて破壊せよ――","Destroy all of the remaining ""Grudge Pillars""",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,340
-344,syslog_action_ikai_11,"怨塊 残り""<VAL>個""――","""<VAL>"" Grudge Pillars left",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,344
+340,syslog_action_ikai_10,残っている“怨塊”を、すべて破壊せよ――,"Destroy all of the remaining ""Grudge Pillars""",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,340
+344,syslog_action_ikai_11,怨塊 残り“<VAL>個”――,"""<VAL>"" Grudge Pillars left",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,344
 345,syslog_action_ikai_12,"<NAME TARGET> が凶骨の祭壇へ運ばれた
 助けなければ、全員に厄災が降りかかる――","<NAME TARGET> was taken to the Bone Altar.
 If you don't rescue them, everyone will meet with
@@ -1135,11 +1135,11 @@ disaster",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,345
 346,syslog_action_ikai_13,"生贄として、<NAME TARGET> が祭壇に捧げられ
 全員に厄災が降りかかった――","<NAME TARGET> was sacrificed at the Altar.
 Everyone has met with disaster",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,346
-322,syslog_action_safety_dome,"杖から""護身の結界""が展開された","A ""protective barrier"" was deployed from the
+322,syslog_action_safety_dome,杖から“護身の結界”が展開された,"A ""protective barrier"" was deployed from the
 staff.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,322
-321,syslog_action_staff_of_wise,"""竜角の杖""の殲滅まで残り<VAL>本","The number of remaining ""Dragon Horn Staffs""
+321,syslog_action_staff_of_wise,“竜角の杖”の殲滅まで残り<VAL>本,"The number of remaining ""Dragon Horn Staffs""
 until extermination: <VAL>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,321
-343,syslog_action_staff_of_wise_break,"""竜角の杖""を破壊せよ――","Destroy the ""Dragon Horn Staff.""",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,343
+343,syslog_action_staff_of_wise_break,“竜角の杖”を破壊せよ――,"Destroy the ""Dragon Horn Staff.""",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,343
 308,syslog_action_summon_enemy01,<NAME TARGET> が魔物を呼び寄せている――,<NAME TARGET> is calling monsters,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,308
 314,syslog_action_summon_enemy02,<NAME TARGET> が魔物を召喚しようとしている――,<NAME TARGET> is summoning monsters,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,314
 309,syslog_action_summon_enemy_clear,召喚された魔物を一掃した――,Summoned monsters have been eliminated.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,309
@@ -1218,8 +1218,8 @@ period.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,87
 90,syslog_content_anounce_reward,<NAME QUEST>が報酬受取期間中です,<NAME QUEST> has a reward available to claim.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,90
 81,syslog_content_boss_beat,<EMNM n>を退けました,<EMNM n>has been repelled.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,81
 82,syslog_content_boss_defeat,<EMNM n>を討伐しました,<EMNM n>was defeated.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,82
-336,syslog_content_buff_get,"""<VAL>""の効果が付与されました","""<VAL>"" effect has been applied.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,336
-337,syslog_content_buff_lost,"""<VAL>""の効果が解除されました","""<VAL>"" effect has been removed.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,337
+336,syslog_content_buff_get,“<VAL>”の効果が付与されました,"""<VAL>"" effect has been applied.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,336
+337,syslog_content_buff_lost,“<VAL>”の効果が解除されました,"""<VAL>"" effect has been removed.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,337
 75,syslog_content_convoy_hp_half,<NAME TARGET>のHPが50％をきりました,<NAME TARGET>'s HP has dropped below 50%.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,75
 76,syslog_content_convoy_hp_little,<NAME TARGET>のHPが瀕死状態です,<NAME TARGET>'s HP is in critical condition,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,76
 77,syslog_content_convoy_hp_zero,<NAME TARGET>が倒れました,<NAME TARGET> has been defeated.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,77
@@ -1254,12 +1254,12 @@ for crafting.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,277
 196,syslog_craft_recieve2,<NAME ITEM>を<VAL>個、受け取りました,<NAME ITEM> x<VAL> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,196
 102,syslog_craft_sophistcate,<NAME ITEM>がグレードアップしました,<NAME ITEM> has been enhanced.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,102
 99,syslog_craft_start,<NAME PAWN>が<NAME ITEM>の生産を開始しました,<NAME PAWN> has begun crafting <NAME ITEM>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,99
-380,syslog_darkgauge_growup,"""破滅の力""のゲージが徐々に上昇してゆく！",The Power of Destruction is rising!,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,380
-379,syslog_darkgauge_rise,"""破滅の力""の高まりを感じる――
+380,syslog_darkgauge_growup,“破滅の力”のゲージが徐々に上昇してゆく！,The Power of Destruction is rising!,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,380
+379,syslog_darkgauge_rise,"“破滅の力”の高まりを感じる――
 ゲージが十分に溜まるとすべてが滅びる！","The Power of Destruction is growing...
 When it reaches maximum power, all life will
 perish!",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,379
-381,syslog_darkgauge_spdown,"""黄金竜の一撃""によって""破滅の力""のゲージが減少した！","The attack of Golden Dragon has reduced the Power
+381,syslog_darkgauge_spdown,“黄金竜の一撃”によって“破滅の力”のゲージが減少した！,"The attack of Golden Dragon has reduced the Power
 of Destruction!",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,381
 265,syslog_dp_get,<VAL DP>を入手しました,<VAL DP> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,265
 266,syslog_dp_get_ex,<VAL> (+<VAL>) <UNIT DP>を入手しました,<VAL> (+<VAL>) <UNIT DP> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,266
