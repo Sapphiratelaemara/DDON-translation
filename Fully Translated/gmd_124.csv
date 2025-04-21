@@ -1,3 +1,20 @@
+8,CLAN_SEARCH_MSG_SEARCH_BACK,検索条件変更に戻る,Return,ui\00_message\ui\clan_search.gmd,\ui\uGUIClanSearch.arc,uGUIClanSearch.arc,8
+5,CLAN_SEARCH_MSG_STYLE,特徴,Style,ui\00_message\ui\clan_search.gmd,\ui\uGUIClanSearch.arc,uGUIClanSearch.arc,5
+13,CLAN_SEARCH_RANK_LIMIT,%d～%dまで,From %d to %d,ui\00_message\ui\clan_search.gmd,\ui\uGUIClanSearch.arc,uGUIClanSearch.arc,13
+19,CLAN_SEARCH_SHORT_NAME,略称で検索,Search Tags,ui\00_message\ui\clan_search.gmd,\ui\uGUIClanSearch.arc,uGUIClanSearch.arc,19
+11,CLAN_STATUS_BBS,伝言メモ,Message,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,11
+9,CLAN_STATUS_DATE,<DATE>,<DATE>,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,9
+20,CLAN_STATUS_MEMBER_NUM,<VAL>名,<VAL>,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,20
+12,CLAN_STATUS_MOTTO,モットー,Motto,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,12
+2,CLAN_STATUS_MSG_ATIME,活動時間帯,Activity Time,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,2
+16,CLAN_STATUS_MSG_COMMENT,コメント,Comment,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,16
+8,CLAN_STATUS_MSG_DATE,クラン加入日,Join Date,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,8
+17,CLAN_STATUS_MSG_DATE_FOUND,設立日,Founded,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,17
+22,CLAN_STATUS_MSG_DATE_LAST_LOGIN,最終ログイン日,Last Login Date,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,22
+23,CLAN_STATUS_MSG_GUIDE_CHECK_CLANAP,累計ポイントの確認,Check Total Points,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,23
+21,CLAN_STATUS_MSG_GUIDE_EDIT,クランステータスの編集,Edit Status,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,21
+15,CLAN_STATUS_MSG_GUIDE_SWITCH,表示切り替え,Switch Display,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,15
+27,CLAN_STATUS_MSG_HISTORY_CAPTION,ヒストリー,History,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,27
 28,CLAN_STATUS_MSG_HISTORY_ITEM_0,ヒストリーがありません,There is no history,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,28
 29,CLAN_STATUS_MSG_HISTORY_ITEM_1,%s が %s を購入しました(-%d%s),%s purchased %s (-%d%s),ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,29
 30,CLAN_STATUS_MSG_HISTORY_ITEM_2,クランレベルが %d になりました,Clan level is now %d,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,30
@@ -134,19 +151,18 @@ Bitterblack Maze.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.ar
 559,ana_bitterblack_match_002,クイックパーティ申請中のため使用できません,"Not available due to pending quick party
 application",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,559
 560,ana_bitterblack_match_003,クイックパーティー申請をキャンセルしますか？,Cancel the Quick Party application?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,560
-561,ana_bitterblack_match_004,"このルートに現在のジョブで突入準備しますか？
+561,ana_bitterblack_match_004,"""このルートに現在のジョブで突入準備しますか？
 <COL aa1414>決定するとリセットするまでジョブは変更できません
 また、
 一度でも冥府1をクリアするとルートが固定されます
 進行と報酬のリセットをするまで、ルートの変更は
-できません</COL>",,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,561
 562,ana_bitterblack_match_005,突入方法を選択してください,Please select embark method,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,562
 563,ana_bitterblack_match_006,現在のパーティーで突入する,Embark with current party,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,563
 564,ana_bitterblack_match_007,他のプレイヤーと突入する,Embark with other players,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,564
 565,ana_bitterblack_match_008,ポーンと突入する（ソロ専用）,Embark with pawns (solo only),ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,565
 566,ana_bitterblack_match_009,即時クリア,Immediate clear,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,566
-567,ana_bitterblack_match_010,パーティーに他プレイヤーがいるため選べません,"You cannot choose this because there are other
-players in the party.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,567
+567,ana_bitterblack_match_010,パーティーに他プレイヤーがいるため選べません,""You cannot choose this because there are other",,,,,
+"players in the party.""",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,567,,,
 568,ana_bitterblack_match_011,パーティーを組んでいるため選べません,You can't do that while in a Party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,568
 569,ana_bitterblack_match_012,黒呪の迷宮をクリアしていないため選べません,"Cannot be chosen as Bitterblack Maze has not been
 cleared",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,569
@@ -1434,15 +1450,3 @@ ffdc78>(Rewards UP)</COL>",ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,g
 18,common_unit_pt,pt,pt,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18
 143,common_unit_ptp,育成EXP,Training EXP,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,143
 143,common_unit_ptp,育成EXP,Training EXP,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,143
-11,common_unit_r,R,R,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,11
-11,common_unit_r,R,R,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11
-102,common_unit_rp,RP,RP,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,102
-102,common_unit_rp,RP,RP,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,102
-146,common_unit_silverticket,枚,x,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,146
-146,common_unit_silverticket,枚,Pieces,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,146
-132,common_unit_tp,BP,BP,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,132
-132,common_unit_tp,BP,BP,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,132
-77,common_unit_turn,回,Time,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,77
-77,common_unit_turn,回,Time,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,77
-14,common_unit_xp,XP,XP,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,14
-14,common_unit_xp,XP,XP,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14

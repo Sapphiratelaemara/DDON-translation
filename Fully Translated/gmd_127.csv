@@ -1,3 +1,15 @@
+21,error_both,ジョブレベル・所持<UNIT JP>が不足しています,Your job level and <UNIT JP> are insufficient.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUIPopSkillInfo.arc,uGUIPopSkillInfo.arc,21
+21,error_both,ジョブレベル・所持<UNIT JP>が不足しています,Your job level and <UNIT JP> are insufficient.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUISkill.arc,uGUISkill.arc,21
+34,error_cost_over,コストオーバーでセットできません,You have reached maximum augment cost.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,34
+34,error_cost_over,コストオーバーでセットできません,You have reached maximum augment cost.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,34
+34,error_cost_over,コストオーバーでセットできません,You have reached maximum augment cost.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUIPopSkillInfo.arc,uGUIPopSkillInfo.arc,34
+34,error_cost_over,コストオーバーでセットできません,You have reached maximum augment cost.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUISkill.arc,uGUISkill.arc,34
+19,error_joblevel,ジョブレベルが不足しています,Your job level is not high enough.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,19
+19,error_joblevel,ジョブレベルが不足しています,Your job level is not high enough.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,19
+19,error_joblevel,ジョブレベルが不足しています,Your job level is not high enough.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUIPopSkillInfo.arc,uGUIPopSkillInfo.arc,19
+19,error_joblevel,ジョブレベルが不足しています,Your job level is not high enough.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUISkill.arc,uGUISkill.arc,19
+20,error_jp,所持<UNIT JP>が不足しています,You do not have enough <UNIT JP>.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,20
+20,error_jp,所持<UNIT JP>が不足しています,You do not have enough <UNIT JP>.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUIJobSelect.arc,uGUIJobSelect.arc,20
 20,error_jp,所持<UNIT JP>が不足しています,You do not have enough <UNIT JP>.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUIPopSkillInfo.arc,uGUIPopSkillInfo.arc,20
 20,error_jp,所持<UNIT JP>が不足しています,You do not have enough <UNIT JP>.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUISkill.arc,uGUISkill.arc,20
 75,error_not_reach_condition,使用条件を満たしていません,You do not meet the requirements.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,75
@@ -1129,15 +1141,3 @@ the window",ui\00_message\ui\option_res_win.gmd,\ui\uGUIOption.arc,uGUIOption.ar
 19,item_max_equip,最大装着数,Max. number of fittings,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,19
 2,item_max_possess,所持最大数,Stack Size,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,2
 11,item_max_price,バザー取引最高額,Maximum Bazaar Price,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,11
-12,item_minimum_price,バザー取引最低額,Minimum Bazaar Price,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,12
-0,item_name,名称,Name,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,0
-29,item_num_of_load,矢装填数,Max Loaded Arrows,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,29
-23,item_phisical_property,物理属性,Physical Attribute,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,23
-9,item_purchase_price,購入額,Purchase Price,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,9
-6,item_rank,アイテムランク,Item Rank,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,6
-13,item_sell_ok,売却OK,Sale OK,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,13
-10,item_sell_price,売却額,Sell,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,10
-193,item_shield_stamina_resist,盾スタミナ軽減値,Blocking Stamina Reduction,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,193
-28,item_stagger,盾ガード値,Guard Power,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,28
-25,item_strength,吹き飛ばし力,Blow Power,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,25
-153,item_tower_shield_collect_point,フォースストック数,Max Force Stock,ui\00_message\ui\parameter.gmd,\ui\menu_cmn.arc,menu_cmn.arc,153
