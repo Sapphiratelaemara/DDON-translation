@@ -1,4 +1,3 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
 28,CLAN_STATUS_MSG_HISTORY_ITEM_0,ヒストリーがありません,There is no history,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,28
 29,CLAN_STATUS_MSG_HISTORY_ITEM_1,%s が %s を購入しました(-%d%s),%s purchased %s (-%d%s),ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,29
 30,CLAN_STATUS_MSG_HISTORY_ITEM_2,クランレベルが %d になりました,Clan level is now %d,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,30
@@ -140,7 +139,10 @@ application",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,559
 また、
 一度でも冥府1をクリアするとルートが固定されます
 進行と報酬のリセットをするまで、ルートの変更は
-できません</COL>",,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,561
+できません</COL>","Are you sure you want to embark
+with your current vocation?
+<COL aa1414>Once decided it cannot be changed
+until reset.</COL>",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,561
 562,ana_bitterblack_match_005,突入方法を選択してください,Please select embark method,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,562
 563,ana_bitterblack_match_006,現在のパーティーで突入する,Embark with current party,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,563
 564,ana_bitterblack_match_007,他のプレイヤーと突入する,Embark with other players,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,564

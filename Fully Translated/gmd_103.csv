@@ -1,4 +1,3 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
 13,q00030420_00_5014,悪しき竜のねぐらへ向かい黒剣を探す,"Head towards the Evil Dragon's Roost
 and search for the Black Sword.",ui\00_message\quest_info\q00030420_00.gmd,\quest\q00030420.arc,q00030420.arc,13
 13,q00030420_00_5014,悪しき竜のねぐらへ向かい黒剣を探す,"Head towards the Evil Dragon's Roost
@@ -217,7 +216,7 @@ is discussing her worries.",ui\00_message\quest_info\q10300100_00.gmd,\quest\q10
 2,q10300101_00_3293,キャリーへいずれかの食糧を渡す,Give either of the rations to Carrie,ui\00_message\quest_info\q10300101_00.gmd,\quest\q10300101.arc,q10300101.arc,2
 3,q10300101_00_3294,キャリーが作った料理を受け取る,Receive food prepared by Carrie,ui\00_message\quest_info\q10300101_00.gmd,\quest\q10300101.arc,q10300101.arc,3
 4,q10300101_00_3295,キャリーの様子をうかがう,Check on Carrie,ui\00_message\quest_info\q10300101_00.gmd,\quest\q10300101.arc,q10300101.arc,4
-0,q10300102_00_7,絶望の料理番“キャリー”,"Despair of the Cook ""Carrie""",ui\00_message\quest_info\q10300102_00.gmd,\quest\q10300102.arc,q10300102.arc,0
+0,q10300102_00_7,"絶望の料理番""キャリー""","Despair of the Cook ""Carrie""",ui\00_message\quest_info\q10300102_00.gmd,\quest\q10300102.arc,q10300102.arc,0
 1,q10300102_00_7,"キャリーを心配するゼキの頼みを受け
 何かできることを探す","Zeki is worried about Carrie and asked me
 to find out what I can do to help.",ui\00_message\quest_info\q10300102_00.gmd,\quest\q10300102.arc,q10300102.arc,1
@@ -263,10 +262,11 @@ Kitchen",ui\00_message\quest_info\q10300200_00.gmd,\quest\q10300200.arc,q1030020
 necessary materials for kitchen repair",ui\00_message\quest_info\q10300200_00.gmd,\quest\q10300200.arc,q10300200.arc,1
 2,q10300200_00_3307,修復に必要な素材のいずれかを<NPC 580>に渡す,"Deliver the needed materials for repair
 to <NPC 580>",ui\00_message\quest_info\q10300200_00.gmd,\quest\q10300200.arc,q10300200.arc,2
-0,q10300201_00_11,大食堂復旧への第二歩　―釜戸―,Second Step to Restoring the Great Dining Hall: Hearth,ui\00_message\quest_info\q10300201_00.gmd,\quest\q10300201.arc,q10300201.arc,0
+0,q10300201_00_11,大食堂復旧への第二歩　―釜戸―,"Second Step to Restoring the Great Dining Hall:
+Cook Stove",ui\00_message\quest_info\q10300201_00.gmd,\quest\q10300201.arc,q10300201.arc,0
 1,q10300201_00_11,"大食堂を復活させるため、釜戸の修復に
-必要な素材を探す","In order to revive the dining hall, search for
-necessary materials to repair the hearth",ui\00_message\quest_info\q10300201_00.gmd,\quest\q10300201.arc,q10300201.arc,1
+必要な素材を探す","In order to revive the large cafeteria, search for
+necessary materials to repair the kettle",ui\00_message\quest_info\q10300201_00.gmd,\quest\q10300201.arc,q10300201.arc,1
 2,q10300201_00_3308,修復に必要な特別な素材を探す,Search for the special materials needed for repair,ui\00_message\quest_info\q10300201_00.gmd,\quest\q10300201.arc,q10300201.arc,2
 3,q10300201_00_3517,見つけた素材を大食堂の<NPC 580>に渡す,"Deliver the located materials to <NPC 580>
 in the Great Dining Hall",ui\00_message\quest_info\q10300201_00.gmd,\quest\q10300201.arc,q10300201.arc,3
@@ -479,7 +479,7 @@ and calm <NPC 580> down",ui\00_message\quest_info\q10300402_00.gmd,\quest\q10300
 31,q10300402_00_3768,未使用,Unused,ui\00_message\quest_info\q10300402_00.gmd,\quest\q10300402.arc,q10300402.arc,31
 32,q10300402_00_3769,<NPC 580>と話し、檻の状況を確認する,Talk to <NPC 580> and check the conditions of the cage.,ui\00_message\quest_info\q10300402_00.gmd,\quest\q10300402.arc,q10300402.arc,32
 33,q10300402_00_3771,探索場所から避難する,Evacuate from the exploration site.,ui\00_message\quest_info\q10300402_00.gmd,\quest\q10300402.arc,q10300402.arc,33
-0,q10300403_00_22,“幻の食材”を追って―,"Chasing after the ""Phantom Ingredient""",ui\00_message\quest_info\q10300403_00.gmd,\quest\q10300403.arc,q10300403.arc,0
+0,q10300403_00_22,"""幻の食材""を追って―","Chasing after the ""Phantom Ingredient""",ui\00_message\quest_info\q10300403_00.gmd,\quest\q10300403.arc,q10300403.arc,0
 1,q10300403_00_22,"キャリーと共に
 盗賊団のアジトへ最後の食料を運ぶ","Bring the last food to
 the bandit hideout with Carrie",ui\00_message\quest_info\q10300403_00.gmd,\quest\q10300403.arc,q10300403.arc,1
@@ -496,9 +496,9 @@ the bandit hideout with Carrie",ui\00_message\quest_info\q10300403_00.gmd,\quest
 12,q10300403_00_3636,大食堂にあやしいやつがいないか探す,Look for suspicious people in the cafeteria,ui\00_message\quest_info\q10300403_00.gmd,\quest\q10300403.arc,q10300403.arc,12
 13,q10300403_00_3637,<NPC 580>に事情を話す,Explain the situation to <NPC 580>,ui\00_message\quest_info\q10300403_00.gmd,\quest\q10300403.arc,q10300403.arc,13
 0,q10300500_00_23,さらば腹ペコ,Farewell Hungry,ui\00_message\quest_info\q10300500_00.gmd,\quest\q10300500.arc,q10300500.arc,0
-1,q10300500_00_23,"“幻の食材”を諦められないスニーカーに
+1,q10300500_00_23,"""幻の食材""を諦められないスニーカーに
 代わって、キャリーと共に捜索に出る","Set out on a search with Carrie in place of
-Sunika who can't give up on the “Phantom Ingredient”",ui\00_message\quest_info\q10300500_00.gmd,\quest\q10300500.arc,q10300500.arc,1
+Sunika who can't give up on the ""Phantom Ingredient""",ui\00_message\quest_info\q10300500_00.gmd,\quest\q10300500.arc,q10300500.arc,1
 16,q10300500_00_3524,<NPC 580>に話しかけて砦に戻る,Speak with <NPC 580> and return to the fort,ui\00_message\quest_info\q10300500_00.gmd,\quest\q10300500.arc,q10300500.arc,16
 2,q10300500_00_3525,準備ができたら<NPC 580>に話しかける,When ready speak with <NPC 580>,ui\00_message\quest_info\q10300500_00.gmd,\quest\q10300500.arc,q10300500.arc,2
 3,q10300500_00_3526,<NPC 580>に話しかける,Speak with <NPC 580>,ui\00_message\quest_info\q10300500_00.gmd,\quest\q10300500.arc,q10300500.arc,3
@@ -507,13 +507,13 @@ Sunika who can't give up on the “Phantom Ingredient”",ui\00_message\quest_in
 6,q10300500_00_3529,檻から抜け出した獲物を追う,Pursue the game that escaped from the cage,ui\00_message\quest_info\q10300500_00.gmd,\quest\q10300500.arc,q10300500.arc,6
 7,q10300500_00_3530,現れた魔物を討伐する,Defeat the appeared demons,ui\00_message\quest_info\q10300500_00.gmd,\quest\q10300500.arc,q10300500.arc,7
 8,q10300500_00_3531,<NPC 580>の無事を確認する,Check <NPC 580>'s safety,ui\00_message\quest_info\q10300500_00.gmd,\quest\q10300500.arc,q10300500.arc,8
-9,q10300500_00_3532,<NPC 4773>に“幻の食材”の正体を報告する,"Report the true identity of “The Phantom Ingredient”
+9,q10300500_00_3532,"<NPC 4773>に""幻の食材""の正体を報告する","Report the true identity of ""The Phantom Ingredient""
 to <NPC 4773>",ui\00_message\quest_info\q10300500_00.gmd,\quest\q10300500.arc,q10300500.arc,9
 10,q10300500_00_3533,<NPC 580>と相談する,Consult with <NPC 580>,ui\00_message\quest_info\q10300500_00.gmd,\quest\q10300500.arc,q10300500.arc,10
 11,q10300500_00_3534,<NPC 580>の様子をうかがう,Talk to <NPC 580>,ui\00_message\quest_info\q10300500_00.gmd,\quest\q10300500.arc,q10300500.arc,11
-12,q10300500_00_3535,<NPC 581>を襲った“ゴブリン一家のボス”を探す,"Find the “Goblin Family Boss”
+12,q10300500_00_3535,"<NPC 581>を襲った""ゴブリン一家のボス""を探す","Find the ""Goblin Family Boss""
 who attacked <NPC 581>",ui\00_message\quest_info\q10300500_00.gmd,\quest\q10300500.arc,q10300500.arc,12
-13,q10300500_00_3536,現れた“ゴブリン一家”と“ボス”を討伐する,"Defeat the appeared ""Goblin Family"" and ""Boss""",ui\00_message\quest_info\q10300500_00.gmd,\quest\q10300500.arc,q10300500.arc,13
+13,q10300500_00_3536,"現れた""ゴブリン一家""と""ボス""を討伐する","Defeat the appeared ""Goblin Family"" and ""Boss""",ui\00_message\quest_info\q10300500_00.gmd,\quest\q10300500.arc,q10300500.arc,13
 14,q10300500_00_3537,<NPC 581>の元に戻り<NPC 580>と話す,"Return to <NPC 581> and speak
 with <NPC 580>",ui\00_message\quest_info\q10300500_00.gmd,\quest\q10300500.arc,q10300500.arc,14
 15,q10300500_00_3538,すべてが解決したことを<NPC 4773>に話す,Tell <NPC 4773> that all is resolved,ui\00_message\quest_info\q10300500_00.gmd,\quest\q10300500.arc,q10300500.arc,15
@@ -542,7 +542,7 @@ Procurement Cooperation",ui\00_message\quest_info\q10300701_00.gmd,\quest\q10300
 7,q10300701_00_3692,檻を確認する,Check the cage,ui\00_message\quest_info\q10300701_00.gmd,\quest\q10300701.arc,q10300701.arc,7
 9,q10300701_00_3693,獲物を狙って襲ってきた敵を討伐する,Defeat enemies who attacked you for your prey,ui\00_message\quest_info\q10300701_00.gmd,\quest\q10300701.arc,q10300701.arc,9
 11,q10300701_00_3694,ローナに話しかける,Speak with Lorna,ui\00_message\quest_info\q10300701_00.gmd,\quest\q10300701.arc,q10300701.arc,11
-12,q10300701_00_3695,ローナに《<ITEM 7983>》を＜3＞つ納品する,Deliver ＜3＞ of “<ITEM 7983>” to Lorna,ui\00_message\quest_info\q10300701_00.gmd,\quest\q10300701.arc,q10300701.arc,12
+12,q10300701_00_3695,ローナに《<ITEM 7983>》を＜3＞つ納品する,"Deliver ＜3＞ of ""<ITEM 7983>"" to Lorna",ui\00_message\quest_info\q10300701_00.gmd,\quest\q10300701.arc,q10300701.arc,12
 2,q10300701_00_3703,ローナから話を聞く,Listen to Lorna,ui\00_message\quest_info\q10300701_00.gmd,\quest\q10300701.arc,q10300701.arc,2
 13,q10300701_00_3704,大食堂にいるキャリーに報告する,Report to Carrie in the Great Dining Hall,ui\00_message\quest_info\q10300701_00.gmd,\quest\q10300701.arc,q10300701.arc,13
 10,q10300701_00_3765,ローナと話して大食堂へ戻る,"Speak with Lorna and return
@@ -551,7 +551,7 @@ to the Great Dining Hall",ui\00_message\quest_info\q10300701_00.gmd,\quest\q1030
 6,q10300701_00_3787,ローナに話しかける,Speak with Lorna,ui\00_message\quest_info\q10300701_00.gmd,\quest\q10300701.arc,q10300701.arc,6
 0,q10300702_00_27,【ヘザー編】行方不明のヘザー捜索依頼,"Heather Part: Search Request for the
 Disappearance of Heather",ui\00_message\quest_info\q10300702_00.gmd,\quest\q10300702.arc,q10300702.arc,0
-1,q10300702_00_27,行方不明の店員“ヘザー”を探す,Search for the missing Waitress “Heather”,ui\00_message\quest_info\q10300702_00.gmd,\quest\q10300702.arc,q10300702.arc,1
+1,q10300702_00_27,"行方不明の店員""ヘザー""を探す","Search for the missing Waitress ""Heather""",ui\00_message\quest_info\q10300702_00.gmd,\quest\q10300702.arc,q10300702.arc,1
 2,q10300702_00_3696,行方不明のヘザーの情報を集める,Gather information about Heather who is missing,ui\00_message\quest_info\q10300702_00.gmd,\quest\q10300702.arc,q10300702.arc,2
 3,q10300702_00_3697,ロスギルに向かい更に情報を集める,Head to Rothgill to gather more information,ui\00_message\quest_info\q10300702_00.gmd,\quest\q10300702.arc,q10300702.arc,3
 4,q10300702_00_3698,情報をもとに麦畑にある小屋付近を調べる,"Based on the information, investigate the area
@@ -577,7 +577,7 @@ to the Great Dining Hall",ui\00_message\quest_info\q10300703_00.gmd,\quest\q1030
 9,q10300703_00_3714,大食堂にいるキャリーに報告する,Report to Carrie in the Great Dining Hall,ui\00_message\quest_info\q10300703_00.gmd,\quest\q10300703.arc,q10300703.arc,9
 0,q10300704_00_29,【アイダン編】行方不明のアイダン捜索依頼,"Aidan Part: Search Request for the
 Disappearance of Aidan",ui\00_message\quest_info\q10300704_00.gmd,\quest\q10300704.arc,q10300704.arc,0
-1,q10300704_00_29,行方不明の踊り子“アイダン”を探す,Search for the missing dancer “Aidan”,ui\00_message\quest_info\q10300704_00.gmd,\quest\q10300704.arc,q10300704.arc,1
+1,q10300704_00_29,"行方不明の踊り子""アイダン""を探す","Search for the missing dancer ""Aidan""",ui\00_message\quest_info\q10300704_00.gmd,\quest\q10300704.arc,q10300704.arc,1
 2,q10300704_00_3726,ヘザーから話を聞く,Hear from Heather,ui\00_message\quest_info\q10300704_00.gmd,\quest\q10300704.arc,q10300704.arc,2
 3,q10300704_00_3727,砦の外でアイダンの手がかりを探す,Search for clues about Aidan outside the fort.,ui\00_message\quest_info\q10300704_00.gmd,\quest\q10300704.arc,q10300704.arc,3
 4,q10300704_00_3728,アイダンの手がかりをさらに探す,Search for more clues about Aidan,ui\00_message\quest_info\q10300704_00.gmd,\quest\q10300704.arc,q10300704.arc,4
@@ -585,10 +585,10 @@ Disappearance of Aidan",ui\00_message\quest_info\q10300704_00.gmd,\quest\q103007
 6,q10300704_00_3730,現れたオーク達を討伐する,Defeat the appeared Orcs,ui\00_message\quest_info\q10300704_00.gmd,\quest\q10300704.arc,q10300704.arc,6
 7,q10300704_00_3731,アイダンに話しかける,Speak with Aidan,ui\00_message\quest_info\q10300704_00.gmd,\quest\q10300704.arc,q10300704.arc,7
 8,q10300704_00_3732,大食堂にいるヘザーに報告する,Report to Heather in the Great Dining Hall,ui\00_message\quest_info\q10300704_00.gmd,\quest\q10300704.arc,q10300704.arc,8
-0,q10300705_00_30,【キャリー編】“ゴブリン一家”討伐の協力依頼,"Carrie Part: Request for ""Goblin Family""
+0,q10300705_00_30,"【キャリー編】""ゴブリン一家""討伐の協力依頼","Carrie Part: Request for ""Goblin Family""
 Cooperation",ui\00_message\quest_info\q10300705_00.gmd,\quest\q10300705.arc,q10300705.arc,0
 1,q10300705_00_30,"ブラッド、ローナと協力して
-暴れ回る“ゴブリン一家”を討伐する","Assist Brad and Lorna in defeating
+暴れ回る""ゴブリン一家""を討伐する","Assist Brad and Lorna in defeating
 the rampaging ""Goblin Family""",ui\00_message\quest_info\q10300705_00.gmd,\quest\q10300705.arc,q10300705.arc,1
 2,q10300705_00_3746,ブラッドと共に食料を盗んだゴブリン達を追う,Pursue with Brad the the goblins that stole food,ui\00_message\quest_info\q10300705_00.gmd,\quest\q10300705.arc,q10300705.arc,2
 3,q10300705_00_3747,ブラッドに話しかける,Speak with Brad,ui\00_message\quest_info\q10300705_00.gmd,\quest\q10300705.arc,q10300705.arc,3
@@ -808,7 +808,7 @@ gather information in the Lookout Castle.",ui\00_message\quest_info\q10310602_00
 3,q10310602_00_3964,サムエルから情報を聞く,Hear information from Samuel,ui\00_message\quest_info\q10310602_00.gmd,\quest\q10310602.arc,q10310602.arc,3
 4,q10310602_00_3965,ソネルに報告する,Report to Sonel,ui\00_message\quest_info\q10310602_00.gmd,\quest\q10310602.arc,q10310602.arc,4
 5,q10310602_00_3966,レヤから情報を聞く,Hear information from Ray,ui\00_message\quest_info\q10310602_00.gmd,\quest\q10310602.arc,q10310602.arc,5
-6,q10310602_00_3967,大聖堂で《古井戸の地図》を探す,Search for an “Old Well Map” at the cathedral,ui\00_message\quest_info\q10310602_00.gmd,\quest\q10310602.arc,q10310602.arc,6
+6,q10310602_00_3967,大聖堂で《古井戸の地図》を探す,"Search for an ""Old Well Map"" at the cathedral",ui\00_message\quest_info\q10310602_00.gmd,\quest\q10310602.arc,q10310602.arc,6
 0,q10310603_00_41,やっぱりこれはボクの杖じゃない,"After All, This Is Not My Staff",ui\00_message\quest_info\q10310603_00.gmd,\quest\q10310603.arc,q10310603.arc,0
 1,q10310603_00_41,"奪還した《第二防衛区画》で
 ソネルがなくしてしまった
@@ -829,7 +829,7 @@ Search for the location of the ""key"" within Lookout Castle.",ui\00_message\que
 3,q10310700_00_3970,ムスタファから情報を聞く,Hear information from Mustafa,ui\00_message\quest_info\q10310700_00.gmd,\quest\q10310700.arc,q10310700.arc,3
 4,q10310700_00_3971,ソネルに報告する,Report to Sonel,ui\00_message\quest_info\q10310700_00.gmd,\quest\q10310700.arc,q10310700.arc,4
 5,q10310700_00_3972,アクギスから情報を聞く,Hear information from Akgis,ui\00_message\quest_info\q10310700_00.gmd,\quest\q10310700.arc,q10310700.arc,5
-6,q10310700_00_3973,シチュー鍋から《鍵》を探す,Search for the “key” in the stew pot,ui\00_message\quest_info\q10310700_00.gmd,\quest\q10310700.arc,q10310700.arc,6
+6,q10310700_00_3973,シチュー鍋から《鍵》を探す,"Search for the ""key"" in the stew pot",ui\00_message\quest_info\q10310700_00.gmd,\quest\q10310700.arc,q10310700.arc,6
 0,q10310701_00_43,今度こそとっておきの作戦,"The Best Strategy, This Time!",ui\00_message\quest_info\q10310701_00.gmd,\quest\q10310701.arc,q10310701.arc,0
 1,q10310701_00_43,"今度こそ《最終防衛区画》へ突入し
 城外にいる最後の残党を一掃する
@@ -844,15 +844,15 @@ It is the final mission of the Operation to Recapture Lookout Castle.",ui\00_mes
 7,q10310701_00_4162,ソネルに話しかける,Speak with Sonel,ui\00_message\quest_info\q10310701_00.gmd,\quest\q10310701.arc,q10310701.arc,7
 0,q10310702_00_46,奪還を終えて――,Finish the Recapture,ui\00_message\quest_info\q10310702_00.gmd,\quest\q10310702.arc,q10310702.arc,0
 1,q10310702_00_46,"展望城城外を取り戻したソネルが
-“見せたいものがある”というので付き合う","You agree to accompany Sonel, 
+""見せたいものがある""というので付き合う","You agree to accompany Sonel, 
 who, having reclaimed the castle outskirts, 
 says, ""There's something I want to show you.""",ui\00_message\quest_info\q10310702_00.gmd,\quest\q10310702.arc,q10310702.arc,1
 2,q10310702_00_4058,ソネルに話しかける,Speak with Sonel,ui\00_message\quest_info\q10310702_00.gmd,\quest\q10310702.arc,q10310702.arc,2
-3,q10310702_00_4059,“隊長の部屋”を探す,"Find the ""Captain's Room.""",ui\00_message\quest_info\q10310702_00.gmd,\quest\q10310702.arc,q10310702.arc,3
-4,q10310702_00_4060,ソネルに“部屋”の感想を伝える,Tell Sonel your impressions of the “room”,ui\00_message\quest_info\q10310702_00.gmd,\quest\q10310702.arc,q10310702.arc,4
+3,q10310702_00_4059,"""隊長の部屋""を探す","Find the ""Captain's Room.""",ui\00_message\quest_info\q10310702_00.gmd,\quest\q10310702.arc,q10310702.arc,3
+4,q10310702_00_4060,"ソネルに""部屋""の感想を伝える","Tell Sonel your impressions of the ""room""",ui\00_message\quest_info\q10310702_00.gmd,\quest\q10310702.arc,q10310702.arc,4
 0,q10320100_00_47,【尋問】尋問の腕慣らし,Interrogation: Skill Warm-Up,ui\00_message\quest_info\q10320100_00.gmd,\quest\q10320100.arc,q10320100.arc,0
-1,q10320100_00_47,"捕獲した “謎の男”を尋問し
-情報を引き出す","Interrogate the captured “mysterious man”
+1,q10320100_00_47,"捕獲した ""謎の男""を尋問し
+情報を引き出す","Interrogate the captured ""mysterious man""
 and extract information",ui\00_message\quest_info\q10320100_00.gmd,\quest\q10320100.arc,q10320100.arc,1
 3,q10320100_00_4235,メフィスに報告する,Report to Mephis,ui\00_message\quest_info\q10320100_00.gmd,\quest\q10320100.arc,q10320100.arc,3
 2,q10320100_00_4335,メフィスに話しかけ、尋問を行う,Speak with Mephis and conduct an interrogation,ui\00_message\quest_info\q10320100_00.gmd,\quest\q10320100.arc,q10320100.arc,2
@@ -911,7 +911,7 @@ carry out missions and conduct undercover investigations.",ui\00_message\quest_i
 and gather information that can be used for interrogation.",ui\00_message\quest_info\q10320300_00.gmd,\quest\q10320300.arc,q10320300.arc,1
 2,q10320300_00_4336,メフィスに話しかけ夜のメガドへくり出す,Talk to Mephis and go to Megado at night,ui\00_message\quest_info\q10320300_00.gmd,\quest\q10320300.arc,q10320300.arc,2
 3,q10320300_00_4362,メフィスに話しかける,Speak with Mephis,ui\00_message\quest_info\q10320300_00.gmd,\quest\q10320300.arc,q10320300.arc,3
-4,q10320300_00_4364,メガドを探索し、尋問に使える《証拠》を集める,"Search Megado and collect “evidence”
+4,q10320300_00_4364,メガドを探索し、尋問に使える《証拠》を集める,"Search Megado and collect ""evidence""
 that can be used for interrogation",ui\00_message\quest_info\q10320300_00.gmd,\quest\q10320300.arc,q10320300.arc,4
 5,q10320300_00_4524,メフィスに話しかけ帰還する,Speak with Mephis and return,ui\00_message\quest_info\q10320300_00.gmd,\quest\q10320300.arc,q10320300.arc,5
 6,q10320300_00_4525,メフィスに報告する,Report to Mephis,ui\00_message\quest_info\q10320300_00.gmd,\quest\q10320300.arc,q10320300.arc,6
@@ -921,7 +921,7 @@ Megado",ui\00_message\quest_info\q10320301_00.gmd,\quest\q10320301.arc,q10320301
 尋問材料となる情報を集める","Conduct a thorough investigation at <STG 472> 
 and gather information that can be used for interrogation.",ui\00_message\quest_info\q10320301_00.gmd,\quest\q10320301.arc,q10320301.arc,1
 2,q10320301_00_4249,メフィスに話しかけ夜のメガドへくり出す,Talk to Mephis and go to Megado at night,ui\00_message\quest_info\q10320301_00.gmd,\quest\q10320301.arc,q10320301.arc,2
-3,q10320301_00_4250,メガドを探索し、尋問に使える《証拠》を集める,"Search Megado and collect “evidence”
+3,q10320301_00_4250,メガドを探索し、尋問に使える《証拠》を集める,"Search Megado and collect ""evidence""
 that can be used for interrogation",ui\00_message\quest_info\q10320301_00.gmd,\quest\q10320301.arc,q10320301.arc,3
 4,q10320301_00_4526,メフィスに報告する,Report to Mephis,ui\00_message\quest_info\q10320301_00.gmd,\quest\q10320301.arc,q10320301.arc,4
 0,q10320400_00_54,【尋問】囚われのオーク,Interrogation: Captive Orc,ui\00_message\quest_info\q10320400_00.gmd,\quest\q10320400.arc,q10320400.arc,0
@@ -991,7 +991,7 @@ to <NPC 681> < current：4 people>",ui\00_message\quest_info\q10320502_00.gmd,\q
 1,q10320601_00_60,"<STG 472>で自由に調査を行い
 尋問材料となる情報を集める","Conduct a thorough investigation at <STG 472> 
 and gather information that can be used for interrogation.",ui\00_message\quest_info\q10320601_00.gmd,\quest\q10320601.arc,q10320601.arc,1
-3,q10320601_00_4338,メガドを探索し、尋問に使える《証拠》を集める,"Search Megado and collect “evidence”
+3,q10320601_00_4338,メガドを探索し、尋問に使える《証拠》を集める,"Search Megado and collect ""evidence""
 that can be used for interrogation",ui\00_message\quest_info\q10320601_00.gmd,\quest\q10320601.arc,q10320601.arc,3
 2,q10320601_00_4365,メフィスに話しかけ夜のメガドへくり出す,Talk to Mephis and go to Megado at night,ui\00_message\quest_info\q10320601_00.gmd,\quest\q10320601.arc,q10320601.arc,2
 0,q10320700_00_61,嵐の前の静けさ,Calm Before the Storm,ui\00_message\quest_info\q10320700_00.gmd,\quest\q10320700.arc,q10320700.arc,0

@@ -1,4 +1,3 @@
-#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex
 20,error_jp,所持<UNIT JP>が不足しています,You do not have enough <UNIT JP>.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUIPopSkillInfo.arc,uGUIPopSkillInfo.arc,20
 20,error_jp,所持<UNIT JP>が不足しています,You do not have enough <UNIT JP>.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUISkill.arc,uGUISkill.arc,20
 75,error_not_reach_condition,使用条件を満たしていません,You do not meet the requirements.,ui\00_message\ui\job_skill_manager.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,75
@@ -282,7 +281,7 @@ the same time",ui\00_message\ui\keyconfig.gmd,\ui\uGUIKeyConfig.arc,uGUIKeyConfi
 8,kc_pulldown_group,グループ順,Sorted by Group,ui\00_message\ui\keyconfig.gmd,\ui\uGUIKeyConfig.arc,uGUIKeyConfig.arc,8
 7,kc_pulldown_number,番号順,Sorted by Number,ui\00_message\ui\keyconfig.gmd,\ui\uGUIKeyConfig.arc,uGUIKeyConfig.arc,7
 9,kc_pulldown_setting,現在の設定キー順,Sorted by Current Key Config,ui\00_message\ui\keyconfig.gmd,\ui\uGUIKeyConfig.arc,uGUIKeyConfig.arc,9
-5,kc_pulldown_unspecified,指定なし,Unspecified,ui\00_message\ui\keyconfig.gmd,\ui\uGUIKeyConfig.arc,uGUIKeyConfig.arc,5
+5,kc_pulldown_unspecified,指定なし,None,ui\00_message\ui\keyconfig.gmd,\ui\uGUIKeyConfig.arc,uGUIKeyConfig.arc,5
 0,kc_title_en,Keyconfig,Key Config,ui\00_message\ui\keyconfig.gmd,\ui\uGUIKeyConfig.arc,uGUIKeyConfig.arc,0
 1,kc_title_jp,キーコンフィグ,Key Config,ui\00_message\ui\keyconfig.gmd,\ui\uGUIKeyConfig.arc,uGUIKeyConfig.arc,1
 0,kcd_000,移動 ↑,Move ↑,ui\00_message\ui\keyconfig_detail.gmd,\ui\uGUIKeyConfig.arc,uGUIKeyConfig.arc,0
