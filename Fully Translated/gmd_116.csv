@@ -1,17 +1,3 @@
-221,ABILITY_NAME_163,修復,Mending,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,221
-245,ABILITY_NAME_164,忌吸,Deathly Devour,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,245
-125,ABILITY_NAME_165,快癒,Quick Healing,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,125
-17,ABILITY_NAME_166,死線,Verge of Death,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17
-41,ABILITY_NAME_167,炎襲,Fire Affinity,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,41
-53,ABILITY_NAME_168,氷襲,Ice Affinity,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53
-89,ABILITY_NAME_169,雷襲,Thunder Affinity,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,89
-173,ABILITY_NAME_170,聖襲,Holy Affinity,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,173
-185,ABILITY_NAME_171,闇襲,Dark Affinity,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,185
-137,ABILITY_NAME_172,霊護,Spirit Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,137
-101,ABILITY_NAME_173,霊狙,Spirit Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,101
-149,ABILITY_NAME_174,造護,Construct Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,149
-113,ABILITY_NAME_175,造狙,Construct Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,113
-162,ABILITY_NAME_176,超恨,Aggression,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,162
 54,ABILITY_NAME_177,湧恨,Overflowing Hatred,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54
 90,ABILITY_NAME_178,熟怨,Malice,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,90
 269,ABILITY_NAME_179,延恨,Prolonged Hatred,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,269
@@ -2760,3 +2746,35 @@ activate a skill with perfect timing.",ui\00_message\skill\normal_skill_command_
 0,NORMAL_SKILL_COMMAND_10_149,"<KC ATTACK1>を連続して押す
 アタックブーストで強化可能","Repeatedly press <KC ATTACK1>.
 Further enhanced with Attack Boost.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,0
+1,NORMAL_SKILL_COMMAND_10_150,"<KC ATTACK1>後、少し遅らせて<KC ATTACK1>を連続して押す
+アタックブーストで強化可能","Press <KC ATTACK1>, delay a moment
+and then repeatedly press <KC ATTACK1>.
+Further enhanced in Attack Boost mode.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,1
+4,NORMAL_SKILL_COMMAND_10_151,"<KC ATTACK2>を押す
+ヒールブーストで強化可能","Press <KC ATTACK2>.
+Further enhanced with Heal Boost.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,4
+5,NORMAL_SKILL_COMMAND_10_152,"<KC ATTACK2>を押す
+ヒールブーストで強化可能","Press <KC ATTACK2>.
+Further enhanced with Heal Boost.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,5
+7,NORMAL_SKILL_COMMAND_10_153,<KC AVOID>を押す,Press <KC AVOID>.,ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,7
+8,NORMAL_SKILL_COMMAND_10_155,<KC ELIXIR_CHANGE>を押す,Press <KC ELIXIR_CHANGE>.,ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,8
+9,NORMAL_SKILL_COMMAND_10_156,<KC SKILL_NORMAL1>を押す,Press <KC SKILL_NORMAL1>.,ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,9
+2,NORMAL_SKILL_COMMAND_10_158,"空中で<KC ATTACK1>を押す
+アタックブーストで強化可能","While in the air, press <KC ATTACK1>.
+Further enhanced in Attack Boost mode.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,2
+3,NORMAL_SKILL_COMMAND_10_159,"<PADM>空中で左スティックを倒しながら<KC ATTACK1>を押す<KEYM>空中で移動キーを押しながら<KC ATTACK1>を押す</KEYM>
+アタックブーストで強化可能","While in the air, press <PADM><KC ATTACK1> while
+moving the left stick<KEYM><KC ATTACK1> while
+holding movement keys</KEYM>.
+Further enhanced with Attack Boost.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,3
+11,NORMAL_SKILL_COMMAND_10_160,"しがみつき中に<KC ATTACK1>を連続して押す
+アタックブーストで強化可能","Repeatedly press <KC ATTACK1> while climbing.
+Further enhanced in Attack Boost mode.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,11
+6,NORMAL_SKILL_COMMAND_10_161,吹き飛ばされ中に<KC JUMP>を押す,"While being knocked away, press <KC JUMP>.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,6
+10,NORMAL_SKILL_COMMAND_10_162,ブースト発動中に<KC ELIXIR_CHANGE>または<KC SKILL_NORMAL1>を押す,"During boost, press <KC ELIXIR_CHANGE> or <KC
+SKILL_NORMAL1>.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,10
+12,NORMAL_SKILL_COMMAND_10_163,ブースト発動中に<KC ELIXIR_CHANGE>または<KC SKILL_NORMAL1>を押す,"During boost, press <KC ELIXIR_CHANGE> or <KC
+SKILL_NORMAL1>.",ui\00_message\skill\normal_skill_command_10.gmd,\skill\normal_skill_data_10.arc,normal_skill_data_10.arc,12
+0,NORMAL_SKILL_COMMAND_11_165,<KC ATTACK1>を押す,Press <KC ATTACK1>.,ui\00_message\skill\normal_skill_command_11.gmd,\skill\normal_skill_data_11.arc,normal_skill_data_11.arc,0
+1,NORMAL_SKILL_COMMAND_11_166,<KC ATTACK1>後、少し遅らせて<KC ATTACK1>を連続して押す,"After <KC ATTACK1>, delay a moment then
+repeatedly press <KC ATTACK1>.",ui\00_message\skill\normal_skill_command_11.gmd,\skill\normal_skill_data_11.arc,normal_skill_data_11.arc,1
