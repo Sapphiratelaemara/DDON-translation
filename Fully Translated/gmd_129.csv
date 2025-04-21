@@ -1,15 +1,3 @@
-9,poptop_contriinfo,名声度確認,View Reputation,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIMenuAreaInfo.arc,uGUIMenuAreaInfo.arc,9
-9,poptop_contriinfo,名声度確認,View Reputation,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIPopTopSel.arc,uGUIPopTopSel.arc,9
-100,poptop_craft_change_quality,装備の品質変更,Change Quality,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,100
-100,poptop_craft_change_quality,装備の品質変更,Change Quality,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIMenuAreaInfo.arc,uGUIMenuAreaInfo.arc,100
-100,poptop_craft_change_quality,装備の品質変更,Change Quality,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIPopTopSel.arc,uGUIPopTopSel.arc,100
-38,poptop_craft_en,Menu,Menu,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,38
-38,poptop_craft_en,Menu,Menu,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIMenuAreaInfo.arc,uGUIMenuAreaInfo.arc,38
-38,poptop_craft_en,Menu,Menu,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIPopTopSel.arc,uGUIPopTopSel.arc,38
-37,poptop_craft_jp,メニュー,Menu,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,37
-37,poptop_craft_jp,メニュー,Menu,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIMenuAreaInfo.arc,uGUIMenuAreaInfo.arc,37
-37,poptop_craft_jp,メニュー,Menu,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIPopTopSel.arc,uGUIPopTopSel.arc,37
-34,poptop_crest_attach,クレスト装着,Mount Crest,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,34
 34,poptop_crest_attach,クレスト装着,Mount Crest,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIMenuAreaInfo.arc,uGUIMenuAreaInfo.arc,34
 34,poptop_crest_attach,クレスト装着,Mount Crest,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIPopTopSel.arc,uGUIPopTopSel.arc,34
 102,poptop_daily_mission,ミッションリスト,Mission List,ui\00_message\ui\poptop_sel_res.gmd,\ui\uGUIBazaar.arc,uGUIBazaar.arc,102
@@ -1263,3 +1251,19 @@ for crafting.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,277
 104,syslog_craft_levelup,<NAME PAWN>のクラフトレベルが<VAL>になりました,<NAME PAWN> has reached craft level <VAL>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,104
 100,syslog_craft_recieve,<NAME ITEM>を受け取りました,<NAME ITEM> has been received from crafting.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,100
 196,syslog_craft_recieve2,<NAME ITEM>を<VAL>個、受け取りました,<NAME ITEM> x<VAL> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,196
+102,syslog_craft_sophistcate,<NAME ITEM>がグレードアップしました,<NAME ITEM> has been enhanced.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,102
+99,syslog_craft_start,<NAME PAWN>が<NAME ITEM>の生産を開始しました,<NAME PAWN> has begun crafting <NAME ITEM>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,99
+380,syslog_darkgauge_growup,"""破滅の力""のゲージが徐々に上昇してゆく！",The Power of Destruction is rising!,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,380
+379,syslog_darkgauge_rise,"""破滅の力""の高まりを感じる――
+ゲージが十分に溜まるとすべてが滅びる！","The Power of Destruction is growing...
+When it reaches maximum power, all life will
+perish!",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,379
+381,syslog_darkgauge_spdown,"""黄金竜の一撃""によって""破滅の力""のゲージが減少した！","The attack of Golden Dragon has reduced the Power
+of Destruction!",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,381
+265,syslog_dp_get,<VAL DP>を入手しました,<VAL DP> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,265
+266,syslog_dp_get_ex,<VAL> (+<VAL>) <UNIT DP>を入手しました,<VAL> (+<VAL>) <UNIT DP> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,266
+267,syslog_dp_lost,<VAL DP>を消費しました,<VAL DP> spent.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,267
+365,syslog_ds_info_enemy_01,敵が闇の炎をまとった！,The enemy is shrouded in dark flame!,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,365
+366,syslog_ds_info_enemy_02,敵の魔法攻撃力が上昇した！,Magick attack of the enemy has increased!,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,366
+367,syslog_ds_info_enemy_03,敵の物理攻撃力が上昇した！,Physical attack of the enemy has increased!,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,367
+368,syslog_ds_info_enemy_04,敵の鎧が硬化した！,The armor of enemy has hardened!,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,368
