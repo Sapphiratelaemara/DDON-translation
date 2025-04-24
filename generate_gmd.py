@@ -14,7 +14,7 @@ def merge_splits(args):
     splits = []
     for path in args.split_locations:
         directory = Path(path)
-        for split in directory.glob("gmd_*.csv"):
+        for split in directory.glob("*.csv"):
             splits.append(split)
 
     if len(splits) == 0:
