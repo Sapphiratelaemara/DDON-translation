@@ -1,461 +1,1318 @@
-450,ABILITY_NAME_270,縮軟,Reduce Subdue,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,450
-451,ABILITY_NAME_271,縮石,Reduce Petrify,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,451
-452,ABILITY_NAME_272,縮金,Reduce Goldify,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,452
-453,ABILITY_NAME_273,縮焼,Reduce Tar,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,453
-454,ABILITY_NAME_274,縮凍,Reduce Freeze,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,454
-455,ABILITY_NAME_275,縮霧,Reduce Blind,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,455
-456,ABILITY_NAME_276,縮炎,Reduce Fire,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,456
-457,ABILITY_NAME_277,縮氷,Reduce Ice,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,457
-458,ABILITY_NAME_278,縮雷,Reduce Thunder,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,458
-459,ABILITY_NAME_279,縮聖,Reduce Holy,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,459
-460,ABILITY_NAME_280,縮闇,Reduce Dark,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,460
-461,ABILITY_NAME_281,縮攻,Reduce Physical Attack Down,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,461
-462,ABILITY_NAME_282,縮防,Reduce Defense Down,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,462
-463,ABILITY_NAME_283,縮念,Reduce Magick Attack Down,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,463
-464,ABILITY_NAME_284,縮衰,Reduce Magick Defense Down,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,464
-465,ABILITY_NAME_285,増褒,Increased Honor,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,465
-466,ABILITY_NAME_286,加奨,Spiritual Offering,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,466
-467,ABILITY_NAME_287,匠誉,Honouring Masters,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,467
-468,ABILITY_NAME_288,輝褒,Admired,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,468
-469,ABILITY_NAME_289,勝賞,Prizewinner,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,469
-470,ABILITY_NAME_290,共得,Team Player,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,470
-471,ABILITY_NAME_291,奏狩,Music Hunter,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,471
-472,ABILITY_NAME_292,奏泣,Music May Cry,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,472
-473,ABILITY_NAME_293,奏隆,Music Fighter,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,473
-474,ABILITY_NAME_294,奏撃,Wily Music,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,474
-475,ABILITY_NAME_295,奏魔,Music 'n Goblins,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,475
-311,ABILITY_NAME_296,連撃 倒,Onslaught: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,311
-323,ABILITY_NAME_297,斬崩 倒,Demolishing Strike: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,323
-347,ABILITY_NAME_298,崩攻,Crushing Blow,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,347
-335,ABILITY_NAME_299,抉突 絶,Gouge: Eradicate,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,335
-359,ABILITY_NAME_300,強連 倒,Dire Onslaught: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,359
-371,ABILITY_NAME_301,堅盾,Firm Shield,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,371
-383,ABILITY_NAME_302,連撃 砕,Onslaught: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,383
-395,ABILITY_NAME_303,斬崩 絶,Demolishing Strike: Exterminator,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,395
-419,ABILITY_NAME_304,硬溜,Hardening,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,419
-407,ABILITY_NAME_305,抉突 砕,Gouge: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,407
-431,ABILITY_NAME_306,強連 砕,Dire Onslaught: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,431
-443,ABILITY_NAME_307,快突,Pleasant Thrust,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,443
-300,ABILITY_NAME_308,弓射 倒,Archery: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,300
-312,ABILITY_NAME_309,爆矢 烈,Exploding Arrow: Fury,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,312
-336,ABILITY_NAME_310,硬構,Rigid Stance,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,336
-324,ABILITY_NAME_311,矢斬 烈,Arrowhead Strike: Fury,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,324
-348,ABILITY_NAME_312,静射 倒,Keensight Shot: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,348
-360,ABILITY_NAME_313,救耐,Rescue Assistance,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,360
-372,ABILITY_NAME_314,弓射 砕,Archery: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,372
-384,ABILITY_NAME_315,爆矢 砕,Exploding Arrow: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,384
-408,ABILITY_NAME_316,増精,Augmented Spirit,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,408
-396,ABILITY_NAME_317,矢斬 砕,Arrowhead Strike: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,396
-420,ABILITY_NAME_318,静射 砕,Keensight: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,420
-432,ABILITY_NAME_319,至弓,Climax Bow,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,432
-301,ABILITY_NAME_320,癒気 詠,Healing: Chant,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,301
-313,ABILITY_NAME_321,破球 倒,Blast Bits: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,313
-337,ABILITY_NAME_322,扶魔,Assist Boost,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,337
-325,ABILITY_NAME_323,聖気 倒,Holy Aura: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,325
-349,ABILITY_NAME_324,衝破 倒,Shockwave: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,349
-361,ABILITY_NAME_325,滅吸,Stagnation,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,361
-373,ABILITY_NAME_326,癒気 耐,Heal Aura: Endurer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,373
-385,ABILITY_NAME_327,破球 砕,Blast Bits: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,385
-409,ABILITY_NAME_328,魔猛,Magickal Rush,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,409
-397,ABILITY_NAME_329,聖気 烈,Holy Aura: Savage,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,397
-421,ABILITY_NAME_330,衝破 砕,Shockwave: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,421
-433,ABILITY_NAME_331,硬気,Hard Spirit,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,433
-302,ABILITY_NAME_332,盾打 倒,Shieldbash: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,302
-314,ABILITY_NAME_333,属照 烈,Weaklight: Fury,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,314
-338,ABILITY_NAME_334,護治,Protected Mend,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,338
-350,ABILITY_NAME_335,盾序 烈,Shield Counter: Savage,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,350
-326,ABILITY_NAME_336,攻爆 砕,Force Burst: Crush,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,326
-362,ABILITY_NAME_337,集視,Attention,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,362
-374,ABILITY_NAME_338,盾打 砕,Shield Blow: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,374
-386,ABILITY_NAME_339,属照 砕,Weak Light: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,386
-410,ABILITY_NAME_340,盾崩,Shield Collapse,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,410
-422,ABILITY_NAME_341,盾序 砕,Shield Sequence: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,422
-398,ABILITY_NAME_342,攻爆 倒,Force Burst: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,398
-434,ABILITY_NAME_343,快視,Pleasant Sight,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,434
-303,ABILITY_NAME_344,連斬 倒,Carve: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,303
-315,ABILITY_NAME_345,裂斬 倒,Scarlet Kisses: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,315
-339,ABILITY_NAME_346,走耐,Enduring Sprint,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,339
-351,ABILITY_NAME_347,回蹴 倒,Roundhouse Kick: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,351
-327,ABILITY_NAME_348,乱斬 砕,Scarlet Slashes: Crush,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,327
-363,ABILITY_NAME_349,深攻,Deep Aggression,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,363
-375,ABILITY_NAME_350,連斬 砕,Carve: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,375
-387,ABILITY_NAME_351,裂斬 砕,Scarlet Kisses: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,387
-411,ABILITY_NAME_352,剛攻,Stiffness,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,411
-423,ABILITY_NAME_353,回蹴 砕,Roundhouse Kick: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,423
-399,ABILITY_NAME_354,乱斬 絶,Scarlet Slashes: Exterminator,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,399
-435,ABILITY_NAME_355,快転,Pleasant Roll,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,435
-304,ABILITY_NAME_356,魔弾 倒,Magick Bolt: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,304
-316,ABILITY_NAME_357,魔罠 砕,Magick Trap: Crush,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,316
-340,ABILITY_NAME_358,硬浮,Enduring Levitation,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,340
-376,ABILITY_NAME_359,魔弾 砕,Magick Bolts: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,376
-352,ABILITY_NAME_360,魔破 砕,Magick Cracker: Smasher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,352
-364,ABILITY_NAME_361,倒力,Collapsing Strength,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,364
-388,ABILITY_NAME_362,魔罠 据,Magick Trap: Duration,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,388
-328,ABILITY_NAME_363,魔破 倒,Magick Cracker: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,328
-412,ABILITY_NAME_364,減属,Reduction,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,412
-424,ABILITY_NAME_365,魔罠 詠,Magick Trap: Singer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,424
-400,ABILITY_NAME_366,魔破 詠,Magick Cracker: Singer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,400
-436,ABILITY_NAME_367,快漂,Pleasant Drift,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,436
-305,ABILITY_NAME_368,闘矢 倒,Seeker Arrows: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,305
-317,ABILITY_NAME_369,助矢 詠,Aid Arrow: Chant,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,317
-341,ABILITY_NAME_370,快進,Steady Advance,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,341
-329,ABILITY_NAME_371,一蹴 倒,Forward Kick: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,329
-353,ABILITY_NAME_372,奮矢 据,Invigorating Arrows: Duration,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,353
-365,ABILITY_NAME_373,魔遮,Demon Shield,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,365
-377,ABILITY_NAME_374,闘矢 瞬,Seeker Arrows: Blink,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,377
-389,ABILITY_NAME_375,助矢 瞬,Aid Arrow: Blink,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,389
-413,ABILITY_NAME_376,救魔,Salvational Magick,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,413
-401,ABILITY_NAME_377,一蹴 砕,Front Kick: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,401
-425,ABILITY_NAME_378,奮矢 拡,Invigoration Arrow: Expand,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,425
-437,ABILITY_NAME_379,通眼,Counter Eye,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,437
-306,ABILITY_NAME_380,破斬 倒,Hack: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,306
-318,ABILITY_NAME_381,魔倒 砕,Inverse Slash: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,318
-342,ABILITY_NAME_382,快閃,Brandish,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,342
-354,ABILITY_NAME_383,広斬 倒,Devastate: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,354
-330,ABILITY_NAME_384,魔斬 絶,Savage Lash: Eradicate,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,330
-366,ABILITY_NAME_385,攻遮,Attack Cover,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,366
-378,ABILITY_NAME_386,破斬 砕,Hack: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,378
-390,ABILITY_NAME_387,魔倒 絶,Inverse Slash: Exterminator,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,390
-414,ABILITY_NAME_388,豪握,Great Grasp,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,414
-426,ABILITY_NAME_389,広斬 砕,Devastate: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,426
-402,ABILITY_NAME_390,魔斬 砕,Savage Lash: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,402
-438,ABILITY_NAME_391,残恨,Excess Grudge,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,438
-307,ABILITY_NAME_392,錬打 倒,Alchemic Strike: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,307
-319,ABILITY_NAME_393,錬避 倒,Alchemic Evade: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,319
-343,ABILITY_NAME_394,硬視,Enduring Vision,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,343
-355,ABILITY_NAME_395,錬衝 倒,Alchemical Radius: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,355
-331,ABILITY_NAME_396,錬爆 倒,Elixir: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,331
-367,ABILITY_NAME_397,頑強,Stubborn,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,367
-379,ABILITY_NAME_398,錬打 砕,Alchemy: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,379
-391,ABILITY_NAME_399,錬避 砕,Alchemic Evade: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,391
-415,ABILITY_NAME_400,空滅,Sky Annihilation,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,415
-427,ABILITY_NAME_401,錬衝 砕,Alchemical Radius: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,427
-403,ABILITY_NAME_402,錬爆 砕,Elixir: Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,403
-439,ABILITY_NAME_403,守錬,Defense Alchemy,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,439
-57,ABILITY_NAME_404,迫霊,Threatened Spirit,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,57
-9,ABILITY_NAME_405,延霊,Extended Spirit,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9
-45,ABILITY_NAME_406,避影,Evasive Shadow,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,45
-261,ABILITY_NAME_407,延臨,Extension,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,261
-105,ABILITY_NAME_408,臨活,Active,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,105
-129,ABILITY_NAME_409,避活,Avoidance,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,129
-153,ABILITY_NAME_410,長癒,Extended Healing,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,153
-69,ABILITY_NAME_411,採霊,Foraging Spirit,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,69
-225,ABILITY_NAME_412,封芽,Sprout Sealing,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,225
-93,ABILITY_NAME_413,臨堅,Critical,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,93
-141,ABILITY_NAME_414,避霊,Evasive Spirit,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,141
-21,ABILITY_NAME_415,採癒,Foraging Heal,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,21
-117,ABILITY_NAME_416,触攻,Attack Touch,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,117
-81,ABILITY_NAME_417,触防,Protective Touch,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,81
-33,ABILITY_NAME_418,触快,Pleasant Touch,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,33
-416,ABILITY_NAME_419,強附,Great Enchantment,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,416
-272,ABILITY_NAME_420,合附,Synergy,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,272
-284,ABILITY_NAME_421,属附,Attribution,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,284
-177,ABILITY_NAME_422,耐附,Resistance,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,177
-189,ABILITY_NAME_423,不動,Immovable,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,189
-201,ABILITY_NAME_424,爽快,Refreshing Rescue,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,201
-237,ABILITY_NAME_425,減侵,Reduced Corruption,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,237
-249,ABILITY_NAME_426,侵壊,Infected Destroyer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,249
-213,ABILITY_NAME_427,侵護,Infected Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,213
-296,ABILITY_NAME_428,侵狙,Infected Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,296
-308,ABILITY_NAME_429,槍突 倒,Rushing Spear: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,308
-320,ABILITY_NAME_430,槍昇 倒,Rising Spear: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,320
-356,ABILITY_NAME_431,槍円 倒,Sweeping Spear: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,356
-332,ABILITY_NAME_432,槍墜 倒,Crushing Spear: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,332
-165,ABILITY_NAME_433,救攻,Attack Rescue,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,165
-344,ABILITY_NAME_434,活発,Enhanced Vitality,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,344
-380,ABILITY_NAME_435,槍突 破,Rushing Spear: Destroyer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,380
-392,ABILITY_NAME_436,槍昇 破,Rising Spear: Destroyer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,392
-428,ABILITY_NAME_437,槍円 破,Sweeping Spear: Destroyer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,428
-404,ABILITY_NAME_438,槍墜 破,Crushing Spear: Destroyer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,404
-368,ABILITY_NAME_439,防属,Elemental Defense,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,368
-440,ABILITY_NAME_440,霊蓄,Spirit Hoard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,440
-476,ABILITY_NAME_441,友体,Companion Health,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,476
-477,ABILITY_NAME_442,友活,Companion Stamina,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,477
-478,ABILITY_NAME_443,友攻,Companion Attack,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,478
-479,ABILITY_NAME_444,友魔,Companion Magick,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,479
-480,ABILITY_NAME_445,友防,Companion Defense,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,480
-481,ABILITY_NAME_446,友護,Companion Magick Defense,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,481
-482,ABILITY_NAME_447,追討,Follow-up Attack,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,482
-483,ABILITY_NAME_448,友癒,Companion Healing,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,483
-484,ABILITY_NAME_449,重歩 軽,Heavy Steps: Light,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,484
-485,ABILITY_NAME_450,穿歩 軽,Deft Footing: Light,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,485
-486,ABILITY_NAME_451,延泉 軽,Extended Springs: Light,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,486
-487,ABILITY_NAME_452,探採 軽,Gathering: Light,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,487
-488,ABILITY_NAME_453,薬効 軽,Efficacy: Light,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,488
-489,ABILITY_NAME_454,効延 軽,Effect Extension: Light,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,489
-490,ABILITY_NAME_455,巧掘 軽,Expert Excavator: Light,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,490
-491,ABILITY_NAME_456,流断 軽,Flow: Light,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,491
-492,ABILITY_NAME_457,宝眼 軽,Treasure Eye: Light,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,492
-493,ABILITY_NAME_458,根性 軽,Willpower: Light,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,493
-494,ABILITY_NAME_459,安着 軽,Safe Landing: Light,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,494
-495,ABILITY_NAME_460,減重,Ease Burden,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,495
-496,ABILITY_NAME_461,戦徒,Myrmidon,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,496
-497,ABILITY_NAME_462,探究,Inquiry,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,497
-498,ABILITY_NAME_463,侵滅,Purge,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,498
-499,ABILITY_NAME_464,夜帝,Night Emperor,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,499
-118,ABILITY_NAME_466,魔充,Magickal Charge,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,118
-10,ABILITY_NAME_467,延印,Extended Glyph,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10
-58,ABILITY_NAME_468,危吸,Perilous Absorption,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,58
-46,ABILITY_NAME_469,強弾,Strong Shot,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,46
-154,ABILITY_NAME_470,増魔,Augmented Magick,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,154
-166,ABILITY_NAME_471,転魔,Altered Magick,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,166
-94,ABILITY_NAME_472,加吸,Increased Absorption,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,94
-22,ABILITY_NAME_473,烈翔,Fierce Flight,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,22
-297,ABILITY_NAME_474,翔剣,Soaring Sword,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,297
-273,ABILITY_NAME_475,節魔,Magickal Chant,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,273
-250,ABILITY_NAME_477,節補,Complement Chant,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,250
-34,ABILITY_NAME_478,護印,Protective Glyph,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,34
-106,ABILITY_NAME_479,武運,Fortunes of War,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,106
-190,ABILITY_NAME_480,源運,Source Luck,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,190
-214,ABILITY_NAME_481,砲撃,Bombardment,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,214
-178,ABILITY_NAME_482,厚足,Heavy Foot,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,178
-70,ABILITY_NAME_483,活鎮,Active Supression,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,70
-130,ABILITY_NAME_484,勇鎮,Courageous Supression,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,130
-82,ABILITY_NAME_485,迫鎮,Imperative Supression,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,82
-142,ABILITY_NAME_486,精鎮,Vigorous Supression,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,142
-285,ABILITY_NAME_487,抗滅,Anti-Reduction,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,285
-226,ABILITY_NAME_488,甲砕,Armor Crusher,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,226
-202,ABILITY_NAME_489,戦護,War-Ready Safeguard,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,202
-238,ABILITY_NAME_490,戦狙,War-Ready Proficiency,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,238
-381,ABILITY_NAME_493,四撃 吸,Quadruple Slash: Absorption,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,381
-393,ABILITY_NAME_494,弧撃 吸,Arc Slash: Destroyer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,393
-405,ABILITY_NAME_495,空叉 吸,Sky Slash: Absorption,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,405
-417,ABILITY_NAME_496,昇墜 吸,Falling Slash: Absorption,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,417
-357,ABILITY_NAME_497,常撃,Ordinary Attack,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,357
-429,ABILITY_NAME_498,移撃,Rush Attack,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,429
-309,ABILITY_NAME_499,四撃 倒,Quadruple Slash: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,309
-321,ABILITY_NAME_500,弧撃 倒,Arc Slash: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,321
-345,ABILITY_NAME_501,昇墜 倒,Falling Slash: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,345
-333,ABILITY_NAME_502,空叉 倒,Sky Slash: Slayer,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,333
-441,ABILITY_NAME_503,流撃,Flow Attack,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,441
-369,ABILITY_NAME_504,偏吸,Respiration,ui\00_message\skill\ability_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,369
-2,CUSTOM_SKILL_INFO_04_46,"魔力を溜めた後、杖を振って追尾性能を持つ
-聖属性の魔法球を複数放つ
-<COL ffdc78>LV UP毎に攻撃威力の上昇
-LV.６で魔法球増加（��→５）</COL>","After charging, launch tracking projectiles.
-Fires magick spheres of Holy attribute.
-<COL ffdc78>LV UP: Increases damage.
-LV.6: Increases number of magick spheres
-(3→5).</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,2
-0,CUSTOM_SKILL_NAME_01_8,一閃突き,Blink Strike,ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0
-5,CUSTOM_SKILL_NAME_01_9,直下突き,Downthrust,ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5
-2,CUSTOM_SKILL_NAME_01_10,シールドバッシュ,Cymbal Attack,ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
-6,CUSTOM_SKILL_NAME_01_11,センチュリオンスパイク,Sheltered Spike,ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6
-1,CUSTOM_SKILL_NAME_01_12,刀牙昇斬,Tusk Toss,ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1
-3,CUSTOM_SKILL_NAME_01_13,天蓋斬り,Skyward Lash,ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
-7,CUSTOM_SKILL_NAME_01_14,円月斬り,Compass Slash,ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
-4,CUSTOM_SKILL_NAME_01_15,逸らし斬り,Hindsight Slash,ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4
-9,CUSTOM_SKILL_NAME_01_16,弐段突き,Intimate Strike,ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9
-11,CUSTOM_SKILL_NAME_01_17,ブレイブスレイド,Brave's Raid,ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11
-8,CUSTOM_SKILL_NAME_01_18,チャリオットムーブ,Moving Castle,ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8
-10,CUSTOM_SKILL_NAME_01_19,流剣閃,Flowing Sword Flash,ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10
-12,CUSTOM_SKILL_NAME_01_120,豪溜斬り,Pierce Slash,ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12
-13,CUSTOM_SKILL_NAME_01_121,流盾翔,Flowing Shield Spiral,ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13
-14,CUSTOM_SKILL_NAME_01_154,刀牙昇斬 剛,Tusk Toss (P),ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14
-15,CUSTOM_SKILL_NAME_01_155,刀牙昇斬 技,Tusk Toss (T),ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15
-16,CUSTOM_SKILL_NAME_01_174,シールドバッシュ 剛,Cymbal Attack (P),ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16
-17,CUSTOM_SKILL_NAME_01_175,シールドバッシュ 技,Cymbal Attack (T),ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17
-18,CUSTOM_SKILL_NAME_01_209,直下突き 剛,Downthrust (P),ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18
-19,CUSTOM_SKILL_NAME_01_210,直下突き 技,Downthrust (T),ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,19
-20,CUSTOM_SKILL_NAME_01_211,天蓋斬り 剛,Skyward Lash (P),ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,20
-21,CUSTOM_SKILL_NAME_01_212,天蓋斬り 技,Skyward Lash (T),ui\00_message\skill\custom_skill_name_01.gmd,\ui\gui_cmn.arc,gui_cmn.arc,21
-0,CUSTOM_SKILL_NAME_02_20,かまいたち,Biting Wind,ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0
-1,CUSTOM_SKILL_NAME_02_21,アギト裂き,Toss and Trigger,ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1
-3,CUSTOM_SKILL_NAME_02_22,引き寄せ,Ensnare,ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
-5,CUSTOM_SKILL_NAME_02_23,蹴り跳び,Stepping Stone,ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5
-2,CUSTOM_SKILL_NAME_02_24,返し蹴り,Back Kick,ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
-6,CUSTOM_SKILL_NAME_02_25,構え直し,Reset,ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6
-7,CUSTOM_SKILL_NAME_02_26,爆炎線,Powder Charge,ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
-10,CUSTOM_SKILL_NAME_02_27,火炎衣,Backfire,ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10
-11,CUSTOM_SKILL_NAME_02_28,流し暗殺,Easy Kill,ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11
-4,CUSTOM_SKILL_NAME_02_29,隼落とし,Falcon Kick,ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4
-8,CUSTOM_SKILL_NAME_02_30,旋風刃,Whirlwind Blade,ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8
-9,CUSTOM_SKILL_NAME_02_31,足刈り綱,Sliding Rope,ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9
-12,CUSTOM_SKILL_NAME_02_129,爆炎刃,Explosive Flame Blade,ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12
-13,CUSTOM_SKILL_NAME_02_130,跳鷹斬,Soaring Hawk Slash,ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13
-16,CUSTOM_SKILL_NAME_02_158,爆炎刃 剛,Explosive Flame Blade (P),ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16
-17,CUSTOM_SKILL_NAME_02_159,爆炎刃 技,Explosive Flame Blade (T),ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17
-14,CUSTOM_SKILL_NAME_02_160,流し暗殺 剛,Easy Kill (P),ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14
-15,CUSTOM_SKILL_NAME_02_161,流し暗殺 技,Easy Kill (T),ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15
-18,CUSTOM_SKILL_NAME_02_213,蹴り跳び 剛,Stepping Stone (P),ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18
-19,CUSTOM_SKILL_NAME_02_214,蹴り跳び 技,Stepping Stone (T),ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,19
-20,CUSTOM_SKILL_NAME_02_215,アギト裂き 剛,Toss and Trigger (P),ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,20
-21,CUSTOM_SKILL_NAME_02_216,アギト裂き 技,Toss and Trigger (T),ui\00_message\skill\custom_skill_name_02.gmd,\ui\gui_cmn.arc,gui_cmn.arc,21
-0,CUSTOM_SKILL_NAME_03_32,連なり射ち,Threefold Arrow,ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0
-2,CUSTOM_SKILL_NAME_03_33,扇射ち,Triad Shot,ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
-3,CUSTOM_SKILL_NAME_03_34,仕込み爆音矢,Flying Din,ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
-7,CUSTOM_SKILL_NAME_03_35,剛力射ち,Full Bend,ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
-4,CUSTOM_SKILL_NAME_03_36,降らし射ち,Cloudburst Volley,ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4
-1,CUSTOM_SKILL_NAME_03_37,貫き射ち,Puncture Dart,ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1
-5,CUSTOM_SKILL_NAME_03_38,渦巻き射ち,Whirling Arrow,ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5
-6,CUSTOM_SKILL_NAME_03_39,紅蓮爆矢,Crimson Arrow,ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6
-9,CUSTOM_SKILL_NAME_03_40,降らし爆炎矢,Explosive Arrow Volley,ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9
-10,CUSTOM_SKILL_NAME_03_41,矢継ぎ嵐,Storm Arrow,ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10
-8,CUSTOM_SKILL_NAME_03_42,逆縮地,Backward Retreat,ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8
-11,CUSTOM_SKILL_NAME_03_43,鬼神射ち,Demon Arrow,ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11
-12,CUSTOM_SKILL_NAME_03_131,天穹爆矢,Sky Burst Shot,ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12
-13,CUSTOM_SKILL_NAME_03_132,穿ち接射,Combined Pierce Shot,ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13
-14,CUSTOM_SKILL_NAME_03_162,連なり射ち 剛,Threefold Arrow (P),ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14
-15,CUSTOM_SKILL_NAME_03_163,連なり射ち 技,Threefold Arrow (T),ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15
-16,CUSTOM_SKILL_NAME_03_164,渦巻き射ち 剛,Whirling Arrow (P),ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16
-17,CUSTOM_SKILL_NAME_03_165,渦巻き射ち 技,Whirling Arrow (T),ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17
-18,CUSTOM_SKILL_NAME_03_197,剛力射ち 剛,Full Bend (P),ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18
-19,CUSTOM_SKILL_NAME_03_198,剛力射ち 技,Full Bend (T),ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,19
-20,CUSTOM_SKILL_NAME_03_199,降らし爆炎矢 剛,Explosive Arrow Volley (P),ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,20
-21,CUSTOM_SKILL_NAME_03_200,降らし爆炎矢 技,Explosive Arrow Volley (T),ui\00_message\skill\custom_skill_name_03.gmd,\ui\gui_cmn.arc,gui_cmn.arc,21
-4,CUSTOM_SKILL_NAME_04_44,ヒーリングスポット,Healing Spot,ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4
-5,CUSTOM_SKILL_NAME_04_45,キュアスポット,Curing Spot,ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5
-2,CUSTOM_SKILL_NAME_04_46,セラフィムフラップ,Seraphim Flap,ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
-6,CUSTOM_SKILL_NAME_04_47,セイクリッドシャイン,Sacred Shine,ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6
-0,CUSTOM_SKILL_NAME_04_48,アタックライザー,Attack Riser,ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0
-1,CUSTOM_SKILL_NAME_04_49,ディフェンスライザー,Defense Riser,ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1
-3,CUSTOM_SKILL_NAME_04_50,ガードビット,Guard Bit,ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
-11,CUSTOM_SKILL_NAME_04_51,クイックチャージ,Quick Charge,ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11
-9,CUSTOM_SKILL_NAME_04_52,エナジースポット,Energy Spot,ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9
-10,CUSTOM_SKILL_NAME_04_53,ゾーンオブザゴッド,Holy Glare,ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10
-7,CUSTOM_SKILL_NAME_04_54,ソウルエクスプロージョン,Soul Explosion,ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
-8,CUSTOM_SKILL_NAME_04_55,ソリッドライザー,Solid Riser,ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8
-12,CUSTOM_SKILL_NAME_04_133,ソラースライザー,Solace Riser,ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12
-13,CUSTOM_SKILL_NAME_04_134,ブラストアディション,Blast Addition,ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13
-14,CUSTOM_SKILL_NAME_04_166,ソラースライザー 剛,Solace Riser (P),ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14
-15,CUSTOM_SKILL_NAME_04_167,ソラースライザー 技,Solace Riser (T),ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15
-16,CUSTOM_SKILL_NAME_04_168,セラフィムフラップ 剛,Seraphim Flap (P),ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16
-17,CUSTOM_SKILL_NAME_04_169,セラフィムフラップ 技,Seraphim Flap (T),ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17
-19,CUSTOM_SKILL_NAME_04_217,キュアスポット 技,Curing Spot (T),ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,19
-18,CUSTOM_SKILL_NAME_04_218,キュアスポット 剛,Curing Spot (P),ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18
-20,CUSTOM_SKILL_NAME_04_219,ディフェンスライザー 剛,Defense Riser (P),ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,20
-21,CUSTOM_SKILL_NAME_04_220,ディフェンスライザー 技,Defense Riser (T),ui\00_message\skill\custom_skill_name_04.gmd,\ui\gui_cmn.arc,gui_cmn.arc,21
-0,CUSTOM_SKILL_NAME_05_56,フォースシールド,Force Shield,ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0
-7,CUSTOM_SKILL_NAME_05_57,セントウォール,Holy Wall,ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
-1,CUSTOM_SKILL_NAME_05_58,スローライト,Slow Light,ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1
-2,CUSTOM_SKILL_NAME_05_59,ヒュプノスライト,Hypnos Light,ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
-3,CUSTOM_SKILL_NAME_05_60,ランパートレイド,Rampart Raid,ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
-5,CUSTOM_SKILL_NAME_05_61,アースシェイク,Earth Shake,ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5
-4,CUSTOM_SKILL_NAME_05_62,エレメントグロウ,Element Glow,ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4
-6,CUSTOM_SKILL_NAME_05_63,バインドアンカー,Binding Anchor,ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6
-10,CUSTOM_SKILL_NAME_05_64,ハンズオブゴッド,Hands of God,ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10
-8,CUSTOM_SKILL_NAME_05_65,エレメントライト,Element Light,ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8
-9,CUSTOM_SKILL_NAME_05_66,スタンバースト,Stun Burst,ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9
-11,CUSTOM_SKILL_NAME_05_67,フォースアンカー,Force Anchor,ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11
-13,CUSTOM_SKILL_NAME_05_135,プロテクションスイング,Protection Swing,ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13
-12,CUSTOM_SKILL_NAME_05_136,ストーンライト,Stone Light,ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12
-14,CUSTOM_SKILL_NAME_05_170,アースシェイク 剛,Earth Shake (P),ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14
-15,CUSTOM_SKILL_NAME_05_171,アースシェイク 技,Earth Shake (T),ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15
-16,CUSTOM_SKILL_NAME_05_172,フォースシールド 剛,Force Shield (P),ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16
-17,CUSTOM_SKILL_NAME_05_173,フォースシールド 技,Force Shield (T),ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17
-18,CUSTOM_SKILL_NAME_05_205,ランパートレイド 剛,Rampart Raid (P),ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18
-19,CUSTOM_SKILL_NAME_05_206,ランパートレイド 技,Rampart Raid (T),ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,19
-20,CUSTOM_SKILL_NAME_05_207,セントウォール 剛,Holy Wall (P),ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,20
-21,CUSTOM_SKILL_NAME_05_208,セントウォール 技,Holy Wall (T),ui\00_message\skill\custom_skill_name_05.gmd,\ui\gui_cmn.arc,gui_cmn.arc,21
-0,CUSTOM_SKILL_NAME_06_68,ファイアストーム,Firestorm,ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0
-4,CUSTOM_SKILL_NAME_06_69,フレイムウォール,Comestion,ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4
-7,CUSTOM_SKILL_NAME_06_70,メテオフォール,Bolide,ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
-3,CUSTOM_SKILL_NAME_06_71,フロストスパイク,Frigor,ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
-1,CUSTOM_SKILL_NAME_06_72,サンダーケージ,Fulmination,ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1
-5,CUSTOM_SKILL_NAME_06_73,クレセントブレード,Crescent Blade,ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5
-2,CUSTOM_SKILL_NAME_06_74,ブラックヘイズ,Black Haze,ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
-6,CUSTOM_SKILL_NAME_06_75,ロックビート,Seism,ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6
-8,CUSTOM_SKILL_NAME_06_76,サンダーレイン,Levin,ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8
-10,CUSTOM_SKILL_NAME_06_77,ブリザードアロー,Gicel,ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10
-9,CUSTOM_SKILL_NAME_06_78,ダークネスミスト,Darkness Mist,ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9
-11,CUSTOM_SKILL_NAME_06_79,プロミネントスフィア,Prominent Sphere,ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11
-12,CUSTOM_SKILL_NAME_06_137,アイシクルピアス,Icicle Pierce,ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12
-13,CUSTOM_SKILL_NAME_06_138,ライトニングステイク,Lightning Stake,ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13
-14,CUSTOM_SKILL_NAME_06_176,ダークネスミスト 剛,Darkness Mist (P),ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14
-15,CUSTOM_SKILL_NAME_06_177,ダークネスミスト 技,Darkness Mist (T),ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15
-16,CUSTOM_SKILL_NAME_06_178,サンダーケージ 剛,Fulmination (P),ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16
-17,CUSTOM_SKILL_NAME_06_179,サンダーケージ 技,Fulmination (T),ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17
-18,CUSTOM_SKILL_NAME_06_221,フレイムウォール 剛,Comestion (P),ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18
-19,CUSTOM_SKILL_NAME_06_222,フレイムウォール 技,Comestion (T),ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,19
-20,CUSTOM_SKILL_NAME_06_223,フロストスパイク 剛,Frigor (P),ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,20
-21,CUSTOM_SKILL_NAME_06_224,フロストスパイク 技,Frigor (T),ui\00_message\skill\custom_skill_name_06.gmd,\ui\gui_cmn.arc,gui_cmn.arc,21
-0,CUSTOM_SKILL_NAME_07_80,突き上げ斬り,Upward Strike,ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0
-2,CUSTOM_SKILL_NAME_07_81,柄打ち,Pommel Strike,ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
-1,CUSTOM_SKILL_NAME_07_82,魔人駆け,Savage Lunge,ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1
-3,CUSTOM_SKILL_NAME_07_83,かわし斬り,Escape Slash,ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
-4,CUSTOM_SKILL_NAME_07_84,大輪斬,Spark Slash,ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4
-5,CUSTOM_SKILL_NAME_07_85,魔人崩し,Devil Burst,ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5
-7,CUSTOM_SKILL_NAME_07_86,無心斬,Clarity,ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
-6,CUSTOM_SKILL_NAME_07_87,天衝刃,Heaven Thrust,ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6
-11,CUSTOM_SKILL_NAME_07_88,殲魔剣風斬,Annihilator's Wind Slash,ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11
-9,CUSTOM_SKILL_NAME_07_89,大風車斬り,Great Windmill,ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9
-8,CUSTOM_SKILL_NAME_07_90,凌魔の身構え,Defensive Stance,ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8
-10,CUSTOM_SKILL_NAME_07_91,飛龍突,Flying Dragon Crash,ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10
-12,CUSTOM_SKILL_NAME_07_139,大牙抉り,Great Gouging Fang,ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12
-13,CUSTOM_SKILL_NAME_07_140,地衝牙,Earthquake Fang,ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13
-14,CUSTOM_SKILL_NAME_07_180,魔人駆け 剛,Savage Lunge (P),ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14
-15,CUSTOM_SKILL_NAME_07_181,魔人駆け 技,Savage Lunge (T),ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15
-16,CUSTOM_SKILL_NAME_07_182,柄打ち 剛,Pommel Strike (P),ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16
-17,CUSTOM_SKILL_NAME_07_183,柄打ち 技,Pommel Strike (T),ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17
-18,CUSTOM_SKILL_NAME_07_225,かわし斬り 剛,Escape Slash (P),ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18
-19,CUSTOM_SKILL_NAME_07_226,かわし斬り 技,Escape Slash (T),ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,19
-20,CUSTOM_SKILL_NAME_07_227,大輪斬 剛,Spark Slash (P),ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,20
-21,CUSTOM_SKILL_NAME_07_228,大輪斬 技,Spark Slash (T),ui\00_message\skill\custom_skill_name_07.gmd,\ui\gui_cmn.arc,gui_cmn.arc,21
-1,CUSTOM_SKILL_NAME_08_92,癒し魔矢,Healing Bolt,ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1
-2,CUSTOM_SKILL_NAME_08_93,治し魔矢,Curing Bolt,ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
-3,CUSTOM_SKILL_NAME_08_94,炎魔弓,Flaming Bow,ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
-0,CUSTOM_SKILL_NAME_08_95,連魔弾,Fourfold Bolt,ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0
-7,CUSTOM_SKILL_NAME_08_96,跳弾魔従,Ricochet Seeker,ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
-4,CUSTOM_SKILL_NAME_08_97,閃魔光,Magickal Flare,ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4
-5,CUSTOM_SKILL_NAME_08_98,減剛魔弓,Enfeebling Bow,ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5
-6,CUSTOM_SKILL_NAME_08_99,減防魔弓,Crippling Bow,ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6
-8,CUSTOM_SKILL_NAME_08_100,奮わせ魔矢,Energizing Bolt,ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8
-9,CUSTOM_SKILL_NAME_08_101,減耐魔弓,Exhausting Bow,ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9
-10,CUSTOM_SKILL_NAME_08_102,弱体魔弓,Weakening Bow,ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10
-11,CUSTOM_SKILL_NAME_08_103,全霊弓,Gamble Draw,ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11
-12,CUSTOM_SKILL_NAME_08_141,癒し閃光,Healing Flash,ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12
-13,CUSTOM_SKILL_NAME_08_142,触裂魔矢,Tearing Tentacle Arrow,ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13
-14,CUSTOM_SKILL_NAME_08_184,炎魔弓 剛,Flaming Bow (P),ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14
-15,CUSTOM_SKILL_NAME_08_185,炎魔弓 技,Flaming Bow (T),ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15
-16,CUSTOM_SKILL_NAME_08_186,減耐魔弓 剛,Exhausting Bow (P),ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16
-17,CUSTOM_SKILL_NAME_08_187,減耐魔弓 技,Exhausting Bow (T),ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17
-18,CUSTOM_SKILL_NAME_08_201,癒し閃光 剛,Healing Flash (P),ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18
-19,CUSTOM_SKILL_NAME_08_202,癒し閃光 技,Healing Flash (T),ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,19
-20,CUSTOM_SKILL_NAME_08_203,減防魔弓 剛,Crippling Bow (P),ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,20
-21,CUSTOM_SKILL_NAME_08_204,減防魔弓 技,Crippling Bow (T),ui\00_message\skill\custom_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cmn.arc,21
-1,CUSTOM_SKILL_NAME_09_104,アルマ・ウェイブ,Alma Wave,ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1
-0,CUSTOM_SKILL_NAME_09_105,アルマ・ピラー,Alma Pillar,ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0
-5,CUSTOM_SKILL_NAME_09_106,パイル・バインダ,Pile Binder,ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5
-4,CUSTOM_SKILL_NAME_09_107,アルマ・ウィンダス,Alma Windust,ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4
-2,CUSTOM_SKILL_NAME_09_108,レクス・エレメンタ,Rex Elementa,ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
-3,CUSTOM_SKILL_NAME_09_109,レクス・カタパルタ,Rex Catapulta,ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
-6,CUSTOM_SKILL_NAME_09_110,ドルス・モルサス,Dolus Morsus,ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6
-7,CUSTOM_SKILL_NAME_09_111,ゴルダ・アウルム,Golda Aurum,ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
-8,CUSTOM_SKILL_NAME_09_112,アルケム・バースト,Alchemical Burst,ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8
-9,CUSTOM_SKILL_NAME_09_113,ドルス・エアリス,Dolus Aeris,ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9
-10,CUSTOM_SKILL_NAME_09_114,アルマ・セクタ,Alma Sector,ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10
-11,CUSTOM_SKILL_NAME_09_115,レギア・バリアル,Regal Barrier,ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11
-12,CUSTOM_SKILL_NAME_09_189,パイル・バインダ 剛,Pile Binder (P),ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12
-13,CUSTOM_SKILL_NAME_09_190,パイル・バインダ 技,Pile Binder (T),ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13
-14,CUSTOM_SKILL_NAME_09_191,アルマ・ピラー 剛,Alma Pillar (P),ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14
-15,CUSTOM_SKILL_NAME_09_192,アルマ・ピラー 技,Alma Pillar (T),ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15
-16,CUSTOM_SKILL_NAME_09_229,アルマ・ウェイブ 剛,Alma Wave (P),ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16
-17,CUSTOM_SKILL_NAME_09_230,アルマ・ウェイブ 技,Alma Wave (T),ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17
-18,CUSTOM_SKILL_NAME_09_231,レクス・エレメンタ 剛,Rex Elementa (P),ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18
-19,CUSTOM_SKILL_NAME_09_232,レクス・エレメンタ 技,Rex Elementa (T),ui\00_message\skill\custom_skill_name_09.gmd,\ui\gui_cmn.arc,gui_cmn.arc,19
-0,CUSTOM_SKILL_NAME_10_143,アラム・ファング,Aurom Fang,ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0
-1,CUSTOM_SKILL_NAME_10_144,アラム・スレイ,Aurom Slay,ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1
-4,CUSTOM_SKILL_NAME_10_145,コル・ストルム,Corr Storm,ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4
-2,CUSTOM_SKILL_NAME_10_146,コル・スパイク,Corr Spike,ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
-5,CUSTOM_SKILL_NAME_10_147,シュクリス・ブラスト,Scrios Blast,ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5
-7,CUSTOM_SKILL_NAME_10_148,シュクリス・ガーダー,Scrios Guard,ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
-3,CUSTOM_SKILL_NAME_10_149,ウォール・グラスタ,Wall Glasta,ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
-6,CUSTOM_SKILL_NAME_10_150,キュア・グラスタ,Cure Glasta,ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6
-8,CUSTOM_SKILL_NAME_10_153,コル・ミーティア,Corr Meteor,ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8
-9,CUSTOM_SKILL_NAME_10_188,エードラム・カウンター,Éadrom Counter,ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9
-12,CUSTOM_SKILL_NAME_10_193,アラム・ファング 剛,Aurom Fang (P),ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12
-13,CUSTOM_SKILL_NAME_10_194,アラム・ファング 技,Aurom Fang (T),ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13
-10,CUSTOM_SKILL_NAME_10_195,ウォール・グラスタ 剛,Wall Glasta (P),ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10
-11,CUSTOM_SKILL_NAME_10_196,ウォール・グラスタ 技,Wall Glasta (T),ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11
-14,CUSTOM_SKILL_NAME_10_233,コル・スパイク 剛,Corr Spike (P),ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14
-15,CUSTOM_SKILL_NAME_10_234,コル・スパイク 技,Corr Spike (T),ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15
-16,CUSTOM_SKILL_NAME_10_235,キュア・グラスタ 剛,Cure Glasta (P),ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16
-17,CUSTOM_SKILL_NAME_10_236,キュア・グラスタ 技,Cure Glasta (T),ui\00_message\skill\custom_skill_name_10.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17
-0,CUSTOM_SKILL_NAME_11_237,光円月,Full Moon Light,ui\00_message\skill\custom_skill_name_11.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0
-4,CUSTOM_SKILL_NAME_11_238,ウォール・バリア,Wall Barrier,ui\00_message\skill\custom_skill_name_11.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4
-6,CUSTOM_SKILL_NAME_11_239,エクリプス・ブライト,Eclipse Bright,ui\00_message\skill\custom_skill_name_11.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6
-3,CUSTOM_SKILL_NAME_11_240,黒閃牙,Black Flash Fang,ui\00_message\skill\custom_skill_name_11.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
-1,CUSTOM_SKILL_NAME_11_241,ミラージュ・シフト,Mirage Shift,ui\00_message\skill\custom_skill_name_11.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1
-5,CUSTOM_SKILL_NAME_11_242,テラー・ブラスト,Terror Blast,ui\00_message\skill\custom_skill_name_11.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5
-7,CUSTOM_SKILL_NAME_11_243,ファントム・エッジ,Phantom Edge,ui\00_message\skill\custom_skill_name_11.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7
-2,CUSTOM_SKILL_NAME_11_244,ディム・スライス,Dim Slice,ui\00_message\skill\custom_skill_name_11.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
+0,,"“メルゴダの深淵”まで
+ズールの命を持って来いって",Bring the life of Zuhl to the Mergoda Abyss.,ui\00_message\event\st0201\ev075.gmd,\event\st0201\st0201ev075.arc,st0201ev075.arc,12
+0,,"“竜王の指輪”――
+その魔器の名を聞いたことがあるか？","Have you heard of the magic artifact known as the
+Wyrmking's Ring?",ui\00_message\event\st0201\ev103.gmd,\event\st0201\st0201ev103.arc,st0201ev103.arc,1
+0,,"指輪にかつて力を注がれた３つの地
+“竜力の渦”と呼ばれる場所を","There are three places where the power was once
+poured into the ring, called the ""Whirls of Dragon
+Force.""",ui\00_message\event\st0201\ev103.gmd,\event\st0201\st0201ev103.arc,st0201ev103.arc,7
+0,,あれは今、“ゲート”と呼ばれている,"It's called ""The Gate"" now.",ui\00_message\event\st0201\ev155.gmd,\event\st0201\st0201ev155.arc,st0201ev155.arc,4
+0,,"その“ゲート”を通り、忌々しい侵食魔どもが
+相も変わらず飛んでくる","Through that Gate, the detestable Infected
+creatures continue to fly in without fail.",ui\00_message\event\st0201\ev155.gmd,\event\st0201\st0201ev155.arc,st0201ev155.arc,5
+0,,"フィンダムの各族長の結託により
+“精霊の地”の封印が解かれたようだ","The unification of the chieftains in Phindym
+seems to have led to the release of the seal on
+the ""Spirit Land"".",ui\00_message\event\st0201\ev170.gmd,\event\st0201\st0201ev170.arc,st0201ev170.arc,2
+12,SPOT_NAME_,怨嗟の祠,Shrine of Resentment,ui\00_message\master\area11_spot_name.gmd,\ui\uGUIAreaMaster.arc,uGUIAreaMaster.arc,12
+0,,"《竜の巣》へ行ったらどんなだったか
+教えてくれよ！
+戦果報告だけが楽しみなんだからよ！","If you go to 《Dragon's Nest》, let me know how it
+was!
+I'm looking forward to your war report!",ui\00_message\npc\base\n1036.gmd,\npc\n1036.arc,n1036.arc,0
+0,,"《竜の巣》にゃ危険なドラゴンが
+わんさかいるってんじゃねぇか
+そんなとこに行きたいなんざ、モノ好きだねぇ","Is there a dangerous dragon nesting place called
+""Dragon's Nest"" or something? Who would want to go
+to a place like that, you must really love
+adventure.",ui\00_message\npc\base\n1036.gmd,\npc\n1036.arc,n1036.arc,1
+0,,"海はいい！！
+粘る潮風、波音、そしてロマン！
+命を賭ける甲斐もあるってもんだ","The ocean is good!
+The persistent sea breeze, the sound of the
+waves, and the romance!
+It's worth risking your life for!",ui\00_message\npc\base\n1036.gmd,\npc\n1036.arc,n1036.arc,2
+0,,"おう！　気張ってるか？
+覚者さん","Oh!　Are you feeling feisty?
+Master Arisen.",ui\00_message\npc\base\n1036.gmd,\npc\n1036.arc,n1036.arc,3
+0,,"船を使った運輸もできれば
+より流通も捗るのですが","If we could also use ships for transportation, we
+could make more progress in distribution than
+",ui\00_message\npc\base\n1037.gmd,\npc\n1037.arc,n1037.arc,0
+0,,"白竜神が墜ちてからというもの
+大陸を取り巻く海流が変わったそうですよ
+ヒュージブルの出現もその頃からだとか","The ocean currents surrounding the continent have
+changed since the White Dragon God crashed
+I heard that the emergence of Huge Bulls also
+started around that time.",ui\00_message\npc\base\n1037.gmd,\npc\n1037.arc,n1037.arc,1
+0,,"特に問題はありませんね
+船の準備も堅調のようです","I don't see any problems.
+The ship seems to be well prepared.",ui\00_message\npc\base\n1037.gmd,\npc\n1037.arc,n1037.arc,2
+0,,こんにちは、覚者隊の方,"Hello, Arisen",ui\00_message\npc\base\n1037.gmd,\npc\n1037.arc,n1037.arc,3
+0,,"やぁ、船の見学かい？
+毎回破損しちゃうから、修理も大変だよ","Hey, you want to see the boat?
+It gets damaged every time, so it's hard to fix
+it.",ui\00_message\npc\base\n1038.gmd,\npc\n1038.arc,n1038.arc,0
+0,,"深い水に入らないよう気を付けなよ
+液体みたいな赤い魔物、ヒュージブルに
+やられるぜ","Be careful not to go into deep water.
+The liquid-like red monster, Huge Bull, will
+get you.",ui\00_message\npc\base\n1038.gmd,\npc\n1038.arc,n1038.arc,1
+0,,"なぁ、知ってるか？
+船長はさ、実は昔《竜の巣》で――
+いや！　何でもない忘れてくれ","Hey, you know what?
+The captain, you know, actually used to be in
+《Dragon's Den》 -
+No!　It's nothing, forget it.",ui\00_message\npc\base\n1038.gmd,\npc\n1038.arc,n1038.arc,2
+0,,やぁ！　覚者さん,Hello! Arisen-san,ui\00_message\npc\base\n1038.gmd,\npc\n1038.arc,n1038.arc,3
+0,,"危ない場所に行く時は、いつもより
+入念に準備してくださいね！","When you go to a dangerous place, please be more
+carefully prepared than usual!",ui\00_message\npc\base\n1039.gmd,\npc\n1039.arc,n1039.arc,0
+0,,"こちらは道具売り場です
+各種お薬、お守りを取りそろえてます！","This is the tools department.
+We have a variety of medicines and amulets!",ui\00_message\npc\base\n1039.gmd,\npc\n1039.arc,n1039.arc,1
+0,,"お買い忘れはないですか～？
+所持品を確認してくださいね","Did you forget to buy anything?
+Please check your belongings!",ui\00_message\npc\base\n1039.gmd,\npc\n1039.arc,n1039.arc,2
+0,,"いらっしゃいませ！
+忘れ物があったら大変ですよ
+出立前にぜひ確認を！","Welcome!
+We'd hate for you to forget something.
+Please check before you leave!",ui\00_message\npc\base\n1039.gmd,\npc\n1039.arc,n1039.arc,3
+0,,"白竜様は休養中である
+むやみに触れる、用もなく話しかけるなど
+無礼は慎むように","Master Hakuryu is resting.
+Please refrain from touching him unnecessarily,
+talking to him without his business, etc.
+Please refrain from rudeness.",ui\00_message\npc\base\n1040.gmd,\npc\n1040.arc,n1040.arc,0
+0,,だから、私語は慎むように,"Therefore, please refrain from whispering.",ui\00_message\npc\base\n1040.gmd,\npc\n1040.arc,n1040.arc,1
+0,,謁見の間では、くれぐれも騒がぬように,"Please make sure not to cause any disturbance in
+the Audience Chamber.",ui\00_message\npc\base\n1040.gmd,\npc\n1040.arc,n1040.arc,2
+0,,私語は慎むように,Please refrain from whispering.,ui\00_message\npc\base\n1040.gmd,\npc\n1040.arc,n1040.arc,3
+0,,"夜間は暗いので、ランタンは必須です！
+それに洞窟とか、視界がきかないところも
+多いそうですよ","It is dark at night, so a lantern is a must!
+Also, there are many caves and other 
+places where visibility is limited.",ui\00_message\npc\base\n1041.gmd,\npc\n1041.arc,n1041.arc,0
+0,,ランタン火種、たくさん買ってくださいね！,Please purchase a lot of Lantern Kindling!,ui\00_message\npc\base\n1041.gmd,\npc\n1041.arc,n1041.arc,1
+0,,"道具の仕入れも、最近ちょっとずつ厳しく
+なってきたみたいなんです","It seems that purchasing tools has been 
+getting a little tougher lately!",ui\00_message\npc\base\n1041.gmd,\npc\n1041.arc,n1041.arc,2
+0,,"良ければ《クエストボード》にある資材手配にも
+ご協力お願いしますね","If you don't mind, I'd appreciate your
+cooperation in arranging materials on
+the ""Quest Board"".",ui\00_message\npc\base\n1041.gmd,\npc\n1041.arc,n1041.arc,3
+0,,"私、ここで働けて幸せだなって思います
+だって、たくさんの覚者さまの
+お役に立てますから！","I'm happy to work here because 
+I can help many Arisen!",ui\00_message\npc\base\n1041.gmd,\npc\n1041.arc,n1041.arc,4
+0,,"回復の薬は十分お持ちですか？
+体力の回復ができないと大変ですよ
+魔法だけだと疲れが残ってしまいますよ","Do you have enough medicine for recovery?
+It's very hard to recover your strength.
+Magic alone will leave you exhausted.",ui\00_message\npc\base\n1041.gmd,\npc\n1041.arc,n1041.arc,5
+0,,"道具は旅の生命線です！
+多めに買っていってくださいね","Tools are the lifeblood of your trip!
+Please buy more!",ui\00_message\npc\base\n1041.gmd,\npc\n1041.arc,n1041.arc,6
+0,,"たくさん持って行ってくださいね
+現地調達できないこともありますから！","Please take plenty with you.
+It may not be possible to procure locally!",ui\00_message\npc\base\n1041.gmd,\npc\n1041.arc,n1041.arc,7
+0,,いらっしゃいませ、覚者さま！,"Welcome, Arisen!",ui\00_message\npc\base\n1041.gmd,\npc\n1041.arc,n1041.arc,8
+0,,あの、いらっしゃいませ、覚者さま,"Er, welcome, Arisen.",ui\00_message\npc\base\n1041.gmd,\npc\n1041.arc,n1041.arc,9
+0,,"その、私なんかがお聞きしていいのか
+わからないんですけど
+空の渦――あれはよくないものですよね","Well, I don't know if I'm the right person to ask
+, but
+the vortex in the sky--that's not a good thing,
+is it?",ui\00_message\npc\base\n1041.gmd,\npc\n1041.arc,n1041.arc,10
+0,,"レスタニアはどうなってしまうんでしょう
+あの空の渦、すべてを吸い込んでしまいそう","What will happen to Lestania
+That vortex in the sky, it seems to suck
+everything in!",ui\00_message\npc\base\n1041.gmd,\npc\n1041.arc,n1041.arc,11
+0,,"大変なことが起こってるんだって
+胸がぎゅっと痛くなります","There's something terrible happening and it makes
+my heart ache
+",ui\00_message\npc\base\n1041.gmd,\npc\n1041.arc,n1041.arc,12
+0,,"おぉ～～！！
+わたしは幸せ者でーす！","Oh my goodness!
+I'm such a fortunate person!",ui\00_message\npc\base\n1042.gmd,\npc\n1042.arc,n1042.arc,0
+0,,"ここで歌い、たたずむだけで、なんと！
+聞くことができるのですから！","Just by singing and standing here, look!
+You can hear it!",ui\00_message\npc\base\n1042.gmd,\npc\n1042.arc,n1042.arc,1
+0,,"幾人もの覚者さまの
+素晴らしい冒険譚の数々をッ！
+詩にすべき英雄的浪漫の数々をッ！！","The wonderful adventures of many arisen
+! The heroic romance that should be turned into
+poems
+!!",ui\00_message\npc\base\n1042.gmd,\npc\n1042.arc,n1042.arc,2
+0,,"あなたはご存知ですか？
+伝承にある、白竜様と金色の竜の戦いを","Do you know? The battle between the White 
+Dragon and the Golden Dragon, as told in 
+legends?",ui\00_message\npc\base\n1042.gmd,\npc\n1042.arc,n1042.arc,3
+0,,"あぁ、白竜様の銀翼が空を舞うお姿！
+どれほど神々しく、どれほど感動的な
+ことでしょう――！","Ah, the glorious sight of the White Dragon's
+silver wings dancing in the sky! 
+How divine, how deeply moving it is!",ui\00_message\npc\base\n1042.gmd,\npc\n1042.arc,n1042.arc,4
+0,,"しかし、気になりませんか？
+白竜様に敗れ墜ちた金色の竜は
+その後どうなったのでしょうね","But aren't you curious?
+I wonder what happened to the golden dragon 
+that was defeated and crashed by Master 
+Hakuryu after that?",ui\00_message\npc\base\n1042.gmd,\npc\n1042.arc,n1042.arc,5
+0,,"良き旅には良き仲間、良き試練
+そして良き歌を！","A good journey, good friends, good trials
+and good songs!",ui\00_message\npc\base\n1042.gmd,\npc\n1042.arc,n1042.arc,6
+0,,ではあなたの為に一曲――,So let me sing a song for you—,ui\00_message\npc\base\n1042.gmd,\npc\n1042.arc,n1042.arc,7
+0,,"ららら～
+何かご用でも～？","La la la la~
+What can I do for you?",ui\00_message\npc\base\n1042.gmd,\npc\n1042.arc,n1042.arc,8
+0,,"おぉ～
+なんという事でしょう～","Oh,
+what a surprise!",ui\00_message\npc\base\n1042.gmd,\npc\n1042.arc,n1042.arc,9
+0,,"あなたは今、他のミッションに参加予定ですね？
+そちらを達成するか、予定を取り消してから
+また来てくださ～い","You are now scheduled to participate in another
+mission?
+Please come back to
+after you have either accomplished that one or
+canceled your plans!",ui\00_message\npc\base\n1042.gmd,\npc\n1042.arc,n1042.arc,10
+0,,"はい、覚者様
+何なりとご用をお申し付けください","Yes, Ser Arisen
+Please feel free to let us know if you have any
+requests",ui\00_message\npc\base\n1043.gmd,\npc\n1043.arc,n1043.arc,0
+0,,"神殿より、こちらのクランの
+世話係を任されております","I have been entrusted as the caretaker of this
+clan from the temple
+If you have any requests, please let us know",ui\00_message\npc\base\n1043.gmd,\npc\n1043.arc,n1043.arc,1
+0,,"ご要望がございましたら
+何なりとお申し付けください","If you have any requests, please feel free to let
+us know
+",ui\00_message\npc\base\n1043.gmd,\npc\n1043.arc,n1043.arc,2
+0,,"はい、覚者様
+お話のお相手ですか？
+わたくしでよろしければ、何なりとお話ください","Yes, Arisen, I am the one you want to talk to?
+If it is alright with you, please feel free to
+talk to me.",ui\00_message\npc\base\n1043.gmd,\npc\n1043.arc,n1043.arc,3
+0,,"覚者様のクランをお任せいただけること、
+光栄に思っております","We feel honored to be entrusted with your clan,
+Ser Arisen
+",ui\00_message\npc\base\n1043.gmd,\npc\n1043.arc,n1043.arc,4
+0,,"そっちは魔物も危険で
+何かあったとしても自分
+助けにいける自信がありません！","The demons are dangerous there
+and I'm not confident that I
+would be able to help if something were to happen!",ui\00_message\npc\base\n1210.gmd,\npc\n1210.arc,n1210.arc,8
+0,,暮らしは厳しくなる一方��よ,Life keeps getting tougher,ui\00_message\npc\base\n8020.gmd,\npc\n8020.arc,n8020.arc,4
+0,,"レスタニアがこうむった知の損失は
+計り知れないものがあるな
+なに？
+――命が持ち去られた？","The damage to Lestania's knowledge 
+is beyond measure. 
+
+What? 
+— Lives have been stolen away?",ui\00_message\quest\q00000015.gmd,\quest\q00000015.arc,q00000015.arc,64
+0,,"神殿と選ばれし覚者――
+集った騎士団と町の者たち
+すべては白竜のよろいではあるが――
+今こそ剣に転じる時なのかもしれんな","The Temple and his chosen Arisen— 
+The Knights and townsfolk gathered here...
+All is for the sake of protecting the White Dragon—
+Yet, it may be time to take up arms.",ui\00_message\quest\q00000015.gmd,\quest\q00000015.arc,q00000015.arc,66
+0,,"もし、ディナン深層林に通じる山道が
+通れないようならば――","If the mountain road connecting
+Deenan Woods cannot be used—",ui\00_message\quest\q00000015.gmd,\quest\q00000015.arc,q00000015.arc,67
+0,,"できることなら取り返して――
+あの人が愛したエルテ・ディナンに
+帰してあげてください！","If possible, please reclaim it—
+Return it to Erte Deenan,
+that place which was most dear to him.",ui\00_message\quest\q00000016.gmd,\quest\q00000016.arc,q00000016.arc,12
+0,,"豚に変装して徘徊していれば
+奴らが攫って砦に入れるかも――
+ちょっと、無理があるでしょうか","If you dress as a pig and roam about, 
+they might capture you and bring you to the 
+fortress—though that seems a bit unlikely?",ui\00_message\quest\q00000016.gmd,\quest\q00000016.arc,q00000016.arc,15
+0,,"――ちがう？
+そうか――神殿から来たのか
+白竜様のためというわけだな","Nay? Ah, I see—
+You've come from the Temple. 
+So this is for the White Dragon's sake, then.",ui\00_message\quest\q00000016.gmd,\quest\q00000016.arc,q00000016.arc,21
+0,,"よし――
+ならば、組合宿《眠り狼亭》のサニーに聞くといい
+もっとも、彼女の眼鏡に適わなければ
+教えてはもらえんだろうがな","Alright— in that case,
+try asking Sunny at the Sleeping Wolf Inn.
+Mind you, if you don't impress her,
+she likely won't tell you anything.",ui\00_message\quest\q00000016.gmd,\quest\q00000016.arc,q00000016.arc,22
+0,,"その油断したところをブチのめして
+鍵を奪えれば、一番の近道だろうね
+もちろん命賭けさ――あんたの腕次第だしね","Seize the moment of their distraction,
+and if you can grab the key,
+it should be the fastest way.
+Of course, it's a gamble with your life—
+it depends on your ability.",ui\00_message\quest\q00000016.gmd,\quest\q00000016.arc,q00000016.arc,30
+0,,"その油断したところをブチのめして
+鍵を奪えれば、一番の近道だろうね
+もちろん命賭けさ――あんたの腕次第だしね","Seize the moment of their distraction,
+and if you can grab the key,
+it should be the fastest way.
+Of course, it's a gamble with your life—
+it depends on your ability.",ui\00_message\quest\q00000016.gmd,\quest\q00000016.arc,q00000016.arc,33
+0,,"そういえば、あなたと同じころ
+凛々しく素敵な男性覚者が砦に入った
+そうですが――","Speaking of which, a handsome,
+dashing male Arisen headed for the stronghold
+around the same time as you—",ui\00_message\quest\q00000016.gmd,\quest\q00000016.arc,q00000016.arc,34
+0,,"くそう――
+一発逆転より地道な努力かよ
+まあ、ガキの頃から知ってたけどな","Damn— I guess slow and steady
+wins the race after all. Well,
+guess I've known that since I was young.",ui\00_message\quest\q00000016.gmd,\quest\q00000016.arc,q00000016.arc,38
+0,,"ほう――
+晴れやかな顔をしているな
+ということはつまり――","Oh—
+you're looking quite cheerful.
+So, that must mean—",ui\00_message\quest\q00000016.gmd,\quest\q00000016.arc,q00000016.arc,39
+0,,ほう――やるな,Oh— not bad at all!,ui\00_message\quest\q00000016.gmd,\quest\q00000016.arc,q00000016.arc,47
+0,,なんだこの臭いは――死の臭い――,What is this odor— it reeks of death—,ui\00_message\quest\q00000016.gmd,\quest\q00000016.arc,q00000016.arc,48
+0,,何事だ――この砦で――まさか――,What is going on— at this fortress— no way—,ui\00_message\quest\q00000016.gmd,\quest\q00000016.arc,q00000016.arc,49
+0,,"よし、キースヒルトの遺志を――
+願いを叶えてやろうじゃないか
+手順はミシアルに聞くといい","Alright, let's fulfill Kieshildt's will—
+we'll see his wishes fulfilled. 
+Ask Mysial for the steps to take.",ui\00_message\quest\q00000016.gmd,\quest\q00000016.arc,q00000016.arc,70
+0,,"しかし、この方法で命をつなぐことができる
+無残に散った命も、ただ涙を誘うだけではない
+――となれば俺に躊躇する理由はない","However, this method allows us to preserve
+a precious life that has been taken from us.
+The lives that were so cruelly scattered
+do not only draw bitter tears.
+—If that is so, I have no reason to hesitate.",ui\00_message\quest\q00000016.gmd,\quest\q00000016.arc,q00000016.arc,72
+0,,"名前が出たディアマンテスのことだって
+よく知る必要があるし――
+これは忙しいぞ！","We need to know more about the
+mentioned Diamantes too—
+this will keep us busy!",ui\00_message\quest\q00000017.gmd,\quest\q00000017.arc,q00000017.arc,5
+0,,"あなたの意志を尊重します――
+でも、みんなの期待に応えることも
+大切だと思いますよ？","I respect your will—
+Yet I feel it is vital to also fulfill 
+everyone's hopes, wouldn't you agree?",ui\00_message\quest\q00000017.gmd,\quest\q00000017.arc,q00000017.arc,12
+0,,"それにしても――
+調査自体には異論はないが
+報告だ、会議だ、検討だ――
+結論はいつになるのだろうな","That aside— 
+I have no dissent regarding 
+the investigation itself, 
+but reports, meetings, and deliberations— 
+I wonder when we'll reach a conclusion.",ui\00_message\quest\q00000018.gmd,\quest\q00000018.arc,q00000018.arc,2
+0,,はは――,Haha—,ui\00_message\quest\q00000018.gmd,\quest\q00000018.arc,q00000018.arc,11
+0,,"ハッ！　ジョゼフ様は無事にお連れした――
+失礼もなかった――そう自負しております！","Ha! I have brought Joseph back safely— 
+I mean no disrespect—I'm proud of it!",ui\00_message\quest\q00000018.gmd,\quest\q00000018.arc,q00000018.arc,51
+0,,"なんの用だ？
+我々に落ち度はなかったはず――","What is it you need? 
+There shouldn't have been any faults—",ui\00_message\quest\q00000018.gmd,\quest\q00000018.arc,q00000018.arc,52
+0,,"第二のアークも最初のとほとんど同じ――
+意匠、紋様、紋章――ほぼ同じだったろう？","The second Ark is nearly identical to the first— 
+The designs, patterns, and emblems—were they not?",ui\00_message\quest\q00000018.gmd,\quest\q00000018.arc,q00000018.arc,56
+0,,"レオはまだ戻らないようだが――
+先に敵の素性を話しておこう","It seems Leo has not returned yet— 
+Let us discuss the enemy's identity first.",ui\00_message\quest\q00000019.gmd,\quest\q00000019.arc,q00000019.arc,4
+0,,"また、灰色のうろこが増えています
+誰も気にしていないように見えますが――","Moreover, the gray scales are increasing. 
+It appears that no one has noticed, but—",ui\00_message\quest\q00000019.gmd,\quest\q00000019.arc,q00000019.arc,24
+0,,"――へぇ、女性を探しに、わざわざ来たの
+情熱的なことね","—Oh, you came all this way
+in search of a woman? What passion.",ui\00_message\quest\q00000019.gmd,\quest\q00000019.arc,q00000019.arc,33
+0,,わたしは大丈夫だから――,"I'm going to be fine, so—",ui\00_message\quest\q00000019.gmd,\quest\q00000019.arc,q00000019.arc,42
+0,,"機嫌――いや、気分はどんな様子だった？
+表情や言動から何か――","What was her mood—no, how was she feeling? 
+Did you notice anything from her expressions,
+her words, her behavior?",ui\00_message\quest\q00000019.gmd,\quest\q00000019.arc,q00000019.arc,47
+0,,"いや――
+たった今、元気だと聞いたばかりだったな","No— I only just heard she was doing fine
+just moments ago.",ui\00_message\quest\q00000019.gmd,\quest\q00000019.arc,q00000019.arc,48
+0,,"調和ある穏やかな暮らしの中で
+ゴルゴランに邪心が芽生えたのか――
+ディアマンテスが思い上がったのか――","Within a harmonious, tranquil life, 
+did evil stir within Golgorran's heart— 
+or perhaps, was it Diamantes' pride—",ui\00_message\quest\q00000020.gmd,\quest\q00000020.arc,q00000020.arc,6
+0,,"もしそうだったら――どうしよう
+わたし――どうしたらいいんだろう","If that's true— what do we do?
+I, what can I even do?",ui\00_message\quest\q00000020.gmd,\quest\q00000020.arc,q00000020.arc,25
+0,,"ふん――甘いな
+覚者であることをどうやって忘れろと？","Hmph—how naive. 
+How can one forget being Arisen?",ui\00_message\quest\q00000020.gmd,\quest\q00000020.arc,q00000020.arc,33
+0,,これは――どう使えばいい？　おまえも考えてくれ,"This is—how should it be used? 
+Well, you can figure it out.",ui\00_message\quest\q00000020.gmd,\quest\q00000020.arc,q00000020.arc,50
+0,,イリス――やはりわからん――どうして――,"Iris—still, I don't understand—why—",ui\00_message\quest\q00000020.gmd,\quest\q00000020.arc,q00000020.arc,53
+0,,ミシアル――そしてイリスのことを,About Mysial—and Iris.,ui\00_message\quest\q00000020.gmd,\quest\q00000020.arc,q00000020.arc,80
+0,,"とは言え、レオは古いなじみ――信頼する友だ
+争いは望まん","Even so, Leo is a long-time friend— 
+He is a trusted companion.
+I truly wish to avoid fighting him.",ui\00_message\quest\q00000021.gmd,\quest\q00000021.arc,q00000021.arc,17
+0,,"対応に苦労するのは承知で乞うしかないが
+レオと命の器を――頼む
+このとおりだ","I understand it will be hard to handle, 
+but I must ask for Leo and 
+the Vessel of Life—please.",ui\00_message\quest\q00000021.gmd,\quest\q00000021.arc,q00000021.arc,18
+0,,"ミシアル様がもういないなんて――
+いつも白竜様のそばで微笑んでいるのが
+当たり前だったから――","I can't believe Lady Mysial is gone— 
+She was always there, smiling beside the White 
+Dragon; it felt so natural—",ui\00_message\quest\q00000021.gmd,\quest\q00000021.arc,q00000021.arc,19
+0,,俺に任せろ――,Leave it to me—,ui\00_message\quest\q00000021.gmd,\quest\q00000021.arc,q00000021.arc,34
+0,,"内密でおまえに頼みたいことがある
+他でもないミシアルのことなのだが――","There is something I wish to ask you 
+in private. It's about Mysial—",ui\00_message\quest\q00000028.gmd,\quest\q00000028.arc,q00000028.arc,1
+0,,"新たなアークが現れ、その調査やイリスの件
+そしてこの一連の出来事に関わる重大な可能性に
+ついて話し合わなければならぬ中――","With the emergence of a new Ark, we must 
+talk about the investigation, the matter of Iris,
+and the significant possibilities related to
+this series of events—",ui\00_message\quest\q00000028.gmd,\quest\q00000028.arc,q00000028.arc,2
+0,,"ミシアルが白竜の傍を離れるなど
+ここしばらくなかったことだ――！","Mysial has not left the White Dragon's 
+side for quite some time—!",ui\00_message\quest\q00000028.gmd,\quest\q00000028.arc,q00000028.arc,4
+0,,"ミシアルが白竜の傍を離れるなど
+ここしばらくなかったことだ――！","Mysial has not left the White Dragon's 
+side for quite some time—!",ui\00_message\quest\q00000028.gmd,\quest\q00000028.arc,q00000028.arc,6
+0,,"でも実は――びっくりしてご挨拶したら
+みんなには内緒と言われてしまって――","But the truth is—when I said hello,
+to my surprise, she told me 
+to keep it a secret from everyone—",ui\00_message\quest\q00000028.gmd,\quest\q00000028.arc,q00000028.arc,11
+0,,"覚者であるあなたに護衛を依頼している――
+そう思ってくれてかまいません","You may think that I am requesting
+your protection as the Arisen—
+that is perfectly fine.",ui\00_message\quest\q00000028.gmd,\quest\q00000028.arc,q00000028.arc,23
+0,,やはりずっと前の話になりますが――,"Indeed, this is a tale from long ago—",ui\00_message\quest\q00000028.gmd,\quest\q00000028.arc,q00000028.arc,25
+0,,"空を飛んでいる夢です
+この上を大きく旋回する夢――","It's a dream of flying in the sky, 
+a vision of gracefully circling above—",ui\00_message\quest\q00000028.gmd,\quest\q00000028.arc,q00000028.arc,36
+0,,"夢の中の人々は――
+道行く人は誰も空を見上げようとはしません
+白竜様はまったく気にしていないけれど
+わたしは――悲しくてたまりません","The people in my dreams—
+none of the passersby look up at the sky.
+Lord White Dragon doesn't mind at all,
+but I—cannot help but feel so sad.",ui\00_message\quest\q00000028.gmd,\quest\q00000028.arc,q00000028.arc,37
+0,,"わたしは空にいる白竜様を見た記憶があります
+現実の記憶なのか想像した風景なのか
+判然としないのですが――","I have a memory of Lord White Dragon soaring high
+through the sky. It is unclear if this memory
+is from reality or if it is a scene I conjured—
+I cannot tell for sure.",ui\00_message\quest\q00000028.gmd,\quest\q00000028.arc,q00000028.arc,38
+0,,言いたいことはたくさんあるさ――,There's a lot I want to say—,ui\00_message\quest\q00000029.gmd,\quest\q00000029.arc,q00000029.arc,2
+0,,"知ってのとおりオークどもは
+長年の拘りをあっさりと棄てて――","As you know, the Orcs easily cast aside
+their long-held grudges—",ui\00_message\quest\q00000029.gmd,\quest\q00000029.arc,q00000029.arc,15
+0,,おいおい――,"Hey, hey—",ui\00_message\quest\q00000029.gmd,\quest\q00000029.arc,q00000029.arc,24
+0,,"素晴らしい――素晴らしい戦果だ
+これで以前のオーク軍団に戻るかもな","Wonderful—what a splendid achievement!
+This could mean a return
+to the old orc army.",ui\00_message\quest\q00000029.gmd,\quest\q00000029.arc,q00000029.arc,28
+0,,"大変です、海側から現れた魔物に気を取られて
+その間に――","This is bad; we're distracted by the
+monsters that appeared from the sea,
+and in the meantime—",ui\00_message\quest\q00000029.gmd,\quest\q00000029.arc,q00000029.arc,29
+0,,"――すまない
+魔物に侵入されてしまって――","I apologize; we were 
+overrun by monsters—",ui\00_message\quest\q00000029.gmd,\quest\q00000029.arc,q00000029.arc,31
+0,,"ザコだったが、騒ぎになってその隙に――
+正直、想定外だった","They were weak, but the commotion
+created an opening—
+Frankly, I didn't expect that.",ui\00_message\quest\q00000029.gmd,\quest\q00000029.arc,q00000029.arc,32
+0,,"君たちが留守の間に敵の別働隊が――
+別働隊って言うか､彼女が――","While you were away, an enemy detachment—
+or rather, to be precise, she—",ui\00_message\quest\q00000029.gmd,\quest\q00000029.arc,q00000029.arc,34
+0,,あのね、あのね――ミシアル様が――,"Listen, you see— Lady Mysial—",ui\00_message\quest\q00000029.gmd,\quest\q00000029.arc,q00000029.arc,35
+0,,面目ない――貴殿らに合わせる顔がないわ,I am embarrassed— I cannot face you all.,ui\00_message\quest\q00000029.gmd,\quest\q00000029.arc,q00000029.arc,36
+0,,"噂を聞いて、ジッとしていられなくてね――
+たまらないな、この腐臭","After hearing the rumors,
+I couldn't sit idly by—
+this foul odor is unbearable.",ui\00_message\quest\q00020010.gmd,\quest\q00020010.arc,q00020010.arc,15
+0,,"嵐の中、魔物の犠牲になった村人たちもいる
+我々騎士団があらかた見つけ出したはずだが――","Amidst the storm, there are villagers 
+who became victims of the monsters. 
+Our Knight's Order should have found 
+most of them by now—",ui\00_message\quest\q00020010.gmd,\quest\q00020010.arc,q00020010.arc,19
+0,,"ひどい嵐だったな――
+気のせいだろうが、悪意さえ感じたよ","What a dreadful storm it was— 
+I might be imagining it, but it felt malicious.",ui\00_message\quest\q00020010.gmd,\quest\q00020010.arc,q00020010.arc,21
+0,,"ま、あの空の不気味な光も気になるが――
+イテテテ――とりあえず、おまえに任せるわ","That eerie light in the sky is worrisome, 
+but—ow, ow, ow! For now, I trust you with it.",ui\00_message\quest\q00020010.gmd,\quest\q00020010.arc,q00020010.arc,27
+0,,"とにかく、ここが――イテテテ
+ここがどこなのか――それを調べろ","Anyway, this place—ouch! 
+Where is this place?—You must find that out.",ui\00_message\quest\q00020010.gmd,\quest\q00020010.arc,q00020010.arc,28
+0,,"例の島――
+おまえとガルドリンが瞬時に到着したという
+あの島はどこにあるのか――","About that island— 
+the one where you and Gurdolin 
+arrived so suddenly—where is it?",ui\00_message\quest\q00020010.gmd,\quest\q00020010.arc,q00020010.arc,36
+0,,そして島で遭遇したという黒い鎧の騎士――,"And the knight clad in black armor 
+that was encountered on the island—",ui\00_message\quest\q00020010.gmd,\quest\q00020010.arc,q00020010.arc,38
+0,,"こんなつらそうに眠る人を見たことがありません
+起こした方がいいと思うんですけど――
+隊長、どうします？","I haven't seen anyone sleep so restlessly before.
+I feel we should wake them, but— Captain,
+what do you think is the best course of action?",ui\00_message\quest\q00020020.gmd,\quest\q00020020.arc,q00020020.arc,12
+0,,オレは厄災――そう簡単には消えないぞぉ,I am the calamity—I'm not so easily erased.,ui\00_message\quest\q00020020.gmd,\quest\q00020020.arc,q00020020.arc,35
+0,,オマイ――女を隠しているな――,"You—you're hiding a woman, aren't you?",ui\00_message\quest\q00020020.gmd,\quest\q00020020.arc,q00020020.arc,36
+0,,黒騎士よ――どうか力を――,"Black Knight—grant me your power, come to me—",ui\00_message\quest\q00020020.gmd,\quest\q00020020.arc,q00020020.arc,38
+0,,"ああ――
+どうすればご迷惑をかけた方々に
+お詫びをすることができるでしょう","Ahh— 
+What can I do to make amends to those
+I've caused so much trouble?",ui\00_message\quest\q00020020.gmd,\quest\q00020020.arc,q00020020.arc,40
+0,,"頭の中が闇に覆われて――
+闇の奥にいろいろな風景があって――","My mind is shrouded in darkness— 
+Within the darkness,
+there are all sorts of scenery—",ui\00_message\quest\q00020020.gmd,\quest\q00020020.arc,q00020020.arc,42
+0,,"人もいて――それがわかるのに――
+わかるのに、やっぱりすべてが闇の中で――","I can sense others around—and still, I know— 
+I know, yet everything remains
+shrouded in darkness—",ui\00_message\quest\q00020020.gmd,\quest\q00020020.arc,q00020020.arc,43
+0,,"親しい君にだけは告白するけどね――
+この成り行き――
+好奇心がはち切れそうだよ","I'll reveal this only to you, my friend— 
+this turn of events—my curiosity feels like 
+it will explode.",ui\00_message\quest\q00020020.gmd,\quest\q00020020.arc,q00020020.arc,50
+0,,"ズールは黒騎士のポーン――
+すなわち、黒騎士は覚者ということ――
+はて、いかなる竜の覚者か――うーむ――","Zuhl serves the Black Knight as a Pawn— 
+Thus, the Black Knight is an Arisen— 
+But what sort of Dragon's Arisen...? Hmm—",ui\00_message\quest\q00020020.gmd,\quest\q00020020.arc,q00020020.arc,55
+0,,"この世界には白竜様の他にも竜がいる――
+鳥肌ものの話だよね？","There are Dragons in this world
+aside from Lord White Dragon—
+It's quite the hair-raising story, huh?",ui\00_message\quest\q00020020.gmd,\quest\q00020020.arc,q00020020.arc,56
+0,,"あんたらに礼を欠く物言いをしたことが
+あったかもしれないが忘れてほしい
+俺も忘れようとしているところだ――懸命にな","I might have expressed myself 
+without the proper respect 
+before, so I hope you can 
+overlook it. I am also trying 
+to forget it—I'm doing my 
+best.",ui\00_message\quest\q00020030.gmd,\quest\q00020030.arc,q00020030.arc,22
+0,,"おそらく魔物退治はこれ一度で終わりでは
+ないだろう――その時はよろしく頼むぞ","This monster hunting
+will likely not end with
+just this one time—when
+that time comes, I'll count
+on you.",ui\00_message\quest\q00020030.gmd,\quest\q00020030.arc,q00020030.arc,54
+0,,"ディアマンテスを巡る一連の戦いで
+共闘したことが、騎士と覚者を分かつ溝を
+埋めたのだとすれば――","If the series of battles surrounding
+Diamantes has filled the rift
+between the Knights and Arisen, then—",ui\00_message\quest\q00020030.gmd,\quest\q00020030.arc,q00020030.arc,70
+0,,"セシリーの過去は霧に覆われ見えぬだけ――
+無くしたわけではない","Cecily's history is covered in fog— 
+it is not lost, merely hidden.",ui\00_message\quest\q00020040.gmd,\quest\q00020040.arc,q00020040.arc,48
+0,,"霧は濃く、漆黒かもしれぬが、いつか晴れる
+それまでは、力を使わせるな――いいな？","The fog is heavy, maybe even dark as night, 
+but it will clear someday. Until then, 
+do not compel her to use her 
+strength—understand?",ui\00_message\quest\q00020040.gmd,\quest\q00020040.arc,q00020040.arc,49
+0,,"いやいやいや、たまらないね
+発見された島が、大陸の一部だったとは！
+ごめん、ちょっと興奮しちゃって――","No, no, no, this is incredible!
+The discovered island is part of a
+continent! Sorry, I'm just a bit excited—",ui\00_message\quest\q00020040.gmd,\quest\q00020040.arc,q00020040.arc,50
+0,,"掃討作戦なんて仰々しいこと言って――
+何をするつもりなんでしょうね","Using such a grand term as 
+extermination operation— 
+what do they intend to 
+actually accomplish?",ui\00_message\quest\q00020050.gmd,\quest\q00020050.arc,q00020050.arc,2
+0,,"というわけで、だ――
+俺が馴染みの覚者たちと一緒に
+侵食魔退治を引き受けるから","So, it's settled—
+I will take on the task of
+defeating the encroaching fiends
+with the Arisen I'm familiar with.",ui\00_message\quest\q00020060.gmd,\quest\q00020060.arc,q00020060.arc,2
+0,,"セシリーの姿が見えないと不安になりますね
+またひとりでどこかへ行ってしまったのかも
+しれない――なんて","When Cecily is out of sight, it makes me 
+worried. Maybe she's gone off somewhere 
+by herself again—who can say?",ui\00_message\quest\q00020060.gmd,\quest\q00020060.arc,q00020060.arc,6
+0,,"僕は島の調査に行きたいんだよね
+それなのにジョゼフ様が――","I wish to conduct an investigation
+on the island, but Master Joseph refuses
+to let me go anywhere near it—",ui\00_message\quest\q00020060.gmd,\quest\q00020060.arc,q00020060.arc,7
+0,,"面目ない――
+わたしの監督不行き届きだ","Fie, I'm so embarrassed— 
+I've been careless about managing myself.",ui\00_message\quest\q00020060.gmd,\quest\q00020060.arc,q00020060.arc,9
+0,,"侵食魔を我がレスタニアに
+送りこんだのは黒騎士で――
+目的はセシリーの居場所の特定か","The one who sent the Corruption Demons to Lestania
+was the Black Knight— was their aim to find Cecily?",ui\00_message\quest\q00020060.gmd,\quest\q00020060.arc,q00020060.arc,36
+0,,"うーむ――
+黒騎士は侵食魔どもを操ることができる――","Hmm— 
+The Dark Knight has the power
+to command the encroaching monsters—",ui\00_message\quest\q00020060.gmd,\quest\q00020060.arc,q00020060.arc,38
+0,,"となれば――
+オークどもとの戦争など比較にならない
+苦難が待ち受けているのかもしれん","If that is so— 
+The conflict with the Orcs is nothing
+compared to the difficulties that lie ahead.",ui\00_message\quest\q00020060.gmd,\quest\q00020060.arc,q00020060.arc,39
+0,,"いやいやいや――そうはさせるか！
+させてなるものか！","No, no, no—
+I won't allow that!
+I absolutely won't let that happen!",ui\00_message\quest\q00020060.gmd,\quest\q00020060.arc,q00020060.arc,40
+0,,"お、おう――酔いが覚めたら、参戦するつもりさ
+まったく、間が悪い――","Ah, well—once I'm sober,
+I plan to join in the fight.
+Truly, what terrible timing—",ui\00_message\quest\q00020070.gmd,\quest\q00020070.arc,q00020070.arc,12
+0,,"ここにいるとホッとするんです
+だからついつい来てしまって――","I feel a sense of relief when I'm here. 
+That's why I can't help but return—",ui\00_message\quest\q00020090.gmd,\quest\q00020090.arc,q00020090.arc,16
+0,,"レオのアジトはこの中――
+ずっと深いところらしいぜ","Leo's hideout is within here— 
+it seems to be much deeper inside.",ui\00_message\quest\q00020090.gmd,\quest\q00020090.arc,q00020090.arc,17
+0,,"パメラに世話を任せて――記憶合わせは
+体調が戻ってからでも遅くはなかろう","Entrust his care to 
+Pamela—comparing memories 
+can wait until he 
+recovers his strength.",ui\00_message\quest\q00020090.gmd,\quest\q00020090.arc,q00020090.arc,40
+0,,"ところで――レオは何やらおかしな考えに
+取り憑かれているようだな","By the way—Leo seems to be 
+possessed by some strange ideas.",ui\00_message\quest\q00020090.gmd,\quest\q00020090.arc,q00020090.arc,41
+0,,ほう――赤色症とはまた珍しいですね,"Oh—scarlet sickness is quite a rarity, isn't it?",ui\00_message\quest\q00020100.gmd,\quest\q00020100.arc,q00020100.arc,19
+0,,"それなのにロイグが罹るというのは――
+やっぱり耐性が低いということですかね","That being the case, Loeg falling ill means— 
+he likely has low resistance, I suppose.",ui\00_message\quest\q00020100.gmd,\quest\q00020100.arc,q00020100.arc,47
+0,,"様子見というか偵察というか――
+進むより、退くことを考えながら行くんです","It's more like observing or scouting— 
+while considering retreat rather than 
+advancing.",ui\00_message\quest\q00020110.gmd,\quest\q00020110.arc,q00020110.arc,6
+0,,"あの光に近付くことは
+大きな危険を伴う賭けでしかない――","Getting nearer to that light 
+is a high-risk gamble 
+that brings great danger—",ui\00_message\quest\q00020110.gmd,\quest\q00020110.arc,q00020110.arc,7
+0,,"もし島へ行くことになったら
+不思議な光というか光源というか――
+それをよく見てきてくれないか？","If we decide to go to the island, 
+could you take a good look at that 
+strange light, or whatever it is—?",ui\00_message\quest\q00020110.gmd,\quest\q00020110.arc,q00020110.arc,9
+0,,"セシリーの顔は、ありゃあ覚悟を決めた顔
+止めても聞く耳持たねえぞ？
+――行くしかねえな","Cecily's face tells me she's made her 
+decision; she'll ignore me if I 
+try to stop her, right?—Looks like we 
+have no option but to go.",ui\00_message\quest\q00020110.gmd,\quest\q00020110.arc,q00020110.arc,10
+0,,"でも、回数――つまり呼吸の間隔は安定しているの
+良い兆候だと思うわ","Yet, if we count them—
+her breath intervals are stable.
+I believe this is a good indication.",ui\00_message\quest\q00020120.gmd,\quest\q00020120.arc,q00020120.arc,10
+0,,"新たな――さらなる力を探しているという
+レオの話を覚えているだろう？","You remember Leo speaking of
+searching for a new—greater power?",ui\00_message\quest\q00020120.gmd,\quest\q00020120.arc,q00020120.arc,14
+0,,"ああ――この時を俺は待ちわびていた
+さあ、共に戦い手に入れよう","Ah—this is the moment I've been waiting for.
+Now, let us fight as one.",ui\00_message\quest\q00020130.gmd,\quest\q00020130.arc,q00020130.arc,17
+0,,"欲にまみれた愚か者め――
+身の程を知るがよい――","O foolish one, engulfed by desire— 
+Know your place and understand your limits—",ui\00_message\quest\q00020130.gmd,\quest\q00020130.arc,q00020130.arc,18
+0,,くっ――オレは思い上がっていたのか？,Ugh—was I being arrogant?,ui\00_message\quest\q00020130.gmd,\quest\q00020130.arc,q00020130.arc,28
+0,,強い――とてつもなく強いぞ――,Powerful—unbelievably powerful—,ui\00_message\quest\q00020130.gmd,\quest\q00020130.arc,q00020130.arc,29
+0,,引くな――勝敗を決めるのは意志の力だ,"Do not falter—victory and defeat
+are decided by strength of will!",ui\00_message\quest\q00020130.gmd,\quest\q00020130.arc,q00020130.arc,30
+0,,"これでわたしも安心して眠れる～！！
+あ――眠くなってきちゃった――","With this, I can finally sleep peacefully~!!
+Ah—I'm starting to feel drowsy—",ui\00_message\quest\q00020130.gmd,\quest\q00020130.arc,q00020130.arc,47
+0,,ああこの感じ――侵食魔と同じ,"Oh, this feeling—it's same as Corruption Demons.",ui\00_message\quest\q00020140.gmd,\quest\q00020140.arc,q00020140.arc,52
+0,,くう――意外と強い！,Ugh—surprisingly strong!,ui\00_message\quest\q00020140.gmd,\quest\q00020140.arc,q00020140.arc,56
+0,,"レオが亡くなったと聞きました
+その顔を見ると――ああ、本当なんですね","I was told that Leo is no longer with us.
+Looking at you—ah, it really is true.",ui\00_message\quest\q00020140.gmd,\quest\q00020140.arc,q00020140.arc,75
+0,,"レオの、言葉に憂いがなく――
+澄んだ目で遠くを見ていたあの姿――","Leo spoke without a hint of sorrow—
+His clear eyes gazing far away like that—",ui\00_message\quest\q00020140.gmd,\quest\q00020140.arc,q00020140.arc,77
+0,,"最期の瞬間まで覚者らしくあろうという
+覚悟の賜物だったのかもしれないね","It may have been his gift of noble resolve,
+to act as an Arisen until his final moments—",ui\00_message\quest\q00020140.gmd,\quest\q00020140.arc,q00020140.arc,78
+0,,"すでに第一次調査隊――おまえの部下たちは
+ゲートの前で待っている","The first investigation team—your subordinates—
+are already waiting at the gate.",ui\00_message\quest\q00020150.gmd,\quest\q00020150.arc,q00020150.arc,4
+0,,やば――ワクワクが止まらない！,"Oh no—I'm so excited, 
+I can't contain it!",ui\00_message\quest\q00020150.gmd,\quest\q00020150.arc,q00020150.arc,18
+0,,"わたしがいた時より状況は悪化している――
+その可能性はかなり高い","Things have deteriorated since my time here— 
+that possibility is very high.",ui\00_message\quest\q00020150.gmd,\quest\q00020150.arc,q00020150.arc,20
+0,,それにしても気味わりぃな――,"Even so, it's creepy—",ui\00_message\quest\q00030130.gmd,\quest\q00030130.arc,q00030130.arc,60
+0,,"自分なりの勝算があるのだろうが
+そのやり方、いかにも――いかにも幼い","Though they may have their own 
+calculations for victory, that 
+approach seems—oh, it seems 
+quite childish—",ui\00_message\quest\q00030240.gmd,\quest\q00030240.arc,q00030240.arc,50
+0,,"エリオットの負傷で、ああ、これでもう
+わしらだけで戦うしかないと覚悟したが――","With Elliot's injury, I have resigned 
+myself to the fact that we must fight 
+alone now, as this is our only 
+option left—",ui\00_message\quest\q00030260.gmd,\quest\q00030260.arc,q00030260.arc,25
+0,,神にも等しい竜の眼でひと睨み,"One glimpse from the eye of a Dragon, 
+an eye equal to that of a god—",ui\00_message\quest\q00030260.gmd,\quest\q00030260.arc,q00030260.arc,59
+0,,キャキャキャ――他には何もいらん,Kyakaha—I don't need anything else.,ui\00_message\quest\q00030260.gmd,\quest\q00030260.arc,q00030260.arc,61
+0,,来なさい――さあ、わたしの前へ――,"Come forth—now, before me—",ui\00_message\quest\q00030270.gmd,\quest\q00030270.arc,q00030270.arc,0
+0,,"ふぅ――
+“ただの魔物”で良かった――","Phew-- 
+thank goodness it was ""just a monster""--",ui\00_message\quest\q10300103.gmd,\quest\q10300103.arc,q10300103.arc,32
+0,,"ということはさ
+“アイツ”がいるかもしれないよね――","That means
+“that guy” might be ――",ui\00_message\quest\q10300103.gmd,\quest\q10300103.arc,q10300103.arc,34
+0,,"あ――でも、ちょっと待って！
+よく見るとこのあたりの地面――
+“食料が埋まってそうな地面”だ！","Oh - but wait a minute!
+If you look closely at the ground here...
+It's ""the kind of ground where food 
+might be buried!""",ui\00_message\quest\q10300103.gmd,\quest\q10300103.arc,q10300103.arc,35
+0,,"たぶん“アイツ”がいそうだからかな
+苦手なんだよねー
+あのなんかシメっぽい感じが！","I get a weird feeling ""It"" is around.
+I hate the feeling of unease, you know?
+Something feels off!",ui\00_message\quest\q10300300.gmd,\quest\q10300300.arc,q10300300.arc,25
+0,,水辺にいる“アイツ”？,Is “It” by the water?,ui\00_message\quest\q10300300.gmd,\quest\q10300300.arc,q10300300.arc,27
+0,,"あ――でも
+恥ずかしがり屋の次男坊
+“ミディ”がいないんだよねー","Ah...but
+the shy little one
+“Midi” isn't here?",ui\00_message\quest\q10300300.gmd,\quest\q10300300.arc,q10300300.arc,56
+0,,"よーし！
+この調子で
+“秘密のスポット”に行っちゃうんだからっ！","Alrighty!
+Keep going this way and we'll
+be at the “secret spot” in no time!",ui\00_message\quest\q10300300.gmd,\quest\q10300300.arc,q10300300.arc,67
+0,,"“秘密のスポット”に到着！
+これはたくさん食料が見つかる予感！","This is the “secret spot”!
+I think we'll find lots of food here!",ui\00_message\quest\q10300300.gmd,\quest\q10300300.arc,q10300300.arc,73
+0,,"輸送隊が運んできてくれた食料を
+分けてあげたいけど
+“ティネス砦の料理番”として
+それはできないんだよね","I'd love to share the food 
+that the convoy brought to us,
+but as “Fort Thines' Chef,”
+I can't do that.",ui\00_message\quest\q10300301.gmd,\quest\q10300301.arc,q10300301.arc,3
+0,,"あのね――
+ちょっと気になってたんだけど
+“覚者”って何する人なの？","So, um—
+I've been curious about this...
+What does an ""Arisen"" do?",ui\00_message\quest\q10300301.gmd,\quest\q10300301.arc,q10300301.arc,39
+0,,"一見魔物と戦ってるように見えて
+なんていうか――
+“自分”と戦ってる気がするんだ、あなたは","Though you seem to fight monsters,
+it feels like—you're really battling
+""yourself,"" in a way, y'know?",ui\00_message\quest\q10300301.gmd,\quest\q10300301.arc,q10300301.arc,49
+0,,"“誰よりも強くなりたい”
+“もっと強い敵を倒したい”
+って思う自分とさ","That part of you that thinks
+""I want to be the strongest"" and
+""I want to defeat stronger enemies.""",ui\00_message\quest\q10300301.gmd,\quest\q10300301.arc,q10300301.arc,50
+0,,"まぁ――
+“戦う理由”は人それぞれだと思うけどね！","Well...
+Everyone’s “reason to fight”
+is different, I reckon!",ui\00_message\quest\q10300301.gmd,\quest\q10300301.arc,q10300301.arc,51
+0,,"こうやってでっかい袋背負って
+必死に食料集めてみんなに届けるのが
+アタシの“戦い”なのかも！","Maybe lugging this big bag and
+getting food to everyone is
+my ""fight"" after all!",ui\00_message\quest\q10300301.gmd,\quest\q10300301.arc,q10300301.arc,52
+0,,"《ブタの鳴く丘》は、魔物が出ることはあるけど
+あなただったら“朝メシ前”かな！
+食料は、あの子たちが食べてるからそんなにないよ！","《Squealing Pig Hill》 has monsters sometimes, but
+for you, it'll be a piece of cake!
+Not much food left though, they’ve eaten it!",ui\00_message\quest\q10300302.gmd,\quest\q10300302.arc,q10300302.arc,15
+0,,"あなたって意外と
+“地道にコツコツ派”
+なんだねー","You're surprisingly a
+""slow and steady"" type,
+aren't you?",ui\00_message\quest\q10300302.gmd,\quest\q10300302.arc,q10300302.arc,20
+0,,"中でも三兄弟の二男坊“ミディ”は
+食いしん坊だからね――","Especially ""Midi"", the middle child.
+He's a real glutton, you know.",ui\00_message\quest\q10300302.gmd,\quest\q10300302.arc,q10300302.arc,29
+0,,"ほら、あそこの一番まるっとした子！
+あの子が“ミディ”で、あとは――","Look, that plump little one over there!
+That one's Midi, and the rest are―",ui\00_message\quest\q10300302.gmd,\quest\q10300302.arc,q10300302.arc,30
+0,,"《ブタの鳴く丘》は、魔物が出ることはあるけど
+あなただったら“朝メシ前”かな！
+食料は、あの子たちが食べてるからそんなにないよ！","Squealing Pig Hill has some monsters, 
+but for you, it’s a walk in the park! 
+There isn’t much food left, 
+since they ate most of it!",ui\00_message\quest\q10300302.gmd,\quest\q10300302.arc,q10300302.arc,34
+0,,"ねぇねぇ、この勢いで――
+“秘密のスポット”行っちゃわない？","Hey hey, with this momentum—
+how about we hit up that ""secret spot""?",ui\00_message\quest\q10300302.gmd,\quest\q10300302.arc,q10300302.arc,51
+0,,"“秘密のスポット”に到着！
+ね――食料の匂い、すごいと思わない？
+けど、何が起きるか分かんないから全力で行くよ！","We're at the ""secret spot""!
+Wow, smell that food? Incredible, huh?
+But gotta go full force, no telling what's here!",ui\00_message\quest\q10300302.gmd,\quest\q10300302.arc,q10300302.arc,59
+0,,"では――
+“食料大量大作戦”開始！","Well then...
+Let the ""Grand Food Gathering Operation"" 
+commence!",ui\00_message\quest\q10300302.gmd,\quest\q10300302.arc,q10300302.arc,62
+0,,“あの子たち”について聞く,"Ask about ""those kids.""",ui\00_message\quest\q10300303.gmd,\quest\q10300303.arc,q10300303.arc,16
+0,,"“ベルタの盗賊団”といやぁ
+このあたりでは名が知れてるはず","""Bertha's Bandits""—yeah, the name's
+known around these parts.",ui\00_message\quest\q10300303.gmd,\quest\q10300303.arc,q10300303.arc,69
+0,,"運んできた食料は渡しておくから
+“あっしさん”に一声かけてきてね！","I’ve left the supplies here for you.
+Please inform Ser Ash of our arrival.",ui\00_message\quest\q10300400.gmd,\quest\q10300400.arc,q10300400.arc,18
+0,,"“ナワバリ”ってやつ？
+このあたりにもいるんだねー","They're protecting their territory.
+So, goblins are here too.",ui\00_message\quest\q10300400.gmd,\quest\q10300400.arc,q10300400.arc,53
+0,,"そうねー
+“まずまずの食べごろ”ってところね！","Hmm...
+""Just about ripe for eating,"" I'd say!",ui\00_message\quest\q10300400.gmd,\quest\q10300400.arc,q10300400.arc,66
+0,,"“ブタの鼻占い”によると
+運勢は最高ね！
+行くっきゃないよ！例の場所！","'Pig Snout Fortune' says we're lucky right now!
+Let's go to that place!",ui\00_message\quest\q10300400.gmd,\quest\q10300400.arc,q10300400.arc,68
+0,,"ここ――“あっしさん”から聞いた
+特別な場所なんだー
+たくさん食料見つかるかも！","This place... I heard from
+'Mr. Ash' that it's special.
+We might find a lot of food here.",ui\00_message\quest\q10300400.gmd,\quest\q10300400.arc,q10300400.arc,76
+0,,"盗賊の親分さんに“魚を獲ってくる係”に
+任命されたから、身近で水気のある洞窟に
+檻を置いたらしいの――","They were assigned as the 'fish
+catcher' by the bandit leader,
+so they placed a cage in a
+damp cave nearby...",ui\00_message\quest\q10300401.gmd,\quest\q10300401.arc,q10300401.arc,1
+0,,"今ってさ、湖畔――
+つまり、水辺に向かってるんだよね――？
+“アイツ”がいるかもしれないよね？","We're headed to the lakeside now…
+Specifically, towards the water's edge, right?
+There's a chance 'it' is there, isn’t there?",ui\00_message\quest\q10300401.gmd,\quest\q10300401.arc,q10300401.arc,12
+0,,"言っておくけど、“アイツ”を見たら
+アタシどうなっちゃうかわかんないからね！","Let me warn you, if I encounter 'it'—
+I have no idea what I'll do!",ui\00_message\quest\q10300401.gmd,\quest\q10300401.arc,q10300401.arc,18
+0,,"“アイツ”――大っ嫌いなの
+名前も口に出したくないくらい","'It'—I really despise it.
+I hate it so much I won't speak its name.",ui\00_message\quest\q10300401.gmd,\quest\q10300401.arc,q10300401.arc,19
+0,,"うっ、腕が鳥肌になっちゃってる――
+もうほんとにダメなのよ、“アイツ”だけは！","Ugh, I'm getting goosebumps—
+I absolutely can't deal with 'that', not at all!",ui\00_message\quest\q10300401.gmd,\quest\q10300401.arc,q10300401.arc,22
+0,,"そうだ！
+あの子の名前、“ペコ”ってどう？
+会うたびいつも、“腹ペコ”だからね","Ah, right!
+That kid's name, 'Peko'—
+what do you think?
+It's 'cause we always meet
+when we're peckish!",ui\00_message\quest\q10300401.gmd,\quest\q10300401.arc,q10300401.arc,32
+0,,"《嫌な思い出の湖畔》は――
+前に“アイツ”がいたよね？
+食料があるとか、そういう問題じゃなく――！","The《Lake of Bitter Memories...》
+Remember when “that thing” was there? 
+Food isn't the issue here―!",ui\00_message\quest\q10300402.gmd,\quest\q10300402.arc,q10300402.arc,16
+0,,"うんうん、実に“賢明な判断”！
+気軽にお散歩しながら食料確保できるからね
+最高のルートだと思うな","Mhm, that’s what I call a
+smart choice!
+You can secure provisions
+while having a nice walk—
+I think it’s the perfect route.",ui\00_message\quest\q10300402.gmd,\quest\q10300402.arc,q10300402.arc,20
+0,,"アタシの“ダッシュ食料探し”も
+もはや職人の域だね！","My ""Food Hunting Dash"" has reached
+the level of a true artisan!",ui\00_message\quest\q10300402.gmd,\quest\q10300402.arc,q10300402.arc,24
+0,,"そうだ！
+盗賊のスニーカーさんが教えてくれた
+“秘密のスポット”行っちゃわない？","That's right!
+That bandit, Sunika, told us about
+that secret spot. Wanna go?",ui\00_message\quest\q10300402.gmd,\quest\q10300402.arc,q10300402.arc,33
+0,,"《嫌な思い出の湖畔》は――
+前に“アイツ”がいたよね？
+食料があるとか、そういう問題じゃなく――！","The《Lake of Bitter Memories》―― 
+remember when “that thing” was there? 
+Food isn't the issue here――!",ui\00_message\quest\q10300402.gmd,\quest\q10300402.arc,q10300402.arc,43
+0,,"うんうん、実に“賢明な判断”！
+気軽にお散歩しながら食料確保できるからね
+最高のルートだと思うな","Yes, yes, a very ""wise decision"" indeed! 
+It's the best route to secure food while 
+taking a casual stroll.",ui\00_message\quest\q10300402.gmd,\quest\q10300402.arc,q10300402.arc,47
+0,,"ほら！　ほら！
+やっぱり“アイツ”が出たじゃない！","See? Look!
+I knew it!",ui\00_message\quest\q10300402.gmd,\quest\q10300402.arc,q10300402.arc,51
+0,,"ヒッ――入ってる――
+なんか、“尻尾”みたいなものが――","Gah—there’s something in here—
+some kind of tail or something...",ui\00_message\quest\q10300402.gmd,\quest\q10300402.arc,q10300402.arc,54
+0,,"ねぇ！
+これって“アイツ”のだよね！？
+アタシ、混乱のあまり――
+食料埋めた手で“アイツ”の尻尾を！？","Hey!
+This is from that thing, isn’t it!?
+In all my confusion—
+did I bury its tail with the food!?",ui\00_message\quest\q10300402.gmd,\quest\q10300402.arc,q10300402.arc,55
+0,,"ん――？　いない！
+“アイツ”らがいない！　やったぁ！","Huh? They're gone!
+Those things are gone! Yes!",ui\00_message\quest\q10300402.gmd,\quest\q10300402.arc,q10300402.arc,57
+0,,"よ、よし――
+最後まで出なかった、“アイツ”
+よかった――","O-okay...
+That thing never showed up in the end.
+Thank goodness...",ui\00_message\quest\q10300402.gmd,\quest\q10300402.arc,q10300402.arc,59
+0,,"“秘密のスポット”に到着！
+危険と食料が隣り合わせのこの匂い――
+何が起きるか分かんないから、全力で行くよ！","Here we are at the 'secret spot!'
+I can smell danger and food
+right next to each other—
+No idea what’s coming,
+so I’m going in full force!",ui\00_message\quest\q10300402.gmd,\quest\q10300402.arc,q10300402.arc,61
+0,,"では――
+“食料大量大作戦”開始！","Well then―― 
+let the ""Grand Food Gathering Operation"" 
+commence!",ui\00_message\quest\q10300402.gmd,\quest\q10300402.arc,q10300402.arc,64
+0,,"キャリーが“盗賊からの変な情報”で
+興奮気味だったと聞いたから
+嫌な予感がして追いかけてきたんだ","I heard Carrie was getting excited
+over some 'weird info from the bandits,'
+so I had a bad feeling and came after her.",ui\00_message\quest\q10300402.gmd,\quest\q10300402.arc,q10300402.arc,65
+0,,"“幻の食材”の話――
+聞きたいよね？","The story of the ""Phantom Ingredient""―
+You want to hear it, don't you?",ui\00_message\quest\q10300403.gmd,\quest\q10300403.arc,q10300403.arc,1
+0,,"せめてその鍋に入っていた
+“フワフワなのに、ワイルドな噛みごたえ”
+なお肉の正体を知りたいんだって","At the very least, they
+want to know what kind of
+meat was in that pot—
+the one described as
+""Soft and fluffy, but with a toothsome bite.""",ui\00_message\quest\q10300403.gmd,\quest\q10300403.arc,q10300403.arc,6
+0,,"よし！
+“幻の食材”が逃げちゃわないうちに、出発！","Alright! Let's head out before the
+""Phantom Ingredient"" gets away!",ui\00_message\quest\q10300403.gmd,\quest\q10300403.arc,q10300403.arc,13
+0,,"ねぇねぇ！
+“幻の食材”の正体、何だと思う？","Hey hey! What do you think the true
+identity of the ""Phantom Ingredient"" is?",ui\00_message\quest\q10300403.gmd,\quest\q10300403.arc,q10300403.arc,15
+0,,"やめてよね
+“アイツ”が美味しいわけないじゃない","Come on, stop it—
+there's no way that thing
+could taste good.",ui\00_message\quest\q10300403.gmd,\quest\q10300403.arc,q10300403.arc,21
+0,,"“野生のざわめき”を感じたような――
+“幻の食材”と、何か関係があるのかな？","It felt like I sensed some
+kind of 'wild stirring'—
+maybe it's connected to
+the 'phantom ingredient'?",ui\00_message\quest\q10300403.gmd,\quest\q10300403.arc,q10300403.arc,24
+0,,"こんなすごいの、今まで見たことないよ
+これが“幻”かと思った――
+目の前がイノシシで埋め尽くされて――","This is incredible-
+I've never seen anything like it!
+It felt like a dream-
+my whole view just filled with boars!",ui\00_message\quest\q10300403.gmd,\quest\q10300403.arc,q10300403.arc,27
+0,,"アタシの野生の勘が“危ない”って言ってるんだ
+とにかくここ、離れよ？","My gut's telling me this is seriously bad―
+let's just get away from this place, okay?",ui\00_message\quest\q10300403.gmd,\quest\q10300403.arc,q10300403.arc,35
+0,,"じ、実は――“幻の食材”が諦められずに
+今度はもっと頑丈な檻を仕掛けて
+草葉の陰からこっそり見張ってたんですがね","W-well… The truth is—
+I just couldn't give up on that 
+'Phantom Ingredient,' 
+so I set up a sturdier cage this time
+and have been hiding in the grass, 
+keeping watch…",ui\00_message\quest\q10300403.gmd,\quest\q10300403.arc,q10300403.arc,61
+0,,"いや、情けない話で――
+だけど“ヤツ”は必ず現れてるはずなんでさ！","Embarrassing to admit, but—
+that thing has to appear eventually!",ui\00_message\quest\q10300403.gmd,\quest\q10300403.arc,q10300403.arc,63
+0,,"じ、実は――“幻の食材”が諦められずに
+今度はもっと頑丈な檻を仕掛けて
+草葉の陰からこっそり見張ってたんですがね","Actually, I just couldn't give up on the “Phantom Ingredient.”
+So I set up a sturdier cage this time, and I've been 
+secretly watching from the grassy knoll.",ui\00_message\quest\q10300403.gmd,\quest\q10300403.arc,q10300403.arc,66
+0,,"いや、情けない話で――
+だけど“ヤツ”は必ず現れてるはずなんでさ！","I know, it's pathetic.
+But I'm sure it's out there!",ui\00_message\quest\q10300403.gmd,\quest\q10300403.arc,q10300403.arc,68
+0,,"お願いしますよ――
+どうしても“幻の食材”が諦められねぇんです","Please—
+I can't let go of that 'Phantom Ingredient'!",ui\00_message\quest\q10300403.gmd,\quest\q10300403.arc,q10300403.arc,70
+0,,"今頃、“ヤツ”は必ず現れてるはずなんでさ
+そこを覚者さんの腕っぷしで何とか――！","That thing's gotta show up any moment now—
+Use your legendary strength, Ser Arisen!",ui\00_message\quest\q10300403.gmd,\quest\q10300403.arc,q10300403.arc,71
+0,,"それにしても、やっぱり“幻の食材”は気になるな
+さっきはとんでもない目にあったけど――
+今度は檻にかかってるかもしれないんだよね？","I still can't forget that Phantom Ingredient.
+Sure, last time was rough, but—
+Think it might be in our cage this time?",ui\00_message\quest\q10300403.gmd,\quest\q10300403.arc,q10300403.arc,73
+0,,“幻の食材”探し、いつでも出発できるよ！,"The hunt for the ""Phantom Ingredient""
+can begin whenever you're ready!",ui\00_message\quest\q10300500.gmd,\quest\q10300500.arc,q10300500.arc,1
+0,,"せっかく盛り上がったのに――！
+早くしないと、“幻の食材”が
+幻そのものになっちゃうよ","Just when things were getting exciting—!
+If we don't hurry, the ""phantom ingredient""
+will vanish into thin air!",ui\00_message\quest\q10300500.gmd,\quest\q10300500.arc,q10300500.arc,10
+0,,"スニーカーさんが食べたかった鍋は
+作ってあげられないけど
+これで“幻の食材”の謎が解けたね！","I can't make the hotpot you wanted, but we solved
+the mystery of the ""phantom ingredient""!",ui\00_message\quest\q10300500.gmd,\quest\q10300500.arc,q10300500.arc,16
+0,,"え？
+“幻の食材”の正体が分かったって？","Eh? 
+You figured out the true identity of 
+the ""phantom ingredient""?",ui\00_message\quest\q10300500.gmd,\quest\q10300500.arc,q10300500.arc,19
+0,,"せめて“どんくさい一匹”だけでも
+捕まえられたら良かったんですがね――","Just one slow-footed critter—
+Was that too much to ask for?",ui\00_message\quest\q10300500.gmd,\quest\q10300500.arc,q10300500.arc,23
+0,,"逃げた方向から察するに――
+やつら、きっと“根城”にしてる
+遺跡に行ったに違いありませんぜ","Judging from the direction they fled―
+they must have gone to the ruins
+that serve as their hideout.",ui\00_message\quest\q10300500.gmd,\quest\q10300500.arc,q10300500.arc,25
+0,,"さっそく<NPC 4773>に
+“幻の食材”の正体を伝えてあげなくっちゃ","I have to tell <NPC 4773> the truth
+about the Phantom Ingredient right away.",ui\00_message\quest\q10300500.gmd,\quest\q10300500.arc,q10300500.arc,27
+0,,"ゴブリンたちの中にいた
+“一匹だけどんくさいの”って
+もしかして――","The single slowpoke in the pack—
+Don’t tell me…",ui\00_message\quest\q10300500.gmd,\quest\q10300500.arc,q10300500.arc,29
+0,,"え？　ええ――
+確かに見ましたぜ、“どんくさいゴブリン”","Huh? Yeah—
+I definitely saw that ""slow-witted goblin.""",ui\00_message\quest\q10300500.gmd,\quest\q10300500.arc,q10300500.arc,35
+0,,"幸い、逃げ遅れたそいつのおかげで
+向かった場所が“遺跡”だと分かりやしたから
+今となっては、ある意味感謝してますがね","Fortunately, one straggler showed us
+they'd gone to the ruins.
+In hindsight, I'm almost thankful.",ui\00_message\quest\q10300500.gmd,\quest\q10300500.arc,q10300500.arc,37
+0,,"食料も全部取り返してもらったうえに
+“幻の食材”の正体まで――","Not only did we get all the food back,
+but we even uncovered the truth 
+about the ""phantom ingredient""—",ui\00_message\quest\q10300500.gmd,\quest\q10300500.arc,q10300500.arc,48
+0,,"食料も無事に取り戻したし！
+“幻の食材”の正体も分かったし！
+ペコも自由になれたし！","We’ve safely recovered the food! 
+The true identity of the “phantom ingredient” 
+has been revealed, and Peco is free now!",ui\00_message\quest\q10300500.gmd,\quest\q10300500.arc,q10300500.arc,53
+0,,"檻をぶち破って暴れ回る“幻の食材”に――
+盗賊から食料を盗むゴブリンたち","From breaking out of their cage and rampaging, 
+the ""Phantom Ingredient"", and goblins 
+stealing food from bandits.",ui\00_message\quest\q10300500.gmd,\quest\q10300500.arc,q10300500.arc,57
+0,,"聞いていない――おかしいですね
+“<NPC 3050>さんに＜５＞個納品する”
+いつもお伝えしているはずなんですが",,ui\00_message\quest\q22018027.gmd,\quest\q22018027.arc,q22018027.arc,46
+0,," “各地で、魔軍による一斉侵攻を確認
+　至急各地に向かい、解放軍を援護してください”",,ui\00_message\quest\q22018031.gmd,\quest\q22018031.arc,q22018031.arc,10
+0,,"ですが――アッカ―シェランには、古くから
+こういう諺がありましてな
+“オオカミは、霧深い森で狩りをする”",,ui\00_message\quest\q22018032.gmd,\quest\q22018032.arc,q22018032.arc,1
+0,,"“最後まで残る者は、凍え死ぬ”
+アッカ―シェランの古い諺です",,ui\00_message\quest\q22018032.gmd,\quest\q22018032.arc,q22018032.arc,4
+0,,"ただし俺のモットーは
+“生存こそが勝利への最善手”だ
+負けようが逃げようが
+生きてさえいれば最後には勝利を掴める",,ui\00_message\quest\q22018037.gmd,\quest\q22018037.arc,q22018037.arc,5
+0,,"その時に頼まれたんだよ
+“南の石塔に向かったはずの母に
+　自分は無事に逃げ延びたから安心してくれ”
+って伝えてくれってな",,ui\00_message\quest\q22018040.gmd,\quest\q22018040.arc,q22018040.arc,2
+0,,"お集まりいただけたようですね
+それでは、“興味深い光景”の詳細について
+簡単にご説明いたします",,ui\00_message\quest\q22018046.gmd,\quest\q22018046.arc,q22018046.arc,7
+0,,"何度やめるように説得しても
+“まだ自分自身に納得がいっていない”
+などと繰り返すばかりで言うことを聞かん",,ui\00_message\quest\q22018048.gmd,\quest\q22018048.arc,q22018048.arc,3
+0,,"“王都に向けてオーク軍の進攻が一斉に開始
+　覚者様も至急各地の防衛へと向かわれたし”",,ui\00_message\quest\q22018049.gmd,\quest\q22018049.arc,q22018049.arc,17
+0,,"一つ、俺の依頼を聞く気はないか？
+最近、目撃情報がたえない
+“炎をまとった影”についてだ",,ui\00_message\quest\q22018051.gmd,\quest\q22018051.arc,q22018051.arc,0
+0,,"よければ、原因を探してくれないか？
+恐らくだが――
+ああいったヤツらを引き連れてる
+“親分”みたいな魔物がいるハズだ",,ui\00_message\quest\q22018051.gmd,\quest\q22018051.arc,q22018051.arc,3
+0,,"それじゃあ、“依頼の礼”を
+渡さないとな",,ui\00_message\quest\q22018052.gmd,\quest\q22018052.arc,q22018052.arc,10
+0,,"言うまでもないかもしれないけど
+挑むのは一人だ
+ポーンや仲間の手助けはなしな","It may go without saying, but you
+must challenge it alone. 
+No help from Pawns or companions",ui\00_message\quest\q60000008.gmd,\quest\q60000008.arc,q60000008.arc,20
+0,,"受ける準備ができたら《修練の祠》に
+向かってくれよ
+神殿を出て左手の崖沿いに進み
+崖上にある祠の中に騎士団員がいるからさ","When ready, head to the
+Training Chapel. Exit the
+temple, follow the left
+cliffside - a knight awaits
+inside the cliff-top shrine.",ui\00_message\quest\q60000008.gmd,\quest\q60000008.arc,q60000008.arc,21
+0,,"今回の試練、うまくいったか？
+ソーサラーなんてすごいよなぁ！
+訓練案内してる俺も、実は全然知らないんだけど","Did the trial go well?
+Sorcerers are amazing, right?
+I'm guiding your training,
+but honestly, I don't know much!",ui\00_message\quest\q60000008.gmd,\quest\q60000008.arc,q60000008.arc,22
+0,,"また転職したら、いつでも来いよ
+実戦前にまずは訓練だぜ","If you switch jobs again, drop by whenever. 
+Training comes before actual battle.",ui\00_message\quest\q60000008.gmd,\quest\q60000008.arc,q60000008.arc,23
+0,,"覚者とは試練に臆することなく立ち向かい
+その使命を全うする者のことだ",An Arisen faces trials without fear and fulfills their duty,ui\00_message\quest\q60000008.gmd,\quest\q60000008.arc,q60000008.arc,24
+0,,"与えられた試練を全てこなせた者のみ
+《魔攻の証》を得ることができる","Only those who complete all trials
+may obtain the 《Sorcerer's Mark.》",ui\00_message\quest\q60000008.gmd,\quest\q60000008.arc,q60000008.arc,25
+0,,"各試練のやり方について
+わからなければ、今までに得た知識を
+確認しながら臨むがいい","If unsure about any trial, review the knowledge you've gained so far",ui\00_message\quest\q60000008.gmd,\quest\q60000008.arc,q60000008.arc,26
+0,,"技や動きの参考のため
+一人、共闘の兵をつけておこう
+課題をこなす中で戦技を身に刻め！","For reference, I'll assign a Pawn to fight alongside you. Master combat skills during the trial!",ui\00_message\quest\q60000008.gmd,\quest\q60000008.arc,q60000008.arc,27
+0,,"与えられた試練を全てこなせた者のみ
+《魔攻の証》を得ることができる","Only those who complete all trials
+may obtain the 《Sorcerer's Mark.》",ui\00_message\quest\q60000008.gmd,\quest\q60000008.arc,q60000008.arc,28
+0,,"各試練のやり方について
+わからなければ今までの得た知識を
+確認しながら臨むがいい","If unsure about any trial, review the knowledge you've gained so far",ui\00_message\quest\q60000008.gmd,\quest\q60000008.arc,q60000008.arc,29
+0,,"また立ちはだかる魔物が
+課題中にすべていなくなったら
+再度出直してくるがいい","If all fiends in the trial vanish, return and try again later",ui\00_message\quest\q60000008.gmd,\quest\q60000008.arc,q60000008.arc,30
+0,,"さあ、《修練の祠》へ行くんだ
+案内人は神殿を出て左手を進めば
+崖の上の祠内にいるよ","Now go to the Training Chapel.
+Your guide is up the cliff -
+leave the temple and head left.",ui\00_message\quest\q60000008.gmd,\quest\q60000008.arc,q60000008.arc,31
+0,,"《魔攻の証》、よくぞ得た！
+ジョブについての理解も、さらに深まったようだな
+神殿に戻りレンテンに報告するがいい、覚者よ！","You've obtained the Sorcerer's Mark's Mark! 
+Your understanding
+of the job has deepened.
+Return to the temple and
+report to Renton, Arisen!",ui\00_message\quest\q60000008.gmd,\quest\q60000008.arc,q60000008.arc,32
+0,,"よぉ！　珍しい戦術試練を始めたよ
+エレメントアーチャーの基礎戦術についてさ","Yo! I've started exclusive trial
+on basic tactics for Element Archers.",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,0
+0,,"まだあまり知られてないジョブだからこそ
+訓練し甲斐もあるだろ？
+もちろん今回も一人で挑戦しなきゃならない","Being a lesser-known job
+makes training worthwhile,
+right? Of course, you'll
+face this trial alone again.",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,1
+0,,"《修練の祠》の場所はわかるよな？
+神殿を出て左手、崖沿いさ
+その中にいる案内人の騎士団員と話すんだ","You know where the 
+《Training Chapel》 is, right?
+Leave the temple and head left, 
+along the cliff.
+Speak with the Knight's Order member inside.",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,2
+0,,"今回の試練、うまくいったんだってな！
+いやぁほんと色々なジョブやってるみたいで
+尊敬するよホント","Heard your trial went great!
+You're sampling every job out there.
+Gotta admire that.",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,3
+0,,"また転職したら、いつでも来いよな
+なんだかんだで基本は大事だぜ！","Come back anytime you change jobs.
+Fundamentals matter more than you'd think!",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,4
+0,,<COL ff7575><PADM><KCT WEAPON_SUB><KEYM><KCT HOLD_BOW></KEYM></COL>で闘波の構えよ！,Use <COL ff7575><PADM><KCT WEAPON_SUB><KEYM><KCT HOLD_BOW></KEYM></COL> for Seeker Stance!,ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,5
+0,,構えたまま<COL ff7575><PADM>右スティック<KEYM>マウス移動</KEYM></COL>で闘波の魔眼！複数の敵を狙って！,"Hold and use <COL ff7575><PADM>right stick<KEYM>mouse</KEYM></COL>
+for Magick Eye: Seeker. 
+Target multiple foes!",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,6
+0,,闘波の魔眼で敵を捉えたら、<COL ff7575><KCT SHOOT></COL>で闘波の矢を撃って！,"Once you've locked the enemy with 
+Magick Eye: Seeker, fire a Seeker Arrow with 
+<COL ff7575><KCT SHOOT></COL>!",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,7
+0,,闘波の魔眼で最適距離から敵を捉えて。集中力の高まりが早くなる距離があるはずよ,"Use Magick Eye: Seeker to lock
+onto enemies from optimal range.
+There's a sweet spot where
+Concentration builds fastest.",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,8
+0,,その距離から敵を３秒以上補足し、攻撃するのよ！,"From that distance, track the enemy for three
+seconds or more and attack!",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,9
+0,,闘波の魔眼で敵を捉え続け、集中力を最大まで高めるの。矢の威力が最大まで高まるわ！,"Keep the enemy in sight with Magick Eye: Seeker 
+and maximize your Concentration. 
+Your arrows power will reach its peak!",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,10
+0,,<COL ff7575><PADM><KCT WEAPON_MAIN><KEYM>初期設定の場合、<KCT HOLD_BOW>で構え、マウスホイール後</KEYM></COL>で助真の構えよ！,"<COL ff7575><PADM><KCT WEAPON_MAIN><KEYM>With default settings, hold <KCT HOLD_BOW> and use Mouse Wheel</KEYM></COL> to ready the bow!",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,11
+0,,構えたまま<COL ff7575><PADM>右スティック<KEYM>マウス移動</KEYM></COL>で助真の魔眼！複数の味方を捉えられるわ,"Hold and use <COL ff7575><PADM>Right Stick<KEYM>mouse</KEYM></COL>
+for Magick Eye: True Aid. 
+You can target multiple allies.",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,12
+0,,助真の魔眼で味方を捉えたら、<COL ff7575><KCT SHOOT></COL>で助真の矢を撃ち、回復よ！,"Once you've locked an ally with 
+Magick Eye: True Aid, fire a True Aid Arrow with 
+<COL ff7575><KCT SHOOT></COL> to heal them!",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,13
+0,,<COL ff7575><KCT CHANGE_ARROW></COL>で癒しの装よ。自分の体力を回復して！,"Use <COL ff7575><KCT CHANGE_ARROW></COL> for Healing Shroud.
+Restore your strength!",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,14
+0,,<COL ff7575><KCT ATTACK1></COL>で前蹴りよ！敵を蹴って距離をとって！,"Use <COL ff7575><KCT ATTACK1></COL> for Front Kick!
+Create distance by kicking foes!",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,15
+0,,よし、では祠の奥へ向かい大型敵と対峙よ！大型敵の<COL ff7575>＜怒り状態＞</COL>に注意して！,"Alright! Head deeper into
+the shrine and face the
+large enemy! Beware its
+<COL ff7575>enraged state</COL>!",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,16
+0,,そして<COL ff7575><KCT TOUCH></COL>でヤツにしがみついて！,Now use <COL ff7575><KCT TOUCH></COL> to climb onto it!,ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,17
+0,,その状態で<COL ff7575><KCT ATTACK1></COL>で奮わせ直魔矢よ！,"While clinging, use <COL ff7575><KCT ATTACK1></COL>
+for Invigorating Magick Arrow!",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,18
+0,,怒り状態の敵を、助真の構えで捉えて！見るだけでシークレットコアを暴きだせるわ！,"Target an enemy in the enraged state with the 
+True Aid Stance! 
+Just looking at it exposes the Secret Core!",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,19
+0,,では大型敵の<COL ff7575>＜怒り状態＞</COL>に注意してヤツを仕留めるの！,"Be wary of the large enemy's <COL ff7575>enraged state</COL>
+and take it out!",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,20
+0,,シークレットコアを攻撃したり、揺さぶり、疲れさせてチャンスを作って！,"Attack the Secret Core, shake them,
+or wear them down for openings!",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,21
+0,,試練完了ね！奥にある＜魔弓の証＞を受け取り、神殿のレンテンに報告してね,"Trial complete! 
+Take the <Element Archer's Mark> in the back
+and report to Renton at the temple.",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,22
+0,,"おめでとうございます
+これにて戦術試練は完了ですね！","Congratulations. 
+The tactics trial
+is now complete!",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,23
+0,,"今覚えたエレメントアーチャ―の戦い方を
+振り返りたい時は、《チュートリアルガイド》の
+《ジョブの操作と役割》からエレメントアーチャ―の
+戦法や戦術的役割を確認してください","To review the Element Archer's combat style
+you just learned, check 《Tutorial》→
+《Job Roles》for tactics and duties.",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,24
+0,,"エレメントアーチャーは、ヒーラーとアタッカー
+二つの面をもつ特異なジョブです
+立ち回り方は、私にとっても研究課題です","The Elemental Archer is
+a unique job blending both
+healer and attacker roles.
+Even I'm still researching
+optimal strategies.",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,25
+0,,"覚者とは試練に臆することなく立ち向かい
+その使命を全うする者のことだ",An Arisen faces trials without fear and fulfills their duty,ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,26
+0,,"与えられた試練を全てこなせた者のみ
+《魔弓の証》を得ることができる","Only those who complete all trials
+may obtain the 《Element Archer's Mark.》",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,27
+0,,"各試練のやり方について
+わからなければ、今までに得た知識を
+確認しながら臨むがいい","If unsure about any trial, review the knowledge you've gained so far",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,28
+0,,"技や動きの参考のため
+一人、共闘の仲間に来てもらってる
+課題をこなす中で戦技を身に刻め！","To study techniques and forms,
+I brought a comrade for joint
+training. Engrave these combat
+arts into your body through
+practice!",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,29
+0,,"与えられた試練を全てこなせた者のみ
+《魔弓の証》を得ることができる","Only those who complete all trials
+may obtain the 《Element Archer's Mark.》",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,30
+0,,"各試練のやり方について
+わからなければ今までの得た知識を
+確認しながら臨むがいい","If unsure about any trial, review the knowledge you've gained so far",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,31
+0,,"また立ちはだかる魔物が
+課題中にすべていなくなったら
+再度出直してくるがいい","If all fiends in the trial vanish, return and try again later",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,32
+0,,"さあ、《修練の祠》へ行くんだ
+案内人は神殿を出て左手を進めば、崖の上さ","Now, go to the Training Chapel.
+The guide is on your left as you 
+exit the temple, at the top of the cliff.",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,33
+0,,"《魔弓の証》、よくぞ得た！
+ジョブについての理解も、さらに深まったようだな
+神殿に戻りレンテンに報告するがいい、覚者よ！","You've obtained the Element Archer's Mark! 
+Your understanding
+of the job has deepened.
+Return to the temple and
+report to Renton, Arisen!",ui\00_message\quest\q60000009.gmd,\quest\q60000009.arc,q60000009.arc,34
+0,,<COL ff7575><KCT ATTACK1></COL>の破斬で敵を攻撃するんだ！,<COL ff7575><KCT ATTACK1></COL> attacks the enemy with Hack!,ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,0
+0,,ジャンプ中に<COL ff7575><KCT ATTACK1></COL>で空破斬だ。敵を頭上から攻撃するんだ！,"Press <COL ff7575><KCT ATTACK1></COL> mid-jump for Aerial Hack. 
+Strike enemies from above!",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,1
+0,,敵をダウンさせやすいので追撃に効果的だぞ！,"It easily downs enemies, 
+making it great for follow-ups!",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,2
+0,,<COL ff7575><KCT ATTACK2></COL>で魔人斬りだ！渾身の一撃を叩きこめ！,"Use <COL ff7575><KCT ATTACK2></COL> for Arc of Might! 
+Deliver a mighty blow!",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,3
+0,,空破斬で敵をダウンさせた状態で行うと当てやすいぞ！,"It's easier to hit when you do it while 
+the enemy is downed from an Aerial Hack!",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,4
+0,,今度は、魔人斬りをジャストタイミングで叩き込め！ゲージが満ち光る瞬間が、最も破壊力が高まるその時だ！,"Now, time Savage Lash perfectly! 
+The gauge glows brightest at peak power!",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,5
+0,,<COL ff7575><KCT AVOID></COL>で耐魔の身構えだ！,Press <COL ff7575><KCT AVOID></COL> for Brace!,ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,6
+0,,敵からのダメージを最小限にしつつ、効果的にリベンジゲージを溜めれるぞ！,"Keep enemy damage to a minimum while 
+efficiently building up the Revenge gauge!",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,7
+0,,リベンジゲージは左上の体力ゲージ下にあるから蓄積量を確認しろ！,"The Revenge Gauge is in the upper left corner, 
+below the health bar, 
+so check the amount you've accumulated!",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,8
+0,,リベンジゲージを溜めた後、魔人斬りをもう一度敵に叩き込め！ゲージを消費するが威力が格段に上がるぞ！,"After filling the Revenge gauge, 
+unleash Savage Lash again! 
+It consumes gauge, but boosts power!",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,9
+0,,よし、では祠の奥へ向かい大型敵と対峙だ！大型敵の<COL ff7575>＜怒り状態＞</COL>に注意しろ！,"Alright, head deeper into the chapel to face a Large enemy! Watch for its <COL ff7575>＜Anger state＞</COL>!",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,10
+0,,そして<COL ff7575><KCT TOUCH></COL>でヤツにしがみつけ！,Now use <COL ff7575><KCT TOUCH></COL> to climb onto it!,ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,11
+0,,その状態で<COL ff7575><KCT ATTACK1></COL>で魔倒斬りだ！,"While clinging, use <COL ff7575><KCT ATTACK1></COL>
+to perform an Inverse Slash!",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,12
+0,,では大型敵の<COL ff7575>＜怒り状態＞</COL>に注意してヤツを仕留めるんだ！,Now watch the Large enemy's <COL ff7575>＜Anger state＞</COL> and take it down!,ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,13
+0,,揺さぶり、疲れさせてチャンスを作るんだぞ！,"Shake it, wear it down, and create an opening!",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,14
+0,,試練完了、よくやったな！奥にある＜剛剣の証＞を受け取り、神殿のレンテンに報告するがいい,"Trial complete, well done! 
+Take the <Warrior's Mark> in the back 
+and report to Renton at the temple",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,15
+0,,"おめでとう、覚者よ
+これにて戦術試練は完了だ！","Congratulations, Arisen.
+The tactical trial is now complete!",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,16
+0,,"今覚えたウォリアーの戦い方を
+振り返りたい時は、《チュートリアルガイド》の
+《ジョブの操作と役割》からウォリアーの戦法や
+戦術的役割を確認するんだ","To review the Warrior's combat style
+you just learned, check 《Tutorial》→
+《Job Roles》for tactics and duties.",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,17
+0,,"ウォリアーの技は己を削り、敵を砕くものだという
+くれぐれも無理はしすぎるなよ","Warrior skills grind down both
+yourself and enemies.
+Don't overdo it, understand?",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,18
+0,,よぉよぉ、また来たな！！,"Hey hey, you're back!!",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,19
+0,,"ウォリアーとはなにか――
+この挑戦はその答えを導くものかも知れない！
+なんてな！","The warrior's essence -
+this trial might uncover it!
+...Maybe!",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,20
+0,,"試練は決まりとして
+今回も一人で挑んでもらうことになる","As a rule, trials must be faced alone.
+This time will be no exception.",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,21
+0,,"準備ができたら神殿を出て、左手の崖を伝って行け
+場所はまた《修練の祠》さ
+まず祠内の案内人、騎士団員と話すんだぞ","Once prepared, exit the temple
+and take the left cliff path.
+It's the Training Chapel once again.
+Begin by talking to the
+knight within.",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,22
+0,,"今回の試練、うまくいったんだって？
+やっぱりさすがだなぁ！
+ウォリアーか、俺もいつかはやってみたいな","Trial went well? You're
+as skilled as ever! Makes
+me wanna try the warrior life!",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,23
+0,,"また転職したら、いつでも来いよ
+っていうかそのうち俺にも、あんた流
+戦いのコツとか教えてくれよな","If you change jobs again, come any time.
+Actually, teach me your fighting tips
+one of these days, will you?",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,24
+0,,"覚者とは試練に臆することなく立ち向かい
+その使命を全うする者のことだ",An Arisen faces trials without fear and fulfills their duty,ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,25
+0,,"与えられた試練を全てこなせた者のみ
+《剛剣の証》を得ることができる","Only those who finish every
+given trial can receive
+the 《Warrior's Mark.》",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,26
+0,,"各試練のやり方について
+わからなければ、今までに得た知識を
+確認しながら臨むがいい","If unsure about any trial, review the knowledge you've gained so far",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,27
+0,,"技や動きの参考のため
+一人、共闘の兵をつけておこう
+課題をこなす中で戦技を身に刻め！","For reference, I'll assign a Pawn to fight alongside you. Master combat skills during the trial!",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,28
+0,,"与えられた試練を全てこなせた者のみ
+《剛剣の証》を得ることができる","Only those who finish every
+given trial can receive
+the 《Warrior's Mark.》",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,29
+0,,"各試練のやり方について
+わからなければ今までの得た知識を
+確認しながら臨むがいい","If unsure about any trial, review the knowledge you've gained so far",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,30
+0,,"また立ちはだかる魔物が
+課題中にすべていなくなったら
+再度出直してくるがいい","If all fiends in the trial vanish, return and try again later",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,31
+0,,"さあ、《修練の祠》へ行くんだ
+案内人は神殿を出て左手を進めば、崖の上さ","Now, go to the Training Chapel.
+The guide is on your left as you 
+exit the temple, at the top of the cliff.",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,32
+0,,"《剛剣の証》、よくぞ得た！
+ジョブについての理解も、さらに深まったようだな
+神殿に戻りレンテンに報告するがいい、覚者よ！","You've obtained the Warrior's Mark! 
+Your understanding of the job has deepened.
+Return to the temple and
+report to Renton, Arisen!",ui\00_message\quest\q60000010.gmd,\quest\q60000010.arc,q60000010.arc,33
+0,,<COL ff7575><KCT ATTACK1></COL>でアルケムだ！錬成物質を付着させた敵は、お前への敵意が上がるぞ！,"<COL ff7575><KCT ATTACK1></COL> is Alchemy! 
+Foes imbued with alchemical compounds 
+will prioritize you as prey!",ui\00_message\quest\q60000011.gmd,\quest\q60000011.arc,q60000011.arc,0
+0,,錬成物質のついていない敵を狙うがいい！,"Focus fire on enemies
+without alchemical compounds!",ui\00_message\quest\q60000011.gmd,\quest\q60000011.arc,q60000011.arc,1
+0,,<COL ff7575><KCT ATTACK2></COL>でクラスターだ！,<COL ff7575><KCT ATTACK2></COL> is Cluster!,ui\00_message\quest\q60000011.gmd,\quest\q60000011.arc,q60000011.arc,2
+0,,錬成物質のついていない敵を狙うがいい！,"Focus fire on enemies
+without alchemical compounds!",ui\00_message\quest\q60000011.gmd,\quest\q60000011.arc,q60000011.arc,3
+0,,錬成物質は錬金術の攻撃媒体にもなる。覚えておくんだ,"Alchemical compounds can also serve
+as an offensive medium. Remember this well.",ui\00_message\quest\q60000011.gmd,\quest\q60000011.arc,q60000011.arc,4
+0,,アルケムやクラスターで攻撃するほど、錬成物質は多く付着する！それに応じて敵の注意の強さや、解放時の攻撃力が上がるのだ！,"The more you attack with Alchemy or Cluster, 
+the more alchemical compounds attach! 
+This increases the enemy's aggression level 
+and the power of the Release attack!",ui\00_message\quest\q60000011.gmd,\quest\q60000011.arc,q60000011.arc,5
+0,,敵が攻撃する瞬間に<COL ff7575><KCT AVOID></COL>でアルケム・フーガだ！,"Now's the time for Alchemical Fuga! 
+Dodge with <COL ff7575><KCT AVOID></COL> when the
+enemy attacks!",ui\00_message\quest\q60000011.gmd,\quest\q60000011.arc,q60000011.arc,6
+0,,敵の攻撃を回避しつつ、錬成物質を放て！,"Dodge enemy attacks while 
+unleashing alchemical compounds!",ui\00_message\quest\q60000011.gmd,\quest\q60000011.arc,q60000011.arc,7
+0,,アルケムやクラスターで攻撃し、２体以上の敵へ新たに錬成物質を付着させるのだ！,"Attack with Alchemy or Cluster to attach 
+alchemical compounds to two or more enemies!",ui\00_message\quest\q60000011.gmd,\quest\q60000011.arc,q60000011.arc,8
+0,,敵に付着した錬成物質は放置してると消えるから注意だ,"Applied alchemical compounds
+dissipate over time. Act fast!",ui\00_message\quest\q60000011.gmd,\quest\q60000011.arc,q60000011.arc,9
+0,,<COL ff7575><KCT SKILL_NORMAL1></COL>でエリクシル！,<COL ff7575><KCT SKILL_NORMAL1></COL> is Elixir!,ui\00_message\quest\q60000011.gmd,\quest\q60000011.arc,q60000011.arc,10
