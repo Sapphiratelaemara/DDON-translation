@@ -1,27 +1,29 @@
 #!/usr/bin/env python3
 """
 This script processes CSV files and examines the fourth column (index 3) of each row.
-It looks for “broken tags” that may span multiple lines—even if there are one or more
-blank lines between the tag parts.
+It searches for “broken tags” that may be split across multiple lines—even if separated
+by blank lines. A broken tag is defined as follows:
 
-A broken tag is defined as follows:
-  • The first part is a line (after trimming trailing whitespace) that ends with one of the tokens:
+  • The first part is a line (after trimming trailing whitespace) that ends with one of
+    the following tokens:
        <AREA, <COL, <HAVE, <ICON, <ITEM, <KC, <KCP, <KCT, <KCTP,
        <NAME, <NPC, <QCND, <QDEL, <QDEL NAME, <SPAI, <SPOT, <SQDI, <STG,
        <UNIT, <UNTN, <VAL
-  • The second part (missing fragment) is expected to appear on the next non‑blank line.
-    It is taken as all characters from the start of that line up to and including the first ">".
-    That fragment is removed from that line and appended (with a single preceding space)
-    to the first line.
+
+  • The second part is the next non‑blank line. From that line the fragment (from the
+    very beginning up to and including the first occurrence of ">") is extracted.
+    This fragment is appended (with a single preceding space) to the end of the first line.
+    Moreover, if after removing the fragment the second part line is empty (or contains only whitespace),
+    that line is deleted from the cell data; otherwise, its remaining content is preserved.
 
 For each CSV file processed:
-  • Any rows that receive a fix are logged (with row number and the original and fixed cell)
+  • Rows where a fix is applied are logged (with row number, original cell, and fixed cell)
     into a log file named "results.txt".
-  • If any row is modified, the CSV file is overwritten with the corrected rows.
+  • Any modification is written back to the CSV file (the CSV is overwritten).
 
 Usage:
     python fix_broken_tags.py file1.csv file2.csv ...
-Or drag-and-drop one or more CSV files onto the script.
+Or drag and drop one or more CSV files onto this script.
 """
 
 import csv
@@ -29,7 +31,7 @@ import sys
 import os
 import re
 
-# List of tokens that indicate the first part of a broken tag.
+# List of tokens that indicate that a broken tag is present.
 TOKENS = [
     "<AREA", "<COL", "<HAVE", "<ICON", "<ITEM", "<KC", "<KCP", "<KCT", "<KCTP",
     "<NAME", "<NPC", "<QCND", "<QDEL", "<QDEL NAME", "<SPAI", "<SPOT", "<SQDI",
@@ -38,8 +40,8 @@ TOKENS = [
 
 def ends_with_token(line, tokens):
     """
-    If the given line (after rstripping) ends with one of the tokens, return that token.
-    Otherwise, return None.
+    Returns the token if the given line (after rstripping) ends with one of the tokens.
+    Otherwise, returns None.
     """
     stripped = line.rstrip()
     for token in tokens:
@@ -49,18 +51,20 @@ def ends_with_token(line, tokens):
 
 def fix_broken_tags(text):
     """
-    Processes a multi‑line text (from the fourth CSV column) searching for broken tags.
-    
-    When a line ends (after rstrip) with one of the designated tokens, the function skips
-    one or more blank lines until it finds the next non‑blank line. On that line, it uses a regex
-    to extract a fragment from the beginning up to and including the first occurrence of ">".
-    
-    If found, the fragment is removed from that later line and is appended (with a single space)
-    to the end of the first line.
-    
-    Returns a tuple:
-      - modified_text: the revised multi‑line text.
-      - changed: True if the text was modified, otherwise False.
+    Scans a multi-line text (from a CSV's fourth column) for broken tags.
+
+    When a line ends (after trimming trailing whitespace) with one of the tokens,
+    the function skips over any blank lines until it reaches the next non-blank line.
+    It then extracts from that next non-blank line a fragment (from the start of the line
+    up to and including the first occurrence of ">"). The fragment is removed from that line
+    and appended (preceded by a single space) to the end of the first line.
+
+    Additionally, if after removing the fragment the candidate line is completely empty
+    (or contains only whitespace), that line is deleted from the multi-line text.
+
+    Returns:
+      - modified_text: the updated multi‑line text.
+      - changed: True if any fix was applied, otherwise False.
     """
     lines = text.splitlines()
     modified = False
@@ -68,32 +72,37 @@ def fix_broken_tags(text):
     while i < len(lines):
         token = ends_with_token(lines[i], TOKENS)
         if token:
-            # Find the index of the next non-blank line (skip blank lines).
+            # Look for the next non-blank line, skipping any blank ones.
             j = i + 1
             while j < len(lines) and lines[j].strip() == "":
                 j += 1
             if j < len(lines):
                 candidate_line = lines[j]
-                # Extract, from the start of candidate_line, a fragment up to and including the first ">"
+                # Extract a fragment: from the start of candidate_line up to the first ">"
                 m = re.match(r'^\s*(\S+?>)', candidate_line)
                 if m:
-                    fragment = m.group(1)  # Including the ">"
+                    fragment = m.group(1)  # Includes the ">"
                     new_line = lines[i].rstrip() + " " + fragment
                     if new_line != lines[i]:
                         lines[i] = new_line
                         modified = True
-                        # Remove the matched fragment from the beginning of candidate_line.
-                        lines[j] = candidate_line[m.end():]
+                        # Remove the matched fragment from candidate_line.
+                        remainder = candidate_line[m.end():]
+                        # If the remainder is completely empty (after stripping), delete that line.
+                        if remainder.strip() == "":
+                            del lines[j]
+                        else:
+                            lines[j] = remainder
         i += 1
     return "\n".join(lines), modified
 
 def process_csv(csv_path, output_handle):
     """
-    Processes a CSV file:
-      • Reads the CSV.
-      • For every row with at least 4 columns, applies fix_broken_tags() on the cell in column 4.
-      • If a fix is applied to a row, logs the row number, original cell, and fixed cell to output_handle.
-      • Returns the updated list of rows and a Boolean indicating if any row was modified.
+    Processes a single CSV file:
+      • Reads the CSV file.
+      • For each row with at least 4 columns, applies fix_broken_tags() on the cell in column 4.
+      • If a fix is applied, logs (row number, original and fixed cell) to output_handle.
+      • Returns the updated rows and a flag indicating if any row was modified.
     """
     output_handle.write(f"Processing file: {csv_path}\n{'-' * 40}\n")
     try:
@@ -122,7 +131,7 @@ def process_csv(csv_path, output_handle):
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: Drag and drop CSV files onto this script or run from the command line with file names.")
+        print("Usage: Drag and drop CSV files onto this script or run it with file names as arguments.")
         sys.exit(1)
 
     output_filename = "results.txt"
