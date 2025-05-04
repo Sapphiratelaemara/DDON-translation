@@ -1,0 +1,905 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 1894,
+  "NativeMsgDataArrayNum" : 43,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27113,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Well, that time of the year has come 'round again—\nit's Halloween season, but, something's strange\nabout little Ms. Shelly this year.",
+        "Jp" : "やあ、今年もハロウィンの季節がきたんだが――\n実はシェリーちゃんの様子が変なんだ"
+      },
+      "MsgSerial" : 679420,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It doesn't seem like she's angry,\nbut when she speaks, it's awfully strange.\nI have no idea why she's behaving like that.\nPlease, could you take a look at her as well?",
+        "Jp" : "怒ってるわけでも無さそうだし\n喋ると何だか妙に怖いしで\nああなっている理由がさっぱりわからない\n頼む、君も様子をみてくれないか"
+      },
+      "MsgSerial" : 692093,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4714,
+    "NpcName" : {
+      "En" : "Angelo",
+      "Jp" : "アンジェロ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27114,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "At last, the time has come.\nThis year, many sweets, I shall have—\nFufufu—fufufufu—",
+        "Jp" : "ヨウヤク、コノキセツガキタワネ\nコトシコソハ――オカシヲ、タクサン――\nフフフフ――フフフフフ――"
+      },
+      "MsgSerial" : 679421,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4711,
+    "NpcName" : {
+      "En" : "Shelly",
+      "Jp" : "シェリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27115,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Me? Strange—?\nFufufufu, nothing strange here.\nLook, there's no doubt that I'm Shelly.",
+        "Jp" : "ワタシガ、ヘン――？\nフフフフフ、オカシナコトヲ――イウノネェ\nホラ、マチガイナクしぇりーヨ"
+      },
+      "MsgSerial" : 679422,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 4,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Nevermind that.\nSweets, gimme!",
+        "Jp" : "ソンナコトヨリ\nオカシ、チョウダイ"
+      },
+      "MsgSerial" : 692092,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4711,
+    "NpcName" : {
+      "En" : "Shelly",
+      "Jp" : "シェリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27116,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 5,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Look! You see!? She's acting odd, isn't she? \nI beg you, find out what's going on with her!\nIf she continues to be like this,\nwe won't have Halloween this year!",
+        "Jp" : "ほら！　な！？\nやっぱり様子がおかしいだろう\n頼む、彼女に何がおこったのか調べてくれ！\nこのままでは今年のハロウィンは中止だぁ！"
+      },
+      "MsgSerial" : 679423,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 6,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Come to think of it, I heard on the way here\nabout something called the 《Ghost Lantern》.\nThey say it holds a mysterious power that reveals\nthe true forms of things when held aloft.",
+        "Jp" : "そういえば、ここに来る途中に聞いたんだが\n《ゴーストランタン》というものがあるらしい\nかざすと真実の姿を照らし出すという\n不思議な力をもったランタンだそうだ"
+      },
+      "MsgSerial" : 679424,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 7,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Can't we somehow obtain it?\nLet's see, the usual one!\nThat fellow who trades anything!\nGo see if he knows anything about it.",
+        "Jp" : "それを何とかして入手できないだろうか――\nえーっと、いつもの！\n何でも交換してくれる彼！\n彼のところで調べてきてくれ"
+      },
+      "MsgSerial" : 679425,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4714,
+    "NpcName" : {
+      "En" : "Angelo",
+      "Jp" : "アンジェロ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27117,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 8,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Well, well, Arisen.\nWhat brings you here in such a hurry?",
+        "Jp" : "おやおや、覚者さん\nずいぶん急いでどうなさいました\n――本日はどのようなご用件で？"
+      },
+      "MsgSerial" : 679426,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 9,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I see, the 《Ghost Lantern》, is it?\nYes, such a thing does exist—\nIndeed, it does.",
+        "Jp" : "なるほど、《ゴーストランタン》でございますか\n――あることにはありますよ、ええ"
+      },
+      "MsgSerial" : 679427,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 10,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "This here is a bit of \"cursed\" item, so I don't \nput it on display. Heh heh, but since it's \nyour request, Ser, I will allow it. \nShall we proceed with a trade?",
+        "Jp" : "こちら少々\"いわく付き\"の品なので\nあまり表には出していないのですがね――\nへっへへ、他ならぬ覚者さんの頼みですからねぇ\nええ、交換とさせていただきましょうか"
+      },
+      "MsgSerial" : 679428,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 11,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Well, even for you, Ser, I can't just give \nthis away for free. Bring me something of \nequal value, and I shall part with it— \nheh heh.",
+        "Jp" : "そりゃ、いくら覚者さんといえど\nタダで差し上げるわけにはいきませんよ\n相応の品をお持ち下されば\nその対価としてお譲りいたしますとも――へへ"
+      },
+      "MsgSerial" : 682147,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 12,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The item you need to bring me is— \nlet's see, how about some \n《Ghost Marshmallows》, which can \nonly be obtained now? I hear they \ncan be found by defeating monsters.",
+        "Jp" : "持ってきていただく品物は――\nそうですね、今しか手に入らない\n《おばけマシュマロ》でいかがです\nなんでも、魔物を倒すと手に入るそうで"
+      },
+      "MsgSerial" : 692185,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4706,
+    "NpcName" : {
+      "En" : "Gregory",
+      "Jp" : "グレゴリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27141,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 13,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Oh, it suits you very well— \nhowever, as I mentioned before, \nthat lantern carries a bit of a \n\"reputation.\" So do take care when \nusing it to illuminate anything suspicious.",
+        "Jp" : "おお、とてもよくお似合いで――\nただし、以前にも申しました通り\nそのランタンは多少\"いわく付き\"の品でして\nあやしげなものを照らす際には、ご注意を"
+      },
+      "MsgSerial" : 680186,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4706,
+    "NpcName" : {
+      "En" : "Gregory",
+      "Jp" : "グレゴリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27118,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 14,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ah, so this is the Ghost Lantern! \nI intended to illuminate Ms. Shelly \nimmediately— but alas, it appears \nthat she has wandered off \nsomewhere. Where could she be now?",
+        "Jp" : "おおお、それがゴーストランタンか！\n早速シェリーちゃんを照らして\n――と思ったのだが、当のシェリーちゃんが\nどこかへ行ってしまったのだ"
+      },
+      "MsgSerial" : 679429,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 15,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I tried to pursue her, but despite \nbeing a bit wobbly, she's surprisingly \nfast— I ended up losing track of \nher, and now she's nowhere to be found— \nWhere could she possibly be?",
+        "Jp" : "追いかけたのだが、フラフラしてる割に\n意外と足が速くて――\nみ、見失ってしまって――"
+      },
+      "MsgSerial" : 679430,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 16,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I think she went\nin the direction of Tel Village.\n--Please, go find her!",
+        "Jp" : "方向的にはテル村の方へ\n行ったんじゃないかと思うんだがね\n――頼む、彼女を探してきてくれ！"
+      },
+      "MsgSerial" : 692186,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4714,
+    "NpcName" : {
+      "En" : "Angelo",
+      "Jp" : "アンジェロ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27142,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 17,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ah, Ser, just a moment ago, I saw a \nbeautiful woman in strange attire muttering \nto herself as she walked towards the well— \nIt was quite the sight, I assure you— \nShe seemed rather lost in thought.",
+        "Jp" : "ああ、覚者さん\nついさっき、不思議な恰好の美女が\nブツブツ独り言を言いながら\n井戸の方に歩いていったのを見たんだよ"
+      },
+      "MsgSerial" : 680386,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 18,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Curious about what was happening, \nI followed her, but no matter how much I peered \ninto the well, there was no one inside— \nIt was as if she had vanished into thin air.",
+        "Jp" : "何事かと思って後を追ったんだけど\nいくら覗いても井戸の中には\n誰もいないんだ"
+      },
+      "MsgSerial" : 680387,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 19,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It was so dark that I gave up searching and \ncame out. I need something bright to \nshine a light on the situation; without \nit, searching is futile in this darkness.",
+        "Jp" : "真っ暗だし、探すのをやめて出てきたよ\n何か明るく照らすものがないとダメだな"
+      },
+      "MsgSerial" : 692187,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 1304,
+    "NpcName" : {
+      "En" : "Norman",
+      "Jp" : "ノーマン"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27143,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 20,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I saw a woman go into that well, but \nit's too dark to see anything. \nYou'd best take something bright \nto illuminate the area if you plan \nto look around there.",
+        "Jp" : "そこの井戸に女性が入っていくのを見たけど\n暗くて何も見えないから、\n何か明るく照らすものをもって行った方がいい"
+      },
+      "MsgSerial" : 680388,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 1304,
+    "NpcName" : {
+      "En" : "Norman",
+      "Jp" : "ノーマン"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27121,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 21,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Wh-What? You came all the way \nto a place like this to ask me \nsomething? What is it you seek?",
+        "Jp" : "ナ、ナアニ？　コンナトコロマデ――\nワタシニ、ナニカヨウ？"
+      },
+      "MsgSerial" : 679433,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 22,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "There's nothing strange here, \nI promise. You believe me, \ndon't you? I'm telling the truth.",
+        "Jp" : "ココニハ、アヤシイモノナンテ\nナニモナイワ\n――シンジテクレルワヨネ？"
+      },
+      "MsgSerial" : 679434,
+      "MsgType" : 1,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 23,
+      "JumpGroupSerial" : 27122,
+      "Message" : {
+        "En" : "Don't believe",
+        "Jp" : "信じない"
+      },
+      "MsgSerial" : 679435,
+      "MsgType" : 2,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 24,
+      "JumpGroupSerial" : 27123,
+      "Message" : {
+        "En" : "Believe",
+        "Jp" : "信じる"
+      },
+      "MsgSerial" : 679436,
+      "MsgType" : 2,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4711,
+    "NpcName" : {
+      "En" : "Shelly",
+      "Jp" : "シェリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27122,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 25,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Oh my, hehehe! \nHoho—ahhahahaha!",
+        "Jp" : "アラ、ウフフフ\nオホホ――ァアハハハハハ"
+      },
+      "MsgSerial" : 679461,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 26,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "So I was found out, huh? \nI thought I would let you \ngo free, but it seems \nthat's not possible.",
+        "Jp" : "バレテイタノネ\nミノガシテアゲヨウト\nオモッタノニ"
+      },
+      "MsgSerial" : 692246,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4711,
+    "NpcName" : {
+      "En" : "Shelly",
+      "Jp" : "シェリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27123,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 27,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Yes, that's me, Shelly.",
+        "Jp" : "ソウヨ、ワタシハしぇりーヨ"
+      },
+      "MsgSerial" : 679462,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4711,
+    "NpcName" : {
+      "En" : "Shelly",
+      "Jp" : "シェリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27124,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 28,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Huh? What am I doing in a place \nlike this? It's odd, I was meant to \ngo with Angelo to share \nthe news of this year's Halloween.",
+        "Jp" : "あら？　私、どうしてこんなところに？\nおかしいわねぇ、アンジェロと一緒に\n今年のハロウィンをお知らせに来たはずなのに"
+      },
+      "MsgSerial" : 679529,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 29,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I was going to pick up a rare sweet \nwhen suddenly right in front of me, \nI saw the hem of someone's dress. \nBut I can't quite remember what \nhappened next.",
+        "Jp" : "珍しいお菓子を拾おうと思ったら\n急に目の前に――誰かのドレスのすそが見えて――\nその先をよく覚えてないわ"
+      },
+      "MsgSerial" : 679530,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 30,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "In any case, I must hurry back to \nLestania to prepare for Halloween with \nAngelo! Could you please \ngo ahead and let Angelo know that?",
+        "Jp" : "とにかく、早くレスタニアに戻って\nアンジェロとハロウィンの準備をしなきゃね！\n先に戻ってアンジェロにもそう伝えてくれるかしら"
+      },
+      "MsgSerial" : 679531,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4711,
+    "NpcName" : {
+      "En" : "Shelly",
+      "Jp" : "シェリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27127,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 31,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Would you mind returning to \ninform Angelo first? I'll be there shortly.",
+        "Jp" : "先に戻ってアンジェロに伝えてくれない？\n私もすぐ帰るからって"
+      },
+      "MsgSerial" : 679569,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4711,
+    "NpcName" : {
+      "En" : "Shelly",
+      "Jp" : "シェリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27128,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 32,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Oh! Ms. Shelly has come back! \nAnd it seems that the reason for \nher odd behavior has been \nsafely resolved!",
+        "Jp" : "おお！　シェリーちゃんが帰ってきた！\nしかも、様子がおかしかった原因も\n無事に解決したようじゃないか！"
+      },
+      "MsgSerial" : 679570,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 33,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It was the right choice to ask you. \nYou've really saved me, truly, \nthank you so much! Honestly, \nI was so scared and didn't know \nwhat to do.",
+        "Jp" : "君に頼んで正解だった\nいやー助かった、本当にどうもありがとう\n正直怖くてどうしようかと思ったよ"
+      },
+      "MsgSerial" : 679571,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 34,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Let's have a fun and delicious\nHalloween again this year!",
+        "Jp" : "さっ、今年も楽しくおいしい\nステキなハロウィンを始めようじゃないかッ！"
+      },
+      "MsgSerial" : 689044,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 35,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "After defeating monsters and \ncollecting lots of treats, \nit would be best to visit \nthat appraisal exchange fellow.",
+        "Jp" : "魔物を倒して、お菓子をたくさん集めたら\nあの鑑定交換のおじさんのところに行くといい"
+      },
+      "MsgSerial" : 689045,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 36,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Hehe, I arranged for him to prepare \nsome \"gifts\" in advance. \nYou can eat them or trade them for \nHalloween fun. Enjoy, Ser!",
+        "Jp" : "フフフ、彼には事前に\"景品\"になるものを\n準備してもらっておいたのだ\n食べてよし、交換してよしのハロウィン\n楽しんでくれたまえ！"
+      },
+      "MsgSerial" : 692391,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 37,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I recall him saying it was a \ngreat opportunity to dispose of \n\"haunted items,\" which I suppose \nwas his way of joking. Still, \nit might be wise to check for \nmyself, just to be safe.",
+        "Jp" : "――「いわく付きの物を処分するいい機会」とか\n言っていた気もするが、彼なりのジョークだろう\nい、一応は実際に見て確かめておいた方が\nいいかもしれないがね"
+      },
+      "MsgSerial" : 692392,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4714,
+    "NpcName" : {
+      "En" : "Angelo",
+      "Jp" : "アンジェロ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27132,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 38,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I'm so sorry I worried Angelo.\nHe looks so upset.",
+        "Jp" : "アンジェロに心配かけちゃったわ\n彼ったらずいぶんうろたえたみたい"
+      },
+      "MsgSerial" : 679588,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 39,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ah, right! That strange pumpkin \nheadpiece doesn't suit me, so \nI'll give it to you instead.",
+        "Jp" : "あ、そうそう\nあの不思議なカボチャの被り物\n私には似合わないからあなたに上げるわ"
+      },
+      "MsgSerial" : 692387,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4711,
+    "NpcName" : {
+      "En" : "Shelly",
+      "Jp" : "シェリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27129,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 40,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Yes, indeed! In addition to the \nghost lantern, we have a variety \nof \"cursed\" items for you to \nchoose from. If something \ninterests you, I can trade it for some treats!",
+        "Jp" : "そうそう、ゴーストランタン以外にも\nいろんな\"いわく付き\"のものを取り揃えております\n気になるものがあれば、お菓子と交換いたしますよ"
+      },
+      "MsgSerial" : 679572,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4706,
+    "NpcName" : {
+      "En" : "Gregory",
+      "Jp" : "グレゴリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27130,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 41,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Oh, Shelly, what in the world \nhas happened to you...",
+        "Jp" : "ああシェリーちゃん、一体どうしちゃったんだ"
+      },
+      "MsgSerial" : 679573,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4714,
+    "NpcName" : {
+      "En" : "Angelo",
+      "Jp" : "アンジェロ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27140,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 42,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Remember, this time last \nyear— you all snatched the \ncandies I collected! This year, \nI'll reclaim what's mine—!",
+        "Jp" : "ワスレモシナイ　キョネンノイマゴロ――オマエタチハ\nワタシノアツメタ、くっきートきゃんでぃーヲ\nネコソギウバッテイッタノヨ！\nコトシコソ、ウバウガワニ――！"
+      },
+      "MsgSerial" : 680134,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : true,
+    "NpcId" : 1,
+    "NpcName" : {
+      "En" : "The White Dragon",
+      "Jp" : "白竜"
+    }
+  } ],
+  "NativeMsgGroupArrayNum" : 19
+}

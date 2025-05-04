@@ -1,0 +1,617 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 1286,
+  "NativeMsgDataArrayNum" : 29,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 30843,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ho Ho Ho, it's been a while.\nWe bring news of another holiday season\nto Lestania this year. Well now,\nlet's begin with our usual greetings.",
+        "Jp" : "ほっほっほ、久しぶりだな\n今年もレスタニアにホリデーシーズンの\nお知らせを運んできたぞ\nさて、まずはいつもの挨拶からかな"
+      },
+      "MsgSerial" : 787639,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4764,
+    "NpcName" : {
+      "En" : "Nicholas",
+      "Jp" : "ニコラス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 30846,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Well, let's start with our usual greetings.",
+        "Jp" : "さて、まずはいつもの挨拶からかな"
+      },
+      "MsgSerial" : 787642,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4764,
+    "NpcName" : {
+      "En" : "Nicholas",
+      "Jp" : "ニコラス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 30847,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ho Ho Ho, Merry Christmas!\nLet's get down to business\nabout this year's Christmas gift.",
+        "Jp" : "ほっほっほ、メリークリスマス！\nでは本題に入ろう\n今年のクリスマスプレゼントについてなんだが"
+      },
+      "MsgSerial" : 787645,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I'm thinking of giving\nhandmade Christmas trees\nto children all over this continent!",
+        "Jp" : "この大陸中の子供たちに\n手作りのクリスマスツリーを\nプレゼントしようと思っておるのだ"
+      },
+      "MsgSerial" : 787646,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 4,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "However, for Lestania, it's come to that point\nwhere I still require a large number of trees!\nThat's where you, Good Ser, come into play.",
+        "Jp" : "しかしレスタニア中となるとそれはもう\n大量のツリーが必要になる\nそこで、お主の出番と言う訳だ"
+      },
+      "MsgSerial" : 787647,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 5,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Is there any way for you to gather up\na large amount of trees of the right size?\nWe'll never make it just by collecting\nmere tree branches!",
+        "Jp" : "ツリーになる適度な大きさの木を\n大量に集める方法はないだろうか\n木の枝を採取するだけでは到底間に合わん"
+      },
+      "MsgSerial" : 787648,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 6,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "You, Ser, you seem well-connected.\nIs there anyone amongst your acquaintances\nwho might know of such lumber?",
+        "Jp" : "お前さんは顔が広そうだが、知り合いの中に\nこの大陸の情報に詳しくて\n木材のありかを知っていそうな人はいないかね"
+      },
+      "MsgSerial" : 789047,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4764,
+    "NpcName" : {
+      "En" : "Nicholas",
+      "Jp" : "ニコラス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 30848,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 7,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "By any means, I want you to look for a way\nto \"obtain a large amount of wood.\"\nThere must be someone you know\nwho knows the continent well.",
+        "Jp" : "どうにかして\"大量の木材を手に入れる方法\"\nそれを探してきてほしい\n大陸中の情報に詳しいような人が\nお前さんの知人にいないかね"
+      },
+      "MsgSerial" : 787649,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4764,
+    "NpcName" : {
+      "En" : "Nicholas",
+      "Jp" : "ニコラス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 30849,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 8,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "You need my help?\nSure, I'll answer to the best of my knowledge.\nAsk me anything.",
+        "Jp" : "俺に聞きたいこと？\nいいぜ、俺の知る範囲内でなら\n何でも答えようじゃないか"
+      },
+      "MsgSerial" : 787652,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 9,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "...Hm, gathering a lot of lumber, eh?\nCutting wood alone would take too much time.\nWell, it's a bit a crude method, but by Lynwood,\nperhaps, that way...",
+        "Jp" : "――ふむ、大量の木を手に入れたい、と\n確かに木材の\"採取\"だけじゃ時間がかかりすぎる\nまあ、少々荒っぽい手段にはなるが\nリンウッドの近くなら、あるいは――"
+      },
+      "MsgSerial" : 787653,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 10,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "You know that Ent that makes its appearance\non rare occasions, right? I believe it was there\nlast year and caused quite a commotion.\nIf you hunt it, you'll get a lot of wood at once.\nWhat say you, Ser?",
+        "Jp" : "あそこには稀にエントが出現するだろ？\n確か、去年もあそこに出て騒ぎになったはずだ\nアイツを狙えば、一度に大量の木材が\n手に入ると思うんだが、どうだ？"
+      },
+      "MsgSerial" : 787654,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 11,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Besides, I don't see them around here\nIt seems that Giant Ents appear very rarely.\nAt least it's not something I've ever seen\nwith mine own eyes.",
+        "Jp" : "おまけに、ここいらでは見かけない\n巨大なエントもごく稀に出てくるそうだ\nまあ、俺がこの目で見たことじゃあ無いがな"
+      },
+      "MsgSerial" : 787659,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 550,
+    "NpcName" : {
+      "En" : "Isaac",
+      "Jp" : "アイザック"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 30850,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 12,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It's near Lynwood. \nIt may be a foe you're familiar with, Ser, \nbut do not let your guard down.",
+        "Jp" : "リンウッドの近くだ\nお前にとっては慣れた相手かもしれないが\n油断はするなよ"
+      },
+      "MsgSerial" : 787655,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 13,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "They say that a rare, larger Ent,\nlike a leader of the others, appears there.\nIn truth, I haven't seen it myself, \nnor do I know anyone who has.",
+        "Jp" : "特に、あそこにはエントの親玉みたいな\nレアなエントも出現するって噂だ\nまあ、俺がこの目で見たわけでも\n実際に見たって奴を知ってるわけでもないがな"
+      },
+      "MsgSerial" : 787658,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 550,
+    "NpcName" : {
+      "En" : "Isaac",
+      "Jp" : "アイザック"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 30851,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 14,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ah, I've been waiting! \nYou've gathered so much wood, \nI'm glad I asked you for help after all.",
+        "Jp" : "おお、待っておったぞ！\nこんなにたくさんの木を集めてきてくれるとは\nやはりお前さんに相談してよかった"
+      },
+      "MsgSerial" : 787660,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 15,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Now that we have the wood,\nthe next step is decoration.\nIs there's anything suitable for ornaments?\nThe classic options are balls\nor star-shaped decorations, but—",
+        "Jp" : "木が集まったら、次は飾り付けだな\n何か良い飾りになる物はないだろうか\n定番といえば、球や星形のオーナメントだが――"
+      },
+      "MsgSerial" : 787661,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 16,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The three of us will try to find them.\nYou, too, let us know what you find.",
+        "Jp" : "わしらも3人で探してみるとしよう\nお前さんも何か見つけたら知らせてくれ"
+      },
+      "MsgSerial" : 787662,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 17,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It would be great if we could use\nthe monsters' habits to find something useful.\nNot all foes are drawn to shiny things, though.\nWe can't know for sure until we've taken one down.",
+        "Jp" : "魔物の習性を利用して\nなにか良いものが拾えればいいのだが\n全ての敵が光物が好きとは限らんからなぁ\nこればかりは、一度倒してみなければ何とも言えん"
+      },
+      "MsgSerial" : 787663,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4764,
+    "NpcName" : {
+      "En" : "Nicholas",
+      "Jp" : "ニコラス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 30852,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 18,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "As for tree decorations, a star atop the tree\nand round ornaments are the usual choice.\nCould you go out and look for something fitting?",
+        "Jp" : "ツリーの飾りといえば、木のてっぺんの星や\n球状のオーナメントなんかが定番だな\n何かいいものはないか、探してきてくれんか"
+      },
+      "MsgSerial" : 787664,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 19,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It would be great if we could use\nthe monsters' habits to find something useful.\nNot all foes are drawn to shiny things, though.\nWe can't know for sure until we've taken one down.",
+        "Jp" : "魔物の習性を利用して\nなにか良いものが拾えればいいのだが\n全ての敵が光物が好きとは限らんからなぁ\nこればかりは、一度倒してみなければ何とも言えん"
+      },
+      "MsgSerial" : 787665,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4764,
+    "NpcName" : {
+      "En" : "Nicholas",
+      "Jp" : "ニコラス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 30853,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 20,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Oh-ho, this looks like\nit will make a beautiful ornament!\nTo find something like this,\nyou're quite impressive!",
+        "Jp" : "ほほう、なかなか綺麗なオーナメントになりそうだ\nこれを見つけてくるとは流石だな！"
+      },
+      "MsgSerial" : 787666,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 21,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Alright, let's go with these decorations. \nNow then—next we need to gather a massive \namount of ornaments to match these trees!",
+        "Jp" : "よし、飾り付けはこれでいくとしよう\nとなれば――後は、この大量のツリーに見合うだけの\n大量のオーナメントを仕入れねばな！"
+      },
+      "MsgSerial" : 787667,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 22,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Now, Marco, Mia! \nLet's split up and gather them! \nCome on, come on, Ser, \ngather as many as you can!",
+        "Jp" : "さぁ、マルコにミーア！　手分けして集めるぞ！\nほれほれ、お前さんもできるだけ\nたくさん集めてきてくれ！"
+      },
+      "MsgSerial" : 787668,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4764,
+    "NpcName" : {
+      "En" : "Nicholas",
+      "Jp" : "ニコラス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 30854,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 23,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The children of Lestania are waiting for the tree. \nTo decorate it splendidly, bring back a large \namount of ornaments. I leave it to you!",
+        "Jp" : "レスタニアの子供たちがツリーを待っておる\n豪華に飾り付けるためにも\nオーナメントを大量に持って来てくれ\n頼んだぞ"
+      },
+      "MsgSerial" : 787669,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4764,
+    "NpcName" : {
+      "En" : "Nicholas",
+      "Jp" : "ニコラス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 30857,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 24,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Oh, you've gathered this many? \nWe too, between the three of us, \nhave just finished collecting\na large number of ornaments.",
+        "Jp" : "おお、こんなに集まったか\nちょうどわしらも3人手分けして\nたくさんのオーナメントを集めたところだ"
+      },
+      "MsgSerial" : 787681,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 25,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "This is more than enough! \nWith so many trees, every child\nacross Lestania will be overjoyed!",
+        "Jp" : "これだけあればバッチリだ\nたくさんのツリーがあれば\nレスタニア中の子供たちみんなも喜ぶぞ"
+      },
+      "MsgSerial" : 788701,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 26,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Well then, with haste,\nlet us decorating and finish the tree.\nWe'll also be sure to show our gratitude to you!",
+        "Jp" : "さ、わしらは早速飾り付けをして\nツリーを仕上げるとしよう\nお前さんにもお礼をせねばな"
+      },
+      "MsgSerial" : 788708,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4764,
+    "NpcName" : {
+      "En" : "Nicholas",
+      "Jp" : "ニコラス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 30844,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 27,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Does it feel different this year? \nPerhaps it's because we removed\nthe \"red nose\" from last year.\nWhat do you think of this year's attire?",
+        "Jp" : "いつもと雰囲気が違いますか？\n去年の\"赤い鼻\"を外したせいでしょうか――\n今年の装い、いかがでしょう？"
+      },
+      "MsgSerial" : 787640,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4765,
+    "NpcName" : {
+      "En" : "Marco",
+      "Jp" : "マルコ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 30845,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 28,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Heyo! It's been a whole year, huh!\nLet's make this year's holidays\neven more exciting～!",
+        "Jp" : "どうも！　一年ぶりですね！\n今年もホリデーを盛り上げていきますよ～！"
+      },
+      "MsgSerial" : 787641,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4766,
+    "NpcName" : {
+      "En" : "Mia",
+      "Jp" : "ミーア"
+    }
+  } ],
+  "NativeMsgGroupArrayNum" : 13
+}
