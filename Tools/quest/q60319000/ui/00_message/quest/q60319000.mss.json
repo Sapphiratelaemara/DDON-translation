@@ -1,0 +1,985 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 2038,
+  "NativeMsgDataArrayNum" : 44,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 23868,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "覚者様――\n一つ、そのお力をお借りできないでしょうか"
+      },
+      "MsgSerial" : 588709,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "実は、ここでの生活を維持するだけの\n物資の確保が難航しております\n――ええ、物資調達をお願いしたいのです"
+      },
+      "MsgSerial" : 616837,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "物資調達と一言で言っても\n道中が危険なものになることは明白――\n覚者様のお手伝いに向きそうな方を\nご紹介いたします"
+      },
+      "MsgSerial" : 682209,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "ここに避難してきた方々の暮らしを守るため\nどうかお願いいたします"
+      },
+      "MsgSerial" : 682210,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3050,
+    "NpcName" : {
+      "En" : "Nayajiku",
+      "Jp" : "ナヤジーク"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 23867,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 4,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "覚者様とともに物資調達に向かうとなると\nそれなりの戦闘経験が無いと厳しいでしょう"
+      },
+      "MsgSerial" : 588710,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 5,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "覚者様ご自身の戦闘を\n的確にサポートできそうな方を\n同行者としてお選びください"
+      },
+      "MsgSerial" : 616838,
+      "MsgType" : 1,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 6,
+      "JumpGroupSerial" : 24688,
+      "Message" : {
+        "En" : "",
+        "Jp" : "人員情報１（ハンター）"
+      },
+      "MsgSerial" : 616839,
+      "MsgType" : 2,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 7,
+      "JumpGroupSerial" : 24673,
+      "Message" : {
+        "En" : "",
+        "Jp" : "人員情報２（シーカー）"
+      },
+      "MsgSerial" : 616840,
+      "MsgType" : 2,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3050,
+    "NpcName" : {
+      "En" : "Nayajiku",
+      "Jp" : "ナヤジーク"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 23869,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 8,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "ああ、ナヤジークさんからお話は聞いています\n私はハンターですので、遠距離から\n弓矢で覚者様を援護することになりますが\nお力になれるでしょうか？"
+      },
+      "MsgSerial" : 588711,
+      "MsgType" : 1,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 9,
+      "JumpGroupSerial" : 23870,
+      "Message" : {
+        "En" : "",
+        "Jp" : "ドルーに同行を頼む"
+      },
+      "MsgSerial" : 616841,
+      "MsgType" : 2,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 10,
+      "JumpGroupSerial" : 24674,
+      "Message" : {
+        "En" : "...I will think a bit",
+        "Jp" : "――少し考えさせてくれ"
+      },
+      "MsgSerial" : 616842,
+      "MsgType" : 2,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 654,
+    "NpcName" : {
+      "En" : "Drew",
+      "Jp" : "ドルー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 23870,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 11,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "ええ、もちろんです\nでは、一度メフィテに戻りましょう\n物資調達任務についての\nくわしい話もお聞きしたいですね"
+      },
+      "MsgSerial" : 588712,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 654,
+    "NpcName" : {
+      "En" : "Drew",
+      "Jp" : "ドルー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 23871,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 12,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "無事――初めての調達任務に\nお手伝いしてもらい感謝いたします\nこれで物資補給が強化できると思います"
+      },
+      "MsgSerial" : 588713,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3050,
+    "NpcName" : {
+      "En" : "Nayajiku",
+      "Jp" : "ナヤジーク"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24674,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 13,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "はっ、了解いたしました\n――いえ、気にしてはおりません\n戦い方にも相性がありますから"
+      },
+      "MsgSerial" : 616843,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 654,
+    "NpcName" : {
+      "En" : "Drew",
+      "Jp" : "ドルー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24675,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 14,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "んー、物資調達の任務に協力しろって言うんでしょ？\n確かに頼まれはしたけどさぁ――\nあのエリアマスターさん、結構人づかい荒くない？"
+      },
+      "MsgSerial" : 682225,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 15,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "この前ちょっと世話になったのは確かだけど\n盗賊のあたしに気軽に頼みごとが\n通ると思われるのもなぁって"
+      },
+      "MsgSerial" : 682226,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 16,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "あたしのシーカーとしての腕を借りたいんなら\n相応の対価をもらわないとね～\n――どう、それでもあたしでいいの？"
+      },
+      "MsgSerial" : 616844,
+      "MsgType" : 1,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 17,
+      "JumpGroupSerial" : 24676,
+      "Message" : {
+        "En" : "",
+        "Jp" : "アンナに同行を頼む"
+      },
+      "MsgSerial" : 616845,
+      "MsgType" : 2,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 18,
+      "JumpGroupSerial" : 24677,
+      "Message" : {
+        "En" : "...I will think a bit",
+        "Jp" : "――少し考えさせてくれ"
+      },
+      "MsgSerial" : 616846,
+      "MsgType" : 2,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 601,
+    "NpcName" : {
+      "En" : "Anna",
+      "Jp" : "アンナ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24676,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 19,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "あんたも風変わりな覚者だよね\nわざわざ対価を払ってまで\nあたしに同行を頼むなんて"
+      },
+      "MsgSerial" : 616847,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 20,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "えっと、それじゃ――どうしようかな\nとりあえず――あたしが言うものを\n持ってきてくれればいいよ"
+      },
+      "MsgSerial" : 682229,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 601,
+    "NpcName" : {
+      "En" : "Anna",
+      "Jp" : "アンナ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24677,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 21,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "ま、そうだろうね\nどっちにせよ、よく考えた方がいいよ"
+      },
+      "MsgSerial" : 616848,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 601,
+    "NpcName" : {
+      "En" : "Anna",
+      "Jp" : "アンナ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24678,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 22,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "そんな大したものじゃないでしょ？\n人を危険な道中に付き合わせようっていうんだから\n相応のものはいただかないとね"
+      },
+      "MsgSerial" : 616849,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 601,
+    "NpcName" : {
+      "En" : "Anna",
+      "Jp" : "アンナ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24679,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 23,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "本当に持ってきてくれるなんて\n思ってもみなかった――\nエラい覚者様なのに、盗賊相手に真面目だね"
+      },
+      "MsgSerial" : 616850,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 24,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "あ、もちろん、これに見合う働きはするからさ！\n――メフィテの村に向かえばいいんだよね？\nそこで任務について詳しく聞かせてもらおうかな"
+      },
+      "MsgSerial" : 682230,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 25,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "ふふ――あたしが\"任務\"なんて変なの\nでも、まぁ――敬意を払われたら\nその分の義理はきっちり返すよ\nこれ、姐さんの受け売りだけど"
+      },
+      "MsgSerial" : 616851,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 601,
+    "NpcName" : {
+      "En" : "Anna",
+      "Jp" : "アンナ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24680,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 26,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "ナヤジークさんから物資調達について聞きましたよ\n――さっそく最初の任務ですね\nそれでは、現地でお待ちしております！"
+      },
+      "MsgSerial" : 616852,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 654,
+    "NpcName" : {
+      "En" : "Drew",
+      "Jp" : "ドルー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24681,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 27,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "\"任務\"についてはエリアマスターさんから聞いたよ\nそれじゃ、現地集合といこうか\nあんたも準備ができたら向かってね"
+      },
+      "MsgSerial" : 616853,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 601,
+    "NpcName" : {
+      "En" : "Anna",
+      "Jp" : "アンナ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24682,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 28,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "――さっそく最初の任務ですね\nそれでは、現地でお待ちしております！"
+      },
+      "MsgSerial" : 616854,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 654,
+    "NpcName" : {
+      "En" : "Drew",
+      "Jp" : "ドルー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24683,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 29,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "それじゃ、現地集合といこうか\nあんたも準備ができたら向かってね"
+      },
+      "MsgSerial" : 616855,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 601,
+    "NpcName" : {
+      "En" : "Anna",
+      "Jp" : "アンナ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24684,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 30,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "覚者様、お待ちしておりました\nそれでは物資が調達できる場所へ向かいましょう"
+      },
+      "MsgSerial" : 616856,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 654,
+    "NpcName" : {
+      "En" : "Drew",
+      "Jp" : "ドルー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24685,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 31,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "それじゃ、物資が調達できる場所に行こう\nこの道中が危険って話だから\nあんたも気を付けてね"
+      },
+      "MsgSerial" : 616857,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 601,
+    "NpcName" : {
+      "En" : "Anna",
+      "Jp" : "アンナ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24686,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 32,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "ふぅ、ここからは私一人でも何とかなりそうです\n覚者様はお忙しいことでしょう\nあとは私がやっておきますので、先にお戻りください"
+      },
+      "MsgSerial" : 616858,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 33,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "ああ、ナヤジークさんへの連絡だけ\nお願いします"
+      },
+      "MsgSerial" : 616859,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 654,
+    "NpcName" : {
+      "En" : "Drew",
+      "Jp" : "ドルー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24687,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 34,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "これで\"任務\"は完了したようなものだね\nあとはあたしがやっとくよ！\n――対価ももらっちゃったからさ\nこのくらい当然でしょ"
+      },
+      "MsgSerial" : 616860,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 35,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "エリアマスターさんへの\n報告だけ、よろしくね"
+      },
+      "MsgSerial" : 616861,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 601,
+    "NpcName" : {
+      "En" : "Anna",
+      "Jp" : "アンナ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24688,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 36,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "覚者様とともに戦えて\n物資調達をお願いできそうな方に\nわたしからお話しをしておきました"
+      },
+      "MsgSerial" : 616862,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 37,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "外で警備をされている方ですから\n腕は確かなはずですわ"
+      },
+      "MsgSerial" : 682231,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3050,
+    "NpcName" : {
+      "En" : "Nayajiku",
+      "Jp" : "ナヤジーク"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24673,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 38,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "覚者様とともに\n荒野を駆け抜けることができる方に\nわたしからお話しをしておきました"
+      },
+      "MsgSerial" : 616863,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 39,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "驚かれるかもしれませんが――\n《ベルタ盗賊団のアジト》にいらっしゃる方です\nどうぞお会いになってみてください"
+      },
+      "MsgSerial" : 682232,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3050,
+    "NpcName" : {
+      "En" : "Nayajiku",
+      "Jp" : "ナヤジーク"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24689,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 40,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "さぁ、一度メフィテに戻りましょう\n物資調達任務についての\nくわしい話もお聞きしたいですね"
+      },
+      "MsgSerial" : 617189,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 654,
+    "NpcName" : {
+      "En" : "Drew",
+      "Jp" : "ドルー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 24690,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 41,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "――メフィテの村に向かえばいいんだよね？\nそこで任務について詳しく聞かせてもらおうかな"
+      },
+      "MsgSerial" : 617190,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 601,
+    "NpcName" : {
+      "En" : "Anna",
+      "Jp" : "アンナ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27286,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 42,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "物資調達の協力者と\n無事に合流できたようで、何よりです"
+      },
+      "MsgSerial" : 685930,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 43,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "それでは、＜<STG 1093>＞へお急ぎください\n協力者の方も、一足先に\n現地で待っているはずですわ"
+      },
+      "MsgSerial" : 685931,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3050,
+    "NpcName" : {
+      "En" : "Nayajiku",
+      "Jp" : "ナヤジーク"
+    }
+  } ],
+  "NativeMsgGroupArrayNum" : 24
+}

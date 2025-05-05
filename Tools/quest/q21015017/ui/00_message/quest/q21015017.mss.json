@@ -1,0 +1,157 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 318,
+  "NativeMsgDataArrayNum" : 7,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 20039,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "ネェネェ、\"お願い\"あるの！\nアナタ、すごく強い――エナン、言ってたダカラ！"
+      },
+      "MsgSerial" : 527242,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "《<STG 861>》すごくすごく良いモノある！\nアナタじゃない強い人に聞いた！\nダカラ、ダリンも行きたい！"
+      },
+      "MsgSerial" : 540376,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "ダケド危ないマモノたくさん――\nアナタ、《<STG 861>》中まで\nやっつけて道開ける、そしたらお礼あげるヨ！"
+      },
+      "MsgSerial" : 540377,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 2555,
+    "NpcName" : {
+      "En" : "Darin",
+      "Jp" : "ダリン"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 20040,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "《<STG 861>》すごく良いモノある！\nアナタ、やっつけて道開ける\nそしたらダリンも《<STG 861>》行ける\nとっても感謝ヨ！"
+      },
+      "MsgSerial" : 527243,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 4,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "これ、エナンに内緒ヨ\n勝手に外出る、怒られるダカラ！"
+      },
+      "MsgSerial" : 540379,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 2555,
+    "NpcName" : {
+      "En" : "Darin",
+      "Jp" : "ダリン"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 20041,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 5,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "ホントにやっつけてきた！\nアナタすごく強い！　とっても嬉しい！"
+      },
+      "MsgSerial" : 527244,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 6,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "でもやっぱり、エナンの言うこと聞く――\nワタシ、すごく良いモノいらないヨ\nダリンだけ良いモノ持ってるの――ズルいダカラ\nミンナとケンカになると、悲しいデショ？"
+      },
+      "MsgSerial" : 559852,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 2555,
+    "NpcName" : {
+      "En" : "Darin",
+      "Jp" : "ダリン"
+    }
+  } ],
+  "NativeMsgGroupArrayNum" : 3
+}

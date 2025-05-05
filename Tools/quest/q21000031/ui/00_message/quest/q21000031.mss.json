@@ -1,0 +1,142 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 284,
+  "NativeMsgDataArrayNum" : 6,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 17099,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "この森の奥深くに、遺跡があるのは\nすでにご存じのことと思います"
+      },
+      "MsgSerial" : 430113,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "とても美しく明媚な場所なのですが\n最近、そこを根城にしている魔物が現れ\n近寄った旅人を襲っているそうなのです"
+      },
+      "MsgSerial" : 480671,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "覚者さま\nどうかお力を貸していただけないでしょうか"
+      },
+      "MsgSerial" : 453622,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4506,
+    "NpcName" : {
+      "En" : "Christine",
+      "Jp" : "クリスティーヌ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 17100,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "このままでは何も知らぬ何人もの旅人が\n餌食となってしまいます\nどうかお力をお貸しください――"
+      },
+      "MsgSerial" : 430114,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4506,
+    "NpcName" : {
+      "En" : "Christine",
+      "Jp" : "クリスティーヌ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 17101,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 4,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "遺跡が本来の息遣いに戻ったのを感じます――"
+      },
+      "MsgSerial" : 430115,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 5,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "これもひとえに覚者さまのおかげです\nありがとうございます――"
+      },
+      "MsgSerial" : 483856,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4506,
+    "NpcName" : {
+      "En" : "Christine",
+      "Jp" : "クリスティーヌ"
+    }
+  } ],
+  "NativeMsgGroupArrayNum" : 3
+}

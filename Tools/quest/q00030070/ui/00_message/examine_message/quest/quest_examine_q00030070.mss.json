@@ -1,0 +1,85 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 182,
+  "NativeMsgDataArrayNum" : 3,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100315,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Summoned monsters have been eliminated.",
+        "Jp" : "召喚された魔物を一掃した――"
+      },
+      "MsgSerial" : 646577,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100316,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The Beast Master is summoning enemies.",
+        "Jp" : "獣の将が魔物を呼び寄せようとしている――"
+      },
+      "MsgSerial" : 646584,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100317,
+    "GroupType" : 2,
+    "GroupTypeName" : "MSG_GROUP_TYPE_GREETING_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The situation worsens as the Beast Master summons\npowerful enemies!",
+        "Jp" : "状況が悪化し、獣の将が強き魔物を呼び寄せる――！"
+      },
+      "MsgSerial" : 683506,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  } ],
+  "NativeMsgGroupArrayNum" : 3
+}

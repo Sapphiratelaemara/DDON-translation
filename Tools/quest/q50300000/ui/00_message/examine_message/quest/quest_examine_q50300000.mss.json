@@ -1,0 +1,109 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 238,
+  "NativeMsgDataArrayNum" : 4,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100173,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "敵勢力の一部制圧に成功\n次の目標地点を目指せ"
+      },
+      "MsgSerial" : 598462,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100174,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "敵勢力の一部制圧に成功\n次の目標地点を目指せ"
+      },
+      "MsgSerial" : 598459,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100175,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "強襲部隊の撃破に成功\n引き続き敵勢力の殲滅を続行せよ"
+      },
+      "MsgSerial" : 598456,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100176,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "特攻部隊の撃破に成功\n引き続き敵勢力の殲滅を続行せよ"
+      },
+      "MsgSerial" : 598453,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  } ],
+  "NativeMsgGroupArrayNum" : 4
+}

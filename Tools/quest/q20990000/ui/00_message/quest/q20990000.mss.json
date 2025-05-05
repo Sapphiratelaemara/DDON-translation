@@ -1,0 +1,494 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 1052,
+  "NativeMsgDataArrayNum" : 26,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 11485,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "君か――\nふむ、覚者の君に頼むとしよう"
+      },
+      "MsgSerial" : 149674,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "このメルゴダには錬金術で\n強化された魔物がいることは知っているだろう？"
+      },
+      "MsgSerial" : 181524,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "奴ら錬魔は我々の命を収集するため\nディアマンテスにより生み出された\n魔物なのだ"
+      },
+      "MsgSerial" : 181525,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "どうか、奴らの駆除に手を貸してもらいたい"
+      },
+      "MsgSerial" : 181526,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 10,
+    "NpcName" : {
+      "En" : "Theodor",
+      "Jp" : "テオドール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 12013,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 4,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "君か――\nうん、覚者の君に頼むとしよう"
+      },
+      "MsgSerial" : 181522,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 5,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "このメルゴダには錬金術で\n強化された魔物がいることは知っているだろう？"
+      },
+      "MsgSerial" : 181527,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 6,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "奴ら錬魔は我々の命を収集するために\nディアマンテスにより生み出された\n魔物なのだ"
+      },
+      "MsgSerial" : 181528,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 7,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "その中でもひときわ手ごわい奴がいてな"
+      },
+      "MsgSerial" : 181529,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 8,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "どうか、奴らの駆除に手を貸してもらいたい"
+      },
+      "MsgSerial" : 181530,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 10,
+    "NpcName" : {
+      "En" : "Theodor",
+      "Jp" : "テオドール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 12014,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 9,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "君か――\n良いところにきてくれた\n世界を窮地から救えるのは君しかいない"
+      },
+      "MsgSerial" : 181523,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 10,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "このメルゴダには錬金術で\n強化された魔物がいることは知っているだろう？"
+      },
+      "MsgSerial" : 181531,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 11,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "その中に、これまで存在しなかった\n強力な魔物が混じっているのが見つかったのだ"
+      },
+      "MsgSerial" : 181532,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 12,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "メルゴダが地上と繋がって\n豊かな命の気配が流れ込んだ影響か――\nそれとも他の原因があるのか――"
+      },
+      "MsgSerial" : 181533,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 13,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "ともかくこのままではこのメルゴダはおろか\nそっちの命まで刈り尽くされてしまうだろう"
+      },
+      "MsgSerial" : 181534,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 14,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "この世界から輝きが失われる前に\nどうか、速やかに奴らを始末してもらいたい"
+      },
+      "MsgSerial" : 181535,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 10,
+    "NpcName" : {
+      "En" : "Theodor",
+      "Jp" : "テオドール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 12009,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 15,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "さすがは覚者\n竜に心臓を捧げた者――\n見事なものだ"
+      },
+      "MsgSerial" : 181518,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 16,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "君の力をもってすれば\nこのメルゴダもやがて以前の華やかな姿を\n取り戻す事ができるかもしれないな"
+      },
+      "MsgSerial" : 181536,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 17,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "これからも活躍を期待しているよ"
+      },
+      "MsgSerial" : 181537,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 10,
+    "NpcName" : {
+      "En" : "Theodor",
+      "Jp" : "テオドール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 12010,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 18,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "さすがは覚者\n竜に心臓を捧げた者――\n見事なものだ"
+      },
+      "MsgSerial" : 181519,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 19,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "君が力になってくれれば\n歪められた錬金術の未来を\n元に戻すことができるかもしれないな"
+      },
+      "MsgSerial" : 181538,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 20,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "これからも活躍を期待しているよ"
+      },
+      "MsgSerial" : 181539,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 10,
+    "NpcName" : {
+      "En" : "Theodor",
+      "Jp" : "テオドール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 12011,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 21,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "さすがは覚者\n竜に心臓を捧げた者よ\n君以外では近づくこともできなかっただろうね"
+      },
+      "MsgSerial" : 181520,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 22,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "君の活躍は我々の仲間だけではなく\nレスタニア全土の民の命も救った\n心から礼を言わせてもらおう"
+      },
+      "MsgSerial" : 181540,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 23,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "だが、今後も同じようなことが――\nいや、もっと厄介なことが起こるかもしれない"
+      },
+      "MsgSerial" : 181541,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 24,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "その時にはぜひまた君が力を貸してくれることを\n期待しているよ"
+      },
+      "MsgSerial" : 181542,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 10,
+    "NpcName" : {
+      "En" : "Theodor",
+      "Jp" : "テオドール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 12012,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 25,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "力およばず、と感じたなら――\n素直に退くことも重要だ"
+      },
+      "MsgSerial" : 181521,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 10,
+    "NpcName" : {
+      "En" : "Theodor",
+      "Jp" : "テオドール"
+    }
+  } ],
+  "NativeMsgGroupArrayNum" : 7
+}

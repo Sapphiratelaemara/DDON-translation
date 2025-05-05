@@ -1,0 +1,378 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 804,
+  "NativeMsgDataArrayNum" : 20,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27928,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "戦闘で負った足の怪我が\n思った以上に長引いてましてね\n痛みも全然引いてくれなくて参りましたよ"
+      },
+      "MsgSerial" : 717845,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "こうなったらアレを試すしかなさそうですね\n我が家に代々伝わる、痛み止めの秘伝――"
+      },
+      "MsgSerial" : 740390,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "《<QDEL NAME 0 3>》を適量用意して\nすりつぶした後に傷口に塗り込むだけ――\nお手軽でしょう？"
+      },
+      "MsgSerial" : 740391,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "この方法は、傷口がひどくしみるんで\nできれば避けたかったんですがね\nだけどそれさえ耐えれば、痛みもじきに引くはず"
+      },
+      "MsgSerial" : 740392,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 4,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "そういうわけで、《<QDEL NAME 0 3>》を\nお持ちでしたら分けてくれませんか\nそうですね――＜<QDEL NUM 0 3>＞つほどいただければと"
+      },
+      "MsgSerial" : 740393,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3202,
+    "NpcName" : {
+      "En" : "Yumit",
+      "Jp" : "ユーミット"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27929,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 5,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "《<QDEL NAME 0 3>》を＜<QDEL NUM 0 3>＞つほど用意して\nすりつぶした後に傷口に塗り込む――"
+      },
+      "MsgSerial" : 717846,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 6,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "これで、戦闘で負った足の怪我の痛みも\n今よりマシになるはずです\nもしお持ちでしたら分けてくれませんか"
+      },
+      "MsgSerial" : 740394,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 7,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "手持ちの分は、ここまで逃げてくる途中で\nうっかり落としてしまったもので――\nどうか、お願いします"
+      },
+      "MsgSerial" : 740395,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3202,
+    "NpcName" : {
+      "En" : "Yumit",
+      "Jp" : "ユーミット"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27930,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 8,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "ああ、これだけあれば十分ですよ\nありがとうございます\nさっそくすりつぶして\n傷口に塗り込む準備をしましょう"
+      },
+      "MsgSerial" : 717847,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 9,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "それにしても――あの時、逃げる途中で\n手持ちの《<QDEL NAME 0 3>》を\nうっかり落としてしまったんですが、それを\nオークたちが持っていくのを確かに見たんです"
+      },
+      "MsgSerial" : 740396,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 10,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "連中、西の方に走り去っていったので\nもしかしたら今頃は、最近開いた\n《<STG 1006>》にでも\n逃げ込んでいるのかもしれません"
+      },
+      "MsgSerial" : 740397,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 11,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "――うーん、冷静になってみると\nだんだん悔しくなってきました"
+      },
+      "MsgSerial" : 740398,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 12,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "あなた、もし良ければ私の代わりに\n《<STG 1006>》まで行って\nそれらしいオークがいたら倒してきてくれませんか"
+      },
+      "MsgSerial" : 740399,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 13,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "今もオークたちが《<QDEL NAME 0 3>》を\n持っているかどうかわかりませんが――\nもし持っているようなら\nとことんまでブッ倒してしまって構いませんから！"
+      },
+      "MsgSerial" : 740400,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3202,
+    "NpcName" : {
+      "En" : "Yumit",
+      "Jp" : "ユーミット"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27931,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 14,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "私が落とした《<QDEL NAME 0 3>》を持ち去った\nオークたちは、今頃は最近開いた\n《<STG 1006>》にでも\n逃げ込んでいるのかもしれません"
+      },
+      "MsgSerial" : 717848,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 15,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "あなた、もし良ければ私の代わりに\n《<STG 1006>》まで行って\nそれらしいオークがいたら倒してきてくれませんか"
+      },
+      "MsgSerial" : 740401,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 16,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "《<QDEL NAME 0 3>》を持っているようでしたら\n確実にあの時のオークたちです\nその時は――もう思う存分\nブッ倒してしまってください！"
+      },
+      "MsgSerial" : 740402,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3202,
+    "NpcName" : {
+      "En" : "Yumit",
+      "Jp" : "ユーミット"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 27932,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 17,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "やっぱり、《<STG 1006>》に\nあの時のオークたちがいたんですね\nこれで、私の溜飲も下がりました\n本当にありがとうございます"
+      },
+      "MsgSerial" : 717849,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 18,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "奪われた《<QDEL NAME 0 3>》については――\nあなたが、私のためにオークたちを\n倒してきてくれたってだけで十分ですよ\n足の痛みも、だいぶ引いてきましたしね"
+      },
+      "MsgSerial" : 740403,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 19,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "もし連中が《<QDEL NAME 0 3>》を\n持っていたとしても、全部あなたに差し上げますよ"
+      },
+      "MsgSerial" : 740404,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3202,
+    "NpcName" : {
+      "En" : "Yumit",
+      "Jp" : "ユーミット"
+    }
+  } ],
+  "NativeMsgGroupArrayNum" : 5
+}

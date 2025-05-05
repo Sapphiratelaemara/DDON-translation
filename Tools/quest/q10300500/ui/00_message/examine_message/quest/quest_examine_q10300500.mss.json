@@ -1,0 +1,205 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 462,
+  "NativeMsgDataArrayNum" : 8,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100348,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "...monsters appeared! Defend <NPC 580>!",
+        "Jp" : "――魔物が出現！　<NPC 580>を守りきれ！"
+      },
+      "MsgSerial" : 658370,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100349,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "--safely repelled the monsters!",
+        "Jp" : "――無事、魔物を撃退した！"
+      },
+      "MsgSerial" : 658373,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100350,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "...escort failed! Lost sight of <NPC 580>!",
+        "Jp" : "――護衛失敗！　<NPC 580>を見失った！"
+      },
+      "MsgSerial" : 658376,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100351,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "...escort failed! <NPC 580>'s food bottomed out!",
+        "Jp" : "――護衛失敗！　<NPC 580>の食料が底をついた！"
+      },
+      "MsgSerial" : 658381,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100352,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 4,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The cage has been forced open!",
+        "Jp" : "――檻がこじ開けられている！"
+      },
+      "MsgSerial" : 658384,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100353,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 5,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "--Large footprints lead up the hill.",
+        "Jp" : "――大きな足跡が坂の上へと続いている"
+      },
+      "MsgSerial" : 658387,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100354,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 6,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "--Trampled with great force.",
+        "Jp" : "――強い力で踏み荒らされた跡がある"
+      },
+      "MsgSerial" : 658390,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100355,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 7,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "--Marks of having been scraped by a sharp object.",
+        "Jp" : "――鋭いもので削られた跡がある"
+      },
+      "MsgSerial" : 658393,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  } ],
+  "NativeMsgGroupArrayNum" : 8
+}

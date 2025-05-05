@@ -1,0 +1,838 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 1772,
+  "NativeMsgDataArrayNum" : 42,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 10904,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Hmm... very well.\nLet me explain the procedure right away.",
+        "Jp" : "ふむ――よろしい\nさっそく手順を説明しよう"
+      },
+      "MsgSerial" : 92956,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "First, go to \"The Rift\"\nand aim for its innermost chambers...",
+        "Jp" : "まず《異界の狭間》へ行き――\nその奥底の部屋を目指す――"
+      },
+      "MsgSerial" : 92957,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "If you are one worthy of our service--",
+        "Jp" : "もし貴君が、我々が仕えるに足る\n人物だとすれば――"
+      },
+      "MsgSerial" : 92958,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "In that room you will find\nthe Riftstone Ore.",
+        "Jp" : "貴君はその部屋で\n《リムストーンの原石》を見つけるだろう"
+      },
+      "MsgSerial" : 92959,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 4,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Take it and come back here.",
+        "Jp" : "それを持って\nここに戻って来なさい"
+      },
+      "MsgSerial" : 92960,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 5,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "What happens after that, that's up to you.",
+        "Jp" : "その後のことは、その時にな"
+      },
+      "MsgSerial" : 92961,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 6,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ah—",
+        "Jp" : "ああ――"
+      },
+      "MsgSerial" : 92962,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 7,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "If you can't find the Riftstone Ore...",
+        "Jp" : "もし、《リムストーンの原石》を\n見つけることができなければ――"
+      },
+      "MsgSerial" : 92963,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 8,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "There's nothing we can do about it.\nForget about pawns.",
+        "Jp" : "我々にできることは何もない\nポーンのことは忘れてくれ"
+      },
+      "MsgSerial" : 92964,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 9,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Well, I wish you the best of luck.",
+        "Jp" : "では、健闘を祈るよ"
+      },
+      "MsgSerial" : 92965,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 2102,
+    "NpcName" : {
+      "En" : "Alvar",
+      "Jp" : "アルヴァー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 14810,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 10,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "【Hint: Gate to the Otherworldly Rift】",
+        "Jp" : "【ヒント：異界の狭間への入り口】"
+      },
+      "MsgSerial" : 326631,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 11,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The entrance to \"The Rift\" is located\nunder the altar where Alvar stands.\nHead there once you are ready.",
+        "Jp" : "《異界の狭間》はアルヴァーのいる祭壇の地下に\n入口があります\n準備ができたら向かいましょう"
+      },
+      "MsgSerial" : 311706,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : true,
+    "NpcId" : 2102,
+    "NpcName" : {
+      "En" : "Alvar",
+      "Jp" : "アルヴァー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 10905,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 12,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Go alone to the \"Rift of the Other World\"\nand bring back a \"Riftstone Ore.\"",
+        "Jp" : "ひとりで《異界の狭間》へ行って――\n《リムストーンの原石》を持ち帰る"
+      },
+      "MsgSerial" : 92966,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 13,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It's as simple as that.",
+        "Jp" : "きわめて単純なことだ"
+      },
+      "MsgSerial" : 92967,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 14,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "However--",
+        "Jp" : "しかし――"
+      },
+      "MsgSerial" : 92968,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 15,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Only one person at a time can go to\nThe Rift between worlds.\nYes--you are being tested.",
+        "Jp" : "《異界の狭間》に行けるのは\n一時にただひとりだけ\nそう――貴君は試されている"
+      },
+      "MsgSerial" : 92969,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 16,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "You'd do well to keep that in mind.",
+        "Jp" : "心して行くが良い"
+      },
+      "MsgSerial" : 92970,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 2102,
+    "NpcName" : {
+      "En" : "Alvar",
+      "Jp" : "アルヴァー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 10906,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 17,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Did you meet with Alvar in the Pawn Cathedral?",
+        "Jp" : "《ポーン郷》のアルヴァーとは会えましたか？"
+      },
+      "MsgSerial" : 92971,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 2,
+    "NpcName" : {
+      "En" : "Mysial",
+      "Jp" : "ミシアル"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 10907,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 18,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The road to the Pawn Cathedral is a tough one.\nDon't neglect to gather information en-route.",
+        "Jp" : "《ポーン郷》への道中はなかなか大変だ\n先々での情報収集を怠るなよ"
+      },
+      "MsgSerial" : 92972,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4,
+    "NpcName" : {
+      "En" : "Joseph",
+      "Jp" : "ジョゼフ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 10908,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 19,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "No matter how many times I see the moment\nwhen Pawns appear, I can't help but tremble. \nThey are truly embody the epitome\nof the mysteries of this world.",
+        "Jp" : "ポーンが登場する瞬間は何度見ても\n震えてしまうんだ\nこの世の不思議の代表格だね"
+      },
+      "MsgSerial" : 92974,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3,
+    "NpcName" : {
+      "En" : "Klaus",
+      "Jp" : "クラウス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 10909,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 20,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ah――\nCertainly, this is the \"Riftstone Ore\".",
+        "Jp" : "ほう――\n確かにこれは《リムストーンの原石》"
+      },
+      "MsgSerial" : 92992,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 21,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Now for the next step.",
+        "Jp" : "では、次の段階だ"
+      },
+      "MsgSerial" : 92993,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 22,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Please show that piece of stone\nto the White Dragon in the Temple.",
+        "Jp" : "その石片を神殿の白竜様に\nお見せしなさい"
+      },
+      "MsgSerial" : 92994,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 23,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Afterwards, \nit is up to Lord White Dragon's judgment.\nYou must entrust your fate to him.",
+        "Jp" : "あとは白竜様のご判断次第\n身を委ねることだな"
+      },
+      "MsgSerial" : 92995,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 2102,
+    "NpcName" : {
+      "En" : "Alvar",
+      "Jp" : "アルヴァー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 10910,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 24,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Oh--",
+        "Jp" : "おや――"
+      },
+      "MsgSerial" : 92996,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 25,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "You have the \"Riftstone Ore\" in your \npossession, don't you?",
+        "Jp" : "《リムストーンの原石》は\nその手の内にあるのだろう？"
+      },
+      "MsgSerial" : 92997,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 26,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "If so, then you should return to the Temple\nand seek the judgement of Lord White Dragon.",
+        "Jp" : "ならば神殿に戻り、白竜様の\nご判断を仰ぐが良い"
+      },
+      "MsgSerial" : 92998,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 2102,
+    "NpcName" : {
+      "En" : "Alvar",
+      "Jp" : "アルヴァー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 10911,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 27,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Oh—back from the the Pawn Cathedral?",
+        "Jp" : "おお――《ポーン郷》帰りか"
+      },
+      "MsgSerial" : 92999,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 28,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "If you have that thing, go and show it to Mysial.",
+        "Jp" : "例のモノを持ってるなら\nミシアルに見せてこい"
+      },
+      "MsgSerial" : 93000,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 5,
+    "NpcName" : {
+      "En" : "Leo",
+      "Jp" : "レオ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 10912,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 29,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Hmm――\nAre you looking to form a contract with the Pawns?",
+        "Jp" : "ほう――\nポーンとの契約に奔走中か"
+      },
+      "MsgSerial" : 93001,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 30,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "If you have \"Riftstone Ore,\"\nplease give it to Mysial.",
+        "Jp" : "《リムストーンの原石》があるのなら\nミシアルに渡しなさい"
+      },
+      "MsgSerial" : 93002,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4,
+    "NpcName" : {
+      "En" : "Joseph",
+      "Jp" : "ジョゼフ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 10913,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 31,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I've seen the contract with Pawns many times,\nand each time, I feel the mystery of this world.",
+        "Jp" : "ポーンとの契約は何度も見たけど\nその度に、この世界の神秘を感じるよ"
+      },
+      "MsgSerial" : 93003,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 32,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Where the heck do they come from--\nOh, I hope to solve the mystery someday!",
+        "Jp" : "彼らはいったいどこから来るのか――\nああ、いつか謎を解き明かしたいなあ"
+      },
+      "MsgSerial" : 253075,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3,
+    "NpcName" : {
+      "En" : "Klaus",
+      "Jp" : "クラウス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 10914,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 33,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The White Dragon slumbers...",
+        "Jp" : "白竜はまどろんでいる――"
+      },
+      "MsgSerial" : 93004,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 1,
+    "NpcName" : {
+      "En" : "The White Dragon",
+      "Jp" : "白竜"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 10915,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 34,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Thank you for your hard work.",
+        "Jp" : "おつかれさまです"
+      },
+      "MsgSerial" : 93005,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 35,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Oh--\nis that Riftstone Ore?",
+        "Jp" : "あら――\n《リムストーンの原石》ですね？"
+      },
+      "MsgSerial" : 93006,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 36,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Now then, let us proceed\nwith the ceremony of the contract.",
+        "Jp" : "それでは、さっそく\n契約の儀式を始めましょう"
+      },
+      "MsgSerial" : 93007,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 37,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Now-- \nPlease focus strongly on the appearance\nof the Pawn you wish to walk with.",
+        "Jp" : "さあ――\nあなたが共に歩みたいポーンの姿を\n強くイメージしてください"
+      },
+      "MsgSerial" : 253076,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 2,
+    "NpcName" : {
+      "En" : "Mysial",
+      "Jp" : "ミシアル"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 11913,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 38,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "This area ahead will be a trial for you alone.\nLet me know when you are ready.",
+        "Jp" : "この先のエリアは、貴君単独での試練となる\n支度ができたら教えなさい"
+      },
+      "MsgSerial" : 168695,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 2102,
+    "NpcName" : {
+      "En" : "Alvar",
+      "Jp" : "アルヴァー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 18538,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 39,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "【Hint: Further Growth of the Arisen】",
+        "Jp" : "【ヒント：覚者のさらなる成長について】"
+      },
+      "MsgSerial" : 490259,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 40,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The Main Pawn can now be summoned, \nand its vigor can be strengthened.",
+        "Jp" : "メインポーンが編成が可能となり戦力が強化されました"
+      },
+      "MsgSerial" : 490260,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 41,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Learn more about the further growth of the Arisen \nfrom Iris and Seneka, and progress with the \nMain Story Quest \"The Crimson Crystal.\"",
+        "Jp" : "イリスやセネカから覚者のさらなる成長について学び、<COL ff7575>メインクエスト《紅の結晶》</COL>を進めましょう"
+      },
+      "MsgSerial" : 490271,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : true,
+    "NpcId" : 2,
+    "NpcName" : {
+      "En" : "Mysial",
+      "Jp" : "ミシアル"
+    }
+  } ],
+  "NativeMsgGroupArrayNum" : 15
+}

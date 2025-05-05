@@ -1,0 +1,892 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 1872,
+  "NativeMsgDataArrayNum" : 43,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15326,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Seek out a method to defeat\nthe Black Knight, and execute it――",
+        "Jp" : "黒騎士を倒す方策を探し出し、実行する――"
+      },
+      "MsgSerial" : 377082,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I have no choice but to leave this \nin your hands, Arisen.",
+        "Jp" : "これはおまえたちに任せるより他はない"
+      },
+      "MsgSerial" : 377098,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "While it doesn't exactly make up for it, \nI've come up with a method to restore \nCecily's memories.",
+        "Jp" : "その代わりというわけではないが\nセシリーの記憶を取り返す方法を考えたのだ"
+      },
+      "MsgSerial" : 377099,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "What if we have Loeg and Cecily\njoin together to recall their memories?",
+        "Jp" : "ロイグとセシリーのふたりに記憶合わせを\nさせるのはどうだ？"
+      },
+      "MsgSerial" : 377100,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 4,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "If one memory can serve as the seed,\nit might sprout, drawing others in,\nlike a vine entwining――",
+        "Jp" : "どちらかの記憶が種となり\n豆のツルをたぐり寄せるように次々と――"
+      },
+      "MsgSerial" : 377101,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 5,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Don't you think it's worth a shot?",
+        "Jp" : "試す価値があると思わんか？"
+      },
+      "MsgSerial" : 377102,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 6,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Leo likely has his own designs, \nyet we must explain the logic \nand make him see reason.",
+        "Jp" : "レオにはレオの思惑があるのだろうが\n道理を説き、納得させるしかない"
+      },
+      "MsgSerial" : 377103,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 7,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I've heard they have made their stronghold \nin the Dowe Valley. Please visit them and \nconvey our intentions.",
+        "Jp" : "ダウ渓谷を根城にしていると聞いている\n訪ねて、こちらの意向を伝えてくれ"
+      },
+      "MsgSerial" : 377104,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4,
+    "NpcName" : {
+      "En" : "Joseph",
+      "Jp" : "ジョゼフ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16578,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 8,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "When you arrive in the Dowe Valley, \nkindly check the situation discreetly.",
+        "Jp" : "ダウ渓谷へ行ったら、それとなく様子を\n探ってくれ"
+      },
+      "MsgSerial" : 414949,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 9,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The scale of the hideout, presence of \nsympathizers――hostility and malice―― \nthere are many factors at play.",
+        "Jp" : "アジトの規模、同調者の有無――\n敵意や悪意――いろいろとな"
+      },
+      "MsgSerial" : 414950,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4,
+    "NpcName" : {
+      "En" : "Joseph",
+      "Jp" : "ジョゼフ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16579,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 10,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "If Loeg possesses some special power \nlike Cecily's――",
+        "Jp" : "ロイグもセシリーのように、何か特別な\n力を持っているのだろうか――"
+      },
+      "MsgSerial" : 414951,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 11,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "How much is Leo aware of―― \nOr does he know anything at all――",
+        "Jp" : "レオはどこまで気づいているのか――\nあるいは知っているのか――"
+      },
+      "MsgSerial" : 414952,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 12,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I think we must be careful and observe.",
+        "Jp" : "注意深く、観察する必要がありそうだね"
+      },
+      "MsgSerial" : 414953,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3,
+    "NpcName" : {
+      "En" : "Klaus",
+      "Jp" : "クラウス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16580,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 13,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Gramps, no matter what he says, \nhe just wants Leo to return, you see? \nOld folks tend to resist change.",
+        "Jp" : "じいさん、なんだかんだ言って\nレオに帰ってきて欲しいんだぜ？\n年寄りは変化を嫌うからな"
+      },
+      "MsgSerial" : 414954,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 501,
+    "NpcName" : {
+      "En" : "Gurdolin",
+      "Jp" : "ガルドリン"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16581,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 14,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Leo is in the Dowe Valley―― \nJoseph managed to get his facts straight,\nit seems.",
+        "Jp" : "レオはダウ渓谷にいる――\nジョゼフったら、ちゃんと情報を仕入れて\nいたんだね"
+      },
+      "MsgSerial" : 414955,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 13,
+    "NpcName" : {
+      "En" : "Lise",
+      "Jp" : "リズ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16582,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 15,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I wonder what Leo's plans are, truly? \nI heard he has concern for Cecily,\nbut do you think that's genuine?",
+        "Jp" : "レオの思惑って、なんでしょうね？\nセシリーの身を案じていたとか聞きましたけど\n本心だと思いますか？"
+      },
+      "MsgSerial" : 414956,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 21,
+    "NpcName" : {
+      "En" : "Elliot",
+      "Jp" : "エリオット"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16583,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 16,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I feel a sense of relief when I'm here. \nThat's why I can't help but return—",
+        "Jp" : "ここにいるとホッとするんです\nだからついつい来てしまって――"
+      },
+      "MsgSerial" : 414957,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 20,
+    "NpcName" : {
+      "En" : "Cecily",
+      "Jp" : "セシリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15327,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 17,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Leo's hideout is within here— \nit seems to be much deeper inside.",
+        "Jp" : "レオのアジトはこの中――\nずっと深いところらしいぜ"
+      },
+      "MsgSerial" : 377083,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 18,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "You go ahead and dive in first.",
+        "Jp" : "あんたが先行して潜ってくれ"
+      },
+      "MsgSerial" : 377105,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 19,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I'll take up the rear with the greenhorns \nin front, for the Black Knight is likely \nstalking us closely.",
+        "Jp" : "ひよっこどもを挟んで、俺はしんがりを引き受ける\n黒騎士が虎視眈々と狙っているだろうからな"
+      },
+      "MsgSerial" : 377106,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 501,
+    "NpcName" : {
+      "En" : "Gurdolin",
+      "Jp" : "ガルドリン"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15328,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 20,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It's curious how Leo doesn't feel degraded,\ndespite lurking in a place like this.",
+        "Jp" : "レオって、こんなところに潜んでいても\n落ちぶれた感じがしないのが不思議だよね"
+      },
+      "MsgSerial" : 377084,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 21,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "He just might be a dangerous figure.",
+        "Jp" : "だから、危険人物なのかもしれないけど"
+      },
+      "MsgSerial" : 377107,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 13,
+    "NpcName" : {
+      "En" : "Lise",
+      "Jp" : "リズ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15329,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 22,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Captain?",
+        "Jp" : "隊長？"
+      },
+      "MsgSerial" : 377085,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 23,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Cecily and Loeg ――",
+        "Jp" : "セシリーとロイグ――"
+      },
+      "MsgSerial" : 377108,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 24,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Isn't it a bit too convenient that the two \nwho came from Phindym both lost their memories?",
+        "Jp" : "フィンダムから来たふたりが都合良く記憶を\n無くしてるなんて、出来すぎじゃありませんか？"
+      },
+      "MsgSerial" : 377109,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 25,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Cecily seems to have forgotten all about it,\nbut Loeg is kind of halfway--",
+        "Jp" : "セシリーはまるっと忘れてるみたいだけど\nロイグは、なんだか中途半端で――"
+      },
+      "MsgSerial" : 377110,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 26,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "For the record, I'm skeptical.",
+        "Jp" : "ハッキリいって、おれ、疑ってます"
+      },
+      "MsgSerial" : 377111,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 21,
+    "NpcName" : {
+      "En" : "Elliot",
+      "Jp" : "エリオット"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16584,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 27,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Did Joseph suggest coming here?\nIf so, please tell me.",
+        "Jp" : "ここに来たのはジョゼフの発案か？\nならば、伝えてくれ"
+      },
+      "MsgSerial" : 415006,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 28,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I bear no ill will towards you. Ultimately, \nthough, it will be up to you in the end.",
+        "Jp" : "俺の方に敵意はない\n将来的には、そっち次第だが、と"
+      },
+      "MsgSerial" : 415007,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 5,
+    "NpcName" : {
+      "En" : "Leo",
+      "Jp" : "レオ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16585,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 29,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Well then―― I might be familiar with Loeg's \ncondition. It was an ordinary illness ages ago.",
+        "Jp" : "ええと――\nロイグの症状、わたし、知ってるかもしれないの\nずっと、ずっと前には当たり前だった病気――"
+      },
+      "MsgSerial" : 415008,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 30,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ah, but I can't seem to remember.\nIs there anyone who might know?",
+        "Jp" : "ああでも、思い出せない\n誰か知らないかなあ"
+      },
+      "MsgSerial" : 415009,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 14,
+    "NpcName" : {
+      "En" : "Mayleaf",
+      "Jp" : "メイリーフ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16586,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 31,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Please leave Loeg's care up to me!",
+        "Jp" : "ロイグの看病は任せてくださいね！"
+      },
+      "MsgSerial" : 415010,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 1003,
+    "NpcName" : {
+      "En" : "Pamela",
+      "Jp" : "パメラ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16587,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 32,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The symptoms I am aware of are――",
+        "Jp" : "わたしの自覚症状は――"
+      },
+      "MsgSerial" : 415011,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 33,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Fever, chills, abnormal redness of the skin―― \nAlong with――dizziness, \noccasional hyperventilation――",
+        "Jp" : "発熱、悪寒、皮膚の普通ではない赤み――\n加えて――めまい、たまの過呼吸――"
+      },
+      "MsgSerial" : 415012,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 34,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Experiencing this simultaneously is―― \nmy first time. What in the world is going――",
+        "Jp" : "同時に体験するのは――初めてだ\nいったい何が起こって――いるのだろう――"
+      },
+      "MsgSerial" : 415013,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 22,
+    "NpcName" : {
+      "En" : "Loeg",
+      "Jp" : "ロイグ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16588,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 35,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "While Pamela is eager after being put in \ncharge by Master Joseph, I still feel anxious, \nso I will assist in taking care of him as well.",
+        "Jp" : "ジョゼフ様に任されてパメラは張り切ってるけど\nやっぱり心許ないから\nわたしも一緒にこの人の面倒を見るね"
+      },
+      "MsgSerial" : 415014,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 36,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Of course, I will be probing into this and \nthat, trying to uncover information.",
+        "Jp" : "もちろん、あれやこれや、探りを入れるつもり"
+      },
+      "MsgSerial" : 415015,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 13,
+    "NpcName" : {
+      "En" : "Lise",
+      "Jp" : "リズ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16589,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 37,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Will Loeg get better?\nIs there a way to fix it?",
+        "Jp" : "ロイグは良くなるでしょうか？\n治す手立てはあるのでしょうか？"
+      },
+      "MsgSerial" : 415016,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 20,
+    "NpcName" : {
+      "En" : "Cecily",
+      "Jp" : "セシリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16590,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 38,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Loeg, huh― \nthat man isn't being hunted \nby the Black Knight, is he? \nI wonder what he truly is.",
+        "Jp" : "ロイグか――\nその男は黒騎士に狙われているわけじゃ\nないんだよね？\nいったい、何者なんだろうな"
+      },
+      "MsgSerial" : 415017,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3,
+    "NpcName" : {
+      "En" : "Klaus",
+      "Jp" : "クラウス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15353,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 39,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Well done. \nLoeg will be taking \nlodgings at Mayleaf's.",
+        "Jp" : "ごくろうだったな\nロイグはメイリーフの家に滞在してもらう"
+      },
+      "MsgSerial" : 377137,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 40,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Entrust his care to \nPamela—comparing memories \ncan wait until he \nrecovers his strength.",
+        "Jp" : "パメラに世話を任せて――記憶合わせは\n体調が戻ってからでも遅くはなかろう"
+      },
+      "MsgSerial" : 377138,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 41,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "By the way—Leo seems to be \npossessed by some strange ideas.",
+        "Jp" : "ところで――レオは何やらおかしな考えに\n取り憑かれているようだな"
+      },
+      "MsgSerial" : 377139,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 42,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I felt as though we had spent quite a \nlong time together, but it seems the \nArisen are still beyond my understanding.",
+        "Jp" : "ずいぶん長く同じ時を過ごしたつもりでいたが\n覚者はやはりわたしの理解を越えているようだ"
+      },
+      "MsgSerial" : 377140,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4,
+    "NpcName" : {
+      "En" : "Joseph",
+      "Jp" : "ジョゼフ"
+    }
+  } ],
+  "NativeMsgGroupArrayNum" : 18
+}

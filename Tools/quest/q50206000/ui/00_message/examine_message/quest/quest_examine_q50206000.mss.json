@@ -1,0 +1,133 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 294,
+  "NativeMsgDataArrayNum" : 5,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100162,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "樹内の記憶が竜力を増大させている――"
+      },
+      "MsgSerial" : 577024,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100163,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The Dragon Force is becoming more intense!",
+        "Jp" : "竜力の波動が激しさを増している――！"
+      },
+      "MsgSerial" : 577027,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100164,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "樹内の記憶の大詠唱を封じた――！"
+      },
+      "MsgSerial" : 577030,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100165,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The scattered Dragon Force in the vicinity is\nreacting.",
+        "Jp" : "辺りに飛散する竜力が反応している――"
+      },
+      "MsgSerial" : 577033,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 100166,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 4,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "最奥へと繋がる礎が解放された――"
+      },
+      "MsgSerial" : 580580,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  } ],
+  "NativeMsgGroupArrayNum" : 5
+}

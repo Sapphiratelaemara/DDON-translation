@@ -1,0 +1,2174 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 4412,
+  "NativeMsgDataArrayNum" : 86,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 18467,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "When crossing to the island, make sure\nyou are well prepared― understood?",
+        "Jp" : "島へ渡る時は、準備ぬかりなく\n――いいな？"
+      },
+      "MsgSerial" : 483104,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4,
+    "NpcName" : {
+      "En" : "Joseph",
+      "Jp" : "ジョゼフ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15508,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The strength of the Black Knight is\nimmeasurable, a truly terrifying opponent.",
+        "Jp" : "黒騎士はその力がどれほどか\n計り知れぬほど恐ろしい相手です"
+      },
+      "MsgSerial" : 377438,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "But I cannot ignore those who target me\nto attack innocent others to that aim.\nAnd even wishing to blight the land itself.",
+        "Jp" : "けれど、私を狙い、そのために人々を襲い\nあまつさえ大地を穢さんとする者を\n見過ごすわけにはいきません"
+      },
+      "MsgSerial" : 479495,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Captain--",
+        "Jp" : "隊長さん――"
+      },
+      "MsgSerial" : 479496,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 4,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Thanks to you bringing me back,\nI have been able to reclaim\nthe mission I bear.",
+        "Jp" : "あなたが蘇らせてくれたおかげで\nわたしは自らの負う使命を\n取り戻すことができました"
+      },
+      "MsgSerial" : 479497,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 5,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I no longer fear the darkness.",
+        "Jp" : "もう、闇は恐れません"
+      },
+      "MsgSerial" : 479498,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 6,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "This time we can defeat the Black Knight--\nI believe it can be done!",
+        "Jp" : "今度こそ黒騎士を倒すことができる――\nそう信じています"
+      },
+      "MsgSerial" : 479499,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 20,
+    "NpcName" : {
+      "En" : "Cecily",
+      "Jp" : "セシリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15509,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 7,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I received word from Bertrand\nat the Expedition Garrison that the door\nwithin the outpost leading to the summit\nof Bloodbane Isle has been opened.",
+        "Jp" : "調査隊駐屯地のベルトランから\n魔赤島の山頂部に通じる\n駐屯地内の扉を解放したと連絡が入った"
+      },
+      "MsgSerial" : 377439,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 8,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "To reach the shining distortion,\nthe best way is to go through there.",
+        "Jp" : "光り輝く歪みの場所へ向かうなら\nそこを通るのが一番だろう"
+      },
+      "MsgSerial" : 482335,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4,
+    "NpcName" : {
+      "En" : "Joseph",
+      "Jp" : "ジョゼフ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16696,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 9,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The Black Knight is a wielder\nof otherworldly powers unknown to us.\n――Do not take him lightly.",
+        "Jp" : "黒き騎士は異邦の力の使い手\n――あなどるなよ"
+      },
+      "MsgSerial" : 415791,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 1,
+    "NpcName" : {
+      "En" : "The White Dragon",
+      "Jp" : "白竜"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16697,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 10,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I have always been the master\nof my own life.",
+        "Jp" : "俺はずっと自分の人生の主だった"
+      },
+      "MsgSerial" : 415792,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 11,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "But you know, entrusting the troublesome\ndecisions to others isn't half bad.",
+        "Jp" : "でもよ、面倒な判断を人任せにするのも\n悪くねえな"
+      },
+      "MsgSerial" : 415793,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 12,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Now, go on.\nI'll follow you.",
+        "Jp" : "さあ、行けよ\n付いていくぜ"
+      },
+      "MsgSerial" : 415794,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 501,
+    "NpcName" : {
+      "En" : "Gurdolin",
+      "Jp" : "ガルドリン"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16698,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 13,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Once the problems are dealt with,\nperhaps we'll take a trip to Phindym?\nI can't wait～!",
+        "Jp" : "問題を片づけたらフィンダム旅行かな？\n楽しみ～！"
+      },
+      "MsgSerial" : 415795,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 13,
+    "NpcName" : {
+      "En" : "Lise",
+      "Jp" : "リズ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16699,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 14,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I'll take care of Cecily, so please\nassess the local situation, Captain!",
+        "Jp" : "セシリーの面倒は俺が見ますから\n隊長は現地状況の見極め、よろしくです！"
+      },
+      "MsgSerial" : 415796,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 21,
+    "NpcName" : {
+      "En" : "Elliot",
+      "Jp" : "エリオット"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16700,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 15,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I'll wait here for your return.",
+        "Jp" : "わたしはここで君たちの帰りを待つよ"
+      },
+      "MsgSerial" : 415797,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 16,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I understand that if I go with you,\nI will only hold you back.",
+        "Jp" : "一緒に行ったところで、足手まといになるのは\nわかっているからね"
+      },
+      "MsgSerial" : 415798,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 22,
+    "NpcName" : {
+      "En" : "Loeg",
+      "Jp" : "ロイグ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16701,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 17,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "At times like this, staying behind\nreally leaves me with a sense of frustration.\nUnfortunately, 'tis the fate of an academic.",
+        "Jp" : "こういう時の留守番は本当に忸怩たる思いだよ\nでも、学究肌の宿命だね"
+      },
+      "MsgSerial" : 415799,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3,
+    "NpcName" : {
+      "En" : "Klaus",
+      "Jp" : "クラウス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15510,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 18,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The decisive battle with the\nBlack Knight is finally here, isn't it?",
+        "Jp" : "いよいよ黒騎士との決戦だな？"
+      },
+      "MsgSerial" : 377440,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 19,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Alright, get some proper rest on the ship.\nThat said, it won't be long before\nwe reach our destination.",
+        "Jp" : "さあ、船ン中で、きっちり休んでくれ\nもっとも、すぐに到着させちまうけどよ"
+      },
+      "MsgSerial" : 377442,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 1035,
+    "NpcName" : {
+      "En" : "Zerkin",
+      "Jp" : "ゼルキン"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 18468,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 20,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The back door ahead has been unlocked――",
+        "Jp" : "この先の、奥の扉を解放してある――"
+      },
+      "MsgSerial" : 483105,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 21,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The other side of the door leads\nto the mountain peak of Bloodbane Isle,\nthe source of that abominable red light.\nStay vigilant at all times.",
+        "Jp" : "扉の先は魔赤島の山頂部\nあの忌まわしい赤い光のお膝元だ\n決して気を抜くなよ"
+      },
+      "MsgSerial" : 483106,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 549,
+    "NpcName" : {
+      "En" : "Bertrand",
+      "Jp" : "ベルトラン"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15519,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 22,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Gah-rurururu!",
+        "Jp" : "ガリュリュリュ！"
+      },
+      "MsgSerial" : 377451,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 25,
+    "NpcName" : {
+      "En" : "Altered Zuhl",
+      "Jp" : "アルタード・ズール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15520,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 23,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ghi-hehehehe――",
+        "Jp" : "キキキキキ――"
+      },
+      "MsgSerial" : 377452,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 2
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 25,
+    "NpcName" : {
+      "En" : "Altered Zuhl",
+      "Jp" : "アルタード・ズール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15521,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 24,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Gugigigigi――",
+        "Jp" : "グギギギギ――"
+      },
+      "MsgSerial" : 377453,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 3
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 25,
+    "NpcName" : {
+      "En" : "Altered Zuhl",
+      "Jp" : "アルタード・ズール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15522,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 25,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Da―rk――ki――kikikiki――",
+        "Jp" : "く――ろ――き――キキキキ――"
+      },
+      "MsgSerial" : 377454,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 4
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 25,
+    "NpcName" : {
+      "En" : "Altered Zuhl",
+      "Jp" : "アルタード・ズール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15523,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 26,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "St――strongk――Gu-heh",
+        "Jp" : "ぢから――ぢからを――ぐで――"
+      },
+      "MsgSerial" : 377455,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 5
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 25,
+    "NpcName" : {
+      "En" : "Altered Zuhl",
+      "Jp" : "アルタード・ズール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15524,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 27,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "You――bazーtardsーーー!",
+        "Jp" : "お――まーいーらーーー！"
+      },
+      "MsgSerial" : 377456,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 6
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 25,
+    "NpcName" : {
+      "En" : "Altered Zuhl",
+      "Jp" : "アルタード・ズール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15525,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 28,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ghi-nyuu――",
+        "Jp" : "ギニュー――"
+      },
+      "MsgSerial" : 377457,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 7
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 25,
+    "NpcName" : {
+      "En" : "Altered Zuhl",
+      "Jp" : "アルタード・ズール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15526,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 29,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Destroy-oy-oy-oy――",
+        "Jp" : "ぶっころリュリュリュ――"
+      },
+      "MsgSerial" : 377458,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 8
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 25,
+    "NpcName" : {
+      "En" : "Altered Zuhl",
+      "Jp" : "アルタード・ズール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15527,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 30,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "You-Aaaah――",
+        "Jp" : "オマイロアァァァ――"
+      },
+      "MsgSerial" : 377459,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 9
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 25,
+    "NpcName" : {
+      "En" : "Altered Zuhl",
+      "Jp" : "アルタード・ズール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15528,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 31,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Zuhl――the target is Cecily.",
+        "Jp" : "ズール――狙いはセシリーひとり"
+      },
+      "MsgSerial" : 377460,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 24,
+    "NpcName" : {
+      "En" : "Black Knight",
+      "Jp" : "黒騎士"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15529,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 32,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Zuhl! Understand this――",
+        "Jp" : "ズールよ！　もう、届かぬか――"
+      },
+      "MsgSerial" : 377461,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 2
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 24,
+    "NpcName" : {
+      "En" : "Black Knight",
+      "Jp" : "黒騎士"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15530,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 33,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Know that victory... is nothing but a dream...",
+        "Jp" : "勝利など――夢と知るがいい――"
+      },
+      "MsgSerial" : 377462,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 3
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 24,
+    "NpcName" : {
+      "En" : "Black Knight",
+      "Jp" : "黒騎士"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15531,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 34,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Oh, you Arisen――how tiresome you are――",
+        "Jp" : "覚者どもめ――こしゃくな"
+      },
+      "MsgSerial" : 377463,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 4
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 24,
+    "NpcName" : {
+      "En" : "Black Knight",
+      "Jp" : "黒騎士"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15532,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 35,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Do not let these weak Arisen trouble you!",
+        "Jp" : "半端覚者に手こずるな！"
+      },
+      "MsgSerial" : 377464,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 5
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 24,
+    "NpcName" : {
+      "En" : "Black Knight",
+      "Jp" : "黒騎士"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15533,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 36,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Zuhl! Listen to me, Zuhl!",
+        "Jp" : "ズール！　聞こえぬか、ズール！"
+      },
+      "MsgSerial" : 377465,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 6
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 24,
+    "NpcName" : {
+      "En" : "Black Knight",
+      "Jp" : "黒騎士"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15534,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 37,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Everyone, I appreciate your support.",
+        "Jp" : "みなさん、よろしくお願いします"
+      },
+      "MsgSerial" : 377466,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 20,
+    "NpcName" : {
+      "En" : "Cecily",
+      "Jp" : "セシリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15535,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 38,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It's tough, but we can win!",
+        "Jp" : "手強いけど、勝てます！"
+      },
+      "MsgSerial" : 377467,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 2
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 20,
+    "NpcName" : {
+      "En" : "Cecily",
+      "Jp" : "セシリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15536,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 39,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "As expected, Captain!",
+        "Jp" : "隊長、さすがです！"
+      },
+      "MsgSerial" : 377468,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 3
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 20,
+    "NpcName" : {
+      "En" : "Cecily",
+      "Jp" : "セシリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15537,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 40,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Call out to each other!",
+        "Jp" : "声をかけあって！"
+      },
+      "MsgSerial" : 377469,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 4
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 20,
+    "NpcName" : {
+      "En" : "Cecily",
+      "Jp" : "セシリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15538,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 41,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It can still be done!",
+        "Jp" : "まだいけます！"
+      },
+      "MsgSerial" : 377470,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 5
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 20,
+    "NpcName" : {
+      "En" : "Cecily",
+      "Jp" : "セシリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15539,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 42,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I'll do it!",
+        "Jp" : "わたしが！"
+      },
+      "MsgSerial" : 377471,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 6
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 20,
+    "NpcName" : {
+      "En" : "Cecily",
+      "Jp" : "セシリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15540,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 43,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Damn―― is everyone okay!?",
+        "Jp" : "くっ――みなさん、大丈夫ですか！？"
+      },
+      "MsgSerial" : 377472,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 7
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 20,
+    "NpcName" : {
+      "En" : "Cecily",
+      "Jp" : "セシリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15541,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 44,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "We can't afford to fall here!",
+        "Jp" : "ここで倒れるわけにはいかない！"
+      },
+      "MsgSerial" : 377473,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 8
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 20,
+    "NpcName" : {
+      "En" : "Cecily",
+      "Jp" : "セシリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15542,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 45,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Willmia's―― power――!",
+        "Jp" : "ウィルミア――力を――！"
+      },
+      "MsgSerial" : 377474,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 9
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 20,
+    "NpcName" : {
+      "En" : "Cecily",
+      "Jp" : "セシリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15543,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 46,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Hmph, the unfortunate Zuhl.",
+        "Jp" : "ふん、哀れなズールめ"
+      },
+      "MsgSerial" : 377475,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 501,
+    "NpcName" : {
+      "En" : "Gurdolin",
+      "Jp" : "ガルドリン"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15544,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 47,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I'll put him to sleep.",
+        "Jp" : "オレが眠らせてやる"
+      },
+      "MsgSerial" : 377476,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 2
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 501,
+    "NpcName" : {
+      "En" : "Gurdolin",
+      "Jp" : "ガルドリン"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15545,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 48,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Hey! Get out of here!",
+        "Jp" : "おら！　どっか行け！"
+      },
+      "MsgSerial" : 377477,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 3
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 501,
+    "NpcName" : {
+      "En" : "Gurdolin",
+      "Jp" : "ガルドリン"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15546,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 49,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Zuhl, wake up!",
+        "Jp" : "ズール、目を覚ませ！"
+      },
+      "MsgSerial" : 377478,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 4
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 501,
+    "NpcName" : {
+      "En" : "Gurdolin",
+      "Jp" : "ガルドリン"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15547,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 50,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Captain, are you alive?!",
+        "Jp" : "隊長、生きてっか！？"
+      },
+      "MsgSerial" : 377479,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 5
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 501,
+    "NpcName" : {
+      "En" : "Gurdolin",
+      "Jp" : "ガルドリン"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15548,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 51,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I'll bet on my win!",
+        "Jp" : "俺は俺の勝利に賭けるぜ！"
+      },
+      "MsgSerial" : 377480,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 6
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 501,
+    "NpcName" : {
+      "En" : "Gurdolin",
+      "Jp" : "ガルドリン"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15549,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 52,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Oh, this feeling—it's same as Corruption Demons.",
+        "Jp" : "ああこの感じ――侵食魔と同じ"
+      },
+      "MsgSerial" : 377481,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 13,
+    "NpcName" : {
+      "En" : "Lise",
+      "Jp" : "リズ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15550,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 53,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I miss the old Zuhl.",
+        "Jp" : "前のズールが懐かしいよ"
+      },
+      "MsgSerial" : 377482,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 2
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 13,
+    "NpcName" : {
+      "En" : "Lise",
+      "Jp" : "リズ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15551,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 54,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Hey, be quiet!",
+        "Jp" : "オマイ、おとなしくしな！"
+      },
+      "MsgSerial" : 377483,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 3
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 13,
+    "NpcName" : {
+      "En" : "Lise",
+      "Jp" : "リズ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15552,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 55,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Black Knight, come out!",
+        "Jp" : "黒騎士、出てこい！"
+      },
+      "MsgSerial" : 377484,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 4
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 13,
+    "NpcName" : {
+      "En" : "Lise",
+      "Jp" : "リズ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15553,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 56,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ugh—surprisingly strong!",
+        "Jp" : "くう――意外と強い！"
+      },
+      "MsgSerial" : 377485,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 5
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 13,
+    "NpcName" : {
+      "En" : "Lise",
+      "Jp" : "リズ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15554,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 57,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I hate you, hate you, hate you!",
+        "Jp" : "嫌い、嫌い、嫌い！"
+      },
+      "MsgSerial" : 377486,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 6
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 13,
+    "NpcName" : {
+      "En" : "Lise",
+      "Jp" : "リズ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15555,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 58,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Let's get this over with!",
+        "Jp" : "さっさと終わらせましょう！"
+      },
+      "MsgSerial" : 377487,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 21,
+    "NpcName" : {
+      "En" : "Elliot",
+      "Jp" : "エリオット"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15556,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 59,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Don't let your guard down!",
+        "Jp" : "油断しちゃダメですよ！"
+      },
+      "MsgSerial" : 377488,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 2
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 21,
+    "NpcName" : {
+      "En" : "Elliot",
+      "Jp" : "エリオット"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15557,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 60,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Don't expend all your energy!",
+        "Jp" : "余力残してください！"
+      },
+      "MsgSerial" : 377489,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 3
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 21,
+    "NpcName" : {
+      "En" : "Elliot",
+      "Jp" : "エリオット"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15558,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 61,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Let's take a closer look!",
+        "Jp" : "よく見て行きましょう！"
+      },
+      "MsgSerial" : 377490,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 4
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 21,
+    "NpcName" : {
+      "En" : "Elliot",
+      "Jp" : "エリオット"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15559,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 62,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I'm doing it too!",
+        "Jp" : "俺だってやってます！"
+      },
+      "MsgSerial" : 377491,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 5
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 21,
+    "NpcName" : {
+      "En" : "Elliot",
+      "Jp" : "エリオット"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 15560,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 63,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It's over!",
+        "Jp" : "とどめだ！"
+      },
+      "MsgSerial" : 377492,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : 6
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 21,
+    "NpcName" : {
+      "En" : "Elliot",
+      "Jp" : "エリオット"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16702,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 64,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "If the Black Knight disappears,\neverything will get better――\nAll I can do now is pray.",
+        "Jp" : "黒騎士が消えればすべてが好転する――\n今はただ、そう祈るほかありません"
+      },
+      "MsgSerial" : 415827,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 20,
+    "NpcName" : {
+      "En" : "Cecily",
+      "Jp" : "セシリー"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16703,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 65,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Tch――That Leo is being so flashy.\nIt seems I've ended up with a huge debt.\nLet's get it over with and repay it.",
+        "Jp" : "チッ――レオの奴、恰好つけやがって\nバカでかい借りができちまったようだな\nさっさと返してやろうぜ"
+      },
+      "MsgSerial" : 415828,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 501,
+    "NpcName" : {
+      "En" : "Gurdolin",
+      "Jp" : "ガルドリン"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16704,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 66,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "This island, \nwhich connects Lestania and Phindym, \nis also a den of Corrupted Demons.",
+        "Jp" : "レスタニアとフィンダムを繋ぐこの島は\n侵食魔の巣窟でもあります"
+      },
+      "MsgSerial" : 415829,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 67,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ultimately――\nif we don't stop the Corruption Demons\nfrom Phindym, the problem won't be solved.",
+        "Jp" : "最終的には――\nフィンダムから来る侵食魔を止めないと\n問題は解決しませんよね"
+      },
+      "MsgSerial" : 415830,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 21,
+    "NpcName" : {
+      "En" : "Elliot",
+      "Jp" : "エリオット"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16705,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 68,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Captain, let's go back to the Temple.",
+        "Jp" : "隊長、一度神殿に戻ろうよ"
+      },
+      "MsgSerial" : 415831,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 69,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "What I have seen with my own eyes,\nwhat I have heard with my own ears――\nLeo's final outcry―― I must convey it all.",
+        "Jp" : "この目で見たこと、この耳で聞いたこと――\nレオの最期の叫び――全部伝えないと"
+      },
+      "MsgSerial" : 415832,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 13,
+    "NpcName" : {
+      "En" : "Lise",
+      "Jp" : "リズ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16707,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 70,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Leo――",
+        "Jp" : "レオは――"
+      },
+      "MsgSerial" : 416101,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 71,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Hmph, he was a strange one.\nI doubt I will ever forget him.",
+        "Jp" : "ふん、変わった奴だった\n生涯、忘れることはないだろう"
+      },
+      "MsgSerial" : 416102,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 11,
+    "NpcName" : {
+      "En" : "Vanessa",
+      "Jp" : "ヴァネッサ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16708,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 72,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Leo――",
+        "Jp" : "レオ――"
+      },
+      "MsgSerial" : 416103,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 73,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I wish I could get drunk right now,\nbut I shouldn't at a time like this.",
+        "Jp" : "さっさと酔ってしまいたいが\nこんな時に限ってまったく酔えないんだ"
+      },
+      "MsgSerial" : 416104,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 12,
+    "NpcName" : {
+      "En" : "Fabio",
+      "Jp" : "ファビオ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16709,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 74,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It's unfortunate about Leo.\nDon't let it get you down.",
+        "Jp" : "レオのことは残念だったな\n気を落とすなよ"
+      },
+      "MsgSerial" : 416105,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 8,
+    "NpcName" : {
+      "En" : "Heinz",
+      "Jp" : "ハインツ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16710,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 75,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I was told that Leo is no longer with us.\nLooking at you—ah, it really is true.",
+        "Jp" : "レオが亡くなったと聞きました\nその顔を見ると――ああ、本当なんですね"
+      },
+      "MsgSerial" : 416106,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 1003,
+    "NpcName" : {
+      "En" : "Pamela",
+      "Jp" : "パメラ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16711,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 76,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I thought I'd meet Leo again someday――",
+        "Jp" : "レオとは、いつかまた会えるって思っていたのに――"
+      },
+      "MsgSerial" : 416107,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 14,
+    "NpcName" : {
+      "En" : "Mayleaf",
+      "Jp" : "メイリーフ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16712,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 77,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Leo spoke without a hint of sorrow—\nHis clear eyes gazing far away like that—",
+        "Jp" : "レオの、言葉に憂いがなく――\n澄んだ目で遠くを見ていたあの姿――"
+      },
+      "MsgSerial" : 416108,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 78,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It may have been his gift of noble resolve,\nto act as an Arisen until his final moments—",
+        "Jp" : "最期の瞬間まで覚者らしくあろうという\n覚悟の賜物だったのかもしれないね"
+      },
+      "MsgSerial" : 416109,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 22,
+    "NpcName" : {
+      "En" : "Loeg",
+      "Jp" : "ロイグ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16713,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 79,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Everyone is talking about Leo,\nbut no one wants to talk to me.\nWell, I can guess why.",
+        "Jp" : "皆、レオのことを話しているが\n誰もわたしに話そうとしない\nまあ、察しは付くよ"
+      },
+      "MsgSerial" : 416110,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4,
+    "NpcName" : {
+      "En" : "Joseph",
+      "Jp" : "ジョゼフ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16714,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 80,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "――Welcome back.\nI've heard about Leo――",
+        "Jp" : "――おかえり\nレオのこと、聞いてるよ――"
+      },
+      "MsgSerial" : 416111,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 81,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It's truly so like Leo, I mean, ahaha――\nYeah―― it must have been tough.",
+        "Jp" : "本当に、レオらしいっていうか、あはは――\nうん――大変だったね"
+      },
+      "MsgSerial" : 479494,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3,
+    "NpcName" : {
+      "En" : "Klaus",
+      "Jp" : "クラウス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16715,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 82,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I have heard,\nthe Black Knight is no more.",
+        "Jp" : "聞いたぞ\n黒騎士はもういない"
+      },
+      "MsgSerial" : 416112,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 83,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Instead of mourning the cost we bore,\nlet us celebrate in our victory\nof the eradication of our strongest adversary.",
+        "Jp" : "払った代償を嘆くより、強敵がいなくなったこと――\nまず、その喜びを分かち合おうではないか"
+      },
+      "MsgSerial" : 416113,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 7,
+    "NpcName" : {
+      "En" : "Gerd",
+      "Jp" : "ゲルト"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16716,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 84,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Even with the Black Knight defeated,\na malice towards Lestania yet lingers\nin the air, like a foul effluvium.",
+        "Jp" : "黒騎士が消えてもなお\nレスタニアへの悪意は腐臭のごとく漂っている"
+      },
+      "MsgSerial" : 416114,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 85,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "O Arisen―― \nThe wellspring of malice continues to exist\noutside the bounds of Lestania. \nDetermine its true identity.",
+        "Jp" : "覚者よ――\n悪意の原泉はレスタニアの外にある\nその正体、しかと見極めよ"
+      },
+      "MsgSerial" : 416115,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 1,
+    "NpcName" : {
+      "En" : "The White Dragon",
+      "Jp" : "白竜"
+    }
+  } ],
+  "NativeMsgGroupArrayNum" : 67
+}

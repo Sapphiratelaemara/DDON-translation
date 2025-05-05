@@ -1,0 +1,288 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 600,
+  "NativeMsgDataArrayNum" : 14,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 26683,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ah, it's the captain! \nAre you perhaps here \nto unwind in your room?",
+        "Jp" : "あ、隊長じゃないか\nもしかして、自分の部屋に\nくつろぎに来たのかな？"
+      },
+      "MsgSerial" : 660460,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Yes, yes— \nbefore you jump into the \nsoft \"bed\", I need some help.",
+        "Jp" : "そうそう――\nフカフカの\"わら\"に飛び込む前に\nちょっと手伝って欲しいことがあるんだ"
+      },
+      "MsgSerial" : 660461,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I'm in the midst of researching \n\"something.\" I'd appreciate \nthe captain's assistance!",
+        "Jp" : "\"あること\"を研究中でね\n隊長にも協力してもらえると助かるよ！"
+      },
+      "MsgSerial" : 711297,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 582,
+    "NpcName" : {
+      "En" : "Sonel",
+      "Jp" : "ソネル"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 26684,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "That's my captain!\nWell, I'd like to get started right away.",
+        "Jp" : "さすがは隊長だ！\nではさっそく始めたいんだけど"
+      },
+      "MsgSerial" : 660462,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 4,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I'm busy with some preparations, \nso please head to <SPOT 1093> \nfirst. I'll be on my way soon!",
+        "Jp" : "ちょっと準備もあるから\n先に<SPOT 1093>へ向かってくれないかな \nボクもすぐに出発するよ！"
+      },
+      "MsgSerial" : 711298,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 582,
+    "NpcName" : {
+      "En" : "Sonel",
+      "Jp" : "ソネル"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 26685,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 5,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Captain! This way, this way! \nI apologize for bringing you \nall the way out to such a place!",
+        "Jp" : "隊長！　こっちこっち！\nわざわざこんな所まですまないね！"
+      },
+      "MsgSerial" : 660463,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 6,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "To tell the truth, I'm working \non \"a specific plan\"—and I \nam researching things that \ncould be helpful for it.",
+        "Jp" : "実は、\"ある計画\"を考えてて――\nそれに使えそうなものを\n研究してるんだけどさ"
+      },
+      "MsgSerial" : 660464,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 7,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "As I was conducting several experiments, \nI found myself running out of what I \nhad available at hand.",
+        "Jp" : "いろいろと実験してるうちに\n手元にあるのがなくなってしまってね"
+      },
+      "MsgSerial" : 711299,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 8,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I want you to help me look for it too, \nCaptain. If this experiment works, the \nplan can get back on track.",
+        "Jp" : "隊長にも、探すのを手伝って欲しいんだ\nこの実験が成功すれば\n計画も軌道に乗せられる"
+      },
+      "MsgSerial" : 711300,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 9,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Well then, I'm counting on you!",
+        "Jp" : "それじゃあ、よろしく頼んだよ！"
+      },
+      "MsgSerial" : 711301,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 582,
+    "NpcName" : {
+      "En" : "Sonel",
+      "Jp" : "ソネル"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 26686,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 10,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Hmm, I feel it's still not quite enough— \nI'm sorry, but I'd be grateful if you \ncould help by searching a bit more.",
+        "Jp" : "う～ん、まだちょっと足りないかな―ー\nすまないけど、もう少し探してきて\nもらえると助かるよ"
+      },
+      "MsgSerial" : 660465,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 582,
+    "NpcName" : {
+      "En" : "Sonel",
+      "Jp" : "ソネル"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 26687,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 11,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Good, with this much, \nit looks like we should be fine!",
+        "Jp" : "よしよし、これだけあれば\nなんとかなりそうだ！"
+      },
+      "MsgSerial" : 660466,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 12,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Let's return to camp right away \nand continue the experiment!",
+        "Jp" : "さっそくキャンプに戻って\n実験再開だ！"
+      },
+      "MsgSerial" : 660467,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 13,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Thank you, Captain! \nDon't hesitate to get \ncozy in your room!",
+        "Jp" : "ありがとう隊長！\n遠慮なく、\"自分の部屋\"で\nモフモフしてくれたまえ！"
+      },
+      "MsgSerial" : 711303,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 582,
+    "NpcName" : {
+      "En" : "Sonel",
+      "Jp" : "ソネル"
+    }
+  } ],
+  "NativeMsgGroupArrayNum" : 5
+}

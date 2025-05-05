@@ -1,0 +1,133 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 294,
+  "NativeMsgDataArrayNum" : 5,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 481,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "A path that was closed is now open.",
+        "Jp" : "閉ざされていた道が開けた"
+      },
+      "MsgSerial" : 404605,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 482,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "《輸送番》の気配がする― 護衛隊を討伐して誘い出せ"
+      },
+      "MsgSerial" : 404608,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 483,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "《輸送番》が出現！討伐でアイテムドロップ"
+      },
+      "MsgSerial" : 404611,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 527,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "シークレットボーナス！　残り時間《3分》追加！"
+      },
+      "MsgSerial" : 420435,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 528,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 4,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "目標達成！　アイテムを回収しよう"
+      },
+      "MsgSerial" : 420438,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 1,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 0
+  } ],
+  "NativeMsgGroupArrayNum" : 5
+}

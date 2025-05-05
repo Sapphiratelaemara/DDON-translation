@@ -1,0 +1,1036 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 2176,
+  "NativeMsgDataArrayNum" : 50,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28776,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Arisen, you've come just in time--\nI have an urgent favor to ask.",
+        "Jp" : "覚者、ちょうどいいところに来てくれた――\n緊急の頼みがある"
+      },
+      "MsgSerial" : 738347,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It just occurred a little while ago. \nIt seems they targeted this place while \nI was away, and a burglar broke in―― \n<NPC 691> reportedly saw it happen.",
+        "Jp" : "ついさっきのことだ\n俺が留守にしていた時を狙ったのか\nこの屋敷に空き巣が入ったようだ――\n<NPC 691>が目撃したらしい"
+      },
+      "MsgSerial" : 762532,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "He mentioned that there are likely several culprits. \nIf they only took the marquis' treasure, \nit wouldn't be as bad, but if they \nexpose evidence of <NPC 681>'s wrongdoings, \nthere will be severe consequences.",
+        "Jp" : "奴が言うには、犯人は複数犯らしい\n侯爵家の宝なんてものならまだしも、万が一\n<NPC 681>の罪の痕跡を持ち出されたら\nとんでもないことになる"
+      },
+      "MsgSerial" : 762533,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "They should not be too far away yet. \nI beg you, assist me in capturing the \ncriminals!",
+        "Jp" : "まだ遠くへは逃げていないはずだ\n頼む、犯人捕獲に協力してくれ！"
+      },
+      "MsgSerial" : 762534,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 680,
+    "NpcName" : {
+      "En" : "Mephis",
+      "Jp" : "メフィス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28777,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 4,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Breaking into <STG 474> means \neither a foolish, ignorant thief or \nan organized crime group acting with \nsome ulterior motive.",
+        "Jp" : "この<STG 474>に盗みに入るとは\n世間知らずの間抜けな泥棒か\n何らかの意図を持って犯行に及んだ組織犯か――"
+      },
+      "MsgSerial" : 762540,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 5,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Regardless, we must pursue them to \nget started. Are you all set?",
+        "Jp" : "とにかく、追わないことには始まらない\n用意は良いか？"
+      },
+      "MsgSerial" : 738348,
+      "MsgType" : 1,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 6,
+      "JumpGroupSerial" : 28785,
+      "Message" : {
+        "En" : "Yes",
+        "Jp" : "はい"
+      },
+      "MsgSerial" : 738349,
+      "MsgType" : 2,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 7,
+      "JumpGroupSerial" : 28786,
+      "Message" : {
+        "En" : "No",
+        "Jp" : "いいえ"
+      },
+      "MsgSerial" : 738350,
+      "MsgType" : 2,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 680,
+    "NpcName" : {
+      "En" : "Mephis",
+      "Jp" : "メフィス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28778,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 8,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The thieves likely haven't \nescaped too far. Let's \nquickly begin the search!",
+        "Jp" : "泥棒どもはまだ\nそう遠くには逃げていないはずだ\n急いで捜索しよう"
+      },
+      "MsgSerial" : 738353,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 9,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "<NPC 691> mentioned that the \nintruders were in their \nundergarments. So, they \nmight be in armor to hide \ntheir identities now.",
+        "Jp" : "<NPC 691>が言うには\n忍び込んだ奴らは、鎧下姿だったらしい\nつまり――今は\n鎧を着込んで変装している可能性がある"
+      },
+      "MsgSerial" : 762581,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 10,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The soldier acting suspiciously\nis likely the one responsible. \nApprehend them all before they can get away―― \nI trust you to handle it.",
+        "Jp" : "挙動不審な怪しい兵士が、おそらく犯人だ\n逃げられる前に、全員捕まえてくれ――\n頼んだぞ"
+      },
+      "MsgSerial" : 762582,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 680,
+    "NpcName" : {
+      "En" : "Mephis",
+      "Jp" : "メフィス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28779,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 11,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I never thought I'd still \nremember the Military Police days. \nSo, it was their crime after all.",
+        "Jp" : "まさか、憲兵隊時代を忘れられない\n憲兵どもの犯行だったとはな――"
+      },
+      "MsgSerial" : 738354,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 12,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Most likely, they aimed to \ndestroy the evidence of <NPC 681> \nand rise to power again.",
+        "Jp" : "大方、<NPC 681>の証拠を隠滅して\nもう一度返り咲かせるつもりだったのだろう"
+      },
+      "MsgSerial" : 762591,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 13,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It's impossible that <NPC 681> \nis unaware of that action. \nReally—what a sly and crafty man he is! \nTo maneuver people from inside a \nprison is quite the feat.",
+        "Jp" : "その行動を<NPC 681>が知らない訳あるまい\n全く――なんと抜け目のない狡猾な男なんだ！\n牢の中から人を動かすとは――"
+      },
+      "MsgSerial" : 762592,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 14,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Still, this time—thanks to you, \nwe were able to avert it. \nYour assistance is much appreciated.",
+        "Jp" : "だが今回は――お前のおかげで阻止できたな\n協力、感謝するぜ"
+      },
+      "MsgSerial" : 762593,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 680,
+    "NpcName" : {
+      "En" : "Mephis",
+      "Jp" : "メフィス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28780,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 15,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Damn, it seems we were too late—",
+        "Jp" : "クソ、間に合わなかったか――"
+      },
+      "MsgSerial" : 738355,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 680,
+    "NpcName" : {
+      "En" : "Mephis",
+      "Jp" : "メフィス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28781,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 16,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "How is the investigation progressing?",
+        "Jp" : "捜査は順調か？"
+      },
+      "MsgSerial" : 738356,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 680,
+    "NpcName" : {
+      "En" : "Mephis",
+      "Jp" : "メフィス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28782,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 17,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "We arrived in time—much appreciated, cuz.",
+        "Jp" : "間に合ったな――助かったぜ、相棒"
+      },
+      "MsgSerial" : 738357,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 680,
+    "NpcName" : {
+      "En" : "Mephis",
+      "Jp" : "メフィス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28783,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 18,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Shit, we don't have much time --",
+        "Jp" : "まずい、もうあまり時間が無いぞ――"
+      },
+      "MsgSerial" : 738358,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 680,
+    "NpcName" : {
+      "En" : "Mephis",
+      "Jp" : "メフィス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28784,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 19,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It's no use-- it's probably too late.",
+        "Jp" : "もうダメだ――手遅れだろう"
+      },
+      "MsgSerial" : 738359,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 680,
+    "NpcName" : {
+      "En" : "Mephis",
+      "Jp" : "メフィス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28785,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 20,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Okay,\nI'll meet you at <STG 461>then.",
+        "Jp" : "よし\nそれじゃあ、<STG 461>で落ち合おう"
+      },
+      "MsgSerial" : 738351,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 680,
+    "NpcName" : {
+      "En" : "Mephis",
+      "Jp" : "メフィス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28786,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 21,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Well--\ngive me a shout when you're ready\nWe don't have much time.",
+        "Jp" : "そうか――\n準備ができたら、声をかけてくれ\nあまり時間は無いぞ"
+      },
+      "MsgSerial" : 738352,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 680,
+    "NpcName" : {
+      "En" : "Mephis",
+      "Jp" : "メフィス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28787,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 22,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The thieves must not be far away. \nWe should quickly start the search.",
+        "Jp" : "泥棒どもはまだそう遠くへ行っていないはずだ\n急いで捜索しよう"
+      },
+      "MsgSerial" : 738360,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 23,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "<NPC 691> mentions that the intruders \nwere wearing under armor. This means— \nthey could be disguised in full armor.",
+        "Jp" : "<NPC 691>が言うには\n忍び込んだ奴らは、鎧下を着ていたらしい\nつまり――\n鎧を着込んで変装している可能性がある"
+      },
+      "MsgSerial" : 762579,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 24,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The soldier acting suspiciously\nis likely the one responsible. \nApprehend them all before they can get away―― \nI trust you to handle it.",
+        "Jp" : "挙動不審な怪しい兵士が、おそらく犯人だ\n逃げられる前に、全員捕まえてくれ――\n頼んだぞ"
+      },
+      "MsgSerial" : 762580,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 680,
+    "NpcName" : {
+      "En" : "Mephis",
+      "Jp" : "メフィス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28788,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 25,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The thieves shouldn't be too far away.\nLet's go investigate <STG 461>.",
+        "Jp" : "泥棒はまだ、そう遠くは行っていないはずだ\n<STG 461>を捜査しに行こう"
+      },
+      "MsgSerial" : 738361,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 680,
+    "NpcName" : {
+      "En" : "Mephis",
+      "Jp" : "メフィス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28789,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 26,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "――――",
+        "Jp" : "――――"
+      },
+      "MsgSerial" : 738362,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 27,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "――――\n――",
+        "Jp" : "――――\n――"
+      },
+      "MsgSerial" : 762594,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 28,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "What is it--?",
+        "Jp" : "な、なんでしょうか――？"
+      },
+      "MsgSerial" : 762595,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 29,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "――――",
+        "Jp" : "――――"
+      },
+      "MsgSerial" : 762596,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 30,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Eek! I'm sorry, please spare me!",
+        "Jp" : "ひぃぃぃぃっ！！\nすみません、勘弁してください！"
+      },
+      "MsgSerial" : 762597,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 31,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I was forced to do it by my senior! \nJust spare my life, please!",
+        "Jp" : "先輩に脅されてやったんですぅぅ！\n命だけは、勘弁して――"
+      },
+      "MsgSerial" : 762598,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 690,
+    "NpcName" : {
+      "En" : "Military Police",
+      "Jp" : "憲兵"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28790,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 32,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Eek! I'm sorry, please spare me!",
+        "Jp" : "ひぃぃぃぃっ！！\nすみません、勘弁してください！"
+      },
+      "MsgSerial" : 738363,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 33,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I was forced to do it by my senior! \nJust spare my life, please!",
+        "Jp" : "先輩に脅されてやったんですぅぅ！\n命だけは、勘弁して――"
+      },
+      "MsgSerial" : 762599,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 690,
+    "NpcName" : {
+      "En" : "Military Police",
+      "Jp" : "憲兵"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28791,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 34,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "<STG 474>?\n――Ah, yes, I saw them.\nThey ran off in that direction.",
+        "Jp" : "<STG 474>？\n――あぁ、見た見た\nあっちに逃げて行ったよ"
+      },
+      "MsgSerial" : 738364,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 35,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "――――",
+        "Jp" : "――――"
+      },
+      "MsgSerial" : 762600,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 36,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "――――\n――",
+        "Jp" : "――――\n――"
+      },
+      "MsgSerial" : 762601,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 37,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ugh, damn it! \nThat's why I said we should \ndisguise ourselves as thieves!",
+        "Jp" : "あー、くそ！\nだから俺は盗賊の変装して\n侵入しようって言ったんだ！"
+      },
+      "MsgSerial" : 762602,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 38,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Of all things— \nto get caught by an Arisen!",
+        "Jp" : "よりにもよって――覚者に見つかるなんてよぉ！"
+      },
+      "MsgSerial" : 762603,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 688,
+    "NpcName" : {
+      "En" : "Military Police",
+      "Jp" : "憲兵"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28792,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 39,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Damn, that's why I suggested \ndisguising as a thief to \ninfiltrate! Of all things— \nto be found by an Arisen!",
+        "Jp" : "くそ、だから俺は盗賊の変装して\n侵入しようって言ったんだ！\nよりにもよって――覚者に見つかるなんてよぉ！"
+      },
+      "MsgSerial" : 738365,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 684,
+    "NpcName" : {
+      "En" : "Megado Guard",
+      "Jp" : "メガド護衛兵"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28793,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 40,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "――――",
+        "Jp" : "――――"
+      },
+      "MsgSerial" : 738366,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 41,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "—Uh...",
+        "Jp" : "――――\n――あの"
+      },
+      "MsgSerial" : 762605,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 42,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "――――",
+        "Jp" : "――――"
+      },
+      "MsgSerial" : 762606,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 43,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "—How did you know I was the thief? \nArisen—you are as remarkable as they say!",
+        "Jp" : "――――なぜ俺が\n盗みに入った犯人だと分かった？\n覚者――やはり只者ではなかったか"
+      },
+      "MsgSerial" : 762607,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 689,
+    "NpcName" : {
+      "En" : "Military Police",
+      "Jp" : "憲兵"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28794,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 44,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "――――",
+        "Jp" : "――――"
+      },
+      "MsgSerial" : 738367,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 45,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "—How did you know I was the thief? \nArisen—you are as remarkable as they say!",
+        "Jp" : "――――なぜ俺が\n盗みに入った犯人だと分かった？\n覚者――やはり只者ではなかったか"
+      },
+      "MsgSerial" : 762608,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 689,
+    "NpcName" : {
+      "En" : "Military Police",
+      "Jp" : "憲兵"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28795,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 46,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "A-Arisen!! You!!\nYou've come to the right place!",
+        "Jp" : "あ、あんた――覚者さぁん！！\n良いところに来たな！"
+      },
+      "MsgSerial" : 738368,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 47,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I've got a big problem.\nIn this mansion--ahh, well anyway,\nGo ask Ser Mephis!",
+        "Jp" : "大変なことがあってよぉ\nこの屋敷に――い、いいやとにかく\nメフィスさんに聞いてくれ！"
+      },
+      "MsgSerial" : 762577,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 691,
+    "NpcName" : {
+      "En" : "Basit",
+      "Jp" : "バジット"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 28796,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 48,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "You've really come to the right place!\nI'm in danger of being dragged out...",
+        "Jp" : "ホント、いいところに来てくれたよ！\n危うく俺が駆り出されるところだっ――"
+      },
+      "MsgSerial" : 738369,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 49,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Yeah, well, anyway.\nGo ask Mephis!\nI'm in a rough spot!",
+        "Jp" : "――い、いいやとにかく\nメフィスさんに聞いてくれ！\n大変なことがあったんだよ！"
+      },
+      "MsgSerial" : 762578,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 691,
+    "NpcName" : {
+      "En" : "Basit",
+      "Jp" : "バジット"
+    }
+  } ],
+  "NativeMsgGroupArrayNum" : 21
+}

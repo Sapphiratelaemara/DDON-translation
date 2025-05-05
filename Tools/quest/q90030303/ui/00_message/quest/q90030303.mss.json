@@ -1,0 +1,71 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 138,
+  "NativeMsgDataArrayNum" : 3,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 30226,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "In exchange for the DP you possess,\nI'm offering you these goods.\nPlease take a look at the lineup.",
+        "Jp" : "あんたの持っているDPと引き換えに\n品物を提供するぞ\nラインナップを確認してみてくれ"
+      },
+      "MsgSerial" : 778212,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "There are special items that can only be given\nto those who meet the requirements.",
+        "Jp" : "一部のアイテムには、条件を満たした者にしか\n与えられない特別なアイテムが存在するからな"
+      },
+      "MsgSerial" : 778213,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Depending on how much you have accomplished\nin the battle, the items on offer will change!",
+        "Jp" : "戦いにおいて、どれだけの成果を達成したかにより\n提供できるアイテムも変わってくるぞ"
+      },
+      "MsgSerial" : 778214,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 704,
+    "NpcName" : {
+      "En" : "Abbas",
+      "Jp" : "アッバス"
+    }
+  } ],
+  "NativeMsgGroupArrayNum" : 1
+}

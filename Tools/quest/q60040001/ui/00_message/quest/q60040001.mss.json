@@ -1,0 +1,262 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 556,
+  "NativeMsgDataArrayNum" : 14,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 14429,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "You have my thanks!\nMight I ask of you to investigate the Volden\nMines Large Tunnels?",
+        "Jp" : "やぁ、ありがたい！\n《ボルド大坑道》の様子見、お願いできますか"
+      },
+      "MsgSerial" : 286187,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "As the story goes, the Volden\nTunnels' collapse is credited to a creature\nof grand proportions.",
+        "Jp" : "お話しした通り、大坑道の崩落は\n巨人族出現のせいでしてね"
+      },
+      "MsgSerial" : 286188,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Arisen, I would ask that you\nconfirm the existence of such a troublesome\nbeast once and for all.",
+        "Jp" : "覚者さんにはずばり、再開発の妨げに\nなりそうな巨人の有無を見て来て頂きたい\nわけです"
+      },
+      "MsgSerial" : 286189,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Fell the giant should it exist!\nDefeating the likes of a cyclops would come\nnatural to an Arisen of your prowess.",
+        "Jp" : "で、居た場合は討伐の方もぜひ！\nサイクロプスくらい、あなたほどの覚者さんなら\n退治したことはおありでしょう"
+      },
+      "MsgSerial" : 286190,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 4,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Also, while the rubble blocking\nthe entrance has been cleared, there's\nlike to be weak rock formations inside.",
+        "Jp" : "そうそう、入り口のガレキは撤去しましたが\n坑道内部はまだ崩落しているかもしれません"
+      },
+      "MsgSerial" : 286191,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 5,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Should your path be blocked\nby rubble, there should be gunpowder barrels\nnearby.\nYou can use them to blast your way through.",
+        "Jp" : "岩盤で道が塞がっている時は\n近くに掘削用の《火薬樽》が残っているはずです\nそれを使って発破するといいですよ"
+      },
+      "MsgSerial" : 286192,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 6,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "――しかし、サイクロプスが坑道に入り込んだ\nって話はよく聞きますが、岩盤崩落とは\nそこまでの力があるんですかねぇ――？"
+      },
+      "MsgSerial" : 286193,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 1604,
+    "NpcName" : {
+      "En" : "Roy",
+      "Jp" : "ロイ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 14430,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 7,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "What!?\nThe cause of the collapse wasn't a cyclops,\nbut rather a golem?",
+        "Jp" : "なんと！？\n崩落の原因になったのはサイクロプス\nではなくゴーレムだったとは"
+      },
+      "MsgSerial" : 286194,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 8,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "いやはや、なるほど確かに\nそれならあの崩れっぷりも納得が――"
+      },
+      "MsgSerial" : 286195,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 9,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Alas, it's bothersome in its own right.\nWith this, it'll be a while afore we\ncan continue our redevelopment.",
+        "Jp" : "しかし、それは困ったことになりました\nこれでは大坑道の再開発は当分おあずけに\nなってしまいますなぁ"
+      },
+      "MsgSerial" : 286196,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 10,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "We'll have to doubly survey the area.\nLightly damaged areas may hold aught left.",
+        "Jp" : "今後の件はあらためて検討しましょうか\n浅い所なら、採掘できる所もあるでしょうし"
+      },
+      "MsgSerial" : 286197,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 11,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Anyroad, you have my thanks.\nPray, make use of our spas at your leisure!",
+        "Jp" : "ともあれ、調査お疲れさまです\n今日はゆっくり鉱泉で休んでいって下さいよ"
+      },
+      "MsgSerial" : 286198,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 1604,
+    "NpcName" : {
+      "En" : "Roy",
+      "Jp" : "ロイ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 14431,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 12,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "覚者さん、《ボルド大坑道》の巨人の件\nなにとぞよろしくお願いしますよ"
+      },
+      "MsgSerial" : 286199,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 13,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "",
+        "Jp" : "あそこが再開発できるなら\nキノザにとってこれ以上ない朗報ですからな！"
+      },
+      "MsgSerial" : 286200,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 1604,
+    "NpcName" : {
+      "En" : "Roy",
+      "Jp" : "ロイ"
+    }
+  } ],
+  "NativeMsgGroupArrayNum" : 3
+}

@@ -1,0 +1,2102 @@
+{
+  "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgSet",
+  "FileHeader" : {
+    "MagicBytesLength" : 4,
+    "MagicString" : "mgst",
+    "VersionBytesLength" : 2,
+    "VersionNumber" : 3
+  },
+  "FileSize" : 4540,
+  "NativeMsgDataArrayNum" : 115,
+  "NativeMsgGroupArray" : [ {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16185,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 0,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "【Hint:：Unlocking the Portcrystal】",
+        "Jp" : "【ヒント：《拠点の礎》解放】"
+      },
+      "MsgSerial" : 397243,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 1,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "We have reached the ruined city of Mergoda.\nDo not forget to unlock the Portcrystal \nin the Mergoda Residential Area.",
+        "Jp" : "亡都メルゴダに到着しました\nメルゴダ居住区の《拠点の礎》を\n忘れず解放しておきましょう"
+      },
+      "MsgSerial" : 397244,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : true,
+    "NpcId" : 4,
+    "NpcName" : {
+      "En" : "Joseph",
+      "Jp" : "ジョゼフ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 8427,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 2,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "You've been talking to Master Joseph \nfor quite a while now.",
+        "Jp" : "ずいぶん長くジョゼフ様と話していたね"
+      },
+      "MsgSerial" : 21072,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 3,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "You were angry, weren't you?\nWell, that's only natural.",
+        "Jp" : "怒っていたんだろう？\nまあ、当然だよね"
+      },
+      "MsgSerial" : 21073,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 4,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I am departing for the far north.\nNaturally, I will go through the\nportcrystal \"Gate\" at the Protectorate\nto reach the old city of Mergoda.",
+        "Jp" : "僕はこれから北の果てへ旅立つよ\nもちろん護政区の礎――\n\"ゲート\"をくぐって\nかつての都メルゴダへ行くんだ"
+      },
+      "MsgSerial" : 21074,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 5,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I think Leo is already there.",
+        "Jp" : "レオも、もう行っていると思う"
+      },
+      "MsgSerial" : 165053,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 6,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I intend to speak with Leo if we meet,\nbut it is Diamantes himself that I wish\nto see. As a descendant of an alchemist,\nthere are matters I want to discuss.",
+        "Jp" : "会えたらレオとも話すつもりだけど\n僕が会いたいのはディアマンテスその人さ\n錬金術師の末裔として\n話したいことがあるんだ"
+      },
+      "MsgSerial" : 165054,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 7,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I'm always unarmed,\nso I could be killed in an instant.\nIf that happens, I'd be glad\nif you could avenge me.",
+        "Jp" : "僕はいつだって丸腰だから\n瞬殺されるかもしれないけどね\nその時は仇を討ってくれるとうれしいな"
+      },
+      "MsgSerial" : 254750,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 8,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "――Just kidding!",
+        "Jp" : "――なんてね"
+      },
+      "MsgSerial" : 254751,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3,
+    "NpcName" : {
+      "En" : "Klaus",
+      "Jp" : "クラウス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 8428,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 9,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "You're going to Mergoda, too?",
+        "Jp" : "君もメルゴダへ？"
+      },
+      "MsgSerial" : 21075,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 10,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I see, that's good to hear.\nI would very much like that.",
+        "Jp" : "そうか、そりゃいいや\nいや、ぜひそうしてほしい"
+      },
+      "MsgSerial" : 165055,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 11,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Were I to end up like Iris...",
+        "Jp" : "僕がイリスみたいになってしまったら――"
+      },
+      "MsgSerial" : 165056,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 12,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Honestly, I'm not strong,\nso I'm not a threat at all,\nbut I'd like you to take care of it swiftly.",
+        "Jp" : "まあ、強くはないから全然脅威では\nないと思うけど、ひと思いに頼むよ"
+      },
+      "MsgSerial" : 254752,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 13,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The \"Gate\" in the north should carry us\nto the old alchemical city.",
+        "Jp" : "北の、護政区の\"ゲート\"が僕たちを\n古き錬金の都に運んでくれるはずだ"
+      },
+      "MsgSerial" : 254753,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3,
+    "NpcName" : {
+      "En" : "Klaus",
+      "Jp" : "クラウス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 8426,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 14,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Are you on your way to see Leo?",
+        "Jp" : "レオのところに行くの？"
+      },
+      "MsgSerial" : 21069,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 15,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "When you see him, \ntell him Mayleaf is waiting for him, okay?\nTell him that the Temple is lonely without Leo.",
+        "Jp" : "会ったら、メイリーフが待ってるって伝えてね？\nレオがいない神殿は寂しいよ、って"
+      },
+      "MsgSerial" : 254754,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 14,
+    "NpcName" : {
+      "En" : "Mayleaf",
+      "Jp" : "メイリーフ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 8430,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 16,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It's gonna be okay, right?\nLeo is on Lord White Dragon's side, right?",
+        "Jp" : "大丈夫だよね？\nレオは白竜様の味方だよね？"
+      },
+      "MsgSerial" : 21078,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 14,
+    "NpcName" : {
+      "En" : "Mayleaf",
+      "Jp" : "メイリーフ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 8429,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 17,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Mergoda was a city ruled by alchemists.",
+        "Jp" : "メルゴダは錬金術師が治めた街だ"
+      },
+      "MsgSerial" : 21076,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 18,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "As I once spoke of, it was vanished from\nthis world along with the Golden Dragon—",
+        "Jp" : "いつか話したとおり、黄金竜とともに\nこの世界から消されてしまったが――"
+      },
+      "MsgSerial" : 21077,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 19,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "At that time, many alchemists also\ndisappeared with the city.",
+        "Jp" : "その時に、多くの錬金術師も\n街と一緒に消えてしまった"
+      },
+      "MsgSerial" : 165061,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 20,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Only a few alchemists remained over here, \nbut naturally they were regarded\nas associates of Diamantes, and\nthe people were very critical of them.",
+        "Jp" : "こちらに残ったのはごくわずかな\n錬金術師だったが、当然のことながら\nディアマンテスの仲間だと目されて\n民衆からの風当たりは強く――"
+      },
+      "MsgSerial" : 165062,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 21,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The temples of the time, of course, were alarmed\nand finally banned alchemy!",
+        "Jp" : "当時の神殿も、もちろん警戒して\nついには錬金術を禁じてしまった"
+      },
+      "MsgSerial" : 165063,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 22,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "They went underground and managed to survive,\nbut it cannot be said that the secret arts\nwere properly passed down.",
+        "Jp" : "彼らは地下に潜り、細々と生きのびたが\n秘術は正しく継承されたとは言えない"
+      },
+      "MsgSerial" : 165064,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 23,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The necessary information has eroded\nover the years, and today—\nAlchemy has become lost knowledge.",
+        "Jp" : "必要な情報は年月とともに欠落して\n今日では――\n錬金術は失われた知識となり果てた"
+      },
+      "MsgSerial" : 165065,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 24,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "For the sake of Lestania's peace and protection,\nit was the wisest option.",
+        "Jp" : "レスタニアの平和のためには\nそれがもっとも冴えた選択だったはずだ"
+      },
+      "MsgSerial" : 165066,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 25,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "But whether or not Klaus accepts\nhistory's choices as I do--\nI don't know.",
+        "Jp" : "しかし、クラウスがわたしと同じように\n歴史の選択を受け入れているのか否か――\nそれはわからん"
+      },
+      "MsgSerial" : 165067,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 26,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Even though he is the same as us now,\nbeing immersed in the atmosphere\nof Mergoda may stir something within him.",
+        "Jp" : "今は我々と同じでも\nメルゴダの人と空気に触れれば\n感じ入ることがあるかもしれん"
+      },
+      "MsgSerial" : 254755,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 27,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "At that time, he'll need a good mentor ――\nNo, he'll need a friend.",
+        "Jp" : "その時に、あいつには良き助言者――\nいや、友人が必要になるだろう"
+      },
+      "MsgSerial" : 254756,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 28,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I can no longer fulfill that role—\nit is a lonely thing indeed.",
+        "Jp" : "わたしにはその役目はもう務まらん\n――寂しいことだ"
+      },
+      "MsgSerial" : 254757,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4,
+    "NpcName" : {
+      "En" : "Joseph",
+      "Jp" : "ジョゼフ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 11890,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 29,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Watch over Klaus,\nand if he wavers, \nspeak to him of the White Dragon.",
+        "Jp" : "クラウスを頼むぞ\nあいつが迷ったら、白竜の話でも\nしてやってくれ"
+      },
+      "MsgSerial" : 165087,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4,
+    "NpcName" : {
+      "En" : "Joseph",
+      "Jp" : "ジョゼフ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 8431,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 30,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "My wounds have finally healed.\nAt last, I'm ready to set off for Mergoda.",
+        "Jp" : "やっと傷の治療が終わった\nいよいよ、わたしもメルゴダへ出発だ"
+      },
+      "MsgSerial" : 21079,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 31,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Any who cross over into Lestania\nfrom there shall be purged――",
+        "Jp" : "向こうからレスタニアへ侵入する者は\nすべて駆逐対象であり――"
+      },
+      "MsgSerial" : 254758,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 32,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Those encountered in that land will be judged\nby their behavior, regardless of past ties.\nEven former allies are not exempt.",
+        "Jp" : "彼の地で出会う者は、その場の言動で\n敵か否かの判断をくだす\nたとえ旧知であっても例外ではない"
+      },
+      "MsgSerial" : 165088,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 33,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "What? A grudge against Leo?",
+        "Jp" : "なんだと？　レオへの恨み？"
+      },
+      "MsgSerial" : 165089,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 34,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ah, a vendetta over the sword wound?\nI consider this body of Gerd\nabove such petty matters, though――",
+        "Jp" : "ああ、刀傷の恨みか\nこのゲルトの器、それほど小さくはないと\n自負しているが――"
+      },
+      "MsgSerial" : 165090,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 35,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "He probably has his own reasons.\nIf a courteous apology is offered,\nI'm ready to receive it anytime.",
+        "Jp" : "あれにはあれの考えがあるのだろう\n礼節に叶った謝罪があれば\nいつでも受け入れるつもりだ"
+      },
+      "MsgSerial" : 165091,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 7,
+    "NpcName" : {
+      "En" : "Gerd",
+      "Jp" : "ゲルト"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 8432,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 36,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I heard Leo had disappeared,\nso I rushed over―",
+        "Jp" : "レオが消えたと聞いて\n駆け付けたが――"
+      },
+      "MsgSerial" : 21080,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 37,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "One of the Arisen must meet Leo\nbefore the White Knight Order does,\nor tragedy will strike.",
+        "Jp" : "白騎団に先んじて覚者の誰かが\nレオと会わねば悲劇が起こるぞ"
+      },
+      "MsgSerial" : 21081,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 11,
+    "NpcName" : {
+      "En" : "Vanessa",
+      "Jp" : "ヴァネッサ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 8433,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 38,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I don't believe Leo is evil,\nwhich is exactly why this is such a problem. \nI believe Commander Gerd feels the same.",
+        "Jp" : "レオを、悪い奴だとは思っていない\nだからこそ、厄介なんだ\nこの気持ちはゲルト団長も同じだろうよ"
+      },
+      "MsgSerial" : 21082,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 8,
+    "NpcName" : {
+      "En" : "Heinz",
+      "Jp" : "ハインツ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 13565,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 39,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Hey--\nAre you ready to cross over to Mergoda?",
+        "Jp" : "やあ――\nメルゴダへ渡る覚悟はできたかい？"
+      },
+      "MsgSerial" : 224746,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 40,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I'm rather excited.\nLet's go!",
+        "Jp" : "ぼくはわくわくしているよ\nさあ、行こう！"
+      },
+      "MsgSerial" : 254759,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3,
+    "NpcName" : {
+      "En" : "Klaus",
+      "Jp" : "クラウス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 8434,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 41,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "When I was a kid, I found an art book\nmy dad had hidden in the attic.",
+        "Jp" : "子どもの頃、父が屋根裏に隠していた\n画集を見つけてね"
+      },
+      "MsgSerial" : 21084,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 42,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Among them was this landscape.",
+        "Jp" : "その中に、この風景があった"
+      },
+      "MsgSerial" : 254760,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 43,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "It was a landscape I've always dreamed of.\nI never thought I'd actually be able to stand here.",
+        "Jp" : "憧れの風景だった\n実際にここに立てるとは思っても\nいなかったな"
+      },
+      "MsgSerial" : 21085,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 44,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "You must admit, it lives up to its name\nas the Golden Land, doesn't it?",
+        "Jp" : "さすがは黄金郷と呼ばれただけのことは\nあると思わないかい？"
+      },
+      "MsgSerial" : 21086,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 45,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Furthermore, it seems that city's operations\nare still running, and even being maintained!",
+        "Jp" : "しかも――街の機能はまだ\n維持されているらしい"
+      },
+      "MsgSerial" : 21087,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 46,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Perhaps time does not flow\nas it does in our world.",
+        "Jp" : "僕らの世界ほど\n時間が流れてはいないのかもね"
+      },
+      "MsgSerial" : 21088,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 47,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The power of Lord White Dragon, \nwho sealed this world--",
+        "Jp" : "この世界を封じた白竜様の力か――"
+      },
+      "MsgSerial" : 21089,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 48,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Or is it perhaps Diamantes'\nrefusal to be entombed outside order?",
+        "Jp" : "それとも理の外に葬られることを\n拒んだディアマンテスの執念なのか――"
+      },
+      "MsgSerial" : 21090,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 49,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "At this moment, I cannot tell whose strength\nor what kind of gift this is.",
+        "Jp" : "誰のどんな力の賜物なのか\n今の僕にはわからないけどさ"
+      },
+      "MsgSerial" : 254761,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 50,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "How strange――\nComing here, awakening something within me――\nI had both feared and anticipated this.",
+        "Jp" : "不思議だな――\nここに来れば僕の中の何かが目覚める――\nそういう怖れと、期待があったんだ"
+      },
+      "MsgSerial" : 21091,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 51,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "However, there's naught a thing.\nBeyond the sentiment of being here,\nI don't feel anything.",
+        "Jp" : "でも、何もない\nここに来たという感慨以外、何もない"
+      },
+      "MsgSerial" : 21092,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 52,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "All that exists is merely the familiarity\nof the stone pavement of the Temple—\nThat chill that I like, that feeling remains.",
+        "Jp" : "あるのはただ、あの歩き慣れた\n神殿の石畳――その冷たさが\n好きだという気持ち"
+      },
+      "MsgSerial" : 254762,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 53,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I feel a deep love for the\nhalf-petrified White Dragon—\nA strong wish to keep even\nJoseph's gentle reproaches.",
+        "Jp" : "半ば石になったままの白竜を\n心の底から愛している気持ち――\nジョゼフ様の小言でさえ\nなくしたくないという強い思い――"
+      },
+      "MsgSerial" : 21093,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 54,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Indeed, I do not belong to the\npeople of this place.",
+        "Jp" : "うん、僕はここの人間じゃない"
+      },
+      "MsgSerial" : 21094,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 55,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I'm a resident of Lestania, \na world where alchemy has long been forbidden.",
+        "Jp" : "錬金術が長く禁じられた\nレスタニアの世界の住人なんだ"
+      },
+      "MsgSerial" : 21095,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 56,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "So, I feel like I could do anything\nto protect that world.",
+        "Jp" : "だから、あの世界を守るためなら\nなんでもできそうな気がする"
+      },
+      "MsgSerial" : 21096,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 57,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Of course, I shall see it done.",
+        "Jp" : "ああ、僕はやるとも"
+      },
+      "MsgSerial" : 21097,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3,
+    "NpcName" : {
+      "En" : "Klaus",
+      "Jp" : "クラウス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 8435,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 58,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I want to look around here a bit longer.\nWhy don't you take a walk, too?",
+        "Jp" : "もう少しこのあたりを見ておきたいんだ\n君も散歩してきたらどうだい？"
+      },
+      "MsgSerial" : 21103,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 59,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ah, be mindful in your interactions with others.\nApproach them gently and with care, please.",
+        "Jp" : "あ、人と接触する時は対応に気をつけて\nやわらかく、丁寧にね"
+      },
+      "MsgSerial" : 254763,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3,
+    "NpcName" : {
+      "En" : "Klaus",
+      "Jp" : "クラウス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 8436,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 60,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I'll be staying here to gather information\nfrom Theodor. Things like the history\nof the battles with Diamantes and the\n\"Sealed Sepulcher,\" for instance.",
+        "Jp" : "僕はここに残ってテオドールから\nいろいろと聞いておくよ\nディアマンテスとの闘争の歴史とか\n《封じの玄室》とかね"
+      },
+      "MsgSerial" : 506276,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 61,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Upon my return,\nI'll inform Master Joseph of my findings.\nHe'll probably be shocked and angry,\nwith his eyes wide in disbelief.",
+        "Jp" : "帰ったら、ジョゼフ様に報告するんだ\nきっと目を剥いて驚いたり怒ったり\nするんだろうなあ"
+      },
+      "MsgSerial" : 506277,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3,
+    "NpcName" : {
+      "En" : "Klaus",
+      "Jp" : "クラウス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 8437,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 62,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "My heart is with Lord White Dragon\nand the people of the Temple—",
+        "Jp" : "僕の心は白竜様、そして神殿の人たちと\nともにある――"
+      },
+      "MsgSerial" : 21106,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 63,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Having come to Mergoda, \nI understand that very well.",
+        "Jp" : "このメルゴダに来て、それがよくわかったよ"
+      },
+      "MsgSerial" : 254778,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3,
+    "NpcName" : {
+      "En" : "Klaus",
+      "Jp" : "クラウス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 8438,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 64,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "What's going on in Lestania right now?\nHow did the Gate open in the first place--",
+        "Jp" : "レスタニアは今、どんな様子なんだ？\nそもそも、どうしてゲートが開いたのか――"
+      },
+      "MsgSerial" : 21107,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 65,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "—What? Was the appearance of the Ark\nthe beginning of it all?",
+        "Jp" : "――なに？　アークが現れたのが始まり？"
+      },
+      "MsgSerial" : 254779,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 66,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I see— the Arks form a trinity of substance:\nwater, fire, and life...\nAnd what is generated\nbased on this secret formula—\nNo, forget theory for now.",
+        "Jp" : "なるほど――\nアークは三位一物、つまり水と火と命が\nもたらす秘数式に基づいて生成される物質の――\nいや、理屈はいいな"
+      },
+      "MsgSerial" : 165131,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 67,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Regardless, consider it an energy amplifier\nconsisting of three units working together.\nThere were indeed three Arks, correct?",
+        "Jp" : "とにかくあれは、三基ひと組で事を為す\nエネルギーの増幅装置だと考えるといい\nアークは三基あっただろう？"
+      },
+      "MsgSerial" : 165132,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 68,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The first Ark is primarily a base\nfor establishing a foothold in Lestania.",
+        "Jp" : "第一のアークはまずレスタニアへの\n橋頭堡だ"
+      },
+      "MsgSerial" : 165133,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 69,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Diamantes' sealed consciousness\nlikely acted on those who entered at the beginning.\nIt is a dangerous thought that feeds on\nthe heart's evils and conflicts.",
+        "Jp" : "封じ込まれたディアマンテスの思念が\n初期の段階で中に入り込んだ者に作用したはずだ\n心の邪悪や葛藤につけ込む危険な思念だ"
+      },
+      "MsgSerial" : 254780,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 70,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Simultaneously, there must have been devices\nthat generate and amplify energy included as well.",
+        "Jp" : "同時に、エネルギーを生成、増幅する\n装置も積み込まれていたはずだ"
+      },
+      "MsgSerial" : 165134,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 71,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The device was probably started\nby the hands of puppets being manipulated\nby those thoughts, wouldn't you say?",
+        "Jp" : "思念によって操り人形となった手先によって\n装置は起動した――だろう？"
+      },
+      "MsgSerial" : 254781,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 72,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Thus, the second Ark emerges,\nlike the first one, yet it must have been outfitted\nwith stronger devices.",
+        "Jp" : "そして第二のアークが出現する\n第一のアークと同じ、しかし、より強力な\n装置が積まれていたはずだ"
+      },
+      "MsgSerial" : 165135,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 73,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Alchemy is fundamentally about\nincrementally enhancing things and effects,\nsimilar to how one cultivates crystals.",
+        "Jp" : "結晶を育てるように、物や効果を\n段階的に増幅するのが錬金術の基本だからな"
+      },
+      "MsgSerial" : 165136,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 74,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Finally summoned, the third Ark was a device\ndesigned to produce the energy output required\nto open the Gate.",
+        "Jp" : "最後に呼び込まれた第三のアークはそう――\nゲートを開くエネルギーを\n生成するための装置だった"
+      },
+      "MsgSerial" : 165137,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 75,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "This interpretation should largely hold true.\nMoreover, that Diamantes achieved all these things\nfrom within the Sealed Sepulcher—",
+        "Jp" : "おおむね、この解釈で正しいはずだ\n加えて、ディアマンテスはすべてを\n《封じの玄室》から実現したことを考えると――"
+      },
+      "MsgSerial" : 165138,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 76,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "You can see how he is an extraordinary entity.",
+        "Jp" : "奴がいかに超越した存在であることが\nわかるだろうよ"
+      },
+      "MsgSerial" : 254782,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 77,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "That's right, I must inform you.",
+        "Jp" : "そうだ、君に言っておかなければ"
+      },
+      "MsgSerial" : 165139,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 78,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Before exploring various places in Mergoda,\nyou should visit Beatrix, the Area Master,\nin the residential area.",
+        "Jp" : "メルゴダ各地を巡る前に、居住区にいる\nエリア管理者、ベアトリクスに\n挨拶してくるといい"
+      },
+      "MsgSerial" : 165140,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 79,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "If you wish to know more about this land,\nyou can obtain the necessary information\nfrom her. As far as we are aware, that is.",
+        "Jp" : "この地について知りたいことがあれば\n彼女から必要な情報は得られるだろう\n我々が把握している範囲のことなら、ではあるが"
+      },
+      "MsgSerial" : 384636,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 80,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "After you finish your greetings, please\ncome see me once more. I would appreciate it.",
+        "Jp" : "挨拶が済んだら、もう一度私を訪ねてほしい\nよろしく頼むよ"
+      },
+      "MsgSerial" : 384637,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 10,
+    "NpcName" : {
+      "En" : "Theodor",
+      "Jp" : "テオドール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16094,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 81,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Before exploring various places in Mergoda,\nyou should visit Beatrix, the Area Master,\nin the residential area.",
+        "Jp" : "メルゴダ各地を巡る前に、居住区にいる\nエリア管理者、ベアトリクスに\n挨拶してくるといい"
+      },
+      "MsgSerial" : 384638,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 82,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "If you wish to know more about this land,\nyou can obtain the necessary information\nfrom her. As far as we are aware, that is.",
+        "Jp" : "この地について知りたいことがあれば\n彼女から必要な情報は得られるだろう\n我々が把握している範囲のことなら、ではあるが"
+      },
+      "MsgSerial" : 384642,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 83,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "After you finish your greetings, please\ncome see me once more. I would appreciate it.",
+        "Jp" : "挨拶が済んだら、もう一度私を訪ねてほしい\nよろしく頼むよ"
+      },
+      "MsgSerial" : 384643,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 10,
+    "NpcName" : {
+      "En" : "Theodor",
+      "Jp" : "テオドール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16096,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 84,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Who would have thought that people\nwould come from the split Lestania\nto visit Mergoda again—",
+        "Jp" : "分かたれしレスタニアよりこのメルゴダへ\n再び人が訪れることがあるとは――"
+      },
+      "MsgSerial" : 384640,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 85,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "In this land where the flow of time is warped,\nI find it hard to contain my astonishment.",
+        "Jp" : "この時の流れが歪む地で生きる身ですが\n驚きを禁じ得ません"
+      },
+      "MsgSerial" : 384644,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 86,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "People of the surface,\nto make this settlement a starting point,\nplease activate the Portcrystal outside.",
+        "Jp" : "地上の方よ、この居住区を足がかりと\nするため、まずは外にある《拠点の礎》を\n解放ください"
+      },
+      "MsgSerial" : 384645,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 87,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Regarding this land of Mergoda,\nyou may ask me anything through\nArea Information, and I will respond\nwith the knowledge I have.",
+        "Jp" : "この地、メルゴダの事であれば\n《エリア情報》より私になんなりとお尋ねを\n知により、貴方にお応えすることができましょう"
+      },
+      "MsgSerial" : 384646,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 88,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Please give my best regards to Master Theodor.",
+        "Jp" : "それでは、テオドール様によろしくお伝えください"
+      },
+      "MsgSerial" : 384647,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 2301,
+    "NpcName" : {
+      "En" : "Beatrix",
+      "Jp" : "ベアトリクス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16097,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 89,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "People of the surface,\nto make this settlement a starting point,\nplease activate the Portcrystal outside.",
+        "Jp" : "地上の方よ、この居住区を足がかりと\nするため、まずは外にある《拠点の礎》を\n解放ください"
+      },
+      "MsgSerial" : 384641,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 90,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "If it's about this land, Mergoda,\nyou may ask me anything through\nArea Information, and I shall respond\nwith the knowledge I have.",
+        "Jp" : "この地、メルゴダの事であれば\n《エリア情報》より私になんなりと\n知により、貴方にお応えすることができましょう"
+      },
+      "MsgSerial" : 384648,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 91,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Please give my best regards to Master Theodor.",
+        "Jp" : "それでは、テオドール様によろしくお伝えください"
+      },
+      "MsgSerial" : 384649,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 2301,
+    "NpcName" : {
+      "En" : "Beatrix",
+      "Jp" : "ベアトリクス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 16095,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 92,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Well, have you finished\nintroducing yourself to Beatrix?",
+        "Jp" : "ふむ、ベアトリクスとの挨拶は済んだか"
+      },
+      "MsgSerial" : 384639,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 93,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Would you mind going back to the headquarters\nand letting the locals know that\nwe have no intentions to invade Lestania?",
+        "Jp" : "君――本拠地へ帰って、こちらの住民には\nレスタニア侵略の意志がないことを\n伝えてもらえないか？"
+      },
+      "MsgSerial" : 384650,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 94,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Of course, assistance regarding Diamantes\nis very welcome.",
+        "Jp" : "もちろん対ディアマンテスに関する\n援助は大歓迎だ"
+      },
+      "MsgSerial" : 384651,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 95,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "We hold no secrets from you.\nFeel free to share what you've seen here\nwith anyone. What we need is the support\nof the people of Lestania.",
+        "Jp" : "わたしらに隠し事はない\nここで見聞したことを誰に話してくれても構わない\n必要なのはレスタニアの人々の助力だ"
+      },
+      "MsgSerial" : 384652,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 96,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I implore you, good ser—\nAdvocate for us on those topics.",
+        "Jp" : "頼むよ、君――\nそのあたりのことをうまく代弁してくれ"
+      },
+      "MsgSerial" : 384653,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 10,
+    "NpcName" : {
+      "En" : "Theodor",
+      "Jp" : "テオドール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 11898,
+    "GroupType" : 1,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NORMAL",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 97,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "We hold no secrets from you.\nFeel free to share what you've seen here\nwith anyone. What we need is the support\nof the people of Lestania.",
+        "Jp" : "わたしらに隠し事はない\nここで見聞したことを誰に話してくれても構わない\n必要なのはレスタニアの人々の助力だ"
+      },
+      "MsgSerial" : 165142,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 98,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I implore you, good ser—\nAdvocate for us on those topics.",
+        "Jp" : "頼むよ、君――\nそのあたりのことをうまく代弁してくれ"
+      },
+      "MsgSerial" : 165143,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 10,
+    "NpcName" : {
+      "En" : "Theodor",
+      "Jp" : "テオドール"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 13561,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 99,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Did you see Leo?",
+        "Jp" : "レオには会えたのか？"
+      },
+      "MsgSerial" : 217001,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 100,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "I see—so it's no good—",
+        "Jp" : "そうか――ダメか――"
+      },
+      "MsgSerial" : 219821,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 101,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "So, how's it going over there?\nDo you think our weapons will be \nenough to deal with them?",
+        "Jp" : "して、向こうの様子はどうだ？\n我々の武器で対処できそうか？"
+      },
+      "MsgSerial" : 254785,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 11,
+    "NpcName" : {
+      "En" : "Vanessa",
+      "Jp" : "ヴァネッサ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 8439,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 102,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "So, Leo isn't coming back after all?",
+        "Jp" : "やっぱりレオは戻らないの？"
+      },
+      "MsgSerial" : 21108,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 103,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ah, I see—you didn't meet.\nBut you're all right, yes?",
+        "Jp" : "そうか――会えなかったんだ\nでも、無事だよね？"
+      },
+      "MsgSerial" : 254786,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 14,
+    "NpcName" : {
+      "En" : "Mayleaf",
+      "Jp" : "メイリーフ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 8440,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 104,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Is Klaus really gone as well!?",
+        "Jp" : "クラウスさんまでいなくなったのですか！？"
+      },
+      "MsgSerial" : 21109,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 1003,
+    "NpcName" : {
+      "En" : "Pamela",
+      "Jp" : "パメラ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 8441,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 105,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "The Knights have been ordered to stand by.\nIt appears to be the wish of Master Joseph.",
+        "Jp" : "騎士団は一転、待機命令だ\nジョゼフ様の意向らしいな"
+      },
+      "MsgSerial" : 21110,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 106,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Nevertheless, the Knights stand at the ready\nlike an arrow pulled taut in its bow.\nThey can hardly wait to depart.",
+        "Jp" : "しかし、騎士団は引き絞った弓にかけられた\n矢のような状態だ\n出陣が待ちきれないぞ"
+      },
+      "MsgSerial" : 165141,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 8,
+    "NpcName" : {
+      "En" : "Heinz",
+      "Jp" : "ハインツ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 8442,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 107,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Oh, you're back.\nSo, how was it over there?",
+        "Jp" : "おお、戻ったな\nそれで、向こうはどうだった？"
+      },
+      "MsgSerial" : 21111,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 108,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "--I see.\nSo you could cooperate with this Theodor?",
+        "Jp" : "――なるほど\nでは、そのテオドールたちとは\n協力できそうなのだな？"
+      },
+      "MsgSerial" : 21112,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 109,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "To meet an active alchemist is something, indeed.\nKlaus must be overjoyed.",
+        "Jp" : "現役の錬金術師と会えるとは\nクラウスめ、さぞ喜んでいるだろうよ"
+      },
+      "MsgSerial" : 21113,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 110,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "So, you mean to say that\nhe looks forward to reporting to me?\nDid he actually say that?\nHeh, what a clever one he is.",
+        "Jp" : "――なんと\nわたしに報告するのが楽しみだと？\n奴め、そんなことを言ったのか\nふふ――如才ない奴だ"
+      },
+      "MsgSerial" : 21114,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 111,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Was Leo present at the time?",
+        "Jp" : "時に、レオはいたのか？"
+      },
+      "MsgSerial" : 21115,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    }, {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 112,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Ah, so you still haven't met?\nIt would be a great comfort\nif he could join us in battle.",
+        "Jp" : "――そうか、まだ会えないのか\nあいつも共闘してくれると本当に心強いのだがな"
+      },
+      "MsgSerial" : 21116,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 4,
+    "NpcName" : {
+      "En" : "Joseph",
+      "Jp" : "ジョゼフ"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 11937,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 113,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "Hmmm, I'm torn--\nI'd love to talk to you about it, but--",
+        "Jp" : "うーん、悩ましい――\nぜひ君に相談したいけど――"
+      },
+      "MsgSerial" : 168719,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : false,
+    "NpcId" : 3,
+    "NpcName" : {
+      "En" : "Klaus",
+      "Jp" : "クラウス"
+    }
+  }, {
+    "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgGroup",
+    "GroupNameSerial" : 0,
+    "GroupSerial" : 18560,
+    "GroupType" : 0,
+    "GroupTypeName" : "MSG_GROUP_TYPE_NONE",
+    "MsgData" : [ {
+      "@class" : "org.sehkah.ddon.tools.extractor.common.logic.resource.entity.ui.MsgData",
+      "DispTime" : 0,
+      "DispType" : 0,
+      "GmdIndex" : 114,
+      "JumpGroupSerial" : 0,
+      "Message" : {
+        "En" : "【Hint：About the adventure to the exiled city of Mergoda】\nYou must journey a long way\nto the fallen capital of Mergoda. \nReview your party composition, gear,\nand combat skills before setting out.",
+        "Jp" : "【ヒント：亡都メルゴダへの冒険について】\n亡都メルゴダへは遠路を旅する必要があります\nパーティー編成や装備、戦技などを見直して向かいましょう"
+      },
+      "MsgSerial" : 492559,
+      "MsgType" : 0,
+      "SetMotion" : 0,
+      "TalkFaceType" : 0,
+      "VoiceReqNo" : -1
+    } ],
+    "NameDispOff" : true,
+    "NpcId" : 4,
+    "NpcName" : {
+      "En" : "Joseph",
+      "Jp" : "ジョゼフ"
+    }
+  } ],
+  "NativeMsgGroupArrayNum" : 28
+}
