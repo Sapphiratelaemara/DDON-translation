@@ -134,6 +134,98 @@ Aid Stance)",ui\00_message\skill\normal_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cm
 the Arisen, will experience the story of 
 this land Lestania and the people 
 living here.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,0,
+0,TUTORIAL_STEP_9,"<COL 78f5ff>《ボードクエスト》が解放されました！</COL>
+世界各地の拠点にある<COL ffdc78>《クエストボード》</COL>には
+住民の依頼書、さまざまな<COL ffdc78>《ボードクエスト》</COL>が
+日々寄せられています
+<COL ffdc78>「討伐クエスト」</COL>と<COL ffdc78>「納品クエスト」</COL>
+から、受注したいものを選びましょう","<COL 78f5ff>Board Quests are available!</COL>
+In various locations you will see <COL ffdc78>Quest Boards</COL>
+Residents make their various requests with
+<COL ffdc78>Board Quests</COL>.  
+Every day we get new requests.
+<COL ffdc78>Elimination Quests</COL> and <COL ffdc78>Delivery Quests</COL>
+Choose whichever you like.",ui\00_message\tutorial_guide\steps\tutorial_guide_step32.gmd,\tguide\tutorial_guide_32.arc,tutorial_guide_32.arc,0,
+1,TUTORIAL_STEP_10,"<COL ffdc78>「討伐クエスト」は指定の魔物討伐が目的と
+なり、対象敵はミニマップに緑の丸で示されます</COL>
+<COL ffdc78>「納品クエスト」は依頼の品を入手し
+《納品ボックス》に納めることが目的となります</COL>
+なお、依頼期間（配信）が過ぎてしまった
+場合は自動的にクエスト破棄されますので
+ご注意ください","<COL ffdc78>Elimination Quests</COL> are aimed at the
+suppression of monsters. 
+The target enemies are indicated
+by a green circle on the mini map.
+<COL ffdc78>Delivery Quests</COL> are about obtaining
+specific items and deliver them to
+a <COL ffdc78>Delivery Box</COL>
+However, if the time limit for the delivery has
+passed,the quest will automatically fail.
+Please be careful.",ui\00_message\tutorial_guide\steps\tutorial_guide_step32.gmd,\tguide\tutorial_guide_32.arc,tutorial_guide_32.arc,1,
+0,TUTORIAL_STEP_11,"<COL 78f5ff>《パーソナルクエスト》が解放されました！</COL>
+緑のアイコンで表される<COL ffdc78>《パーソナルクエスト》</COL>は
+レスタニアの世界を知り、深めることができる
+優先度の高いクエストです","<COL 78f5ff>Personal Quests are available!</COL>
+<COL ffdc78>Personal Quests</COL> are represented
+by a green icon.
+You will know and understand more 
+of Lestania doing these quests. 
+They are very important!",ui\00_message\tutorial_guide\steps\tutorial_guide_step36.gmd,\tguide\tutorial_guide_36.arc,tutorial_guide_36.arc,0,
+2,TUTORIAL_STEP_12,"優先設定と解除は、【<KC UI_GAME_MENU>】ゲームメニュー
+《クエスト》の<COL ffdc78>《クエストログ》</COL>から行えます
+<COL ffdc78>優先クエストは最大３つまで設定できます</COL>
+複数のクエストを同時に進めている場合も
+うまく優先の切替えをおこない、
+必要な情報をすぐ見られるようにしましょう","Quest priority can be set in the [<KC UI_GAME_MENU>] 
+<COL ffdc78>Game Menu Quest Log</COL> inside the <COL ffdc78>Quest</COL> 
+main menu.
+<COL ffdc78>You can set up to 3 Priority Quests.</COL>
+If you are progressing through multiple quests at
+the same time you should switch quest priority
+as needed, so you can easily see the information
+that you need.",ui\00_message\tutorial_guide\steps\tutorial_guide_step36.gmd,\tguide\tutorial_guide_36.arc,tutorial_guide_36.arc,2,
+0,TUTORIAL_STEP_16,"各クエストには、そのクエストがクリア可能かどうかの
+指標となる<COL ffdc78>《推奨レベル》</COL>が設定されています
+エリア難度、登場する敵レベルの目安となるため、
+自分のレベルに見合ったクエストに挑みましょう
+<COL ffdc78>また、ジョブレベルだけではなく装備品もレベルに
+見合っていることが前提です</COL>","All quests have a <COL ffdc78>Recommended Level.</COL>
+This will tell you the level of enemies 
+that appear in the quest area.
+<COL ffdc78>Note that the recommended level not
+only means your vocation level but 
+also your equipment level.</COL>
+Be sure to challenge quests that match 
+your level.",ui\00_message\tutorial_guide\steps\tutorial_guide_step43.gmd,\tguide\tutorial_guide_43.arc,tutorial_guide_43.arc,0,
+1,TUTORIAL_STEP_32,"ミニマップのサイズや縮尺はいつでも変更できます
+状況に合わせて切替えましょう
+＜サイズ変更＞
+　【<KC UI_MINIMAP>】＋【<KC UI_MINIMAP_SCALING>】で切替
+＜縮尺変更＞
+　【<KC UI_MINIMAP>】+【<KC UI_MAP_ZOOM_IN>／<KC UI_MAP_ZOOM_OUT>】で変更
+＜位置固定＞
+　【<KC UI_MINIMAP>】+【<KC UI_MINIMAP_LOCK>】で固定","You can change the size and zoom of 
+the <COL ffdc78>MiniMap</COL> at any time. 
+Change it according to the situation.
+""""Resizing""""
+Change Size with [<KC UI_MINIMAP>]+[<KC UI_MINIMAP_SCALING>]
+""""Zooming""""
+Change Zoom with [<KC UI_MINIMAP>]+[<KC UI_MAP_ZOOM_IN>／<KC UI_MAP_ZOOM_OUT>]
+""""Lock Size""""
+Lock Mini Map with [<KC UI_MINIMAP>]+[<KC UI_MINIMAP_LOCK>]",ui\00_message\tutorial_guide\steps\tutorial_guide_step39.gmd,\tguide\tutorial_guide_39.arc,tutorial_guide_39.arc,1,
+0,TUTORIAL_STEP_33,"画面右上の<COL ffdc78>《ミニマップ》</COL>で
+「プレイヤーの位置」と「敵の位置」が
+すぐに確認できます
+<COL ffdc78>中央緑のカーソルがあなたの現在地
+小さな丸が敵の位置です</COL>
+倒すべき敵の位置を把握しましょう","On the upper-right corner of the screen 
+you will find the <COL ffdc78>MiniMap</COL>. 
+Here you can quickly see your position 
+and the position of enemies.
+<COL ffdc78>The green circle at the center is your
+current location, and small circles
+represent enemies.</COL>
+Use it to plan your next move.",ui\00_message\tutorial_guide\steps\tutorial_guide_step39.gmd,\tguide\tutorial_guide_39.arc,tutorial_guide_39.arc,0,
 1,TUTORIAL_STEP_34,"進行中のクエスト詳細は、いつでも【<KC UI_GAME_MENU>】
 ゲームメニュー《クエスト》の<COL ffdc78>《クエストログ》</COL>
 で見ることができます
@@ -144,50 +236,35 @@ progress under <COL ffdc78>Quest</COL> in the <COL ffdc78>Quest Log</COL>.
 If you want to see the quest summary,
 current objective, completion reward,
 etc, you can view it here.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,1,
-2,TUTORIAL_STEP_195,"<COL ffdc78>メインクエストで指定の魔物討伐が目的の
-場合、対象敵はミニマップに赤の丸で示されます</COL>
-また過去のクエスト経緯は
-《謁見の間》にいる神官ジョゼフが
-報告書形式で管理しています
-これまでの出来事を振り返りたい場合は
-彼を訪ねましょう","<COL ffdc78>When the Main Quest's objective is to
-defeat monsters, the target enemies
-will be marked on the minimap with
-a red circle.</COL>
-Also, a history of previous quests is
-available from Priest Joseph in the
-<COL ffdc78>Audience Room.</COL>
-If you wish to look back on previous
-exploits, give him a visit.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,2,
-0,TUTORIAL_STEP_71,"ゲームメニュー《ワールド》の<COL ffdc78>《マップ》</COL>では
-ミニマップより広域のマップを見ることができます
-冒険に役立つさまざまな情報
-（パーティーメンバーの現在位置、敵や施設、
-　地名やクエスト目的地など）
-が確認できるため、ぜひ活用してください","In the Game Menu, selecting <COL ffdc78>World</COL>, 
-then <COL ffdc78>Map</COL> will show a wider view of 
-the world than the MiniMap.
-To check various information useful to 
-your adventure (Party member's current 
-locations, enemies, buildings, place 
-names or quest objectives), make sure 
-to use it.",ui\00_message\tutorial_guide\steps\tutorial_guide_step24.gmd,\tguide\tutorial_guide_24.arc,tutorial_guide_24.arc,0,
-1,TUTORIAL_STEP_223,"ゲームメニュー《マップ》の操作
-＜地図切替　詳細／フィールド／広域＞
-　【<KC UI_LB>／<KC UI_RB>】で切替
-＜表示変更＞
-　【<KC UI_MAP_ZOOM_IN>／<KC UI_MAP_ZOOM_OUT>】ズームイン／アウト
-　【<KC UI_Y>】透明度の変更
-＜フリーマーカー＞　
-　【<KC UI_MAP_FREEMARKER>】設置／消去（長押し）","Operating the ""Map"" in the Game Menu.
-Local/Field/Global Switch:
-[<KC UI_LB>/<KC UI_RB>] Switch Left/Right
-Display Change:
-[<KC UI_MAP_ZOOM_IN>/<KC UI_MAP_ZOOM_OUT>] Zoom
-in/out
-[<KC UI_Y>] Change transparency
-Free Marker:
-[<KC UI_MAP_FREEMARKER>] Place/Remove (Hold)",ui\00_message\tutorial_guide\steps\tutorial_guide_step24.gmd,\tguide\tutorial_guide_24.arc,tutorial_guide_24.arc,1,
+0,TUTORIAL_STEP_35,"<COL 78f5ff>《ワールドクエスト》が解放されました！</COL>
+<COL ffdc78>《ワールドクエスト》</COL>は、日々レスタニアを
+探索することで見つけられるクエストです
+ＮＰＣからの依頼、突発的な戦闘などさまざまです
+推奨レベルは受ける前に確認すると良いでしょう
+<COL ffdc78>ワールドクエスト指定の討伐対象敵は
+ミニマップに青の丸で示されます</COL>","<COL 78f5ff>World Quests are available!</COL>
+<COL ffdc78>World Quests</COL> are unique to each area,
+they can be obtained from <COL ffdc78>Lestania News</COL>,
+talking to NPCs or Encountering an enemy 
+in the field.
+Be sure to check the recommended level!
+The target enemy of the <COL ffdc78>World Quest</COL>
+appears on your Mini Map as a 
+<COL 78f5ff>blue circle</COL>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step42.gmd,\tguide\tutorial_guide_42.arc,tutorial_guide_42.arc,0,
+2,TUTORIAL_STEP_36,"＜公開クエスト＞：通常報酬
+　…全てのプレイヤーに発生場所や報酬、敵などが
+　　公開されているクエストです
+＜未公開クエスト＞：ボーナス報酬追加
+　…自力で探索し見つけ出すか、エリアマスターに
+　　情報料を払う必要があるクエストです
+　<COL ffdc78>クリア時１度のみ、未公開ボーナス報酬が付きます</COL>","<COL ffdc78>Public Quests</COL>: give normal rewards.
+The location of the enemy and the quest 
+rewards can be seen by all players.
+<COL ffdc78>Hidden Quests</COL>: give bonus rewards.
+You need to search for yourself to find it;
+You can also pay <COL ffdc78>Area Master</COL> for hints.
+<COL ffdc78>Know that you can only get the bonus
+rewards once.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step42.gmd,\tguide\tutorial_guide_42.arc,tutorial_guide_42.arc,2,
 0,TUTORIAL_STEP_45,"まずは基本操作です
 <COL ffdc78>移動：</COL><PADM>【左スティック】<KEYM>【<KC MOVE_FORWARD><KC MOVE_LEFT><KC MOVE_BACKWARD><KC MOVE_RIGHT>】</KEYM>
 <COL ffdc78>ダッシュ：</COL><PADM>移動中【<KC DASH>】押し込み<KEYM>同じ移動キーを２回押す
@@ -206,6 +283,141 @@ while moving<KEYM>Double tap movement key
 <COL ffdc78>Camera (POV) Operation:</COL><PADM>[Right Stick]<KEYM>[Move <ICON MOUSE>]</KEYM>
 <COL ffdc78>Reset View: </COL>[<KC CAMERA_RESET>]
 <COL ffdc78>Change View Distance：</COL><PADM>[<KC CAMERA_RESET>]Double click<KEYM>[<ICON MOUSE_WHL_4>up and down]</KEYM>",ui\00_message\tutorial_guide\steps\tutorial_guide_step27.gmd,\tguide\tutorial_guide_27.arc,tutorial_guide_27.arc,1,
+1,TUTORIAL_STEP_50,"また、白竜神殿はいくつかの区画に分かれています
+《中央広場》…皆が集う神殿の中心部
+《商店区》　…武具や素材など各種店舗が集まる場
+《宿場区》　…宿と酒場の憩いの場
+《クラフトルーム》…ポーンのアイテム工房
+《港洞》　　…海洋任務に備える停船所
+《謁見の間》…白竜や重要人物との対話の場","The White Dragon temple is divided into 
+several districts.
+<COL ffdc78>Central Square:</COL> Temple's heart, where all gather.
+<COL ffdc78>Shopping District:</COL> Weapons, materials, and shops.
+<COL ffdc78>Relay Station District:</COL> Inns and taverns for relaxation.
+<COL ffdc78>Craft Room:</COL> Pawn item crafting workshop.
+<COL ffdc78>Cave Harbor:</COL> Mooring for maritime vessels.
+<COL ffdc78>Audience Chamber:</COL> The White Dragon & important 
+figures.",ui\00_message\tutorial_guide\steps\tutorial_guide_step35.gmd,\tguide\tutorial_guide_35.arc,tutorial_guide_35.arc,1,
+0,TUTORIAL_STEP_71,"ゲームメニュー《ワールド》の<COL ffdc78>《マップ》</COL>では
+ミニマップより広域のマップを見ることができます
+冒険に役立つさまざまな情報
+（パーティーメンバーの現在位置、敵や施設、
+　地名やクエスト目的地など）
+が確認できるため、ぜひ活用してください","In the Game Menu, selecting <COL ffdc78>World</COL>, 
+then <COL ffdc78>Map</COL> will show a wider view of 
+the world than the MiniMap.
+To check various information useful to 
+your adventure (Party member's current 
+locations, enemies, buildings, place 
+names or quest objectives), make sure 
+to use it.",ui\00_message\tutorial_guide\steps\tutorial_guide_step24.gmd,\tguide\tutorial_guide_24.arc,tutorial_guide_24.arc,0,
+1,TUTORIAL_STEP_77,"＜水辺＞
+　レスタニアの水辺にはヒュージブルという
+　魔物が潜み、深みに入ると引きずり込まれます
+　その場合、最後にいた陸地に戻されます
+　ただし、あまりに深い淵や谷川に落下した場合
+　死亡状態になることもあります","""Water"".
+There is danger in the waters of Lestania.
+The Brine hides in the water and drags victims
+into the depths.
+If that happens you will be returned to land.
+However, if you fall into a deep pool or stream.
+You may die.",ui\00_message\tutorial_guide\steps\tutorial_guide_step31.gmd,\tguide\tutorial_guide_31.arc,tutorial_guide_31.arc,1,
+0,TUTORIAL_STEP_78,"野外には危険な場所も存在します
+以下の場所には注意して進みましょう
+＜毒や炎に包まれた場所＞
+　ダメージを受けたり、状態異常の
+ 【毒】や【延焼】にかかってしまいます
+　深刻な追加ダメージにつながるため、
+　回復手段はいつでも用意しておきましょう","There are dangerous places in the field.
+Proceed with caution.
+There are places filled with poison and flames.
+You will take damage or status abnormalities,
+like ""Poison"" and ""Caught Fire"".
+Which will deal additional damage over time.
+Always prepare ways to recover from those.",ui\00_message\tutorial_guide\steps\tutorial_guide_step31.gmd,\tguide\tutorial_guide_31.arc,tutorial_guide_31.arc,0,
+1,TUTORIAL_STEP_79,"敵を倒すとレベルアップに必要な
+<COL ffdc78>経験値（ＸＰ）</COL>が得られます
+時にはアイテムを落とすこともあるため
+積極的に立ち向かいましょう
+<COL ffdc78>また、敵により弱点となる属性や
+狙うべき弱点部位が異なります</COL>
+敵の特性を知り、弱点を突くことで
+より戦闘は有利になるでしょう","As you defeat monsters you will level up.
+<COL ffdc78>You will get Experience Points per kill</COL>,
+And sometimes monsters will drop Items.
+Fight monsters aggressively!
+<COL ffdc78>Monsters have different attributes and 
+weaknesses; each monster is different 
+as are their weaknesses.</COL>
+Know your enemy and target their weak points.
+Doing so will give you an advantage.",ui\00_message\tutorial_guide\steps\tutorial_guide_step33.gmd,\tguide\tutorial_guide_33.arc,tutorial_guide_33.arc,1,
+0,TUTORIAL_STEP_80,"レスタニアには、覚者や住民に襲い来る
+多くの敵が徘徊しています
+巨大なもの、群れを成すもの
+毒や魔力を持つもの、夜間や雨天のみ
+登場するものなどさまざまです
+<COL ffdc78>レベル（Ｌｖ）が高い敵ほど強力です</COL>
+自分のレベルと合った敵と戦いましょう","In Lestania there are many roaming monsters
+they move in groups and attack everyone
+indiscriminately.
+And at night or in rain, monsters that use 
+poison or magic appear.
+<COL ffdc78>Monsters with higher levels are more 
+powerful.</COL>
+Fight against enemies that match your level.",ui\00_message\tutorial_guide\steps\tutorial_guide_step33.gmd,\tguide\tutorial_guide_33.arc,tutorial_guide_33.arc,0,
+1,TUTORIAL_STEP_82,"彼らに話しかけると、
+会話メニューに項目が表示されます
+
+利用したい機能、話したい内容を
+選びましょう","When you talk to them, options appear 
+in the <COL ffdc78>Conversation menu.</COL>
+You can choose what you want to talk 
+about. Get to know them!",ui\00_message\tutorial_guide\steps\tutorial_guide_step38.gmd,\tguide\tutorial_guide_38.arc,tutorial_guide_38.arc,1,
+0,TUTORIAL_STEP_83,"このレスタニアには、覚者であるあなたのほかにも
+多くの人々（ＮＰＣ）が暮らしています
+彼らＮＰＣの中には
+
+　　　店や施設を開いている者
+　　　クエスト依頼者
+　　　地域問題やジョブの専門家
+
+など、さまざまな役割を持つ者がいます","In Lestania, beside the Arisen live many 
+people (NPCs). 
+NPCs have different roles, such as:  
+Shopkeepers and Innkeeps.
+Quest clients.
+Area and Job Masters.
+Be sure to meet them all!",ui\00_message\tutorial_guide\steps\tutorial_guide_step38.gmd,\tguide\tutorial_guide_38.arc,tutorial_guide_38.arc,0,
+1,TUTORIAL_STEP_99,"<COL ffdc78>掲載されているクエストを遊びたい人
+同士のクイックパーティーや、最寄り拠点への
+リム転移も可能です</COL>
+また地域メニュー上の<COL ffdc78>《本日のパーティーボーナス》</COL>
+対象のクエストは、他のプレイヤーとパーティーを
+組んでクリアするとボーナス報酬が
+得られるもので、内容はデイリーで変化します
+レスタニアニュースは日々チェックしましょう","For players who want to play the featured quests, 
+<COL ffdc78>Quick Parties</COL> with others and Rift Teleports 
+to the closest locations are also available.
+In addition, quests that are part of 
+<COL ffdc78>Today's Party Bonus</COL> on the Regional Menu 
+are designed to give bonus rewards when 
+cleared in a party with other players, and 
+their contents change every day.
+Be sure to check <COL ffdc78>Lestania News</COL> daily.",ui\00_message\tutorial_guide\steps\tutorial_guide_step40.gmd,\tguide\tutorial_guide_40.arc,tutorial_guide_40.arc,1,
+0,TUTORIAL_STEP_100,"<COL ffdc78>《レスタニアニュース》は、
+現在各地で起こっているさまざまなトピックが
+掲載される、この世界の冒険ガイドです</COL>
+神殿のセネカや、【<KC UI_GAME_MENU>】ゲームメニュー
+<COL ffdc78>《クエスト》</COL>から読むことができます
+配信中のワールドクエストやイベントなど
+開催情報はここをチェックしましょう","<COL ffdc78>Lestania News</COL> is your adventure guide to this 
+world, featuring articles on various topics 
+currently happening across Lestania. 
+You can read it talking to Seneka or via the 
+<COL ffdc78>Quest</COL> option in the [<KC UI_GAME_MENU>] Game Menu. 
+Check here for the latest information on 
+ongoing World Quests, Events, and more.",ui\00_message\tutorial_guide\steps\tutorial_guide_step40.gmd,\tguide\tutorial_guide_40.arc,tutorial_guide_40.arc,0,
 0,TUTORIAL_STEP_145,"<COL ffdc78>《ショートカット》</COL>はさまざまな機能を
 楽なボタンで呼び出せる便利な短縮操作です
 回復アイテム、チャット定型文、メニューや
@@ -222,6 +434,125 @@ can be the difference between life and death.
 If you have an item or feature you might
 want to use in a hurry, make sure to
 register it in advance.",ui\00_message\tutorial_guide\steps\tutorial_guide_step29.gmd,\tguide\tutorial_guide_29.arc,tutorial_guide_29.arc,0,
+1,TUTORIAL_STEP_149,"表示させる情報はフィルタリングできます
+　【<KC UI_LB>／<KC UI_RB>】でチャンネル切替
+　（＋）からチャンネル追加
+　入力欄などで【<KC UI_RT>】を押すとログ拡大
+　【<KC KEY_UP>／<KC KEY_DOWN>】でログ確認
+<COL ffdc78>拡大した状態であれば、発言者を直接選んで
+話しかけたり、プロフィール確認やパーティー要請、
+フレンド申請できます</COL>","The Information that is displayed can be filtered
+with [<KC UI_LB>/<KC UI_RB>] this will switch channels.
+Use (+) to add a channel.
+In the input field press [<KC UI_RT>] to enlarge 
+the chat log.
+Use [<KC KEY_UP>/<KC KEY_DOWN>] to scroll through it.",ui\00_message\tutorial_guide\steps\tutorial_guide_step46.gmd,\tguide\tutorial_guide_46.arc,tutorial_guide_46.arc,1,
+0,TUTORIAL_STEP_150,"<COL ffdc78>《チャット》</COL>は、ゲームプレイ中に
+他のプレイヤーとコミュニケーションを
+取るための基本ツールです
+また<COL ffdc78>《チャットログ》</COL>にはそれまでの
+チャット発言が記録され、
+ゲーム中の状況告知も流れます
+【<KC UI_CHAT>】を押してチャットモードに
+切替え、発言を入力しましょう","<COL ffdc78>Chat</COL>
+This is the fundamental tool you use 
+to communicate with others during
+gameplay.
+The <COL ffdc78>Chat Log</COL> records all messages
+recieved during gameplay.
+This chat gets refreshed constantly 
+during gameplay.
+Press [<KC UI_CHAT>] to enter chat mode.
+This will switch to the chat window so 
+you can input what you want to say.",ui\00_message\tutorial_guide\steps\tutorial_guide_step46.gmd,\tguide\tutorial_guide_46.arc,tutorial_guide_46.arc,0,
+1,TUTORIAL_STEP_189,"なおワールドクエストやメインクエストにおいては
+仲間やポーンも含め、パーティー４人全員が
+《推奨レベル》に適正である事も重要です
+装備品がレベルに見合わない場合もクリア難度は
+上がるため、挑む前には準備も整えましょう","In <COL ffdc78>World Quests</COL> and <COL ffdc78>Main Quests</COL>, all 
+party members should also fulfil the 
+recommended level requirements.
+If your equipment does not match your 
+level, the quest difficulty goes up. 
+Be sure to be prepared!",ui\00_message\tutorial_guide\steps\tutorial_guide_step43.gmd,\tguide\tutorial_guide_43.arc,tutorial_guide_43.arc,1,
+2,TUTORIAL_STEP_195,"<COL ffdc78>メインクエストで指定の魔物討伐が目的の
+場合、対象敵はミニマップに赤の丸で示されます</COL>
+また過去のクエスト経緯は
+《謁見の間》にいる神官ジョゼフが
+報告書形式で管理しています
+これまでの出来事を振り返りたい場合は
+彼を訪ねましょう","<COL ffdc78>When the Main Quest's objective is to
+defeat monsters, the target enemies
+will be marked on the minimap with
+a red circle.</COL>
+Also, a history of previous quests is
+available from Priest Joseph in the
+<COL ffdc78>Audience Room.</COL>
+If you wish to look back on previous
+exploits, give him a visit.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,2,
+1,TUTORIAL_STEP_196,"パーソナルクエストを受注したら<COL ffdc78>《優先クエスト》</COL>に
+設定してみましょう
+目的地が離れている場合でも
+画面右上のミニマップで行き先が分かりやすく
+アシスト表示されます","A Personal Quest will appear as a <COL ffdc78>
+Priority Quest</COL> once accepted.
+Even if your destination is far away, it will
+appear on the minimap in the upper-right
+corner of the screen.
+This will help you reach your objectives.",ui\00_message\tutorial_guide\steps\tutorial_guide_step36.gmd,\tguide\tutorial_guide_36.arc,tutorial_guide_36.arc,1,
+1,TUTORIAL_STEP_223,"ゲームメニュー《マップ》の操作
+＜地図切替　詳細／フィールド／広域＞
+　【<KC UI_LB>／<KC UI_RB>】で切替
+＜表示変更＞
+　【<KC UI_MAP_ZOOM_IN>／<KC UI_MAP_ZOOM_OUT>】ズームイン／アウト
+　【<KC UI_Y>】透明度の変更
+＜フリーマーカー＞　
+　【<KC UI_MAP_FREEMARKER>】設置／消去（長押し）","Operating the """"Map"""" in the Game Menu.
+Local/Field/Global Switch:
+[<KC UI_LB>/<KC UI_RB>] Switch Left/Right
+Display Change:
+[<KC UI_MAP_ZOOM_IN>/<KC UI_MAP_ZOOM_OUT>] Zoom
+in/out
+[<KC UI_Y>] Change transparency
+Free Marker:
+[<KC UI_MAP_FREEMARKER>] Place/Remove (Hold)",ui\00_message\tutorial_guide\steps\tutorial_guide_step24.gmd,\tguide\tutorial_guide_24.arc,tutorial_guide_24.arc,1,
+2,TUTORIAL_STEP_229,"＜高所からの落下＞
+　高所から落下すると、高さに応じて
+　ダメージを受けてしまいます
+　あまりに高いと死亡の危険もあるため
+　崖ぎわなどは特に注意が必要です","""Falling Damage"".
+When you fall, the damage you take
+depends on the height which you fell.
+Fall from too high and you may die.
+Be careful around cliffs.",ui\00_message\tutorial_guide\steps\tutorial_guide_step31.gmd,\tguide\tutorial_guide_31.arc,tutorial_guide_31.arc,2,
+1,TUTORIAL_STEP_300,"各地で起こっているワールドクエストとその報酬は
+<COL ffdc78>《レスタニアニュース》</COL>でいつでも確認できます
+また、各拠点の<COL ffdc78>《エリアマスター》が持つ
+《ワールドクエスト情報》</COL>では、発生場所や討伐敵
+などの詳細情報が得られます
+もう一つのポイントは
+<COL ffdc78>《公開クエスト》か《未公開クエスト》</COL>によって
+報酬や遊び方が異なることです","<COL ffdc78>World Quests</COL> and their rewards can be 
+checked at any time by checking 
+<COL ffdc78>Lestania News.</COL>
+Also, each <COL ffdc78>Area Master has World Quest 
+information.</COL>
+You can get detailed information of what 
+the enemy is or where it appears.
+Also note that <COL ffdc78>Public quests and Hidden 
+Quests</COL> have different rewards and 
+objectives.",ui\00_message\tutorial_guide\steps\tutorial_guide_step42.gmd,\tguide\tutorial_guide_42.arc,tutorial_guide_42.arc,1,
+0,TUTORIAL_STEP_405,"<COL ffdc78>《白竜神殿レーゼ》</COL>は、すべてのプレイヤーに
+とって冒険の起点となる重要な場所です
+覚者としての任務を受ける場所は
+<COL ffdc78>《謁見の間》</COL>となります
+マップを確認しながら《中央広場》の奥へ
+向いましょう","<COL ffdc78>The White Dragon Temple</COL> is a vital location and  
+the starting point of adventure for all players.
+The <COL ffdc78>Audience Chamber</COL> is where you undertake 
+your duties as the Arisen.
+Open your map and head to the back of the 
+<COL ffdc78>Central Square</COL>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step35.gmd,\tguide\tutorial_guide_35.arc,tutorial_guide_35.arc,0,
 1,TUTORIAL_STEP_408,"＜登録方法：マルチショートカット＞
 【<KC UI_GAME_MENU>】ゲームメニューから、登録したい
 メニューを選択
@@ -270,337 +601,3 @@ window</KEYM>
 ]<KEYM> [<KC UI_MSC9>/<KC UI_MSC10>
 ]</KEYM> Change set (Up to 3 sets
 allowed)",ui\00_message\tutorial_guide\steps\tutorial_guide_step29.gmd,\tguide\tutorial_guide_29.arc,tutorial_guide_29.arc,2,
-1,TUTORIAL_STEP_77,"＜水辺＞
-　レスタニアの水辺にはヒュージブルという
-　魔物が潜み、深みに入ると引きずり込まれます
-　その場合、最後にいた陸地に戻されます
-　ただし、あまりに深い淵や谷川に落下した場合
-　死亡状態になることもあります","""Water"".
-There is danger in the waters of Lestania.
-The Brine hides in the water and drags victims
-into the depths.
-If that happens you will be returned to land.
-However, if you fall into a deep pool or stream.
-You may die.",ui\00_message\tutorial_guide\steps\tutorial_guide_step31.gmd,\tguide\tutorial_guide_31.arc,tutorial_guide_31.arc,1,
-0,TUTORIAL_STEP_78,"野外には危険な場所も存在します
-以下の場所には注意して進みましょう
-＜毒や炎に包まれた場所＞
-　ダメージを受けたり、状態異常の
- 【毒】や【延焼】にかかってしまいます
-　深刻な追加ダメージにつながるため、
-　回復手段はいつでも用意しておきましょう","There are dangerous places in the field.
-Proceed with caution.
-There are places filled with poison and flames.
-You will take damage or status abnormalities,
-like ""Poison"" and ""Caught Fire"".
-Which will deal additional damage over time.
-Always prepare ways to recover from those.",ui\00_message\tutorial_guide\steps\tutorial_guide_step31.gmd,\tguide\tutorial_guide_31.arc,tutorial_guide_31.arc,0,
-2,TUTORIAL_STEP_229,"＜高所からの落下＞
-　高所から落下すると、高さに応じて
-　ダメージを受けてしまいます
-　あまりに高いと死亡の危険もあるため
-　崖ぎわなどは特に注意が必要です","""Falling Damage"".
-When you fall, the damage you take
-depends on the height which you fell.
-Fall from too high and you may die.
-Be careful around cliffs.",ui\00_message\tutorial_guide\steps\tutorial_guide_step31.gmd,\tguide\tutorial_guide_31.arc,tutorial_guide_31.arc,2,
-0,TUTORIAL_STEP_9,"<COL 78f5ff>《ボードクエスト》が解放されました！</COL>
-世界各地の拠点にある<COL ffdc78>《クエストボード》</COL>には
-住民の依頼書、さまざまな<COL ffdc78>《ボードクエスト》</COL>が
-日々寄せられています
-<COL ffdc78>「討伐クエスト」</COL>と<COL ffdc78>「納品クエスト」</COL>
-から、受注したいものを選びましょう","<COL 78f5ff>Board Quests are available!</COL>
-In various locations you will see <COL ffdc78>Quest Boards</COL>
-Residents make their various requests with
-<COL ffdc78>Board Quests</COL>.  
-Every day we get new requests.
-<COL ffdc78>Elimination Quests</COL> and <COL ffdc78>Delivery Quests</COL>
-Choose whichever you like.",ui\00_message\tutorial_guide\steps\tutorial_guide_step32.gmd,\tguide\tutorial_guide_32.arc,tutorial_guide_32.arc,0,
-1,TUTORIAL_STEP_10,"<COL ffdc78>「討伐クエスト」は指定の魔物討伐が目的と
-なり、対象敵はミニマップに緑の丸で示されます</COL>
-<COL ffdc78>「納品クエスト」は依頼の品を入手し
-《納品ボックス》に納めることが目的となります</COL>
-なお、依頼期間（配信）が過ぎてしまった
-場合は自動的にクエスト破棄されますので
-ご注意ください","<COL ffdc78>Elimination Quests</COL> are aimed at the
-suppression of monsters. 
-The target enemies are indicated
-by a green circle on the mini map.
-<COL ffdc78>Delivery Quests</COL> are about obtaining
-specific items and deliver them to
-a <COL ffdc78>Delivery Box</COL>
-However, if the time limit for the delivery has
-passed,the quest will automatically fail.
-Please be careful.",ui\00_message\tutorial_guide\steps\tutorial_guide_step32.gmd,\tguide\tutorial_guide_32.arc,tutorial_guide_32.arc,1,
-1,TUTORIAL_STEP_79,"敵を倒すとレベルアップに必要な
-<COL ffdc78>経験値（ＸＰ）</COL>が得られます
-時にはアイテムを落とすこともあるため
-積極的に立ち向かいましょう
-<COL ffdc78>また、敵により弱点となる属性や
-狙うべき弱点部位が異なります</COL>
-敵の特性を知り、弱点を突くことで
-より戦闘は有利になるでしょう","As you defeat monsters you will level up.
-<COL ffdc78>You will get Experience Points per kill</COL>,
-And sometimes monsters will drop Items.
-Fight monsters aggressively!
-<COL ffdc78>Monsters have different attributes and 
-weaknesses; each monster is different 
-as are their weaknesses.</COL>
-Know your enemy and target their weak points.
-Doing so will give you an advantage.",ui\00_message\tutorial_guide\steps\tutorial_guide_step33.gmd,\tguide\tutorial_guide_33.arc,tutorial_guide_33.arc,1,
-0,TUTORIAL_STEP_80,"レスタニアには、覚者や住民に襲い来る
-多くの敵が徘徊しています
-巨大なもの、群れを成すもの
-毒や魔力を持つもの、夜間や雨天のみ
-登場するものなどさまざまです
-<COL ffdc78>レベル（Ｌｖ）が高い敵ほど強力です</COL>
-自分のレベルと合った敵と戦いましょう","In Lestania there are many roaming monsters
-they move in groups and attack everyone
-indiscriminately.
-And at night or in rain, monsters that use 
-poison or magic appear.
-<COL ffdc78>Monsters with higher levels are more 
-powerful.</COL>
-Fight against enemies that match your level.",ui\00_message\tutorial_guide\steps\tutorial_guide_step33.gmd,\tguide\tutorial_guide_33.arc,tutorial_guide_33.arc,0,
-1,TUTORIAL_STEP_50,"また、白竜神殿はいくつかの区画に分かれています
-《中央広場》…皆が集う神殿の中心部
-《商店区》　…武具や素材など各種店舗が集まる場
-《宿場区》　…宿と酒場の憩いの場
-《クラフトルーム》…ポーンのアイテム工房
-《港洞》　　…海洋任務に備える停船所
-《謁見の間》…白竜や重要人物との対話の場","The White Dragon temple is divided into 
-several districts.
-<COL ffdc78>Central Square:</COL> Temple's heart, where all gather.
-<COL ffdc78>Shopping District:</COL> Weapons, materials, and shops.
-<COL ffdc78>Relay Station District:</COL> Inns and taverns for relaxation.
-<COL ffdc78>Craft Room:</COL> Pawn item crafting workshop.
-<COL ffdc78>Cave Harbor:</COL> Mooring for maritime vessels.
-<COL ffdc78>Audience Chamber:</COL> The White Dragon & important 
-figures.",ui\00_message\tutorial_guide\steps\tutorial_guide_step35.gmd,\tguide\tutorial_guide_35.arc,tutorial_guide_35.arc,1,
-0,TUTORIAL_STEP_405,"<COL ffdc78>《白竜神殿レーゼ》</COL>は、すべてのプレイヤーに
-とって冒険の起点となる重要な場所です
-覚者としての任務を受ける場所は
-<COL ffdc78>《謁見の間》</COL>となります
-マップを確認しながら《中央広場》の奥へ
-向いましょう","<COL ffdc78>The White Dragon Temple</COL> is a vital location and  
-the starting point of adventure for all players.
-The <COL ffdc78>Audience Chamber</COL> is where you undertake 
-your duties as the Arisen.
-Open your map and head to the back of the 
-<COL ffdc78>Central Square</COL>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step35.gmd,\tguide\tutorial_guide_35.arc,tutorial_guide_35.arc,0,
-0,TUTORIAL_STEP_11,"<COL 78f5ff>《パーソナルクエスト》が解放されました！</COL>
-緑のアイコンで表される<COL ffdc78>《パーソナルクエスト》</COL>は
-レスタニアの世界を知り、深めることができる
-優先度の高いクエストです","<COL 78f5ff>Personal Quests are available!</COL>
-<COL ffdc78>Personal Quests</COL> are represented
-by a green icon.
-You will know and understand more 
-of Lestania doing these quests. 
-They are very important!",ui\00_message\tutorial_guide\steps\tutorial_guide_step36.gmd,\tguide\tutorial_guide_36.arc,tutorial_guide_36.arc,0,
-2,TUTORIAL_STEP_12,"優先設定と解除は、【<KC UI_GAME_MENU>】ゲームメニュー
-《クエスト》の<COL ffdc78>《クエストログ》</COL>から行えます
-<COL ffdc78>優先クエストは最大３つまで設定できます</COL>
-複数のクエストを同時に進めている場合も
-うまく優先の切替えをおこない、
-必要な情報をすぐ見られるようにしましょう","Quest priority can be set in the [<KC UI_GAME_MENU>] 
-<COL ffdc78>Game Menu Quest Log</COL> inside the <COL ffdc78>Quest</COL> 
-main menu.
-<COL ffdc78>You can set up to 3 Priority Quests.</COL>
-If you are progressing through multiple quests at
-the same time you should switch quest priority
-as needed, so you can easily see the information
-that you need.",ui\00_message\tutorial_guide\steps\tutorial_guide_step36.gmd,\tguide\tutorial_guide_36.arc,tutorial_guide_36.arc,2,
-1,TUTORIAL_STEP_196,"パーソナルクエストを受注したら<COL ffdc78>《優先クエスト》</COL>に
-設定してみましょう
-目的地が離れている場合でも
-画面右上のミニマップで行き先が分かりやすく
-アシスト表示されます","A Personal Quest will appear as a <COL ffdc78>
-Priority Quest</COL> once accepted.
-Even if your destination is far away, it will
-appear on the minimap in the upper-right
-corner of the screen.
-This will help you reach your objectives.",ui\00_message\tutorial_guide\steps\tutorial_guide_step36.gmd,\tguide\tutorial_guide_36.arc,tutorial_guide_36.arc,1,
-1,TUTORIAL_STEP_82,"彼らに話しかけると、
-会話メニューに項目が表示されます
-
-利用したい機能、話したい内容を
-選びましょう","When you talk to them,
-options appear in the Conversation menu.
-
-So you can choose what you want to talk about.
-Get to know them!",ui\00_message\tutorial_guide\steps\tutorial_guide_step38.gmd,\tguide\tutorial_guide_38.arc,tutorial_guide_38.arc,1,
-0,TUTORIAL_STEP_83,"このレスタニアには、覚者であるあなたのほかにも
-多くの人々（ＮＰＣ）が暮らしています
-彼らＮＰＣの中には
-
-　　　店や施設を開いている者
-　　　クエスト依頼者
-　　　地域問題やジョブの専門家
-
-など、さまざまな役割を持つ者がいます","In Lestania, beside the Arisen
-many people (NPCs) live,
-NPCs have different roles, such as:
-
-Shopkeepers and facility owners.
-Quest clients.
-Area and Job Masters.
-
-Be sure to meet them all!",ui\00_message\tutorial_guide\steps\tutorial_guide_step38.gmd,\tguide\tutorial_guide_38.arc,tutorial_guide_38.arc,0,
-1,TUTORIAL_STEP_32,"ミニマップのサイズや縮尺はいつでも変更できます
-状況に合わせて切替えましょう
-＜サイズ変更＞
-　【<KC UI_MINIMAP>】＋【<KC UI_MINIMAP_SCALING>】で切替
-＜縮尺変更＞
-　【<KC UI_MINIMAP>】+【<KC UI_MAP_ZOOM_IN>／<KC UI_MAP_ZOOM_OUT>】で変更
-＜位置固定＞
-　【<KC UI_MINIMAP>】+【<KC UI_MINIMAP_LOCK>】で固定","You can change the size and zoom of 
-the <COL ffdc78>MiniMap</COL> at any time. 
-Change it according to the situation.
-""Resizing""
-Change Size with [<KC UI_MINIMAP>]+[<KC UI_MINIMAP_SCALING>]
-""Zooming""
-Change Zoom with [<KC UI_MINIMAP>]+[<KC UI_MAP_ZOOM_IN>／<KC UI_MAP_ZOOM_OUT>]
-""Lock Size""
-Lock Mini Map with [<KC UI_MINIMAP>]+[<KC UI_MINIMAP_LOCK>]",ui\00_message\tutorial_guide\steps\tutorial_guide_step39.gmd,\tguide\tutorial_guide_39.arc,tutorial_guide_39.arc,1,
-0,TUTORIAL_STEP_33,"画面右上の<COL ffdc78>《ミニマップ》</COL>で
-「プレイヤーの位置」と「敵の位置」が
-すぐに確認できます
-<COL ffdc78>中央緑のカーソルがあなたの現在地
-小さな丸が敵の位置です</COL>
-倒すべき敵の位置を把握しましょう","On the upper-right corner of the screen 
-you will find the <COL ffdc78>MiniMap</COL>. 
-Here you can quickly see your position 
-and the position of enemies.
-<COL ffdc78>The green circle at the center is your
-current location, and small circles
-represent enemies.</COL>
-Use it to plan your next move.",ui\00_message\tutorial_guide\steps\tutorial_guide_step39.gmd,\tguide\tutorial_guide_39.arc,tutorial_guide_39.arc,0,
-1,TUTORIAL_STEP_99,"<COL ffdc78>掲載されているクエストを遊びたい人
-同士のクイックパーティーや、最寄り拠点への
-リム転移も可能です</COL>
-また地域メニュー上の<COL ffdc78>《本日のパーティーボーナス》</COL>
-対象のクエストは、他のプレイヤーとパーティーを
-組んでクリアするとボーナス報酬が
-得られるもので、内容はデイリーで変化します
-レスタニアニュースは日々チェックしましょう","For players who want to play the featured quests, 
-<COL ffdc78>Quick Parties</COL> with others and Rift Teleports 
-to the closest locations are also available.
-In addition, quests that are part of 
-<COL ffdc78>Today's Party Bonus</COL> on the Regional Menu 
-are designed to give bonus rewards when 
-cleared in a party with other players, and 
-their contents change every day.
-Be sure to check <COL ffdc78>Lestania News</COL> daily.",ui\00_message\tutorial_guide\steps\tutorial_guide_step40.gmd,\tguide\tutorial_guide_40.arc,tutorial_guide_40.arc,1,
-0,TUTORIAL_STEP_100,"<COL ffdc78>《レスタニアニュース》は、
-現在各地で起こっているさまざまなトピックが
-掲載される、この世界の冒険ガイドです</COL>
-神殿のセネカや、【<KC UI_GAME_MENU>】ゲームメニュー
-<COL ffdc78>《クエスト》</COL>から読むことができます
-配信中のワールドクエストやイベントなど
-開催情報はここをチェックしましょう","<COL ffdc78>Lestania News</COL> is your adventure guide to this 
-world, featuring articles on various topics 
-currently happening across Lestania. 
-You can read it talking to Seneka or via the 
-<COL ffdc78>Quest</COL> option in the [<KC UI_GAME_MENU>] Game Menu. 
-Check here for the latest information on 
-ongoing World Quests, Events, and more.",ui\00_message\tutorial_guide\steps\tutorial_guide_step40.gmd,\tguide\tutorial_guide_40.arc,tutorial_guide_40.arc,0,
-0,TUTORIAL_STEP_35,"<COL 78f5ff>《ワールドクエスト》が解放されました！</COL>
-<COL ffdc78>《ワールドクエスト》</COL>は、日々レスタニアを
-探索することで見つけられるクエストです
-ＮＰＣからの依頼、突発的な戦闘などさまざまです
-推奨レベルは受ける前に確認すると良いでしょう
-<COL ffdc78>ワールドクエスト指定の討伐対象敵は
-ミニマップに青の丸で示されます</COL>","<COL 78f5ff>World Quests are available!</COL>
-<COL ffdc78>World Quests</COL> are unique to each area,
-they can be obtained from <COL ffdc78>Lestania News</COL>,
-talking to NPCs or Encountering an enemy 
-in the field.
-Be sure to check the recommended level!
-The target enemy of the <COL ffdc78>World Quest</COL>
-appears on your Mini Map as a 
-<COL 78f5ff>blue circle</COL>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step42.gmd,\tguide\tutorial_guide_42.arc,tutorial_guide_42.arc,0,
-2,TUTORIAL_STEP_36,"＜公開クエスト＞：通常報酬
-　…全てのプレイヤーに発生場所や報酬、敵などが
-　　公開されているクエストです
-＜未公開クエスト＞：ボーナス報酬追加
-　…自力で探索し見つけ出すか、エリアマスターに
-　　情報料を払う必要があるクエストです
-　<COL ffdc78>クリア時１度のみ、未公開ボーナス報酬が付きます</COL>","<COL ffdc78>Public Quests</COL>: give normal rewards.
-The location of the enemy and the quest 
-rewards can be seen by all players.
-<COL ffdc78>Hidden Quests</COL>: give bonus rewards.
-You need to search for yourself to find it;
-You can also pay <COL ffdc78>Area Master</COL> for hints.
-<COL ffdc78>Know that you can only get the bonus
-rewards once.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step42.gmd,\tguide\tutorial_guide_42.arc,tutorial_guide_42.arc,2,
-1,TUTORIAL_STEP_300,"各地で起こっているワールドクエストとその報酬は
-<COL ffdc78>《レスタニアニュース》</COL>でいつでも確認できます
-また、各拠点の<COL ffdc78>《エリアマスター》が持つ
-《ワールドクエスト情報》</COL>では、発生場所や討伐敵
-などの詳細情報が得られます
-もう一つのポイントは
-<COL ffdc78>《公開クエスト》か《未公開クエスト》</COL>によって
-報酬や遊び方が異なることです","<COL ffdc78>World Quests</COL> and their rewards can be 
-checked at any time by checking 
-<COL ffdc78>Lestania News.</COL>
-Also, each <COL ffdc78>Area Master has World Quest 
-information.</COL>
-You can get detailed information of what 
-the enemy is or where it appears.
-Also note that <COL ffdc78>Public quests and Hidden 
-Quests</COL> have different rewards and 
-objectives.",ui\00_message\tutorial_guide\steps\tutorial_guide_step42.gmd,\tguide\tutorial_guide_42.arc,tutorial_guide_42.arc,1,
-0,TUTORIAL_STEP_16,"各クエストには、そのクエストがクリア可能かどうかの
-指標となる<COL ffdc78>《推奨レベル》</COL>が設定されています
-エリア難度、登場する敵レベルの目安となるため、
-自分のレベルに見合ったクエストに挑みましょう
-<COL ffdc78>また、ジョブレベルだけではなく装備品もレベルに
-見合っていることが前提です</COL>","All quests have a <COL ffdc78>Recommended Level.</COL>
-This will tell you the level of enemies 
-that appear in the quest area.
-<COL ffdc78>Note that the recommended level not
-only means your vocation level but 
-also your equipment level.</COL>
-Be sure to challenge quests that match 
-your level.",ui\00_message\tutorial_guide\steps\tutorial_guide_step43.gmd,\tguide\tutorial_guide_43.arc,tutorial_guide_43.arc,0,
-1,TUTORIAL_STEP_189,"なおワールドクエストやメインクエストにおいては
-仲間やポーンも含め、パーティー４人全員が
-《推奨レベル》に適正である事も重要です
-装備品がレベルに見合わない場合もクリア難度は
-上がるため、挑む前には準備も整えましょう","In <COL ffdc78>World Quests</COL> and <COL ffdc78>Main Quests</COL>, all 
-party members should also fulfil the 
-recommended level requirements.
-If your equipment does not match your 
-level, the quest difficulty goes up. 
-Be sure to be prepared!",ui\00_message\tutorial_guide\steps\tutorial_guide_step43.gmd,\tguide\tutorial_guide_43.arc,tutorial_guide_43.arc,1,
-1,TUTORIAL_STEP_149,"表示させる情報はフィルタリングできます
-　【<KC UI_LB>／<KC UI_RB>】でチャンネル切替
-　（＋）からチャンネル追加
-　入力欄などで【<KC UI_RT>】を押すとログ拡大
-　【<KC KEY_UP>／<KC KEY_DOWN>】でログ確認
-<COL ffdc78>拡大した状態であれば、発言者を直接選んで
-話しかけたり、プロフィール確認やパーティー要請、
-フレンド申請できます</COL>","The Information that is displayed can be filtered
-with [<KC UI_LB>/<KC UI_RB>] this will switch channels.
-Use (+) to add a channel.
-In the input field press [<KC UI_RT>] to enlarge 
-the chat log.
-Use [<KC KEY_UP>/<KC KEY_DOWN>] to scroll through it.",ui\00_message\tutorial_guide\steps\tutorial_guide_step46.gmd,\tguide\tutorial_guide_46.arc,tutorial_guide_46.arc,1,
-0,TUTORIAL_STEP_150,"<COL ffdc78>《チャット》</COL>は、ゲームプレイ中に
-他のプレイヤーとコミュニケーションを
-取るための基本ツールです
-また<COL ffdc78>《チャットログ》</COL>にはそれまでの
-チャット発言が記録され、
-ゲーム中の状況告知も流れます
-【<KC UI_CHAT>】を押してチャットモードに
-切替え、発言を入力しましょう","<COL ffdc78>Chat</COL>
-This is the fundamental tool you use 
-to communicate with others during
-gameplay.
-The <COL ffdc78>Chat Log</COL> records all messages
-recieved during gameplay.
-This chat gets refreshed constantly 
-during gameplay.
-Press [<KC UI_CHAT>] to enter chat mode.
-This will switch to the chat window so 
-you can input what you want to say.",ui\00_message\tutorial_guide\steps\tutorial_guide_step46.gmd,\tguide\tutorial_guide_46.arc,tutorial_guide_46.arc,0,

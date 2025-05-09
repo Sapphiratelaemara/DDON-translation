@@ -15,6 +15,17 @@ the ""Quest Orders"" function of the Quest Log.
 When you want to prioritize clearing ""Quest
 Orders"" quests, organize the number of quests in
 the Quest Log and accept them formally.",ui\00_message\tutorial_guide\steps\tutorial_guide_step144.gmd,\tguide\tutorial_guide_144.arc,tutorial_guide_144.arc,1,
+0,TUTORIAL_STEP_27,"<COL ffdc78>レスタニアに生まれし新たなる覚者へ</COL>
+覚者としてあなたが成すべき目的はマップ上に
+<COL ffdc78>赤の《メインクエストマーカー》で示されます</COL>
+まずは赤のマーカーを目指し
+白竜から授かった力を目前の敵にぶつけましょう","<COL ffdc78>The Newly Arisen of Lestania.</COL>
+Your goals as an Arisen are marked on
+your map with a <COL ffdc78>Red Main Quest 
+Marker indicator</COL>.
+First, head for the red marker on your
+minimap and use the strength given 
+to you by the White Dragon!",ui\00_message\tutorial_guide\steps\tutorial_guide_step153.gmd,\tguide\tutorial_guide_153.arc,tutorial_guide_153.arc,0,
 0,TUTORIAL_STEP_29,"クエストは一度に受注できる数に制限があります
 <COL ffdc78>同時受注できるのは１０件</COL>ですのでご注意ください
 制限数いっぱいまで受注してしまった場合、
@@ -31,49 +42,6 @@ you can <COL ffdc78>Cancel Quest</COL> by going
 to the <KC UI_GAME_MENU>Game Menu<COL ffdc78>
 《Quest Log》</COL>
 to make room for new quests.",ui\00_message\tutorial_guide\steps\tutorial_guide_step144.gmd,\tguide\tutorial_guide_144.arc,tutorial_guide_144.arc,0,
-2,TUTORIAL_STEP_323,"注意点として、《受注待ち》をストックした状態で
-他プレイヤーのパーティーに参加すると
-自身の《受注待ち》は自動的に破棄されます","Please not that when you join another player's
-party while having ""Quest Orders"" in stock, your
-own ""Quest Orders"" will be automatically
-discarded.",ui\00_message\tutorial_guide\steps\tutorial_guide_step144.gmd,\tguide\tutorial_guide_144.arc,tutorial_guide_144.arc,2,
-0,TUTORIAL_STEP_69,"ゲームを中断したいときは
-【<KC UI_GAME_MENU>】ゲームメニュー《オプション》
-から<COL ffdc78>《ゲーム中断》</COL>を選んでください
-ログアウト時には
-それまでのプレイ記録が自動保存されます
-再開時は、最後に居た場所ではなく
-白竜神殿《中央広場》からスタートします","If you want to interrupt the game,
-please go to [<KC UI_GAME_MENU>] Game Menu, <COL ffdc78>Options</COL> 
-and select <COL ffdc78>Exit Game</COL>.
-When you log out, the game will automatically
-save your previous play record.
-When you restart the game, you will start from
-the White Dragon Temple <COL ffdc78>Central Square</COL>, not 
-from your last location.",ui\00_message\tutorial_guide\steps\tutorial_guide_step152.gmd,\tguide\tutorial_guide_152.arc,tutorial_guide_152.arc,0,
-0,TUTORIAL_STEP_27,"<COL ffdc78>レスタニアに生まれし新たなる覚者へ</COL>
-覚者としてあなたが成すべき目的はマップ上に
-<COL ffdc78>赤の《メインクエストマーカー》で示されます</COL>
-まずは赤のマーカーを目指し
-白竜から授かった力を目前の敵にぶつけましょう","<COL ffdc78>The Newly Arisen of Lestania.</COL>
-Your goals as an Arisen are marked on
-your map with a <COL ffdc78>Red Main Quest 
-Marker indicator</COL>.
-First, head for the red marker on your
-minimap and use the strength given 
-to you by the White Dragon!",ui\00_message\tutorial_guide\steps\tutorial_guide_step153.gmd,\tguide\tutorial_guide_153.arc,tutorial_guide_153.arc,0,
-1,TUTORIAL_STEP_194,"冒険時は、左上に表示される
-<COL ffdc78>体力（ＨＰ）</COL>と<COL ffdc78>スタミナ（ＳＴ）</COL>が重要です
-ＨＰは敵の攻撃を受けると減少し
-アイテムや治癒の魔法で回復できます
-ＳＴは、激しいアクションにより消費し
-アクションを控えると自然回復します","While adventuring, the top left of your screen
-shows <COL ffdc78>Health (HP)</COL> and <COL ffdc78>Stamina (ST)</COL> bars.
-Health is depleted when you are harmed by
-enemies, and can be regained with recovery
-items and magicks.
-Stamina is depleted by using special actions
-and regenerates shortly after.",ui\00_message\tutorial_guide\steps\tutorial_guide_step153.gmd,\tguide\tutorial_guide_153.arc,tutorial_guide_153.arc,1,
 0,TUTORIAL_STEP_38,"<COL ffdc78>《グリッテン砦攻防戦》</COL>は
 最大８人のパーティーを結成し、強敵に攻められた
 グリッテン砦を防衛するエクストリームミッション
@@ -90,6 +58,335 @@ time, and you can't afford to let your guard down.
 Utilize the roles of each job and work together as
 a party to cover each other's blind spots and
 fight.",ui\00_message\tutorial_guide\steps\tutorial_guide_step155.gmd,\tguide\tutorial_guide_155.arc,tutorial_guide_155.arc,0,
+0,TUTORIAL_STEP_41,"プレイヤーは基本攻撃の他に
+スタミナを消費して専用アクションである
+<COL ffdc78>《カスタムスキル》</COL>が使用できます
+<PADM>　【<KC WEAPON_SUB>】を押しながら【<KC ATTACK1>／<KC ATTACK2>】
+　【<KC WEAPON_MAIN>】を押しながら【<KC ATTACK1>／<KC ATTACK2>】
+<KEYM>　【<KC SKILL_CUSTOM3>】 【<KC SKILL_CUSTOM4>】
+　【<KC SKILL_CUSTOM1>】 【<KC SKILL_CUSTOM2>】
+</KEYM>
+どういった技が出せるかは
+画面右下のガイドで確認しましょう","In addition to basic attacks, players can use
+<COL ffdc78>Custom Skills</COL> by consuming Stamina.
+<PADM> Press <KC WEAPON_SUB> and <KC ATTACK1>/<KC
+ATTACK2> together.
+Press <KC WEAPON_MAIN> and <KC ATTACK1>/<KC
+ATTACK2> together.
+<KEYM> Press <KC SKILL_CUSTOM3> <KC SKILL_CUSTOM4>
+Press <KC SKILL_CUSTOM1> <KC SKILL_CUSTOM2>
+</KEYM>
+Check the guide in the bottom right of the screen
+to see what kind of techniques can be used.",ui\00_message\tutorial_guide\steps\tutorial_guide_step159.gmd,\tguide\tutorial_guide_159.arc,tutorial_guide_159.arc,0,
+0,TUTORIAL_STEP_42,"夜間や洞窟内は、暗く見通しが悪くなります
+<COL ffdc78>暗闇では《ランタン》を使いましょう</COL>
+【<KC UI_GAME_MENU>】ゲームメニュー《キャラクター》の
+<COL ffdc78>《アイテムバッグ》</COL>から消費アイテム
+<COL ffdc78>《ランタン火種》</COL>を使うと、一定時間
+プレイヤーの周囲を明るく照らします
+《ランタン火種》は常にいくつか携帯しましょう","At night or inside caves, visibility becomes 
+poor and dark.
+<COL ffdc78>Use a lantern</COL> in the darkness.
+[<KC UI_GAME_MENU>] In the game menu, go to <COL ffdc78>Item Bag</COL> and 
+use the consumable item <COL ffdc78>Lantern Kindling</COL> 
+to illuminate the player's surroundings for 
+a certain period of time.
+Always carry several <COL ffdc78>Lantern Kindling</COL> 
+with you.",ui\00_message\tutorial_guide\steps\tutorial_guide_step158.gmd,\tguide\tutorial_guide_158.arc,tutorial_guide_158.arc,0,
+0,TUTORIAL_STEP_49,"<COL ffdc78>《オーブエネミー》</COL>と呼ばれる魔物を討伐
+すると、その敵の強さに応じた数の
+《ブラッドオーブ》が入手できます
+<COL ffdc78>《オーブエネミー》は通常の敵と異なり
+ＨＰゲージが紫色をしています</COL>
+周囲の敵と比べてやや強い難敵ですが
+発見したら果敢に挑みましょう","Defeat the monsters called <COL ffdc78>Blood Orb
+Enemies</COL>, and you will obtain a number of
+<COL ffdc78>Blood Orbs</COL> corresponding to the strength 
+of the enemy.
+Unlike regular enemies, the <COL ffdc78>Blood Orb 
+Enemies</COL> have a purple HP gauge.
+They are slightly stronger and more 
+challenging than the surrounding enemies, 
+but let's bravely face them when we come 
+across them.",ui\00_message\tutorial_guide\steps\tutorial_guide_step234.gmd,\tguide\tutorial_guide_234.arc,tutorial_guide_234.arc,0,
+0,TUTORIAL_STEP_69,"ゲームを中断したいときは
+【<KC UI_GAME_MENU>】ゲームメニュー《オプション》
+から<COL ffdc78>《ゲーム中断》</COL>を選んでください
+ログアウト時には
+それまでのプレイ記録が自動保存されます
+再開時は、最後に居た場所ではなく
+白竜神殿《中央広場》からスタートします","If you want to interrupt the game,
+please go to [<KC UI_GAME_MENU>] Game Menu, <COL ffdc78>Options</COL> 
+and select <COL ffdc78>Exit Game</COL>.
+When you log out, the game will automatically
+save your previous play record.
+When you restart the game, you will start from
+the White Dragon Temple <COL ffdc78>Central Square</COL>, not 
+from your last location.",ui\00_message\tutorial_guide\steps\tutorial_guide_step152.gmd,\tguide\tutorial_guide_152.arc,tutorial_guide_152.arc,0,
+1,TUTORIAL_STEP_92,"ジョブにより、使えるカスタムスキルは異なります
+戦闘中に試してみてください
+なお導入クエスト「覚悟と兆し」でセット
+されているカスタムスキルは
+このクエスト限定の一時的なものとなります","Depending on the job, the available custom 
+skills may vary. 
+Please try them out during combat.
+Please note that the custom skills set during
+the introductory quest <COL ffdc78>Resolutions and Omens</COL>
+are temporary and exclusive to that quest.",ui\00_message\tutorial_guide\steps\tutorial_guide_step159.gmd,\tguide\tutorial_guide_159.arc,tutorial_guide_159.arc,1,
+1,TUTORIAL_STEP_94,"＜押さえつけ＞
+小型の敵がのけぞったりダウンした時に
+行うことで、敵を長時間拘束できます
+拘束された敵へのダメージは大幅アップします
+　　のけぞり／ダウン中の小型敵に　【<KC TOUCH>】
+　　　（解除は【<KC JUMP>】）
+　　※拘束中はスタミナを消費","<Hold Down>
+By performing this action when a small enemy
+staggers or is knocked down, you can restrain them
+for a long period of time. The damage dealt to
+restrained enemies is significantly increased.
+Perform 【<KC TOUCH>】 on small enemies while they
+are staggered/down
+(Release with 【<KC JUMP>】)
+※ Stamina is consumed while restraining the enemy",ui\00_message\tutorial_guide\steps\tutorial_guide_step235.gmd,\tguide\tutorial_guide_235.arc,tutorial_guide_235.arc,1,
+0,TUTORIAL_STEP_157,"<COL ffdc78>《ジョブ修練ログ》</COL>では、あなたがこれまでに
+ジョブマスターから受けた修練の状況が
+記録されています
+現在進めている課題や、
+ジョブごとの達成度をここで確認しましょう
+達成したジョブ修練は、ジョブ修練ログを確認することでも
+報告完了できます","In the <COL ffdc78>Job Training Log</COL>, your
+progress in the training you have received from
+the Job Masters is recorded.
+Here, you can check the current tasks you are
+working on and the level of achievement for each
+job.
+You can also report completed job trainings by
+checking the Job Training Log.",ui\00_message\tutorial_guide\steps\tutorial_guide_step161.gmd,\tguide\tutorial_guide_161.arc,tutorial_guide_161.arc,0,
+0,TUTORIAL_STEP_159,"<COL ffdc78>《拠点の礎》</COL>は、竜の礎同様
+リム転移に用いる便利な転送器です
+レスタニア各地に点在し、触れて《リム》を
+消費することで離れた礎へ瞬時に移動できます","<COL ffdc78>The Portcrystal</COL> is a convenient transporter 
+used for Rift Teleport, similar to the Dragon's 
+Keystone.
+They are scattered throughout Lestania and by
+consuming Rift Crystals, you can instantly travel
+to distant Portcrystals.",ui\00_message\tutorial_guide\steps\tutorial_guide_step163.gmd,\tguide\tutorial_guide_163.arc,tutorial_guide_163.arc,0,
+0,TUTORIAL_STEP_160,"敵の攻撃や高所落下など、旅に危険はつきものです
+体力の回復手段は常に用意しておきましょう
+プリーストなどの回復魔法が主な回復手段に
+なりますが、<COL ffdc78>回復魔法では減少した体力のうち
+《治癒上限値》（白いゲージ）分までしか
+回復できません</COL>
+体力回復用アイテム、宿も活用し
+より万全の状態に整えてください","Traveling is always dangerous, with enemy
+attacks, falling from heights, etc.
+Always have a way to recover your health.
+Priests and other recovery magic is the main
+means of recovery, but<COL ffdc78>recovery magic
+can only recover up to ""Healable Limit"" (white
+gauge) of the reduced health.</COL>
+Please make sure you are in good shape!",ui\00_message\tutorial_guide\steps\tutorial_guide_step164.gmd,\tguide\tutorial_guide_164.arc,tutorial_guide_164.arc,0,
+0,TUTORIAL_STEP_161,"この世界レスタニアの状況は
+パーティーリーダーのメインクエスト進行度や
+エリアランクに基づき、変化します
+登場する敵、遊べるクエスト、封鎖区域の
+解放状況などさまざまな要素が
+影響を受けます","The situation in Lestania, this world, changes
+based on the party leader's main quest progress
+and the area rank.
+Various elements, such as the appearance of
+enemies, available quests, and the status of
+restricted areas, are influenced.",ui\00_message\tutorial_guide\steps\tutorial_guide_step165.gmd,\tguide\tutorial_guide_165.arc,tutorial_guide_165.arc,0,
+0,TUTORIAL_STEP_162,"<COL ffdc78>《スタンプボーナス》</COL>とは、あなたがログインで
+この世界を訪れるたびに送られる証印です
+１日１回、神殿の《復活力／ログインスタンプ》
+係官オフィリアから、訪れた証《スタンプ》と共に
+リムやシルバーチケットなどの報酬がもらえます
+スタンプは日ごとにリセットされ、
+新たに受け取れるようになります","<COL ffdc78>""Stamp Bonus""</COL> is a proof mark
+sent to you every time you visit this world, when
+you log in.
+Once a day, you can receive rewards such as Rift
+Crystals and Silver Tickets as a reward along with
+the proof ""Stamp of Resurrection/ Login Stamp""
+from Ophelia, the temple attendant.
+Stamps reset daily, allowing you to receive them
+again.",ui\00_message\tutorial_guide\steps\tutorial_guide_step166.gmd,\tguide\tutorial_guide_166.arc,tutorial_guide_166.arc,0,
+0,TUTORIAL_STEP_163,"<COL ffdc78>装備品に《クレスト装着》を行うことで、
+性能を高めたり、属性や追加効果を持たせる
+ことができます</COL>
+特殊素材<COL ffdc78>《クレスト》</COL>は、一部のクエスト報酬や
+《ポーン郷》のアルヴァーからブラッドオーブと
+交換で入手可能です","<COL ffdc78>By ""Mounting a Crest"" to your
+equipment, you can enhance its performance,
+attributes, and additional effects.</COL>
+Special material<COL ffdc78>""Crests""</COL>can be
+obtained as rewards for certain quests or in
+exchange for Blood Orbs from Alvar in ""Pawn
+Cathedral"".",ui\00_message\tutorial_guide\steps\tutorial_guide_step167.gmd,\tguide\tutorial_guide_167.arc,tutorial_guide_167.arc,0,
+0,TUTORIAL_STEP_164,"<COL ffdc78>《トレジャーズロット》</COL>に挑戦すれば
+特別な装備やレアアイテム入手の
+チャンスがあります
+神殿のキャメロンか【<KC UI_GAME_MENU>】ゲームメニュー
+《オンラインショップ》の<COL ffdc78>《トレジャーズロット》</COL>
+から、《黄金石》や《シルバーチケット》と
+引き換えに抽選できます","By trying your luck at <COL ffdc78>Treasure Lots</COL> at 
+Cameron in the Temple, the game menu
+or in the online shop, there is a chance to 
+obtain special equipment and rare items.
+You can exchange <COL ffdc78>Golden Gemstones</COL> and 
+<COL ffdc78>Silver Tickets</COL> for a lottery draw.",ui\00_message\tutorial_guide\steps\tutorial_guide_step168.gmd,\tguide\tutorial_guide_168.arc,tutorial_guide_168.arc,0,
+0,TUTORIAL_STEP_165,"アルケミストは、錬成物質による攻撃で
+敵の注目を集め、多彩な状態異常と特殊移動
+で戦況を操る術師です
+＜基本操作／攻撃＞
+　【<KC ATTACK1>】アルケム（錬成）
+　【<KC ATTACK2>】クラスター（集中錬成）
+　※《錬成値》の蓄積により強く注目を引きつけます","The Alchemist is a mage who uses offensive
+attacks with synthesized materials to attract the
+enemy's attention. They manipulate the battle
+situation with various abnormal conditions and
+special moves.
+<Basic Controls/Attacks>
+- [Alchemy] <KC ATTACK1>
+- [Cluster] <KC ATTACK2>
+* By accumulating ""Stakes"", they can draw
+stronger attention.",ui\00_message\tutorial_guide\steps\tutorial_guide_step169.gmd,\tguide\tutorial_guide_169.arc,tutorial_guide_169.arc,0,
+0,TUTORIAL_STEP_166,"アルケミストは、錬成物質とエリクシルを
+駆使して状態異常を引き起こし、
+敵の注目を集めつつパーティーに有利な
+戦況を生む、優れたタンクです
+ガードと魔法属性が主体となる
+シールドセージと対照的に、
+機動力と状態異常がアルケミスト最大の
+持ち味といえるでしょう","The Alchemist, utilizing synthesized materials
+and Elixirs, is a formidable tank that can inflict
+status ailments and attract enemy attention,
+creating advantageous conditions for the party.
+Compared to the Shield Sage, whose focus lies in
+guarding and magic attributes, the Alchemist
+excels in mobility and status ailments.",ui\00_message\tutorial_guide\steps\tutorial_guide_step170.gmd,\tguide\tutorial_guide_170.arc,tutorial_guide_170.arc,0,
+0,TUTORIAL_STEP_168,"ファイターは盾による防御を反撃の
+起点として使うことができます
+　敵の攻撃に合わせて【<KC WEAPON_SUB>】盾弾き
+他にも、仲間を打ち上げる連携技も可能です
+　
+　【<KC CATAPULT>】連係投げ","Fighters can use shields as a starting point for
+counterattacks to defend against enemy attacks.
+Deflect attacks from enemies with <KC WEAPON_SUB>.
+They can also use combination techniques to
+launch their allies into the air.
+Perform a linking throw by pressing <KC CATAPULT>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step172.gmd,\tguide\tutorial_guide_172.arc,tutorial_guide_172.arc,0,
+0,TUTORIAL_STEP_171,"<COL ffdc78>《メインポーン》は、白竜との会話
+《戦徒の契り》により証を示すことで、契約人数を
+増やすことができます</COL>
+新たなポーンとの契約には、次の２つが必要です
+　①<SPAI NAME>（<SPAI NUM>個）
+　　　……エリアマスター支援品、エリア試練クエスト
+　　　　　などで獲得可能
+　②メインポーン契約枠","You can increase the number of <COL ffdc78>Main Pawn</COL>  
+contracts by showing proof through the 
+<COL ffdc78>Myrmidon's Pledge</COL>, by speaking with the 
+White Dragon. 
+For a contract with a new Pawn, the following 
+two are necessary:
+① <SPAI NAME> (x<SPAI NUM>), obtainable through 
+Support Goods, Area Quests, and more.
+② A free Main Pawn contract slot.",ui\00_message\tutorial_guide\steps\tutorial_guide_step175.gmd,\tguide\tutorial_guide_175.arc,tutorial_guide_175.arc,0,
+0,TUTORIAL_STEP_172,"<COL 78f5ff>《着飾り装備》が解放されました！</COL>
+<COL ffdc78>《着飾り装備》</COL>とは、本来の性能の
+装備品とは別に見た目のみを姿に反映する
+特殊な着飾り術のことです","<COL 78f5ff>""Dress Equipment"" are available!</COL>
+<COL ffdc78>""Dress Equipment""</COL> this system
+allows you
+to choose a piece of gear that will appear instead
+of what you have actually equipped.",ui\00_message\tutorial_guide\steps\tutorial_guide_step176.gmd,\tguide\tutorial_guide_176.arc,tutorial_guide_176.arc,0,
+0,TUTORIAL_STEP_173,"弓による攻撃では通常の矢とは別に「爆矢」による
+射撃も行うことができます
+<PADM>　【<KC WEAPON_MAIN>】爆矢構え<KEYM>　弓構えから【<ICON MOUSE_WHL_4>前後】構え変更（弓射ち／爆矢構え切替）
+　（初期設定の場合）</KEYM>
+　爆矢構えから【<KC SHOOT>】仕込み爆矢射ち","Through attacks with a bow, in addition to
+regular arrows, you can also perform shots with
+'Blast Arrows.'
+​<PADM> <KC WEAPON_MAIN>Blast Arrow Ready
+<KEYM> Aim
+Switch stance from bow stance with​ <ICON MOUSE_WHL_4>
+​(Switch between Bow shot and Blast
+Arrow stance)
+(Initial setting) </KEYM>
+From Blast Arrow Ready, perform <KC SHOOT> and
+shoot Blast Arrows.",ui\00_message\tutorial_guide\steps\tutorial_guide_step177.gmd,\tguide\tutorial_guide_177.arc,tutorial_guide_177.arc,0,
+0,TUTORIAL_STEP_174,"プリーストは、自身の周囲に展開した
+ヒールオーラやセイントオーラを、
+味方全員へ転送することもできます
+　【<KC SKILL_NORMAL2>】フィールドシフト（味方に陣を転送）","Priests can also transfer the Heal Aura and Holy
+Aura that they have deployed around themselves to
+all allies.
+【<KC SKILL_NORMAL2>】Field Shift (transfers the
+formation to allies).",ui\00_message\tutorial_guide\steps\tutorial_guide_step178.gmd,\tguide\tutorial_guide_178.arc,tutorial_guide_178.arc,0,
+0,TUTORIAL_STEP_175,"大盾で受けた敵の攻撃は攻力に変換し、
+フォースゲージに溜めて使うことで
+魔法属性攻撃や、エンチャントが行えます
+攻撃、支援に属性技を使い分けましょう
+＜フォース属性選択＞
+<PADM>　【<KC ATTACK2>】＋【左スティック】<KEYM>　【<KC ATTACK2>】＋【<ICON MOUSE>移動で選択】</KEYM>
+　　　　　　エレメントチェンジ（属性切替）","The enemy's attacks received with the Greatshield
+can be converted into attack power and stored in
+the Force Gauge for use in magic attribute attacks
+or enchantments. Use attribute techniques for both
+offensive and support purposes.
+<Force Attribute Selection>
+<PADM> 【<KC ATTACK2>】 + [Left Stick] <KEYM>【<KC ATTACK2>
+】 + [Select with <ICON MOUSE>
+movement]</KEYM>
+Element Change (Attribute Switching)",ui\00_message\tutorial_guide\steps\tutorial_guide_step179.gmd,\tguide\tutorial_guide_179.arc,tutorial_guide_179.arc,0,
+0,TUTORIAL_STEP_176,"中～大型の敵には<COL ffdc78>《しがみつき》</COL>が可能です
+技や行動も変わるため右下のガイドで確認しましょう
+＜しがみつき＞
+　敵に近付いて【<KC TOUCH>】
+＜しがみつきからの行動＞
+　しがみついた状態で【<KC ATTACK1>】攻撃など
+　しがみついた状態で【<KC CLIMB_JOLT>】揺さぶり","You can<COL ffdc78>""cling""</COL>to medium-large
+enemies. Make sure to check the guide on the
+bottom right to confirm
+which techniques and actions will change.
+＜Cling＞
+Approach the enemy and【<KC TOUCH>】
+＜Actions from clinging＞
+Actions, such as attacking, while clinging【<KC ATTACK1>】
+Actions, such as shaking, while clinging【<KC CLIMB JOLT>】.",ui\00_message\tutorial_guide\steps\tutorial_guide_step180.gmd,\tguide\tutorial_guide_180.arc,tutorial_guide_180.arc,0,
+0,TUTORIAL_STEP_177,"冒険フィールドへは神殿の東側にある
+大門から出ることができます
+野外には魔物など、多くの危険が
+待ち構えています
+回復アイテム、ランタンなど
+神殿の《商店区》や《宿場区》で旅の準備を
+整えてから出発しましょう","You can exit from the main gate on the east side
+of the temple to reach the adventure field.
+There are many dangers such as enemies lurking
+in the wilderness.
+Let's prepare for the journey by getting healing
+items and a lantern from the <COL ffdc78>Shopping District</COL> 
+and <COL ffdc78>Relay Station District</COL> of the temple.",ui\00_message\tutorial_guide\steps\tutorial_guide_step181.gmd,\tguide\tutorial_guide_181.arc,tutorial_guide_181.arc,0,
+0,TUTORIAL_STEP_178,"冒険中に敵の攻撃などで<COL ffdc78>《死亡状態》</COL>に
+なってしまった場合でも
+白竜から授かった<COL ffdc78>《復活力》</COL>を使うことで
+覚者はその場で起き上がることができます","Even if you are put in a state of death during 
+an adventure due to enemy attacks, the 
+Revival Power bestowed by the White 
+Dragon allows the Arisen to rise yet again.",ui\00_message\tutorial_guide\steps\tutorial_guide_step182.gmd,\tguide\tutorial_guide_182.arc,tutorial_guide_182.arc,0,
+1,TUTORIAL_STEP_194,"冒険時は、左上に表示される
+<COL ffdc78>体力（ＨＰ）</COL>と<COL ffdc78>スタミナ（ＳＴ）</COL>が重要です
+ＨＰは敵の攻撃を受けると減少し
+アイテムや治癒の魔法で回復できます
+ＳＴは、激しいアクションにより消費し
+アクションを控えると自然回復します","While adventuring, the top left of your screen
+shows <COL ffdc78>Health (HP)</COL> and <COL ffdc78>Stamina (ST)</COL> bars.
+Health is depleted when you are harmed by
+enemies, and can be regained with recovery
+items and magicks.
+Stamina is depleted by using special actions
+and regenerates shortly after.",ui\00_message\tutorial_guide\steps\tutorial_guide_step153.gmd,\tguide\tutorial_guide_153.arc,tutorial_guide_153.arc,1,
 1,TUTORIAL_STEP_206,"なお、本ミッションでは
 強大な敵を数多く倒すことで
 より多くの戦功を得ることができます
@@ -125,65 +422,6 @@ as possible.",ui\00_message\tutorial_guide\steps\tutorial_guide_step156.gmd,\tgu
 <COL ffdc78>Time Bonus</COL> enemies that appear.
 Defeating these demons will extend the time
 limit, so be sure not to overlook them.",ui\00_message\tutorial_guide\steps\tutorial_guide_step156.gmd,\tguide\tutorial_guide_156.arc,tutorial_guide_156.arc,1,
-0,TUTORIAL_STEP_42,"夜間や洞窟内は、暗く見通しが悪くなります
-<COL ffdc78>暗闇では《ランタン》を使いましょう</COL>
-【<KC UI_GAME_MENU>】ゲームメニュー《キャラクター》の
-<COL ffdc78>《アイテムバッグ》</COL>から消費アイテム
-<COL ffdc78>《ランタン火種》</COL>を使うと、一定時間
-プレイヤーの周囲を明るく照らします
-《ランタン火種》は常にいくつか携帯しましょう","At night or inside caves, visibility becomes 
-poor and dark.
-<COL ffdc78>Use a lantern</COL> in the darkness.
-[<KC UI_GAME_MENU>] In the game menu, go to <COL ffdc78>Item Bag</COL> and 
-use the consumable item <COL ffdc78>Lantern Kindling</COL> 
-to illuminate the player's surroundings for 
-a certain period of time.
-Always carry several <COL ffdc78>Lantern Kindling</COL> 
-with you.",ui\00_message\tutorial_guide\steps\tutorial_guide_step158.gmd,\tguide\tutorial_guide_158.arc,tutorial_guide_158.arc,0,
-0,TUTORIAL_STEP_41,"プレイヤーは基本攻撃の他に
-スタミナを消費して専用アクションである
-<COL ffdc78>《カスタムスキル》</COL>が使用できます
-<PADM>　【<KC WEAPON_SUB>】を押しながら【<KC ATTACK1>／<KC ATTACK2>】
-　【<KC WEAPON_MAIN>】を押しながら【<KC ATTACK1>／<KC ATTACK2>】
-<KEYM>　【<KC SKILL_CUSTOM3>】 【<KC SKILL_CUSTOM4>】
-　【<KC SKILL_CUSTOM1>】 【<KC SKILL_CUSTOM2>】
-</KEYM>
-どういった技が出せるかは
-画面右下のガイドで確認しましょう","In addition to basic attacks, players can use
-<COL ffdc78>Custom Skills</COL> by consuming Stamina.
-<PADM> Press <KC WEAPON_SUB> and <KC ATTACK1>/<KC ATTACK2>
- together.
-Press <KC WEAPON_MAIN> and <KC ATTACK1>/<KC ATTACK2>
- together.
-<KEYM> Press <KC SKILL_CUSTOM3> <KC SKILL_CUSTOM4>
- Press <KC SKILL_CUSTOM1> <KC SKILL_CUSTOM2>
-</KEYM>
-Check the guide in the bottom right of the screen
-to see what kind of techniques can be used.",ui\00_message\tutorial_guide\steps\tutorial_guide_step159.gmd,\tguide\tutorial_guide_159.arc,tutorial_guide_159.arc,0,
-1,TUTORIAL_STEP_92,"ジョブにより、使えるカスタムスキルは異なります
-戦闘中に試してみてください
-なお導入クエスト「覚悟と兆し」でセット
-されているカスタムスキルは
-このクエスト限定の一時的なものとなります","Depending on the job, the available custom 
-skills may vary. 
-Please try them out during combat.
-Please note that the custom skills set during
-the introductory quest <COL ffdc78>Resolutions and Omens</COL>
-are temporary and exclusive to that quest.",ui\00_message\tutorial_guide\steps\tutorial_guide_step159.gmd,\tguide\tutorial_guide_159.arc,tutorial_guide_159.arc,1,
-0,TUTORIAL_STEP_157,"<COL ffdc78>《ジョブ修練ログ》</COL>では、あなたがこれまでに
-ジョブマスターから受けた修練の状況が
-記録されています
-現在進めている課題や、
-ジョブごとの達成度をここで確認しましょう
-達成したジョブ修練は、ジョブ修練ログを確認することでも
-報告完了できます","In the <COL ffdc78>Job Training Log</COL>, your
-progress in the training you have received from
-the Job Masters is recorded.
-Here, you can check the current tasks you are
-working on and the level of achievement for each
-job.
-You can also report completed job trainings by
-checking the Job Training Log.",ui\00_message\tutorial_guide\steps\tutorial_guide_step161.gmd,\tguide\tutorial_guide_161.arc,tutorial_guide_161.arc,0,
 1,TUTORIAL_STEP_287,"《ジョブ修練》に取り組む上で、いくつか
 覚えておくべきことがあります
 ＜注意点＞
@@ -200,27 +438,19 @@ job.
 is okay not to use skill in the task.
 ③ If it is the same combat area, it is okay for
 other party members to subjugate.",ui\00_message\tutorial_guide\steps\tutorial_guide_step161.gmd,\tguide\tutorial_guide_161.arc,tutorial_guide_161.arc,1,
-2,TUTORIAL_STEP_411,"<COL ffdc78>また、実際にレベルアップするには
-戦技補佐に話しかけ、それまでの
-レベルアップ同様にジョブポイントを
-支払う必要があります</COL>
-パーティーの仲間と協力し、
-多くの課題をこなして技のレベルアップを
-目指しましょう","<COL ffdc78>Also, in order to actually level up,
-you will need to talk to Arts Support ano pay job
-points, just like leveling up before.</COL>
-Work together with your party members and
-complete many tasks to aim for leveling up of your
-skills.",ui\00_message\tutorial_guide\steps\tutorial_guide_step161.gmd,\tguide\tutorial_guide_161.arc,tutorial_guide_161.arc,2,
-0,TUTORIAL_STEP_159,"<COL ffdc78>《拠点の礎》</COL>は、竜の礎同様
-リム転移に用いる便利な転送器です
-レスタニア各地に点在し、触れて《リム》を
-消費することで離れた礎へ瞬時に移動できます","<COL ffdc78>The Portcrystal</COL> is a convenient transporter 
-used for Rift Teleport, similar to the Dragon's 
-Keystone.
-They are scattered throughout Lestania and by
-consuming Rift Crystals, you can instantly travel
-to distant Portcrystals.",ui\00_message\tutorial_guide\steps\tutorial_guide_step163.gmd,\tguide\tutorial_guide_163.arc,tutorial_guide_163.arc,0,
+1,TUTORIAL_STEP_294,"また、敵の特殊攻撃や地形の影響で
+<COL ffdc78>《状態異常》</COL>と呼ばれるペナルティーを
+受ける場合があります
+その場合も、治療魔法や異常治療効果のある
+アイテム、宿を利用して状態異常の解消を
+行ってください","Additionally, there may be instances where you
+receive penalties, known as <COL ffdc78>
+""debilitations""</COL>, due to special
+attacks from enemies or the effects of the
+terrain.
+In such cases, please use healing magic, items
+with debilitation treatment effects, or stay at an
+inn to resolve the debilitation.",ui\00_message\tutorial_guide\steps\tutorial_guide_step164.gmd,\tguide\tutorial_guide_164.arc,tutorial_guide_164.arc,1,
 1,TUTORIAL_STEP_307,"<COL ffdc78>よく使う拠点は《マイ拠点》に登録しましょう</COL>
 マイ拠点に登録した礎はリムが減額されるほか
 ゲームメニューの《リム転移》からも
@@ -245,45 +475,6 @@ In general, you can release them just by
 touching them, but there are also some 
 crystals that require specific conditions 
 to be cleared.",ui\00_message\tutorial_guide\steps\tutorial_guide_step163.gmd,\tguide\tutorial_guide_163.arc,tutorial_guide_163.arc,2,
-0,TUTORIAL_STEP_160,"敵の攻撃や高所落下など、旅に危険はつきものです
-体力の回復手段は常に用意しておきましょう
-プリーストなどの回復魔法が主な回復手段に
-なりますが、<COL ffdc78>回復魔法では減少した体力のうち
-《治癒上限値》（白いゲージ）分までしか
-回復できません</COL>
-体力回復用アイテム、宿も活用し
-より万全の状態に整えてください","Traveling is always dangerous, with enemy
-attacks, falling from heights, etc.
-Always have a way to recover your health.
-Priests and other recovery magic is the main
-means of recovery, but<COL ffdc78>recovery magic
-can only recover up to ""Healable Limit"" (white
-gauge) of the reduced health.</COL>
-Please make sure you are in good shape!",ui\00_message\tutorial_guide\steps\tutorial_guide_step164.gmd,\tguide\tutorial_guide_164.arc,tutorial_guide_164.arc,0,
-1,TUTORIAL_STEP_294,"また、敵の特殊攻撃や地形の影響で
-<COL ffdc78>《状態異常》</COL>と呼ばれるペナルティーを
-受ける場合があります
-その場合も、治療魔法や異常治療効果のある
-アイテム、宿を利用して状態異常の解消を
-行ってください","Additionally, there may be instances where you
-receive penalties, known as <COL ffdc78>
-""debilitations""</COL>, due to special
-attacks from enemies or the effects of the
-terrain.
-In such cases, please use healing magic, items
-with debilitation treatment effects, or stay at an
-inn to resolve the debilitation.",ui\00_message\tutorial_guide\steps\tutorial_guide_step164.gmd,\tguide\tutorial_guide_164.arc,tutorial_guide_164.arc,1,
-0,TUTORIAL_STEP_161,"この世界レスタニアの状況は
-パーティーリーダーのメインクエスト進行度や
-エリアランクに基づき、変化します
-登場する敵、遊べるクエスト、封鎖区域の
-解放状況などさまざまな要素が
-影響を受けます","The situation in Lestania, this world, changes
-based on the party leader's main quest progress
-and the area rank.
-Various elements, such as the appearance of
-enemies, available quests, and the status of
-restricted areas, are influenced.",ui\00_message\tutorial_guide\steps\tutorial_guide_step165.gmd,\tguide\tutorial_guide_165.arc,tutorial_guide_165.arc,0,
 1,TUTORIAL_STEP_309,"あなたがパーティーリーダーでない場合は
 自身がリーダーの時と世界の状況が違うことを
 覚えておきましょう
@@ -310,21 +501,6 @@ Additionally, by resetting, you can discard or
 re-accept completed world quests and personal
 quests
 (excluding those related to progress).",ui\00_message\tutorial_guide\steps\tutorial_guide_step165.gmd,\tguide\tutorial_guide_165.arc,tutorial_guide_165.arc,2,
-0,TUTORIAL_STEP_162,"<COL ffdc78>《スタンプボーナス》</COL>とは、あなたがログインで
-この世界を訪れるたびに送られる証印です
-１日１回、神殿の《復活力／ログインスタンプ》
-係官オフィリアから、訪れた証《スタンプ》と共に
-リムやシルバーチケットなどの報酬がもらえます
-スタンプは日ごとにリセットされ、
-新たに受け取れるようになります","<COL ffdc78>""Stamp Bonus""</COL> is a proof mark
-sent to you every time you visit this world, when
-you log in.
-Once a day, you can receive rewards such as Rift
-Crystals and Silver Tickets as a reward along with
-the proof ""Stamp of Resurrection/ Login Stamp""
-from Ophelia, the temple attendant.
-Stamps reset daily, allowing you to receive them
-again.",ui\00_message\tutorial_guide\steps\tutorial_guide_step166.gmd,\tguide\tutorial_guide_166.arc,tutorial_guide_166.arc,0,
 1,TUTORIAL_STEP_311,"スタンプボーナスには２種類あります
 ＜連続スタンプボーナス＞
 　　毎日連続ログインすることで得られる証
@@ -353,18 +529,6 @@ Silver Tickets are very useful for adventures.
 If you forget to receive them on every day, you
 will miss out on counting those days. So be sure
 to always receive them without fail.",ui\00_message\tutorial_guide\steps\tutorial_guide_step166.gmd,\tguide\tutorial_guide_166.arc,tutorial_guide_166.arc,2,
-0,TUTORIAL_STEP_163,"<COL ffdc78>装備品に《クレスト装着》を行うことで、
-性能を高めたり、属性や追加効果を持たせる
-ことができます</COL>
-特殊素材<COL ffdc78>《クレスト》</COL>は、一部のクエスト報酬や
-《ポーン郷》のアルヴァーからブラッドオーブと
-交換で入手可能です","<COL ffdc78>By ""Mounting a Crest"" to your
-equipment, you can enhance its performance,
-attributes, and additional effects.</COL>
-Special material<COL ffdc78>""Crests""</COL>can be
-obtained as rewards for certain quests or in
-exchange for Blood Orbs from Alvar in ""Pawn
-Cathedral"".",ui\00_message\tutorial_guide\steps\tutorial_guide_step167.gmd,\tguide\tutorial_guide_167.arc,tutorial_guide_167.arc,0,
 1,TUTORIAL_STEP_313,"《クレスト装着》が可能なのは、下記の装備品です
 武器用クレスト：
 　　メイン武器（最大スロット数４）
@@ -393,96 +557,17 @@ allows you to attach more Crests by synthesizing
 Refined Materials during Item Crafting.</COL>
 Additionally, equipment with attached Crests can
 be reattached by destroying the Crests.",ui\00_message\tutorial_guide\steps\tutorial_guide_step167.gmd,\tguide\tutorial_guide_167.arc,tutorial_guide_167.arc,2,
-0,TUTORIAL_STEP_164,"<COL ffdc78>《トレジャーズロット》</COL>に挑戦すれば
-特別な装備やレアアイテム入手の
-チャンスがあります
-神殿のキャメロンか【<KC UI_GAME_MENU>】ゲームメニュー
-《オンラインショップ》の<COL ffdc78>《トレジャーズロット》</COL>
-から、《黄金石》や《シルバーチケット》と
-引き換えに抽選できます","By challenging the game <COL ffdc78>《Treasure
-Lot》</COL> at Cameron in the Temple, the game menu
-or in the online shop, there is a chance to obtain
-special equipment and rare items.
-You can exchange 《Golden Gemstones》 and 《Silver
-Tickets》 for a lottery draw.",ui\00_message\tutorial_guide\steps\tutorial_guide_step168.gmd,\tguide\tutorial_guide_168.arc,tutorial_guide_168.arc,0,
 1,TUTORIAL_STEP_315,"当たるアイテムは期間限定のものや
 冒険に役立つもの、ファッションに関係
 するものなどさまざまです
 好きなシリーズカテゴリーを選択し
 黄金石やチケットを集めて
-目当てのアイテムをゲットしましょう","The items that can be obtained include
-limited-time items, items useful for adventures,
-and items related to fashion.
+目当てのアイテムをゲットしましょう","The items that can be obtained include limited-
+time items, items useful for adventures, and 
+items related to fashion.
 Choose your favorite series category, collect
-Golden Gemstones and tickets, and get the items
-you desire.",ui\00_message\tutorial_guide\steps\tutorial_guide_step168.gmd,\tguide\tutorial_guide_168.arc,tutorial_guide_168.arc,1,
-0,TUTORIAL_STEP_165,"アルケミストは、錬成物質による攻撃で
-敵の注目を集め、多彩な状態異常と特殊移動
-で戦況を操る術師です
-＜基本操作／攻撃＞
-　【<KC ATTACK1>】アルケム（錬成）
-　【<KC ATTACK2>】クラスター（集中錬成）
-　※《錬成値》の蓄積により強く注目を引きつけます","The Alchemist is a mage who uses offensive
-attacks with synthesized materials to attract the
-enemy's attention. They manipulate the battle
-situation with various abnormal conditions and
-special moves.
-<Basic Controls/Attacks>
-- [Alchemy] <KC ATTACK1>
-- [Cluster] <KC ATTACK2>
-* By accumulating ""Stakes"", they can draw
-stronger attention.",ui\00_message\tutorial_guide\steps\tutorial_guide_step169.gmd,\tguide\tutorial_guide_169.arc,tutorial_guide_169.arc,0,
-1,TUTORIAL_STEP_344,"機動力と回避力に優れており
-特殊移動を活かした鋭い立ち回りが可能です
-ただし特殊移動はスタミナを消費するため
-残量には注意しましょう
-＜基本操作／回避＞
-　【<KC AVOID>】アルケム・フーガ（回避錬成）</KEYM>
-また、成長により新たな特殊移動を習得できます","It has excellent mobility and evasion and can
-make use of special moves for sharp maneuvers.
-However, special moves consume stamina, so be
-careful of your remaining stamina.
-<Basic Operation/Evasion>
-[<KC AVOID>] Alchem Fuga (Evasion)</KEYM>
-You can also learn new special moves through
-growth.",ui\00_message\tutorial_guide\steps\tutorial_guide_step169.gmd,\tguide\tutorial_guide_169.arc,tutorial_guide_169.arc,1,
-0,TUTORIAL_STEP_166,"アルケミストは、錬成物質とエリクシルを
-駆使して状態異常を引き起こし、
-敵の注目を集めつつパーティーに有利な
-戦況を生む、優れたタンクです
-ガードと魔法属性が主体となる
-シールドセージと対照的に、
-機動力と状態異常がアルケミスト最大の
-持ち味といえるでしょう","The Alchemist, utilizing synthesized materials
-and Elixirs, is a formidable tank that can inflict
-status ailments and attract enemy attention,
-creating advantageous conditions for the party.
-Compared to the Shield Sage, whose focus lies in
-guarding and magic attributes, the Alchemist
-excels in mobility and status ailments.",ui\00_message\tutorial_guide\steps\tutorial_guide_step170.gmd,\tguide\tutorial_guide_170.arc,tutorial_guide_170.arc,0,
-1,TUTORIAL_STEP_346,"数々の状態異常を秘めた《エリクシル》の
-どの異常属性をいつ装備し、
-どの敵に使うか――
-その見極めが戦局を大きく動かします
-シールドセージのような頑健さが無い分は、
-アルケム・フーガやレクス・リープなどの
-特殊移動を用いてうまく立ち回りましょう","Which abnormal attribute of the ""Elixir"" should
-be equipped and when to use it on which enemy will
-greatly affect the battle situation.
-In the absence of the resilience of a Shield
-Sage, let's maneuver skillfully using special
-movements like Alchemical Fuga and Rex Leap.",ui\00_message\tutorial_guide\steps\tutorial_guide_step170.gmd,\tguide\tutorial_guide_170.arc,tutorial_guide_170.arc,1,
-0,TUTORIAL_STEP_168,"ファイターは盾による防御を反撃の
-起点として使うことができます
-　敵の攻撃に合わせて【<KC WEAPON_SUB>】盾弾き
-他にも、仲間を打ち上げる連携技も可能です
-　
-　【<KC CATAPULT>】連係投げ","Fighters can use shields as a starting point for
-counterattacks to defend against enemy attacks.
-Deflect attacks from enemies with <KC WEAPON_SUB>.
-They can also use combination techniques to
-launch their allies into the air.
-Perform a linking throw by pressing <KC CATAPULT>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step172.gmd,\tguide\tutorial_guide_172.arc,tutorial_guide_172.arc,0,
+Golden Gemstones and tickets, and get the 
+items you desire.",ui\00_message\tutorial_guide\steps\tutorial_guide_step168.gmd,\tguide\tutorial_guide_168.arc,tutorial_guide_168.arc,1,
 1,TUTORIAL_STEP_320,"またソロでもパーティーでもイベント進行時は
 確認を求められることがあります
 ＜進行マーカー＞
@@ -529,59 +614,22 @@ and how far you have progressed together, you may
 receive different rewards.
 Try to complete the same quest from scratch
 together!",ui\00_message\tutorial_guide\steps\tutorial_guide_step174.gmd,\tguide\tutorial_guide_174.arc,tutorial_guide_174.arc,3,
-0,TUTORIAL_STEP_358,"<COL ffdc78>パーティーでクエストを進行する際は
-優先クエストの表示はパーティーリーダーの
-進行状態に切り替わります</COL>
-ソロやポーンのみを連れて冒険に出た時は
-自分の進行ログが画面右に表示されます
-他のプレイヤーがリーダーの場合、その人の
-ログを共有して進めることになりますので
-自分の進行度を確認しつつ進めましょう","<COL ffdc78>When you are in a party, the priority
-quests will switch to the party
-leader'sprogress.</COL>
-If you are solo or only have a pawn, your
-progress log will appear on the right side of the
-screen.
-If another player is the leader, their log will
-be shared with you, so check your progress as you
-go along!",ui\00_message\tutorial_guide\steps\tutorial_guide_step174.gmd,\tguide\tutorial_guide_174.arc,tutorial_guide_174.arc,0,
-0,TUTORIAL_STEP_171,"<COL ffdc78>《メインポーン》は、白竜との会話
-《戦徒の契り》により証を示すことで、契約人数を
-増やすことができます</COL>
-新たなポーンとの契約には、次の２つが必要です
-　①<SPAI NAME>（<SPAI NUM>個）
-　　　……エリアマスター支援品、エリア試練クエスト
-　　　　　などで獲得可能
-　②メインポーン契約枠","<COL ffdc78>《Main Pawn》conversation with the
-White Dragon.
-By showing proof through the 《Myrmidon's Pledge》,
-you can increase the number of contracted
-individuals.</COL>
-For a contract with a new Pawn, the following two
-are necessary:
-① <SPAI NAME> (x <SPAI NUM>)... obtainable
-through Support Goods, Area Quests, and more.
-② Main Pawn contract limit.",ui\00_message\tutorial_guide\steps\tutorial_guide_step175.gmd,\tguide\tutorial_guide_175.arc,tutorial_guide_175.arc,0,
+2,TUTORIAL_STEP_323,"注意点として、《受注待ち》をストックした状態で
+他プレイヤーのパーティーに参加すると
+自身の《受注待ち》は自動的に破棄されます","Please not that when you join another player's
+party while having ""Quest Orders"" in stock, your
+own ""Quest Orders"" will be automatically
+discarded.",ui\00_message\tutorial_guide\steps\tutorial_guide_step144.gmd,\tguide\tutorial_guide_144.arc,tutorial_guide_144.arc,2,
 1,TUTORIAL_STEP_324,"<COL ffdc78>《<SPAI NAME>》</COL>を必要数（<SPAI NUM>個）
 入手し、メインポーン契約枠に空きがあれば
 新たなメインポーンを生みだすことができます
 <COL ffdc78>なお、２人分の契約枠はすでに備わっています</COL>
-契約状況は《ポーン》画面右下で確認しましょう","<COL ffdc78>《<SPAI NAME>》</COL> can be obtained
-in the necessary quantity (<SPAI NUM> pieces), and
-if there is space in the main pawn contract limit,
-a new main pawn can be created.
-<COL ffdc78>Note that the contract limit is
-already equipped for two people.</COL> Check the
-contract status on the bottom right of the ""Pawn""
-screen.",ui\00_message\tutorial_guide\steps\tutorial_guide_step175.gmd,\tguide\tutorial_guide_175.arc,tutorial_guide_175.arc,1,
-0,TUTORIAL_STEP_172,"<COL 78f5ff>《着飾り装備》が解放されました！</COL>
-<COL ffdc78>《着飾り装備》</COL>とは、本来の性能の
-装備品とは別に見た目のみを姿に反映する
-特殊な着飾り術のことです","<COL 78f5ff>""Dress Equipment"" are available!</COL>
-<COL ffdc78>""Dress Equipment""</COL> this system
-allows you
-to choose a piece of gear that will appear instead
-of what you have actually equipped.",ui\00_message\tutorial_guide\steps\tutorial_guide_step176.gmd,\tguide\tutorial_guide_176.arc,tutorial_guide_176.arc,0,
+契約状況は《ポーン》画面右下で確認しましょう","Get the required number of <COL ffdc78><SPAI NAME>s</COL> (<SPAI NUM>) 
+and if there is a free Main Pawn slot, you can 
+create a new Main Pawn. 
+<COL ffdc78>At the start, you have 2 slots total.</COL> 
+Check your contract status on the bottom right 
+of the <COL ffdc78>Pawn</COL> screen.",ui\00_message\tutorial_guide\steps\tutorial_guide_step175.gmd,\tguide\tutorial_guide_175.arc,tutorial_guide_175.arc,1,
 1,TUTORIAL_STEP_325,"【<KC UI_GAME_MENU>】ゲームメニュー《キャラクター》の
 <COL ffdc78>《ステータス・装備》</COL>から装備枠で
 【<KC UI_X>】を押すことで、その装備品について
@@ -594,42 +642,6 @@ the Equipment Window
 [<KC UI_X>] You can choose wether a piece of gear
 is the ""Dress"" or the ""Equipment""
 Find your own style! Try on various gear!",ui\00_message\tutorial_guide\steps\tutorial_guide_step176.gmd,\tguide\tutorial_guide_176.arc,tutorial_guide_176.arc,1,
-0,TUTORIAL_STEP_173,"弓による攻撃では通常の矢とは別に「爆矢」による
-射撃も行うことができます
-<PADM>　【<KC WEAPON_MAIN>】爆矢構え<KEYM>　弓構えから【<ICON MOUSE_WHL_4>前後】構え変更（弓射ち／爆矢構え切替）
-　（初期設定の場合）</KEYM>
-　爆矢構えから【<KC SHOOT>】仕込み爆矢射ち","Through attacks with a bow, in addition to
-regular arrows, you can also perform shots with
-'Blast Arrows.'
-​<PADM> <KC WEAPON_MAIN>Blast Arrow Ready
-<KEYM> Aim
-Switch stance from bow stance with​ <ICON MOUSE_WHL_4>
-​(Switch between Bow shot and Blast
-Arrow stance)
-(Initial setting) </KEYM>
-From Blast Arrow Ready, perform <KC SHOOT> and
-shoot Blast Arrows.",ui\00_message\tutorial_guide\steps\tutorial_guide_step177.gmd,\tguide\tutorial_guide_177.arc,tutorial_guide_177.arc,0,
-1,TUTORIAL_STEP_396,"また、射撃の威力は敵との距離で変化します
-<COL ffdc78>狙撃照準カーソルで敵を捕えた時、
-オレンジ色のラインがカーソル中央に合う距離が
-射撃の《最適距離》です</COL>
-その距離から矢を放つことで
-最も大きなダメージを与えることができます","Additionally, the power of the shot varies
-depending on the distance from the enemy.
-<COL ffdc78>When the enemy is captured with the
-sniper sight cursor, the distance where the orange
-line aligns with the center of the cursor is the
-""optimal distance"" for shooting.</COL>
-By shooting arrows from that distance, you can
-inflict the most damage.",ui\00_message\tutorial_guide\steps\tutorial_guide_step177.gmd,\tguide\tutorial_guide_177.arc,tutorial_guide_177.arc,1,
-0,TUTORIAL_STEP_174,"プリーストは、自身の周囲に展開した
-ヒールオーラやセイントオーラを、
-味方全員へ転送することもできます
-　【<KC SKILL_NORMAL2>】フィールドシフト（味方に陣を転送）","Priests can also transfer the Heal Aura and Holy
-Aura that they have deployed around themselves to
-all allies.
-【<KC SKILL_NORMAL2>】Field Shift (transfers the
-formation to allies).",ui\00_message\tutorial_guide\steps\tutorial_guide_step178.gmd,\tguide\tutorial_guide_178.arc,tutorial_guide_178.arc,0,
 1,TUTORIAL_STEP_326,"ヒールオーラやセイントオーラなど、周囲に
 展開した陣を個別に解除することができます
 　【発動したスキルと同じコマンド】
@@ -645,22 +657,6 @@ You can also simultaneously release all deployed
 auras.
 【<KC WEAPON_SUB>】+【<KC WEAPON_MAIN>】+【<KC JUMP>】
 Simultaneously release all deployed auras.",ui\00_message\tutorial_guide\steps\tutorial_guide_step178.gmd,\tguide\tutorial_guide_178.arc,tutorial_guide_178.arc,1,
-0,TUTORIAL_STEP_175,"大盾で受けた敵の攻撃は攻力に変換し、
-フォースゲージに溜めて使うことで
-魔法属性攻撃や、エンチャントが行えます
-攻撃、支援に属性技を使い分けましょう
-＜フォース属性選択＞
-<PADM>　【<KC ATTACK2>】＋【左スティック】<KEYM>　【<KC ATTACK2>】＋【<ICON MOUSE>移動で選択】</KEYM>
-　　　　　　エレメントチェンジ（属性切替）","The enemy's attacks received with the Greatshield
-can be converted into attack power and stored in
-the Force Gauge for use in magic attribute attacks
-or enchantments. Use attribute techniques for both
-offensive and support purposes.
-<Force Attribute Selection>
-<PADM> 【<KC ATTACK2>】 + [Left Stick] <KEYM>【<KC ATTACK2>
-】 + [Select with <ICON MOUSE>
-movement]</KEYM>
-Element Change (Attribute Switching)",ui\00_message\tutorial_guide\steps\tutorial_guide_step179.gmd,\tguide\tutorial_guide_179.arc,tutorial_guide_179.arc,0,
 1,TUTORIAL_STEP_327,"フォースゲージを使うことで、属性攻撃や支援が
 可能です。体力ゲージ下のフォースゲージの
 色と本数で使用回数、蓄積状況を確認しましょう
@@ -674,60 +670,6 @@ accumulation status.
 <Force manipulation>
 - [Force Burst] (Attribute attack)
 - [Force Enchantment] (Attribute enhancement)",ui\00_message\tutorial_guide\steps\tutorial_guide_step179.gmd,\tguide\tutorial_guide_179.arc,tutorial_guide_179.arc,1,
-0,TUTORIAL_STEP_176,"中～大型の敵には<COL ffdc78>《しがみつき》</COL>が可能です
-技や行動も変わるため右下のガイドで確認しましょう
-＜しがみつき＞
-　敵に近付いて【<KC TOUCH>】
-＜しがみつきからの行動＞
-　しがみついた状態で【<KC ATTACK1>】攻撃など
-　しがみついた状態で【<KC CLIMB_JOLT>】揺さぶり","You can<COL ffdc78>""cling""</COL>to medium-large
-enemies. Make sure to check the guide on the
-bottom right to confirm
-which techniques and actions will change.
-＜Cling＞
-Approach the enemy and【<KC TOUCH>】
-＜Actions from clinging＞
-Actions, such as attacking, while clinging【<KC ATTACK1>】
-Actions, such as shaking, while clinging【<KC CLIMB JOLT>】.",ui\00_message\tutorial_guide\steps\tutorial_guide_step180.gmd,\tguide\tutorial_guide_180.arc,tutorial_guide_180.arc,0,
-0,TUTORIAL_STEP_177,"冒険フィールドへは神殿の東側にある
-大門から出ることができます
-野外には魔物など、多くの危険が
-待ち構えています
-回復アイテム、ランタンなど
-神殿の《商店区》や《宿場区》で旅の準備を
-整えてから出発しましょう","You can exit from the main gate on the east side
-of the temple to reach the adventure field.
-There are many dangers such as enemies lurking
-in the wilderness.
-Let's prepare for the journey by getting healing
-items and a lantern from the <COL ffdc78>Shopping District</COL> 
-and <COL ffdc78>Relay Station District</COL> of the temple.",ui\00_message\tutorial_guide\steps\tutorial_guide_step181.gmd,\tguide\tutorial_guide_181.arc,tutorial_guide_181.arc,0,
-0,TUTORIAL_STEP_178,"冒険中に敵の攻撃などで<COL ffdc78>《死亡状態》</COL>に
-なってしまった場合でも
-白竜から授かった<COL ffdc78>《復活力》</COL>を使うことで
-覚者はその場で起き上がることができます","Even if you are <COL ffdc78>《in a state of
-death》</COL> during an adventure due to enemy
-attacks, etc., you can use the <COL ffdc78>
-《Revival Power》</COL> bestowed by The White
-Dragon to Arise on the spot.",ui\00_message\tutorial_guide\steps\tutorial_guide_step182.gmd,\tguide\tutorial_guide_182.arc,tutorial_guide_182.arc,0,
-1,TUTORIAL_STEP_331,"<COL ffdc78>《復活力》は現実時間の１日１回、
-最大３個まで神殿にいる
-《復活力／ログインスタンプ》係官オフィリアから
-受け取ることができます</COL>
-その日の授与分は日ごとにリセット
-され、再び受け取れるようになります
-１日１回、復活力は忘れず受け取りましょう","<COL ffdc78>""Revival Power"" can be received once
-a day in the Temple, up to a maximum of three
-times, from Ophelia, the officer in charge of
-""Revival Power/Login Stamp"".</COL>
-The distribution for each day is reset daily,
-allowing you to receive it again.
-Don't forget to receive Revival Power once a day.",ui\00_message\tutorial_guide\steps\tutorial_guide_step182.gmd,\tguide\tutorial_guide_182.arc,tutorial_guide_182.arc,1,
-2,TUTORIAL_STEP_332,"なお、<OPCS>の効果により
-<COL ffdc78>《復活力》は１日何度でも
-受け取ることができるようになります</COL>","Furthermore, due to the effect of <OPCS>,
-<COL ffdc78> 'Revival Power' can be received
-multiple times a day.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step182.gmd,\tguide\tutorial_guide_182.arc,tutorial_guide_182.arc,2,
 0,TUTORIAL_STEP_329,"フィールドや洞窟など、旅先から白竜神殿に
 帰還する時は、《リム転移》が便利です
 【<KC UI_GAME_MENU>】ゲームメニュー内
@@ -746,39 +688,53 @@ Temple without paying any fee.",ui\00_message\tutorial_guide\steps\tutorial_guid
 as <COL 78f5ff>Favorites</COL> in different locations, 
 you can instantly move to <COL 78f5ff>Favorites</COL> from 
 anywhere by paying Rift Crystals.",ui\00_message\tutorial_guide\steps\tutorial_guide_step195.gmd,\tguide\tutorial_guide_195.arc,tutorial_guide_195.arc,1,
+1,TUTORIAL_STEP_331,"<COL ffdc78>《復活力》は現実時間の１日１回、
+最大３個まで神殿にいる
+《復活力／ログインスタンプ》係官オフィリアから
+受け取ることができます</COL>
+その日の授与分は日ごとにリセット
+され、再び受け取れるようになります
+１日１回、復活力は忘れず受け取りましょう","<COL ffdc78>Revival charges can be claimed once 
+per real-world day (up to a maxium of 3) 
+from Ophelia, the official at the temple in 
+charge of the Revival Power/Login Stamps</COL>. 
+Daily allotments reset at midnight— 
+don't forget to collect yours!",ui\00_message\tutorial_guide\steps\tutorial_guide_step182.gmd,\tguide\tutorial_guide_182.arc,tutorial_guide_182.arc,1,
+2,TUTORIAL_STEP_332,"なお、<OPCS>の効果により
+<COL ffdc78>《復活力》は１日何度でも
+受け取ることができるようになります</COL>","Furthermore, due to the effect of 
+<OPCS>, <COL ffdc78>Revival Power</COL> can 
+be restored multiple times a day.",ui\00_message\tutorial_guide\steps\tutorial_guide_step182.gmd,\tguide\tutorial_guide_182.arc,tutorial_guide_182.arc,2,
 0,TUTORIAL_STEP_334,"大型敵は強力で、覚者にとって脅威です
 特に通常敵と異なるのは、体力がある程度
 減少すると身体が赤く輝く<COL ffdc78>《怒り状態》</COL>となり
 攻撃が激化、ダメージが通りにくくなる点です
 <COL ffdc78>怒った敵には《敵スタミナゲージ》が出現します
 それを減らして疲労させ、ダウンさせることが
-討伐チャンスに繋がるのです</COL>","Large enemies are powerful and pose a threat to
-the Arisen.
-What sets them apart from normal enemies is that
-when their health decreases to a certain extent,
-their bodies start glowing red, indicating they
-are in an <COL ffdc78>Enraged State</COL>. In this
-state, their attacks become more intense, and it
-becomes more difficult to deal damage to them.
-<COL ffdc78>Enraged enemies have a ""Enemy Stamina
-Gauge"" that appears. By reducing their stamina and
-exhausting them, you can create an opportunity to
-defeat them.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step208.gmd,\tguide\tutorial_guide_208.arc,tutorial_guide_208.arc,0,
+討伐チャンスに繋がるのです</COL>","Large enemies are powerful threats 
+to the Arisen. 
+Their key difference from regular foes: 
+when HP drops to a certain level, they 
+<COL ffdc78>Enrage</COL>, glowing red while intensifying 
+attacks and gaining damage resistance. 
+<COL ffdc78>Enraged enemies display a Stamina Gauge. 
+Depleting it exhausts them, creating a 
+knockdown opportunity for decisive 
+attacks.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step208.gmd,\tguide\tutorial_guide_208.arc,tutorial_guide_208.arc,0,
 1,TUTORIAL_STEP_335,"怒った敵の<COL ffdc78>《敵スタミナゲージ》</COL>を
 削るには下記２通りの方法があります
 【その1】しがみついて<COL ffdc78>《揺さぶり》</COL>をする
 【その2】秘められた弱点<COL ffdc78>《シークレットコア》</COL>
 　　　　を狙い攻撃する
 大型敵のスタミナが切れて疲労し、ダウンした時
-こそ最大の勝機です。一気にたたみかけましょう","To deplete the enraged enemy's <COL ffdc78>《Enemy
-Stamina Gauge》</COL>, there are two methods:
-[Method 1] Hold on tight and <COL ffdc78>
-《Shake》</COL> it.
-[Method 2] Aim for the hidden weakness, <COL ffdc78>
-《Secret Core》</COL>, and attack.
-When the stamina of the large enemy runs out and
-it becomes exhausted, that is the greatest
-opportunity. Let's strike all at once.",ui\00_message\tutorial_guide\steps\tutorial_guide_step208.gmd,\tguide\tutorial_guide_208.arc,tutorial_guide_208.arc,1,
+こそ最大の勝機です。一気にたたみかけましょう","To deplete the enraged <COL ffdc78>Enemy Stamina 
+Gauge</COL>, there are two methods:
+[Method 1] Hold on tight and <COL ffdc78>Shake</COL> it.
+[Method 2] Aim for the hidden weakness. 
+And attack <COL ffdc78>Secret Core</COL>.
+When the large enemy is exhausted and 
+collapses, seize this prime opening to 
+unleash your strongest assault.",ui\00_message\tutorial_guide\steps\tutorial_guide_step208.gmd,\tguide\tutorial_guide_208.arc,tutorial_guide_208.arc,1,
 2,TUTORIAL_STEP_336,"【その1・追記】
 ただし《揺さぶり》のためしがみつく者に対し、
 敵は抵抗します。敵ゲージの下に特殊アイコンが
@@ -787,34 +743,16 @@ opportunity. Let's strike all at once.",ui\00_message\tutorial_guide\steps\tutor
 　①黄色：《振り払いアクション合図》
 　　　　…【<KC TOUCH>押しっぱなし】で耐える
 　②赤色：《バーストアクション合図》
-　　　　…【<KC JUMP>】離れる",,ui\00_message\tutorial_guide\steps\tutorial_guide_step208.gmd,\tguide\tutorial_guide_208.arc,tutorial_guide_208.arc,2,
-3,TUTORIAL_STEP_359,"【その2・追記】
-<COL ffdc78>秘められた弱点《シークレットコア》は
-プリーストの《ヒールオーラ》を当てることなどで
-探知し発現させることができます</COL>
-発光する部位を集中的に狙いましょう
-<COL ffdc78>光色は属性を表し、対応属性による攻撃は
-より効果的です</COL>","【Part 2 · Additional Note】
-<COL ffdc78>The hidden weak point, ""Secret Core,""
-can be detected and activated by using the
-priest's ""Heal Aura.""</COL>
-Aim for the glowing parts intensively.
-<COL ffdc78>The color of the glow represents the
-attribute, and attacks corresponding to the
-attribute are more effective.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step208.gmd,\tguide\tutorial_guide_208.arc,tutorial_guide_208.arc,3,
-4,TUTORIAL_STEP_491,"また、敵スタミナゲージの横に出現する
-<COL ffdc78>《ブレイクアイコン》</COL>が満了になると
-敵は大きく体勢を崩してブレイク状態となります
-ブレイク値は怒った敵に攻撃を加えることで上昇し、
-その上昇量は攻撃を加えた部位によって異なります
-また、吹き飛ばし力が高い攻撃ほど効果的です","Furthermore, when the <COL ffdc78>""Break
-Icon""</COL> next to the enemy's stamina gauge
-fills up, the enemy will lose their balance and
-enter a break state.
-The break value increases when you attack an
-enraged enemy, and the amount of increase varies
-depending on the body part you attack. Moreover,
-attacks with high blow power are more effective.",ui\00_message\tutorial_guide\steps\tutorial_guide_step208.gmd,\tguide\tutorial_guide_208.arc,tutorial_guide_208.arc,4,
+　　　　…【<KC JUMP>】離れる","Additional Note 1
+However, enemies resist when you attempt 
+to <COL ffdc78>Shake</COL> them. 
+If a special icon appears below their gauge, 
+you must react immediately or get thrown 
+off/take damage.
+① <COL ffdc78>Yellow</COL>: [Shake-off Signal]
+...Hold down [<KC TOUCH>] to endure
+② <COL 91212ff>Red</COL>: [Burst Signal]
+...Press [<KC JUMP>] to detach",ui\00_message\tutorial_guide\steps\tutorial_guide_step208.gmd,\tguide\tutorial_guide_208.arc,tutorial_guide_208.arc,2,
 0,TUTORIAL_STEP_337,"メインクエスト進行中、チェックポイントとなる
 場所に出現するのが<COL ffdc78>《進行マーカー》</COL>です
 ソロプレイ中でもパーティープレイ中でも
@@ -909,6 +847,20 @@ Lash"" skill will greatly increase.
 Revenge Gauge).
 You can also forcefully launch allies into the
 air with the <KC CATAPULT>Linking Throw skill.",ui\00_message\tutorial_guide\steps\tutorial_guide_step216.gmd,\tguide\tutorial_guide_216.arc,tutorial_guide_216.arc,0,
+1,TUTORIAL_STEP_344,"機動力と回避力に優れており
+特殊移動を活かした鋭い立ち回りが可能です
+ただし特殊移動はスタミナを消費するため
+残量には注意しましょう
+＜基本操作／回避＞
+　【<KC AVOID>】アルケム・フーガ（回避錬成）</KEYM>
+また、成長により新たな特殊移動を習得できます","It has excellent mobility and evasion and can
+make use of special moves for sharp maneuvers.
+However, special moves consume stamina, so be
+careful of your remaining stamina.
+<Basic Operation/Evasion>
+[<KC AVOID>] Alchem Fuga (Evasion)</KEYM>
+You can also learn new special moves through
+growth.",ui\00_message\tutorial_guide\steps\tutorial_guide_step169.gmd,\tguide\tutorial_guide_169.arc,tutorial_guide_169.arc,1,
 0,TUTORIAL_STEP_345,"蓄積した《錬成値》は、《エリクシル》により
 解放することで、敵に大ダメージを与えます
 装備するエリクシルによって解放時の性質は変化し
@@ -923,6 +875,18 @@ various status ailments on enemies.
 ailments)
 【<KC ELIXIR_CHANGE>】Change Elixir (debilitation
 equipment change)",ui\00_message\tutorial_guide\steps\tutorial_guide_step218.gmd,\tguide\tutorial_guide_218.arc,tutorial_guide_218.arc,0,
+1,TUTORIAL_STEP_346,"数々の状態異常を秘めた《エリクシル》の
+どの異常属性をいつ装備し、
+どの敵に使うか――
+その見極めが戦局を大きく動かします
+シールドセージのような頑健さが無い分は、
+アルケム・フーガやレクス・リープなどの
+特殊移動を用いてうまく立ち回りましょう","Which abnormal attribute of the ""Elixir"" should
+be equipped and when to use it on which enemy will
+greatly affect the battle situation.
+In the absence of the resilience of a Shield
+Sage, let's maneuver skillfully using special
+movements like Alchemical Fuga and Rex Leap.",ui\00_message\tutorial_guide\steps\tutorial_guide_step170.gmd,\tguide\tutorial_guide_170.arc,tutorial_guide_170.arc,1,
 0,TUTORIAL_STEP_347,"<COL ffdc78>《太古の強者》</COL>は
 最大８人のパーティーを結成してミスリウ森林
 に存在する《古の祭祀場》に現れた脅威と
@@ -1030,6 +994,36 @@ be selected in the Game Menu's ""Rift Teleport"" and
 going to ""Favorites"" becomes free. Additionally,
 there is a significant discount when going to
 other locations.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step226.gmd,\tguide\tutorial_guide_226.arc,tutorial_guide_226.arc,1,
+0,TUTORIAL_STEP_358,"<COL ffdc78>パーティーでクエストを進行する際は
+優先クエストの表示はパーティーリーダーの
+進行状態に切り替わります</COL>
+ソロやポーンのみを連れて冒険に出た時は
+自分の進行ログが画面右に表示されます
+他のプレイヤーがリーダーの場合、その人の
+ログを共有して進めることになりますので
+自分の進行度を確認しつつ進めましょう","<COL ffdc78>When you are in a party, the priority
+quests will switch to the party
+leader'sprogress.</COL>
+If you are solo or only have a pawn, your
+progress log will appear on the right side of the
+screen.
+If another player is the leader, their log will
+be shared with you, so check your progress as you
+go along!",ui\00_message\tutorial_guide\steps\tutorial_guide_step174.gmd,\tguide\tutorial_guide_174.arc,tutorial_guide_174.arc,0,
+3,TUTORIAL_STEP_359,"【その2・追記】
+<COL ffdc78>秘められた弱点《シークレットコア》は
+プリーストの《ヒールオーラ》を当てることなどで
+探知し発現させることができます</COL>
+発光する部位を集中的に狙いましょう
+<COL ffdc78>光色は属性を表し、対応属性による攻撃は
+より効果的です</COL>","Additional Note 2
+The hidden weak point a, <COL ffdc78>Secret Core</COL>
+can be detected and activated by using 
+the Priest's <COL ffdc78>Heal Aura</COL> or similar means.
+Focus your attacks on the glowing area.
+<COL ffdc78>The color of the glow represents 
+the attribute, and attacks corresponding 
+to the attribute are more effective.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step208.gmd,\tguide\tutorial_guide_208.arc,tutorial_guide_208.arc,3,
 0,TUTORIAL_STEP_360,"エクストリームミッションなど特定コンテンツを
 なんらかの事情でやむなく途中離脱したい場合、
 ゲームメニュー《クエスト》の<COL ffdc78>《コンテンツ中断》</COL>
@@ -1186,47 +1180,17 @@ dungeons.
 Because it's likely to become the target of a
 quest,
 Always be well prepared to challenge them!",ui\00_message\tutorial_guide\steps\tutorial_guide_step233.gmd,\tguide\tutorial_guide_233.arc,tutorial_guide_233.arc,1,
-0,TUTORIAL_STEP_49,"<COL ffdc78>《オーブエネミー》</COL>と呼ばれる魔物を討伐
-すると、その敵の強さに応じた数の
-《ブラッドオーブ》が入手できます
-<COL ffdc78>《オーブエネミー》は通常の敵と異なり
-ＨＰゲージが紫色をしています</COL>
-周囲の敵と比べてやや強い難敵ですが
-発見したら果敢に挑みましょう","Defeat the monsters called <COL ffdc78>""Blood Orb
-Enemies""</COL>, and you will obtain a number of
-""Blood Orbs"" corresponding to the strength of the
-enemy.
-<COL ffdc78>Unlike regular enemies, the ""Blood
-Orb Enemies"" have a purple HP gauge.</COL>
-They are slightly stronger and more challenging
-than the surrounding enemies, but let's bravely
-face them when we come across them.",ui\00_message\tutorial_guide\steps\tutorial_guide_step234.gmd,\tguide\tutorial_guide_234.arc,tutorial_guide_234.arc,0,
 1,TUTORIAL_STEP_372,"オーブエネミーは、フィールド上では
 滅多に遭遇することがありません
 討伐を狙うのであれば
 <COL ffdc78>エリアマスターが管理する封鎖ダンジョン</COL>に
 多く潜んでいるため、そういったスポットに
-足を運ぶとよいでしょう","Blood Orb Enemies are rarely encountered in the
-field.
+足を運ぶとよいでしょう","Blood Orb Enemies are rarely encountered 
+in the field.
 If you are aiming to defeat them, it is
 recommended to visit <COL ffdc78>Blocked Dungeons
-managed by Area Masters</COL> where they are often
-hidden.",ui\00_message\tutorial_guide\steps\tutorial_guide_step234.gmd,\tguide\tutorial_guide_234.arc,tutorial_guide_234.arc,1,
-1,TUTORIAL_STEP_94,"＜押さえつけ＞
-小型の敵がのけぞったりダウンした時に
-行うことで、敵を長時間拘束できます
-拘束された敵へのダメージは大幅アップします
-　　のけぞり／ダウン中の小型敵に　【<KC TOUCH>】
-　　　（解除は【<KC JUMP>】）
-　　※拘束中はスタミナを消費","<Hold Down>
-By performing this action when a small enemy
-staggers or is knocked down, you can restrain them
-for a long period of time. The damage dealt to
-restrained enemies is significantly increased.
-Perform 【<KC TOUCH>】 on small enemies while they
-are staggered/down
-(Release with 【<KC JUMP>】)
-※ Stamina is consumed while restraining the enemy",ui\00_message\tutorial_guide\steps\tutorial_guide_step235.gmd,\tguide\tutorial_guide_235.arc,tutorial_guide_235.arc,1,
+managed by Area Masters</COL> where they are 
+often hidden.",ui\00_message\tutorial_guide\steps\tutorial_guide_step234.gmd,\tguide\tutorial_guide_234.arc,tutorial_guide_234.arc,1,
 0,TUTORIAL_STEP_373,"２人以上で連係し行うアクション
 <COL ffdc78>《連係投げ》</COL>と<COL ffdc78>《押さえつけ》</COL>を覚えることで
 パーティープレイの幅が広がります
@@ -1341,20 +1305,6 @@ This will increase your area rank.
 Complete quests in various areas to increase 
 your area rank and expand your 
 adventure.",ui\00_message\tutorial_guide\steps\tutorial_guide_step238.gmd,\tguide\tutorial_guide_238.arc,tutorial_guide_238.arc,1,
-2,TUTORIAL_STEP_412,"<COL ffdc78>ただし、エリアランクは自身が
-パーティーリーダーの時にしか
-ランクアップできません</COL>
-また、条件にエリア試練クエスト
-のクリアが必要な場合もあります
-他プレイヤーのパーティーにゲストとして参加
-している場合は、リーダー覚者のエリアランクが
-反映されるためご留意ください","<COL ffdc78>However, your Area Rank can only be
-increased when you are the party leader. </COL>
-In some cases, clearing Area Trial may 
-be a requirement.
-Please note that if you are joining another
-player's party as a guest, the leader's Area 
-Rank will be reflected.",ui\00_message\tutorial_guide\steps\tutorial_guide_step238.gmd,\tguide\tutorial_guide_238.arc,tutorial_guide_238.arc,2,
 0,TUTORIAL_STEP_381,"これらのゲーム説明は【<KC UI_GAME_MENU>】ゲームメニュー
 《ワールド》の<COL ffdc78>《チュートリアルガイド》</COL>から
 再確認できます
@@ -1481,13 +1431,6 @@ quantity will be higher than usual.
 The required G for item production, equipment
 strengthening, and crest attachment will be
 reduced.",ui\00_message\tutorial_guide\steps\tutorial_guide_step245.gmd,\tguide\tutorial_guide_245.arc,tutorial_guide_245.arc,2,
-3,TUTORIAL_STEP_490,"<COL ffdc78>※一度割り振ったポイントは
-変更できません</COL>
-ただし、オンラインショップでは
-<COL ffdc78>一度割り振ったポイントの振り直しが可能です</COL>","<COL ffdc78>※Points allocated once cannot be
-changed</COL>
-However, in the online shop, <COL ffdc78>Points
-that have been allocated can be reallocated</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step245.gmd,\tguide\tutorial_guide_245.arc,tutorial_guide_245.arc,3,
 0,TUTORIAL_STEP_394,"<COL ffdc78>死亡後《拠点に戻る》を選択して復活すると
 最大体力ほか各能力値が大幅にダウンする
 《弱化》状態になってしまいます</COL>
@@ -1523,6 +1466,19 @@ Party"".
 Note that if there is no response within a
 certain period of time, the request will be
 canceled.",ui\00_message\tutorial_guide\steps\tutorial_guide_step249.gmd,\tguide\tutorial_guide_249.arc,tutorial_guide_249.arc,0,
+1,TUTORIAL_STEP_396,"また、射撃の威力は敵との距離で変化します
+<COL ffdc78>狙撃照準カーソルで敵を捕えた時、
+オレンジ色のラインがカーソル中央に合う距離が
+射撃の《最適距離》です</COL>
+その距離から矢を放つことで
+最も大きなダメージを与えることができます","Additionally, the power of the shot varies
+depending on the distance from the enemy.
+<COL ffdc78>When the enemy is captured with the
+sniper sight cursor, the distance where the orange
+line aligns with the center of the cursor is the
+""optimal distance"" for shooting.</COL>
+By shooting arrows from that distance, you can
+inflict the most damage.",ui\00_message\tutorial_guide\steps\tutorial_guide_step177.gmd,\tguide\tutorial_guide_177.arc,tutorial_guide_177.arc,1,
 0,TUTORIAL_STEP_401,"メインクエスト中、ボスに勝てない時は
 《復活力》や《黄金石》を使うことで
 倒れたとしても戦闘を続けられます
@@ -1569,6 +1525,32 @@ If the proposal is rejected by a majority vote,
 it will not be eligible for reconsideration for a
 certain period of time. Please also keep this in
 mind.",ui\00_message\tutorial_guide\steps\tutorial_guide_step250.gmd,\tguide\tutorial_guide_250.arc,tutorial_guide_250.arc,3,
+2,TUTORIAL_STEP_411,"<COL ffdc78>また、実際にレベルアップするには
+戦技補佐に話しかけ、それまでの
+レベルアップ同様にジョブポイントを
+支払う必要があります</COL>
+パーティーの仲間と協力し、
+多くの課題をこなして技のレベルアップを
+目指しましょう","<COL ffdc78>Also, in order to actually level up,
+you will need to talk to Arts Support ano pay job
+points, just like leveling up before.</COL>
+Work together with your party members and
+complete many tasks to aim for leveling up of your
+skills.",ui\00_message\tutorial_guide\steps\tutorial_guide_step161.gmd,\tguide\tutorial_guide_161.arc,tutorial_guide_161.arc,2,
+2,TUTORIAL_STEP_412,"<COL ffdc78>ただし、エリアランクは自身が
+パーティーリーダーの時にしか
+ランクアップできません</COL>
+また、条件にエリア試練クエスト
+のクリアが必要な場合もあります
+他プレイヤーのパーティーにゲストとして参加
+している場合は、リーダー覚者のエリアランクが
+反映されるためご留意ください","<COL ffdc78>However, your Area Rank can only be
+increased when you are the party leader. </COL>
+In some cases, clearing Area Trial may 
+be a requirement.
+Please note that if you are joining another
+player's party as a guest, the leader's Area 
+Rank will be reflected.",ui\00_message\tutorial_guide\steps\tutorial_guide_step238.gmd,\tguide\tutorial_guide_238.arc,tutorial_guide_238.arc,2,
 0,TUTORIAL_STEP_417,"　<COL 78f5ff>レスタニア序節：「神の目覚め」到達！</COL>
 　""かくして選ばれし覚者の活躍により
 　　白竜は目覚め、歴史は大きく動き出した
@@ -1598,3 +1580,23 @@ materials obtained from them.
 enemies waiting for you ahead.
 Accumulate your power and prepare for the
 upcoming battles.――",ui\00_message\tutorial_guide\steps\tutorial_guide_step252.gmd,\tguide\tutorial_guide_252.arc,tutorial_guide_252.arc,1,
+3,TUTORIAL_STEP_490,"<COL ffdc78>※一度割り振ったポイントは
+変更できません</COL>
+ただし、オンラインショップでは
+<COL ffdc78>一度割り振ったポイントの振り直しが可能です</COL>","<COL ffdc78>※Points allocated once cannot be
+changed</COL>
+However, in the online shop, <COL ffdc78>Points
+that have been allocated can be reallocated</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step245.gmd,\tguide\tutorial_guide_245.arc,tutorial_guide_245.arc,3,
+4,TUTORIAL_STEP_491,"また、敵スタミナゲージの横に出現する
+<COL ffdc78>《ブレイクアイコン》</COL>が満了になると
+敵は大きく体勢を崩してブレイク状態となります
+ブレイク値は怒った敵に攻撃を加えることで上昇し、
+その上昇量は攻撃を加えた部位によって異なります
+また、吹き飛ばし力が高い攻撃ほど効果的です","Furthermore, when the <COL ffdc78>Break Icon</COL> next to 
+the enemy's stamina gauge fills up, the enemy 
+will lose their balance and enter a break state.
+The break value increases when you attack an
+enraged enemy, and the amount of increase 
+varies depending on the body part you attack. 
+Moreover, attacks with high blow power are 
+more effective.",ui\00_message\tutorial_guide\steps\tutorial_guide_step208.gmd,\tguide\tutorial_guide_208.arc,tutorial_guide_208.arc,4,
