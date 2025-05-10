@@ -172,506 +172,885 @@
 0,,"ボーナス報酬条件達成！
 ミッションクリア時の報酬が追加されます",,ui\00_message\examine_message\quest\quest_examine_q50400015.gmd,\quest\q50400015.arc,q50400015.arc,1,
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「一つ――敵を《怒り状態》にせよ」",,ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,0,Renton
-0,,「大型敵に一定以上のダメージを与える」,,ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,1,Renton
+「一つ――敵を《怒り状態》にせよ」","Teachings carved by someone emerge—
+
+""First...put the enemy in an enraged state.""",ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,0,Renton
+0,,「大型敵に一定以上のダメージを与える」,"""Deal significant damage to large enemies.""",ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,1,Renton
 0,,"「巨大な敵を倒すには一人では困難である
 　そのためにパーティーで挑む事が大事で
-　敵を怒らせてスキを作る必要がある」",,ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,2,Renton
+　敵を怒らせてスキを作る必要がある」","""Defeating giant enemies alone is difficult.
+That's why it's important to challenge them
+as a party and create openings by enraging them.""",ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,2,Renton
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「二つ――敵は《揺さぶり》にて崩すべし」",,ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,3,Renton
+「二つ――敵は《揺さぶり》にて崩すべし」","Teachings carved by someone emerge—
+
+""Two—break the enemy with shaking.""",ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,3,Renton
 0,,"「怒り状態の大型敵に近づいて、
-　<ICON STG_TOUCH>でしがみついた状態で<ICON STG_ATTACK_1>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,4,Renton
+　<ICON STG_TOUCH>でしがみついた状態で<ICON STG_ATTACK_1>を押す」","""Approach a large enemy in an enraged state,
+hold onto it with <ICON STG_TOUCH>, 
+then press <ICON STG_ATTACK_1>.""",ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,4,Renton
 0,,"「怒った敵にしがみつき揺さぶる事で
 　疲れさせてダウン状態に持っていく
-　ことで倒す事ができる」",,ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,5,Renton
+　ことで倒す事ができる」","""By clinging to and shaking an enraged enemy,
+you can exhaust it and bring it down,
+making it possible to defeat.""",ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,5,Renton
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「五つ――しがみついて《えぐり突き》を仕掛けよ」",,ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,6,Renton
-0,,「しがみつき中に<ICON STG_ATTACK_0>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,7,Renton
+「五つ――しがみついて《えぐり突き》を仕掛けよ」","Teachings carved by someone emerge—
+
+""Five—cling on and execute Gouge.""",ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,6,Renton
+0,,「しがみつき中に<ICON STG_ATTACK_0>を押す」,"""Press <ICON STG_ATTACK_0> while clinging.""",ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,7,Renton
 0,,"「敵にしがみついてる時でも
-　直接ダメージを与える事ができる」",,ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,8,Arisen Corps Regimental Soldier
-0,,《破攻の証》を手に入れた！,,ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,9,Arisen Corps Regimental Soldier
+　直接ダメージを与える事ができる」","""You can deal direct damage even
+while clinging to an enemy.""",ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,8,Arisen Corps Regimental Soldier
+0,,《破攻の証》を手に入れた！,You have obtained the 《Mark of Breaking》!,ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,9,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「三つ――敵の振り解き攻撃から耐えるべし」",,ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,10,Arisen Corps Regimental Soldier
+「三つ――敵の振り解き攻撃から耐えるべし」","Teachings carved by someone emerge—
+
+""Three—endure the enemy's attempts to shake you off.""",ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,10,Arisen Corps Regimental Soldier
 0,,"「怒り状態の敵にしがみついた状態で
 　振り払いアイコン（黄色）が出たら
-　<ICON STG_TOUCH>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,11,Arisen Corps Regimental Soldier
+　<ICON STG_TOUCH>を押す」","""While clinging to an enemy in an enraged state,
+when the yellow shake-off warning appears,
+press <ICON STG_TOUCH>.""",ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,11,Arisen Corps Regimental Soldier
 0,,"「怒った敵が振り払い行動が出す時は
-　耐えて回避して揺さぶりを継続できる」",,ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,12,Arisen Corps Regimental Soldier
+　耐えて回避して揺さぶりを継続できる」","""When an enraged enemy attempts to shake you off,
+endure it to continue shaking them.""",ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,12,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「四つ――敵の引き剥がし攻撃から離脱せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,13,Arisen Corps Regimental Soldier
+「四つ――敵の引き剥がし攻撃から離脱せよ」","Teachings carved by someone emerge—
+
+""Four—avoid the enemy's Struggle attacks.""",ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,13,Arisen Corps Regimental Soldier
 0,,"「怒り状態の敵にしがみつき中に
 　敵の体力ゲージ上にバーストアイコン（赤色）が
-　出たら<ICON UI_DECIDE>or<ICON UI_CANCEL>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,14,Wilson
+　出たら<ICON UI_DECIDE>or<ICON UI_CANCEL>を押す」","""When clinging to enraged enemies,
+press <ICON UI_DECIDE> or <ICON UI_CANCEL>
+when the red Struggle icon appears on
+their gauge.""",ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,14,Wilson
 0,,"「怒り状態の敵はしがみつき中に
 　引き剥がす行動に出る時がある
 　その時はしがみつきから離脱して
-　回避する事が重要である」",,ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,15,Wilson
+　回避する事が重要である」","""Enraged enemies may try to shake you off
+while you're clinging to them. When this
+happens, break free immediately and
+focus on evasion.""",ui\00_message\examine_message\quest\quest_examine_q60000001.gmd,\quest\q60000001.arc,q60000001.arc,15,Wilson
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《連斬》にて敵を攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,0,Arisen Corps Regimental Soldier
-0,,「<ICON STG_ATTACK_0>を連続して押す」,,ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,1,Arisen Corps Regimental Soldier
+「《連斬》にて敵を攻撃せよ」","Teachings carved by someone emerge―
+
+""Attack the enemy with Carve.""",ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,0,Arisen Corps Regimental Soldier
+0,,「<ICON STG_ATTACK_0>を連続して押す」,"""Press <ICON STG_ATTACK_0> repeatedly""",ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,1,Arisen Corps Regimental Soldier
 0,,"「続けざまに斬りつければ反撃を受けにくい
-　タイミングをずらせば、技の派生も可能である」",,ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,2,Arisen Corps Regimental Soldier
+　タイミングをずらせば、技の派生も可能である」","""Consecutive slashes make it 
+harder for enemies to counter.
+Shifting the timing allows for skill variations.""",ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,2,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「敵の攻撃を盾で防げ」",,ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,3,Arisen Corps Regimental Soldier
+「敵の攻撃を盾で防げ」","Teachings carved by someone emerge―
+
+""Block the enemy's attack with your shield.""",ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,3,Arisen Corps Regimental Soldier
 0,,"「ただしスタミナの消費には注意が必要だ
-　よりよい盾ならば強い攻撃も防げるだろう」",,ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,5,Arisen Corps Regimental Soldier
-0,,《頑盾の証》を手に入れた！,,ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,6,Arisen Corps Regimental Soldier
+　よりよい盾ならば強い攻撃も防げるだろう」",Press <ICON STG_SUB_WEP>.,ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,5,Arisen Corps Regimental Soldier
+0,,<ICON STG_SUB_WEP>を押す,"""But be careful how much stamina you expend.
+A better shield will defend 
+against stronger attacks.""",ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,4,Arisen Corps Regimental Soldier
+0,,《頑盾の証》を手に入れた！,You have obtained the 《Fighter's Mark》!,ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,6,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「敵の攻撃を《盾弾き》で弾き返せ」",,ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,7,Arisen Corps Regimental Soldier
-0,,「敵の攻撃を引きつけて<ICON STG_SUB_WEP>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,8,Wilson
+「敵の攻撃を《盾弾き》で弾き返せ」","Teachings carved by someone emerge―
+
+""Repel the enemy's attack with Deflect.""",ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,7,Arisen Corps Regimental Soldier
+0,,「敵の攻撃を引きつけて<ICON STG_SUB_WEP>を押す」,"""Bait enemy attacks and press <ICON STG_SUB_WEP>""",ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,8,Wilson
 0,,"「敵の攻撃を盾弾きで怯ませて
 　素早く反撃のチャンスを作り出せる
-　無防備な空中時でも敵の攻撃回避に有効である」",,ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,9,Wilson
+　無防備な空中時でも敵の攻撃回避に有効である」","""Deflecting enemy attacks with your shield can 
+stagger them, creating a quick opportunity 
+for a counterattack.
+ It is also effective for dodging enemy attacks
+ even when defenseless in the air.""",ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,9,Wilson
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「敵の盾ガード中に《斬り崩し》で攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,10,Wilson
-0,,「<ICON STG_ATTACK_1>長押し後、離すと発動」,,ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,11,Renton
+「敵の盾ガード中に《斬り崩し》で攻撃せよ」","Teachings carved by someone emerge―
+
+""Attack guarding enemies with Guard Break.""",ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,10,Wilson
+0,,「<ICON STG_ATTACK_1>長押し後、離すと発動」,"""Hold <ICON STG_ATTACK_1>, then release to activate""",ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,11,Renton
 0,,"「敵の盾ガードを崩す事ができる
 　また斬り崩しのボタン長押しで
-　より威力を増した攻撃を放つ事ができる」",,ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,12,Renton
+　より威力を増した攻撃を放つ事ができる」","""Can break the enemy's guard.
+Holding the Guard Break button longer
+releases a more powerful attack.""",ui\00_message\examine_message\quest\quest_examine_q60000003.gmd,\quest\q60000003.arc,q60000003.arc,12,Renton
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《ブラストビット》にて敵を3回当てよ」",,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,0,Priest
-0,,「<ICON STG_ATTACK_1>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,1,Priest
+「《ブラストビット》にて敵を3回当てよ」","Teachings carved by someone emerge―
+
+""Hit the enemy 3 times with Blast Bit.""",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,0,Priest
+0,,「<ICON STG_ATTACK_1>を押す」,"""Press <ICON STG_ATTACK_1>.""",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,1,Priest
 0,,"「敵に向かって魔法球を放つ事ができる
-　ボタンを長押しする事で弾数と威力を増大できる」",,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,2,Priest
+　ボタンを長押しする事で弾数と威力を増大できる」","""You can shoot magic orbs at enemies.
+Holding down the button increases the
+number and power of shots.""",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,2,Priest
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《ヒールオーラ》で味方に使用せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,3,Priest
-0,,「<ICON STG_ATTACK_0>を押す、再度押すと解除」,,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,4,Priest
+「《ヒールオーラ》で味方に使用せよ」","Teachings carved by someone emerge―
+
+""Use Heal Aura on allies.""",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,3,Priest
+0,,「<ICON STG_ATTACK_0>を押す、再度押すと解除」,"""Press <ICON STG_ATTACK_0>, press again to cancel.""",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,4,Priest
 0,,"「発動した範囲に傷ついた仲間を入れる事で
 　自分だけでなく仲間の体力も回復できる
-　ただし回復は体力の白いゲージ幅までである」",,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,5,Priest
+　ただし回復は体力の白いゲージ幅までである」","""Injured allies within the activated area will
+ recover HP, not just you. Recovery is limited
+ to the white gauge portion of their HP.""",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,5,Priest
 0,,"「また使用中はスタミナが消費するので
-　状況を見てキャンセルも可能である」",,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,6,Priest
-0,,《浄化の証》を手に入れた！,,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,7,Priest
+　状況を見てキャンセルも可能である」","""Stamina is consumed while active, so you can
+ cancel it depending on the situation.""",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,6,Priest
+0,,《浄化の証》を手に入れた！,You have obtained the 《Priest's Mark》!,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,7,Priest
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《セイントオーラ》を展開して敵を攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,8,Priest
-0,,「<ICON STG_MAIN_WEP>を押しながら<ICON STG_TOUCH>を押す、再度押すと解除」,,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,9,Renton
+「《セイントオーラ》を展開して敵を攻撃せよ」","Teachings carved by someone emerge―
+
+""Attack the enemy with Holy Aura.""",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,8,Priest
+0,,「<ICON STG_MAIN_WEP>を押しながら<ICON STG_TOUCH>を押す、再度押すと解除」,"""Hold <ICON STG_MAIN_WEP>, then press <ICON STG_TOUCH>.
+ Press again to cancel.""",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,9,Renton
 0,,"「展開された魔法波の範囲内に
 　敵が入ると聖属性ダメージを与える事ができる
-　複数の敵に対しても有効である」",,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,10,Renton
-0,,ブラストピットの攻撃は自動追尾で敵に当てることができるぞ,,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,11,Renton
-0,,ヒールオーラで発動した光の範囲内に仲間を入れることで回復できるぞ,,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,12,Renton
-0,,発動したセイントサークルは発動中スタミナが減るから注意して使え,,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,13,White Knight
-0,,最後の仕上げだ――最奥のゴブリンを今までの課題を生かして全滅させるんだ,,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,14,White Knight
-0,,よくやった――最奥にある証を探して試練は終わりだ,,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,15,Renton
+　複数の敵に対しても有効である」","""When an enemy enters the range of the aura, 
+Holy Attribute damage will be dealt.
+It is effective against multiple enemies.""",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,10,Renton
+0,,ブラストピットの攻撃は自動追尾で敵に当てることができるぞ,"Blast Bit's attacks can automatically 
+track and hit enemies.",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,11,Renton
+0,,ヒールオーラで発動した光の範囲内に仲間を入れることで回復できるぞ,"Allies recover HP when standing
+inside Heal Aura's glowing
+area of effect.",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,12,Renton
+0,,発動したセイントサークルは発動中スタミナが減るから注意して使え,"Holy Aura consumes stamina while active, 
+so use it carefully.",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,13,White Knight
+0,,最後の仕上げだ――最奥のゴブリンを今までの課題を生かして全滅させるんだ,"The final test—use what you've learned to
+ eliminate all the goblins at the far end.",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,14,White Knight
+0,,よくやった――最奥にある証を探して試練は終わりだ,"Well done—find the mark at the end
+ to complete the trial.",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,15,Renton
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《連斬》にて敵を攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,0,Renton
-0,,「<ICON STG_ATTACK_0>を連続して押す」,,ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,1,Renton
-0,,「高速の連撃は敵に反撃の隙を与えない」,,ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,2,Renton
+「《連斬》にて敵を攻撃せよ」","Teachings carved by someone emerge―
+
+""Attack the enemy with Carve.""",ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,0,Renton
+0,,「<ICON STG_ATTACK_0>を連続して押す」,"""Press <ICON STG_ATTACK_0> repeatedly""",ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,1,Renton
+0,,「高速の連撃は敵に反撃の隙を与えない」,"""High-speed combos leave no 
+opening for enemy counterattacks.""",ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,2,Renton
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「敵に《投縄》を接触させよ」",,ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,3,Renton
-0,,「<ICON STG_SUB_WEP>を押しながら<STG_SHOT>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,4,Renton
+「敵に《投縄》を接触させよ」","Teachings carved by someone emerge―
+
+""Hit the enemy with the Throw Rope.""",ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,3,Renton
+0,,「<ICON STG_SUB_WEP>を押しながら<STG_SHOT>を押す」,"""Hold <ICON STG_SUB_WEP>, then press <STG_SHOT>.""",ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,4,Renton
 0,,"「遠距離からロープを放ち、対象に引っ掛けて
 　素早く距離を詰める技だ
-　突進時に攻撃を加えることもできる」",,ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,5,Lightly-Equipped Soldier
-0,,《旋風の証》を手に入れた！,,ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,6,Lightly-Equipped Soldier
+　突進時に攻撃を加えることもできる」","""A technique to shoot a rope from a distance, 
+hook the target, and quickly close the gap. 
+You can also attack during the charge.""",ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,5,Lightly-Equipped Soldier
+0,,《旋風の証》を手に入れた！,You have obtained the 《Seekers's Mark》!,ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,6,Lightly-Equipped Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《百烈斬り》で敵を攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,7,Lightly-Equipped Soldier
-0,,「<ICON STG_ATTACK_1>を連続して押す」,,ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,8,Lightly-Equipped Soldier
+「《百烈斬り》で敵を攻撃せよ」","Teachings carved by someone emerge―
+
+""Attack the enemy with Scarlet Kisses.""",ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,7,Lightly-Equipped Soldier
+0,,「<ICON STG_ATTACK_1>を連続して押す」,"""Press <ICON STG_ATTACK_1> repeatedly.""",ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,8,Lightly-Equipped Soldier
 0,,"「さらなる高速連撃にて敵を圧倒できる
-　ボタン入力で攻撃回数を増やして削り倒せる」",,ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,9,Lightly-Equipped Soldier
+　ボタン入力で攻撃回数を増やして削り倒せる」","""Overwhelm the enemy with even faster combos.
+Increase attack count via button input 
+to wear them down.""",ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,9,Lightly-Equipped Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「敵の攻撃を《転身》で回避せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,10,Lightly-Equipped Soldier
-0,,「<ICON STG_MAIN_WEP>を押しながら<ICON STG_JUMP>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,11,Lightly-Equipped Soldier
+「敵の攻撃を《転身》で回避せよ」","Teachings carved by someone emerge―
+
+""Evade the enemy's attack with Forward Roll.""",ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,10,Lightly-Equipped Soldier
+0,,「<ICON STG_MAIN_WEP>を押しながら<ICON STG_JUMP>を押す」,"""Hold <ICON STG_MAIN_WEP>, then press <ICON STG_JUMP>.""",ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,11,Lightly-Equipped Soldier
 0,,"「敵の攻撃を受けずに素早く回避できる
-　接近時は素早く攻撃に移すことも可能」　",,ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,12,Lightly-Equipped Soldier
+　接近時は素早く攻撃に移すことも可能」　","""Quickly evade without taking damage.
+When close, you can swiftly transition to offense.""",ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,12,Lightly-Equipped Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「敵にしがみついて《百烈斬り》を成功させよ」",,ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,13,Lightly-Equipped Soldier
-0,,「しがみつき中に<ICON STG_ATTACK_0>を連続して押す」,,ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,14,Lightly-Equipped Soldier
+「敵にしがみついて《百烈斬り》を成功させよ」","Teachings carved by someone emerge―
+
+""Cling onto the enemy and land Scarlet Kisses.""",ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,13,Lightly-Equipped Soldier
+0,,「しがみつき中に<ICON STG_ATTACK_0>を連続して押す」,"""While clinging, press <ICON STG_ATTACK_0> repeatedly.""",ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,14,Lightly-Equipped Soldier
 0,,"「敵にしがみついた状態で
-　連続でダメージを与える事ができる」",,ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,15,Lightly-Equipped Soldier
+　連続でダメージを与える事ができる」","""You can deal continuous damage
+while clinging to an enemy.""",ui\00_message\examine_message\quest\quest_examine_q60000005.gmd,\quest\q60000005.arc,q60000005.arc,15,Lightly-Equipped Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《シールドブロウ》にて敵を攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,0,Arisen Corps Regimental Soldier
-0,,「<ICON STG_ATTACK_0>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,1,Arisen Corps Regimental Soldier
+「《シールドブロウ》にて敵を攻撃せよ」","Teachings carved by someone emerge―
+
+""Attack the enemy with Shield Blow.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,0,Arisen Corps Regimental Soldier
+0,,「<ICON STG_ATTACK_0>を押す」,"""Press <ICON STG_ATTACK_0>.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,1,Arisen Corps Regimental Soldier
 0,,"「敵に近づいてダメージを与える
-　どこでも使える攻撃である」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,2,Arisen Corps Regimental Soldier
+　どこでも使える攻撃である」","""Approach the enemy and deal damage.
+This is an attack that can be used anywhere.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,2,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《フォースガード》でフォースゲージを貯めろ」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,3,Arisen Corps Regimental Soldier
+「《フォースガード》でフォースゲージを貯めろ」","Teachings carved by someone emerge―
+
+""Use Force Guard to build the Force Gauge.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,3,Arisen Corps Regimental Soldier
 0,,"「盾を構えた状態で
 　敵の攻撃を全方位から防ぐ事で
-　フォースゲージを蓄積できる」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,4,Renton
+　フォースゲージを蓄積できる」","""By blocking enemy attacks from all directions
+while holding up your shield, you can accumulate
+Force Gauge.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,4,Renton
 0,,"「蓄積したフォースゲージを
 　仲間や敵に対して解放して使うのが
-　戦闘における基本スタイルとなる」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,5,Renton
+　戦闘における基本スタイルとなる」","""The basic combat style involves using
+accumulated Force Gauge by releasing it
+unto allies or enemies.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,5,Renton
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「敵を《フォースバースト》で攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,6,Renton
-0,,「<ICON STG_SUB_WEP>を押しながら<ICON STG_TOUCH>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,7,Renton
+「敵を《フォースバースト》で攻撃せよ」","Teachings carved by someone emerge―
+
+""Attack enemies with Force Burst.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,6,Renton
+0,,「<ICON STG_SUB_WEP>を押しながら<ICON STG_TOUCH>を押す」,"""Hold <ICON STG_SUB_WEP>, then press <ICON STG_TOUCH>.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,7,Renton
 0,,"「蓄積したフォースゲージを解放して
 　敵に攻撃を与えられる
-　貯めたフォースゲージ量により威力が変わる」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,8,White Knight
-0,,《魔盾の証》を手に入れた！,,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,9,White Knight
+　貯めたフォースゲージ量により威力が変わる」","""Release stored Force Gauge to attack
+the enemy. The power varies depending
+on the amount of Force Gauge stored.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,8,White Knight
+0,,《魔盾の証》を手に入れた！,You have obtained the 《Shield Sage's Mark》!,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,9,White Knight
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《アトラクト》で敵の注目をひきつけろ」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,10,Renton
-0,,「<ICON STG_MAIN_WEP>を押し続ける」,,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,11,Renton
+「《アトラクト》で敵の注目をひきつけろ」","Teachings carved by someone emerge―
+
+""Draw the enemy's attention with Attract.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,10,Renton
+0,,「<ICON STG_MAIN_WEP>を押し続ける」,"""Hold <ICON STG_MAIN_WEP>.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,11,Renton
 0,,"「敵を自分にひきつける事で
 　盾で敵の攻撃を防ぎながら
-　仲間に攻撃チャンスを与えられる」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,12,White Knight
+　仲間に攻撃チャンスを与えられる」","""By drawing enemies toward yourself,
+you can block their attacks with your shield
+and create opportunities for allies to attack.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,12,White Knight
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《シールドロック》でフォースゲージを貯めよ」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,13,Wilson
+「《シールドロック》でフォースゲージを貯めよ」","Teachings carved by someone emerge―
+
+""Use Shield Lock to build the Force Gauge.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,13,Wilson
 0,,"「<ICON STG_SUB_WEP>を押した状態で
-　敵の攻撃を受ける」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,14,Wilson
+　敵の攻撃を受ける」","""While holding <ICON STG_SUB_WEP>,
+take enemy attacks.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,14,Wilson
 0,,"「敵の攻撃と同時に盾で防ぐ事で
 　フォースゲージを蓄積できる
-　ただし前方のみしか防ぐ事ができない」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,15,Wilson
+　ただし前方のみしか防ぐ事ができない」","""By blocking enemy attacks with your shield
+at the right moment, you can accumulate
+Force Gauge. 
+However, it only blocks frontal attacks.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,15,Wilson
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《フォースゲイン》を成功させよ」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,16,Wilson
-0,,「敵の攻撃を引きつけて<ICON STG_SUB_WEP>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,17,Wilson
+「《フォースゲイン》を成功させよ」","Teachings carved by someone emerge―
+
+""Successfully execute Force Gain.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,16,Wilson
+0,,「敵の攻撃を引きつけて<ICON STG_SUB_WEP>を押す」,"""Bait enemy attacks and press <ICON STG_SUB_WEP>""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,17,Wilson
 0,,"「敵の攻撃をシールドロックでタイミングよく
 　防ぐ事でより多くのフォースを蓄積して
-　その際にスタミナの減る量を抑えられる事ができる」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,18,Wilson
+　その際にスタミナの減る量を抑えられる事ができる」","""By blocking enemy attacks with a well-timed 
+Shield Lock, you can build up more Force
+and reduce the amount of stamina you 
+lose in the process.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,18,Wilson
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《エレメントチェンジ》で属性選択せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,19,Wilson
+「《エレメントチェンジ》で属性選択せよ」","Teachings carved by someone emerge―
+
+""Select an attribute with Element Change.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,19,Wilson
 0,,"「<ICON STG_ATTACK_1>を押し、
 　左スティックを倒して３属性を選択
-　<ICON STG_ATTACK_1>を押して属性決定」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,20,Renton
+　<ICON STG_ATTACK_1>を押して属性決定」","""Press <ICON STG_ATTACK_1>,
+tilt the Left Stick to select an attribute,
+then press <ICON STG_ATTACK_1> to confirm.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,20,Renton
 0,,"「敵によって戦略的に戦うための
-　属性を切り替える事ができる」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,21,Wilson
+　属性を切り替える事ができる」","""You can switch attributes strategically
+to adapt to different enemies.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,21,Wilson
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《フォースエンチャント》で味方に付与せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,22,Arisen Corps Regimental Soldier
-0,,「<ICON STG_MAIN_WEP>を押しながら<ICON STG_TOUCH>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,23,Arisen Corps Regimental Soldier
+「《フォースエンチャント》で味方に付与せよ」","Teachings carved by someone emerge―
+
+""Grant Force Enchantment to an ally.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,22,Arisen Corps Regimental Soldier
+0,,「<ICON STG_MAIN_WEP>を押しながら<ICON STG_TOUCH>を押す」,"""Hold <ICON STG_MAIN_WEP>, then press <ICON STG_TOUCH>.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,23,Arisen Corps Regimental Soldier
 0,,"「蓄積したフォースゲージの解放で
 　自分の攻撃属性を仲間に付与でき、
-　パーティー全体の攻撃力が増す事ができる」",,ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,24,Arisen Corps Regimental Soldier
+　パーティー全体の攻撃力が増す事ができる」","""By releasing the accumulated Force Gauge,
+you can grant your own attack attribute
+to allies, increasing the entire party's
+attack power.""",ui\00_message\examine_message\quest\quest_examine_q60000006.gmd,\quest\q60000006.arc,q60000006.arc,24,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《弓》で敵を攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,0,Hunter
+「《弓》で敵を攻撃せよ」","Teachings carved by someone emerge―
+
+""Attack the enemy with your bow.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,0,Hunter
 0,,"「<ICON STG_SUB_WEP>を押しながら<STG_SHOT>
-　または<STG_SHOT>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,1,Hunter
+　または<STG_SHOT>を押す」","""Press <STG_SHOT> or 
+<STG_SHOT> while holding down <ICON STG_SUB_WEP>""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,1,Hunter
 0,,"「敵との距離をとりながら
-　弓による攻撃でダメージを与えられる」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,2,Hunter
+　弓による攻撃でダメージを与えられる」","""Maintain distance from the enemy
+and deal damage with bow attacks.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,2,Hunter
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《爆矢射ち》で敵を攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,3,Hunter
-0,,「<ICON STG_MAIN_WEP>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,4,Hunter
+「《爆矢射ち》で敵を攻撃せよ」","Teachings carved by someone emerge―
+
+""Attack the enemy with Explosive Arrows.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,3,Hunter
+0,,「<ICON STG_MAIN_WEP>を押す」,"""Press <ICON STG_MAIN_WEP>.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,4,Hunter
 0,,"「時間差で爆発する特殊な矢は
 　遮蔽物を越えて上空からも打ち込める
-　刺さった矢は仲間の近接攻撃で起爆させられる」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,5,Hunter
+　刺さった矢は仲間の近接攻撃で起爆させられる」","""Time-delayed explosive arrows can
+be fired over cover.
+Stuck arrows detonate when hit
+by allies' melee attacks.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,5,Hunter
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《前蹴り》で敵を蹴り離せ」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,6,Hunter
-0,,「<ICON STG_ATTACK_0>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,7,Hunter
+「《前蹴り》で敵を蹴り離せ」","Teachings carved by someone emerge―
+
+""Kick the enemy away with a Front Kick.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,6,Hunter
+0,,「<ICON STG_ATTACK_0>を押す」,"""Press <ICON STG_ATTACK_0>.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,7,Hunter
 0,,"「威力は弱いが、接近した敵から素早く離れられる
-　弓攻撃に有利な間合いを調整できる」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,8,Hunter
-0,,《狙弓の証》を手に入れた！,,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,9,Hunter
+　弓攻撃に有利な間合いを調整できる」","""Weak in power, but allows quick retreat
+from close enemies. Adjust your distance
+to gain an advantage for ranged attacks.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,8,Hunter
+0,,《狙弓の証》を手に入れた！,You have obtained the 《Hunter's Mark》!,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,9,Hunter
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「敵に打ち込んだ爆矢を《起爆》せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,10,Hunter
+「敵に打ち込んだ爆矢を《起爆》せよ」","Teachings carved by someone emerge―
+
+""Detonate the explosive arrows
+embedded in the enemy.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,10,Hunter
 0,,"「<ICON STG_MAIN_WEP>を押しながら<STG_SHOT>
-　または<STG_SHOT>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,11,Hunter
+　または<STG_SHOT>を押す」","""Press <STG_SHOT> or 
+<STG_SHOT> while holding down <ICON STG_MAIN_WEP>.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,11,Hunter
 0,,"「仕込まれた矢は衝撃を与えれば起爆する
-　弓で狙えばより早いタイミングで爆破できる」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,12,Hunter
+　弓で狙えばより早いタイミングで爆破できる」","""Embedded arrows detonate upon impact.
+Aiming with the bow allows for
+easier and faster detonation.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,12,Hunter
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「射撃の《最適距離》から弓射ちで攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,13,Renton
+「射撃の《最適距離》から弓射ちで攻撃せよ」","Teachings carved by someone emerge―
+
+""Attack with Loose from the optimal range.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,13,Renton
 0,,"「<ICON STG_SUB_WEP>を押したままで
 　画面中央に出現する十字カーソルと
 　橙色の狙撃ポイントが合わさった状態で
-　<STG_SHOT>または<STG_SHOT>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,14,Renton
+　<STG_SHOT>または<STG_SHOT>を押す」","""Align the crosshair in the center
+of the screen with the orange
+target then press <STG_SHOT>, 
+or hold <ICON STG_SUB_WEP> and press <STG_SHOT>.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,14,Renton
 0,,"「敵との距離で威力は変わる
-　敵との最適な距離で最も威力が高くなる」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,15,Renton
+　敵との最適な距離で最も威力が高くなる」","""Damage varies with distance.
+The optimal range yields
+the highest damage output.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,15,Renton
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「矢筒に《矢の装填》をせよ」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,16,Renton
+「矢筒に《矢の装填》をせよ」","Teachings carved by someone emerge―
+
+""Reload the quiver with Reload Arrows.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,16,Renton
 0,,"「<ICON STG_SUB_WEP>ｏｒ<ICON STG_MAIN_WEP>を押しながら
-　<ICON STG_TOUCH>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,17,White Knight
+　<ICON STG_TOUCH>を押す」","""Hold <ICON STG_SUB_WEP> or <ICON STG_MAIN_WEP>,
+then press <ICON STG_TOUCH>.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,17,White Knight
 0,,"「矢が少なくなったら
-　矢を装填して攻撃に備えよ」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,18,White Knight
+　矢を装填して攻撃に備えよ」","""When arrows run low,
+reload and prepare for the attack.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,18,White Knight
 0,,"「矢の残数は弓構え時に中央に出る
 　十字カーソルにて矢の増減がわかるので
-　戦闘中は特に注意して矢を補充せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,19,Renton
+　戦闘中は特に注意して矢を補充せよ」","""Arrow count is shown by the crosshair
+when drawing the bow. Monitor it
+during combat and reload when needed.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,19,Renton
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 「矢筒にすばやく矢を送る
-《達人装填》を　成功させよ」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,20,Renton
-0,,「矢の装填中、特定のタイミングで<ICON STG_TOUCH>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,21,White Knight
+《達人装填》を　成功させよ」","Teachings carved by someone emerge―
+
+""Swiftly load arrows into the quiver.
+Succeed in performing Adept Reload.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,20,Renton
+0,,「矢の装填中、特定のタイミングで<ICON STG_TOUCH>を押す」,"""Press <ICON STG_TOUCH> with the right
+timing during Reload Arrows.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,21,White Knight
 0,,"「矢を補充時の装填ゲージ内で
 　タイミングよく装填ボタンを押す事で
-　矢が高速装填される」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,22,Wilson
+　矢が高速装填される」","""Pressing the reload button at the right
+timing during the reload gauge's arrow
+refill will perform a high-speed reload.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,22,Wilson
 0,,"「また、より良いジャストタイミングで
 　装填ボタンを押すと一度に放つ
-　矢の本数が増え一時的に威力が増す」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,23,Wilson
+　矢の本数が増え一時的に威力が増す」","""Perfect timing increases the number
+of arrows fired at once, temporarily
+boosting attack power.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,23,Wilson
 0,,"「ただしタイミングを外すと
-　矢の補充に時間がかかるので注意すべし」",,ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,24,Wilson
+　矢の補充に時間がかかるので注意すべし」","""However, missing the timing slows down
+the reload, so be careful.""",ui\00_message\examine_message\quest\quest_examine_q60000007.gmd,\quest\q60000007.arc,q60000007.arc,24,Wilson
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《マジックボール》を敵に３回当てよ」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,0,Sorcerer
+「《マジックボール》を敵に３回当てよ」","Teachings carved by someone emerge―
+
+""Hit the enemy 3 times with Magick Bolts.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,0,Sorcerer
 0,,"「<ICON STG_ATTACK_0>を押して詠唱後、
-　<ICON STG_ATTACK_0>を押して発動」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,1,Sorcerer
+　<ICON STG_ATTACK_0>を押して発動」","""Press <ICON STG_ATTACK_0> to chant,
+ then press <ICON STG_ATTACK_0> to activate.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,1,Sorcerer
 0,,"「詠唱時間が最大時になったとき発動する
 　敵との間合いの取り方が重要だ
-　詠唱中、放つ向きを変えて狙う事もできる」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,2,Sorcerer
+　詠唱中、放つ向きを変えて狙う事もできる」","""Activated when chant time reaches maximum.
+ Managing distance with the enemy is key.
+ While chanting, you can adjust the 
+ aiming direction.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,2,Sorcerer
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《マジックトラップ》を３回成功させよ」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,3,Sorcerer
+「《マジックトラップ》を３回成功させよ」","Teachings carved by someone emerge―
+
+""Successfully trigger Magick Trap 3 times.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,3,Sorcerer
 0,,"「<ICON STG_ATTACK_1>を押して詠唱後、
-　<ICON STG_ATTACK_1>を押して発動」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,4,Sorcerer
+　<ICON STG_ATTACK_1>を押して発動」","""Press <ICON STG_ATTACK_1> to chant,
+then press <ICON STG_ATTACK_1> to activate.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,4,Sorcerer
 0,,"「敵の侵入時にダメージを与える魔力の罠だ
-　詠唱時間最大時に設置できる」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,5,Sorcerer
+　詠唱時間最大時に設置できる」","""A magical trap that deals damage when 
+ enemies enter its range.
+ Can be set when chant time completes.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,5,Sorcerer
 0,,"「発動タイミングを調整すれば
 　設置場所をずらして有効な位置で
-　トラップを張る事ができる」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,6,Sorcerer
-0,,《魔攻の証》を手に入れた！,,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,7,Sorcerer
+　トラップを張る事ができる」","""By changing the moment of activation,
+you can shift the placement location
+and set the trap in an effective position.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,6,Sorcerer
+0,,《魔攻の証》を手に入れた！,You have obtained the 《Sorcerer's Mark》!,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,7,Sorcerer
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「しがみついて《マジッククラッカー》を仕掛けよ」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,8,Sorcerer
-0,,「しがみつき中に<ICON STG_ATTACK_0>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,9,Sorcerer
+「しがみついて《マジッククラッカー》を仕掛けよ」","Teachings carved by someone emerge—
+
+""Cling on and execute Magick Cracker.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,8,Sorcerer
+0,,「しがみつき中に<ICON STG_ATTACK_0>を押す」,"""Press <ICON STG_ATTACK_0> while clinging.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,9,Sorcerer
 0,,"「大型の敵に魔法の罠を仕掛けられる
-　仲間の狙撃でも起爆が可能だ」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,10,Sorcerer
+　仲間の狙撃でも起爆が可能だ」","""Plant magick traps on big foes.
+ Party members can detonate them.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,10,Sorcerer
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「詠唱ホールド移動を成功させよ」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,11,Sorcerer
+「詠唱ホールド移動を成功させよ」","Teachings carved by someone emerge―
+
+""Successfully execute movement 
+with a spell at the ready.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,11,Sorcerer
 0,,"「<ICON STG_ATTACK_0>を押したまま、
-　<ICON PAD_L3>で移動」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,12,Sorcerer
+　<ICON PAD_L3>で移動」","""Hold <ICON STG_ATTACK_0>,
+ then move with <ICON PAD_L3>.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,12,Sorcerer
 0,,"「詠唱完了の状態を維持したまま
 　移動する事で自分で放ちたい方向を
-　コントロールできる」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,13,Sorcerer
+　コントロールできる」","""By moving while maintaining the completed 
+ chant state, you can control the direction 
+ you wish to direct the spell.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,13,Sorcerer
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「ロックオフを成功させよ」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,14,Sorcerer
+「ロックオフを成功させよ」","Teachings carved by someone emerge―
+
+""Successfully disable lock-on.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,14,Sorcerer
 0,,"「敵をロックできる距離で<ICON STG_ATTACK_0>を押す
-　その状態から<ICON PAD_L3>で解除」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,15,Sorcerer
+　その状態から<ICON PAD_L3>で解除」","""Press <ICON STG_ATTACK_0> at a distance 
+ where you can lock onto an enemy.
+ Release by pressing <ICON PAD_L3> from that state.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,15,Sorcerer
 0,,"「ソーサラーは敵をロックオンしてから
 　魔法を放つ事ができる
 　複数の敵がいる場合はロックオン切替を
-　しながら攻撃を放つ事が基本となる」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,16,Sorcerer
+　しながら攻撃を放つ事が基本となる」","""Sorcerers can lock onto enemies
+ then cast spells. When multiple enemies
+ are present, switch lock-on targets
+ while attacking as a basic tactic.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,16,Sorcerer
 0,,"「また魔法の種類や戦況に応じて
 　ロックオン自体を解除して
-　好きな場所に魔法を放つ事ができる」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,17,Sorcerer
+　好きな場所に魔法を放つ事ができる」","""Depending on spell type or battle conditions,
+ you can also disable lock-on entirely
+ and cast spells freely.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,17,Sorcerer
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《スペリング》で１段階威力をあげよ」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,18,Sorcerer
+「《スペリング》で１段階威力をあげよ」","Teachings carved by someone emerge―
+
+""Raise power with chanting.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,18,Sorcerer
 0,,"「<ICON PAD_R3>を押してスペリング入力モード
 　に切り替えた状態で赤いポイント表示に
-　<ICON PAD_R3>を動かして合わせる」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,19,Renton
+　<ICON PAD_R3>を動かして合わせる」","""Press <ICON PAD_R3> to switch to chanting input
+mode and align it by moving <ICON PAD_R3> to the
+red indicator.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,19,Renton
 0,,"「魔法詠唱中にスペリングモードに切替えて
 　威力を上げることができる
 　画面中央に出る詠唱文字にレバーを合わせて
-　行くことで段階を徐々に上げれる」",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,20,Renton
+　行くことで段階を徐々に上げれる」","""While casting a spell, switch to chanting mode
+ to increase power. Move the stick to match
+ the chanting characters displayed at the
+ center to gradually raise it.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,20,Renton
 0,,"「カスタムスキルの魔法威力同様にも
-　活かされるので戦況に応じて利用すべし」　",,ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,21,Renton
+　活かされるので戦況に応じて利用すべし」　","""Also enhances magickal power of custom skills,
+ so use it according to battle conditions.""",ui\00_message\examine_message\quest\quest_examine_q60000008.gmd,\quest\q60000008.arc,q60000008.arc,21,Renton
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《闘波の魔眼》で敵を捉えよ」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,0,Renton
-0,,「<ICON STG_SUB_WEP>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,1,Renton
+「《闘波の魔眼》で敵を捉えよ」","Teachings carved by someone emerge―
+
+""Lock onto the enemy with Magick Eye: Seeker.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,0,Renton
+0,,「<ICON STG_SUB_WEP>を押す」,"""Press <ICON STG_SUB_WEP>.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,1,Renton
 0,,"「複数の攻撃対象を確定させる技だ
-　構え中に、攻撃したい敵を魔道照準でなぞれ」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,2,Renton
+　構え中に、攻撃したい敵を魔道照準でなぞれ」","""A technique to lock onto multiple targets.
+ While aiming, look at enemies you wish to 
+ attack with the magic targeting reticle.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,2,Renton
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《助真の魔眼》で味方を捉えよ」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,3,Renton
-0,,「<ICON STG_MAIN_WEP>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,4,Renton
+「《助真の魔眼》で味方を捉えよ」","Teachings carved by someone emerge―
+
+""Lock onto your ally with Magick Eye: True Aid.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,3,Renton
+0,,「<ICON STG_MAIN_WEP>を押す」,"""Press <ICON STG_MAIN_WEP>.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,4,Renton
 0,,"「複数の回復対象を確定させる技だ
-　構え中に、回復させたい味方を魔道照準でなぞれ」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,5,Ludovika
-0,,《魔弓の証》を手に入れた！,,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,6,Ludovika
+　構え中に、回復させたい味方を魔道照準でなぞれ」","""A technique to lock onto multiple targets.
+ While aiming, look at allies you wish to 
+ heal with the magic targeting reticle.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,5,Ludovika
+0,,《魔弓の証》を手に入れた！,You have obtained the 《Element Archer's Mark》!,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,6,Ludovika
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《闘波の矢》で敵を攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,7,Ludovika
+「《闘波の矢》で敵を攻撃せよ」","Teachings carved by someone emerge―
+
+""Attack the enemy with Seeker Arrow.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,7,Ludovika
 0,,"「<ICON STG_SUB_WEP>を押しながら<STG_SHOT>
-　または<STG_SHOT>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,8,Ludovika
+　または<STG_SHOT>を押す」","""Press <STG_SHOT> or 
+<STG_SHOT> while holding down <ICON STG_SUB_WEP>""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,8,Ludovika
 0,,"「複数の攻撃対象を狙い魔矢で射る技だ
-　捉えた敵の数が多いほど威力は上昇する」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,9,Ludovika
+　捉えた敵の数が多いほど威力は上昇する」","""A technique that shoots multiple targets 
+ with magick arrows. The more enemies struck, 
+ the greater its power becomes.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,9,Ludovika
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《助真の矢》を味方に当てよ」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,10,Ludovika
+「《助真の矢》を味方に当てよ」","Teachings carved by someone emerge―
+
+""Hit your ally with True Aid Arrow.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,10,Ludovika
 0,,"「<ICON STG_MAIN_WEP>を押しながら<STG_SHOT>
-　または<STG_SHOT>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,11,Ludovika
+　または<STG_SHOT>を押す」","""Press <STG_SHOT> or 
+<STG_SHOT> while holding down <ICON STG_MAIN_WEP>.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,11,Ludovika
 0,,"「照準で捉えた味方を回復させる技だ
-　捉えた数が多いほど回復量が上昇する」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,12,Ludovika
+　捉えた数が多いほど回復量が上昇する」","""A technique that heals allies locked 
+ in the sights. The more targets locked, 
+ the greater the recovery amount.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,12,Ludovika
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《癒しの装》を成功させよ」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,13,Ludovika
-0,,「<ICON STG_ATTACK_1>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,14,Ludovika
+「《癒しの装》を成功させよ」","Teachings carved by someone emerge―
+
+""Successfully activate Healing Shroud.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,13,Ludovika
+0,,「<ICON STG_ATTACK_1>を押す」,"""Press <ICON STG_ATTACK_1>.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,14,Ludovika
 0,,"「癒しの装を発動させる事で
-　自身の体力を癒すことができる」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,15,Ludovika
+　自身の体力を癒すことができる」","""Activating the Healing Shroud allows
+you to restore your own Health Points.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,15,Ludovika
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 「《魔眼》で敵を捕捉したまま集中し、
-　ジャストタイミングで放て」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,16,Ludovika
+　ジャストタイミングで放て」","Teachings carved by someone emerge――
+
+""Concentrate on the enemy with Magick Eye, 
+and release with perfect timing.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,16,Ludovika
 0,,"「敵に<ICON STG_SUB_WEP>を押しながら
 　集中ゲージが上がるのを待ち、ゲージが
-　２周目満了のタイミングを狙って魔矢を放て」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,17,Ludovika
+　２周目満了のタイミングを狙って魔矢を放て」","""Hold <ICON STG_SUB_WEP> on the enemy and wait
+for the focus gauge to rise. Time your magick
+arrow when the gauge completes its second cycle.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,17,Ludovika
 0,,"「闘波の矢であれば攻撃力が上昇し、
-　助真の矢であれば味方への回復力が上昇する」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,18,Ludovika
+　助真の矢であれば味方への回復力が上昇する」","""The Seeker Arrow boosts attack power,
+while the True Aid Arrow enhances healing for allies.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,18,Ludovika
 0,,"「また、魔眼で捉えた敵の数が多いほど
-　ゲージの上昇速度は上がる」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,19,Ludovika
+　ゲージの上昇速度は上がる」","""Additionally, the more foes you capture 
+within your Magick Eye, 
+the faster the gauge will increase.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,19,Ludovika
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「コアポイント検索を成功させよ」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,20,Ludovika
+「コアポイント検索を成功させよ」","Teachings carved by someone emerge―
+
+""Successfully unmask the foes weakness.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,20,Ludovika
 0,,"「大型敵に<ICON STG_MAIN_WEP>を押して
-　詠唱カーソル内にとらえる」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,21,Ludovika
+　詠唱カーソル内にとらえる」","""Hold <ICON STG_MAIN_WEP> at the large foe to
+ capture it within your targeting reticle.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,21,Ludovika
 0,,"「大型敵に敵の弱点を
-　あぶり出す事ができる」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,22,Ludovika
+　あぶり出す事ができる」","""You can expose the weak points
+of large enemies.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,22,Ludovika
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「敵に零距離射撃を成功させよ」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,23,Ludovika
-0,,「しがみつき中に<ICON STG_ATTACK_0>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,24,Ludovika
+「敵に零距離射撃を成功させよ」","Teachings carved by someone emerge―
+
+""Successfully execute a 
+point-blank shot on the enemy.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,23,Ludovika
+0,,「しがみつき中に<ICON STG_ATTACK_0>を押す」,"""Press <ICON STG_ATTACK_0> while clinging.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,24,Ludovika
 0,,"「大きな敵の場合、しがみついた状態の
-　至近距離において攻撃も可能である」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,25,Ludovika
+　至近距離において攻撃も可能である」","""For large enemies, attacks are possible even
+at point-blank range while clinging to them.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,25,Ludovika
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《前蹴り》で敵を蹴り離せ」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,26,Wilson
-0,,「<ICON STG_ATTACK_0>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,27,Wilson
+「《前蹴り》で敵を蹴り離せ」","Teachings carved by someone emerge―
+
+""Kick the enemy away with a Front Kick.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,26,Wilson
+0,,「<ICON STG_ATTACK_0>を押す」,"""Press <ICON STG_ATTACK_0>.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,27,Wilson
 0,,"「威力は弱いが、接近した敵から素早く離れられる
-　弓攻撃に有利な間合いを調整できる」",,ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,28,Wilson
+　弓攻撃に有利な間合いを調整できる」","""Weak in power, but allows quick retreat
+from close enemies. Adjust your distance
+to gain an advantage for ranged attacks.""",ui\00_message\examine_message\quest\quest_examine_q60000009.gmd,\quest\q60000009.arc,q60000009.arc,28,Wilson
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《破斬》で敵を攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,0,Arisen Corps Regimental Soldier
-0,,「<ICON STG_ATTACK_0>を連続して押す」,,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,1,Arisen Corps Regimental Soldier
+「《破斬》で敵を攻撃せよ」","Teachings carved by someone emerge―
+
+""Attack the enemy with Hack.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,0,Arisen Corps Regimental Soldier
+0,,「<ICON STG_ATTACK_0>を連続して押す」,"""Press <ICON STG_ATTACK_0> repeatedly""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,1,Arisen Corps Regimental Soldier
 0,,"「大剣による連撃で敵を攻撃できる
-　初撃を当てることで連続斬りが可能である」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,2,Arisen Corps Regimental Soldier
+　初撃を当てることで連続斬りが可能である」","""Allows attacking enemies with an onslaught
+of Greatsword strikes. Landing the first hit
+enables consecutive slashes.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,2,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《耐魔の身構え》で敵の攻撃を受けろ」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,3,Arisen Corps Regimental Soldier
+「《耐魔の身構え》で敵の攻撃を受けろ」","Teachings carved by someone emerge―
+
+""Stand firm against the foe's attack with Brace.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,3,Arisen Corps Regimental Soldier
 0,,"「<ICON STG_SUB_WEP>または<ICON STG_MAIN_WEP>を押しながら<ICON STG_JUMP>を押して
-　敵の攻撃を受ける」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,4,Arisen Corps Regimental Soldier
+　敵の攻撃を受ける」","Press <ICON STG_JUMP> while holding <ICON STG_SUB_WEP> or
+<ICON STG_MAIN_WEP> to take the enemy's attack.",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,4,Arisen Corps Regimental Soldier
 0,,"「構え中に攻撃を受けることにより
-　反撃の糧となるリベンジゲージを蓄積できる」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,5,Arisen Corps Regimental Soldier
-0,,《剛剣の証》を手に入れた！,,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,6,Arisen Corps Regimental Soldier
+　反撃の糧となるリベンジゲージを蓄積できる」","""Absorbing attacks while guarding 
+accumulates the Revenge Gauge 
+for counterattacks.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,5,Arisen Corps Regimental Soldier
+0,,《剛剣の証》を手に入れた！,You have obtained the 《Warrior's Mark》!,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,6,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「リベンジゲージ最大時に魔陣斬りで攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,7,Arisen Corps Regimental Soldier
+「リベンジゲージ最大時に魔陣斬りで攻撃せよ」","Teachings carved by someone emerge―
+
+""Attack with Savage Lash when 
+the Revenge gauge is full.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,7,Arisen Corps Regimental Soldier
 0,,"「<ICON STG_SUB_WEP>または<ICON STG_MAIN_WEP>を押しながら<ICON STG_JUMP>を押して
 　敵の攻撃を受けてリベンジゲージを貯めた状態で
-　<ICON STG_ATTACK_1>長押し後、離す」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,8,Arisen Corps Regimental Soldier
+　<ICON STG_ATTACK_1>長押し後、離す」","""Hold <ICON STG_SUB_WEP> or <ICON STG_MAIN_WEP>,
+ then press <ICON STG_JUMP> to receive attacks
+ and fill the Revenge Gauge. Hold <ICON STG_ATTACK_1>,
+ then release.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,8,Arisen Corps Regimental Soldier
 0,,"「蓄積した力を一気に解き放つ大技だ
-　渾身の痛撃を敵に見舞うことができる」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,9,Arisen Corps Regimental Soldier
+　渾身の痛撃を敵に見舞うことができる」","""A powerful technique that unleashes stored 
+energy. Deals a devastating blow to enemies.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,9,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《魔人斬り》で敵を攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,10,Arisen Corps Regimental Soldier
-0,,「<ICON STG_ATTACK_1>長押し後、離すと発動」,,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,11,Arisen Corps Regimental Soldier
+「《魔人斬り》で敵を攻撃せよ」","Teachings carved by someone emerge―
+
+""Attack the enemy with Savage Lash.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,10,Arisen Corps Regimental Soldier
+0,,「<ICON STG_ATTACK_1>長押し後、離すと発動」,"""Hold <ICON STG_ATTACK_1>, then release to activate""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,11,Arisen Corps Regimental Soldier
 0,,"「最も威力の高い剣技のひとつだ
 　発動時にボタンを押下したままで力を溜め、
-　一気に放つことで脅威的な威力を得られる」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,12,Arisen Corps Regimental Soldier
+　一気に放つことで脅威的な威力を得られる」","""One of the most powerful sword techniques.
+Hold the button during activation to charge power,
+then release it all at once for devastating force.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,12,Arisen Corps Regimental Soldier
 0,,"「リベンジゲージの蓄積量に応じて
-　さらに威力が増大する」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,13,Arisen Corps Regimental Soldier
+　さらに威力が増大する」","""Damage increases further based on
+ the amount of Revenge Gauge accumulated.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,13,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《真・魔人斬り》で敵を攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,14,Arisen Corps Regimental Soldier
+「《真・魔人斬り》で敵を攻撃せよ」","Teachings carved by someone emerge―
+
+""Attack the enemy with Indomitable Lash.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,14,Arisen Corps Regimental Soldier
 0,,"「<ICON STG_ATTACK_1>長押し後、貯めが
-　MAX時に離すと発動」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,15,Arisen Corps Regimental Soldier
+　MAX時に離すと発動」","""Hold <ICON STG_ATTACK_1> and release
+ at MAX charge to activate.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,15,Arisen Corps Regimental Soldier
 0,,"「大剣を振り上げて、力を貯めて
 　振り下ろす攻撃で威力が大幅に
-　増大した攻撃を放つ事ができる」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,16,Arisen Corps Regimental Soldier
+　増大した攻撃を放つ事ができる」","""By raising the Greatsword and storing power,
+ you can unleash a massively enhanced attack
+ with a downward swing.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,16,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「《魔倒斬り》で敵を攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,17,Arisen Corps Regimental Soldier
-0,,「しがみつき中に<ICON STG_ATTACK_0>押しっぱなしで発動」,,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,18,Arisen Corps Regimental Soldier
+「《魔倒斬り》で敵を攻撃せよ」","Teachings carved by someone emerge―
+
+""Attack the enemy with Inverse Slash.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,17,Arisen Corps Regimental Soldier
+0,,「しがみつき中に<ICON STG_ATTACK_0>押しっぱなしで発動」,"""While clinging, 
+hold down <ICON STG_ATTACK_0> to activate.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,18,Arisen Corps Regimental Soldier
 0,,"「敵にしがみついた状態から力を貯め
 　破壊力のある一撃を放てる
 　リベンジゲージの蓄積量が多いほど
-　威力が増大する攻撃である」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,19,Renton
+　威力が増大する攻撃である」","""While clinging to an enemy, you can store power
+and unleash a devastating strike. The more the
+Revenge gauge is accumulated, the greater the
+attack's power becomes.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,19,Renton
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「カウンター《破斬》で敵を攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,20,Renton
-0,,「敵の攻撃にあわせて<ICON STG_ATTACK_0>を連続して押す」,,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,21,Renton
+「カウンター《破斬》で敵を攻撃せよ」","Teachings carved by someone emerge―
+
+""Counter enemy attacks with Hack.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,20,Renton
+0,,「敵の攻撃にあわせて<ICON STG_ATTACK_0>を連続して押す」,"""Press <ICON STG_ATTACK_0> repeatedly
+ in sync with enemy attacks.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,21,Renton
 0,,"「敵の攻撃にあわせて破斬を
 　成功させる事で効率的に
-　リベンジゲージを蓄積可能である」",,ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,22,Renton
-0,,《錬金の証》を手に入れた！,,ui\00_message\examine_message\quest\quest_examine_q60000011.gmd,\quest\q60000011.arc,q60000011.arc,0,Arisen Corps Regimental Soldier
-0,,ワールドクエストが解放された！（仮）,,ui\00_message\examine_message\quest\quest_examine_q60000016.gmd,\quest\q60000016.arc,q60000016.arc,0,Sonia
-0,,ソニアの会話選択に《クラフト》が追加された！（仮）,,ui\00_message\examine_message\quest\quest_examine_q60000016.gmd,\quest\q60000016.arc,q60000016.arc,1,Sonia
+　リベンジゲージを蓄積可能である」","""Successfully countering with Hack
+ efficiently accumulates the
+ Revenge Gauge.""",ui\00_message\examine_message\quest\quest_examine_q60000010.gmd,\quest\q60000010.arc,q60000010.arc,22,Renton
+0,,《錬金の証》を手に入れた！,You have obtained the 《Alchemist's Mark》!,ui\00_message\examine_message\quest\quest_examine_q60000011.gmd,\quest\q60000011.arc,q60000011.arc,0,Arisen Corps Regimental Soldier
+0,,ワールドクエストが解放された！（仮）,A World Quest has been unlocked! (Temp),ui\00_message\examine_message\quest\quest_examine_q60000016.gmd,\quest\q60000016.arc,q60000016.arc,0,Sonia
+0,,ソニアの会話選択に《クラフト》が追加された！（仮）,《Craft》 has been added to Sonia's options!,ui\00_message\examine_message\quest\quest_examine_q60000016.gmd,\quest\q60000016.arc,q60000016.arc,1,Sonia
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「五つ――《ヒールオーラ》にて弱点を探れ」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,0,Arisen Corps Regimental Soldier
+「五つ――《ヒールオーラ》にて弱点を探れ」","Teachings carved by someone emerge―
+
+""Five―Seek out enemy weak spots via Heal Aura.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,0,Arisen Corps Regimental Soldier
 0,,"「<ICON STG_ATTACK_0>を押し、
-　ヒールオーラ効果内に敵を接触させる」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,1,Arisen Corps Regimental Soldier
+　ヒールオーラ効果内に敵を接触させる」","""Press <ICON STG_ATTACK_0>, then bring the 
+enemy within the healing aura's effect.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,1,Arisen Corps Regimental Soldier
 0,,"「敵の弱点《シークレットコア》をあぶり出す
 　事ができ、他の仲間に敵の狙いどころを
-　伝えることができる」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,2,Arisen Corps Regimental Soldier
+　伝えることができる」","""Exposes the enemy's weak point, the Secret Core,
+revealing it to all party members""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,2,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 「六つ――しがみつきからの
-《ライドヒールオーラ》を展開せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,3,Arisen Corps Regimental Soldier
-0,,「しがみつき中に<ICON STG_ATTACK_0>を押す、再度押すと解除」,,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,4,Arisen Corps Regimental Soldier
+《ライドヒールオーラ》を展開せよ」","Teachings carved by someone emerge—
+
+""Six—Activate Ride Heal Aura while clinging.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,3,Arisen Corps Regimental Soldier
+0,,「しがみつき中に<ICON STG_ATTACK_0>を押す、再度押すと解除」,"""Press <ICON STG_ATTACK_0> while clinging.
+Press again to cancel.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,4,Arisen Corps Regimental Soldier
 0,,"「しがみつき中にヒールオーラで
-　仲間の回復と敵の弱点発見を同時にできる」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,5,Arisen Corps Regimental Soldier
-0,,《破攻の証》を手に入れた！,,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,6,Arisen Corps Regimental Soldier
+　仲間の回復と敵の弱点発見を同時にできる」","""While clinging, Heal Aura can simultaneously
+heal allies and reveal enemy weaknesses.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,5,Arisen Corps Regimental Soldier
+0,,《破攻の証》を手に入れた！,You have obtained the 《Mark of Breaking》!,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,6,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「一つ――敵を《怒り状態》にせよ」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,7,Arisen Corps Regimental Soldier
-0,,「大型敵に一定以上のダメージを与える」,,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,8,Arisen Corps Regimental Soldier
+「一つ――敵を《怒り状態》にせよ」","Teachings carved by someone emerge—
+
+""First...put the enemy in an enraged state.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,7,Arisen Corps Regimental Soldier
+0,,「大型敵に一定以上のダメージを与える」,"""Deal significant damage to large enemies.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,8,Arisen Corps Regimental Soldier
 0,,"「巨大な敵を倒すには一人では困難である
 　そのためにパーティーで挑む事が大事で
-　敵を怒らせてスキを作る必要がある」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,9,Arisen Corps Regimental Soldier
+　敵を怒らせてスキを作る必要がある」","""Defeating giant enemies alone is difficult.
+That's why it's important to challenge them
+as a party and create openings by enraging them.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,9,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「二つ――敵は《揺さぶり》にて崩すべし」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,10,Arisen Corps Regimental Soldier
+「二つ――敵は《揺さぶり》にて崩すべし」","Teachings carved by someone emerge—
+
+""Two—break the enemy with shaking.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,10,Arisen Corps Regimental Soldier
 0,,"「怒り状態の大型敵に近づいて、
-　<ICON STG_TOUCH>でしがみついた状態で<ICON STG_ATTACK_1>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,11,Arisen Corps Regimental Soldier
+　<ICON STG_TOUCH>でしがみついた状態で<ICON STG_ATTACK_1>を押す」","""Approach a large enemy in an enraged state,
+hold onto it with <ICON STG_TOUCH>, 
+then press <ICON STG_ATTACK_1>.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,11,Arisen Corps Regimental Soldier
 0,,"「怒った敵にしがみつき揺さぶる事で
 　疲れさせてダウン状態に持っていく
-　ことで倒す事ができる」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,12,Arisen Corps Regimental Soldier
+　ことで倒す事ができる」","""By clinging to and shaking an enraged enemy,
+you can exhaust it and bring it down,
+making it possible to defeat.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,12,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「四つ――敵の引き剥がし攻撃から離脱せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,13,Arisen Corps Regimental Soldier
+「四つ――敵の引き剥がし攻撃から離脱せよ」","Teachings carved by someone emerge—
+
+""Four—avoid the enemy's Struggle attacks.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,13,Arisen Corps Regimental Soldier
 0,,"「怒り状態の敵にしがみつき中に
 　敵の体力ゲージ上にバーストアイコン（赤色）が
-　出たら<ICON UI_DECIDE>or<ICON UI_CANCEL>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,14,Arisen Corps Regimental Soldier
+　出たら<ICON UI_DECIDE>or<ICON UI_CANCEL>を押す」","""When clinging to enraged enemies,
+press <ICON UI_DECIDE> or <ICON UI_CANCEL>
+when the red Struggle icon appears on
+their gauge.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,14,Arisen Corps Regimental Soldier
 0,,"「怒り状態の敵はしがみつき中に
 　引き剥がす行動に出る時がある
 　その時はしがみつきから離脱して
-　回避する事が重要である」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,15,Renton
+　回避する事が重要である」","""Enraged enemies may try to shake you off
+while you're clinging to them. When this
+happens, break free immediately and
+focus on evasion.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,15,Renton
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「三つ――敵の振り解き攻撃から耐えるべし」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,16,Renton
+「三つ――敵の振り解き攻撃から耐えるべし」","Teachings carved by someone emerge—
+
+""Three—endure the enemy's attempts to shake you off.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,16,Renton
 0,,"「怒り状態の敵にしがみついた状態で
 　振り払いアイコン（黄色）が出たら
-　<ICON STG_TOUCH>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,17,Renton
+　<ICON STG_TOUCH>を押す」","""While clinging to an enemy in an enraged state,
+when the yellow shake-off warning appears,
+press <ICON STG_TOUCH>.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,17,Renton
 0,,"「怒った敵が振り払い行動が出す時は
-　耐えて回避して揺さぶりを継続できる」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,18,Renton
+　耐えて回避して揺さぶりを継続できる」","""When an enraged enemy attempts to shake you off,
+endure it to continue shaking them.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,18,Renton
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 「七つ――しがみつきからの
-《ライドセイントオーラ》を展開せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,19,Renton
-0,,「しがみつき中に<ICON STG_MAIN_WEP>を押しながら<ICON STG_TOUCH>を押す、再度押すと解除」,,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,20,Renton
+《ライドセイントオーラ》を展開せよ」","Teachings carved by someone emerge—
+
+""Seven—Activate Ride Holy Aura while clinging.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,19,Renton
+0,,「しがみつき中に<ICON STG_MAIN_WEP>を押しながら<ICON STG_TOUCH>を押す、再度押すと解除」,"""While clinging, hold <ICON STG_MAIN_WEP>, 
+ then press <ICON STG_TOUCH>.
+ Press again to cancel.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,20,Renton
 0,,"「巨大な敵にしがみついた状態でも
-　セイントオーラで攻撃もできる」",,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,21,Renton
-0,,ライドセイントオーラは敵にしがみつき中に攻撃できるぞ,,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,22,Wilson
-0,,ライドヒールオーラは敵にしがみついて行うスキルで敵が怒り状態だとシークレットコアを発見もできるぞ,,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,23,Wilson
-0,,敵にしがみつき中に敵の体力ゲージ下に出るアイコン（黄）が出たら耐えろ――失敗するとレバガチャで振りほどかれないように注意しろ,,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,24,Wilson
-0,,敵にしがみつき中に敵が体力ゲージ下に出るアイコン（赤）の時に離れろー失敗するとダメージを負うぞ,,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,25,Wilson
-0,,敵を攻撃してダメージを与えろーそうする事で敵を怒らせることができる,,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,26,Wilson
-0,,敵が怒り中にヒールオーラの発動範囲にいれるとシークレットコアを発見できるぞ,,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,27,Wilson
-0,,怒り状態の敵にしがみつき揺さぶるんだ――ゲージを０にすると敵が疲労状態になるのでダメージを与えるチャンスだ,,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,28,Wilson
-0,,今まで学んだ事を生かして敵を倒せ,,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,29,Wilson
-0,,よくやった――あとは最奥にある証を手に入れて試練は終わりだ,,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,30,
+　セイントオーラで攻撃もできる」","""Even while clinging to a giant enemy,
+you can attack with Holy Aura.""",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,21,Renton
+0,,ライドセイントオーラは敵にしがみつき中に攻撃できるぞ,"Ride Holy Aura can attack while 
+you're clinging to your enemy.",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,22,Wilson
+0,,ライドヒールオーラは敵にしがみついて行うスキルで敵が怒り状態だとシークレットコアを発見もできるぞ,"Ride Heal Aura can be used while clinging.
+If the enemy is enraged, 
+you can also expose Secret Cores.",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,23,Wilson
+0,,敵にしがみつき中に敵の体力ゲージ下に出るアイコン（黄）が出たら耐えろ――失敗するとレバガチャで振りほどかれないように注意しろ,"While clinging, if a yellow icon appears below
+the enemy's health gauge, endure—if you fail,
+avoid being shaken off by mashing buttons.",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,24,Wilson
+0,,敵にしがみつき中に敵が体力ゲージ下に出るアイコン（赤）の時に離れろー失敗するとダメージを負うぞ,"While clinging, if a red icon appears below
+the enemy's health gauge, let go—
+failure will cause you to take damage.",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,25,Wilson
+0,,敵を攻撃してダメージを与えろーそうする事で敵を怒らせることができる,"Attack the enemy to deal damage—
+doing so can enrage them.",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,26,Wilson
+0,,敵が怒り中にヒールオーラの発動範囲にいれるとシークレットコアを発見できるぞ,"You can expose Secret Cores if an enemy is within 
+the Heal Aura's range while they are enraged.",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,27,Wilson
+0,,怒り状態の敵にしがみつき揺さぶるんだ――ゲージを０にすると敵が疲労状態になるのでダメージを与えるチャンスだ,"Climb onto an enraged enemy and shake them—
+reducing the gauge to 0 exhausts them,
+creating a chance to deal damage.",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,28,Wilson
+0,,今まで学んだ事を生かして敵を倒せ,Use what you've learned to defeat the enemy.,ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,29,Wilson
+0,,よくやった――あとは最奥にある証を手に入れて試練は終わりだ,"Well done—now retrieve the mark at the end 
+to complete the trial.",ui\00_message\examine_message\quest\quest_examine_q60000017.gmd,\quest\q60000017.arc,q60000017.arc,30,
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「一つ――敵を《怒り状態》にせよ」",,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,0,Arisen Corps Regimental Soldier
-0,,「大型敵に一定以上のダメージを与える」,,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,1,Arisen Corps Regimental Soldier
+「一つ――敵を《怒り状態》にせよ」","Teachings carved by someone emerge—
+
+""First...put the enemy in an enraged state.""",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,0,Arisen Corps Regimental Soldier
+0,,「大型敵に一定以上のダメージを与える」,"""Deal significant damage to large enemies.""",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,1,Arisen Corps Regimental Soldier
 0,,"「巨大な敵を倒すには一人では困難である
 　そのためにパーティーで挑む事が大事で
-　敵を怒らせてスキを作る必要がある」",,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,2,Arisen Corps Regimental Soldier
+　敵を怒らせてスキを作る必要がある」","""Defeating giant enemies alone is difficult.
+That's why it's important to challenge them
+as a party and create openings by enraging them.""",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,2,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「二つ――敵は《揺さぶり》にて崩すべし」",,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,3,Arisen Corps Regimental Soldier
+「二つ――敵は《揺さぶり》にて崩すべし」","Teachings carved by someone emerge—
+
+""Two—break the enemy with shaking.""",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,3,Arisen Corps Regimental Soldier
 0,,"「怒り状態の大型敵に近づいて、
-　<ICON STG_TOUCH>でしがみついた状態で<ICON STG_ATTACK_1>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,4,Arisen Corps Regimental Soldier
+　<ICON STG_TOUCH>でしがみついた状態で<ICON STG_ATTACK_1>を押す」","""Approach a large enemy in an enraged state,
+hold onto it with <ICON STG_TOUCH>, 
+then press <ICON STG_ATTACK_1>.""",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,4,Arisen Corps Regimental Soldier
 0,,"「怒った敵にしがみつき揺さぶる事で
 　疲れさせてダウン状態に持っていく
-　ことで倒す事ができる」",,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,5,Arisen Corps Regimental Soldier
+　ことで倒す事ができる」","""By clinging to and shaking an enraged enemy,
+you can exhaust it and bring it down,
+making it possible to defeat.""",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,5,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「三つ――敵の振り解き攻撃から耐えるべし」",,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,6,Arisen Corps Regimental Soldier
+「三つ――敵の振り解き攻撃から耐えるべし」","Teachings carved by someone emerge—
+
+""Three—endure the enemy's attempts to shake you off.""",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,6,Arisen Corps Regimental Soldier
 0,,"「怒り状態の敵にしがみついた状態で
 　振り払いアイコン（黄色）が出たら
-　<ICON STG_TOUCH>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,7,Arisen Corps Regimental Soldier
+　<ICON STG_TOUCH>を押す」","""While clinging to an enemy in an enraged state,
+when the yellow shake-off warning appears,
+press <ICON STG_TOUCH>.""",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,7,Arisen Corps Regimental Soldier
 0,,"「怒った敵が振り払い行動が出す時は
-　耐えて回避して揺さぶりを継続できる」",,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,8,Arisen Corps Regimental Soldier
+　耐えて回避して揺さぶりを継続できる」","""When an enraged enemy attempts to shake you off,
+endure it to continue shaking them.""",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,8,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「四つ――敵の引き剥がし攻撃から離脱せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,9,Arisen Corps Regimental Soldier
+「四つ――敵の引き剥がし攻撃から離脱せよ」","Teachings carved by someone emerge—
+
+""Four—avoid the enemy's Struggle attacks.""",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,9,Arisen Corps Regimental Soldier
 0,,"「怒り状態の敵にしがみつき中に
 　敵の体力ゲージ上にバーストアイコン（赤色）が
-　出たら<ICON UI_DECIDE>or<ICON UI_CANCEL>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,10,Arisen Corps Regimental Soldier
+　出たら<ICON UI_DECIDE>or<ICON UI_CANCEL>を押す」","""When clinging to enraged enemies,
+press <ICON UI_DECIDE> or <ICON UI_CANCEL>
+when the red Struggle icon appears on
+their gauge.""",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,10,Arisen Corps Regimental Soldier
 0,,"「怒り状態の敵はしがみつき中に
 　引き剥がす行動に出る時がある
 　その時はしがみつきから離脱して
-　回避する事が重要である」",,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,11,Arisen Corps Regimental Soldier
+　回避する事が重要である」","""Enraged enemies may try to shake you off
+while you're clinging to them. When this
+happens, break free immediately and
+focus on evasion.""",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,11,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 「五つ――敵にしがみつき《ウィークライト》で
-　攻撃せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,12,Arisen Corps Regimental Soldier
-0,,「しがみつき中に<ICON STG_ATTACK_0>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,13,Renton
+　攻撃せよ」","Teachings carved by someone emerge—
+
+""Five—cling to the enemy and attack
+ with Weak Light.""",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,12,Arisen Corps Regimental Soldier
+0,,「しがみつき中に<ICON STG_ATTACK_0>を押す」,"""Press <ICON STG_ATTACK_0> while clinging.""",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,13,Renton
 0,,"「敵にしがみついてる時でも
-　直接ダメージを与える事ができる」",,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,14,Renton
-0,,《破攻の証》を手に入れた！,,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,15,Renton
+　直接ダメージを与える事ができる」","""You can deal direct damage even
+while clinging to an enemy.""",ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,14,Renton
+0,,《破攻の証》を手に入れた！,You have obtained the 《Mark of Breaking》!,ui\00_message\examine_message\quest\quest_examine_q60000018.gmd,\quest\q60000018.arc,q60000018.arc,15,Renton
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「一つ――敵を《怒り状態》にせよ」",,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,0,Arisen Corps Regimental Soldier
-0,,「大型敵に一定以上のダメージを与える」,,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,1,Arisen Corps Regimental Soldier
+「一つ――敵を《怒り状態》にせよ」","Teachings carved by someone emerge—
+
+""First...put the enemy in an enraged state.""",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,0,Arisen Corps Regimental Soldier
+0,,「大型敵に一定以上のダメージを与える」,"""Deal significant damage to large enemies.""",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,1,Arisen Corps Regimental Soldier
 0,,"「巨大な敵を倒すには一人では困難である
 　そのためにパーティーで挑む事が大事で
-　敵を怒らせてスキを作る必要がある」",,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,2,Arisen Corps Regimental Soldier
+　敵を怒らせてスキを作る必要がある」","""Defeating giant enemies alone is difficult.
+That's why it's important to challenge them
+as a party and create openings by enraging them.""",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,2,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「二つ――敵は《揺さぶり》にて崩すべし」",,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,3,Arisen Corps Regimental Soldier
+「二つ――敵は《揺さぶり》にて崩すべし」","Teachings carved by someone emerge—
+
+""Two—break the enemy with shaking.""",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,3,Arisen Corps Regimental Soldier
 0,,"「怒り状態の大型敵に近づいて、
-　<ICON STG_TOUCH>でしがみついた状態で<ICON STG_ATTACK_1>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,4,Arisen Corps Regimental Soldier
+　<ICON STG_TOUCH>でしがみついた状態で<ICON STG_ATTACK_1>を押す」","""Approach a large enemy in an enraged state,
+hold onto it with <ICON STG_TOUCH>, 
+then press <ICON STG_ATTACK_1>.""",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,4,Arisen Corps Regimental Soldier
 0,,"「怒った敵にしがみつき揺さぶる事で
 　疲れさせてダウン状態に持っていく
-　ことで倒す事ができる」",,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,5,Arisen Corps Regimental Soldier
+　ことで倒す事ができる」","""By clinging to and shaking an enraged enemy,
+you can exhaust it and bring it down,
+making it possible to defeat.""",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,5,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「三つ――敵の振り解き攻撃から耐えるべし」",,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,6,Arisen Corps Regimental Soldier
+「三つ――敵の振り解き攻撃から耐えるべし」","Teachings carved by someone emerge—
+
+""Three—endure the enemy's attempts to shake you off.""",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,6,Arisen Corps Regimental Soldier
 0,,"「怒り状態の敵にしがみついた状態で
 　振り払いアイコン（黄色）が出たら
-　<ICON STG_TOUCH>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,7,Arisen Corps Regimental Soldier
+　<ICON STG_TOUCH>を押す」","""While clinging to an enemy in an enraged state,
+when the yellow shake-off warning appears,
+press <ICON STG_TOUCH>.""",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,7,Arisen Corps Regimental Soldier
 0,,"「怒った敵が振り払い行動が出す時は
-　耐えて回避して揺さぶりを継続できる」",,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,8,Arisen Corps Regimental Soldier
+　耐えて回避して揺さぶりを継続できる」","""When an enraged enemy attempts to shake you off,
+endure it to continue shaking them.""",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,8,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
-「四つ――敵の引き剥がし攻撃から離脱せよ」",,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,9,Arisen Corps Regimental Soldier
+「四つ――敵の引き剥がし攻撃から離脱せよ」","Teachings carved by someone emerge—
+
+""Four—avoid the enemy's Struggle attacks.""",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,9,Arisen Corps Regimental Soldier
 0,,"「怒り状態の敵にしがみつき中に
 　敵の体力ゲージ上にバーストアイコン（赤色）が
-　出たら<ICON UI_DECIDE>or<ICON UI_CANCEL>を押す」",,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,10,Arisen Corps Regimental Soldier
+　出たら<ICON UI_DECIDE>or<ICON UI_CANCEL>を押す」","""When clinging to enraged enemies,
+press <ICON UI_DECIDE> or <ICON UI_CANCEL>
+when the red Struggle icon appears on
+their gauge.""",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,10,Arisen Corps Regimental Soldier
 0,,"「怒り状態の敵はしがみつき中に
 　引き剥がす行動に出る時がある
 　その時はしがみつきから離脱して
-　回避する事が重要である」",,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,11,Arisen Corps Regimental Soldier
+　回避する事が重要である」","""Enraged enemies may try to shake you off
+while you're clinging to them. When this
+happens, break free immediately and
+focus on evasion.""",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,11,Arisen Corps Regimental Soldier
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 「五つ――しがみついて《矢じり斬り》を
-　仕掛けよ」",,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,12,Arisen Corps Regimental Soldier
-0,,「しがみつき中に<ICON STG_ATTACK_0>を押す」,,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,13,Renton
+　仕掛けよ」","Teachings carved by someone emerge—
+
+""Five—cling on and execute Arrowhead Strike.""",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,12,Arisen Corps Regimental Soldier
+0,,「しがみつき中に<ICON STG_ATTACK_0>を押す」,"""Press <ICON STG_ATTACK_0> while clinging.""",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,13,Renton
 0,,"「敵にしがみついてる時でも
-　直接ダメージを与える事ができる」",,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,14,Renton
-0,,《破攻の証》を手に入れた！,,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,15,Renton
+　直接ダメージを与える事ができる」","""You can deal direct damage even
+while clinging to an enemy.""",ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,14,Renton
+0,,《破攻の証》を手に入れた！,You have obtained the 《Mark of Breaking》!,ui\00_message\examine_message\quest\quest_examine_q60000019.gmd,\quest\q60000019.arc,q60000019.arc,15,Renton
 0,,プレイポイントショップを解放しました,,ui\00_message\examine_message\quest\quest_examine_q60200014.gmd,\quest\q60200014.arc,q60200014.arc,0,Archibald
 0,,キャンディのようなものを拾った,,ui\00_message\examine_message\quest\quest_examine_q60200015.gmd,\quest\q60200015.arc,q60200015.arc,0,Angelo
-0,,《霊槍の証》を手に入れた！,,ui\00_message\examine_message\quest\quest_examine_q60200050.gmd,\quest\q60200050.arc,q60200050.arc,0,Renton
+0,,《霊槍の証》を手に入れた！,You have obtained the 《Spirit Lancer's Mark》!,ui\00_message\examine_message\quest\quest_examine_q60200050.gmd,\quest\q60200050.arc,q60200050.arc,0,Renton
 0,,手掛かりになりそうな物は見つからない…,,ui\00_message\examine_message\quest\quest_examine_q60200200.gmd,\quest\q60200200.arc,q60200200.arc,0,Joseph
 0,,不思議な香りの植物を見つけた,,ui\00_message\examine_message\quest\quest_examine_q60200202.gmd,\quest\q60200202.arc,q60200202.arc,0,Klaus
 0,,不思議な色の植物を見つけた,,ui\00_message\examine_message\quest\quest_examine_q60200202.gmd,\quest\q60200202.arc,q60200202.arc,1,Klaus
