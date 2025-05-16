@@ -508,27 +508,24 @@ consuming <COL ffdc78><VAL PP></COL>?",ui\00_message\ui\job_emblem.gmd,\ui\uGUIJ
 継承成功率：<VAL>％
 継承失敗時：<COL ffdc78>失敗してもジュエリーは失われません</COL>
 <COL ffdc78><UNTN GS> <VAL GS></COL>を消費します（所持数：<HAVE GS>）
-以下のいずれかのクレストが継承されます","Do you want to Augment a Crest onto the selected
-slot by destroying the jewelry?
+以下のいずれかのクレストが継承されます","Destroy jewelry to inherit crest
+into selected slot using <COL ffdc78>Golden Stones</COL>?
 Jewelry: <VAL>
-Augmentation Success Rate: <VAL>％
-In case of failure: <COL ffdc78>The jewelry will
-not be lost</COL>
-<COL ffdc78>You will consume <VAL GS> <UNTN GS>
-</COL> (Current amount: <HAVE GS>)
-One of the following Crests will be inherited:",ui\00_message\ui\job_emblem.gmd,\ui\uGUIJobEmblem.arc,uGUIJobEmblem.arc,32,
+Success Rate: <VAL>%
+Failure: <COL ffdc78>Jewelry won't be destroyed.</COL>
+Cost: <COL ffdc78><VAL GS> pcs. of <UNTN GS></COL> (Have: <HAVE GS>)
+Inherits one of these crests:",ui\00_message\ui\job_emblem.gmd,\ui\uGUIJobEmblem.arc,uGUIJobEmblem.arc,32,
 31,job_emblem_crest_confirm_normal,"ジュエリーを破壊して選択したスロットに
 クレストを通常継承しますか？
 ジュエリー：<VAL>
 継承成功率：<VAL>％
 継承失敗時：<COL AA1414>失敗するとジュエリーを失います</COL>
-以下のいずれかのクレストが継承されます","Do you want to augment a Crest to the selected
-slot by destroying the jewelry?
+以下のいずれかのクレストが継承されます","Destroy jewelry to inherit crest
+into selected slot?
 Jewelry: <VAL>
-Augmentation Success Rate: <VAL>％
-In case of failure: <COL AA1414>You will lose the
-jewelry</COL>
-One of the following Crests will be inherited:",ui\00_message\ui\job_emblem.gmd,\ui\uGUIJobEmblem.arc,uGUIJobEmblem.arc,31,
+Success Rate: <VAL>%
+Failure: <COL ffdc78>Jewelry will be destroyed.</COL>
+Inherits one of these crests:",ui\00_message\ui\job_emblem.gmd,\ui\uGUIJobEmblem.arc,uGUIJobEmblem.arc,31,
 35,job_emblem_crest_confirm_retry,"継承に失敗しました
 ジュエリーは失われませんでした
 もう一度、同じジュエリーで継承を試みますか？","The Augmentation failed.
