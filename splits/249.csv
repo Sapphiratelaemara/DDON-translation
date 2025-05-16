@@ -178,14 +178,14 @@
 (number in possession：<VAL>)",ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,159,
 192,common_msg_jp_assignment,指定,Assign,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,192,
 192,common_msg_jp_assignment,指定,Assign,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,192,
-184,common_msg_jp_attribute,属性,Attribute,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,184,
-184,common_msg_jp_attribute,属性,Attribute,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,184,
-185,common_msg_jp_damage,ダメージ,Damage,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,185,
-185,common_msg_jp_damage,ダメージ,Damage,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,185,
+184,common_msg_jp_attribute,属性, Attribute,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,184,
+184,common_msg_jp_attribute,属性, Attribute,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,184,
+185,common_msg_jp_damage,ダメージ, Damage,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,185,
+185,common_msg_jp_damage,ダメージ, Damage,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,185,
 189,common_msg_jp_dragonskills,ドラゴンアビリティ,Dragon Abilities,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,189,
 189,common_msg_jp_dragonskills,ドラゴンアビリティ,Dragon Ability,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,189,
-174,common_msg_jp_of,の,'s,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,174,
-174,common_msg_jp_of,の,'s,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,174,
+174,common_msg_jp_of,の,'s ,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,174,
+174,common_msg_jp_of,の,'s ,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,174,
 163,common_msg_not_received,階層ごとの報酬が入手可能,Level Reward Available,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,163,
 163,common_msg_not_received,階層ごとの報酬が入手可能,Level Reward Available,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,163,
 190,common_msg_not_received_EX,階層ごとの報酬が入手可能<COL ffdc78>（報酬UP）</COL>,"Rewards are available for each tier.<COL ffdc78>
@@ -341,7 +341,7 @@
 102,common_unit_rp,RP,RP,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,102,
 102,common_unit_rp,RP,RP,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,102,
 146,common_unit_silverticket,枚,x,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,146,
-146,common_unit_silverticket,枚,Pieces,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,146,
+146,common_unit_silverticket,枚, Pieces ,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,146,
 132,common_unit_tp,BP,BP,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,132,
 132,common_unit_tp,BP,BP,ui\00_message\ui\common_message.gmd,\ui\gui_cmn.arc,gui_cmn.arc,132,
 77,common_unit_turn,回,Time,ui\00_message\ui\common_message.gmd,\systemFlow.arc,systemFlow.arc,77,
@@ -447,17 +447,15 @@ companions.",ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPo
 27,cpf_initialization,設定を初期化,Reset Settings,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,27,
 34,cpf_job_emblem_cap01,"護錬石を使用することで成功率をあげることができます
 1口につき＋1％、最大＋<VAL>％まで上昇できます
-（1口あたりの必要数は種類により異なります）","By using Defense Upgrade Rocks•8067, you can
-increase the success rate.
-For each piece, it will increase by 1%, and you
-can raise it up to a maximum of <VAL>%.
-(The required number per piece varies depending
-on the type)",ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,34,
+（1口あたりの必要数は種類により異なります）","Using certain items boosts success rate.
+Each piece gives a certain percentage, 
+up to +<VAL>% maximum.
+(Quantity required depends on type.)",ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,34,
 35,cpf_job_emblem_cap02,継承成功率：<VAL>％<COL ffdc78>＋<VAL>％</COL>,"Augmentation success rate: <VAL>%<COL ffdc78>
 +<VAL>%</COL>",ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,35,
 36,cpf_job_emblem_cap03,ジュエリー：,Jewelry:,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,36,
 37,cpf_job_emblem_cap04,<VAL>（1口＝<VAL>）,<VAL> (1 unit =<VAL>),ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,37,
-38,cpf_job_emblem_cap05,口,Mouth,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,38,
+38,cpf_job_emblem_cap05,口,pcs.,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,38,
 39,cpf_job_emblem_cap06,使用数：<COL ffdc78><VAL></COL>,Number used：<COL ffdc78> <VAL> </COL>,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,39,
 40,cpf_job_emblem_cap07,所持数：,Amount：,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,40,
 33,cpf_job_emblem_title,継承の設定,Setup augmentation,ui\00_message\ui\common_pop_filter.gmd,\ui\uGUIPopFilter.arc,uGUIPopFilter.arc,33,
