@@ -13,7 +13,7 @@ When I see all of you, strangely enough such feelings well up within me.",ui\00_
 操っていることもあるのです","In the ""Palace Plaza,"" there are not only alchemized Griffins, but also advanced Mergan engineers who control mechanical soldiers.",ui\00_message\npc\base\n2303.gmd,\npc\n2303.arc,n2303.arc,5,Ariadne
 0,,"――ああ、我々も覚者であったなら
 この礎で懐かしき地へ戻ることが
-できるのに――","- Sigh... If only we were Arisen, we could return to that nostalgic land with this keystone...",ui\00_message\npc\base\n2303.gmd,\npc\n2303.arc,n2303.arc,6,Ariadne
+できるのに――","- Sigh... If only we were Arisen, we could return to that nostalgic land with this Portcrystal...",ui\00_message\npc\base\n2303.gmd,\npc\n2303.arc,n2303.arc,6,Ariadne
 0,,"ええ、あなたとの取引であれば
 いついかなる時でも応じましょう
 それが助力となるのであれば――","Yes, if it's a mere transaction with you, I will accommodate it at any time, as long as it helps.",ui\00_message\npc\base\n2303.gmd,\npc\n2303.arc,n2303.arc,7,Ariadne
@@ -48,7 +48,7 @@ Offered to Golgorran ――",ui\00_message\npc\base\n2304.gmd,\npc\n2304.arc,n23
 0,,"私にご用かな
 友への呼びかけであれば、力添えをしよう","If it is a call to a friend, I will offer my assistance.",ui\00_message\npc\base\n2304.gmd,\npc\n2304.arc,n2304.arc,5,Metrophanes
 0,,"護政区の礎からここに至るまでに
-半壊した建物があっただろう",There must have been partially destroyed buildings along the path from the Imperial Quarter's Keystone to here.,ui\00_message\npc\base\n2304.gmd,\npc\n2304.arc,n2304.arc,6,Metrophanes
+半壊した建物があっただろう",There must have been partially destroyed buildings along the path from the Imperial Quarter's Portcrystal to here.,ui\00_message\npc\base\n2304.gmd,\npc\n2304.arc,n2304.arc,6,Metrophanes
 0,,"あの奥には《錬金研究室》があってな
 合成用や研究用に選抜された魔物が
 これまでに数回、暴走していたことがある","Behind that is the Alchemy Laboratory. 
@@ -654,15 +654,15 @@ is essential to capturing the fortress.",ui\00_message\quest_info\q90030204_00.g
 (2 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,5,The White Dragon
 6,q90030204_00_3998,【主目標】ジフール砦内に進攻する（残り１分）,"[Main Objective] Advance into Jifule Fortress
 (1 minute left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,6,The White Dragon
-7,q90030204_00_3999,【主目標】中央広場を彷徨う魔物を討伐する（残り５分）,"[Main Objective] Defeat the demons in the Central Square
+7,q90030204_00_3999,【主目標】中央広場を彷徨う魔物を討伐する（残り５分）,"[Main Objective] Defeat the demons in the Central Plaza
 (5 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,7,The White Dragon
-8,q90030204_00_4023,【主目標】中央広場を彷徨う魔物を討伐する（残り４分）,"[Main Objective] Defeat the demons in the Central Square
+8,q90030204_00_4023,【主目標】中央広場を彷徨う魔物を討伐する（残り４分）,"[Main Objective] Defeat the demons in the Central Plaza
 (4 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,8,The White Dragon
-9,q90030204_00_4024,【主目標】中央広場を彷徨う魔物を討伐する（残り３分）,"[Main Objective] Defeat the demons in the Central Square
+9,q90030204_00_4024,【主目標】中央広場を彷徨う魔物を討伐する（残り３分）,"[Main Objective] Defeat the demons in the Central Plaza
 (3 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,9,The White Dragon
-10,q90030204_00_4025,【主目標】中央広場を彷徨う魔物を討伐する（残り２分）,"[Main Objective] Defeat the demons in the Central Square
+10,q90030204_00_4025,【主目標】中央広場を彷徨う魔物を討伐する（残り２分）,"[Main Objective] Defeat the demons in the Central Plaza
 (2 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,10,The White Dragon
-11,q90030204_00_4026,【主目標】中央広場を彷徨う魔物を討伐する（残り１分）,"[Main Objective] Defeat the demons in the Central Square
+11,q90030204_00_4026,【主目標】中央広場を彷徨う魔物を討伐する（残り１分）,"[Main Objective] Defeat the demons in the Central Plaza
 (1 minute left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,11,The White Dragon
 12,q90030204_00_4027,浮遊呪符を全て破壊して召喚士を塞ぐ扉を開く,"Destroy all floating amulets and open the door
 to get to the Summoner.",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,12,The White Dragon
@@ -672,13 +672,13 @@ and conquer the fortress (3 minutes left)",ui\00_message\quest_info\q90030204_00
 and conquer the fortress (2 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,14,The White Dragon
 15,q90030204_00_4030,【主目標】１階奥の魔物を討伐して砦を征圧する（残り１分）,"[Main Objective] Defeat the enemy on the 1st floor
 and conquer the fortress (1 minute left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,15,The White Dragon
-16,q90030204_00_4031,【急報】再び現れた魔物から中央広場を防衛する（残り４分）,"[Urgent Report] Defend the Central Square from the enemy
+16,q90030204_00_4031,【急報】再び現れた魔物から中央広場を防衛する（残り４分）,"[Urgent Report] Defend the Central Plaza from the enemy
 that has appeared again (4 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,16,The White Dragon
-17,q90030204_00_4032,【急報】再び現れた魔物から中央広場を防衛する（残り３分）,"[Urgent Report] Defend the Central Square from the enemy
+17,q90030204_00_4032,【急報】再び現れた魔物から中央広場を防衛する（残り３分）,"[Urgent Report] Defend the Central Plaza from the enemy
 that has appeared again (3 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,17,The White Dragon
-18,q90030204_00_4033,【急報】再び現れた魔物から中央広場を防衛する（残り２分）,"[Urgent Report] Defend the Central Square from the enemy
+18,q90030204_00_4033,【急報】再び現れた魔物から中央広場を防衛する（残り２分）,"[Urgent Report] Defend the Central Plaza from the enemy
 that has appeared again (2 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,18,The White Dragon
-19,q90030204_00_4034,【急報】再び現れた魔物から中央広場を防衛する（残り１分）,"[Urgent Report] Defend the Central Square from the enemy
+19,q90030204_00_4034,【急報】再び現れた魔物から中央広場を防衛する（残り１分）,"[Urgent Report] Defend the Central Plaza from the enemy
 that has appeared again (1 minute left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,19,The White Dragon
 20,q90030204_00_4035,召喚士を討伐する,Defeat the summoned warriors,ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,20,The White Dragon
 21,q90030204_00_4036,【緊急指令】現れた＜骸の将＞を仕留める（残り：１０分）,"[Urgent Order] Bring down Necro Master that appeared
@@ -746,10 +746,10 @@ of enemies is suppressed!",ui\00_message\examine_message\quest\quest_examine_q90
 within the allotted time.
 Proceed to the next Mission.",ui\00_message\examine_message\quest\quest_examine_q90030204.gmd,\quest\q90030204.arc,q90030204.arc,7,The White Dragon
 0,,"中央広場の防衛成功――！
-戦況が好転した","Defense of the Central Square: Success!
+戦況が好転した","Defense of the Central Plaza: Success!
 The War Situation has improved.",ui\00_message\examine_message\quest\quest_examine_q90030204.gmd,\quest\q90030204.arc,q90030204.arc,8,The White Dragon
 0,,"中央広場の防衛が失敗した――
-戦況が悪化した","Defense of the Central Square has failed:
+戦況が悪化した","Defense of the Central Plaza has failed:
 the War Situation has worsened.",ui\00_message\examine_message\quest\quest_examine_q90030204.gmd,\quest\q90030204.arc,q90030204.arc,9,The White Dragon
 0,,骸の将が現れた！,The Necro Master has appeared!,ui\00_message\examine_message\quest\quest_examine_q90030204.gmd,\quest\q90030204.arc,q90030204.arc,10,The White Dragon
 0,,骸の将が逃げ出しそうだ――,The Necro Master is attempting to escape...,ui\00_message\examine_message\quest\quest_examine_q90030204.gmd,\quest\q90030204.arc,q90030204.arc,11,The White Dragon
