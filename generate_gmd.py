@@ -2,32 +2,49 @@ import argparse
 import re
 from pathlib import Path
 
+# Define forbidden symbol replacements
+FORBIDDEN_SYMBOLS = {
+    "“": '"', "”": '"',
+    "‘": "'", "’": "'",
+    "~": "～"
+}
+
+def replace_forbidden_symbols(file_path):
+    """Replace forbidden symbols in the file's content."""
+    content = file_path.read_text(encoding='utf-8')
+    for old_symbol, new_symbol in FORBIDDEN_SYMBOLS.items():
+        content = content.replace(old_symbol, new_symbol)
+    file_path.write_text(content, encoding='utf-8')
+
 def numerical_sort_key(path):
     # Extract numbers from the file name
     name = path.name
-    # Replace numbers with zero-padded versions for consistent sorting
     parts = re.split(r'(\d+)', name)
     return [int(part) if part.isdigit() else part.lower() for part in parts]
 
+def clean_files(args):
+    """Go through all splits and replace forbidden symbols."""
+    for path in args.split_locations:
+        directory = Path(path)
+        for file in directory.glob("*.csv"):
+            replace_forbidden_symbols(file)
+
 def merge_splits(args):
-    # Collect all splits
+    """Merge split CSV files into gmd.csv after cleaning."""
     splits = []
     for path in args.split_locations:
         directory = Path(path)
         for split in directory.glob("*.csv"):
             splits.append(split)
 
-    if len(splits) == 0:
+    if not splits:
         print('No splits to merge. Exiting.')
         return
 
-    # Sort splits so they are in numerical order
     splits = sorted(splits, key=numerical_sort_key)
 
-    # Generate gmd.csv with ordered splits
-    output_file = Path(f'{args.output_dir}/gmd.csv')
+    output_file = Path(args.output_dir) / "gmd.csv"
     with open(output_file, 'w', encoding='utf-8') as f:
-        # Put the header at the top of the file
         f.write("#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex\n")
         for split in splits:
             content = split.read_text(encoding='utf-8')
@@ -43,24 +60,16 @@ def parse_args():
     args = parser.parse_args()
 
     output_path = Path(args.output_dir)
-    if not output_path.exists():
-        print(f'The given output path {output_path} does not exist. Exiting.')
+    if not output_path.exists() or not output_path.is_dir():
+        print(f'Invalid output path: {output_path}. Exiting.')
         return None
     
-    if not output_path.is_dir():
-        print(f'The given output path {output_path} is not a directory. Exiting.')
-        return None
-    
-    if len(args.split_locations) == 0:
-        print('No split locations given. Exiting.')
-        return None
-
     for split_dir in args.split_locations:
         split_path = Path(split_dir)
         if not split_path.exists() or not split_path.is_dir():
-            print(f'The split path "{split_path}" does not exist or is not a directory. Exiting.')
-            return
-    
+            print(f'Invalid split path: {split_path}. Exiting.')
+            return None
+
     return args
 
 def main():
@@ -68,7 +77,8 @@ def main():
     if args is None:
         return
     
-    merge_splits(args)
+    clean_files(args)  # First, clean the files by replacing forbidden symbols
+    merge_splits(args)  # Then, merge the files
 
 if __name__ == '__main__':
     main()
