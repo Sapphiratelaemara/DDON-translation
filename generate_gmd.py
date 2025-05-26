@@ -22,7 +22,7 @@ def replace_forbidden_symbols(file_path):
 
 def modify_specific_entry():
     """Find and replace dates in Fully Translated/104.csv with the current date."""
-    file_path = Path("Fully Translated/104.csv")
+    file_path = Path("Fully Translated/254.csv")
     if not file_path.exists():
         print(f"File {file_path} not found. Skipping modification.")
         return
