@@ -427,7 +427,7 @@ phrase. You can purchase it in the online shop",ui\00_message\ui\simple_communic
 163,simple_text_9122,ナイスです！,Nice!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,163,
 164,simple_text_9123,気にしないで！,Don't worry about it!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,164,
 165,simple_text_9124,お気になさらず,I don't mind,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,165,
-166,simple_text_9125,それではまた！,"Well, see you!",ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,166
+166,simple_text_9125,それではまた！,"Well, see you!",ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,166,
 167,simple_text_9126,次こそは！,Next time!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,167,
 168,simple_text_9127,ザコは無視しますか？,Ignore it?,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,168,
 169,simple_text_9128,いいですね！,That's excellent!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,169,
@@ -607,11 +607,9 @@ until extermination: <VAL>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui
 tornado.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,293,
 5,syslog_archieve_get,アチーブメント「<NAME ACHIEVE>」を獲得しました,"Earned achievement ""<NAME ACHIEVE>"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5,
 63,syslog_areamaster_ap_get,"<NAME AREA>のエリアポイント
-<VAL AP>を獲得しました","Area points for <NAME AREA>:
-Gained <VAL AP>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,63,
+<VAL AP>を獲得しました",Gained <VAL AP> <NAME AREA> AP,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,63,
 182,syslog_areamaster_ap_get_ex,"<NAME AREA>のエリアポイント
-<VAL> (+<VAL>) <UNIT AP>を獲得しました","Area points for <NAME AREA>:
-Gained <VAL> (+<VAL>) <UNIT AP>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,182,
+<VAL> (+<VAL>) <UNIT AP>を獲得しました",Gained <VAL> (+<VAL>) <UNIT AP> <NAME AREA> AP,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,182,
 64,syslog_areamaster_rankup_ready,"<NAME AREA>のエリアランクアップが
 可能になりました","Area rank up is now available
 for <NAME AREA>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,64,
