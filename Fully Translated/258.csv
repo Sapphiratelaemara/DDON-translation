@@ -15,7 +15,8 @@ reloaded. (<VAL> time today)",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gu
 268,syslog_hb_get,<VAL HB>を入手しました,<VAL HB> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,268,
 269,syslog_hb_get_ex,<VAL> (+<VAL>) <UNIT HB>を入手しました,<VAL> (+<VAL>) <UNIT HB> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,269,
 270,syslog_hb_lost,<VAL HB>を消費しました,<VAL HB> spent.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,270,
-376,syslog_ho_possession_max,<UNTN HB>が最大に達したため、これ以上獲得できません,"You have reached the maximum amount of <UNTN HB>
+376,syslog_ho_possession_max,<UNTN HB>が最大に達したため、これ以上獲得できません,"You have reached the maximum 
+amount of <UNTN HB>
 and cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,376,
 132,syslog_item_consume,<NAME ITEM>を<VAL>個、使用しました,<NAME ITEM> x<VAL> used.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,132,
 176,syslog_item_deliver,<NAME ITEM>を<VAL>個、納品しました,<NAME ITEM> x<VAL> has been delivered.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,176,
@@ -33,7 +34,8 @@ and cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_c
 Report to the Job Master or open
 the Job Training Log.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,68,
 67,syslog_jobmaster_skill_get,「<NAME SKILL> <VAL LV>」へのレベルアップが可能になりました,"""<NAME SKILL> <VAL LV>"" can now be learned.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,67,
-226,syslog_jp_possession_max,ジョブポイントが最大に達したため、これ以上獲得できません,"You have reached the maximum amount of Job Points
+226,syslog_jp_possession_max,ジョブポイントが最大に達したため、これ以上獲得できません,"You have reached the maximum 
+amount of Job Points
 and cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,226,
 225,syslog_jp_possession_max_notice,"ジョブポイントの所持量が最大に近づいています
 ( <VAL> / <VAL JP> )","You are almost maxed out on Job Points.
@@ -81,7 +83,8 @@ returned in front of the NPC in charge.",ui\00_message\ui\system_log.gmd,\ui\gui
 128,syslog_money_get,<VAL G>を入手しました,<VAL G> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,128,
 304,syslog_money_get_ex,<VAL> (+<VAL>) <UNIT G>を入手しました,<VAL> (+<VAL>) <UNIT G> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,304,
 201,syslog_money_lost,<VAL G>を消費しました,<VAL G> spent.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,201,
-378,syslog_ms_possession_max,<UNTN MS>が最大に達したため、これ以上獲得できません,"You have reached the maximum amount of <UNTN MS>
+378,syslog_ms_possession_max,<UNTN MS>が最大に達したため、これ以上獲得できません,"You have reached the maximum 
+amount of <UNTN MS>
 and cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,378,
 239,syslog_name_etc_buy,<NAME ETC> を購入しました,Purchased <NAME ETC>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,239,
 238,syslog_name_etc_use,<NAME ETC> を使用しました,<NAME ETC> has been used.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,238,
@@ -152,7 +155,8 @@ Proceed to the end to finish the mission.",ui\00_message\ui\system_log.gmd,\ui\g
 246,syslog_pp_get,<VAL PP>を入手しました,<VAL PP> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,246,
 247,syslog_pp_get_ex,<VAL> (+<VAL>) <UNIT PP>を入手しました,<VAL> (+<VAL>) <UNIT PP> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,247,
 248,syslog_pp_lost,<VAL PP>を消費しました,<VAL PP> spent.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,248,
-372,syslog_pp_possession_max,プレイポイントが最大に達したため、これ以上獲得できません,"You have reached the maximum amount of PP and
+372,syslog_pp_possession_max,プレイポイントが最大に達したため、これ以上獲得できません,"You have reached the maximum 
+amount of PP and
 cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,372,
 280,syslog_pq_seq_ana_acv_down,＜<VAL>＞の使命＜<VAL>＞の達成度が減少しました,"""<VAL>"" mission ""<VAL>"" progress decreased.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,280,
 279,syslog_pq_seq_ana_acv_up,＜<VAL>＞の使命＜<VAL>＞の達成度が上昇しました,"""<VAL>"" mission ""<VAL>"" progress increased.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,279,
@@ -231,7 +235,8 @@ orders waiting.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,209
 小目的＜<NAME ETC>＞の条件でマッチングしました","Adventure Purpose <<NAME ETC>>
 Matching conditions for Secondary Purpose <<NAME ETC>
 > met.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,237,
-374,syslog_r_possession_max,<UNTN R>が最大に達したため、これ以上獲得できません,"You have reached the maximum amount of <UNTN R>
+374,syslog_r_possession_max,<UNTN R>が最大に達したため、これ以上獲得できません,"You have reached the maximum 
+amount of <UNTN R>
 and cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,374,
 325,syslog_rdm_get,<UNTN RDM>を<VAL><UNIT RDM>、入手しました,<UNTN RDM> <UNIT RDM><VAL> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,325,
 364,syslog_rdm_get_ex,<UNTN RDM>を<VAL>(+<VAL>)<UNIT RDM>、入手しました,<VAL>(+<VAL>)<UNIT RDM> obtained from <UNTN RDM>,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,364,
@@ -259,7 +264,8 @@ will be lost.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,300,
 129,syslog_rim_get,<VAL R>を入手しました,<VAL R> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,129,
 305,syslog_rim_get_ex,<VAL> (+<VAL>) <UNIT R>を入手しました,<VAL> (+<VAL>) <UNIT R> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,305,
 200,syslog_rim_lost,<VAL R>を消費しました,<VAL R> spent.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,200,
-377,syslog_rp_possession_max,<UNTN RP>が最大に達したため、これ以上獲得できません,"You have reached the maximum amount of <UNTN RP>
+377,syslog_rp_possession_max,<UNTN RP>が最大に達したため、これ以上獲得できません,"You have reached the maximum 
+amount of <UNTN RP>
 and cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,377,
 324,syslog_sdm_get,<UNTN SDM>を<VAL><UNIT SDM>、入手しました,<UNTN SDM> <UNIT SDM><VAL> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,324,
 363,syslog_sdm_get_ex,<UNTN SDM>を<VAL>(+<VAL>)<UNIT SDM>、入手しました,Retrieved <VAL>(+<VAL>)<UNIT SDM> at <UNTN SDM>,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,363,
@@ -288,7 +294,8 @@ you have not claimed.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.a
 180,syslog_touchom_areamaster_lock,エリアマスターにより封鎖されている――,This has been blocked by the Area Master.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,180,
 287,syslog_tp_get,<VAL TP>を入手しました,<VAL TP> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,287,
 288,syslog_tp_lost,<VAL TP>を消費しました,<VAL TP> spent.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,288,
-290,syslog_tp_possession_max,<UNTN TP>が最大に達したため、これ以上獲得できません,"You have reached the maximum amount of <UNTN TP>s
+290,syslog_tp_possession_max,<UNTN TP>が最大に達したため、これ以上獲得できません,"You have reached the maximum 
+amount of <UNTN TP>s
 and cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,290,
 289,syslog_tp_possession_max_notice,"<UNTN TP>の所持量が最大に近づいています
 ( <VAL> / <VAL TP> )","You are almost maxed out on

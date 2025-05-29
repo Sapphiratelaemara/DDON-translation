@@ -607,9 +607,9 @@ until extermination: <VAL>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui
 tornado.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,293,
 5,syslog_archieve_get,アチーブメント「<NAME ACHIEVE>」を獲得しました,"Earned achievement ""<NAME ACHIEVE>"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5,
 63,syslog_areamaster_ap_get,"<NAME AREA>のエリアポイント
-<VAL AP>を獲得しました",Gained <VAL AP> <NAME AREA> AP,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,63,
+<VAL AP>を獲得しました",Gained <VAL AP> in <NAME AREA>,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,63,
 182,syslog_areamaster_ap_get_ex,"<NAME AREA>のエリアポイント
-<VAL> (+<VAL>) <UNIT AP>を獲得しました",Gained <VAL> (+<VAL>) <UNIT AP> <NAME AREA> AP,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,182,
+<VAL> (+<VAL>) <UNIT AP>を獲得しました",Gained <VAL> (+<VAL>) <UNIT AP> in <NAME AREA>,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,182,
 64,syslog_areamaster_rankup_ready,"<NAME AREA>のエリアランクアップが
 可能になりました","Area rank up is now available
 for <NAME AREA>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,64,
@@ -631,7 +631,8 @@ settings.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,347,
 130,syslog_bo_get,<VAL BO>を入手しました,<VAL BO> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,130,
 303,syslog_bo_get_ex,<VAL> (+<VAL>) <UNIT BO>を入手しました,<VAL> (+<VAL>) <UNIT BO> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,303,
 199,syslog_bo_lost,<VAL BO>を消費しました,<VAL BO> spent.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,199,
-375,syslog_bo_possession_max,<UNTN BO>が最大に達したため、これ以上獲得できません,"You have reached the maximum amount of <UNTN BO>
+375,syslog_bo_possession_max,<UNTN BO>が最大に達したため、これ以上獲得できません,"You have reached the maximum 
+amount of <UNTN BO>
 and cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,375,
 306,syslog_boardquest_sp_allclear_log,"このクエストボードから配信されている
 すべてのクエストを一括してクリア状態にしました","All quests posted to this Quest Board
@@ -747,7 +748,8 @@ declined.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13,
 12,syslog_friend_ok,<NAME TARGET>とフレンドになりました,<NAME TARGET> is now your friend.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12,
 10,syslog_friend_request,<NAME TARGET>にフレンド申請をしました,You sent <NAME TARGET> a friend request.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10,
 11,syslog_friend_requested,<NAME TARGET>からフレンド申請されました,<NAME TARGET> has sent you a friend request.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11,
-373,syslog_g_possession_max,<UNTN G>が最大に達したため、これ以上獲得できません,"You have reached the maximum amount of <UNTN G>
+373,syslog_g_possession_max,<UNTN G>が最大に達したため、これ以上獲得できません,"You have reached the maximum 
+amount of <UNTN G>
 and cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,373,
 258,syslog_gacha_msg_drawn_by_a_free,無料で、ロットを1回まわしました,"For free, you drew 1 lot.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,258,
 219,syslog_gacha_msg_drawn_by_a_stone,黄金石<VAL>個を消費して、ロットを1回まわしました,"Spending <VAL> Golden Gemstones, you drew 1 lot.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,219,
