@@ -159,8 +159,8 @@ anniversary.",ui\00_message\clan_shop\clan_shop_lineups.gmd,\ui\uGUIPopBuffBonus
 59,CONDITION_NAME_71,闇牢,Dark Prison,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,59,
 0,IDX_124,物理攻撃力を上昇させる,Increase physical attack power.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,0,
 3,IDX_125,魔法攻撃力を上昇させる,Increase magic attack power.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,3,
-2,IDX_126,物理防御力を上昇させる,Increase physical defense power.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,2,
-5,IDX_127,魔法防御力を上昇させる,Increase magic defense.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,5,
+2,IDX_126,物理防御力を上昇させる,Increase Physical Defense.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,2,
+5,IDX_127,魔法防御力を上昇させる,Increase Magick Defense.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,5,
 8,IDX_128,体力を上昇させる,Increase maximum HP.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,8,
 11,IDX_129,スタミナを上昇させる,Increase stamina.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,11,
 14,IDX_130,生命治癒力を上昇させる,Increase healing power.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,14,
@@ -362,17 +362,15 @@ your gauge is consumed.
 <COL ffdc78>LV UP: Increases the amount
 further.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,65,
 66,IDX_193,"物理防御力と魔法防御力が増加する
-<COL ffdc78>LV毎に物理/魔法防御力がより増加</COL>","Increases physical and magic defense.
-<COL ffdc78>LV UP: Further increases
-defenses.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,66,
+<COL ffdc78>LV毎に物理/魔法防御力がより増加</COL>","Physical Defense & Magick Defense ↑ by +12 max.
+<COL ffdc78>LV UP: Further increases defenses.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,66,
 67,IDX_194,"最大体力が増加する
-<COL ffdc78>LV毎に最大体力がより増加</COL>","Increases maximum health.
-<COL ffdc78>LV UP: Further increases maximum
-health.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,67,
+<COL ffdc78>LV毎に最大体力がより増加</COL>","Increases maximum Health up to +300.
+<COL ffdc78>LV UP: Further increases maximum Health.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,67,
 68,IDX_195,"白竜神殿から出てしばらくの間
 最大体力が増加する
-<COL ffdc78>LV毎に最大体力がより増加</COL>","Increases your health after leaving
-White Dragon Temple for a period of time.
+<COL ffdc78>LV毎に最大体力がより増加</COL>","Increases your Health after leaving
+the White Dragon Temple for 30 minutes.
 <COL ffdc78>LV UP: Increases health further.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,68,
 69,IDX_196,"斬属性攻撃によって
 受けるダメージ量が軽減される
