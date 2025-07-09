@@ -253,16 +253,17 @@ allowing for a quicker downswing.
 <COL ffdc78>LV毎に攻撃速度がより上昇</COL>","Attack speed ↑ when using Gouge.
 <COL ffdc78>LV UP: Increases attack speed further.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,42,
 43,IDX_170,"盾弾きの発動時に敵の体勢を崩しやすくなる
-<COL ffdc78>LV毎に吹き飛ばし力がより増加</COL>","Stagger power ↑ from shield counters.
-<COL ffdc78>LV UP: Further increases stagger power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,43,
+<COL ffdc78>LV毎に吹き飛ばし力がより増加</COL>","Shield counters deal up to 45% more Blow Power,
+making it easier to throw enemies off balance.
+<COL ffdc78>LV UP: Further increases Blow Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,43,
 44,IDX_171,"盾弾きの発動時に敵を気絶させやすくなる
 <COL ffdc78>LV毎に気絶攻力がより増加</COL>","Knockout Power ↑ from Perfect Blocks.
 <COL ffdc78>LV UP: Further increases Knockout Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,44,
 45,IDX_172,"盾弾きの発動時にスタミナが一定量回復する
-<COL ffdc78>LV毎にスタミナ回復量がより増加</COL>","Allows Stamina to recover during Perfect Blocks.
+<COL ffdc78>LV毎にスタミナ回復量がより増加</COL>","Allows Stamina to recover from Perfect Blocks.
 <COL ffdc78>LV UP: Increases Stamina recovery further.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,45,
 46,IDX_173,"筋力が増加する
-<COL ffdc78>LV毎に筋力がより増加</COL>","Up to +20 STR added for shield attacks.
+<COL ffdc78>LV毎に筋力がより増加</COL>","Increases physical power.
 <COL ffdc78>LV UP: Further increases physical power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,46,
 47,IDX_174,"打属性攻撃によって
 受けるダメージ量が軽減される
@@ -270,15 +271,12 @@ allowing for a quicker downswing.
 reduced.
 <COL ffdc78>Damage further reduced per lvl</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,47,
 48,IDX_175,"弓の移動射ちの際、矢が照準からぶれなくなる
-<COL ffdc78>LV毎にぶれ幅がさらに軽減</COL>","Keeps your arrows from flying off mark when you
-loose them whilst in motion.
-<COL ffdc78>LV UP: Further decreases
-deviation.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,48,
+<COL ffdc78>LV毎にぶれ幅がさらに軽減</COL>","Reduces deviation of arrows fired whilst in motion.
+<COL ffdc78>LV UP: Further decreases deviation.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,48,
 49,IDX_176,"一度に矢筒に補充できる矢の本数が増加する
-<COL ffdc78>LV毎に矢の装填数がより増加</COL>","Increases the number of arrows that can be loaded
-into the quiver at a time.
-<COL ffdc78>LV UP: Increases arrow count
-further.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,49,
+<COL ffdc78>LV毎に矢の装填数がより増加</COL>","Increases the number of arrows held by the quiver,
+holding up to 12 arrows at a time.
+<COL ffdc78>LV UP: Increases quiver capacity by 2.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,49,
 50,IDX_177,"達人装填の成功時にスタミナが回復する
 <COL ffdc78>LV毎にスタミナ回復量がより増加</COL>","Recover Stamina when performing a master reload.
 <COL ffdc78>LV UP: Increases recovered Stamina
@@ -642,10 +640,9 @@ enemy attacks with Scáth Move.
 further.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,124,
 125,IDX_252,"エンチャントを受けた際に
 敵に与えるダメージ量がより増加する
-<COL ffdc78>LV毎にダメージがより増加</COL>","Increases damage dealt to enemies when
-the weapon is enchanted.
-<COL ffdc78>LV UP: Further increases damage
-dealt.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,125,
+<COL ffdc78>LV毎にダメージがより増加</COL>","While enchanted (10% damage boost),
+deal up to +10% more damage with weapon attacks.
+<COL ffdc78>LV UP: Further increases damage dealt.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,125,
 126,IDX_253,"魔力スタックが2以上の時に、
 筋力と魔力が増加する
 <COL ffdc78>LV毎に筋力と魔力がより増加</COL>","Up to +25 STR/MGK while above 2 or more Magick stacks.
