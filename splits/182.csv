@@ -723,41 +723,58 @@
 0,,追跡を開始する,,ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,3,Dean
 0,,――少し待ってほしい,...I want to wait awhile,ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,4,Dean
 0,,"""痕跡""を辿っていけば、必ずヤツはそこにいる
-すまないが、俺の代わりに追ってくれ",,ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,5,Dean
+すまないが、俺の代わりに追ってくれ","Actually, I'm currently tracking an enemy.
+If you're free, could you lend me a hand?",ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,5,Dean
 0,,"時間をかけすぎると相手が気付く可能性がある
-大胆かつ慎重に――よろしく頼むぜ",,ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,6,Dean
+大胆かつ慎重に――よろしく頼むぜ","Even though I say I'm tracking it,
+I don't know where the enemy is.
+For now, I'm following its ""traces.""",ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,6,Dean
 0,,"さすが覚者さんだな！
 あんたに頼んでよかったぜ
 これで魔物が集まりやすい場所も分かったし
-メガドシスの警備事情も一歩前進だな",,ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,7,Dean
-0,,さあ、追跡だ――相手に気付かれる前に見つけちまってくれ,,ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,8,Dean
-0,,相手の動きが少し変わったな――ちょいと急いだ方がいいんじゃないか,,ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,9,Dean
-0,,完全にバレちまったなこりゃ――やり直しだ,,ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,10,Dean
+メガドシスの警備事情も一歩前進だな","If you follow the ""traces,"" you'll find it for sure.
+But...I messed up earlier and got hurt.
+It's not serious, but I can't move quickly.
+Can you track the enemy in my place?",ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,7,Dean
+0,,さあ、追跡だ――相手に気付かれる前に見つけちまってくれ,Begin the pursuit.,ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,8,Dean
+0,,相手の動きが少し変わったな――ちょいと急いだ方がいいんじゃないか,...Wait a minute.,ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,9,Dean
+0,,完全にバレちまったなこりゃ――やり直しだ,"If you follow the ""traces,"" you'll
+find it for sure. Sorry, but can you
+track it in my place?",ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,10,Dean
 0,,"魔物がいそうな場所の目星は大体ついてる
-地図に印をつけておくから、そこを当たってみてくれ",,ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,11,Dean
+地図に印をつけておくから、そこを当たってみてくれ","If you take too long, the target might notice.
+Be bold but safe...I'm counting on you.",ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,11,Dean
 0,,"あんまり時間をかけすぎると
 相手が気付く可能性があるからな
-時間をかけすぎないようによろしく頼むぜ",,ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,12,Dean
+時間をかけすぎないようによろしく頼むぜ","As expected of you, Arisen!
+I'm glad we asked you.
+Now that we know where our enemies gather,
+Megado's security has taken a step forward.",ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,12,Dean
 0,,"ああ、少し特殊な任務だからな
 しっかり準備してから
-また声をかけてくれ",,ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,13,Dean
+また声をかけてくれ","Now, the pursuit...
+Find it before it notices you.",ui\00_message\quest\q60320003.gmd,\quest\q60320003.arc,q60320003.arc,13,Dean
 0,,"あの、覚者さま！
 急ぎのご報告があるんです
-解放軍の方からの伝言が――！",,ui\00_message\quest\q60320004.gmd,\quest\q60320004.arc,q60320004.arc,0,Bruce
+解放軍の方からの伝言が――！","The target's movements have changed...
+You might want to hurry up.",ui\00_message\quest\q60320004.gmd,\quest\q60320004.arc,q60320004.arc,0,Bruce
 0,,"ここ数日、どうにも魔物たちの動きが不穏だという
 報告が各地の兵士から寄せられていたらしく――
 そこで、数人の兵士がフィールドに出て
-様子を探っていたそうなのですが！",,ui\00_message\quest\q60320004.gmd,\quest\q60320004.arc,q60320004.arc,1,Bruce
+様子を探っていたそうなのですが！",It's onto us... Time to start over.,ui\00_message\quest\q60320004.gmd,\quest\q60320004.arc,q60320004.arc,1,Bruce
 0,,"なんと、予想よりも早くに魔軍が動きだし
 フィールドに出ていた方々が
-魔物と交戦して食い止めている状態です！",,ui\00_message\quest\q60320004.gmd,\quest\q60320004.arc,q60320004.arc,2,Bruce
+魔物と交戦して食い止めている状態です！","I've got a rough idea of where they might be.
+I'll mark it on the map... Check there.",ui\00_message\quest\q60320004.gmd,\quest\q60320004.arc,q60320004.arc,2,Bruce
 0,,"どうか、今も戦っている彼らの場所に行って
 魔軍からの襲撃阻止にご協力いただけないでしょうか
-とにかく、急ぎとのことなんです！",,ui\00_message\quest\q60320004.gmd,\quest\q60320004.arc,q60320004.arc,3,Bruce
+とにかく、急ぎとのことなんです！","If you take too long, the target might notice.
+So make haste... I'm counting on you.",ui\00_message\quest\q60320004.gmd,\quest\q60320004.arc,q60320004.arc,3,Bruce
 0,,"どこで誰が交戦中か、ですか？
 もちろんお話します！
 しかし、全員分お話している時間はありません
-交戦地を聞きたい方はどなたか、一人に絞ってください",,ui\00_message\quest\q60320004.gmd,\quest\q60320004.arc,q60320004.arc,4,Bruce
+交戦地を聞きたい方はどなたか、一人に絞ってください","Ah, this is somewhat of a special mission.
+Prepare properly, then come talk to me again.",ui\00_message\quest\q60320004.gmd,\quest\q60320004.arc,q60320004.arc,4,Bruce
 0,,アンナの交戦情報,,ui\00_message\quest\q60320004.gmd,\quest\q60320004.arc,q60320004.arc,5,Bruce
 0,,ダーナの交戦情報,,ui\00_message\quest\q60320004.gmd,\quest\q60320004.arc,q60320004.arc,6,Bruce
 0,,バーサの交戦情報,,ui\00_message\quest\q60320004.gmd,\quest\q60320004.arc,q60320004.arc,7,Bruce
