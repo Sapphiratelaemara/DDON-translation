@@ -106,7 +106,8 @@ options:
 ```
 
 ## 🛠️ Available Tools
-
+(Note that these tools have been made when required, to the best of the ability of the writer; expect possible problems.
+Fixes and improvements by knowledgeable people would be very welcome!)
 ### 🧹 Cleaning Tools
 
 | Script | Description |
