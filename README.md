@@ -22,6 +22,22 @@ This is a data repository used to build translation patches for **Dragon's Dogma
 - [👥 External Credits](#external-credits)
 - [📜 License](#license)
 
+- [How to Install Translations](#how-to-install-translations)
+- [Development](#development)
+  - [Prerequisites](#prerequisites)
+  - [Generating the gmd.csv](#generating-the-gmdcsv)
+  - [Simple Method Windows](#simple-method-windows)
+  - [Manual Method Command Line](#manual-method-command-line)
+- [Available Tools](#available-tools)
+  - [Cleaning Tools](#cleaning-tools)
+  - [Validation Tools](#validation-tools)
+  - [Processing Tools](#processing-tools)
+- [Supported Languages](#supported-languages)
+- [How to Contribute](#how-to-contribute)
+- [Troubleshooting](#troubleshooting)
+- [External Credits](#external-credits)
+- [License](#license)
+
 
 ## 📥 How to Install Translations
 
