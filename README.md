@@ -1,4 +1,6 @@
-# DDON-Translation
+<div align="center">
+<img width="500" height="500" alt="DDON-Translation" src="https://github.com/user-attachments/assets/06f9e62e-6991-4585-8bfa-686794afdd40" />
+</div>
 
 [![Translation Progress](https://img.shields.io/badge/Translation-Community%20Project-green)](#contributing) [![Discord](https://img.shields.io/badge/Join%20Discord-7289da?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/Rvut5D8zGP)
 
