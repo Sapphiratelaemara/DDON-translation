@@ -27,6 +27,8 @@ This is a data repository used to build translation patches for **Dragon's Dogma
 ## 📥 How to Install Translations
 
 - Open the game launcher and click the marked button; a new window will open.
+- <img width="143" height="158" alt="image" src="https://github.com/user-attachments/assets/76e283fb-739c-442c-8e27-1f4a6030d36b" />
+
 - Copy the link to the `gmd.csv` according to your language from the links below.
 - Paste your link into the window that opened, and click OK.
 - Another window will appear; select Japanese as the original and choose English for any other language.
