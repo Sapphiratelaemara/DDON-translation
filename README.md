@@ -133,7 +133,7 @@ Fixes and improvements by knowledgeable people would be very welcome!)
 |--------|------------|
 | `SpeakerFiller.py` | Fills speaker information |
 | `toml2csv.py` | Converts TOML files to CSV |
-| `linebreaker.py` | Adds line breaks |
+| `linebreaker.py` | Adds line breaks (Old and mostly deprecated, does not correctly handle tags) |
 | `Tag Fixer.py` | Fixes malformed tags |
 
 
