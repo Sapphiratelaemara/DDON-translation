@@ -22,6 +22,7 @@ This is a data repository used to build translation patches for **Dragon's Dogma
 - [👥 External Credits](#external-credits)
 - [📜 License](#license)
 
+
 ## 📥 How to Install Translations
 
 - Open the game launcher and click the marked button; a new window will open.
