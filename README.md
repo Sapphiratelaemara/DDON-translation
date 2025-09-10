@@ -72,7 +72,7 @@ https://raw.githubusercontent.com/Sapphiratelaemara/DDON-translation/refs/heads/
 - Text/Code editor or spreadsheet software to edit CSV files
 
 
-### ⚙️ Generating the gmd.csv
+### ⚙️ Generating the gmd.csv (Currently only used for English)
 
 #### 🖱️ Simple Method (Windows)
 
@@ -166,7 +166,8 @@ To contribute to the translation effort, join the development Discord:
 
 ### 🔍 Review Process
 
-1. Edit the relevant CSV files.
+1. Edit the relevant CSV files in the languages folder/subfolders.
+1a. If editing English: make edits in the subfolders, as the english gmd is generated from those files. 
 2. Run the validation tools.
 3. Test the changes in the game.
 4. Submit a Pull Request.
