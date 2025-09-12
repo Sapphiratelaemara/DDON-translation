@@ -405,11 +405,15 @@ Let's use it to confirm spot information.",ui\00_message\ui\AreaMaster_res.gmd,\
 報酬を受け取ると、
 <COL ffdc78>進行のリセット</COL>をするまで再突入できなくなります
 また、<COL ffdc78>進行と報酬のリセット</COL>をするまで
-クリア報酬が発生しなくなります","Do you want to receive the clear rewards?
-If you receive the rewards, you will not be 
-able to re-enter until you <COL ffdc78>reset your progress</COL>.
-Also, until you <COL ffdc78>reset your rewards and progress</COL>,
-clear rewards will not be available.",ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,3,
+クリア報酬が発生しなくなります","Do you wish to receive Clear Rewards?
+
+Once you receive the completion rewards,
+you will not be able to re-enter
+until you <COL ffdc78>reset your progress</COL>.
+
+Furthermore, no additional Clear Rewards
+will be granted until you choose to
+<COL ffdc78>reset your rewards and progress</COL>.",ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,3,
 6,BTL_CONTENT_RESET_CONF_GP,"<UNTN KT>が足りません
 代わりに<COL d7b450>黄金石%d個</COL>を使用して
 進行と報酬のリセットが行えます
@@ -419,21 +423,21 @@ clear rewards will not be available.",ui\00_message\ui\BtlContentReset_res.gmd,\
 黄金石リセットにより以下の効果が発動します
 ・初期装備品の性能アップ
 <COL d7b450>・レアアイテムの追加</COL>
-・探索結果の報告のクリア報酬アップ","Not enough <UNTN KT>.
-You can reset progress and rewards using <COL d7b450>
-%d Golden Gemstone(s)</COL> as a
-substitute.
-You have <COL d7b450>%d more</COL> uses of Golden
-Gemstone(s) left for resetting.
-Would you like to reset using <COL d7b450>%d
-Golden Gemstone(s)</COL>?
-(Have: %d)
-The following effects will be activated by the
-Golden Gemstone reset:
-- Enhancement of initial equipment performance
+・探索結果の報告のクリア報酬アップ","Not enough <UNTN KT>s.
+You can reset progress and rewards by
+using <COL d7b450>%d Golden Gemstone(s)</COL> instead.
+You have <COL d7b450>%d GG attempts left</COL>.
+
+Would you like to perform a reset
+using <COL d7b450>%d Golden Gemstone(s)</COL>?
+(Number in possession: %d)
+
+The following effects will be activated
+by the Golden Gemstone reset:
+
+- Improved performance of starting equipment
 <COL d7b450>- Addition of rare items</COL>
-- Increase in clear rewards for reporting search
-results",ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,6,
+- Reporting results give more rewards",ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,6,
 5,BTL_CONTENT_RESET_CONF_RESET,"<UNTN KT> %d<UNIT KT>を使用して
 <COL d7b450>進行と報酬のリセット</COL>を行いますか？（残り%d<UNIT KT>）
 下記の内容がリセットされます
@@ -444,7 +448,23 @@ results",ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlCon
 ※1...固定されているルートが<COL d7b450>変更可能になります</COL>
 ※2...<COL d7b450>黒呪の迷宮を再周回するために必ず必要です</COL>
 ※3...<COL d7b450><ITEM 21630></COL>や、<COL d7b450><ITEM 23364></COL>
-　　  <COL d7b450><ITEM 21651></COL>等は大変貴重です。ご注意ください",,ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,5,
+　　  <COL d7b450><ITEM 21651></COL>等は大変貴重です。ご注意ください","Use %d <UNTN KT>s
+to perform a <COL d7b450>progress and reward reset</COL>?
+(Have: %d <UNIT KT>)
+
+The following will be reset:
+
+- Arisen and Pawn levels
+- Progress data such as checkpoints (※1)
+- <COL d7b450>Ongoing treasure chest and reward data</COL> (※2)
+- <COL d7b450>All acquired items</COL> (※3)
+
+※1... Fixed routes <COL d7b450>may be changed</COL>
+※2... <COL d7b450>As a requirement to rerun the maze</COL>
+※3... Items like the <COL d7b450><ITEM 21630></COL>,
+<COL d7b450><ITEM 23364></COL>, <COL d7b450><ITEM 21651></COL>,
+and so forth are extremely valuable.
+Please proceed carefully.",ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,5,
 4,BTL_CONTENT_RESET_CONF_RESET_NO_COST,"<COL d7b450>進行のリセット</COL>を行いますか？
 下記の項目がリセットされます
 ・覚者、ポーンのレベル
@@ -456,22 +476,40 @@ results",ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlCon
 ※2...<COL d7b450>宝箱などの報酬はリセットされません</COL>
 　　  友人と最初から遊ぶ場合に活用します
 ※3...<COL d7b450><ITEM 21630></COL>や、<COL d7b450><ITEM 23364></COL>
-　　  <COL d7b450><ITEM 21651></COL>等は大変貴重です。ご注意ください",,ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,4,
+　　  <COL d7b450><ITEM 21651></COL>等は大変貴重です。ご注意ください","Do you wish to <COL d7b450>reset your progress</COL>?
+
+The following will be reset:
+
+- Arisen and Pawn levels
+- Progress data such as checkpoints (※1)(※2)
+- <COL d7b450>All acquired items</COL> (※3)
+
+※1... If you have cleared Netherworld 1
+even once, routes cannot be changed until
+you perform a progress and reward reset.
+※2... Treasure chests will not be reset.
+Use this when starting over with friends.
+※3... Items like the <COL d7b450><ITEM 21630></COL>,
+<COL d7b450><ITEM 23364></COL>, <COL d7b450><ITEM 21651></COL>,
+and so forth are extremely valuable.
+Please proceed carefully.",ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,4,
 7,BTL_CONTENT_RESET_DISABLE,"<UNTN KT>が足りません
 黄金石によるリセットも
 利用回数を満たしているため
 次回のリセット時間までお待ちください
 （リセット時間はプレイマニュアルをご覧ください）","Not enough <UNTN KT>.
-Please wait until the next reset time as the
-usage limit has been reached for the Golden
-Gemstones.
-(For reset time, please refer to the Play Manual)",ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,7,
+
+The number of Golden Gemstone resets
+have been expended at this time.
+Please wait until the next time period.
+
+(See the Play Manual for reset timing)",ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,7,
 11,BTL_CONTENT_RESET_ERR_NO_PROGRESS,進行中のデータが存在しません,No data in progress exists,ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,11,
 10,BTL_CONTENT_RESET_ERR_NO_REPORT,探索結果の報告を確認してください,Please review the report search results.,ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,10,
 9,BTL_CONTENT_RESET_ERR_NO_REWARD,報酬がありません,No Rewards,ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,9,
 8,BTL_CONTENT_RESET_NO_ENOUGH_GP,"黄金石が不足しています
-（所持数：%d）","You are running out of Golden Gemstones
-(Current amount: %d)",ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,8,
+（所持数：%d）","Not enough Golden Gemstones.
+(Number in possession: %d)",ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,8,
 0,BTL_CONTENT_RESET_REPORT,探索結果の報告,Report Search Results,ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,0,
 1,BTL_CONTENT_RESET_RESET_PROGRESS,進行のリセット,Reset Progress,ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,1,
 2,BTL_CONTENT_RESET_RESET_PROGRESS_REWARD,進行と報酬のリセット,Reset Rewards and Progress,ui\00_message\ui\BtlContentReset_res.gmd,\ui\BtlContentReset.arc,BtlContentReset.arc,2,
