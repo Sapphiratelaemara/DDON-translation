@@ -1,11 +1,11 @@
 2,q90030304_00_4229,各エリアを敵軍から奪い、最奥を目指す,"Capture each area from the enemy
 and aim for the deepest part",ui\00_message\quest_info\q90030304_00.gmd,\quest\q90030304.arc,q90030304.arc,2,
 3,q90030304_00_4527,最奥のエリアを征圧する,Conquer the deepest area,ui\00_message\quest_info\q90030304_00.gmd,\quest\q90030304.arc,q90030304.arc,3,
-4,q90030304_00_4528,各エリアに現れた戦甲敵を討伐する（残り３分）,"Defeat the War Armored enemies that appear
+4,q90030304_00_4528,各エリアに現れた戦甲敵を討伐する（残り３分）,"Defeat the War-Ready enemies that appear
 in each area (3 minutes left)",ui\00_message\quest_info\q90030304_00.gmd,\quest\q90030304.arc,q90030304.arc,4,
-5,q90030304_00_4529,各エリアに現れた戦甲敵を討伐する（残り２分）,"Defeat the War Armored enemies that appear
+5,q90030304_00_4529,各エリアに現れた戦甲敵を討伐する（残り２分）,"Defeat the War-Ready enemies that appear
 in each area (2 minutes left)",ui\00_message\quest_info\q90030304_00.gmd,\quest\q90030304.arc,q90030304.arc,5,
-6,q90030304_00_4530,各エリアに現れた戦甲敵を討伐する（残り１分）,"Defeat the War Armored enemies that have appeared
+6,q90030304_00_4530,各エリアに現れた戦甲敵を討伐する（残り１分）,"Defeat the War-Ready enemies that have appeared
 in each area (1 minute left)",ui\00_message\quest_info\q90030304_00.gmd,\quest\q90030304.arc,q90030304.arc,6,
 7,q90030304_00_4593,現れたフラッグブレイカーを探す,Search for the Flag Breaker that has appeared,ui\00_message\quest_info\q90030304_00.gmd,\quest\q90030304.arc,q90030304.arc,7,
 8,q90030304_00_4594,フラッグブレイカーを討伐する,Defeat the Flag Breaker,ui\00_message\quest_info\q90030304_00.gmd,\quest\q90030304.arc,q90030304.arc,8,
@@ -13,9 +13,9 @@ in each area (1 minute left)",ui\00_message\quest_info\q90030304_00.gmd,\quest\q
 and conquer the specified area (5 minutes left)",ui\00_message\quest_info\q90030304_00.gmd,\quest\q90030304.arc,q90030304.arc,9,
 10,q90030304_00_4596,自陣を狙う敵を討伐し、エリアを防衛する（残り５分）,"Defeat the enemies targeting our base
 and defend the area (5 minutes left)",ui\00_message\quest_info\q90030304_00.gmd,\quest\q90030304.arc,q90030304.arc,10,
-11,q90030304_00_4633,各エリアに現れた戦甲敵を討伐する（残り５分）,"Defeat the War Armored enemies that have appeared
+11,q90030304_00_4633,各エリアに現れた戦甲敵を討伐する（残り５分）,"Defeat the War-Ready enemies that have appeared
 in each area (5 minutes left)",ui\00_message\quest_info\q90030304_00.gmd,\quest\q90030304.arc,q90030304.arc,11,
-12,q90030304_00_4634,各エリアに現れた戦甲敵を討伐する（残り４分）,"Defeat the War Armored enemies that have appeared
+12,q90030304_00_4634,各エリアに現れた戦甲敵を討伐する（残り４分）,"Defeat the War-Ready enemies that have appeared
 in each area (4 minutes left)",ui\00_message\quest_info\q90030304_00.gmd,\quest\q90030304.arc,q90030304.arc,12,
 13,q90030304_00_4635,自陣を狙う敵を討伐し、エリアを防衛する（残り４分）,"Defeat the enemy targeting our base
 and defend the area (4 minutes left)",ui\00_message\quest_info\q90030304_00.gmd,\quest\q90030304.arc,q90030304.arc,13,
@@ -80,15 +80,15 @@ and conquer the designated area (1 minute left)",ui\00_message\quest_info\q90030
 0,,フラッグブレイカーの討伐に成功！,Successfully defeated the Flag Breaker!,ui\00_message\examine_message\quest\quest_examine_q90030304.gmd,\quest\q90030304.arc,q90030304.arc,10,
 0,,フラッグブレイカーはどこかへ消えた――,The Flag Breaker has disappeared somewhere...,ui\00_message\examine_message\quest\quest_examine_q90030304.gmd,\quest\q90030304.arc,q90030304.arc,11,
 0,,"現れた戦甲敵をすべて討伐した！
-戦況ゲージが更に回復しました","Successfully defeated all the War Armored enemies!
+戦況ゲージが更に回復しました","Successfully defeated all the War-Ready enemies!
 War status gauge has further recovered.",ui\00_message\examine_message\quest\quest_examine_q90030304.gmd,\quest\q90030304.arc,q90030304.arc,12,
-0,,戦甲敵はどこかへ消えた――,The War Armored enemies have disappeared...,ui\00_message\examine_message\quest\quest_examine_q90030304.gmd,\quest\q90030304.arc,q90030304.arc,13,
-0,,エリア１の戦甲敵を討伐した！,Defeated the War Armored enemies in Area 1!,ui\00_message\examine_message\quest\quest_examine_q90030304.gmd,\quest\q90030304.arc,q90030304.arc,14,
-0,,エリア２の戦甲敵を討伐した！,Defeated the War Armored enemies of Area 2!,ui\00_message\examine_message\quest\quest_examine_q90030304.gmd,\quest\q90030304.arc,q90030304.arc,15,
-0,,エリア３の戦甲敵を討伐した！,Defeated the War Armored enemies of Area 3!,ui\00_message\examine_message\quest\quest_examine_q90030304.gmd,\quest\q90030304.arc,q90030304.arc,16,
-0,,エリア４の戦甲敵を討伐した！,Defeated the War Armored enemies of Area 4!,ui\00_message\examine_message\quest\quest_examine_q90030304.gmd,\quest\q90030304.arc,q90030304.arc,17,
-0,,エリア５の戦甲敵を討伐した！,Defeated the War Armored enemies of Area 5!,ui\00_message\examine_message\quest\quest_examine_q90030304.gmd,\quest\q90030304.arc,q90030304.arc,18,
-0,,エリア６の戦甲敵を討伐した！,Defeated the War Armored enemies of Area 6!,ui\00_message\examine_message\quest\quest_examine_q90030304.gmd,\quest\q90030304.arc,q90030304.arc,19,
+0,,戦甲敵はどこかへ消えた――,The War-Ready enemies have disappeared...,ui\00_message\examine_message\quest\quest_examine_q90030304.gmd,\quest\q90030304.arc,q90030304.arc,13,
+0,,エリア１の戦甲敵を討伐した！,Defeated the War-Ready enemies in Area 1!,ui\00_message\examine_message\quest\quest_examine_q90030304.gmd,\quest\q90030304.arc,q90030304.arc,14,
+0,,エリア２の戦甲敵を討伐した！,Defeated the War-Ready enemies of Area 2!,ui\00_message\examine_message\quest\quest_examine_q90030304.gmd,\quest\q90030304.arc,q90030304.arc,15,
+0,,エリア３の戦甲敵を討伐した！,Defeated the War-Ready enemies of Area 3!,ui\00_message\examine_message\quest\quest_examine_q90030304.gmd,\quest\q90030304.arc,q90030304.arc,16,
+0,,エリア４の戦甲敵を討伐した！,Defeated the War-Ready enemies of Area 4!,ui\00_message\examine_message\quest\quest_examine_q90030304.gmd,\quest\q90030304.arc,q90030304.arc,17,
+0,,エリア５の戦甲敵を討伐した！,Defeated the War-Ready enemies of Area 5!,ui\00_message\examine_message\quest\quest_examine_q90030304.gmd,\quest\q90030304.arc,q90030304.arc,18,
+0,,エリア６の戦甲敵を討伐した！,Defeated the War-Ready enemies of Area 6!,ui\00_message\examine_message\quest\quest_examine_q90030304.gmd,\quest\q90030304.arc,q90030304.arc,19,
 0,,"呪われた環境で素早いエリア征圧に成功！
 戦況ゲージが回復し、解呪の泉が出現しました","Quickly conquer the area in a cursed environment!
 The War status gauge has been restored,
