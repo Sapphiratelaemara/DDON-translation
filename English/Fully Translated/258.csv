@@ -45,8 +45,8 @@ and cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_c
 (<VAL>/<VAL JP>)",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,227,
 228,syslog_jp_possession_max_pawn,<NAME PAWN>のジョブポイントが最大に達したため、これ以上獲得できません,"<NAME PAWN> has reached the maximum amount of Job
 Points and cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,228,
-329,syslog_kt_get,<UNTN KT>を<VAL><UNIT KT>、入手しました,<UNTN KT> <UNIT KT><VAL> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,329,
-330,syslog_kt_lost,<UNTN KT>を<VAL><UNIT KT>、消費しました,<UNTN KT> <UNIT KT><VAL> spent.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,330,
+329,syslog_kt_get,<UNTN KT>を<VAL><UNIT KT>、入手しました,<VAL> <UNIT KT> of <UNTN KT>s obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,329,
+330,syslog_kt_lost,<UNTN KT>を<VAL><UNIT KT>、消費しました,<VAL> <UNIT KT> of <UNTN KT>s spent.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,330,
 335,syslog_kt_possession_max,<UNTN KT>が最大まで補充されました,<UNTN KT> has been replenished to the maximum.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,335,
 125,syslog_levelup_job_me,<NAME PLAYER>が<VAL LV>になりました,<NAME PLAYER> has reached <VAL LV>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,125,
 127,syslog_levelup_job_pawn,<NAME PAWN>が<VAL LV>になりました,<NAME PAWN> has reached <VAL LV>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,127,
@@ -238,9 +238,9 @@ Matching conditions for Secondary Purpose <<NAME ETC>
 374,syslog_r_possession_max,<UNTN R>が最大に達したため、これ以上獲得できません,"You have reached the maximum 
 amount of <UNTN R>
 and cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,374,
-325,syslog_rdm_get,<UNTN RDM>を<VAL><UNIT RDM>、入手しました,<UNTN RDM> <UNIT RDM><VAL> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,325,
+325,syslog_rdm_get,<UNTN RDM>を<VAL><UNIT RDM>、入手しました,<VAL> <UNIT RDM> of <UNTN RDM>s obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,325,
 364,syslog_rdm_get_ex,<UNTN RDM>を<VAL>(+<VAL>)<UNIT RDM>、入手しました,<VAL>(+<VAL>)<UNIT RDM> obtained from <UNTN RDM>,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,364,
-328,syslog_rdm_lost,<UNTN RDM>を<VAL><UNIT RDM>、消費しました,<UNTN RDM> <UNIT RDM><VAL> spent.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,328,
+328,syslog_rdm_lost,<UNTN RDM>を<VAL><UNIT RDM>、消費しました,<VAL> <UNIT RDM> of <UNTN RDM>s spent.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,328,
 192,syslog_receipt_mailitem,メールで特典アイテムをお受け取りください,"Please check your mail to
 receive the items.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,192,
 284,syslog_release_area_spot,<VAL>の<VAL>が解放されました,<VAL>'s <VAL> unlocked.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,284,
@@ -267,9 +267,9 @@ will be lost.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,300,
 377,syslog_rp_possession_max,<UNTN RP>が最大に達したため、これ以上獲得できません,"You have reached the maximum 
 amount of <UNTN RP>
 and cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,377,
-324,syslog_sdm_get,<UNTN SDM>を<VAL><UNIT SDM>、入手しました,<UNTN SDM> <UNIT SDM><VAL> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,324,
+324,syslog_sdm_get,<UNTN SDM>を<VAL><UNIT SDM>、入手しました,<VAL> <UNIT SDM> of <UNTN SDM>s obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,324,
 363,syslog_sdm_get_ex,<UNTN SDM>を<VAL>(+<VAL>)<UNIT SDM>、入手しました,Retrieved <VAL>(+<VAL>)<UNIT SDM> at <UNTN SDM>,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,363,
-327,syslog_sdm_lost,<UNTN SDM>を<VAL><UNIT SDM>、消費しました,<UNTN SDM> <UNIT SDM><VAL> spent.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,327,
+327,syslog_sdm_lost,<UNTN SDM>を<VAL><UNIT SDM>、消費しました,<VAL> <UNIT SDM> of <UNTN SDM>s spent.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,327,
 197,syslog_silvertichet_lost,シルバーチケットを<VAL>枚、消費しました（所持数：<VAL>）,Silver Tickets x<VAL> spent (have: <VAL>).,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,197,
 190,syslog_silvertickets_get,シルバーチケットを<VAL>枚、入手しました（所持数：<VAL>）,Silver Tickets x<VAL> (have: <VAL>).,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,190,
 181,syslog_soloquest_lock,現在クエストを受注する事は出来ません。謁見の間でレオに話しかけてメインクエストを進行してください,"You cannot accept personal quests at the moment.
