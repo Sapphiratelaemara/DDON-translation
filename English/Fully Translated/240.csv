@@ -217,7 +217,7 @@ items.",ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMiss
 10,daily_mission_list_reward_get,受取済,Received,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,10,
 11,daily_mission_list_reward_get_enable,<COL ffdc78>受取可能</COL>,<COL ffdc78>Receivable</COL>,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,11,
 26,daily_mission_list_reward_send,メール配信済,Mail has been sent.,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,26,
-12,daily_mission_list_reward_still,ー,,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,12,
+12,daily_mission_list_reward_still,ー,ー,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,12,
 6,daily_mission_list_reward_title,報酬：,Reward:,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,6,
 28,daily_mission_no_reward,受取可能な報酬がありません,No Rewards available for pick up.,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,28,
 27,daily_mission_no_time_event,配信されている期間イベントがありません,There are no currently ongoing scheduled events.,ui\00_message\ui\DailyMission.gmd,\ui\uGUIDailyMission.arc,uGUIDailyMission.arc,27,
@@ -615,7 +615,20 @@ results.",ui\00_message\ui\MissionResult_res.gmd,\ui\uGUIMissionResult.arc,uGUIM
 　・レベルや進行度の差による報酬ペナルティ無効
 　※対象クエストはデイリーで変化します
 　※各クエストの受注画面、ログの報酬欄にて
-　　ボーナス詳細が確認できます",,ui\00_message\ui\Newspaper_res.gmd,\ui\uGUINewspaper.arc,uGUINewspaper.arc,59,
+　　ボーナス詳細が確認できます","<COL ffdc78>""Today's Party Bonus""</COL> Details
+<Bonus Activation Conditions>
+
+Clear the specified world quest <VAL> times
+in a party with other players
+(Mixed parties with Pawns are OK)
+
+<Bonus Contents>
+Bonus multiplier to quest rewards (XP/G/R/AP)
+
+Reward penalty from level or progress differences is ignored
+*Eligible quests change daily
+*You can check bonus details
+on the quest acceptance screen or in the rewards log",ui\00_message\ui\Newspaper_res.gmd,\ui\uGUINewspaper.arc,uGUINewspaper.arc,59,
 60,np_msg_dailybonus_bo,"■<COL ffdc78>《本日のパーティーボーナス》</COL>詳細
 ＜ボーナス発生条件＞
 　・対象のワールドクエストを他のプレイヤーと
@@ -627,7 +640,20 @@ results.",ui\00_message\ui\MissionResult_res.gmd,\ui\uGUIMissionResult.arc,uGUIM
 　・レベルや進行度の差による報酬ペナルティ無効
 　※対象クエストはデイリーで変化します
 　※各クエストの受注画面、ログの報酬欄にて
-　　ボーナス詳細が確認できます",,ui\00_message\ui\Newspaper_res.gmd,\ui\uGUINewspaper.arc,uGUINewspaper.arc,60,
+　　ボーナス詳細が確認できます","<COL ffdc78>""Today's Party Bonus""</COL> Details
+<Bonus Activation Conditions>
+
+Clear the specified world quest <VAL> times
+in a party with other players
+(Mixed parties with Pawns are OK)
+
+<Bonus Contents>
+Bonus multiplier to quest rewards (XP/G/R/AP)
+
+Reward penalty from level or progress differences is ignored
+*Eligible quests change daily
+*You can check bonus details
+on the quest acceptance screen or in the rewards log",ui\00_message\ui\Newspaper_res.gmd,\ui\uGUINewspaper.arc,uGUINewspaper.arc,60,
 19,np_msg_decision_cansel,キャンセル,Cancel,ui\00_message\ui\Newspaper_res.gmd,\ui\uGUINewspaper.arc,uGUINewspaper.arc,19,
 18,np_msg_decision_decide,決定,Confirm,ui\00_message\ui\Newspaper_res.gmd,\ui\uGUINewspaper.arc,uGUINewspaper.arc,18,
 16,np_msg_dialog_jump_check,"<NAME AREA> に転移します
