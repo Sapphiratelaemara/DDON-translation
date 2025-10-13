@@ -14,7 +14,10 @@ Total price: <VAL>",ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.ar
 37,SHOP_TEXT_ATTENTIONPPBUY_1,"以下を購入します。よろしいですか？
 　アイテム：<NAME ITEM>
 　合計個数：<VAL>個
-　購入価格：<VAL PP>",,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,37,
+　購入価格：<VAL PP>","Are you sure you want to buy the following?
+Item: <NAME ITEM>
+Total quantity: <VAL> pieces
+Total price: <VAL PP>",ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,37,
 37,SHOP_TEXT_ATTENTIONPPBUY_1,"以下を購入します。よろしいですか？
 　アイテム：<NAME ITEM>
 　合計個数：<VAL>個
@@ -31,7 +34,9 @@ Total quantity: <VAL> pieces
 Total price: <VAL PP>",ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,37,
 38,SHOP_TEXT_ATTENTIONPPBUY_2,"以下を購入します。よろしいですか？
 　アイテム：<NAME ITEM>
-　購入価格：<VAL PP>",,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,38,
+　購入価格：<VAL PP>","Are you sure you want to purchase the following?
+Item: <NAME ITEM>
+Price: <VAL PP>",ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,38,
 38,SHOP_TEXT_ATTENTIONPPBUY_2,"以下を購入します。よろしいですか？
 　アイテム：<NAME ITEM>
 　購入価格：<VAL PP>","Are you sure you want to purchase the following?
@@ -45,7 +50,10 @@ Price: <VAL PP>",ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,3
 12,SHOP_TEXT_ATTENTIONSELL,"以下の内容で売却します。よろしいですか？
 　アイテム：<NAME ITEM>
 　合計個数：<VAL>個
-　売却価格：<VAL GOLD>",,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,12,
+　売却価格：<VAL GOLD>","Are you sure you want to sell the following?
+Item: <NAME ITEM>
+Total quantity: <VAL> pieces
+Selling price: <VAL GOLD>",ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,12,
 12,SHOP_TEXT_ATTENTIONSELL,"以下の内容で売却します。よろしいですか？
 　アイテム：<NAME ITEM>
 　合計個数：<VAL>個
@@ -63,49 +71,52 @@ Selling price: <VAL GOLD>",ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUISho
 31,SHOP_TEXT_BTN_GUIDE_BUY,アイテムを買う,Buy,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,31,
 31,SHOP_TEXT_BTN_GUIDE_BUY,アイテムを買う,Buy,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,31,
 31,SHOP_TEXT_BTN_GUIDE_BUY,アイテムを買う,Buy,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,31,
-15,SHOP_TEXT_BTN_GUIDE_SELL,アイテムを売る,,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,15,
+15,SHOP_TEXT_BTN_GUIDE_SELL,アイテムを売る,Sell items,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,15,
 15,SHOP_TEXT_BTN_GUIDE_SELL,アイテムを売る,Sell items,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,15,
 15,SHOP_TEXT_BTN_GUIDE_SELL,アイテムを売る,Sell items,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,15,
-17,SHOP_TEXT_BUG_SELL,アイテムバッグから売却,,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,17,
-17,SHOP_TEXT_BUG_SELL,アイテムバッグから売却,Sell from Item BagSell from Item Bag,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,17,
-17,SHOP_TEXT_BUG_SELL,アイテムバッグから売却,Sell from Item BagSell from Item Bag,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,17,
+17,SHOP_TEXT_BUG_SELL,アイテムバッグから売却,Sell from Item Bag,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,17,
+17,SHOP_TEXT_BUG_SELL,アイテムバッグから売却,Sell from Item Bag,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,17,
+17,SHOP_TEXT_BUG_SELL,アイテムバッグから売却,Sell from Item Bag,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,17,
 6,SHOP_TEXT_BUY,購入,Buy,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,6,
 6,SHOP_TEXT_BUY,購入,Buy,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,6,
 6,SHOP_TEXT_BUY,購入,Buy,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,6,
 5,SHOP_TEXT_BUYED,<NAME ITEM>を購入しました,<NAME ITEM> has been purchased.,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,5,
 5,SHOP_TEXT_BUYED,<NAME ITEM>を購入しました,<NAME ITEM> has been purchased.,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,5,
 5,SHOP_TEXT_BUYED,<NAME ITEM>を購入しました,<NAME ITEM> has been purchased.,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,5,
-28,SHOP_TEXT_BUY_JP,買う,,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,28,
-28,SHOP_TEXT_BUY_JP,買う,,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,28,
-28,SHOP_TEXT_BUY_JP,買う,,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,28,
+28,SHOP_TEXT_BUY_JP,買う,Buy,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,28,
+28,SHOP_TEXT_BUY_JP,買う,Buy,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,28,
+28,SHOP_TEXT_BUY_JP,買う,Buy,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,28,
 27,SHOP_TEXT_BUY_TITLE,Buy,Buy,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,27,
 27,SHOP_TEXT_BUY_TITLE,Buy,Buy,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,27,
 27,SHOP_TEXT_BUY_TITLE,Buy,Buy,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,27,
 8,SHOP_TEXT_CANCEL,キャンセル,Cancel,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,8,
 8,SHOP_TEXT_CANCEL,キャンセル,Cancel,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,8,
 8,SHOP_TEXT_CANCEL,キャンセル,Cancel,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,8,
-34,SHOP_TEXT_CHOOSE_TRY_ON,試着する対象を選択してください,,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,34,
-34,SHOP_TEXT_CHOOSE_TRY_ON,試着する対象を選択してください,,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,34,
-34,SHOP_TEXT_CHOOSE_TRY_ON,試着する対象を選択してください,,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,34,
+34,SHOP_TEXT_CHOOSE_TRY_ON,試着する対象を選択してください,Please select the item to try on.,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,34,
+34,SHOP_TEXT_CHOOSE_TRY_ON,試着する対象を選択してください,Please select the item to try on.,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,34,
+34,SHOP_TEXT_CHOOSE_TRY_ON,試着する対象を選択してください,Please select the item to try on.,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,34,
 32,SHOP_TEXT_DIALOG_TRYON,キャラクターを選択してください,Please select the character.,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,32,
 32,SHOP_TEXT_DIALOG_TRYON,キャラクターを選択してください,Please select the character.,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,32,
 32,SHOP_TEXT_DIALOG_TRYON,キャラクターを選択してください,Please select the character.,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,32,
 29,SHOP_TEXT_EQUIPCHANGE,試着切り替え,Switch Preview,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,29,
 29,SHOP_TEXT_EQUIPCHANGE,試着切り替え,Switch Preview,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,29,
 29,SHOP_TEXT_EQUIPCHANGE,試着切り替え,Switch Preview,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,29,
-39,SHOP_TEXT_ERR_01,対象のジョブでは、まだ購入する権利がありません,,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,39,
-39,SHOP_TEXT_ERR_01,対象のジョブでは、まだ購入する権利がありません,,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,39,
-39,SHOP_TEXT_ERR_01,対象のジョブでは、まだ購入する権利がありません,,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,39,
+39,SHOP_TEXT_ERR_01,対象のジョブでは、まだ購入する権利がありません,"You do not yet have the right to purchase this
+for the selected job",ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,39,
+39,SHOP_TEXT_ERR_01,対象のジョブでは、まだ購入する権利がありません,"You do not yet have the right to purchase this
+for the selected job",ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,39,
+39,SHOP_TEXT_ERR_01,対象のジョブでは、まだ購入する権利がありません,"You do not yet have the right to purchase this
+for the selected job",ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,39,
 40,SHOP_TEXT_ERR_02,すでに購入済みです,Already purchased,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,40,
 40,SHOP_TEXT_ERR_02,すでに購入済みです,Already purchased,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,40,
 40,SHOP_TEXT_ERR_02,すでに購入済みです,Already purchased,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,40,
-41,SHOP_TEXT_ERR_03,プレイポイントが足りません,,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,41,
-41,SHOP_TEXT_ERR_03,プレイポイントが足りません,,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,41,
-41,SHOP_TEXT_ERR_03,プレイポイントが足りません,,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,41,
+41,SHOP_TEXT_ERR_03,プレイポイントが足りません,Not enough PP,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,41,
+41,SHOP_TEXT_ERR_03,プレイポイントが足りません,Not enough PP,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,41,
+41,SHOP_TEXT_ERR_03,プレイポイントが足りません,Not enough PP,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,41,
 16,SHOP_TEXT_ITEM,アイテム名,Item Name,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,16,
 16,SHOP_TEXT_ITEM,アイテム名,Item Name,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,16,
 16,SHOP_TEXT_ITEM,アイテム名,Item Name,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,16,
-13,SHOP_TEXT_MANNEQUIN,マネキン,,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,13,
+13,SHOP_TEXT_MANNEQUIN,マネキン,Mannequin,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,13,
 13,SHOP_TEXT_MANNEQUIN,マネキン,Mannequin,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,13,
 13,SHOP_TEXT_MANNEQUIN,マネキン,Mannequin,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,13,
 4,SHOP_TEXT_NO,いいえ,No,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,4,
@@ -120,30 +131,30 @@ Selling price: <VAL GOLD>",ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUISho
 36,SHOP_TEXT_PURCHASED,購入済み,Bought,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,36,
 36,SHOP_TEXT_PURCHASED,購入済み,Bought,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,36,
 36,SHOP_TEXT_PURCHASED,購入済み,Bought,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,36,
-9,SHOP_TEXT_SELECTBUYNUM,購入する個数を入力してください,,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,9,
+9,SHOP_TEXT_SELECTBUYNUM,購入する個数を入力してください,Please enter the number of items to purchase.,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,9,
 9,SHOP_TEXT_SELECTBUYNUM,購入する個数を入力してください,Please enter the number of items to purchase.,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,9,
 9,SHOP_TEXT_SELECTBUYNUM,購入する個数を入力してください,Please enter the number of items to purchase.,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,9,
-10,SHOP_TEXT_SELECTSELLNUM,売却する個数を入力してください,,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,10,
+10,SHOP_TEXT_SELECTSELLNUM,売却する個数を入力してください,Please enter the number of items to sell.,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,10,
 10,SHOP_TEXT_SELECTSELLNUM,売却する個数を入力してください,Please enter the number of items to sell.,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,10,
 10,SHOP_TEXT_SELECTSELLNUM,売却する個数を入力してください,Please enter the number of items to sell.,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,10,
 7,SHOP_TEXT_SELL,売却,Sell,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,7,
 7,SHOP_TEXT_SELL,売却,Sell,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,7,
 7,SHOP_TEXT_SELL,売却,Sell,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,7,
-35,SHOP_TEXT_STOCK,在庫数,,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,35,
-35,SHOP_TEXT_STOCK,在庫数,,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,35,
-35,SHOP_TEXT_STOCK,在庫数,,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,35,
+35,SHOP_TEXT_STOCK,在庫数,No. in stock,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,35,
+35,SHOP_TEXT_STOCK,在庫数,No. in stock,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,35,
+35,SHOP_TEXT_STOCK,在庫数,No. in stock,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,35,
 2,SHOP_TEXT_X,×,×,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,2,
 2,SHOP_TEXT_X,×,×,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,2,
 2,SHOP_TEXT_X,×,×,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,2,
 3,SHOP_TEXT_YES,はい,Yes,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,3,
 3,SHOP_TEXT_YES,はい,OK,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,3,
 3,SHOP_TEXT_YES,はい,OK,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,3,
-25,dialog_buy_how_many,いくつ購入しますか？,,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,25,
-25,dialog_buy_how_many,いくつ購入しますか？,,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,25,
-25,dialog_buy_how_many,いくつ購入しますか？,,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,25,
-26,dialog_sell_how_many,いくつ売却しますか？,,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,26,
-26,dialog_sell_how_many,いくつ売却しますか？,,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,26,
-26,dialog_sell_how_many,いくつ売却しますか？,,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,26,
+25,dialog_buy_how_many,いくつ購入しますか？,Select amount,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,25,
+25,dialog_buy_how_many,いくつ購入しますか？,Select amount,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,25,
+25,dialog_buy_how_many,いくつ購入しますか？,Select amount,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,25,
+26,dialog_sell_how_many,いくつ売却しますか？,Select amount,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,26,
+26,dialog_sell_how_many,いくつ売却しますか？,Select amount,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,26,
+26,dialog_sell_how_many,いくつ売却しますか？,Select amount,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,26,
 24,heading_buy,購入,Buy,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,24,
 24,heading_buy,購入,Buy,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,24,
 24,heading_buy,購入,Buy,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,24,
@@ -159,9 +170,9 @@ Selling price: <VAL GOLD>",ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUISho
 20,title_material,素材屋,Material Shop,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,20,
 20,title_material,素材屋,Material Shop,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,20,
 20,title_material,素材屋,Material Shop,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,20,
-22,title_orb_craft_material,オーブ交換：レア素材,,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,22,
-22,title_orb_craft_material,オーブ交換：レア素材,,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,22,
-22,title_orb_craft_material,オーブ交換：レア素材,,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,22,
+22,title_orb_craft_material,オーブ交換：レア素材,Orb Exchange: Rare materials,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,22,
+22,title_orb_craft_material,オーブ交換：レア素材,Orb Exchange: Rare materials,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,22,
+22,title_orb_craft_material,オーブ交換：レア素材,Orb Exchange: Rare materials,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,22,
 21,title_orb_enhance_material,オーブ交換：クレスト,Orb Exchange: Crests,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,21,
 21,title_orb_enhance_material,オーブ交換：クレスト,Orb Exchange: Crests,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,21,
 21,title_orb_enhance_material,オーブ交換：クレスト,Orb Exchange: Crests,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,21,
@@ -498,8 +509,8 @@ phrase. You can purchase it in the online shop",ui\00_message\ui\simple_communic
 234,simple_text_9223,一気に揺さぶろう！,Shake it without stopping!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,234,
 235,simple_text_9224,今助ける！,I'll aid you at once!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,235,
 236,simple_text_9225,今助けます！,I'll help you now!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,236,
-237,simple_text_9226,こっちだ、跳ね上げる！,"Over here, jump!",ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,237
-238,simple_text_9227,こっちです、跳ね上げます！,"This way, now jump!",ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,238
+237,simple_text_9226,こっちだ、跳ね上げる！,"Over here, jump!",ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,237,
+238,simple_text_9227,こっちです、跳ね上げます！,"This way, now jump!",ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,238,
 239,simple_text_9228,おきろ！,Get up!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,239,
 240,simple_text_9229,起きて！,Stand up!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,240,
 241,simple_text_9230,トドメだ！,Finish it off!,ui\00_message\ui\simple_text.gmd,\ui\gui_cmn.arc,gui_cmn.arc,241,
