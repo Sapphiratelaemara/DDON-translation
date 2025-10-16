@@ -593,7 +593,7 @@ but <COL AA1414>all contents of the item bag will be lost</COL>.",ui\00_message\
 17,RIM_MSG_TAB_SEARCH,ポーン検索,Pawn Search,ui\00_message\ui\rim_stone.gmd,\ui\uGUIRimStone.arc,uGUIRimStone.arc,17,
 19,RIM_MSG_TAB_SUPPORT,サポートポーン,Support Pawns,ui\00_message\ui\rim_stone.gmd,\ui\uGUIRimStone.arc,uGUIRimStone.arc,19,
 0,RIM_MSG_TITLE_M_TITLE00,Rim Stone,Riftstone Menu,ui\00_message\ui\rim_stone.gmd,\ui\uGUIRimStone.arc,uGUIRimStone.arc,0,
-1,RIM_MSG_TITLE_M_TITLE01,リムストーンメニュー, ,ui\00_message\ui\rim_stone.gmd,\ui\uGUIRimStone.arc,uGUIRimStone.arc,1,
+1,RIM_MSG_TITLE_M_TITLE01,リムストーンメニュー,Riftstone Menu,ui\00_message\ui\rim_stone.gmd,\ui\uGUIRimStone.arc,uGUIRimStone.arc,1,
 0,rsp_msg_000,レンタルポイントの割り振り,Allocate Rental Points,ui\00_message\ui\rim_stone_sp.gmd,\ui\uGUIPopPawnPoint.arc,uGUIPopPawnPoint.arc,0,
 1,rsp_msg_001,残りレンタルポイント,Remaining Rental Points,ui\00_message\ui\rim_stone_sp.gmd,\ui\uGUIPopPawnPoint.arc,uGUIPopPawnPoint.arc,1,
 2,rsp_msg_002,ジョブポイントに変換,Conversion to Job Point,ui\00_message\ui\rim_stone_sp.gmd,\ui\uGUIPopPawnPoint.arc,uGUIPopPawnPoint.arc,2,
@@ -678,13 +678,16 @@ Cove</COL>",ui\00_message\ui\rim_transport.gmd,\ui\uGUIRimWarp.arc,uGUIRimWarp.a
 2,server_sel_server_en,World Select,World Select,ui\00_message\ui\server_select_res.gmd,\ui\uGUIServerSelect.arc,uGUIServerSelect.arc,2,
 3,server_sel_server_jp,ワールド選択,Select World,ui\00_message\ui\server_select_res.gmd,\ui\uGUIServerSelect.arc,uGUIServerSelect.arc,3,
 8,server_sel_ver,ver,ver,ui\00_message\ui\server_select_res.gmd,\ui\uGUIServerSelect.arc,uGUIServerSelect.arc,8,
-42,SHOP_TEXT_ACHIEVE_NG,条件未達成,,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,42,
-42,SHOP_TEXT_ACHIEVE_NG,条件未達成,,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,42,
-42,SHOP_TEXT_ACHIEVE_NG,条件未達成,,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,42,
+42,SHOP_TEXT_ACHIEVE_NG,条件未達成,Requirements not met,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,42,
+42,SHOP_TEXT_ACHIEVE_NG,条件未達成,Requirements not met,ui\00_message\ui\shop.gmd,\ui\uGUIShop.arc,uGUIShop.arc,42,
+42,SHOP_TEXT_ACHIEVE_NG,条件未達成,Requirements not met,ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.arc,42,
 11,SHOP_TEXT_ATTENTIONBUY_1,"以下の内容で購入します。よろしいですか？
 　アイテム：<VAL>
 　合計個数：<VAL>個
-　購入価格：<VAL>",,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,11,
+　購入価格：<VAL>","Are you sure you want to buy the following?
+Item: <VAL>
+Total quantity: <VAL> pieces
+Total price: <VAL>",ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,11,
 11,SHOP_TEXT_ATTENTIONBUY_1,"以下の内容で購入します。よろしいですか？
 　アイテム：<VAL>
 　合計個数：<VAL>個
@@ -702,7 +705,10 @@ Total price: <VAL>",ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy.ar
 33,SHOP_TEXT_ATTENTIONBUY_BO,"以下の内容で購入します。よろしいですか？
 　アイテム：<NAME ITEM>
 　合計個数：<VAL>個
-　購入価格：<VAL BO>",,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,33,
+　購入価格：<VAL BO>","Are you sure you want to buy the following?
+Item: <NAME ITEM>
+Total quantity: <VAL> pieces
+Total price: <VAL BO>",ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,33,
 33,SHOP_TEXT_ATTENTIONBUY_BO,"以下の内容で購入します。よろしいですか？
 　アイテム：<NAME ITEM>
 　合計個数：<VAL>個
@@ -723,7 +729,14 @@ Total price: <VAL BO>",ui\00_message\ui\shop.gmd,\ui\uGUIShopBuy.arc,uGUIShopBuy
 
 　アイテム：<VAL>
 　合計個数：<VAL>個
-　購入価格：<VAL>",,ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,14,
+　購入価格：<VAL>","Are you sure you want to purchase the following
+item?
+<COL AA1414>Due to mismatched job, level, and
+equipment status, you cannot equip this
+item.</COL>
+Item: <VAL>
+Total quantity: <VAL> pieces
+Total price: <VAL>",ui\00_message\ui\shop.gmd,\ui\uGUIPPShop.arc,uGUIPPShop.arc,14,
 14,SHOP_TEXT_ATTENTIONBUY_ERR,"以下の内容で購入します。よろしいですか？
 <COL AA1414>ジョブやレベル、装備状態が合わないため
 このアイテムを装備することはできません</COL>
