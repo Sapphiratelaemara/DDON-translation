@@ -149,7 +149,7 @@ Can also be triggered while mid-air in battle.
 ダメージ量が増加
 気絶攻力が増加","EX Additional Effects:
 Increase damage.     
-Increase Knockout Power.",ui\00_message\skill\custom_skill_info_02.gmd,\skill\custom_skill_data_02.arc,custom_skill_data_02.arc,14,
+Increase Stun Power.",ui\00_message\skill\custom_skill_info_02.gmd,\skill\custom_skill_data_02.arc,custom_skill_data_02.arc,14,
 15,CUSTOM_SKILL_INFO_02_161,"【ＥＸ追加効果】
 空中で使用可能になる
 チャンス攻力が増加
@@ -242,7 +242,7 @@ LV.6: Increases arrows fired (3→5).</COL>",ui\00_message\skill\custom_skill_in
 LV.６で攻撃範囲拡大</COL>","Fires an arrow that produces a deafening
 blare on impact, breaking enemy guard.
 Will also launch nearby enemies.
-<COL ffdc78>LV ↑: Increases Blow Power.
+<COL ffdc78>LV ↑: Increases Knockdown Power.
 LV.6: Increases the range of the effect.</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,3,
 4,CUSTOM_SKILL_INFO_03_36,"矢筒内のすべての矢を直上に放ち、
 敵の頭上に降らせる
@@ -331,7 +331,7 @@ LV6: Charge levels increase (2→3), fewer inputs.</COL>",ui\00_message\skill\cu
 発射数が増加（５→６）
 連なり射ち 剛に付与した紅蓮爆矢の攻撃威力が上昇","EX Additional Effects:
 Increase the number of arrows shot (5→6).
-Further increase the damage and Blow Power when
+Further increase the damage and Knockdown Power when
 using in conjuction with Crimson Arrow.",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,14,
 15,CUSTOM_SKILL_INFO_03_163,"【ＥＸ追加効果】
 構え中の移動速度が上昇
@@ -352,7 +352,7 @@ Increase debilitation rate.
 気絶攻力が増加
 <COL ff7878>戦甲を攻撃時、ダメージ量が増加</COL>","EX Additional Effects:
 Increase Chance Attack and exhaust power.
-Increase Knockout Power.
+Increase Stun Power.
 <COL ff7878>Further increase damage against War-Ready enemies.</COL>",ui\00_message\skill\custom_skill_info_03.gmd,\skill\custom_skill_data_03.arc,custom_skill_data_03.arc,17,
 18,CUSTOM_SKILL_INFO_03_197,"【ＥＸ追加効果】
 溜め段階２の攻撃ヒット数が増加","EX Additional Effects:
@@ -559,7 +559,7 @@ Duration of effect after Field Shift is greatly increased.",ui\00_message\skill\
 チャンス攻力と疲労攻力が増加
 <COL ff7878>骸骨／腐死／呪詛／霊体系の敵へのダメージ量増加</COL>","EX Additional Effects:
 Increase the number of magick spheres (5→7).
-Increase damage and Blow Power.
+Increase damage and Knockdown Power.
 Increase Chance Attack and Exhaust Attack.
 <COL ff7878>Further increase damage against Skeleton/Undead/Cursed/Spirit enemies.</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,16,
 17,CUSTOM_SKILL_INFO_04_169,"【ＥＸ追加効果】
@@ -794,7 +794,7 @@ and attracting enemies.",ui\00_message\skill\custom_skill_info_05.gmd,\skill\cus
 ダメージ量と気絶攻力が増加
 フォースゲージ消費時に威力が上昇／ヒット数増加
 <COL ff7878>造魔／魔族／戦甲系の敵に与えるダメージ量が増加</COL>","EX Additional Effects:
-Increase damage and Knockout Power.
+Increase damage and Stun Power.
 Further increase damage and number of hits
 when a Force Gauge is consumed.
 <COL ff7878> Further increase damage against 
@@ -1009,7 +1009,7 @@ Create a huge explosion at the center.",ui\00_message\skill\custom_skill_info_06
 延焼エリアに吹き飛ばし力が追加され
 展開時間が延長される","EX Additional Effects:
 Increase the altitude range of the attack.
-Add Blow Power to the lingering hits.
+Add Knockdown Power to the lingering hits.
 Increase duration of the skill.",ui\00_message\skill\custom_skill_info_06.gmd,\skill\custom_skill_data_06.arc,custom_skill_data_06.arc,19,
 20,CUSTOM_SKILL_INFO_06_223,"【ＥＸ追加効果】
 攻撃ヒット数が増加
@@ -1187,7 +1187,7 @@ revenge gauge increases as you hit enemies.",ui\00_message\skill\custom_skill_in
 攻撃回数が増加（１→２）
 ２回目の攻撃はボタン長押しで溜め可能","EX Additional Effects:
 Increase damage.
-Increase Knockout Power.
+Increase Stun Power.
 Increase the number of hits (1→2).
 The second hit can be activated by pressing
 and holding the assigned button.",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,16,
@@ -1221,7 +1221,7 @@ Can be used when staggered.",ui\00_message\skill\custom_skill_info_07.gmd,\skill
 21,CUSTOM_SKILL_INFO_07_228,"【ＥＸ追加効果】
 吹き飛ばし力が増加
 前方への攻撃範囲が大幅に拡張","EX Additional Effects:
-Increase Blow Power.
+Increase Knockdown Power.
 Extend the range of the attack forward.",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,21,
 0,CUSTOM_SKILL_COMMAND_08_95,セットボタンを押して詠唱後、<KC SHOOT>で放つ,"Press the assigned button to begin chanting,
 then <KC SHOOT> to unleash.",ui\00_message\skill\custom_skill_command_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,0,
@@ -1398,7 +1398,7 @@ this skill.",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_da
 吹き飛ばし力が増加
 魔矢の速度が上昇","EX Additional Effects:
 Add damage to the skill.
-Increase Blow Power.
+Increase Knockdown Power.
 Increase arrow's speed.",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,16,
 17,CUSTOM_SKILL_INFO_08_187,"【ＥＸ追加効果】
 ダメージが追加
@@ -1406,7 +1406,7 @@ Increase arrow's speed.",ui\00_message\skill\custom_skill_info_08.gmd,\skill\cus
 魔矢の速度が上昇","EX Additional Effects:
 Add damage to the skill.
 Add Skill Stifling status abnormality
-and Knockout Power.
+and Stun Power.
 Increase arrow's speed.",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,17,
 18,CUSTOM_SKILL_INFO_08_201,"【ＥＸ追加効果】
 HP回復量アップ
@@ -1602,7 +1602,7 @@ Human/Dragonkin/Alchemized enemies.</COL>",ui\00_message\skill\custom_skill_info
 のけぞり、吹き飛び中でも発動可能","EX Additional Effects:
 Increase physical and magick defense during execution.
 Increase endurance during execution.
-Increase the amount of alchemical substance and Blow Power.
+Increase the amount of alchemical substance and Knockdown Power.
 Possible to use when being knocked back.",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,15,
 16,CUSTOM_SKILL_INFO_09_229,"【ＥＸ追加効果】
 錬成物質が強化されダメージ量と錬成値が増加

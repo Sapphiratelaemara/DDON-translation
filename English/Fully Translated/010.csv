@@ -127,7 +127,7 @@ anniversary.",ui\00_message\clan_shop\clan_shop_lineups.gmd,\ui\uGUIPopBuffBonus
 27,CONDITION_NAME_37,物防上昇,Physical Defense Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,27,
 28,CONDITION_NAME_38,魔攻上昇,Magick Attack Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,28,
 29,CONDITION_NAME_39,魔防上昇,Magick Defense Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,29,
-30,CONDITION_NAME_40,吹き飛ばし力上昇,Blow Power Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,30,
+30,CONDITION_NAME_40,吹き飛ばし力上昇,Knockdown Power Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,30,
 31,CONDITION_NAME_41,耐久力上昇,Endurance Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,31,
 32,CONDITION_NAME_42,生命治癒力上昇,Healing Power Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,32,
 33,CONDITION_NAME_43,炎防上昇,Fire Resist Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,33,
@@ -166,7 +166,7 @@ anniversary.",ui\00_message\clan_shop\clan_shop_lineups.gmd,\ui\uGUIPopBuffBonus
 14,IDX_130,生命治癒力を上昇させる,Increase healing power.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,14,
 17,IDX_131,耐久力を上昇させる,Increase durability.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,17,
 7,IDX_132,吹き飛ばし力を上昇させる,Increase knockback power.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,7,
-10,IDX_135,気絶攻力を上昇させる,Increase stun attack power.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,10,
+10,IDX_135,気絶攻力を上昇させる,Increase Stun Power.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,10,
 19,IDX_137,"状態異常【延焼】【炎防低下】【油濡れ】
 を付加する
 ※【延焼】は攻撃時や、ステータス適用の
@@ -253,12 +253,12 @@ allowing for a quicker downswing.
 <COL ffdc78>LV毎に攻撃速度がより上昇</COL>","Attack speed ↑ when using Gouge.
 <COL ffdc78>LV UP: Increases attack speed further.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,42,
 43,IDX_170,"盾弾きの発動時に敵の体勢を崩しやすくなる
-<COL ffdc78>LV毎に吹き飛ばし力がより増加</COL>","Shield counters deal up to 45% more Blow Power,
+<COL ffdc78>LV毎に吹き飛ばし力がより増加</COL>","Shield counters deal up to 45% more Knockdown Power,
 making it easier to throw enemies off balance.
-<COL ffdc78>LV UP: Further increases Blow Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,43,
+<COL ffdc78>LV UP: Further increases Knockdown Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,43,
 44,IDX_171,"盾弾きの発動時に敵を気絶させやすくなる
-<COL ffdc78>LV毎に気絶攻力がより増加</COL>","Knockout Power ↑ from Perfect Blocks.
-<COL ffdc78>LV UP: Further increases Knockout Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,44,
+<COL ffdc78>LV毎に気絶攻力がより増加</COL>","Stun Power ↑ from Perfect Blocks.
+<COL ffdc78>LV UP: Further increases Stun Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,44,
 45,IDX_172,"盾弾きの発動時にスタミナが一定量回復する
 <COL ffdc78>LV毎にスタミナ回復量がより増加</COL>","Allows Stamina to recover from Perfect Blocks.
 <COL ffdc78>LV UP: Increases Stamina recovery further.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,45,
@@ -292,9 +292,9 @@ effectiveness.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectS
 <COL ffdc78>LV UP: Extends time window further.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,52,
 53,IDX_180,"吹き飛ばし力が上昇し、
 敵の体勢を崩しやすくなる
-<COL ffdc78>LV毎に吹き飛ばし力がより増加</COL>","Up to +30 Blow Power,
+<COL ffdc78>LV毎に吹き飛ばし力がより増加</COL>","Up to +30 Knockdown Power,
 making it easier to stagger enemies.
-<COL ffdc78>LV UP: Further increases Blow Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,53,
+<COL ffdc78>LV UP: Further increases Knockdown Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,53,
 54,IDX_181,"射属性攻撃によって
 受けるダメージ量が軽減される
 <COL ffdc78>LV毎にダメージさらに軽減</COL>","Reduces damage taken from Projectiles up to 15%.
@@ -380,9 +380,9 @@ being staggered.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffec
 <COL ffdc78>LV UP: Extends the distance further.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,70,
 71,IDX_198,"シーカーロープでの移動後、接触時に繰り出す
 打撃攻撃で敵の体勢を崩しやすくなる
-<COL ffdc78>LV毎に吹き飛ばし力がより増加</COL>","Up to +50% Blow Power of Seeker's Rope,
+<COL ffdc78>LV毎に吹き飛ばし力がより増加</COL>","Up to +50% Knockdown Power of Seeker's Rope,
 increasing the likelihood of breaking enemy posture.
-<COL ffdc78>LV UP: Further increases Blow Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,71,
+<COL ffdc78>LV UP: Further increases Knockdown Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,71,
 72,IDX_199,"転身の旋回速度が上昇する
 <COL ffdc78>LV毎に速度がより上昇</COL>","Increases the speed of Roll.
 <COL ffdc78>LV UP: Further increases speed.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,72,
@@ -424,9 +424,9 @@ is extended
 lv</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,79,
 80,IDX_207,"マジックトラップの展開時に
 より敵の体勢を崩しやすくなる
-<COL ffdc78>LV毎に吹き飛ばし力がより増加</COL>","Increases the Blow Power of Magic Trap,
+<COL ffdc78>LV毎に吹き飛ばし力がより増加</COL>","Increases the Knockdown Power of Magic Trap,
 doubling it at max level.
-<COL ffdc78>LV UP: Further increases Blow Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,80,
+<COL ffdc78>LV UP: Further increases Knockdown Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,80,
 81,IDX_208,"スペリング入力の成功時にスタミナが回復する
 <COL ffdc78>LV毎にスタミナ回復量がより増加</COL>","Restores Stamina upon successful spell inputs.
 <COL ffdc78>LV UP: Increases Stamina restored
@@ -549,11 +549,11 @@ Savage Lash and Indomitable Lash.
 繰り出す初動攻撃の吹き飛ばし力が増加する
 <COL ffdc78>LV毎に吹き飛ばし力がより増加</COL>","When Revenge Gauge is consumed,
 the initial impact of Savage and Indomitable Lash
-gain up to 30% Blow Power.
-<COL ffdc78>LV UP: Further increases Blow Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,106,
+gain up to 30% Knockdown Power.
+<COL ffdc78>LV UP: Further increases Knockdown Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,106,
 110,IDX_234,"溜め攻撃で、より敵の体勢を崩しやすくなる
-<COL ffdc78>LV毎に吹き飛ばし力がより増加</COL>","Up to +30 Blow Power for charged attacks.
-<COL ffdc78>LV UP: Further increases Blow Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,110,
+<COL ffdc78>LV毎に吹き飛ばし力がより増加</COL>","Up to +30 Knockdown Power for charged attacks.
+<COL ffdc78>LV UP: Further increases Knockdown Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,110,
 107,IDX_235,"気絶攻力が上昇し、敵を気絶させやすくなる
 <COL ffdc78>LV毎に気絶攻力がより増加</COL>","Up to +12 Stun Power.
 <COL ffdc78>LV UP: Further increases Stun Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,107,
