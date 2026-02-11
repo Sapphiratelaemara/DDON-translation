@@ -129,7 +129,7 @@ anniversary.",ui\00_message\clan_shop\clan_shop_lineups.gmd,\ui\uGUIPopBuffBonus
 29,CONDITION_NAME_39,魔防上昇,Magick Defense Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,29,
 30,CONDITION_NAME_40,吹き飛ばし力上昇,Blow Power Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,30,
 31,CONDITION_NAME_41,耐久力上昇,Endurance Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,31,
-32,CONDITION_NAME_42,生命治癒力上昇,Healing Power Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,32,
+32,CONDITION_NAME_42,生命治癒力上昇,Recovery Limit Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,32,
 33,CONDITION_NAME_43,炎防上昇,Fire Resist Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,33,
 34,CONDITION_NAME_44,氷防上昇,Ice Resist Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,34,
 35,CONDITION_NAME_45,雷防上昇,Thunder Resist Up,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,35,
@@ -163,7 +163,7 @@ anniversary.",ui\00_message\clan_shop\clan_shop_lineups.gmd,\ui\uGUIPopBuffBonus
 5,IDX_127,魔法防御力を上昇させる,Increase Magick Defense.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,5,
 8,IDX_128,体力を上昇させる,Increase maximum HP.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,8,
 11,IDX_129,スタミナを上昇させる,Increase stamina.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,11,
-14,IDX_130,生命治癒力を上昇させる,Increase healing power.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,14,
+14,IDX_130,生命治癒力を上昇させる,Increase Recovery Limit.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,14,
 17,IDX_131,耐久力を上昇させる,Increase durability.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,17,
 7,IDX_132,吹き飛ばし力を上昇させる,Increase knockback power.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,7,
 10,IDX_135,気絶攻力を上昇させる,Increase stun attack power.,ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,10,
@@ -501,9 +501,9 @@ duration.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed
 recovered.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,96,
 97,IDX_224,"生命治癒力が増加し、
 体力の治癒上限値が低下しにくくなる
-<COL ffdc78>LV毎に生命治癒力がより増加</COL>","Healing Power ↑,
+<COL ffdc78>LV毎に生命治癒力がより増加</COL>","Recovery Limit ↑,
 the upper HP limit is less likely to dwindle.
-<COL ffdc78>LV UP: Further increases Healing Power.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,97,
+<COL ffdc78>LV UP: Further increases Recovery Limit.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,97,
 98,IDX_225,"炎属性攻撃を対象に当てた際
 延焼の状態異常にかかりやすくなる
 <COL ffdc78>LV毎に状態異常値がより増加</COL>","Increases chance to inflict 'Burning'
