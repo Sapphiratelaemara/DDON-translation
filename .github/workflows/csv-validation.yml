@@ -11,6 +11,14 @@ on:
       - 'Viet/**.csv'
 
   workflow_dispatch:
+  push:
+    paths:
+      - 'English/**.csv'
+      - 'Portuguese (Brazil)/**.csv'
+      - 'Simplified Chinese/**.csv'
+      - 'Spanish/**.csv'
+      - 'Traditional Chinese/**.csv'
+      - 'Viet/**.csv'
 jobs:
   validate_csvs:
     runs-on: ubuntu-latest
