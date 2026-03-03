@@ -1,158 +1,181 @@
 import argparse
 import re
+import csv
+import sys
+import subprocess
 from pathlib import Path
 from datetime import datetime
 
-# Define forbidden symbol replacements
+# Forbidden symbol replacements
 FORBIDDEN_SYMBOLS = {
     "“": '"', "”": '"',
     "‘": "'", "’": "'",
     "~": "～"
 }
 
-# Define the pattern for a date in format dd/mm/yy (two-digit year)
+# Date pattern to update in 254.csv
 DATE_PATTERN = re.compile(r"\b\d{1,2}/\d{1,2}/\d{2}\b")
 
-def replace_forbidden_symbols(file_path):
-    """Replace forbidden symbols in the file's content."""
-    content = safe_read_text(file_path)
-    if content:
-        for old_symbol, new_symbol in FORBIDDEN_SYMBOLS.items():
-            content = content.replace(old_symbol, new_symbol)
-        file_path.write_text(content, encoding='utf-8')
 
-def safe_read_text(file_path):
-    """Try reading the file multiple times in case of transient errors."""
-    for attempt in range(3):  # Retry up to 3 times
-        try:
-            content = file_path.read_text(encoding='utf-8', errors='ignore').strip()
-            if content:
-                return content
-        except Exception as e:
-            print(f"Attempt {attempt+1}: Error reading {file_path}: {e}")
-    print(f"Failed to read {file_path} after 3 attempts, skipping.")
-    return None  # Indicate failure
+def validate_first_column(file_path):
+    """Validate that the first column is #Index or a number."""
+    with open(file_path, newline='', encoding='utf-8') as csvfile:
+        reader = csv.reader(csvfile)
+        for row_number, row in enumerate(reader, start=1):
+            if not row:
+                continue
+            first_column = row[0].strip()
+            if first_column == "#Index":
+                continue
+            if not first_column.isdigit():
+                message = (
+                    f"\n❌ CSV Validation Failed!\n"
+                    f"File: {file_path}\n"
+                    f"Row: {row_number}\n"
+                    f"Offending value in first column: '{first_column}'\n"
+                )
+                print(message)
+                sys.exit(1)
+
+
+def validate_folder(folder):
+    """Validate all CSVs in a folder recursively."""
+    print(f"\nValidating {folder} ...")
+    for csv_file in folder.rglob("*.csv"):
+        validate_first_column(csv_file)
+    print(f"{folder} passed validation.")
+
+
+def get_changed_files():
+    """Return list of changed CSV files in CI."""
+    try:
+        result = subprocess.run(
+            ["git", "diff", "--name-only", "origin/main...HEAD"],
+            capture_output=True, text=True, check=True
+        )
+        files = result.stdout.splitlines()
+        return [f for f in files if f.endswith(".csv")]
+    except Exception:
+        return []
+
+
+def replace_forbidden_symbols(file_path):
+    """Replace forbidden symbols in the file."""
+    content = file_path.read_text(encoding='utf-8')
+    for old, new in FORBIDDEN_SYMBOLS.items():
+        content = content.replace(old, new)
+    file_path.write_text(content, encoding='utf-8')
+
 
 def modify_specific_entry():
-    """Find and replace dates in Fully Translated/254.csv with the current date."""
-    file_path = Path("Fully Translated/254.csv")
+    """Update 254.csv dates."""
+    file_path = Path(__file__).parent / "Fully Translated" / "254.csv"
     if not file_path.exists():
-        print(f"File {file_path} not found. Skipping modification.")
         return
 
     current_date = datetime.now().strftime("%d/%m/%y")
-
-    lines = safe_read_text(file_path).splitlines() if safe_read_text(file_path) else []
-    modified = False
-
-    # Replace existing dates wherever they occur
+    content = file_path.read_text(encoding='utf-8')
+    lines = content.splitlines()
     for i, line in enumerate(lines):
         if DATE_PATTERN.search(line):
             lines[i] = DATE_PATTERN.sub(current_date, line)
-            modified = True
+    file_path.write_text("\n".join(lines), encoding='utf-8')
 
-    if modified:
-        file_path.write_text("\n".join(lines), encoding='utf-8')
-        print(f"Updated dates in {file_path} to {current_date}")
-    else:
-        print(f"No matching dates found in {file_path}. No changes made.")
 
-def numerical_sort_key(path):
-    name = path.name
-    parts = re.split(r'(\d+)', name)
-    return [int(part) if part.isdigit() else part.lower() for part in parts]
+def merge_english():
+    """Merge Fully Translated + splits into gmd.csv for English."""
+    english = Path(__file__).parent
+    fully_translated = english / "Fully Translated"
+    splits_folder = english / "splits"
+    output_file = english / "gmd.csv"
 
-def clean_files(args):
-    """Go through all splits and replace forbidden symbols."""
-    for path in args.split_locations:
-        directory = Path(path)
-        for file in directory.glob("*.csv"):
-            replace_forbidden_symbols(file)
+    english.mkdir(parents=True, exist_ok=True)
 
-def merge_splits(args):
-    """Merge split CSV files into gmd.csv after cleaning."""
-    splits = []
-    for path in args.split_locations:
-        directory = Path(path)
-        splits.extend(directory.glob("*.csv"))
+    csv_files = list(fully_translated.glob("*.csv")) + list(splits_folder.glob("*.csv"))
 
-    if not splits:
-        print("No splits to merge. Exiting.")
+    # Sort numerically by filename
+    def numeric_sort_key(p):
+        try:
+            return int(p.stem)
+        except ValueError:
+            return 0
+
+    csv_files = sorted(csv_files, key=numeric_sort_key)
+
+    if not csv_files:
+        print("No CSVs found in Fully Translated or splits!")
         return
 
-    # Step 4: Sort files deterministically before merging
-    splits = sorted(splits, key=lambda x: x.name.lower())
+    # Validate all CSVs first
+    for csv_file in csv_files:
+        validate_first_column(csv_file)
 
-    # Debugging: Ensure all expected files are detected before merging
-    print(f"Total CSV files detected for merging: {len(splits)}")
-    for split in splits:
-        print(f"Detected file: {split}")
+    # Merge CSVs
+    with open(output_file, 'w', encoding='utf-8', newline='') as outfile:
+        writer = csv.writer(outfile)
+        writer.writerow([
+            "#Index", "Key", "MsgJp", "MsgEn",
+            "GmdPath", "ArcPath", "ArcName", "ReadIndex"
+        ])
+        for csv_file in csv_files:
+            with open(csv_file, newline='', encoding='utf-8') as infile:
+                reader = csv.reader(infile)
+                for row in reader:
+                    writer.writerow(row)
 
-    output_file = Path(args.output_dir) / "gmd.csv"
-    written_entries = 0  # Step 2: Track number of entries written
+    print(f"English gmd.csv generated from {len(csv_files)} CSV files.")
 
-    with open(output_file, 'w', encoding='utf-8') as f:
-        f.write("#Index,Key,MsgJp,MsgEn,GmdPath,ArcPath,ArcName,ReadIndex\n")
-
-        for split in splits:
-            content = safe_read_text(split)
-            if content is None:
-                continue  # Skip files that failed to be read
-            
-            # Normalize line breaks before merging
-            content = content.replace("\r\n", "\n").replace("\r", "\n")
-            
-            # Count rows before writing
-            row_count_read = len(content.split("\n"))
-
-            # Write content
-            f.write(content + "\n")  # Ensure proper line separation
-            
-            # Count rows after writing to verify correctness
-            with open(output_file, 'r', encoding='utf-8') as check_file:
-                written_content = check_file.read().splitlines()
-                row_count_written = len(written_content)
-
-            # Compare read vs written row counts for verification
-            if row_count_written < written_entries + row_count_read:
-                print(f"Warning: Possible missing rows! Expected {written_entries + row_count_read}, got {row_count_written}. Retrying {split}...")
-                continue  # Retry writing if mismatch detected
-
-            written_entries += row_count_read
-            print(f"Confirmed {split}: {row_count_read} rows written correctly")
-
-    print(f"Total entries written to {output_file}: {written_entries}")
-    print(f"Final merged file size: {output_file.stat().st_size} bytes")
-    print(f"Generated {output_file}")
-
-def parse_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-o', '--output_dir', default='.', help="Controls where gmd.csv will be written to")
-    parser.add_argument('split_locations', nargs='+', type=str, help="List of directories to find splits")
-
-    args = parser.parse_args()
-
-    output_path = Path(args.output_dir)
-    if not output_path.exists() or not output_path.is_dir():
-        print(f"Invalid output path: {output_path}. Exiting.")
-        return None
-    
-    for split_dir in args.split_locations:
-        split_path = Path(split_dir)
-        if not split_path.exists() or not split_path.is_dir():
-            print(f"Invalid split path: {split_path}. Exiting.")
-            return None
-
-    return args
 
 def main():
-    args = parse_args()
-    if args is None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--ci",
+        action="store_true",
+        help="CI validation mode (no gmd.csv generation)"
+    )
+    args = parser.parse_args()
+
+    english_folder = Path(__file__).parent
+    fully_translated = english_folder / "Fully Translated"
+    splits_folder = english_folder / "splits"
+
+    if not args.ci:
+        # Local run: validate English only, generate gmd.csv
+        for folder in [fully_translated, splits_folder]:
+            if folder.exists():
+                validate_folder(folder)
+        modify_specific_entry()
+        merge_english()
+        print("\nLocal English validation + generation complete.")
         return
 
-    modify_specific_entry()  # First, update the target entry in Fully Translated/254.csv
-    clean_files(args)  # Then, clean the files by replacing forbidden symbols
-    merge_splits(args)  # Finally, merge the files
+    # CI mode: validate only changed CSVs
+    changed_files = get_changed_files()
+    if not changed_files:
+        print("No CSV changes detected.")
+        return
+
+    changed_folders = set()
+    for file in changed_files:
+        top_folder = Path(file).parts[0]
+        changed_folders.add(top_folder)
+
+    # English: only Fully Translated + splits
+    if "English" in changed_folders:
+        for folder in [fully_translated, splits_folder]:
+            if folder.exists():
+                validate_folder(folder)
+
+    # Other languages: validate full folder if any file changed
+    repo_root = english_folder.parent
+    for folder_name in changed_folders:
+        if folder_name != "English":
+            folder_path = repo_root / folder_name
+            if folder_path.exists():
+                validate_folder(folder_path)
+
+    print("\nCI validation complete.")
+
 
 if __name__ == "__main__":
     main()
