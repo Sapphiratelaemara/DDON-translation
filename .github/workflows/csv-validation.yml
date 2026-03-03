@@ -9,7 +9,7 @@ on:
       - 'Spanish/**.csv'
       - 'Traditional Chinese/**.csv'
       - 'Viet/**.csv'
-
+    workflow_dispatch:
 jobs:
   validate_csvs:
     runs-on: ubuntu-latest
