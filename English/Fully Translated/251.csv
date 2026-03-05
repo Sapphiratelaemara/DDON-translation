@@ -505,7 +505,8 @@ discovered!",ui\00_message\ui\hud.gmd,\ui\gui_cmn.arc,gui_cmn.arc,75,
 78,hud_get_announce_hb,<VAL> <UNIT HB>,<VAL> <UNIT HB>,ui\00_message\ui\hud.gmd,\ui\gui_cmn.arc,gui_cmn.arc,78,
 79,hud_get_announce_hb_ex,<VAL> <VAL> <UNIT HB>,<VAL> <VAL> <UNIT HB>,ui\00_message\ui\hud.gmd,\ui\gui_cmn.arc,gui_cmn.arc,79,
 83,hud_get_announce_ms,<VAL> =*,<VAL> =*,ui\00_message\ui\hud.gmd,\ui\gui_cmn.arc,gui_cmn.arc,83,
-27,hud_get_announce_pawnlvup,<NAME PAWN>が<LEVEL>にUPしました,<NAME PAWN> has reached Level <LEVEL>.,ui\00_message\ui\hud.gmd,\ui\gui_cmn.arc,gui_cmn.arc,27,
+27,hud_get_announce_pawnlvup,<NAME PAWN>が<LEVEL>にUPしました,"<NAME PAWN> 
+has reached Level <LEVEL>.",ui\00_message\ui\hud.gmd,\ui\gui_cmn.arc,gui_cmn.arc,27,
 65,hud_get_announce_pp,<VAL> <UNIT PP>,<VAL> <UNIT PP>,ui\00_message\ui\hud.gmd,\ui\gui_cmn.arc,gui_cmn.arc,65,
 66,hud_get_announce_pp_ex,<VAL> <VAL> <UNIT PP>,<VAL> <VAL> <UNIT PP>,ui\00_message\ui\hud.gmd,\ui\gui_cmn.arc,gui_cmn.arc,66,
 18,hud_get_announce_r,<VAL> <UNIT R>,<VAL> <UNIT R>,ui\00_message\ui\hud.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18,
@@ -593,8 +594,10 @@ the Depths of the Rift, eyes open.",ui\00_message\ui\hud.gmd,\ui\gui_cmn.arc,gui
 Caplink：%s",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53,
 46,info_caplink_maintenance,カプリンクが<VAL>からメンテナンスに入ります,Caplink will enter maintenance at <VAL>,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,46,
 51,info_caplink_message,カプリンク：メッセージが届いています,Caplink：Message received!,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,51,
-40,info_clan_chg_leader,<NAME TARGET>がクランリーダーになりました,<NAME TARGET> is now the clan leader.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,40,
-39,info_clan_chg_master,<NAME TARGET>がクランマスターになりました,<NAME TARGET> is now the clan master.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,39,
+40,info_clan_chg_leader,<NAME TARGET>がクランリーダーになりました,"<NAME TARGET> 
+is now a Clan Officer.",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,40,
+39,info_clan_chg_master,<NAME TARGET>がクランマスターになりました,"<NAME TARGET> 
+is now the Clan Master".,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,39,
 4,info_clan_invite,<NAME TARGET>からクランへの招待があります,<NAME TARGET> has been invited to the clan.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4,
 58,info_clan_invite_direct,<NAME TARGET>からクランへの直接招待があります,"You have received a direct invitation to join
 <NAME TARGET>'s Clan.",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,58,
@@ -606,7 +609,8 @@ Caplink：%s",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53
 9,info_clan_levelup_list,クランの歴史が更新されました,The clan history has been updated,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9,
 6,info_clan_mission,<NAME CLANMISSION> を達成した！,<NAME CLANMISSION> was achieved!,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6,
 7,info_clan_mission_list,<NAME CLANMISSION> を達成した！,<NAME CLANMISSION> was achieved!,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7,
-35,info_clan_req,<NAME TARGET>からクラン加入申請がありました,<NAME TARGET> has requested to join the clan.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,35,
+35,info_clan_req,<NAME TARGET>からクラン加入申請がありました,"<NAME TARGET> 
+has requested to join the clan.",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,35,
 36,info_clan_req_info,クランへの加入申請があります,There is an application to join the clan,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,36,
 26,info_craft_finish,クラフトが完成しました,Crafting has completed.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,26,
 62,info_daily_mission_complete_info,リワードミッションで受け取れるアイテムがあります,"There are items that can be received in Reward
@@ -615,22 +619,27 @@ Missions",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,62,
 Station",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,60,
 31,info_entry_board_ready_wait_list,エントリーメンバーの準備完了を受付中,The entryboard is ready,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,31,
 33,info_entry_board_time_extension_list,エントリーボードの募集時間を延長できます,Entryboard recruitment time can be extended,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,33,
-56,info_entry_invitation,<NAME TARGET>からエントリーボードに招待されました,Invited to the entry board by <NAME TARGET>,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,56,
-57,info_entry_invitation_list,<NAME TARGET>からエントリーボードへの招待があります,"You have been invited to the Entry Board by <NAME TARGET>
-.",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,57,
-2,info_friend_req,<NAME TARGET> からフレンド申請があります,<NAME TARGET> has sent you a friend request,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2,
+56,info_entry_invitation,<NAME TARGET>からエントリーボードに招待されました,"Invited to the entry board by 
+<NAME TARGET>",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,56,
+57,info_entry_invitation_list,<NAME TARGET>からエントリーボードへの招待があります,"You have been invited to the Entry Board by 
+<NAME TARGET>",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,57,
+2,info_friend_req,<NAME TARGET> からフレンド申請があります,"<NAME TARGET> 
+has sent you a friend request",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2,
 3,info_friend_req_list,フレンド申請があります,There is a friend request,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3,
 16,info_full_member,エントリーメンバーが揃いました,Entry members is now full,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16,
 17,info_full_member_list,エントリーメンバーが揃いました,Entry members is now full,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17,
-10,info_group_invite,<NAME TARGET> からグループチャットへの招待があります,<NAME TARGET> has invited you to a group chat,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10,
+10,info_group_invite,<NAME TARGET> からグループチャットへの招待があります,"<NAME TARGET> 
+has invited you to a group chat",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10,
 11,info_group_invite_list,<NAME TARGET> からグループチャットへの招待があります,<NAME TARGET> has invited you to a group chat,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11,
 12,info_mail,新着メールが届きました,New mail has arrived,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12,
 13,info_mail_list,未読／未取得メールがあります,There is unread / unclaimed mail,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13,
 14,info_news,レスタニアニュースが更新されました,Lestania News has been updated,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14,
 15,info_news_list,レスタニアニュースが更新されました,Lestania News has been updated,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15,
 34,info_party_entry_accepted_list,リーダーがパーティー要請を受諾しました,The leader has accepted the party request,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,34,
-0,info_party_invite,<NAME TARGET> からパーティーへの招待があります,<NAME TARGET> has invited you to join a party,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0,
-1,info_party_invite_list,<NAME TARGET> からパーティーへの招待があります,<NAME TARGET> has invited you to join a party,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1,
+0,info_party_invite,<NAME TARGET> からパーティーへの招待があります,"<NAME TARGET> 
+has invited you to join a party",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0,
+1,info_party_invite_list,<NAME TARGET> からパーティーへの招待があります,"<NAME TARGET> 
+has invited you to join a party",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1,
 44,info_party_invite_pop,パーティーへの招待があります,There are party invitations,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,44,
 28,info_propose_quit_contents,コンテンツ途中離脱の提案がありました,You have received a request to end the mission.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,28,
 29,info_propose_quit_contents_list,コンテンツ途中離脱の提案が届いています,"A proposal to withdraw from the content has

@@ -430,11 +430,12 @@ Cost: <VAL CP>",ui\00_message\ui\clan_kyoten.gmd,\ui\uGUIClanShop.arc,uGUIClanSh
 30,CLAN_STATUS_MSG_HISTORY_ITEM_2,クランレベルが %d になりました,Clan level is now %d,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,30,
 31,CLAN_STATUS_MSG_HISTORY_ITEM_3,%s が加入しました,%s has joined,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,31,
 32,CLAN_STATUS_MSG_HISTORY_ITEM_4,%s が脱退しました,%s has left,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,32,
-33,CLAN_STATUS_MSG_HISTORY_ITEM_5,%s がクランマスターになりました,%s has become clan master,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,33,
+33,CLAN_STATUS_MSG_HISTORY_ITEM_5,%s がクランマスターになりました,"%s 
+has become the Clan Master",ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,33,
 26,CLAN_STATUS_MSG_HISTORY_TAB,ヒストリー,History,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,26,
 6,CLAN_STATUS_MSG_JOB,ジョブレベル,Vocation Level,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,6,
 7,CLAN_STATUS_MSG_LOBBY,ワールド,World,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,7,
-0,CLAN_STATUS_MSG_MASTER,クランマスター,Master,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,0,
+0,CLAN_STATUS_MSG_MASTER,クランマスター,Clan Master,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,0,
 1,CLAN_STATUS_MSG_MEMBER,メンバー,Members,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,1,
 25,CLAN_STATUS_MSG_MONEY_CP,通貨CP,CP,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,25,
 5,CLAN_STATUS_MSG_NAME,名前,Name,ui\00_message\ui\clan_status.gmd,\ui\uGUIClanStatus.arc,uGUIClanStatus.arc,5,
@@ -526,8 +527,9 @@ party.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,286,
 kicked.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,146,
 284,ana_KICK_ERR_QUICK_PT,クイックパーティー中はキックできません,You cannot kick in a quick party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,284,
 451,ana_PARTNERPAWN_SET_conf,"<NAME PAWN>を
-パートナーポーンに設定しますか？","<NAME PAWN> will be set to Partner Pawn. Do you
-want to proceed?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,451,
+パートナーポーンに設定しますか？","<NAME PAWN> 
+will be set as Partner Pawn. 
+Do you want to proceed?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,451,
 447,ana_PARTNERPAWN_SET_ng_configured,すでに設定済みです,The setting has already been configured.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,447,
 448,ana_PARTNERPAWN_SET_ng_myroom_only,自室のリムストーンでのみ設定できます,"Setting can only be done with Riftstone in Your
 Room",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,448,
@@ -535,7 +537,8 @@ Room",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,448,
 479,ana_PARTNERPAWN_SET_ng_quest_order,ポーンクエスト受注中のときは変更できません,"Can't change it while there is an ongoing Pawn
 Quest",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,479,
 449,ana_PARTNERPAWN_SET_ng_reward_unacquired,リワードがあるときは変更できません,Cannot change while there is a reward,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,449,
-450,ana_PARTNERPAWN_SET_ok_decision,<NAME PAWN>をパートナーポーンに設定しました,<NAME PAWN> has been set as Partner Pawn.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,450,
+450,ana_PARTNERPAWN_SET_ok_decision,<NAME PAWN>をパートナーポーンに設定しました,"<NAME PAWN> 
+has been set as Partner Pawn.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,450,
 169,ana_PAWN_DELETE_ERR_CRAFT,クラフト中のポーンです,That pawn is currently crafting.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,169,
 211,ana_PAWN_DELETE_ERR_LAST,残り1体なので削除できません,"Since it is your last pawn, it cannot be deleted.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,211,
 468,ana_PAWN_DELETE_ERR_PARTNER,パートナーポーンは削除できません,Cannot delete the Partner Pawn.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,468,
@@ -603,14 +606,17 @@ Are you sure you want to clear immediately?",ui\00_message\ui\common_dialog.gmd,
 595,ana_bitterblack_match_017,別のルートを進行中のため、突入できません,Cannot enter because another route is in progress.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,595,
 624,ana_bitterblack_match_018,このルートに突入するには、進行と報酬のリセットが必要です,"To embark on this route, a reset of rewards and
 progress is required",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,624,
-209,ana_blist_add,<NAME TARGET>をブラックリストに追加しました,<NAME TARGET> has been added to your blacklist.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,209,
+209,ana_blist_add,<NAME TARGET>をブラックリストに追加しました,"<NAME TARGET> 
+has been added to your blacklist.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,209,
 207,ana_blist_add_q,"<NAME TARGET>を
-ブラックリストに追加します。よろしいですか？","<NAME TARGET> will be added to your blacklist.
+ブラックリストに追加します。よろしいですか？","<NAME TARGET> 
+will be added to your blacklist.
 Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,207,
-210,ana_blist_del,<NAME TARGET>をブラックリストから削除しました,"<NAME TARGET> has been removed from your
-blacklist.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,210,
+210,ana_blist_del,<NAME TARGET>をブラックリストから削除しました,"<NAME TARGET> 
+has been removed from your blacklist.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,210,
 208,ana_blist_del_q,"<NAME TARGET>を
-ブラックリストから削除します。よろしいですか？","Are you sure you want to remove <NAME TARGET>
+ブラックリストから削除します。よろしいですか？","Are you sure you want to remove 
+<NAME TARGET>
 from your blacklist?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,208,
 357,ana_box_disable,拡張枠は使用できません,Storage expansion cannot be used.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,357,
 305,ana_box_err_exspace,＜<OPCS>＞の発動中に使用可能となります,"This is available with the effect of ""<OPCS>"".",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,305,
@@ -640,17 +646,23 @@ has been activated.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.
 486,ana_clan_authority_settings_err_01,変更する権限がありません,You do not have permission to change it.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,486,
 487,ana_clan_authority_settings_err_02,インターバル期間中のため変更できません,"Cannot change it because it is during the
 Interval Duration.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,487,
-193,ana_clan_chg_leader,<NAME TARGET>をサブマスターにしました,<NAME TARGET> has become a clan leader.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,193,
+193,ana_clan_chg_leader,<NAME TARGET>をサブマスターにしました,"<NAME TARGET> 
+has become a Clan Officer.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,193,
 190,ana_clan_chg_leader_q,"<NAME TARGET>を
-サブマスターにします。よろしいですか？","<NAME TARGET> will become a clan leader.
+サブマスターにします。よろしいですか？","<NAME TARGET> 
+will become a Clan Officer.
 Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,190,
-189,ana_clan_chg_master,<NAME TARGET>をクランマスターにしました,<NAME TARGET> has become the clan master.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,189,
+189,ana_clan_chg_master,<NAME TARGET>をクランマスターにしました,"<NAME TARGET> 
+has become the Clan Master.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,189,
 188,ana_clan_chg_master_q,"<NAME TARGET>を
-クランマスターにします。よろしいですか？","<NAME TARGET> will become the clan master.
+クランマスターにします。よろしいですか？","<NAME TARGET> 
+will become the Clan Master.
 Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,188,
-192,ana_clan_chg_member,<NAME TARGET>を通常メンバーにしました,<NAME TARGET> has become a clan member.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,192,
+192,ana_clan_chg_member,<NAME TARGET>を通常メンバーにしました,"<NAME TARGET> 
+has become a clan member.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,192,
 191,ana_clan_chg_member_q,"<NAME TARGET>を
-通常メンバーにします。よろしいですか？","<NAME TARGET> will become a clan member.
+通常メンバーにします。よろしいですか？","<NAME TARGET> 
+will become a clan member.
 Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,191,
 185,ana_clan_create,クランを作成しました,The clan has been created.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,185,
 382,ana_clan_create_err_joinreq,クランに加入申請中のため作成できません,"You cannot create because you currently have an
@@ -659,52 +671,67 @@ application to a clan.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_c
 scout entry.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,381,
 492,ana_clan_err_applying,すでに申請中のため選べません,"Cannot choose this option because it is already
 pending",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,492,
-187,ana_clan_expulsion,<NAME TARGET>を除名しました,<NAME TARGET> has been expelled.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,187,
+187,ana_clan_expulsion,<NAME TARGET>を除名しました,"<NAME TARGET> 
+has been expelled.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,187,
 186,ana_clan_expulsion_q,"<NAME TARGET>を
-クランから除名します。よろしいですか？","Are you sure you want to expel <NAME TARGET>
+クランから除名します。よろしいですか？","Are you sure you want to expel 
+<NAME TARGET>
 from the clan?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,186,
 313,ana_clan_info_reload,クランの情報が更新されました,Clan information has been updated.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,313,
 75,ana_clan_info_update,クラン情報を更新しました,Clan information has been updated.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,75,
-88,ana_clan_invite,<NAME TARGET>をクランに誘いました,<NAME TARGET> has been invited to the clan.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,88,
+88,ana_clan_invite,<NAME TARGET>をクランに誘いました,"<NAME TARGET> 
+has been invited to the clan.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,88,
 466,ana_clan_invite_direct,"<NAME TARGET>を
-クランに直接招待しました",Directly invited <NAME TARGET> to the Clan.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,466,
-94,ana_clan_invite_ng,<NAME CLAN>の勧誘を拒否しました,You declined the invitation to <NAME CLAN>.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,94,
+クランに直接招待しました","Directly invited 
+<NAME TARGET> 
+to the Clan.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,466,
+94,ana_clan_invite_ng,<NAME CLAN>の勧誘を拒否しました,"You declined the invitation to 
+<NAME CLAN>".,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,94,
 93,ana_clan_invite_ng_q,"<NAME CLAN>の
-勧誘を拒否します。よろしいですか？","Decline the invitation to <NAME CLAN>
+勧誘を拒否します。よろしいですか？","Declining the invitation to 
+<NAME CLAN>.
 Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,93,
 91,ana_clan_invite_ok_q,"<NAME CLAN>の
-勧誘を承認します。よろしいですか？","Accept the invitation to <NAME CLAN>
+勧誘を承認します。よろしいですか？","Accepting the invitation to 
+<NAME CLAN>.
 Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,91,
 87,ana_clan_invite_q,"<NAME TARGET>を
 クランに勧誘します。よろしいですか？
-（一定期間承認されない場合、申請はキャンセルされます）","<NAME TARGET> will be invited to the clan.
+（一定期間承認されない場合、申請はキャンセルされます）","<NAME TARGET> 
+will be invited to the clan.
 Are you sure?
 (If it is not accepted within a period of time,
 the invite will be canceled)",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,87,
 465,ana_clan_invite_q_direct,"<NAME TARGET>を
-クランに直接招待します。よろしいですか？",Are you sure you want to directly invite <NAME TARGET> to the Clan?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,465,
-77,ana_clan_join,<NAME CLAN>に加入申請しました,"You have submitted an application to
-join <NAME CLAN>.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,77,
+クランに直接招待します。よろしいですか？","Are you sure you want to directly invite 
+<NAME TARGET>
+to the Clan?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,465,
+77,ana_clan_join,<NAME CLAN>に加入申請しました,"You have submitted an application to join 
+<NAME CLAN>.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,77,
 79,ana_clan_join_cancel,加入申請をキャンセルしました,"You have canceled your application to join the
 clan.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,79,
 78,ana_clan_join_cancel_q,"クランの加入申請をキャンセルします。
 よろしいですか？","You will cancel your application to join the clan.
 Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,78,
-83,ana_clan_join_ng,<NAME TARGET>の加入を拒否しました,"The clan application of <NAME TARGET> has been
-refused.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,83,
+83,ana_clan_join_ng,<NAME TARGET>の加入を拒否しました,"The clan application of 
+<NAME TARGET> 
+has been refused.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,83,
 82,ana_clan_join_ng_q,"<NAME TARGET>の
-加入を拒否します。よろしいですか？","The clan application of <NAME TARGET> will be
-refused.
+加入を拒否します。よろしいですか？","The clan application of 
+<NAME TARGET> 
+will be refused.
 Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,82,
-81,ana_clan_join_permit,<NAME TARGET>の加入を許可しました,"<NAME TARGET> has been permitted to
-join the clan.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,81,
+81,ana_clan_join_permit,<NAME TARGET>の加入を許可しました,"<NAME TARGET> 
+has been permitted to join the clan.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,81,
 80,ana_clan_join_permit_q,"<NAME TARGET>の
-加入を許可します。よろしいですか？","<NAME TARGET> will be permitted to
-join the clan. Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,80,
+加入を許可します。よろしいですか？","<NAME TARGET> 
+will be permitted to join the clan. 
+Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,80,
 76,ana_clan_join_q,"<NAME CLAN>に
 加入申請をします。よろしいですか？
 （一定期間承認されない場合、申請はキャンセルされます）","You will submit an application to
-join <NAME CLAN>.
+join 
+<NAME CLAN>.
 Are you sure?
 (If it is not accepted within a period of time,
 the invite will be canceled)",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,76,

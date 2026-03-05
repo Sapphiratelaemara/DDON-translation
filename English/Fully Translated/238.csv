@@ -733,16 +733,21 @@ lost.</COL>",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.
 223,DIALOG_CONFIRM_TYPE_STOP,アイテム生産を中止,Stop,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,223,
 223,DIALOG_CONFIRM_TYPE_STOP,アイテム生産を中止,Stop,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,223,
 223,DIALOG_CONFIRM_TYPE_STOP,アイテム生産を中止,Stop,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,223,
-109,DIALOG_CRAFT_LV_UP,クラフトを指揮していた<NAME PAWN>のクラフトレベルが<VAL 0>になった,"<NAME PAWN>, who was in charge of crafting, has
-reached craft level <VAL 0>.",ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,109,
-109,DIALOG_CRAFT_LV_UP,クラフトを指揮していた<NAME PAWN>のクラフトレベルが<VAL 0>になった,"<NAME PAWN>, who was in charge of crafting, has
-reached craft level <VAL 0>.",ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,109,
-109,DIALOG_CRAFT_LV_UP,クラフトを指揮していた<NAME PAWN>のクラフトレベルが<VAL 0>になった,"<NAME PAWN>, who was in charge of crafting, has
-reached craft level <VAL 0>.",ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,109,
-109,DIALOG_CRAFT_LV_UP,クラフトを指揮していた<NAME PAWN>のクラフトレベルが<VAL 0>になった,"<NAME PAWN>, who was in charge of crafting, has
-reached craft level <VAL 0>.",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,109,
-109,DIALOG_CRAFT_LV_UP,クラフトを指揮していた<NAME PAWN>のクラフトレベルが<VAL 0>になった,"<NAME PAWN>, who was in charge of crafting, has
-reached craft level <VAL 0>.",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,109,
+109,DIALOG_CRAFT_LV_UP,クラフトを指揮していた<NAME PAWN>のクラフトレベルが<VAL 0>になった,"<NAME PAWN>, 
+who was in charge of crafting, 
+has reached craft level <VAL 0>.",ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,109,
+109,DIALOG_CRAFT_LV_UP,クラフトを指揮していた<NAME PAWN>のクラフトレベルが<VAL 0>になった,"<NAME PAWN>, 
+who was in charge of crafting, 
+has reached craft level <VAL 0>.",ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,109,
+109,DIALOG_CRAFT_LV_UP,クラフトを指揮していた<NAME PAWN>のクラフトレベルが<VAL 0>になった,"<NAME PAWN>, 
+who was in charge of crafting, 
+has reached craft level <VAL 0>.",ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,109,
+109,DIALOG_CRAFT_LV_UP,クラフトを指揮していた<NAME PAWN>のクラフトレベルが<VAL 0>になった,"<NAME PAWN>, 
+who was in charge of crafting, 
+has reached craft level <VAL 0>.",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,109,
+109,DIALOG_CRAFT_LV_UP,クラフトを指揮していた<NAME PAWN>のクラフトレベルが<VAL 0>になった,"<<NAME PAWN>, 
+who was in charge of crafting, 
+has reached craft level <VAL 0>.",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,109,
 219,DIALOG_EX_CREATE,アイテムの作成が完了しました,Item creation complete.,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,219,
 219,DIALOG_EX_CREATE,アイテムの作成が完了しました,Item creation complete.,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,219,
 219,DIALOG_EX_CREATE,アイテムの作成が完了しました,Item creation complete.,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,219,
@@ -769,38 +774,48 @@ The current enhancement points are <VAL 1>.",ui\00_message\ui\Craft_res.gmd,\ui\
 108,DIALOG_GET_GRADE_UP,グレードアップしました,Grade has been enhanced.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,108,
 108,DIALOG_GET_GRADE_UP,グレードアップしました,Grade has been enhanced.,ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,108,
 64,DIALOG_GET_XP,"クラフトを指揮していた<NAME PAWN>が
-クラフト経験値を<VAL XP>入手しました","For being the craft leader, <NAME PAWN>
+クラフト経験値を<VAL XP>入手しました","For being the craft leader, 
+<NAME PAWN>
 has gained <VAL XP> crafting experience.",ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,64,
 64,DIALOG_GET_XP,"クラフトを指揮していた<NAME PAWN>が
-クラフト経験値を<VAL XP>入手しました","For being the craft leader, <NAME PAWN>
+クラフト経験値を<VAL XP>入手しました","For being the craft leader, 
+<NAME PAWN>
 has gained <VAL XP> crafting experience.",ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,64,
 64,DIALOG_GET_XP,"クラフトを指揮していた<NAME PAWN>が
-クラフト経験値を<VAL XP>入手しました","For being the craft leader, <NAME PAWN>
+クラフト経験値を<VAL XP>入手しました","For being the craft leader, 
+<NAME PAWN>
 has gained <VAL XP> crafting experience.",ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,64,
 64,DIALOG_GET_XP,"クラフトを指揮していた<NAME PAWN>が
-クラフト経験値を<VAL XP>入手しました","For being the craft leader, <NAME PAWN>
+クラフト経験値を<VAL XP>入手しました","For being the craft leader, 
+<NAME PAWN>
 has gained <VAL XP> crafting experience.",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,64,
 64,DIALOG_GET_XP,"クラフトを指揮していた<NAME PAWN>が
-クラフト経験値を<VAL XP>入手しました","For being the craft leader, <NAME PAWN>
+クラフト経験値を<VAL XP>入手しました","For being the craft leader, 
+<NAME PAWN>
 has gained <VAL XP> crafting experience.",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,64,
 207,DIALOG_GET_XP_EX,"クラフトを指揮していた<NAME PAWN>が
-クラフト経験値を<VAL> (+<VAL>) <UNIT XP>入手しました","For being the craft leader, <NAME PAWN>
+クラフト経験値を<VAL> (+<VAL>) <UNIT XP>入手しました","For being the craft leader, 
+<NAME PAWN>
 has gained <VAL> (+<VAL>) <UNIT XP> crafting
 experience.",ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,207,
 207,DIALOG_GET_XP_EX,"クラフトを指揮していた<NAME PAWN>が
-クラフト経験値を<VAL> (+<VAL>) <UNIT XP>入手しました","For being the craft leader, <NAME PAWN>
+クラフト経験値を<VAL> (+<VAL>) <UNIT XP>入手しました","For being the craft leader, 
+<NAME PAWN>
 has gained <VAL> (+<VAL>) <UNIT XP> crafting
 experience.",ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,207,
 207,DIALOG_GET_XP_EX,"クラフトを指揮していた<NAME PAWN>が
-クラフト経験値を<VAL> (+<VAL>) <UNIT XP>入手しました","For being the craft leader, <NAME PAWN>
+クラフト経験値を<VAL> (+<VAL>) <UNIT XP>入手しました","For being the craft leader, 
+<NAME PAWN>
 has gained <VAL> (+<VAL>) <UNIT XP> crafting
 experience.",ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,207,
 207,DIALOG_GET_XP_EX,"クラフトを指揮していた<NAME PAWN>が
-クラフト経験値を<VAL> (+<VAL>) <UNIT XP>入手しました","For being the craft leader, <NAME PAWN>
+クラフト経験値を<VAL> (+<VAL>) <UNIT XP>入手しました","For being the craft leader, 
+<NAME PAWN>
 has gained <VAL> (+<VAL>) <UNIT XP> crafting
 experience.",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,207,
 207,DIALOG_GET_XP_EX,"クラフトを指揮していた<NAME PAWN>が
-クラフト経験値を<VAL> (+<VAL>) <UNIT XP>入手しました","For being the craft leader, <NAME PAWN>
+クラフト経験値を<VAL> (+<VAL>) <UNIT XP>入手しました","For being the craft leader, 
+<NAME PAWN>
 has gained <VAL> (+<VAL>) <UNIT XP> crafting
 experience.",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,207,
 72,DIALOG_POINT_ASSIGN,ポイントの割り振りを行いました,Crafting skill points allocated.,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,72,

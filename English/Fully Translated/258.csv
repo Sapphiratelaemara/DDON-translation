@@ -41,24 +41,28 @@ and cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_c
 ( <VAL> / <VAL JP> )","You are almost maxed out on Job Points.
 (<VAL>/<VAL JP>)",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,225,
 227,syslog_jp_possession_max_notice_pawn,"<NAME PAWN>のジョブポイントの所持量が最大に近づいています
-( <VAL> / <VAL JP> )","<NAME PAWN> is almost maxed out on Job Points.
+( <VAL> / <VAL JP> )","<NAME PAWN> 
+is almost maxed out on Job Points.
 (<VAL>/<VAL JP>)",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,227,
-228,syslog_jp_possession_max_pawn,<NAME PAWN>のジョブポイントが最大に達したため、これ以上獲得できません,"<NAME PAWN> has reached the maximum amount of Job
+228,syslog_jp_possession_max_pawn,<NAME PAWN>のジョブポイントが最大に達したため、これ以上獲得できません,"<NAME PAWN> 
+has reached the maximum amount of Job
 Points and cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,228,
 329,syslog_kt_get,<UNTN KT>を<VAL><UNIT KT>、入手しました,<VAL> <UNIT KT> of <UNTN KT>s obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,329,
 330,syslog_kt_lost,<UNTN KT>を<VAL><UNIT KT>、消費しました,<VAL> <UNIT KT> of <UNTN KT>s spent.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,330,
 335,syslog_kt_possession_max,<UNTN KT>が最大まで補充されました,<UNTN KT> has been replenished to the maximum.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,335,
 125,syslog_levelup_job_me,<NAME PLAYER>が<VAL LV>になりました,<NAME PLAYER> has reached <VAL LV>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,125,
-127,syslog_levelup_job_pawn,<NAME PAWN>が<VAL LV>になりました,<NAME PAWN> has reached <VAL LV>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,127,
+127,syslog_levelup_job_pawn,<NAME PAWN>が<VAL LV>になりました,"<NAME PAWN> 
+has reached <VAL LV>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,127,
 126,syslog_levelup_job_someone,<NAME TARGET>が<VAL LV>になりました,<NAME TARGET> has reached <VAL LV>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,126,
 202,syslog_login_unclaimed_qreward,保管ボックスに未受け取りのクエスト報酬があります,"There are quest rewards that can be
 claimed at the Storage Box.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,202,
 275,syslog_mandragora_grow_up,マンドラゴラの育成が完了しました,Mandragora raising completed.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,275,
-123,syslog_map_freemarker_described,<NAME TARGET>がマップにフリーマーカーを記入しました,<NAME TARGET> has placed a free marker on the map.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,123,
+123,syslog_map_freemarker_described,<NAME TARGET>がマップにフリーマーカーを記入しました,"<NAME TARGET> 
+has placed a free marker on the map.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,123,
 122,syslog_map_freemarker_off,マップのフリーマーカーを消去しました,You erased the free marker from the map.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,122,
 121,syslog_map_freemarker_on,マップにフリーマーカーを記入しました,Place the free marker on the map.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,121,
-124,syslog_map_freemarker_removed,<NAME TARGET>がマップのフリーマーカーを消去しました,"<NAME TARGET> has erased the free marker from the
-map.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,124,
+124,syslog_map_freemarker_removed,<NAME TARGET>がマップのフリーマーカーを消去しました,"<NAME TARGET> 
+has erased the free marker from the map.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,124,
 161,syslog_mission_end,コンテンツを終了します,Mission has ended.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,161,
 179,syslog_mission_interruption,コンテンツを中断します,The mission has been interrupted.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,179,
 183,syslog_mission_jp_get,ジョブポイントを<VAL JP>獲得しました,Gained <VAL JP>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,183,
@@ -66,7 +70,8 @@ map.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,124,
 163,syslog_mission_npc_dying,護衛対象の体力が残りわずかです,"The escort target only has little health
 remaining.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,163,
 187,syslog_mission_pawn_jp,<NAME PAWN>が<VAL JP>獲得しました,<NAME PAWN> gained <VAL JP>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,187,
-188,syslog_mission_pawn_jp_ex,<NAME PAWN>が<VAL> (+<VAL>) <UNIT JP>獲得しました,<NAME PAWN> gained <VAL> (+<VAL>) <UNIT JP>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,188,
+188,syslog_mission_pawn_jp_ex,<NAME PAWN>が<VAL> (+<VAL>) <UNIT JP>獲得しました,"<NAME PAWN> 
+gained <VAL> (+<VAL>) <UNIT JP>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,188,
 171,syslog_mission_quit_decide,コンテンツ途中離脱が決定されました,The request to end the mission was successful.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,171,
 170,syslog_mission_quit_receive,コンテンツ途中離脱の提案がありました,You have received a request to end the mission.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,170,
 160,syslog_mission_quit_reject,コンテンツ途中離脱が拒否されました,"Mission did not end because the request was
@@ -100,15 +105,20 @@ has been used.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,238,
 109,syslog_om_rock_remove,岩壁が爆破された,Rock wall has been blown open.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,109,
 111,syslog_om_trap,天井の罠が発動した！,Ceiling trap has been activated!,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,111,
 116,syslog_om_treasure_trap,宝箱のトラップが発動した！,The treasure chest's trap has been triggered!,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,116,
-117,syslog_om_treasure_untrap,<NAME TARGET>は宝箱のトラップを解除した,"<NAME TARGET> has released the treasure chest's
-trap.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,117,
-112,syslog_om_warp,<NAME TARGET>はリム転移した,<NAME TARGET> has teleported through the rift.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,112,
+117,syslog_om_treasure_untrap,<NAME TARGET>は宝箱のトラップを解除した,"<NAME TARGET> 
+has disarmed the treasure chest's trap.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,117,
+112,syslog_om_warp,<NAME TARGET>はリム転移した,"<NAME TARGET> 
+has teleported through the rift.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,112,
 115,syslog_om_waterfall,滝の流れが止まった,The waterfall's flow has stopped.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,115,
-276,syslog_pap_get,<NAME PAWN>に戦術育成が行えます,<NAME PAWN> can now do Tactics Training.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,276,
-285,syslog_pap_limit_up,<NAME PAWN>の<UNTN PAP>の最大値が増加しました,Maximum <UNTN PAP> for <NAME PAWN> has increased.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,285,
+276,syslog_pap_get,<NAME PAWN>に戦術育成が行えます,"<NAME PAWN> 
+can now do Tactics Training.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,276,
+285,syslog_pap_limit_up,<NAME PAWN>の<UNTN PAP>の最大値が増加しました,"Maximum <UNTN PAP> for 
+<NAME PAWN> has increased.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,285,
 151,syslog_party_chg_leader,<NAME TARGET>がパーティーリーダーになりました,<NAME TARGET> is now the party leader.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,151,
-16,syslog_party_decline,<NAME TARGET>のパーティー要請を拒否しました,You declined the party request from <NAME TARGET>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16,
-17,syslog_party_declined,<NAME TARGET>へのパーティー要請がキャンセルされました,<NAME TARGET> has declined your party request.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17,
+16,syslog_party_decline,<NAME TARGET>のパーティー要請を拒否しました,"You declined the party request from 
+<NAME TARGET>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16,
+17,syslog_party_declined,<NAME TARGET>へのパーティー要請がキャンセルされました,"<NAME TARGET> 
+has declined your party request.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17,
 19,syslog_party_join_me,<NAME TARGET>のパーティーに加わりました,You joined <NAME TARGET>'s party.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,19,
 21,syslog_party_join_pawn,<NAME PAWN>がパーティーに加わりました,<NAME PAWN> has joined the party.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,21,
 20,syslog_party_join_someone,<NAME TARGET>がパーティーに加わりました,<NAME TARGET> has joined the party.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,20,
@@ -120,33 +130,41 @@ trap.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,117,
 yet.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,193,
 14,syslog_party_request,<NAME TARGET>にパーティー要請しました,Sent <NAME TARGET> a party request.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14,
 153,syslog_party_request_ok,パーティー要請が受諾されました,Party request has been accepted.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,153,
-15,syslog_party_requested,<NAME TARGET>にパーティー要請されました,<NAME TARGET> has sent you a party request.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15,
-18,syslog_party_takeback,<NAME TARGET>からのパーティー要請が取り消されました,"The party request from <NAME TARGET> has been
-canceled.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18,
-172,syslog_pawn_adventure_dec,<NAME PAWN>の冒険回数が減りました,"The remaining adventures of <NAME PAWN> has been
-reduced by 1.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,172,
+15,syslog_party_requested,<NAME TARGET>にパーティー要請されました,"<NAME TARGET> 
+has sent you a party request.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15,
+18,syslog_party_takeback,<NAME TARGET>からのパーティー要請が取り消されました,"The party request from 
+<NAME TARGET> has been canceled.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18,
+172,syslog_pawn_adventure_dec,<NAME PAWN>の冒険回数が減りました,"The remaining adventures of 
+<NAME PAWN> 
+has been reduced by 1.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,172,
 173,syslog_pawn_adventure_zero,"<NAME PAWN>の冒険回数が0になりました
-パーティーから外れます","The remaining adventures of <NAME PAWN> is now 0.
+パーティーから外れます","The remaining adventures of 
+<NAME PAWN> is now 0.
 They will leave the party.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,173,
-174,syslog_pawn_crafter_dec,<NAME PAWN>のクラフト回数が減りました,"The remaining crafts of <NAME PAWN> has been
+174,syslog_pawn_crafter_dec,<NAME PAWN>のクラフト回数が減りました,"The remaining crafts of 
+<NAME PAWN> has been
 reduced by 1.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,174,
-175,syslog_pawn_crafter_zero,<NAME PAWN>のクラフト回数が0になりました,The remaining crafts of <NAME PAWN> is now 0.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,175,
+175,syslog_pawn_crafter_zero,<NAME PAWN>のクラフト回数が0になりました,"The remaining crafts of 
+<NAME PAWN> is now 0.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,175,
 260,syslog_pawn_expedition_expiration_hotspot_ite,特別なアイテムを持ち帰りました,I brought back a special Item.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,260,
 296,syslog_pawn_expedition_hotsign,そろそろホットスポットが見つかりそうです,A hotspot is likely to be found soon.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,296,
 256,syslog_pawn_expedition_sp_delivery,強化派遣により、希少なアイテムを持ち帰りました,"I brought back a rare item through reinforcement
 dispatch.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,256,
 320,syslog_pawn_get_spskill_stack,"<NAME PAWN>が
-<VAL>を閃きました",<NAME PAWN> was inspired with <VAL>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,320,
+<VAL>を閃きました","<NAME PAWN> 
+was inspired with <VAL>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,320,
 223,syslog_pawn_instruction_others,"<NAME TARGET>がポーンに
-<PORD>を命令しました","<NAME TARGET> has given the pawn order of
+<PORD>を命令しました","<NAME TARGET> 
+has given the pawn order 
 <PORD> to their pawns.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,223,
-154,syslog_pawn_lost_escape,<NAME PAWN>がロストを回避してリムストーンに帰還しました,"<NAME PAWN> has been lost and sent to the
-Riftstone.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,154,
+154,syslog_pawn_lost_escape,<NAME PAWN>がロストを回避してリムストーンに帰還しました,"<NAME PAWN> 
+has been lost and sent to the Riftstone.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,154,
 36,syslog_pawn_rescue_faild,<NAME PAWN>の救出に失敗しました,<NAME PAWN> rescue failed.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,36,
-38,syslog_pawn_rescue_resurrection,<NAME PAWN>が復活して待機状態に戻り、再呼び出し可能になりました,"<NAME PAWN> has been rescued
-and returned to standby state.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,38,
+38,syslog_pawn_rescue_resurrection,<NAME PAWN>が復活して待機状態に戻り、再呼び出し可能になりました,"<NAME PAWN> 
+has been rescued and returned to standing by.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,38,
 35,syslog_pawn_rescue_start,<NAME PAWN>を救出してください,Please rescue <NAME PAWN>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,35,
-37,syslog_pawn_rescue_success,<NAME PAWN>の救出に成功しました。奥に進みポーンを解放しましょう,"<NAME PAWN> was successfully rescued.
+37,syslog_pawn_rescue_success,<NAME PAWN>の救出に成功しました。奥に進みポーンを解放しましょう,"<NAME PAWN> 
+was successfully rescued.
 Proceed to the end to finish the mission.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,37,
 95,syslog_pawnrestore_failure,<NAME PAWN>の救出に失敗しました,<NAME PAWN> rescue failed.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,95,
 96,syslog_pawnrestore_restore,<NAME PAWN>が復活しました,<NAME PAWN> has been resurrected.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,96,
@@ -167,7 +185,8 @@ cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.a
 278,syslog_pq_seq_ana_start,＜<VAL>＞の使命＜<VAL>＞を開始しました,"""<VAL>"" mission ""<VAL>"" has begun.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,278,
 62,syslog_quest_accept_max,クエスト受注数が最大になりました,"Your quest log has reached the
 maximum and you cannot accept more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,62,
-40,syslog_quest_accept_party,<NAME TARGET>が<NAME QUEST>を受注しました,<NAME TARGET> has accepted <NAME QUEST>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,40,
+40,syslog_quest_accept_party,<NAME TARGET>が<NAME QUEST>を受注しました,"<NAME TARGET> has accepted 
+<NAME QUEST>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,40,
 39,syslog_quest_accept_solo,<NAME QUEST>を受注しました,<NAME QUEST> has been accepted.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,39,
 44,syslog_quest_assist,<NAME QUEST>のクリアをアシストしました,"<NAME QUEST> has been completed with your
 assistance.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,44,
@@ -176,22 +195,26 @@ so it was accepted in assist mode.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.
 211,syslog_quest_can_progress,＜<NAME QUEST>＞が進行可能になりました,"""<NAME QUEST>"" can now progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,211,
 210,syslog_quest_can_progress_leader,パーティーリーダーの＜<NAME QUEST>＞が進行可能になりました,"Because of the party leader, ""<NAME QUEST>"" can
 now progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,210,
-208,syslog_quest_can_progress_party,<NAME TARGET>の＜<NAME QUEST>＞が進行可能になりました,"<NAME TARGET>'s quest ""<NAME QUEST>"" can now
-progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,208,
+208,syslog_quest_can_progress_party,<NAME TARGET>の＜<NAME QUEST>＞が進行可能になりました,"<NAME TARGET>'s quest 
+""<NAME QUEST>"" 
+can now progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,208,
 61,syslog_quest_cancel,<NAME QUEST>を破棄しました,<NAME QUEST> has been canceled.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,61,
 213,syslog_quest_cannot_progress,＜<NAME QUEST>＞が進行不可になりました,"""<NAME QUEST>"" can no longer progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,213,
 212,syslog_quest_cannot_progress_leader,パーティーリーダーの＜<NAME QUEST>＞が進行不可になりました,"Because of the party leader, ""<NAME QUEST>"" can
 no longer progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,212,
 207,syslog_quest_cannot_progress_party,リーダーと進行状況が異なるため、<NAME TARGET>の＜<NAME QUEST>＞が進行保留になりました,"The quest progress between the party leader and
-<NAME TARGET> for ""<NAME QUEST>"" is different.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,207,
+<NAME TARGET> for 
+""<NAME QUEST>"" differs.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,207,
 43,syslog_quest_clear,<NAME QUEST>をクリアしました,<NAME QUEST> has been completed.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,43,
 224,syslog_quest_decide_deliver,＜<NAME QUEST>＞の納品目標を達成しました,"""<NAME QUEST>"" delivery objective achieved.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,224,
 54,syslog_quest_dialog,<NAME QUEST>：≪汎用アナウンス用テキスト≫,<NAME QUEST>：≪General announcement text≫,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54,
 51,syslog_quest_discontinue,進行不可能になったクエストがあります,This quest is not able to progress.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,51,
-42,syslog_quest_discover_party,<NAME TARGET>が<NAME QUEST>を発見しました,<NAME TARGET> has discovered <NAME QUEST>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,42,
+42,syslog_quest_discover_party,<NAME TARGET>が<NAME QUEST>を発見しました,"<NAME TARGET> has discovered 
+<NAME QUEST>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,42,
 41,syslog_quest_discover_solo,<NAME QUEST>を発見しました,<NAME QUEST> has been discovered.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,41,
 48,syslog_quest_dog_clear,<NAME ITEM>の納品が完了しました,<NAME ITEM> delivery completed.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,48,
-47,syslog_quest_dog_party,<NAME TARGET>が<NAME ITEM>×<VAL>を納品しました,<NAME TARGET> delivered <NAME ITEM> x<VAL>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,47,
+47,syslog_quest_dog_party,<NAME TARGET>が<NAME ITEM>×<VAL>を納品しました,"<NAME TARGET> delivered 
+<NAME ITEM> x<VAL>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,47,
 46,syslog_quest_dog_solo,<NAME ITEM>×<VAL>を納品しました,<NAME ITEM> x<VAL> delivered.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,46,
 194,syslog_quest_end_dist_cancel,＜<VAL>＞の配信期間が終了したためクエスト破棄されました,"Quest ""<VAL>"" has expired.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,194,
 45,syslog_quest_happen,<NAME QUEST>に異常事態が発生しました,<NAME QUEST> has updated.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,45,
@@ -218,8 +241,8 @@ people)",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,216,
 クエストログで進行状況を確認してください","The progress of ＜<NAME QUEST>＞ has failed. Please
 check the quest log for status updates.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,233,
 58,syslog_quest_ready_ready,<NAME TARGET>が進行準備完了になりました,<NAME TARGET> is now ready to proceed!,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,58,
-57,syslog_quest_ready_start,<NAME TARGET>がイベント準備・パーティー招集を行いました,"<NAME TARGET> prepared for the event and convened
-the party.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,57,
+57,syslog_quest_ready_start,<NAME TARGET>がイベント準備・パーティー招集を行いました,"<NAME TARGET> 
+prepared for the event and convened the party.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,57,
 203,syslog_quest_repeat_reward,＜<NAME QUEST>＞の報酬に、繰り返しボーナスが適用されました,"Earned a bonus reward for repeating ""<NAME QUEST>
 "".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,203,
 244,syslog_quest_root_reward,"条件が満たされたため、＜<NAME QUEST>＞の
@@ -292,7 +315,8 @@ you have not claimed.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.a
 32,syslog_status_resurrection_someone,<NAME TARGET>が復活しました,<NAME TARGET> has been resurrected.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,32,
 191,syslog_success_input_eventcode,イベントコードの入力に成功しました,Event code input was successful.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,191,
 4,syslog_tail_off,追従オートランが解除されました,Autorun has been canceled.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4,
-3,syslog_tail_on,<NAME TARGET>に追従オートランしました,You began following <NAME TARGET> with autorun.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3,
+3,syslog_tail_on,<NAME TARGET>に追従オートランしました,"You began following 
+<NAME TARGET> with autorun.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3,
 180,syslog_touchom_areamaster_lock,エリアマスターにより封鎖されている――,This has been blocked by the Area Master.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,180,
 287,syslog_tp_get,<VAL TP>を入手しました,<VAL TP> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,287,
 288,syslog_tp_lost,<VAL TP>を消費しました,<VAL TP> spent.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,288,

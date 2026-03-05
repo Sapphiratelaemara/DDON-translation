@@ -526,8 +526,8 @@ phrase. You can purchase it in the online shop",ui\00_message\ui\simple_communic
 118,syslog_achieve_open,<NAME ACHIEVE>を解放しました,<NAME ACHIEVE> is now available.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,118,
 119,syslog_achieve_unlock,アチーブメント報酬を獲得しました！,Obtained an achievement reward!,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,119,
 299,syslog_action_alldestroy_rest_num,殲滅まで残り<VAL>体,<VAL> Remaining until extermination,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,299,
-339,syslog_action_em_escape,周囲から <NAME TARGET> の気配が消えた,"The sign of <NAME TARGET> has disappeared from
-the surroundings.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,339,
+339,syslog_action_em_escape,周囲から <NAME TARGET> の気配が消えた,"The signs of <NAME TARGET> 
+have disappeared from the surroundings.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,339,
 310,syslog_action_ensa,怨嗟の声が渦巻いている――,Voice of Resentment is whirling,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,310,
 313,syslog_action_ensa_clear,"""怨塊""を失い、<NAME TARGET> の力が弱まっていく――","Grudge Pillars have been destroyed, <NAME TARGET>
 is weakening",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,313,
@@ -581,9 +581,10 @@ fragment of life.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3
 302,syslog_action_fog_clear,殲滅に成功　異界の霧が晴れてゆく――,"Successfully destroyed. The otherworldly fog is
 clearing up",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,302,
 298,syslog_action_fog_sign,異界の霧が吐き零されていく――,Otherworldly fog is spreading out...,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,298,
-295,syslog_action_humanhateup_target,<NAME TARGET> が周囲の敵の標的になった,"<NAME TARGET> has become the target of the
-surrounding enemies.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,295,
-315,syslog_action_ikai_01,<NAME TARGET> が異界に飛ばされた――,<NAME TARGET> was teleported to a different world,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,315,
+295,syslog_action_humanhateup_target,<NAME TARGET> が周囲の敵の標的になった,"<NAME TARGET> 
+has become the target of the surrounding enemies.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,295,
+315,syslog_action_ikai_01,<NAME TARGET> が異界に飛ばされた――,"<NAME TARGET> 
+was teleported to a different world",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,315,
 316,syslog_action_ikai_02,"""魔物""を倒し、魂を集めて異界の扉を開け――","Defeat monsters and collect their souls to open
 Door to the Other World",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,316,
 317,syslog_action_ikai_03,"異界から救い出すには、""怨塊""を破壊せよ――","Destroy Grudge Pillars to rescue comrade from the
@@ -599,7 +600,8 @@ and Door to the Other World has opened",ui\00_message\ui\system_log.gmd,\ui\gui_
 340,syslog_action_ikai_10,"残っている""怨塊""を、すべて破壊せよ――","Destroy all of the remaining ""Grudge Pillars""",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,340,
 344,syslog_action_ikai_11,"怨塊 残り""<VAL>個""――","""<VAL>"" Grudge Pillars left",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,344,
 345,syslog_action_ikai_12,"<NAME TARGET> が凶骨の祭壇へ運ばれた
-助けなければ、全員に厄災が降りかかる――","<NAME TARGET> was taken to the Bone Altar.
+助けなければ、全員に厄災が降りかかる――","<NAME TARGET> 
+was taken to the Bone Altar.
 If you don't rescue them, everyone will meet with
 disaster",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,345,
 346,syslog_action_ikai_13,"生贄として、<NAME TARGET> が祭壇に捧げられ
@@ -610,12 +612,15 @@ staff.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,322,
 321,syslog_action_staff_of_wise,"""竜角の杖""の殲滅まで残り<VAL>本","The number of remaining ""Dragon Horn Staffs""
 until extermination: <VAL>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,321,
 343,syslog_action_staff_of_wise_break,"""竜角の杖""を破壊せよ――","Destroy the ""Dragon Horn Staff.""",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,343,
-308,syslog_action_summon_enemy01,<NAME TARGET> が魔物を呼び寄せている――,<NAME TARGET> is calling monsters,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,308,
-314,syslog_action_summon_enemy02,<NAME TARGET> が魔物を召喚しようとしている――,<NAME TARGET> is summoning monsters,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,314,
+308,syslog_action_summon_enemy01,<NAME TARGET> が魔物を呼び寄せている――,"<NAME TARGET> 
+is calling monsters",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,308,
+314,syslog_action_summon_enemy02,<NAME TARGET> が魔物を召喚しようとしている――,"<NAME TARGET> 
+is summoning monsters",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,314,
 309,syslog_action_summon_enemy_clear,召喚された魔物を一掃した――,Summoned monsters have been eliminated.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,309,
-294,syslog_action_tornado_sign,<NAME TARGET> が竜巻を起こそうとしている,<NAME TARGET> is about to create a tornado.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,294,
-293,syslog_action_tornado_target,<NAME TARGET> が竜巻に狙われている,"<NAME TARGET> has become the target of the
-tornado.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,293,
+294,syslog_action_tornado_sign,<NAME TARGET> が竜巻を起こそうとしている,"<NAME TARGET> 
+is about to create a tornado.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,294,
+293,syslog_action_tornado_target,<NAME TARGET> が竜巻に狙われている,"<NAME TARGET> 
+has become the target of the tornado.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,293,
 5,syslog_archieve_get,アチーブメント「<NAME ACHIEVE>」を獲得しました,"Earned achievement ""<NAME ACHIEVE>"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5,
 63,syslog_areamaster_ap_get,"<NAME AREA>のエリアポイント
 <VAL AP>を獲得しました",<NAME AREA>: +<VAL AP>,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,63,
@@ -631,7 +636,8 @@ I have now canceled the current navigation
 settings.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,347,
 195,syslog_awaitquest_auto_cancel,受注待ちクエスト＜<VAL>＞を破棄しました,Abandoned pending quest <VAL>,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,195,
 1,syslog_battle_danger,<VAL> 秒で最後に立ち寄った拠点から再開されます,You will be returned home in <VAL> seconds.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1,
-0,syslog_battle_danger_tg,<NAME TARGET>が行動不能になりました,<NAME TARGET> has been incapacitated.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0,
+0,syslog_battle_danger_tg,<NAME TARGET>が行動不能になりました,"<NAME TARGET> 
+has been incapacitated.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0,
 2,syslog_battle_die,あと<VAL>秒で最後に立ち寄った拠点から再開されます,"After <VAL> seconds, you will be returned home.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2,
 136,syslog_bazaar_cancel,バザーに出品中の<NAME ITEM>を取り消しました,<NAME ITEM> has been withdrawn from the bazaar.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,136,
 134,syslog_bazaar_put,バザーに<NAME ITEM>を出品しました,<NAME ITEM> has been exhibited in the bazaar.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,134,
@@ -667,14 +673,18 @@ has been activated.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc
 クラン酒場にいるキビザを訪ねてください","<STG 210> is now available for unlocking.
 Please visit Kibiza at the Clan Tavern.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,257,
 249,syslog_clan_base_released,<STG 210>を解放しました,<STG 210> is now available.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,249,
-150,syslog_clan_chg_leader,<NAME TARGET>がクランリーダーになりました,<NAME TARGET> is now the clan leader.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,150,
-149,syslog_clan_chg_master,<NAME TARGET>がクランマスターになりました,<NAME TARGET> is now the clan master.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,149,
+150,syslog_clan_chg_leader,<NAME TARGET>がクランリーダーになりました,"""<NAME TARGET> 
+is now a Clan Officer."".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,150,
+149,syslog_clan_chg_master,<NAME TARGET>がクランマスターになりました,"""<NAME TARGET> 
+is now the Clan Master."".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,149,
 262,syslog_clan_clue_discover,%s が %s を発見しました,%s has discovered %s,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,262,
 264,syslog_clan_common_unlock,%s が解放されました,%s unlocked.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,264,
 144,syslog_clan_create,クランを作成しました,The clan has been created.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,144,
 263,syslog_clan_dungeon_unlock,クランダンジョン %s が解放されました,The clan dungeon %s is now open!,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,263,
-145,syslog_clan_invite,<NAME TARGET>からクランへの招待があります,<NAME TARGET> has been invited to the clan.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,145,
-148,syslog_clan_join,<NAME TARGET>がクランに加入しました,<NAME TARGET> has joined the clan.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,148,
+145,syslog_clan_invite,<NAME TARGET>からクランへの招待があります,"<NAME TARGET> 
+has been invited to the clan.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,145,
+148,syslog_clan_join,<NAME TARGET>がクランに加入しました,"<NAME TARGET> 
+has joined the clan.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,148,
 147,syslog_clan_join_other,<NAME TARGET>がクランに加入しました,<NAME TARGET> has joined the clan.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,147,
 236,syslog_clan_member_getachievement,%sがアチーブメント「%s」を獲得しました,"%s earned achievement ""%s"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,236,
 235,syslog_clan_member_login,%sがログインしました,%s has logged in.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,235,
@@ -694,20 +704,21 @@ period.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,87,
 336,syslog_content_buff_get,"""<VAL>""の効果が付与されました","""<VAL>"" effect has been applied.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,336,
 337,syslog_content_buff_lost,"""<VAL>""の効果が解除されました","""<VAL>"" effect has been removed.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,337,
 75,syslog_content_convoy_hp_half,<NAME TARGET>のHPが50％をきりました,<NAME TARGET>'s HP has dropped below 50%.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,75,
-76,syslog_content_convoy_hp_little,<NAME TARGET>のHPが瀕死状態です,<NAME TARGET>'s HP is in critical condition,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,76,
+76,syslog_content_convoy_hp_little,<NAME TARGET>のHPが瀕死状態です,"<NAME TARGET>'s 
+HP is in critical condition",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,76,
 77,syslog_content_convoy_hp_zero,<NAME TARGET>が倒れました,<NAME TARGET> has been defeated.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,77,
 83,syslog_content_end_by_clear,<NAME QUEST>をクリアにより終了します,<NAME QUEST> has been cleared.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,83,
 84,syslog_content_end_by_escape,<NAME QUEST>を離脱により終了します,<NAME QUEST> ended by leaving.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,84,
-85,syslog_content_end_by_friends_down,<NAME QUEST>を<NAME TARGET>が倒れたため、終了します,"The quest <NAME QUEST> will end as <NAME TARGET>
-has fallen.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,85,
+85,syslog_content_end_by_friends_down,<NAME QUEST>を<NAME TARGET>が倒れたため、終了します,"The quest <NAME QUEST> will end as 
+<NAME TARGET> has fallen.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,85,
 86,syslog_content_end_by_timeup,<NAME QUEST>をタイムアップにより終了します,<NAME QUEST> ended due to the time limit.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,86,
 74,syslog_content_enemy_engage,<EMNM n>が乱入しました,<EMNM n> has intruded.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,74,
 159,syslog_content_entry,エクストリームミッションにエントリーしました,You have applied for the Extreme Mission.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,159,
 79,syslog_content_pawn_add_reward,セカンドポーンの恩恵により<NAME QUEST>に報酬が追加されました,"With the benefit of the Second Pawn, rewards have
 been added to <NAME QUEST>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,79,
 80,syslog_content_pawn_get_pawn,セカンドポーンが仲間に加わりました,A second pawn has joined the group.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,80,
-78,syslog_content_pawn_rescure_success,<NAME TARGET>(共闘ポーン名)の援護に成功しました,"<NAME TARGET>(name of co-op pawn) has been
-successfully covered!",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,78,
+78,syslog_content_pawn_rescure_success,<NAME TARGET>(共闘ポーン名)の援護に成功しました,"<NAME TARGET> 
+has been rescued!",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,78,
 91,syslog_content_reward_get_boarder,<NAME QUEST>の累計スコア報酬が保管ボックスに入りました,"<NAME QUEST> total score reward has been placed
 into the storage box.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,91,
 92,syslog_content_reward_get_ranked,<NAME QUEST>のランキング報酬が保管ボックスに入りました,"<NAME QUEST> ranking reward has been placed into
@@ -719,14 +730,17 @@ the storage box.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,92
 98,syslog_craft_consume_gold,<VAL GOLD>を消費しました,<VAL GOLD> spent.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,98,
 97,syslog_craft_consume_item,<NAME ITEM>を<VAL>個、消費しました,<NAME ITEM> x<VAL> consumed.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,97,
 103,syslog_craft_crest_break,クレストを破壊しました,The crest has been broken.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,103,
-101,syslog_craft_exp_get,<NAME PAWN>がクラフト経験値<VAL XP>を取得しました,<NAME PAWN> has gained <VAL XP> for crafting.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,101,
-277,syslog_craft_exp_get_ex,<NAME PAWN>がクラフト経験値<VAL> (+<VAL>) <UNIT XP>を取得しました,"<NAME PAWN> has gained <VAL> (+<VAL>) <UNIT XP>
-for crafting.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,277,
-104,syslog_craft_levelup,<NAME PAWN>のクラフトレベルが<VAL>になりました,<NAME PAWN> has reached craft level <VAL>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,104,
+101,syslog_craft_exp_get,<NAME PAWN>がクラフト経験値<VAL XP>を取得しました,"<NAME PAWN> 
+has gained <VAL XP> for crafting.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,101,
+277,syslog_craft_exp_get_ex,<NAME PAWN>がクラフト経験値<VAL> (+<VAL>) <UNIT XP>を取得しました,"<NAME PAWN> 
+has gained <VAL> (+<VAL>) <UNIT XP> for crafting.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,277,
+104,syslog_craft_levelup,<NAME PAWN>のクラフトレベルが<VAL>になりました,"""<NAME PAWN> 
+has reached craft level <VAL>"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,104,
 100,syslog_craft_recieve,<NAME ITEM>を受け取りました,<NAME ITEM> has been received from crafting.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,100,
 196,syslog_craft_recieve2,<NAME ITEM>を<VAL>個、受け取りました,<NAME ITEM> x<VAL> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,196,
 102,syslog_craft_sophistcate,<NAME ITEM>がグレードアップしました,<NAME ITEM> has been enhanced.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,102,
-99,syslog_craft_start,<NAME PAWN>が<NAME ITEM>の生産を開始しました,<NAME PAWN> has begun crafting <NAME ITEM>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,99,
+99,syslog_craft_start,<NAME PAWN>が<NAME ITEM>の生産を開始しました,"<NAME PAWN> has begun crafting 
+<NAME ITEM>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,99,
 380,syslog_darkgauge_growup,"""破滅の力""のゲージが徐々に上昇してゆく！",The Power of Destruction is rising!,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,380,
 379,syslog_darkgauge_rise,"""破滅の力""の高まりを感じる――
 ゲージが十分に溜まるとすべてが滅びる！","The Power of Destruction is growing...
@@ -758,11 +772,13 @@ offensive power.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,37
 242,syslog_exm_return_player,パーティーメンバーが転移先から復帰した！,"A party member has returned from their
 teleportation!",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,242,
 34,syslog_favorite_login,<NAME TARGET>がログインしました,<NAME TARGET> has logged in.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,34,
-13,syslog_friend_cancel_by_decline,<NAME TARGET>のフレンド申請を断りました,"The friend request from <NAME TARGET> was
-declined.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13,
+13,syslog_friend_cancel_by_decline,<NAME TARGET>のフレンド申請を断りました,"The friend request from 
+<NAME TARGET> was declined.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13,
 12,syslog_friend_ok,<NAME TARGET>とフレンドになりました,<NAME TARGET> is now your friend.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12,
-10,syslog_friend_request,<NAME TARGET>にフレンド申請をしました,You sent <NAME TARGET> a friend request.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10,
-11,syslog_friend_requested,<NAME TARGET>からフレンド申請されました,<NAME TARGET> has sent you a friend request.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11,
+10,syslog_friend_request,<NAME TARGET>にフレンド申請をしました,"You sent 
+<NAME TARGET> a friend request.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10,
+11,syslog_friend_requested,<NAME TARGET>からフレンド申請されました,"<NAME TARGET> 
+has sent you a friend request.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11,
 373,syslog_g_possession_max,<UNTN G>が最大に達したため、これ以上獲得できません,"You have reached the maximum 
 amount of <UNTN G>
 and cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,373,

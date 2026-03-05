@@ -3,11 +3,12 @@
 until the promotion test is cleared.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,376,
 437,ana_craftskillreset_conf,"<NAME PAWN>の
 クラフトスキルをリセットしますか？
-※クラフトスキルリセット権が消費されます","Do you want to reset <NAME PAWN>'s Crafting
-skills?
+※クラフトスキルリセット権が消費されます","Do you want to reset 
+<NAME PAWN>'s Crafting skills?
 ※Consumes a Reset Craft Skills consumable",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,437,
 438,ana_craftskillreset_dec,"<NAME PAWN>の
-クラフトスキルをリセットしました",I have reset <NAME PAWN>'s Craft Skills.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,438,
+クラフトスキルをリセットしました","I have reset 
+<NAME PAWN>'s Crafting Skills.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,438,
 440,ana_craftskillreset_dec_guide,"クラフトスキルリセットのご利用は
 リムストーンでおこなえます","Crafting Skill Reset can be performed using Rift
 Crystals.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,440,
@@ -47,12 +48,14 @@ of Darkness.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,613
 617,ana_dark_dungeon_019,追加報酬が増えた,Additional rewards increased.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,617,
 618,ana_dark_dungeon_020,追加報酬が最大になった,Additional rewards have reached their maximum,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,618,
 292,ana_delete_character_zero,キャラクターが作成されていません,There is no created characters.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,292,
-46,ana_denial_friend,<NAME TARGET>のフレンド申請を拒否しました,Declined the friend request from <NAME TARGET>.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,46,
-47,ana_denial_friend_error,<NAME TARGET>のフレンド申請を拒否できませんでした,"Could not decline the friend request from <NAME TARGET>
-.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,47,
+46,ana_denial_friend,<NAME TARGET>のフレンド申請を拒否しました,"""Declined the friend request from 
+<NAME TARGET>"".",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,46,
+47,ana_denial_friend_error,<NAME TARGET>のフレンド申請を拒否できませんでした,"Could not decline the friend request from 
+<NAME TARGET>.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,47,
 45,ana_denial_friend_q,"<NAME TARGET>の
 フレンド申請を拒否します。よろしいですか？","Are you sure you want to decline
-the friend request from <NAME TARGET>?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,45,
+the friend request from 
+<NAME TARGET>?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,45,
 310,ana_dialog_areatest,ランクアップにはエリア試練クエストのクリアが必要です,To rank up you need to complete the area quest.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,310,
 593,ana_dialog_currency_leak_warning_01,"<COL ffdc78>※注意※
 このまま受け取ると、所持上限値を超えてしまう
@@ -83,11 +86,13 @@ amount</COL>",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,619
 115,ana_dialog_entryb_join_q,"エントリーボードに参加します。
 よろしいですか？","You will sign up for the entryboard.
 Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,115,
-117,ana_dialog_gchat_invite_tg,<NAME TARGET>をグループチャットに誘いました,<NAME TARGET> has been invited to the group chat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,117,
+117,ana_dialog_gchat_invite_tg,<NAME TARGET>をグループチャットに誘いました,"<NAME TARGET> 
+has been invited to the group chat.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,117,
 116,ana_dialog_gchat_invite_tg_q,"<NAME TARGET>を
-グループチャットに誘います。よろしいですか？","Invite <NAME TARGET>
+グループチャットに誘います。よろしいですか？","Inviting <NAME TARGET>
 to the group chat. Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,116,
-121,ana_dialog_gchat_kick,<NAME TARGET>をグループチャットから外しました,<NAME TARGET> has been kicked from the group chat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,121,
+121,ana_dialog_gchat_kick,<NAME TARGET>をグループチャットから外しました,"<NAME TARGET> 
+has been kicked from the group chat.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,121,
 120,ana_dialog_gchat_kick_q,"<NAME TARGET>を
 グループチャットから外します。よろしいですか？","Remove <NAME TARGET>
 from the group chat?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,120,
@@ -108,8 +113,8 @@ from the content?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.ar
 rejected.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,125,
 132,ana_dialog_retire_noreply,返答せず閉じる,Close with no reply,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,132,
 122,ana_dialog_retire_proposed,コンテンツ途中離脱の提案を行いました,A request has been made to end the mission.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,122,
-123,ana_dialog_retire_proposed_tg,<NAME TARGET>さんから途中離脱の提案がありました,"<NAME TARGET> has proposed to withdraw from the
-content.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,123,
+123,ana_dialog_retire_proposed_tg,<NAME TARGET>さんから途中離脱の提案がありました,"<NAME TARGET> 
+has proposed withdrawing from the content.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,123,
 129,ana_dialog_retire_re_agree,「賛成」で返答しました,"You replied ""agree.""",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,129,
 130,ana_dialog_retire_re_disagree,「反対」で返答しました,"You replied ""disagree.""",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,130,
 124,ana_dialog_retire_win,コンテンツ途中離脱が決定されました,The request to end the mission was successful.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,124,
@@ -124,14 +129,19 @@ full.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,379,
 373,ana_disable_quickp,クイックパーティー中のため選べません,"You cannot choose this option while in a quick
 party.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,373,
 37,ana_dismissal,<NAME PAWN>を返却しました,<NAME PAWN> has been returned.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,37,
-38,ana_dismissal_error,<NAME PAWN>を返却できませんでした,<NAME PAWN> could not be returned.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,38,
+38,ana_dismissal_error,<NAME PAWN>を返却できませんでした,"<NAME PAWN> 
+could not be returned.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,38,
 36,ana_dismissal_q,"<NAME PAWN>を
-返却します。よろしいですか？",Are you sure you want to return <NAME PAWN>?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,36,
+返却します。よろしいですか？","Are you sure you want to return 
+<NAME PAWN>?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,36,
 467,ana_disp_cleartime,クリアタイム,Clear time,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,467,
 350,ana_disparty_in_battle,戦闘中なのでパーティー解散できません,The party cannot be disbanded during combat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,350,
-34,ana_employ,<NAME PAWN>を雇用しました,<NAME PAWN> has been hired.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,34,
-35,ana_employ_error,<NAME PAWN>を雇用できませんでした,Could not hire <NAME PAWN>.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,35,
-33,ana_employ_q,<NAME PAWN>を雇用しますか？,Are you sure you want to hire <NAME PAWN>?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,33,
+34,ana_employ,<NAME PAWN>を雇用しました,"<NAME PAWN> 
+has been hired.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,34,
+35,ana_employ_error,<NAME PAWN>を雇用できませんでした,"Could not hire 
+<NAME PAWN>.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,35,
+33,ana_employ_q,<NAME PAWN>を雇用しますか？,"Are you sure you want to hire 
+<NAME PAWN>?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,33,
 334,ana_enter_password,パスワードを入力してください,Please enter your password.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,334,
 258,ana_entry_board_name_taken_clan,クランリストから,From Clan,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,258,
 257,ana_entry_board_name_taken_friend,フレンドリストから,From Friends,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,257,
@@ -154,7 +164,8 @@ to entry board",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5
 エントリーボードに招待します。よろしいですか？","Are you sure you want to invite
 <NAME TARGET> to the entryboard?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,404,
 406,ana_entry_invitation_pl_deci,"<NAME TARGET>を
-エントリーボードに招待しました",<NAME TARGET> was invited to the entryboard.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,406,
+エントリーボードに招待しました","<NAME TARGET> 
+was invited to the entryboard.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,406,
 405,ana_entry_invitation_pt_conf,"パーティーメンバーを
 エントリーボードに招待します。よろしいですか？","Are you sure you want to invite
 your party members to the entryboard?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,405,
@@ -183,9 +194,11 @@ you cannot participate in this content yet.",ui\00_message\ui\common_dialog.gmd,
 61,ana_entryb_join_cancel,エントリーボードの参加を取り消します。 よろしいですか？,"Are you sure you want to cancel your
 entryboard registration?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,61,
 60,ana_entryb_join_error,エントリーボードに参加できませんでした,You could not join the entryboard.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,60,
-113,ana_entryb_join_tg,エントリーボードに<NAME TARGET>が参加しました,<NAME TARGET> has joined the entryboard.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,113,
+113,ana_entryb_join_tg,エントリーボードに<NAME TARGET>が参加しました,"<NAME TARGET> 
+has joined the entryboard.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,113,
 95,ana_entryb_kicked,エントリーボードから抜けました,You have been removed from the entryboard.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,95,
-114,ana_entryb_leave_tg,エントリーボードから<NAME TARGET>が離脱しました,<NAME TARGET> has left the entryboard.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,114,
+114,ana_entryb_leave_tg,エントリーボードから<NAME TARGET>が離脱しました,"<NAME TARGET> 
+has left the entryboard.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,114,
 280,ana_entryb_only_disable,コンテンツエントリー時にしか選べません,"You can only select this at the time of content
 entry.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,280,
 279,ana_entryb_party_disable,特定コンテンツ用パーティーのため選べません,"You cannot select content while already in a
@@ -281,32 +294,40 @@ everyone must approve in order to skip.",ui\00_message\ui\common_dialog.gmd,\ui\
 352,ana_event_skip_button,スキップ,Skip,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,352,
 371,ana_event_skip_solo,イベントをスキップしますか？,Are you sure you want to skip the event?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,371,
 246,ana_extream_timelimit_faild,制限時間内での目的達成に失敗,Failed to meet objectives within the time limit.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,246,
-199,ana_fav_del_pawn,<NAME TARGET>をお気に入りから削除しました,<NAME TARGET> is no longer a favorite pawn.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,199,
+199,ana_fav_del_pawn,<NAME TARGET>をお気に入りから削除しました,"<NAME TARGET> 
+is no longer a favorite pawn.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,199,
 197,ana_fav_del_pawn_q,"<NAME TARGET>を
-お気に入りから削除します。よろしいですか？","<NAME TARGET> will be removed as a favorite pawn.
+お気に入りから削除します。よろしいですか？","<NAME TARGET> 
+will be removed as a favorite pawn.
 Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,197,
 52,ana_fav_friend,<NAME TARGET>をお気に入りに登録しました,Added <NAME TARGET> to favorites.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,52,
-53,ana_fav_friend_error,<NAME TARGET>をお気に入りに登録できませんでした,Could not add <NAME TARGET> to favorites.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53,
+53,ana_fav_friend_error,<NAME TARGET>をお気に入りに登録できませんでした,"Could not add <NAME TARGET> 
+to favorites.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53,
 51,ana_fav_friend_q,"<NAME TARGET>を
 お気に入りに登録します。よろしいですか？","Are you sure you want to add
 <NAME TARGET> to favorites?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,51,
 198,ana_fav_pawn,<NAME TARGET>をお気に入りに追加しました,<NAME TARGET> is now a favorite pawn.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,198,
 196,ana_fav_pawn_q,"<NAME TARGET>を
-お気に入りに設定します。よろしいですか？","<NAME TARGET> will be set as a favorite pawn.
+お気に入りに設定します。よろしいですか？","<NAME TARGET> 
+will be set as a favorite pawn.
 Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,196,
 55,ana_fav_release_friend,<NAME TARGET>のお気に入りを解除しました,Removed <NAME TARGET> from favorites.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,55,
-56,ana_fav_release_friend_error,<NAME TARGET>のお気に入りを解除できませんでした,Could not remove <NAME TARGET> from favorites.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,56,
+56,ana_fav_release_friend_error,<NAME TARGET>のお気に入りを解除できませんでした,"Could not remove 
+<NAME TARGET> from favorites.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,56,
 54,ana_fav_release_friend_q,"<NAME TARGET>の
 お気に入りを解除します。よろしいですか？","Are you sure you want to remove
 <NAME TARGET> from favorites?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54,
-336,ana_freemarker_delete,<NAME TARGET>の<VAL>番フリーマーカー情報を削除しました,"The waypoint information for <NAME TARGET>'s
+336,ana_freemarker_delete,<NAME TARGET>の<VAL>番フリーマーカー情報を削除しました,"The waypoint information for 
+<NAME TARGET>'s
 waypoint number <VAL> has been deleted.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,336,
 337,ana_freemarker_set,<NAME TARGET>の<VAL>番フリーマーカー情報を反映しました,<NAME TARGET> has set free marker <VAL>.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,337,
-201,ana_friend_req_cancel,<NAME TARGET>へのフレンド申請をキャンセルしました,"The friend request to <NAME TARGET> has been
-canceled.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,201,
+201,ana_friend_req_cancel,<NAME TARGET>へのフレンド申請をキャンセルしました,"The friend request to 
+<NAME TARGET> 
+has been canceled.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,201,
 200,ana_friend_req_cancel_q,"<NAME TARGET>への
-フレンド申請をキャンセルします。よろしいですか？","The friend request to <NAME TARGET> will be
-canceled.
+フレンド申請をキャンセルします。よろしいですか？","The friend request to 
+<NAME TARGET> 
+will be canceled.
 Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,200,
 370,ana_gacha_no_items,トレジャーズロットに商品がありません,There are no items in the lot.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,370,
 226,ana_gamemenu_atlobby,この場所では使用できません,You cannot use this in this location.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,226,
@@ -316,14 +337,19 @@ Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,20
 restrictions.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,230,
 228,ana_gamemenu_playcontents,特定コンテンツプレイ時にしか選べません,You can only select this during specific content.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,228,
 510,ana_gamemenu_purchase_processing,購入情報を処理しています,Processing purchase information,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,510,
-106,ana_gchat_invite,<NAME TARGET>からグループチャットに招待されました,You were invited to a group chat by <NAME TARGET>.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,106,
-107,ana_gchat_invite_tg,<NAME TARGET>が<NAME TARGET>をグループチャットに招待しました,"<NAME TARGET> has invited <NAME TARGET> to the
-group chat.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,107,
-109,ana_gchat_kick,<NAME TARGET>によってグループチャットからキックされました,You have kicked <NAME TARGET> from the group chat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,109,
-111,ana_gchat_kick_tg,<NAME TARGET>が<NAME TARGET>をグループチャットからキックしました,"<NAME TARGET> has kicked <NAME TARGET> from the
-group chat.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,111,
+106,ana_gchat_invite,<NAME TARGET>からグループチャットに招待されました,"You were invited to a group chat by 
+<NAME TARGET>.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,106,
+107,ana_gchat_invite_tg,<NAME TARGET>が<NAME TARGET>をグループチャットに招待しました,"<NAME TARGET> has invited 
+<NAME TARGET> to the group chat.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,107,
+109,ana_gchat_kick,<NAME TARGET>によってグループチャットからキックされました,"You have kicked 
+<NAME TARGET> 
+from the group chat.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,109,
+111,ana_gchat_kick_tg,<NAME TARGET>が<NAME TARGET>をグループチャットからキックしました,"<NAME TARGET> has kicked 
+<NAME TARGET> 
+from the group chat.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,111,
 110,ana_gchat_kicked,グループチャットからキックされました,You were kicked from the group chat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,110,
-112,ana_gchat_kicked_tg,<NAME TARGET>がグループチャットからキックされました,<NAME TARGET> has been kicked from the group chat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,112,
+112,ana_gchat_kicked_tg,<NAME TARGET>がグループチャットからキックされました,"<NAME TARGET> 
+has been kicked from the group chat.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,112,
 108,ana_gchat_leave,<NAME TARGET>がグループチャットから抜けました,<NAME TARGET> has left the group chat.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,108,
 223,ana_get_ability,アビリティ「<NAME ABILITY> <VAL LV>」を習得しました,"You have learned 
 ""<VAL LV><NAME ABILITY>""",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,223,
@@ -418,8 +444,8 @@ select ready within a period of time.",ui\00_message\ui\common_dialog.gmd,\ui\gu
 391,ana_lostpawn_rescue,<NAME PAWN>を復活させました,<NAME PAWN> has been rescued.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,391,
 389,ana_lostpawn_rescue_q,"<VAL RIM>を消費して
 <NAME PAWN>を救出します
-よろしいですか？","By consuming <VAL RIM>, <NAME PAWN> will be
-rescued.
+よろしいですか？","By consuming <VAL RIM>, 
+<NAME PAWN> will be rescued.
 Are you sure?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,389,
 390,ana_lostpawn_resque_rim_err,リムが足りないためできません,You do not have enough Rift Crystals.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,390,
 393,ana_lostpawn_resque_userim_err,"リムが足りないためできません
@@ -461,7 +487,7 @@ but the party will be formed. Are you sure?",ui\00_message\ui\common_dialog.gmd,
 62,ana_member_ready_wait,全員が準備完了するのを待っています,Please wait for everyone to be ready.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,62,
 546,ana_member_remove_q,"<NAME TARGET>を
 メンバーから外します。よろしいですか？","Are you sure you want to remove
- <NAME TARGET> from the members?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,546,
+<NAME TARGET> from the members?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,546,
 462,ana_mission_order_err_condition,受注条件を満たしていません,You do not meet the entry conditions.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,462,
 463,ana_mission_order_err_condition_ir,アイテムランクの条件を満たしていません,You do not meet the Item Rank entry condition.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,463,
 204,ana_mitem_all_get_q,"アイテム付きメール<VAL>件のアイテムを
@@ -555,30 +581,36 @@ your pawn!",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,458,
 18,ana_party_dissolution_q,パーティーを解散します。よろしいですか？,Are you sure you want to disband the party?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18,
 349,ana_party_full,メンバーの上限を越えるため誘えません,The party is full.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,349,
 12,ana_party_invite,<NAME TARGET>をパーティーに誘いました,<NAME TARGET> was invited to the party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12,
-23,ana_party_invite_cancel,<NAME TARGET>へのパーティーの誘いを取り消しました,Canceled party invite for <NAME TARGET>.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,23,
-24,ana_party_invite_cancel_error,<NAME TARGET>へのパーティーの誘いを取り消せませんでした,"Could not cancel the party invite for <NAME TARGET>
-.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,24,
+23,ana_party_invite_cancel,<NAME TARGET>へのパーティーの誘いを取り消しました,"Canceled party invite for 
+<NAME TARGET>.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,23,
+24,ana_party_invite_cancel_error,<NAME TARGET>へのパーティーの誘いを取り消せませんでした,"Could not cancel the party invite for 
+<NAME TARGET>.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,24,
 22,ana_party_invite_cancel_q,"<NAME TARGET>への
 パーティーの誘いを取り消します。よろしいですか？","Are you sure you want to cancel the
 party invite for <NAME TARGET>?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,22,
-13,ana_party_invite_error,<NAME TARGET>をパーティーに誘えませんでした,Could not invite <NAME TARGET> to the party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13,
+13,ana_party_invite_error,<NAME TARGET>をパーティーに誘えませんでした,"Could not invite 
+<NAME TARGET> to the party.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13,
 11,ana_party_invite_q,<NAME TARGET>をパーティーに誘いますか？,"Are you sure you want to invite
 <NAME TARGET> to the party?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11,
-17,ana_party_join_error,<NAME TARGET>のパーティーに参加できませんでした,<NAME TARGET> could not join the party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17,
-15,ana_party_join_in,<NAME TARGET>のパーティーに参加しました,You have joined the party of <NAME TARGET>.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15,
+17,ana_party_join_error,<NAME TARGET>のパーティーに参加できませんでした,"<NAME TARGET> 
+could not join the party.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17,
+15,ana_party_join_in,<NAME TARGET>のパーティーに参加しました,"You have joined the party of 
+<NAME TARGET>.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15,
 418,ana_party_join_leader_name_info,"クイックパーティーで合流しました
 目的を共有しあい、冒険を楽しみましょう
 リーダーは <NAME TARGET> です","Quick party joined.
 Everyone shares the same goal, so let's enjoy the
 adventure.
-The party leader is <NAME TARGET>.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,418,
+The party leader is 
+<NAME TARGET>.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,418,
 14,ana_party_join_q,"<NAME TARGET>の
 パーティーに参加します。よろしいですか？ ","Are you sure you want to join
 the party of <NAME TARGET>?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14,
 16,ana_party_join_tg,<NAME TARGET>がパーティーに参加しました,<NAME TARGET> has joined the party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16,
 8,ana_party_leader,パーティーリーダーになりました,You are now party leader.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8,
 9,ana_party_leader_error,パーティーリーダーになれませんでした,Could not promote you to party leader.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9,
-10,ana_party_leader_error_tg,<NAME TARGET>をリーダーにできませんでした,Could not promote <NAME TARGET> to party leader.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10,
+10,ana_party_leader_error_tg,<NAME TARGET>をリーダーにできませんでした,"Could not promote 
+<NAME TARGET> to party leader.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10,
 6,ana_party_leader_q,"<NAME TARGET>を
 リーダーにします。よろしいですか？","Are you sure you want to promote
 <NAME TARGET> the party leader?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6,
@@ -588,12 +620,16 @@ the party of <NAME TARGET>?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,
 25,ana_party_member_conflict,すでに同じメンバーがパーティーにいます,There are already members in the party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,25,
 26,ana_party_no_mainpawn,メインポーンがいない状態ではサポートポーンはパーティーに入れられません,"You cannot have a support pawn in the party with
 no main pawns.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,26,
-28,ana_party_pawn_invite,<NAME PAWN>をパーティーに入れました,You have put <NAME PAWN> into the party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,28,
-29,ana_party_pawn_invite_error,<NAME PAWN>をパーティーに入れられませんでした,Could not put <NAME PAWN> into the party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,29,
+28,ana_party_pawn_invite,<NAME PAWN>をパーティーに入れました,"You have put 
+<NAME PAWN> into the party.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,28,
+29,ana_party_pawn_invite_error,<NAME PAWN>をパーティーに入れられませんでした,"Could not put 
+<NAME PAWN> into the party.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,29,
 27,ana_party_pawn_invite_q,<NAME PAWN>をパーティーに入れますか？,"Are you sure you want to put
 <NAME PAWN> into the party?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,27,
-31,ana_party_pawn_remove,<NAME PAWN>をパーティーから外しました,Removed <NAME PAWN> from the party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,31,
-32,ana_party_pawn_remove_error,<NAME PAWN>をパーティーから外せませんでした,Could not remove <NAME PAWN> from the party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,32,
+31,ana_party_pawn_remove,<NAME PAWN>をパーティーから外しました,"Removed 
+<NAME PAWN> from the party.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,31,
+32,ana_party_pawn_remove_error,<NAME PAWN>をパーティーから外せませんでした,"Could not remove 
+<NAME PAWN> from the party.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,32,
 30,ana_party_pawn_remove_q,<NAME PAWN>をパーティーから外しますか？,"Are you sure you want to remove
 <NAME PAWN> from the party?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,30,
 5,ana_party_remove_error_tg,<NAME TARGET>をパーティーから外せませんでした,Could not remove <NAME TARGET> from the party.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5,
@@ -604,42 +640,50 @@ no main pawns.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2
 511,ana_party_waiting_for_all,パーティー全員が参加するまで、しばらくお待ちください,"Please wait a moment until all party members have
 joined.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,511,
 512,ana_party_waiting_for_me,パーティーメンバーがあなたの参加を待っています,Party members are waiting for you to join.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,512,
-247,ana_pawn_adventure_dec,<NAME PAWN>の冒険回数が減りました,"The remaining adventures of <NAME PAWN> has been
-reduced by 1.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,247,
+247,ana_pawn_adventure_dec,<NAME PAWN>の冒険回数が減りました,"The remaining adventures of 
+<NAME PAWN> 
+have been reduced by 1.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,247,
 248,ana_pawn_adventure_zero,"<NAME PAWN>の冒険回数が0になりました
-パーティーから外れます","The remaining adventures of <NAME PAWN> is now 0.
+パーティーから外れます","The remaining adventures of 
+<NAME PAWN> is now 0.
 They will leave the party.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,248,
-249,ana_pawn_crafter_dec,<NAME PAWN>のクラフト回数が減りました,"The remaining crafts of <NAME PAWN> has been
-reduced by 1.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,249,
-250,ana_pawn_crafter_zero,<NAME PAWN>のクラフト回数が0になりました,The remaining crafts of <NAME PAWN> is now 0.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,250,
+249,ana_pawn_crafter_dec,<NAME PAWN>のクラフト回数が減りました,"The remaining crafts of 
+<NAME PAWN> 
+have been reduced by 1.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,249,
+250,ana_pawn_crafter_zero,<NAME PAWN>のクラフト回数が0になりました,"The remaining crafts of 
+<NAME PAWN> is now 0.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,250,
 71,ana_pawn_delete,<NAME PAWN>を削除しました,<NAME PAWN> has been deleted.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,71,
 70,ana_pawn_delete_q,"<NAME PAWN>を
-削除します。よろしいですか？",Are you sure you want to delete <NAME PAWN>?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,70,
+削除します。よろしいですか？","Are you sure you want to delete 
+<NAME PAWN>?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,70,
 312,ana_pawn_delete_q_equip,保管ボックスの空きが足りないので装備品が消えますが、<NAME PAWN>を削除してよろしいですか？,"There is not enough storage space to hold the
-equipment of <NAME PAWN>. Are you sure you want to
-delete?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,312,
+equipment of <NAME PAWN>. 
+Are you sure you want to delete?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,312,
 519,ana_pawn_expedition_report_em_subjugation,-討伐結果報告-,-Subjugation Report-,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,519,
-235,ana_pawn_lost_escape,<NAME PAWN>はロストすることなく、リムストーンに戻りました,"<NAME PAWN> has been lost and sent back to the
-Riftstone.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,235,
+235,ana_pawn_lost_escape,<NAME PAWN>はロストすることなく、リムストーンに戻りました,"<NAME PAWN> has been lost 
+and sent back to the Riftstone.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,235,
 72,ana_pawn_public,公開設定を変更しました,You have changed your pawn's privacy settings.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,72,
 290,ana_pawn_review_err,すべての評価を行わないと返却できません,"You cannot return the pawn until you complete all
 of the evaluation.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,290,
 364,ana_pawn_upset,ポーンが参加できる状態ではないためキャンセルされました,"The pawn has been canceled because it has entered
 a state where it can no longer participate.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,364,
 43,ana_permit_friend,<NAME TARGET>とフレンドになりました,<NAME TARGET> is now your friend.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,43,
-44,ana_permit_friend_error,<NAME TARGET>とフレンドになれませんでした,"Could not accept friend request from <NAME TARGET>
-.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,44,
+44,ana_permit_friend_error,<NAME TARGET>とフレンドになれませんでした,"Could not accept friend request from 
+<NAME TARGET>.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,44,
 42,ana_permit_friend_q,"<NAME TARGET>の
 フレンド申請を許可します。よろしいですか？","Are you sure you want to accept
-the friend request from <NAME TARGET>?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,42,
+the friend request from 
+<NAME TARGET>?",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,42,
 384,ana_pl_num_lobby_in,ワールド <NAME LOBBY> へ移動しました,You moved to world <NAME LOBBY>.,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,384,
 315,ana_play_area,エリアスポットで遊ぶ,Play in an Area Spot,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,315,
 314,ana_play_main_quest,メインクエストで遊ぶ,Play Main Quest,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,314,
 398,ana_play_news,レスタニアニュースで遊ぶ,Play Lestania News,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,398,
 555,ana_pspskill_sub_ng_01,空いている状態で使用できます,Can be used when available,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,555,
-341,ana_pt_mem_warp_begin,<NAME TARGET>が＜<VAL>＞にリム転移しました,"<NAME TARGET> has teleported to ""<VAL>"".",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,341,
+341,ana_pt_mem_warp_begin,<NAME TARGET>が＜<VAL>＞にリム転移しました,"<NAME TARGET> 
+has teleported to ""<VAL>"".",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,341,
 139,ana_pt_warp_begin,"<NAME TARGET>が＜<VAL>＞にリム転移しました
-<VAL PARTY_WARP_SEC>秒の間、同行リム転移が可能です","<NAME TARGET> has teleported to ""<VAL>"".
+<VAL PARTY_WARP_SEC>秒の間、同行リム転移が可能です","<NAME TARGET> 
+has teleported to ""<VAL>"".
 Within <VAL PARTY_WARP_SEC> seconds, you can
 teleport with them.",ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,139,
 331,ana_q_setting_initialize,設定を初期化しますか？,Are you sure you want to reset the settings?,ui\00_message\ui\common_dialog.gmd,\ui\gui_cmn.arc,gui_cmn.arc,331,
