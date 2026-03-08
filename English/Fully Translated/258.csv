@@ -308,12 +308,16 @@ you have not claimed.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.a
 28,syslog_status_die_me,<NAME PLAYER>が死亡状態になりました,<NAME PLAYER> has died.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,28,
 30,syslog_status_die_pawn,<NAME PAWN>が死亡状態になりました,<NAME PAWN> has died.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,30,
 29,syslog_status_die_someone,<NAME TARGET>が死亡状態になりました,<NAME TARGET> has died.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,29,
-25,syslog_status_down_me,<NAME PLAYER>が行動不能になりました,<NAME PLAYER> has been incapacitated.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,25,
+25,syslog_status_down_me,<NAME PLAYER>が行動不能になりました,"<NAME PLAYER>
+has been incapacitated.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,25,
 27,syslog_status_down_pawn,<NAME PAWN>が行動不能になりました,<NAME PAWN> has been incapacitated.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,27,
-26,syslog_status_down_someone,<NAME TARGET>が行動不能になりました,<NAME TARGET> has been incapacitated.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,26,
-31,syslog_status_resurrection_me,<NAME PLAYER>が復活しました,<NAME PLAYER> has been resurrected.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,31,
+26,syslog_status_down_someone,<NAME TARGET>が行動不能になりました,"<NAME TARGET>
+has been incapacitated.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,26,
+31,syslog_status_resurrection_me,<NAME PLAYER>が復活しました,"<NAME PLAYER>
+has been resurrected.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,31,
 33,syslog_status_resurrection_pawn,<NAME PAWN>が復活しました,<NAME PAWN> has been resurrected.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,33,
-32,syslog_status_resurrection_someone,<NAME TARGET>が復活しました,<NAME TARGET> has been resurrected.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,32,
+32,syslog_status_resurrection_someone,<NAME TARGET>が復活しました,"<NAME TARGET>
+has been resurrected.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,32,
 191,syslog_success_input_eventcode,イベントコードの入力に成功しました,Event code input was successful.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,191,
 4,syslog_tail_off,追従オートランが解除されました,Autorun has been canceled.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4,
 3,syslog_tail_on,<NAME TARGET>に追従オートランしました,"You began following 
