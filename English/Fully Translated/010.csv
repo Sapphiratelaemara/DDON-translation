@@ -109,7 +109,7 @@ anniversary.",ui\00_message\clan_shop\clan_shop_lineups.gmd,\ui\uGUIPopBuffBonus
 9,CONDITION_NAME_19,石化,Petrification,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9
 10,CONDITION_NAME_20,黄金化,Gilded,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10
 11,CONDITION_NAME_21,延焼,Burning,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11
-12,CONDITION_NAME_22,凍結,Freezing,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12
+12,CONDITION_NAME_22,凍結,Frozen,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12
 13,CONDITION_NAME_23,感電,Shocked,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13
 14,CONDITION_NAME_24,聖吸,Holy Drain,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14
 15,CONDITION_NAME_25,闇霧,Blinded,ui\00_message\common\condition_name.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15
@@ -178,9 +178,9 @@ the element of Fire.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectS
 22,IDX_138,"状態異常【凍結】【氷防低下】【水濡れ】
 を付加する
 ※【凍結】は攻撃時や、ステータス適用の
-魔法属性と一致する場合、効果を発揮する","Inflicts the debilitations 'Freezing',
+魔法属性と一致する場合、効果を発揮する","Inflicts the debilitations 'Frozen',
 'Ice Resist Down' and 'Drenched'.
-*'Freezing' is applied when attacking
+*'Frozen' is applied when attacking
 or when magick attribute matches
 the element of Ice.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,22
 25,IDX_139,"状態異常【感電】【雷防低下】【水濡れ】
@@ -549,13 +549,13 @@ attacks.
 <COL ffdc78>LV UP: Further increases affliction rate.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,98
 99,IDX_226,"氷属性攻撃を対象に当てた際
 凍結の状態異常にかかりやすくなる
-<COL ffdc78>LV毎に状態異常値がより増加</COL>","Increases chance to inflict 'Freezing'
+<COL ffdc78>LV毎に状態異常値がより増加</COL>","Increases chance to inflict 'Frozen'
 when striking foes with Ice-based
 attacks.
 <COL ffdc78>LV UP: Further increases affliction rate.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,99
 100,IDX_227,"雷属性攻撃を対象に当てた際
 感電の状態異常にかかりやすくなる
-<COL ffdc78>LV毎に状態異常値がより増加</COL>","Increases chance to inflict 'Shock'
+<COL ffdc78>LV毎に状態異常値がより増加</COL>","Increases chance to inflict 'Shocked'
 when striking foes with Thunder-based
 attacks.
 <COL ffdc78>LV UP: Further increases affliction rate.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,100
