@@ -172,41 +172,36 @@ anniversary.",ui\00_message\clan_shop\clan_shop_lineups.gmd,\ui\uGUIPopBuffBonus
 ※【延焼】は攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する","Inflicts the debilitations 'Burning',
 'Fire Resist Down' and 'Tarred'.
-*'Burning' is applied when attacking
-or when magick attribute matches
-the element of Fire.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,19
+*'Burning' is only inflicted when attacks
+or magicks match Fire attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,19
 22,IDX_138,"状態異常【凍結】【氷防低下】【水濡れ】
 を付加する
 ※【凍結】は攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する","Inflicts the debilitations 'Frozen',
 'Ice Resist Down' and 'Drenched'.
-*'Frozen' is applied when attacking
-or when magick attribute matches
-the element of Ice.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,22
+*'Frozen' is only inflicted when attacks
+or magicks match Ice attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,22
 25,IDX_139,"状態異常【感電】【雷防低下】【水濡れ】
 を付加する
 ※【感電】は攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する","Inflicts the debilitations 'Shocked',
 'Lightning Resist Down' and 'Drenched'.
-*'Shocked' is applied when attacking
-or when magick attribute matches
-the element of Lightning.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,25
+*'Shocked' is only inflicted when attacks
+or magicks match Lightning attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,25
 28,IDX_140,"状態異常【聖吸】【聖防低下】【スキル封印】
 を付加する
 ※【聖吸】は攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する","Inflicts the debilitations 'Holy Drain',
 'Holy Resist Down' and 'Skills Stifled'.
-*'Holy Drain' is applied when attacking
-or when magick attribute matches
-the element of Holy.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,28
+*'Holy Drain' is only inflicted when
+attacks or magicks match Holy attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,28
 31,IDX_141,"状態異常【闇霧】【闇防低下】【毒】
 を付加する
 ※【闇霧】は攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する","Inflicts the debilitations 'Blinded',
 'Dark Resist Down' and 'Poison'.
-*'Blinded' is applied when attacking
-or when magick attribute matches
-the element of Dark.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,31
+*'Blinded' is only inflicted when attacks
+or magicks match Dark attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,31
 6,IDX_142,"状態異常【黄金化】
 を付加する","Debilitation ""Gilded""
 added.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,6
@@ -735,516 +730,516 @@ Attack.</COL>",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.a
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 物理属性と一致する場合、効果を発揮する","Increases Slash damage for Fighters.
-*Effective when attacking or status
-application matches attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,134
+*Effective when attacks and magicks
+deal damage matching this attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,134
 135,IDX_262,"ファイターの打属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 物理属性と一致する場合、効果を発揮する","Increases Impact damage for Fighters.
-*Effective when attacking or status
-application matches attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,135
+*Effective when attacks and magicks
+deal damage matching this attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,135
 136,IDX_264,"ファイターの魔法無属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
- (エンチャント変化時は無効)","Increases non-elemental magic damage
+ (エンチャント変化時は無効)","Increases non-elemental magick damage
 for Fighters.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,136
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,136
 137,IDX_265,"ファイターの炎属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Fire damage for Fighters.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,137
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,137
 138,IDX_266,"ファイターの氷属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Ice damage for Fighters.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,138
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,138
 139,IDX_267,"ファイターの雷属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Lightning damage for Fighters.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,139
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,139
 140,IDX_268,"ファイターの聖属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Holy damage for Fighters.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,140
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,140
 141,IDX_269,"ファイターの闇属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Dark damage for Fighters.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,141
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,141
 142,IDX_270,"シーカーの斬属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 物理属性と一致する場合、効果を発揮する","Increases Slash damage for Seekers.
-*Effective when attacking or status
-application matches attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,142
+*Effective when attacks and magicks
+deal damage matching this attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,142
 143,IDX_271,"シーカーの打属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 物理属性と一致する場合、効果を発揮する","Increases Impact damage for Seekers.
-*Effective when attacking or status
-application matches attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,143
+*Effective when attacks and magicks
+deal damage matching this attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,143
 144,IDX_273,"シーカーの魔法無属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases non-elemental magick damage
 for Seekers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,144
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,144
 145,IDX_274,"シーカーの炎属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Fire damage for Seekers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,145
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,145
 146,IDX_275,"シーカーの氷属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Ice damage for Seekers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,146
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,146
 147,IDX_276,"シーカーの雷属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Lightning damage for Seekers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,147
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,147
 148,IDX_277,"シーカーの聖属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Holy damage for Seekers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,148
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,148
 149,IDX_278,"シーカーの闇属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Dark damage for Seekers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective for enchanted weapons.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,149
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,149
 150,IDX_280,"ハンターの打属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
-物理属性と一致する場合、効果を発揮する","Increases Striking damage for Hunters.
-*Effective when attacking or status
-application matches attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,150
+物理属性と一致する場合、効果を発揮する","Increases Impact damage for Hunters.
+*Effective when attacks and magicks
+deal damage matching this attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,150
 151,IDX_281,"ハンターの射属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
-物理属性と一致する場合、効果を発揮する","Increases Piercing damage for Hunters.
-*Effective when attacking or status
-application matches attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,151
+物理属性と一致する場合、効果を発揮する","Increases Pierce damage for Hunters.
+*Effective when attacks and magicks
+deal damage matching this attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,151
 152,IDX_282,"ハンターの魔法無属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases non-elemental magick damage
 for Hunters.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,152
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,152
 153,IDX_283,"ハンターの炎属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Fire damage for Hunters.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,153
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,153
 154,IDX_284,"ハンターの氷属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Ice damage for Hunters.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,154
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,154
 155,IDX_285,"ハンターの雷属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Lightning damage for Hunters.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,155
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,155
 156,IDX_286,"ハンターの聖属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Holy damage for Hunters.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,156
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,156
 157,IDX_287,"ハンターの闇属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Dark damage for Hunters.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,157
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,157
 158,IDX_291,"プリーストの魔法無属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases non-elemental magick damage
 for Priests.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,158
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,158
 159,IDX_292,"プリーストの炎属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Fire damage for Priests.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,159
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,159
 160,IDX_293,"プリーストの氷属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Ice damage for Priests.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,160
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,160
 161,IDX_294,"プリーストの雷属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Lightning damage for Priests.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,161
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,161
 162,IDX_295,"プリーストの聖属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Holy damage for Priests.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,162
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,162
 163,IDX_296,"プリーストの闇属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Dark damage for Priests.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,163
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.) ",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,163
 164,IDX_298,"シールドセージの打属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 物理属性と一致する場合、効果を発揮する","Increases Impact damage for Shield
 Sages.
-*Effective when attacking or status
-application matches attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,164
+*Effective when attacks and magicks
+deal damage matching this attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,164
 165,IDX_300,"シールドセージの魔法無属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases non-elemental magick damage
 for Shield Sages.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,165
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,165
 166,IDX_301,"シールドセージの炎属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Fire damage for Shield Sages.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,166
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,166
 167,IDX_302,"シールドセージの氷属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Ice damage for Shield Sages.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,167
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,167
 168,IDX_303,"シールドセージの雷属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Lightning damage for Shield
 Sages.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,168
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,168
 169,IDX_304,"シールドセージの聖属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Holy damage for Shield Sages.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,169
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,169
 170,IDX_305,"シールドセージの闇属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Dark damage for Shield Sages.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,170
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,170
 171,IDX_306,"ソーサラーの斬属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 物理属性と一致する場合、効果を発揮する","Increases Slash damage for Sorcerers.
-*Effective when attacking or status
-application matches attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,171
+*Effective when attacks and magicks
+deal damage matching this attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,171
 172,IDX_307,"ソーサラーの打属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 物理属性と一致する場合、効果を発揮する","Increases Impact damage for Sorcerers.
-*Effective when attacking or status
-application matches attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,172
+*Effective when attacks and magicks
+deal damage matching this attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,172
 173,IDX_308,"ソーサラーの射属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
-物理属性と一致する場合、効果を発揮する","Increases Piercing damage for Sorcerers.
-*Effective when attacking or status
-application matches attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,173
+物理属性と一致する場合、効果を発揮する","Increases Pierce damage for Sorcerers.
+*Effective when attacks and magicks
+deal damage matching this attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,173
 174,IDX_309,"ソーサラーの魔法無属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases non-elemental magick damage
 for Sorcerers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,174
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,174
 175,IDX_310,"ソーサラーの炎属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Fire damage for Sorcerers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,175
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,175
 176,IDX_311,"ソーサラーの氷属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Ice damage for Sorcerers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,176
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,176
 177,IDX_312,"ソーサラーの雷属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Lightning damage for
 Sorcerers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,177
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,177
 178,IDX_313,"ソーサラーの聖属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Holy damage for Sorcerers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,178
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,178
 179,IDX_314,"ソーサラーの闇属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Dark damage for Sorcerers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,179
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,179
 180,IDX_315,"ウォリアーの斬属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 物理属性と一致する場合、効果を発揮する","Increases Slash damage for Warriors.
-*Effective when attacking or status
-application matches attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,180
+*Effective when attacks and magicks
+deal damage matching this attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,180
 181,IDX_316,"ウォリアーの打属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 物理属性と一致する場合、効果を発揮する","Increases Impact damage for Warriors.
-*Effective when attacking or status
-application matches attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,181
+*Effective when attacks and magicks
+deal damage matching this attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,181
 182,IDX_318,"ウォリアーの魔法無属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases non-elemental magick damage
 for Warriors.
-*Effective when attacking or status
-application matches attribute.
+*Effective when attacks and magicks
+deal damage matching this attribute.
 (Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,182
 183,IDX_319,"ウォリアーの炎属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Fire damage for Warriors.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,183
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,183
 184,IDX_320,"ウォリアーの氷属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Ice damage for Warriors.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,184
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,184
 185,IDX_321,"ウォリアーの雷属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Lightning damage for Warriors.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,185
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,185
 186,IDX_322,"ウォリアーの聖属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Holy damage for Warriors.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,186
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,186
 187,IDX_323,"ウォリアーの闇属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Dark damage for Warriors.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,187
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,187
 188,IDX_325,"エレメントアーチャーの打属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
-物理属性と一致する場合、効果を発揮する","Increases Striking damage for Element
+物理属性と一致する場合、効果を発揮する","Increases Impact damage for Element
 Archers.
-*Effective when attacking or status
-application matches attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,188
+*Effective when attacks and magicks
+deal damage matching this attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,188
 189,IDX_326,"エレメントアーチャーの射属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
-物理属性と一致する場合、効果を発揮する","Increases Piercing damage for Element
+物理属性と一致する場合、効果を発揮する","Increases Pierce damage for Element
 Archers.
-*Effective when attacking or status
-application matches attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,189
+*Effective when attacks and magicks
+deal damage matching this attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,189
 190,IDX_327,"エレメントアーチャーの魔法無属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases non-elemental magick damage
 for Element Archers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,190
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,190
 191,IDX_328,"エレメントアーチャーの炎属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Fire damage for Element
 Archers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,191
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,191
 192,IDX_329,"エレメントアーチャーの氷属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Ice damage for Element
 Archers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,192
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,192
 193,IDX_330,"エレメントアーチャーの雷属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Lightning damage for Element
 Archers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,193
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,193
 194,IDX_331,"エレメントアーチャーの聖属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Holy damage for Element
 Archers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,194
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,194
 195,IDX_332,"エレメントアーチャーの闇属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Dark damage for Element
 Archers.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,195
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,195
 196,IDX_334,"アルケミストの打属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 物理属性と一致する場合、効果を発揮する","Increases Impact damage for Alchemists.
-*Effective when attacking or status
-application matches attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,196
+*Effective when attacks and magicks
+deal damage matching this attribute.",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,196
 197,IDX_336,"アルケミストの魔法無属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases non-elemental magick damage
 for Alchemists.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,197
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,197
 198,IDX_337,"アルケミストの炎属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Fire damage for Alchemists.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,198
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,198
 199,IDX_338,"アルケミストの氷属性によって
 与えるダメージ量が増加する
 ※攻撃時や、ステータス適用の
 魔法属性と一致する場合、効果を発揮する
  (エンチャント変化時は無効)","Increases Ice damage for Alchemists.
-*Effective when attacking or status
-application matches attribute.
-(Ineffective when enchantment changes.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,199
+*Effective when attacks and magicks
+deal damage matching this attribute.
+(Does not apply to enchantments.)",ui\00_message\common\efcSealedItemInfo.gmd,\ui\uGUIEffectSealed.arc,uGUIEffectSealed.arc,199
