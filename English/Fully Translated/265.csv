@@ -686,7 +686,7 @@ LV6: Longer move distance / more hits.</COL>",ui\00_message\skill\custom_skill_i
 フォースゲージ１本以上の時、消費して時間大幅延長
 <COL ffdc78>LV UP毎に持続時間延長／軽減値上昇
 LV.６で効果範囲拡大</COL>","Provides allies with elemental damage
-and status resistance (fire, ice, thunder,
+and status resistance (fire, ice, lightning,
 holy, dark on your rod). When force gauge ↑ 1,
 uses to greatly extend duration.
 <COL ffdc78>LV+: Duration+ / Resistance↑. LV6: Range expanded.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,4,
@@ -720,7 +720,7 @@ LV.6: Makes the effect protect all of your sides.</COL>",ui\00_message\skill\cus
 フォースゲージ１本以上の時、消費して技性能上昇
 <COL ffdc78>LV UP毎に選択中属性の異常値上昇
 LV.６で照射範囲拡大</COL>","Emits light that builds elemental defense down 
-status (fire/ice/thunder/holy/dark based on rod). 
+status (fire/ice/lightning/holy/dark based on rod). 
 At ↑1 force gauge: consumes to boost effect. 
 <COL ffdc78>LV ↑: +Element potency. LV6: +Range.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,8,
 9,CUSTOM_SKILL_INFO_05_66,"大盾で敵の攻撃を弾き返し、敵に気絶の
@@ -2151,14 +2151,14 @@ press <KC SKILL_NORMAL1>, press again to cancel.",ui\00_message\skill\normal_ski
 空中でも発動可能
 <COL ffdc78>LV UPで選択可能属性が聖・闇を含む
 ５属性の＜ペンタエレメントチェンジ＞に進化</COL>","Change the elemental attribute on your rod.
-(Ice/Fire/Thunder)
+(Ice/Fire/lightning)
 Can be activated in the air.
 <COL ffdc78>LV ↑: Add the elements of Holy 
 and Darkness to selection.</COL>",ui\00_message\skill\normal_skill_info_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,2,
 3,NORMAL_SKILL_INFO_05_73,"ロッドに属性効果を付与する
 （炎・氷・雷・聖・闇のいずれか）
 空中でも発動可能","Change the elemental attribute on your rod.
-(Ice/Fire/Thunder/Holy/Darkness)
+(Ice/Fire/lightning/Holy/Darkness)
 Can be activated in the air.",ui\00_message\skill\normal_skill_info_05.gmd,\skill\normal_skill_data_05.arc,normal_skill_data_05.arc,3,
 4,NORMAL_SKILL_INFO_05_74,"大盾で敵の攻撃を自動的に防ぎ、攻力を吸収する
 ロッドの選択属性と受けた攻撃が同属性だと
