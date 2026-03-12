@@ -621,7 +621,8 @@ is summoning monsters",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.a
 is about to create a tornado.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,294,
 293,syslog_action_tornado_target,<NAME TARGET> が竜巻に狙われている,"<NAME TARGET> 
 has become the target of the tornado.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,293,
-5,syslog_archieve_get,アチーブメント「<NAME ACHIEVE>」を獲得しました,"Earned achievement ""<NAME ACHIEVE>"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5,
+5,syslog_archieve_get,アチーブメント「<NAME ACHIEVE>」を獲得しました,"Earned achievement
+""<NAME ACHIEVE>"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5,
 63,syslog_areamaster_ap_get,"<NAME AREA>のエリアポイント
 <VAL AP>を獲得しました",<NAME AREA>: +<VAL AP>,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,63,
 182,syslog_areamaster_ap_get_ex,"<NAME AREA>のエリアポイント
@@ -635,7 +636,8 @@ for <NAME AREA>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,64
 I have now canceled the current navigation
 settings.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,347,
 195,syslog_awaitquest_auto_cancel,受注待ちクエスト＜<VAL>＞を破棄しました,Abandoned pending quest <VAL>,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,195,
-1,syslog_battle_danger,<VAL> 秒で最後に立ち寄った拠点から再開されます,You will be returned home in <VAL> seconds.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1,
+1,syslog_battle_danger,<VAL> 秒で最後に立ち寄った拠点から再開されます,"You will be returned home in
+<VAL> seconds.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1,
 0,syslog_battle_danger_tg,<NAME TARGET>が行動不能になりました,"<NAME TARGET> 
 has been incapacitated.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0,
 2,syslog_battle_die,あと<VAL>秒で最後に立ち寄った拠点から再開されます,"After <VAL> seconds, you will be returned home.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2,
@@ -673,10 +675,10 @@ has been activated.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc
 クラン酒場にいるキビザを訪ねてください","<STG 210> is now available for unlocking.
 Please visit Kibiza at the Clan Tavern.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,257,
 249,syslog_clan_base_released,<STG 210>を解放しました,<STG 210> is now available.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,249,
-150,syslog_clan_chg_leader,<NAME TARGET>がクランリーダーになりました,"""<NAME TARGET> 
-is now a Clan Officer."".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,150,
-149,syslog_clan_chg_master,<NAME TARGET>がクランマスターになりました,"""<NAME TARGET> 
-is now the Clan Master."".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,149,
+150,syslog_clan_chg_leader,<NAME TARGET>がクランリーダーになりました,"<NAME TARGET> 
+is now a Clan Officer.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,150,
+149,syslog_clan_chg_master,<NAME TARGET>がクランマスターになりました,"<NAME TARGET> 
+is now the Clan Master.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,149,
 262,syslog_clan_clue_discover,%s が %s を発見しました,%s has discovered %s,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,262,
 264,syslog_clan_common_unlock,%s が解放されました,%s unlocked.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,264,
 144,syslog_clan_create,クランを作成しました,The clan has been created.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,144,
