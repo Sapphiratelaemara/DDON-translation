@@ -132,7 +132,7 @@ Aid Stance)",ui\00_message\skill\normal_skill_name_08.gmd,\ui\gui_cmn.arc,gui_cm
 覚者としてあなたが紡ぐ、この地レスタニアと
 そこで生きる人々の物語を体験するクエストです","The <COL ffdc78>Main Quest</COL> is an adventure where you,
 the Arisen, will experience the story of 
-this land Lestania and the people 
+the land of Lestania and the people 
 living here.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,0,
 0,TUTORIAL_STEP_9,"<COL 78f5ff>《ボードクエスト》が解放されました！</COL>
 世界各地の拠点にある<COL ffdc78>《クエストボード》</COL>には
@@ -140,12 +140,12 @@ living here.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguid
 日々寄せられています
 <COL ffdc78>「討伐クエスト」</COL>と<COL ffdc78>「納品クエスト」</COL>
 から、受注したいものを選びましょう","<COL 78f5ff>Board Quests are available!</COL>
-In various locations you will see <COL ffdc78>Quest Boards</COL>
-Residents make their various requests with
+In various locations you will see <COL ffdc78>Quest Boards</COL>.
+Residents will make various requests with
 <COL ffdc78>Board Quests</COL>.  
-Every day we get new requests.
-<COL ffdc78>Elimination Quests</COL> and <COL ffdc78>Delivery Quests</COL>
-Choose whichever you like.",ui\00_message\tutorial_guide\steps\tutorial_guide_step32.gmd,\tguide\tutorial_guide_32.arc,tutorial_guide_32.arc,0,
+Every day, we get new requests;
+<COL ffdc78>Elimination Quests</COL> and <COL ffdc78>Delivery Quests</COL>.
+Choose any you like.",ui\00_message\tutorial_guide\steps\tutorial_guide_step32.gmd,\tguide\tutorial_guide_32.arc,tutorial_guide_32.arc,0,
 1,TUTORIAL_STEP_10,"<COL ffdc78>「討伐クエスト」は指定の魔物討伐が目的と
 なり、対象敵はミニマップに緑の丸で示されます</COL>
 <COL ffdc78>「納品クエスト」は依頼の品を入手し
@@ -155,13 +155,13 @@ Choose whichever you like.",ui\00_message\tutorial_guide\steps\tutorial_guide_st
 ご注意ください","<COL ffdc78>Elimination Quests</COL> are aimed at the
 suppression of monsters. 
 The target enemies are indicated
-by a green circle on the mini map.
+by a green circle on the Minimap.
 <COL ffdc78>Delivery Quests</COL> are about obtaining
-specific items and deliver them to
-a <COL ffdc78>Delivery Box</COL>
-However, if the time limit for the delivery has
-passed,the quest will automatically fail.
-Please be careful.",ui\00_message\tutorial_guide\steps\tutorial_guide_step32.gmd,\tguide\tutorial_guide_32.arc,tutorial_guide_32.arc,1,
+specific items and delivering them to
+a <COL ffdc78>Delivery Box</COL>.
+However, if the time limit for the quest has
+passed, the quest will automatically fail.
+Please keep this in mind.",ui\00_message\tutorial_guide\steps\tutorial_guide_step32.gmd,\tguide\tutorial_guide_32.arc,tutorial_guide_32.arc,1,
 0,TUTORIAL_STEP_11,"<COL 78f5ff>《パーソナルクエスト》が解放されました！</COL>
 緑のアイコンで表される<COL ffdc78>《パーソナルクエスト》</COL>は
 レスタニアの世界を知り、深めることができる
@@ -205,21 +205,21 @@ your level.",ui\00_message\tutorial_guide\steps\tutorial_guide_step43.gmd,\tguid
 　【<KC UI_MINIMAP>】+【<KC UI_MAP_ZOOM_IN>／<KC UI_MAP_ZOOM_OUT>】で変更
 ＜位置固定＞
 　【<KC UI_MINIMAP>】+【<KC UI_MINIMAP_LOCK>】で固定","You can change the size and zoom of 
-the <COL ffdc78>MiniMap</COL> at any time. 
+the <COL ffdc78>Minimap</COL> at any time. 
 Change it according to the situation.
 """"Resizing""""
 Change Size with [<KC UI_MINIMAP>]+[<KC UI_MINIMAP_SCALING>]
 """"Zooming""""
 Change Zoom with [<KC UI_MINIMAP>]+[<KC UI_MAP_ZOOM_IN>／<KC UI_MAP_ZOOM_OUT>]
 """"Lock Size""""
-Lock Mini Map with [<KC UI_MINIMAP>]+[<KC UI_MINIMAP_LOCK>]",ui\00_message\tutorial_guide\steps\tutorial_guide_step39.gmd,\tguide\tutorial_guide_39.arc,tutorial_guide_39.arc,1,
+Lock Minimap with [<KC UI_MINIMAP>]+[<KC UI_MINIMAP_LOCK>]",ui\00_message\tutorial_guide\steps\tutorial_guide_step39.gmd,\tguide\tutorial_guide_39.arc,tutorial_guide_39.arc,1,
 0,TUTORIAL_STEP_33,"画面右上の<COL ffdc78>《ミニマップ》</COL>で
 「プレイヤーの位置」と「敵の位置」が
 すぐに確認できます
 <COL ffdc78>中央緑のカーソルがあなたの現在地
 小さな丸が敵の位置です</COL>
 倒すべき敵の位置を把握しましょう","On the upper-right corner of the screen 
-you will find the <COL ffdc78>MiniMap</COL>. 
+you will find the <COL ffdc78>Minimap</COL>. 
 Here you can quickly see your position 
 and the position of enemies.
 <COL ffdc78>The green circle at the center is your
@@ -232,10 +232,10 @@ Use it to plan your next move.",ui\00_message\tutorial_guide\steps\tutorial_guid
 概要、現在の目的、成功報酬などを
 知りたい場合はここで確認しましょう","The <KC UI_GAME_MENU> <COL ffdc78>Game Menu</COL>
 will show you details about quests in
-progress under <COL ffdc78>Quest</COL> in the <COL ffdc78>Quest Log</COL>.
+progress in the <COL ffdc78>Quest Log</COL> under <COL ffdc78>Quest</COL>.
 If you want to see the quest summary,
 current objective, completion reward,
-etc, you can view it here.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,1,
+etc., you can view it here.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,1,
 0,TUTORIAL_STEP_35,"<COL 78f5ff>《ワールドクエスト》が解放されました！</COL>
 <COL ffdc78>《ワールドクエスト》</COL>は、日々レスタニアを
 探索することで見つけられるクエストです
@@ -249,7 +249,7 @@ talking to NPCs or Encountering an enemy
 in the field.
 Be sure to check the recommended level!
 The target enemy of the <COL ffdc78>World Quest</COL>
-appears on your Mini Map as a 
+appears on your Minimap as a 
 <COL 78f5ff>blue circle</COL>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step42.gmd,\tguide\tutorial_guide_42.arc,tutorial_guide_42.arc,0,
 2,TUTORIAL_STEP_36,"＜公開クエスト＞：通常報酬
 　...全てのプレイヤーに発生場所や報酬、敵などが
@@ -305,7 +305,7 @@ figures.",ui\00_message\tutorial_guide\steps\tutorial_guide_step35.gmd,\tguide\t
 　地名やクエスト目的地など）
 が確認できるため、ぜひ活用してください","In the Game Menu, selecting <COL ffdc78>World</COL>, 
 then <COL ffdc78>Map</COL> will show a wider view of 
-the world than the MiniMap.
+the world than the Minimap.
 To check various information useful to 
 your adventure (Party member's current 
 locations, enemies, buildings, place 
@@ -442,9 +442,9 @@ register it in advance.",ui\00_message\tutorial_guide\steps\tutorial_guide_step2
 <COL ffdc78>拡大した状態であれば、発言者を直接選んで
 話しかけたり、プロフィール確認やパーティー要請、
 フレンド申請できます</COL>","The Information that is displayed can be filtered
-with [<KC UI_LB>/<KC UI_RB>] this will switch channels.
+with [<KC UI_LB>/<KC UI_RB>]; this will switch channels.
 Use (+) to add a channel.
-In the input field press [<KC UI_RT>] to enlarge 
+While in the input field, press [<KC UI_RT>] to enlarge 
 the chat log.
 Use [<KC KEY_UP>/<KC KEY_DOWN>] to scroll through it.",ui\00_message\tutorial_guide\steps\tutorial_guide_step46.gmd,\tguide\tutorial_guide_46.arc,tutorial_guide_46.arc,1,
 0,TUTORIAL_STEP_150,"<COL ffdc78>《チャット》</COL>は、ゲームプレイ中に
@@ -460,7 +460,7 @@ to communicate with others during
 gameplay.
 The <COL ffdc78>Chat Log</COL> records all messages
 recieved during gameplay.
-This chat gets refreshed constantly 
+This chat gets refreshed continously 
 during gameplay.
 Press [<KC UI_CHAT>] to enter chat mode.
 This will switch to the chat window so 
@@ -488,8 +488,8 @@ a red circle.</COL>
 Also, a history of previous quests is
 available from Master Joseph in the
 <COL ffdc78>Audience Room.</COL>
-If you wish to look back on previous
-exploits, give him a visit.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,2,
+If you wish to look back upon your 
+previous exploits, give him a visit.",ui\00_message\tutorial_guide\steps\tutorial_guide_step8.gmd,\tguide\tutorial_guide_8.arc,tutorial_guide_8.arc,2,
 1,TUTORIAL_STEP_196,"パーソナルクエストを受注したら<COL ffdc78>《優先クエスト》</COL>に
 設定してみましょう
 目的地が離れている場合でも
@@ -548,10 +548,10 @@ objectives.",ui\00_message\tutorial_guide\steps\tutorial_guide_step42.gmd,\tguid
 <COL ffdc78>《謁見の間》</COL>となります
 マップを確認しながら《中央広場》の奥へ
 向いましょう","<COL ffdc78>The White Dragon Temple</COL> is a vital location and  
-the starting point of adventure for all players.
+the starting point of adventures for all players.
 The <COL ffdc78>Audience Chamber</COL> is where you undertake 
 your duties as the Arisen.
-Open your map and head to the back of the 
+Now, open your map and head to the back of the 
 <COL ffdc78>Central Plaza</COL>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step35.gmd,\tguide\tutorial_guide_35.arc,tutorial_guide_35.arc,0,
 1,TUTORIAL_STEP_408,"＜登録方法：マルチショートカット＞
 【<KC UI_GAME_MENU>】ゲームメニューから、登録したい

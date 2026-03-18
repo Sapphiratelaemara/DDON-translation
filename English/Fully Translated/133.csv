@@ -1143,7 +1143,7 @@ Now, to the fort!",ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000
 0,,"バタバタしてるが、動きは悪くない
 自信を持って戦え！","A bit gaudy, but your movements
 are good. Fight with confidence!",ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,14,Leo
-0,,さあ、砦へ突入だ！,"Now, let's rush into the fort!",ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,15,Leo
+0,,さあ、砦へ突入だ！,"Now, we charge into the fort!",ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,15,Leo
 0,,おい、どこへいく！,"Hey, where are you going!",ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,16,Leo
 0,,そっちじゃないぞ！,Not that way!,ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,17,Leo
 0,,こっちへ来い！,Come this way!,ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,18,Leo
@@ -1191,17 +1191,18 @@ this quickly!",ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.
 0,,もう少しだよ！,Just a bit more!,ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,50,Iris
 0,,いい感じ！　このまま！,Good! Like that!,ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,51,Iris
 0,,優勢優勢！,Strength! Power!,ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,52,Iris
-0,,まだいたか！　くう～！,More of them!? Grrr!,ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,53,Iris
+0,,まだいたか！　くう～！,More of them!? Rrgh!,ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,53,Iris
 0,,残念、敵が増えちゃった！,I'm afraid they've grown in number!,ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,54,Iris
 0,,あーあ、敵、増援だ！,Oh no... Enemy reinforcements!,ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,55,Iris
 0,,頼りにしてるぞ、新人！,"You're up, newcomer!",ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,56,Cyrus
-0,,ここまで攻め込まれるとは――不覚！,They were foolish to invade this far!,ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,57,Cyrus
+0,,ここまで攻め込まれるとは――不覚！,I never expected them to reach even here...,ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,57,Cyrus
 0,,"オークはまだまだいる！
 一匹残らず倒すぞ！","Orcs still remain!
 Fell them to the very last!",ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,58,Talcott
 0,,"さすが、レオ隊長が見込んだ新人だな！
-このまま砦を掃除するぞ！","Leo was right to about you, as ever!
-We'll clean the fort in no time!",ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,59,Talcott
+このまま砦を掃除するぞ！","Just as expected of a rookie 
+picked by Captain Leo!
+We'll have the fort cleared in no time!",ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,59,Talcott
 0,,敵には<COL ff7575><KCT ATTACK1>／<KCT ATTACK2></COL>で基本攻撃！,"Use <COL ff7575><KCT ATTACK1>/
 <KCT ATTACK2></COL> to attack enemies!",ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,60,Leo
 0,,さらに<COL ff7575><PADM><KCT WEAPON_SUB>を押しながら</PADM><KEYM><KCT SKILL_CUSTOM3></COL>か</KEYM>,"Additionally, while holding <COL ff7575><PADM><KCT WEAPON_SUB>, press </PADM><KEYM><KCT SKILL_CUSTOM3><KCT SKILL_CUSTOM3></COL></KEYM>",ui\00_message\quest\q00000001.gmd,\quest\q00000001.arc,q00000001.arc,61,Leo
@@ -1229,9 +1230,8 @@ Gain new orders by speaking to Leo, who is in
 the Audience Chamber.",ui\00_message\quest\q00000002.gmd,\quest\q00000002.arc,q00000002.arc,0,Leo
 0,,"まず《謁見の間》へ行くこと
 そのあとでまた会おう
-少し話そうぜ","First go to the Audience Chamber. 
-We'll talk again when we 
-meet later on.",ui\00_message\quest\q00000002.gmd,\quest\q00000002.arc,q00000002.arc,1,Fabio
+少し話そうぜ","First, go to the Audience Chamber. 
+We'll talk again after that.",ui\00_message\quest\q00000002.gmd,\quest\q00000002.arc,q00000002.arc,1,Fabio
 0,,"画面右上のミニマップを見て、赤いマーカーが示す
 《謁見の間》へ向かいましょう","Look at the minimap on the top-right of
 the screen, and head for the ""Audience Chamber""
@@ -1241,16 +1241,15 @@ to see everything.",ui\00_message\quest\q00000002.gmd,\quest\q00000002.arc,q0000
 0,,【ヒント：ミニマップのサイズ変更】,[Tip: Resizing the Minimap],ui\00_message\quest\q00000002.gmd,\quest\q00000002.arc,q00000002.arc,4,Fabio
 0,,<COL ff7575><KCT UI_MINIMAP>を押しながら<KCT UI_MINIMAP_SCALING></COL>でサイズ変更,"<COL ff7575>While holding <KCT UI_MINIMAP>, change minmap
 size by pressing <KCT UI_MINIMAP_SCALING></COL>",ui\00_message\quest\q00000002.gmd,\quest\q00000002.arc,q00000002.arc,5,Fabio
-0,,ついてきな――謁見の間の前まで案内してやるよ,"Follow me. I'll show you around
+0,,ついてきな――謁見の間の前まで案内してやるよ,"Follow me. I'll show you to
 the Audience Chamber.",ui\00_message\quest\q00000002.gmd,\quest\q00000002.arc,q00000002.arc,6,Fabio
 0,,この神殿は白竜の守護のもと――神官によって統治されてるんだ,"This temple is under the protection
 of the White Dragon, and governed by the
-priests.",ui\00_message\quest\q00000002.gmd,\quest\q00000002.arc,q00000002.arc,7,Fabio
-0,,砦戦はどうだった？レオとイリスに相当いわれたようだな,"How went the battle?
-It seems it went fairly well according to
-Leo and Iris.",ui\00_message\quest\q00000002.gmd,\quest\q00000002.arc,q00000002.arc,8,Fabio
+clergy.",ui\00_message\quest\q00000002.gmd,\quest\q00000002.arc,q00000002.arc,7,Fabio
+0,,砦戦はどうだった？レオとイリスに相当いわれたようだな,"How fared the battle?
+Leo and Iris seem to think it went fairly well.",ui\00_message\quest\q00000002.gmd,\quest\q00000002.arc,q00000002.arc,8,Fabio
 0,,一人前の覚者になるためには――まだまだ戦い方を知る必要があるぜ,"In order to become an Arisen, you
-still need to know how to properly fight.",ui\00_message\quest\q00000002.gmd,\quest\q00000002.arc,q00000002.arc,9,Fabio
+still need to know how to fight properly.",ui\00_message\quest\q00000002.gmd,\quest\q00000002.arc,q00000002.arc,9,Fabio
 0,,今のジョブが自分に合ってないと思うなら<COL ff7575>いつでも他のジョブに転職</COL>も可能だ,"If you feel your current vocation
 does not suit you, <COL ff7575> it is possible to change
 to another vocation at any time.</COL>",ui\00_message\quest\q00000002.gmd,\quest\q00000002.arc,q00000002.arc,10,Fabio

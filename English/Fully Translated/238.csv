@@ -375,31 +375,31 @@ Gemstone</COL>.
 (You have: <VAL>)",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,218,
 220,DIALOG_CONFIRM_EX_CREATE_ERROR,"黄金石が不足しています
 その場で作成完了するには<COL ffdc78>黄金石<VAL>個</COL>が必要です
-(所持数：<VAL>)","You do not have enough Golden Gemstones.
+(所持数：<VAL>)","You do not have enough GG.
 Creating this requires <COL ffdc78><VAL> Golden
 Gemstone</COL>.
 (You have: <VAL>)",ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,220,
 220,DIALOG_CONFIRM_EX_CREATE_ERROR,"黄金石が不足しています
 その場で作成完了するには<COL ffdc78>黄金石<VAL>個</COL>が必要です
-(所持数：<VAL>)","You do not have enough Golden Gemstones.
+(所持数：<VAL>)","You do not have enough GG.
 Creating this requires <COL ffdc78><VAL> Golden
 Gemstone</COL>.
 (You have: <VAL>)",ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,220,
 220,DIALOG_CONFIRM_EX_CREATE_ERROR,"黄金石が不足しています
 その場で作成完了するには<COL ffdc78>黄金石<VAL>個</COL>が必要です
-(所持数：<VAL>)","You do not have enough Golden Gemstones.
+(所持数：<VAL>)","You do not have enough GG.
 Creating this requires <COL ffdc78><VAL> Golden
 Gemstone</COL>.
 (You have: <VAL>)",ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,220,
 220,DIALOG_CONFIRM_EX_CREATE_ERROR,"黄金石が不足しています
 その場で作成完了するには<COL ffdc78>黄金石<VAL>個</COL>が必要です
-(所持数：<VAL>)","You do not have enough Golden Gemstones.
+(所持数：<VAL>)","You do not have enough GG.
 Creating this requires <COL ffdc78><VAL> Golden
 Gemstone</COL>.
 (You have: <VAL>)",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,220,
 220,DIALOG_CONFIRM_EX_CREATE_ERROR,"黄金石が不足しています
 その場で作成完了するには<COL ffdc78>黄金石<VAL>個</COL>が必要です
-(所持数：<VAL>)","You do not have enough Golden Gemstones.
+(所持数：<VAL>)","You do not have enough GG.
 Creating this requires <COL ffdc78><VAL> Golden
 Gemstone</COL>.
 (You have: <VAL>)",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,220,
@@ -498,7 +498,7 @@ Are you sure?
 よろしいですか？
 (所持数：<VAL>)","Due to the use of the following function, to
 strengthen this item, you will need <COL ffdc78>
-Golden Gemstones x<VAL></COL>.
+GG x<VAL></COL>.
 Do you agree?
 (Currently owned: <VAL>)",ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,247,
 247,DIALOG_CONFIRM_GP_REINFORCE,"以下の機能を利用しているため、このアイテムを
@@ -506,7 +506,7 @@ Do you agree?
 よろしいですか？
 (所持数：<VAL>)","Due to the use of the following function, to
 strengthen this item, you will need <COL ffdc78>
-Golden Gemstones x<VAL></COL>.
+GG x<VAL></COL>.
 Do you agree?
 (Currently owned: <VAL>)",ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,247,
 247,DIALOG_CONFIRM_GP_REINFORCE,"以下の機能を利用しているため、このアイテムを
@@ -514,7 +514,7 @@ Do you agree?
 よろしいですか？
 (所持数：<VAL>)","Due to the use of the following function, to
 strengthen this item, you will need <COL ffdc78>
-Golden Gemstones x<VAL></COL>.
+GG x<VAL></COL>.
 Do you agree?
 (Currently owned: <VAL>)",ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,247,
 247,DIALOG_CONFIRM_GP_REINFORCE,"以下の機能を利用しているため、このアイテムを
@@ -522,7 +522,7 @@ Do you agree?
 よろしいですか？
 (所持数：<VAL>)","Due to the use of the following function, to
 strengthen this item, you will need <COL ffdc78>
-Golden Gemstones x<VAL></COL>.
+GG x<VAL></COL>.
 Do you agree?
 (Currently owned: <VAL>)",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,247,
 247,DIALOG_CONFIRM_GP_REINFORCE,"以下の機能を利用しているため、このアイテムを
@@ -530,7 +530,7 @@ Do you agree?
 よろしいですか？
 (所持数：<VAL>)","Due to the use of the following function, to
 strengthen this item, you will need <COL ffdc78>
-Golden Gemstones x<VAL></COL>.
+GG x<VAL></COL>.
 Do you agree?
 (Currently owned: <VAL>)",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,247,
 262,DIALOG_CONFIRM_MATERIALS_CHANGE,"このアイテムを品質変更しますか？
@@ -713,11 +713,11 @@ lost.</COL>",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,
 <COL AA1414>※素材・費用・クラフト回数は消費されます</COL>","Are you sure you want to stop crafting?
 <COL AA1414>※Materials and crafting cost will be
 lost.</COL>",ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,68,
-217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,Create using Golden Gemstones (instant),ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,217,
-217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,Create using Golden Gemstones (instant),ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,217,
-217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,Create using Golden Gemstones (instant),ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,217,
-217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,Create using Golden Gemstones (instant),ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,217,
-217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,Create using Golden Gemstones (instant),ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,217,
+217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,Create using GG (instant),ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,217,
+217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,Create using GG (instant),ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,217,
+217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,Create using GG (instant),ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,217,
+217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,Create using GG (instant),ui\00_message\ui\Craft_res.gmd,\ui\uGUISubList.arc,uGUISubList.arc,217,
+217,DIALOG_CONFIRM_TYPE_EX_CREATE,黄金石を使用して作成（即時完成）,Create using GG (instant),ui\00_message\ui\Craft_res.gmd,\ui\uGUISubRecipe.arc,uGUISubRecipe.arc,217,
 221,DIALOG_CONFIRM_TYPE_JUMP_ONLINESHOP,オンラインショップを開く,Open online shop,ui\00_message\ui\Craft_res.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,221,
 221,DIALOG_CONFIRM_TYPE_JUMP_ONLINESHOP,オンラインショップを開く,Open online shop,ui\00_message\ui\Craft_res.gmd,\ui\uGUICraft.arc,uGUICraft.arc,221,
 221,DIALOG_CONFIRM_TYPE_JUMP_ONLINESHOP,オンラインショップを開く,Open online shop,ui\00_message\ui\Craft_res.gmd,\ui\uGUIPopCraftDetail.arc,uGUIPopCraftDetail.arc,221,
