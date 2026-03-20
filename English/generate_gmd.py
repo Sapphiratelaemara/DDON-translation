@@ -24,7 +24,7 @@ def validate_first_column(file_path):
         for row_number, row in enumerate(reader, start=1):
             if not row:
                 continue
-            first_column = row[0].strip()
+            first_column = row[0].strip().lstrip('\ufeff')
             if first_column == "#Index":
                 continue
             if not first_column.isdigit():
