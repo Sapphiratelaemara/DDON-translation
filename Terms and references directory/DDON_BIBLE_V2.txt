@@ -1,0 +1,694 @@
+=== DRAGON'S DOGMA 1 -> DDON: CATEGORIZED AI BIBLE (v2) ===
+Updated with targeted vocabulary mining from combined_output_cleaned.csv.
+Use this as a living style reference — not rigid rules. Human review still required.
+
+--- [SECTION 1: CONFLICT RESOLUTION (REVIEW THESE)] ---
+These terms have multiple common translations. Choose one for DDON consistency:
+CONFLICT: [さようなら] translated as both "farewell, arisen" and "goodbye"
+CONFLICT: [お久しぶりです！] translated as both "it has been some time" and "arisen! it has been a while"
+CONFLICT: [奇妙な縁ですね] translated as both "it seems we're bound by fate's strange thread" and "it must be fate that's brought us together once again"
+CONFLICT: [ぐあっ！] translated as both "rrgh" and "gaah"
+CONFLICT: [逃がすな！] translated as both "let none escape" and "don't let him go"
+CONFLICT: [ぐうっ…] translated as both "rrgh" and "ooft"
+CONFLICT: [ぐあああぁぁぁ…] translated as both "aaargh" and "aaaaugh"
+CONFLICT: [はっ] translated as both "ha" and "hah"
+CONFLICT: [ううっ…] translated as both "uooh" and "hnngh"
+CONFLICT: [んっ] translated as both "nf" and "nh"
+CONFLICT: [えいっ] translated as both "hya" and "eagh"
+CONFLICT: [またね] translated as both "till next time" and "call again soon, aye"
+CONFLICT: [うーん…] translated as both "mmm" and "mmmm"
+CONFLICT: […ありがとう] translated as both "thank you" and "i have not the words to thank you"
+CONFLICT: [気をつけてな] translated as both "take care" and "take care, now"
+CONFLICT: [受注する] translated as both "accept" and "hear him out"
+CONFLICT: [うあっ] translated as both "wha" and "waugh"
+CONFLICT: [ううっ] translated as both "ungh" and "hnngh"
+CONFLICT: [やあ！] translated as both "hey" and "hey, cos"
+CONFLICT: [ううん…] translated as both "no" and "hmm, no"
+CONFLICT: [じゃあね] translated as both "see you when i may" and "fair travels to you"
+CONFLICT: [ありがとね] translated as both "thank you" and "why thank you"
+CONFLICT: [またのご利用を！] translated as both "thank you very much" and "come again soon"
+CONFLICT: [ふんっ] translated as both "hngh" and "hmh"
+CONFLICT: [おっ] translated as both "oh" and "ohh"
+CONFLICT: [うあああぁぁぁ…] translated as both "waaaaugh" and "aaaugh"
+CONFLICT: [いやっ！] translated as both "yaah" and "eyah"
+CONFLICT: [ああっ] translated as both "aanh" and "aah"
+CONFLICT: [いやああぁぁぁ…] translated as both "eaaaagh" and "aaaaaugh"
+CONFLICT: [えい] translated as both "ya" and "ngh"
+CONFLICT: [えいっ！] translated as both "eyaah" and "eagh"
+CONFLICT: [ええ、そう] translated as both "mm, yes" and "oh, certainly"
+CONFLICT: [いんや] translated as both "no, child" and "nay"
+CONFLICT: [うん] translated as both "mm" and "aye"
+CONFLICT: [ほっ] translated as both "hoh" and "ho"
+CONFLICT: [とおっ！] translated as both "toh" and "hraah"
+CONFLICT: [ぐっ…] translated as both "guh" and "gragh"
+CONFLICT: [よう] translated as both "hoy" and "hail"
+CONFLICT: [またな] translated as both "take care" and "another time"
+CONFLICT: [ああ] translated as both "aye" and "yes, of course"
+CONFLICT: [ふん] translated as both "hnh" and "hmph"
+CONFLICT: [やっ] translated as both "ah" and "yah"
+CONFLICT: [どうも] translated as both "hello" and "hail"
+CONFLICT: [せいっ！] translated as both "shah" and "shoh"
+CONFLICT: [いや、それは…] translated as both "i don't think so" and "hmm, i don't know"
+CONFLICT: [ありがたい] translated as both "oh, thank you" and "how nice"
+CONFLICT: [ありがとう！] translated as both "thanks, cos" and "oh, thank you"
+CONFLICT: [そうだ] translated as both "aye, ser" and "that is so"
+CONFLICT: [悪いな] translated as both "kind of you, ser" and "thanks"
+CONFLICT: [やめろ！] translated as both "none of that, now" and "cease at once"
+
+--- [SECTION 2: CORE GRAMMAR & HONORIFICS] ---
+CORE: [nan] -> "nan" (6.2% | 16 hits)
+CORE: [うっ] -> "ngh" (18.2% | 11 hits)
+CORE: [ううっ] -> "ungh" (33.3% | 9 hits)
+CORE: [ぐうっ] -> "guhah" (12.5% | 8 hits)
+CORE: [いいや] -> "no, cousin" (12.5% | 8 hits)
+CORE: [はい] -> "yes" (28.6% | 7 hits)
+CORE: [いいえ] -> "no" (28.6% | 7 hits)
+CORE: [むっ] -> "mnh" (28.6% | 7 hits)
+CORE: [うむ] -> "aye" (16.7% | 6 hits)
+CORE: […] -> "mmm" (16.7% | 6 hits)
+CORE: [ええ] -> "sure" (16.7% | 6 hits)
+CORE: [そうね] -> "mm-hmm" (16.7% | 6 hits)
+CORE: [ふっ] -> "hnh" (33.3% | 6 hits)
+CORE: [やめる] -> "never mind" (33.3% | 6 hits)
+CORE: [よう！] -> "hoy, goodfisher" (16.7% | 6 hits)
+CORE: [ではな] -> "fare well" (20.0% | 5 hits)
+CORE: [うおっ] -> "grah" (20.0% | 5 hits)
+CORE: [あっ] -> "ah" (60.0% | 5 hits)
+CORE: [よっ] -> "yoh" (40.0% | 5 hits)
+CORE: [ほっ] -> "hoh" (40.0% | 5 hits)
+CORE: [だめだ] -> "no" (20.0% | 5 hits)
+CORE: [いやっ] -> "yah" (20.0% | 5 hits)
+CORE: [ぐっ] -> "guh" (40.0% | 5 hits)
+CORE: [何だ？] -> "what" (20.0% | 5 hits)
+CORE: [ああ？] -> "hmm" (20.0% | 5 hits)
+CORE: [はっ] -> "ha" (50.0% | 4 hits)
+CORE: [んっ] -> "nf" (25.0% | 4 hits)
+CORE: [ふんっ] -> "hngh" (25.0% | 4 hits)
+CORE: [おっ] -> "oh" (50.0% | 4 hits)
+CORE: [ぐっ…] -> "guh" (50.0% | 4 hits)
+CORE: [よう] -> "hoy" (25.0% | 4 hits)
+CORE: [ああ] -> "aye" (25.0% | 4 hits)
+CORE: [ふん] -> "hnh" (50.0% | 4 hits)
+CORE: [どうも] -> "hello" (25.0% | 4 hits)
+CORE: [そうだ] -> "aye, ser" (25.0% | 4 hits)
+CORE: [えいっ] -> "hya" (33.3% | 3 hits)
+CORE: [またね] -> "till next time" (33.3% | 3 hits)
+CORE: [うあっ] -> "wha" (33.3% | 3 hits)
+CORE: [やあ！] -> "hey" (33.3% | 3 hits)
+CORE: [ああっ] -> "aanh" (66.7% | 3 hits)
+CORE: [えい] -> "ya" (33.3% | 3 hits)
+CORE: [いんや] -> "no, child" (33.3% | 3 hits)
+CORE: [うん] -> "mm" (33.3% | 3 hits)
+CORE: [またな] -> "take care" (33.3% | 3 hits)
+CORE: [やっ] -> "ah" (33.3% | 3 hits)
+CORE: [悪いな] -> "kind of you, ser" (33.3% | 3 hits)
+CORE: [むうっ] -> "mnnh" (66.7% | 3 hits)
+CORE: [くっ] -> "krgh" (33.3% | 3 hits)
+CORE: [せいっ] -> "shaah" (33.3% | 3 hits)
+CORE: [では] -> "go, then" (33.3% | 3 hits)
+CORE: [ぐあっ] -> "guah" (33.3% | 3 hits)
+CORE: [ぐおっ] -> "guh" (33.3% | 3 hits)
+CORE: [ああ…] -> "aye" (66.7% | 3 hits)
+CORE: [う…] -> "uh" (33.3% | 3 hits)
+CORE: [何？] -> "eh" (33.3% | 3 hits)
+
+--- [SECTION 3: LEXICAL TERMS & ITEMS] ---
+TERM: [勝手にうろついてんじゃねえぞ] -> "wanna find out what we do to trespassers"
+TERM: [ビビってやがんのか？] -> "do you fear me"
+TERM: [さっさと行きなよ] -> "run along, then"
+TERM: [ごきげんよう] -> "greetings"
+TERM: [ヒマなこった] -> "don't you ever leave"
+TERM: [なんだよ、近づくんじゃねえ] -> "leave my sight, whoreson"
+TERM: [うぜえな…] -> "do not test me"
+TERM: [てめえに用はねえ] -> "why do you even draw breath"
+TERM: [あんまり調子こくなよ] -> "don't get too full of yourself"
+TERM: [気楽にいこうぜ] -> "to easy living, aye"
+TERM: [覚者様の前途に、乾杯！] -> "to the arisen! may the path ahead e'er be clear"
+TERM: [失礼、お話はまた後ほどに] -> "let us speak another time, ser"
+TERM: [少し落ち着かれてはいかがか] -> "pray, calm yourself"
+TERM: [殺されてえのか？] -> "you aren't too keen on living, are you"
+TERM: [あ？　なんだてめえ] -> "am i supposed to care you're arisen or summat"
+TERM: […うっとうしい奴だ] -> "you're not wanted, get it"
+TERM: [ブチのめされたいか？] -> "i was just thinking about dealing someone bodily harm. shall i start with you"
+TERM: [おかしな野郎だ] -> "you're as brazen a fool as any i've seen"
+TERM: [あの連中…許さねえ！] -> "audacious harlots...spawned from the dragon himself"
+TERM: [何しに来た？] -> "you're a full dish of fool, you are"
+TERM: [おう、気合い入ってるな] -> "hoy there. you look eager"
+TERM: [じゃ、またな] -> "till next time"
+TERM: [でやっ！] -> "hyagh"
+TERM: [そうだな] -> "of course"
+TERM: [ありがとうございます] -> "i thank you"
+TERM: [消えな！] -> "piss off"
+TERM: [向こうへ行け！] -> "your stupidity beggars belief. leave"
+TERM: [話すことはねえよ] -> "don't waste your breath talking to me, and i won't have to waste my time killing you"
+TERM: [あんまり騒ぐんじゃねえぞ] -> "cause trouble here and you'll soon regret it"
+TERM: [あんたも仲間に入るか？] -> "you ought to join us! we wouldn't be too hard on you"
+TERM: [何しにきやがった] -> "what? who the hell are you"
+TERM: [消えろ！] -> "piss off"
+TERM: [とっとと帰れ！] -> "bugger off"
+TERM: [しゃれにならんぜ] -> "what're we to do about it"
+TERM: [さっさと片付けときゃよかった] -> "it's well past time to collect on these debts"
+TERM: [さあ、どうしてやるか…] -> "now, what is the best way to make them bleed"
+TERM: [まさか砦が落ちるとはな…] -> "how was it this place fell"
+TERM: [ありがとう] -> "my thanks"
+TERM: [くそっ！] -> "hrn"
+TERM: [うああぁぁっ…] -> "waaaugh"
+TERM: [ぐああぁぁっ…] -> "graaugh"
+TERM: [調子はどうだ] -> "how's the day find you"
+TERM: [荷車の護衛ではないのか！？] -> "are you not with the convoy, then"
+TERM: [なに見てやがる] -> "looking for a fight, are you"
+TERM: [用もないのに、うろつくな] -> "if you've no business here, move on"
+TERM: [相棒、どうだい景気は] -> "come to visit, friend"
+TERM: [こりねえな、あんたも] -> "no one's killed you yet"
+TERM: […マジか？] -> "oho"
+TERM: [ああ、そうだ…] -> "there's an idea"
+TERM: [なるほどな…] -> "ahh...exactly"
+TERM: [それからどうした？] -> "then what"
+TERM: [お気をつけて…] -> "pray, take care"
+TERM: [さようなら] -> "farewell, arisen"
+TERM: [ぐあっ！] -> "rrgh"
+TERM: [逃がすな！] -> "let none escape"
+TERM: [ぐうっ…] -> "rrgh"
+TERM: [ぐあああぁぁぁ…] -> "aaargh"
+TERM: [うーん…] -> "mmm"
+TERM: [うあああぁぁぁ…] -> "waaaaugh"
+TERM: [いやっ！] -> "yaah"
+TERM: [とおっ！] -> "toh"
+TERM: [ありがとう…] -> "thank you"
+TERM: [何かご用ですか？] -> "yes, arisen"
+TERM: [お久しぶりです！] -> "it has been some time"
+TERM: [奇妙な縁ですね] -> "it seems we're bound by fate's strange thread"
+TERM: [ううっ…] -> "uooh"
+TERM: […ありがとう] -> "thank you"
+TERM: [気をつけてな] -> "take care"
+TERM: [受注する] -> "accept"
+TERM: [ううん…] -> "no"
+TERM: [じゃあね] -> "see you when i may"
+TERM: [ありがとね] -> "thank you"
+TERM: [またのご利用を！] -> "thank you very much"
+TERM: [いやああぁぁぁ…] -> "eaaaagh"
+TERM: [えいっ！] -> "eyaah"
+TERM: [ええ、そう] -> "mm, yes"
+TERM: [せいっ！] -> "shah"
+TERM: [いや、それは…] -> "i don't think so"
+TERM: [ありがたい] -> "oh, thank you"
+TERM: [ありがとう！] -> "thanks, cos"
+TERM: [やめろ！] -> "none of that, now"
+TERM: [何か用か？] -> "what is it"
+TERM: [ふんっ！] -> "hrunph"
+TERM: [うわああぁぁっ…] -> "waaaugh"
+TERM: [でやあっ！] -> "shaha"
+TERM: [そこだ！] -> "hah"
+TERM: [驕るな、覚者！] -> "you are blind to the truth, arisen"
+TERM: [滅びは近い！救いの時は来た！] -> "perdition is nigh! the hour of redemption is upon us"
+TERM: [全ては滅ぶ！全ては無に帰す！] -> "all will burn, and through fire return to nothingness"
+
+--- [SECTION 4: MANDATORY SYNTAX (VERB + NOT)] ---
+  - know not
+  - tis not
+  - you not
+  - why not
+  - and not
+  - care not
+  - shall not
+  - may not
+  - worry not
+  - must not
+  - need not
+  - fear not
+  - best not
+  - but not
+  - think not
+  - ought not
+  - than not
+  - absolutely not
+  - matters not
+  - they not
+  - try not
+  - afraid not
+  - there not
+  - surely not
+  - knew not
+  - fool not
+  - that not
+  - accept not
+  - out not
+  - though not
+  - dare not
+  - had not
+  - might not
+  - yes not
+  - knows not
+  - well not
+  - waste not
+  - want not
+  - thought not
+  - maybe not
+
+--- [SECTION 5: ARCHAIC VOCABULARY — DD1 ATTESTED USAGE] ---
+These words and constructions appear in DD:DA's actual localization.
+Prefer these over modern equivalents where register fits.
+
+ARCHAIC TERMS IN USE:
+  'tis / 'twas / 'twill / 'twere  — standard contractions of "it is/was/will/were"
+  o'er  — over (e.g. "watches o'er your safety")
+  e'er / ne'er / where'er / whene'er / whate'er  — ever/never/wherever/whenever/whatever
+  aught  — anything (e.g. "if there is aught this pawn can do")
+  naught  — nothing (e.g. "naught I do makes them flinch")
+  afore  — before (e.g. "I'll heal afore my wounds worsen")
+  ere  — before / by the time (e.g. "slay them ere they slow us down")
+  mayhap  — perhaps (e.g. "mayhap their tails are weak as well")
+  perchance  — perhaps / by chance (e.g. "perchance we'll meet again")
+  daresay  — I expect / I venture (e.g. "I daresay we're hurting it!")
+  nigh  — near / nearly (e.g. "perdition is nigh")
+  fell (adj.)  — fierce / deadly (e.g. "their spittle is fell poison")
+  fell (verb)  — to bring down (e.g. "I shall fell them without delay")
+  smite  — to strike hard (e.g. "smite the lot of them with lightning!")
+  slay  — to kill (e.g. "slay them ere they can slow us down")
+  scarce  — barely / hardly (e.g. "our blows scarce earn a flinch")
+  bode  — to foretell (e.g. "this cannot bode well")
+  beset  — to assail / surround (e.g. "besets the same land, time and again")
+  forthwith  — immediately (e.g. "released from bondage forthwith")
+  henceforth  — from this point on
+  therein  — in that / within that
+  withal  — in addition / nevertheless
+  perforce  — of necessity
+  ken  — to know / to understand (e.g. "I cannot ken what it will do")
+  wend  — to travel / to go
+  prithee  — pray thee / please (archaic request)
+  forsooth  — in truth
+  methinks  — it seems to me
+  haply  — by chance / perhaps
+  betimes  — early / in good time
+  ofttimes  — often
+  o' — of (colloquial archaic, e.g. "o' Gran Soren", "o' ill tidings")
+
+--- [SECTION 6: COMBAT CALLOUTS — DD1 ATTESTED PHRASINGS] ---
+Reference these when translating equivalent pawn battle lines.
+Note the punchy, direct register — short clauses, active voice.
+
+  弱点 — weakness
+    "The beast fears fire." / "Ice serves well against strigoi!"
+    "Those glowing discs are its weakness!" / "Holy magicks do nothing!"
+    "Lightning courses through them!" / "Ice yields little effect..."
+    "We'll need magick to defeat it." / "Blows to the head ought prove effective!"
+
+  攻撃 / strike calls
+    "Now, Arisen! End it!" / "Hold it, I'll end this!"
+    "Slay them one by one!" / "Strike first...and fast!"
+    "Watch for their attacks — evade, then strike!"
+    "Provoke an attack, then dodge it!"
+    "I'll pry it loose with an attack!"
+    "I'll take them face-to-face!"
+    "Give aid to any who need it!"
+    "Let's end this afore they reach land!"
+    "We'll not outlast it! Quickly, attack!"
+
+  敵発見 / foe spotted
+    "Master, a foe draws near!" / "The monster looks our way!"
+    "Beware! New foes are come to feast upon the dead!"
+    "Take care, Arisen! Sea monsters prowl the shoreline."
+
+  状態異常 / affliction / status
+    "Gird yourself against lightning." / "'Tis useless to strike at its bones!"
+    "Do not allow it to knock you down!"
+    "It attacks from all quarters! Look sharp!"
+    "'Tis dangerous in this state, but its amulets grow frail!"
+
+  体勢 / stance / recovery
+    "Let us take a moment to recover!"
+    "They caught us unawares... 'Twas a close thing."
+    "'Tis not defeat to flee from battle, Master. 'Tis survival."
+    "No single strategy will serve every encounter. One must adapt."
+
+  勝利 / victory
+    "We have triumphed!" / "We made it." / "It seems we've won..."
+    "'Twas sheer luck that saw us through." / "This should be a simple battle!"
+    "I only hope we survive the next encounter..."
+
+--- [SECTION 7: EXPLORATION & OBSERVATION — DD1 ATTESTED PHRASINGS] ---
+
+  場所 / place observations
+    "'Tis a strange place, this. Is this what we seek?"
+    "Perhaps we'll find aught inside?"
+    "I sense... 'Tis a queer presence lies beyond this door."
+    "Be wary! There are beasts that dwell within such chests."
+    "Hm... We might find aught of use here, Master. I suggest we search."
+    "Chests oft hold articles and treasures of great value."
+
+  道 / path / direction
+    "This road will take us to the quarry." / "We can get down this way."
+    "The exit lies just beyond! We're nearly there!"
+    "Mind the edge, Master!" / "A fall here means certain death!"
+    "We're easily spotted out on the open plains."
+    "Let's not get lost, Master. Come, this way."
+
+  安全 / safety
+    "To safety! Quickly!" / "I recall a spot we may rest not far from here."
+    "If we kill it now, we needn't spill a drop of our own blood."
+    "This pawn cannot enter the castle. I shall await you here."
+
+--- [SECTION 8: SOCIAL & HOME DIALOGUE — DD1 ATTESTED PHRASINGS] ---
+
+  感謝 / thanks
+    "My thanks." / "You have my thanks, ser." / "I thank you for it, ser."
+    "No doubt... You have my thanks, Arisen. Your aid spared us greater loss."
+
+  帰還 / return
+    "You've returned to us before and shall do so again. I have faith in this."
+    "'Twas a long road we walked, and yet come to an end so soon... I'll ne'er forget it."
+    "Did we truly walk this world? Or was it but a dream glimpsed from beyond the rift?"
+
+  休息 / rest
+    "Well, come again whenever you tire."
+    "Don't let me keep you. I've a mind to rest here a while longer..."
+    "I've come to feel more at peace when the capital is in sight."
+
+  ポーン self-reference
+    "This pawn feels most at ease near a riftstone."
+    "My kind are not permitted to enter the castle gates. Pray, forgive me, Arisen."
+    "Simply ask, and this pawn shall obey."
+    "If there is aught this pawn can do, merely say the word."
+    "Be mindful of your pawns' health, in combat and in transit both."
+
+--- [SECTION 9: INVERTED NEGATION — DD1 ATTESTED EXAMPLES] ---
+The game freely uses VERB + NOT inversions. These are attested directly:
+  "I'll not beat around the bush."
+  "We'll not hold them long!"
+  "You'll not regret it, friend."
+  "We'll not allow it to escape."
+  "I'll not die so easily!"
+  "We cannot-- We must not allow them to breach Gran Soren's walls."
+  "I can ill see the Arisen pulling tricks..."  [ill = "scarcely / not well"]
+  "I speak only when I've aught of great import to say."
+  "Scant few men remain to guard the castle."  [scant = barely any]
+  "'Tis not defeat to flee from battle, Master. 'Tis survival."
+  "The unease of not clearly knowing one's self is aught I can sympathize with."
+
+--- [SECTION 10: GRUNTS & EXERTION — DD1 ATTESTED SOUNDS] ---
+Contextual — use sparingly and fit to personality.
+  うっ  -> "ngh" / "ugh" (pain/effort)
+  くっ  -> "ngh" / "krgh" (frustration/exertion)
+  ぐっ  -> "guh" / "grgh" (impact/strain)
+  むっ  -> "mnh" / "mrgh" / "nh" (displeasure)
+  うおっ -> "grah" / "ough" / "whoa" (surprise/exertion)
+  はっ  -> "ha" / "hah" (exertion/contempt)
+  ふっ  -> "hnh" / "hmph" / "nh" (contempt/effort)
+  えいっ -> "hya" / "eyaah" / "eiyah" (attack cry)
+  おっ  -> "oh" (surprise)
+  やっ  -> "ah" / "aye" (success/exertion)
+
+  Extended battle cries (DD1 attested):
+    うおっしゃ -> "Shaaah!"
+    うおおっ   -> "Whoa!" / "Raaah!"
+    はあああ   -> "Haaaah—!"
+    えいさっ   -> "Eiyah!"
+
+--- [SECTION 11: TRANSITION & INFERENCE PHRASES — DD1 ATTESTED] ---
+Use these when translating pawn observations, deductions, and hedged statements.
+Prefer these over modern "I think / I feel / probably".
+
+  "I sense..."  — for detecting threats, presence, atmosphere
+    "I sense dire magicks from within that mail!"
+    "I sense unnatural forces about... The undead."
+    "I sense a presence of pure darkness..."
+
+  "It seems..." / "'Twould seem..." — neutral observation
+    "It seems to be asleep." / "It seems that goblin wields magick!"
+    "The dragon has made his move, it would seem..."
+    "Seems magick finds them well enough!"
+    "Seems even the monsters have changed..."
+
+  "Mayhap..." / "Perchance..." — tentative possibility
+    "Mayhap their tails are weak as well."
+    "Mayhap our party is misbalanced."
+    "Perchance we'll meet again, should the Maker see fit to spare us both."
+    "Perchance one of these people knows aught of the Pawn Guild."
+
+  "I daresay..." — confident assertion with slight hedging
+    "I daresay we're hurting it!"
+    "I daresay you'll find this more than reasonable."
+
+  "I'd wager..." — confident personal bet
+    "I'd wager a fair number of his kind will be there as well."
+    "I'd wager not many truly believe that cult's talk."
+
+  "I warrant..." / "I'll warrant..." — pledging certainty
+    "Let's make for this hidden route. I warrant little chance is better than none."
+    "Judging from your feats, I'll warrant you're an Arisen in truth."
+
+  "I reckon..." — informal assessment
+    "I reckon if we caught a harpy, it could ferry us across."
+    "I reckon we have absolutely nothing to talk about."
+
+  "I suspect..." — cautious inference
+    "I suspect this is the start of a grand friendship..."
+    "In truth, I suspect few ever do."
+
+  "I imagine..." — empathetic/inferential
+    "I imagine you will be tasked to face the dragon ere long."
+    "I imagine her in pursuit of some aid for your wound."
+
+  "I should think..." — measured opinion
+    "I should think you'd earned a respite, for all you've done."
+    "Far from it, I should think."
+
+  "No doubt..." — confident assumption
+    "No doubt... You have my thanks, Arisen. Your aid spared us greater loss."
+    "That pawn'll be looking to head west to the encampment, no doubt."
+
+  "Like as not..." — probable, but uncertain
+    "Aught of import, like as not..."
+    "It holds an item, like as not. Let's have it open."
+    "Like as not there are monsters in the very halls of the castle by now."
+
+  "Must be..." — deduction
+    "The one with a helm must be chieftain."
+    "This must be the work of the darkest magick."
+    "There must be some stratagem..."
+
+  "Ought to..." — expectation
+    "This ought to keep it aground!"
+    "Raw power ought to serve!"
+
+  "Fain..." — inclined to / gladly
+    "Still, I'm fain to stay a while yet."
+    "As long as that damnable beast draws breath, I'll fain accept any help on offer."
+
+  "I fancy..." — self-characterising opinion
+    "I fancy myself the forgiving sort, but I'll not mourn his passing."
+
+--- [SECTION 12: DEGREE & INTENSITY LANGUAGE — DD1 ATTESTED] ---
+How DD1 expresses gradation without modern words like "very", "really", "super".
+
+  scarce  — barely, hardly
+    "Our blows scarce earn a flinch!"
+    "I can scarce stomach getting closer..."
+
+  scant  — very little, barely any
+    "Scant few men remain to guard the castle."
+
+  precious (little/few)  — surprisingly little
+    "I fear we know precious little of your condition..."
+    "For all my years I still know precious little about dragons."
+
+  no small (thing/matter)  — considerable, significant
+    "Your efforts have been no small help, ser."
+    "'Tis no small thing, to author an end to our tale..."
+
+  good and (all)  — thoroughly, completely
+    "Let's put an end to them for good and all!"
+    "'Tis set to burn, for good and all!"
+
+  sorely  — badly, intensely
+    "Anything you can do to help would be sorely appreciated."
+    "I am sorely tempted, but..."
+
+  dearly  — greatly, keenly
+    "I miss it dearly, but the shore is dangerous yet."
+    "He loved Cortese dearly."
+
+  mightily  — greatly, powerfully
+    "You have roused them mightily."
+
+  utterly  — completely
+    "My life was utterly hopeless."
+    "It's utterly deplorable!"
+
+  right (intensifier, colloquial register)
+    "This here's a right disaster, and no mistake."
+    "It's right rude o' those monsters."
+    "And now something has him in a right panic."
+
+  fair (qualifier — a fair number/bit/chance)
+    "I'd wager a fair number of his kind will be there."
+    "We've seen a fair number of Arisen here."
+    "There's a fair bit of history to this place."
+    "Well, well, a fair surprise, this..."
+
+  ill (qualifier — ill likes / ill serves / ill luck)
+    "Goblins ill like fire!" [= dislike strongly]
+    "Magick ill serves against goblin shamans!" [= barely works]
+    "We ill need more of them to come." [= can ill afford]
+    "It ill liked that! Aim for its head!" [= it did not like that]
+    "We've ill luck in enemies..." [= bad luck]
+    NOTE: "ill" as qualifier is one of the most versatile DD1 tools.
+    Use it to avoid "barely", "hardly", "doesn't like", "bad".
+
+  well enough  — adequately, passably
+    "Seems magick finds them well enough!"
+    "You needn't fret over me, cos. I'm well enough."
+
+  like as not  — probably, more likely than not
+    (see Section 11 above)
+
+  ne'er  — never (always prefer over "never" in archaic lines)
+    "A black goblin...? I've ne'er seen its like..."
+    "You'll ne'er hit them swinging blindly!"
+    "We'll ne'er defeat them one at a time!"
+
+  e'er  — ever (always prefer over "ever" in archaic lines)
+    "And so it e'er shall be..."
+    "I can't be troubled... I use skills whene'er I'm able."
+
+--- [SECTION 13: PERSONALITY-FLAVOURED SPEECH — DD1 NPC ARCHETYPES] ---
+DD1 NPCs have distinct voices. Use these as style anchors when translating
+personality-specific pawn lines. Each archetype below maps to pawn personalities.
+
+## ARCHETYPE A: WARM / EARNEST (maps to: Ordinary, Shy)
+Measured, sincere, uses full sentences, gentle hedging. Not flowery but thoughtful.
+Examples from DD1:
+  "I would beg you rest awhile yet, but just as like you'd turn a deaf ear."
+  "Mind you don't push yourself past breaking, all right?"
+  "Days are slow here... Time passes like a river in the chill of winter."
+  "We must hold faith that victory is possible. You are proof of that much, Arisen!"
+  "I tremble to think what the dragon might have wrought, without your brave defiance."
+  "I shall wait for you. Now and forever, what else may come. I shall wait for you."
+  "Without your aid, I would not stand afore you, nor seen my son again."
+  "Slowly but surely, the village is recovering its calm."
+  "I do hope the others come back home to the village soon..."
+  "And afore that, we ought to thank you."
+  "Even should we perish here in Gransys, life will go on elsewhere."
+  "'Tis the province of the Maker alone to measure the span of a man's life."
+  REGISTER NOTES: 'tis, aught, pray, afore, ere — used naturally and frequently.
+  Hedging: "I imagine...", "I should think...", "It seems...", "Mayhap..."
+
+## ARCHETYPE B: ROUGH / BLUNT (maps to: Peppy's battle cries, antagonists)
+Short clauses, punchy, direct. No hedging. Earthy vocabulary.
+Examples from DD1:
+  "I'll not have the beast shackle me in low spirits. The men of Cassardis are made of sterner stuff."
+  "A frothy mug and lively talk are just the things to show that dragon our courage."
+  "You needn't fret over me, cos. I'm well enough."
+  "Standing about fretting never got a man anywhere. The only thing to do is do what must be done."
+  "Aye, the ancient tales speak o' the Arisen walkin' the land with pawns at their side."
+  "Death in combat is but a final glory. Eh, young warrior?"
+  "Pontificating about the past is a luxury of the living."
+  "A fellow can't get decent sleep in these tents."
+  "I've got no grand plans for the future, but what plans I've got don't include dying."
+  REGISTER NOTES: "cos" (cousin) as casual address. "o'" for "of". Rhetorical questions.
+  Very light on archaic vocabulary — naturalistic, punchy.
+
+## ARCHETYPE C: CHEERFUL / MERCANTILE (maps to: Peppy's home/social lines)
+Warm but businesslike. Upbeat. Short sentences. Often ends with questions or invitations.
+Examples from DD1:
+  "If you see me out in your travels, do give a shout."
+  "I've discounted my wares, ser. Just for you, mind."
+  "Here you are: Today's goods."
+  "Business is better of late. I daresay we've you to thank for that."
+  "Come in from the road and rest your weary feet."
+  "Have a look at our new stock."
+  "The innkeeper was an Arisen in his own day. Gives a special rate to your kind."
+  REGISTER NOTES: "ser" used as casual respectful address. "mind" as mild emphasis.
+  "daresay" fits this archetype well.
+
+## ARCHETYPE D: TIMID / YOUNG / SHY (maps to: Shy pawn directly)
+Incomplete sentences, trailing off, qualifications, self-doubt. Very close to DDON Shy pawn.
+Examples from DD1:
+  "I don't know aught of dragons and such. I just do as I'm told."
+  "Even if the dragon were come tomorrow, I've no place to run."
+  "I'd be a liar if I said the dragon didn't have me scared..."
+  "Or d'you suppose I'm only weak for never trying?"
+  "I was always so afraid... You seemed ever like to leave for somewhere I could not follow."
+  "Able to grieve for my son, to feel the emptiness, but...unable to do aught to save him."
+  "I know not what's happening now, nor what's to come..."
+  "I know not how or when, but it will happen, sure as each new day dawns."
+  "Pray, forgive me, traveler. I had not known you till but recently."
+  "What does it all mean, cousin?"
+  "Fortune has chosen a strange path for us."
+  "I come from hearty stock. My body is quick to recover, and my mind always ready for what comes next."
+  REGISTER NOTES: Frequent "..." and mid-sentence breaks. "I know not" preferred over "I don't know".
+  Uses "pray" and "forgive me" naturally. Self-deprecating but not broken.
+
+## ARCHETYPE E: FORMAL / MILITARY (maps to: Peppy's battle declarations, quest lines)
+Clipped, duty-focused, no-nonsense. Uses older honorifics freely.
+Examples from DD1:
+  "Throw your all into it, ser."
+  "I ask only your forgiveness, Arisen. I must abide by my duty!"
+  "With you go the hopes of all Gransys, Arisen. Pray, tread with care."
+  "Carelessness kills quick as steel on the field of war. Pray, take care, ser."
+  "'Tis a hard thing to sense ere you grow used to it, I'll grant you."
+  "Such caprice can ill defend this camp, to say naught of all Gransys."
+  "There's naught to gain in gnashing your teeth now."
+  "Forgive me my candor. I fear I was born blunt as a cudgel, and so I've ever been."
+  "The weak e'er fall to the strong. 'Tis the way of war."
+  REGISTER NOTES: "ser" and "Arisen" as address. "to say naught of" = "not to mention".
+  "ill" as qualifier very common here. Short declarative sentences.
+
+## ARCHETYPE F: WISECRACKING / IRREVERENT (maps to: Peppy's taunting lines)
+Colloquial, self-aware humor, mild sarcasm. Still uses archaic vocabulary but lightly.
+Examples from DD1:
+  "You've managed a grand list of feats for one with your look."
+  "Must be nice, being Arisen and all."
+  "So you've gone and seen the duke already? Clever one, aren't you then."
+  "No inn what housed Edmun Dragonsbane can close its doors because of a dragon, no sir."
+  "Beat the dragon, then, did you?"
+  "Whether you be true or false, in the end I s'pose it doesn't matter much now."
+  "Ha! First the dragon, now a hydra. No beast is safe from you, cousin."
+  "Ah, but you're a quick one. An impressive piece of knavery you have."
+  "Times I wonder how I'm any different from a pawn."
+  REGISTER NOTES: "cousin" / "cos" as casual male address. Rhetorical statements.
+  "s'pose" (suppose), "naught" still appears. Self-aware asides.
+
+--- [SECTION 14: ELEMENTAL / STATUS VOCABULARY — DD1 ATTESTED] ---
+How DD1 phrases elemental weaknesses and status effects in pawn callouts.
+
+ELEMENTAL WEAKNESS CALLOUT PATTERNS (attested):
+  "The curs fear a flame!" [wolves = fire weakness, casual/punchy]
+  "The beast fears fire." [neutral observation]
+  "Ice serves well against strigoi!" [recommended action form]
+  "Ice yields little effect..." [negative result]
+  "Ice'll serve against that chimera!" [colloquial shortening]
+  "Shock it with lightning!" [direct imperative]
+  "Smite the lot of them with lightning!" [rallying cry form]
+  "Holy magick will end its wicked existence!" [righteous/emphatic]
+  "Let's slay the lot of them with holy magick!" [rallying, inclusive]
+  "I'll strike with sacred magick!" [personal declaration]
+  "Holy magicks do nothing!" [flat negative]
+  "Lightning courses through them!" [observation, present tense]
+  "That attack struck deep!" [confirmation an element is working]
+  "We'll need magick to defeat it." / "Perhaps magick will serve!" [uncertain]
+  "Our blows scarce earn a flinch!" [element/attack not working]
+  "Blows to darkened areas are useless!" / "'Tis useless to strike at its bones!" [specific ineffective]
+
+STATUS / AFFLICTION PATTERNS (attested):
+  "Gird yourself against lightning." [pre-emptive warning]
+  "'Tis dangerous in this state, but its amulets grow frail!" [tradeoff observation]
+  "Do not allow it to knock you down!" [warning]
+  "It attacks from all quarters! Look sharp!" [positional warning]
+  "There must be some stratagem..." [searching for weakness]
+  "'Tis shielded by a barrier!" [blocked attack]
+  "I'll pry it loose with an attack!" [physical affliction attempt]
+  "Provoke an attack, then dodge it!" [tactical instruction]
+  "Now, Arisen! End it!" [opening to exploit]
+
+STANCE / KNOCKDOWN PATTERNS (attested):
+  "It falls! 'Tis the time to strike!" [downed enemy]
+  "Hold it, I'll end this!" [holding enemy for finisher]
+  "The goblin falls! Strike, now!" [rallying on knockdown]
+  "Let us take a moment to recover!" [calling retreat to regroup]
+  "They caught us unawares... 'Twas a close thing." [after near-miss]
+
+NOTE ON ELEMENTAL CALLOUTS FOR DDON:
+  DD1 pawns use varied sentence structures for the same element across situations.
+  DDON should do the same — avoid identical phrasing for weakness vs. effective hit vs. recommendation.
+  "They are weak to fire!" (observation) ≠ "Fire — attack with it!" (command) ≠ "Fire serves well here!" (recommendation)
