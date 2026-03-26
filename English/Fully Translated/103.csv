@@ -1,4 +1,4 @@
-0,,"活気があるところって大好きなの
+﻿0,,"活気があるところって大好きなの
 ティネス砦に来られて良かったわ","I love places with a lively atmosphere. I'm glad
 I came to Fort Thines.",ui\00_message\npc\base\n0679.gmd,\npc\n0679.arc,n0679.arc,2,Aidan
 0,,"さぁ、覚者さんも何か食べましょうよ
@@ -25,8 +25,8 @@ way.",ui\00_message\npc\base\n0680.gmd,\npc\n0680.arc,n0680.arc,2,Mephis
 0,,"クルト家の今後は
 まだどうなるか分からないんだ
 <NPC 681>は家族をもうけなかったようでな","I'm not yet sure what the future holds for the
-Kurt family. <NPC 681> didn't seem to have a
-family of their own.",ui\00_message\npc\base\n0680.gmd,\npc\n0680.arc,n0680.arc,3,Mephis
+Kurt family. 
+It seems <NPC 681> did not have any heirs.",ui\00_message\npc\base\n0680.gmd,\npc\n0680.arc,n0680.arc,3,Mephis
 0,,"だが、次の当主がどんな人間でも
 俺は支えていくつもりだ
 それが――俺なりの、恩返しだと思ってさ","But I'm going to support the next head of the
@@ -41,10 +41,11 @@ political power is the Marquis Family, Kurt.",ui\00_message\npc\base\n0680.gmd,\
 0,,"メガドの夜は、昼とは異なり
 渾沌とした一面を持っている
 ――<NPC 681>が爵位を継いでから
-行った政策のせいだ","The night in Megado is different from the day and
-has a chaotic aspect
--- due to the policies that<NPC 681>has
-implemented since he took over the knighthood.",ui\00_message\npc\base\n0680.gmd,\npc\n0680.arc,n0680.arc,7,Mephis
+行った政策のせいだ","Unlike the daytime, night in Megado
+has a chaotic side to it.
+... All because of the policies
+<NPC 681> implemented after 
+inheriting the title.",ui\00_message\npc\base\n0680.gmd,\npc\n0680.arc,n0680.arc,7,Mephis
 0,,"メガドにいる間は、昼間だからといって
 油断しない方がいい","While you're in Megado, don't let your guard down
 just because it's daytime.",ui\00_message\npc\base\n0680.gmd,\npc\n0680.arc,n0680.arc,8,Mephis
@@ -115,7 +116,7 @@ until his formal trial.",ui\00_message\npc\base\n0683.gmd,\npc\n0683.arc,n0683.a
 0,,"囚人<NPC 681>・クルトの監視任務を
 与えられています！
 油断ならない人物だということですから――","I've been assigned the task of monitoring the
-prisoner <NPC 681> Kurt! He's a person we can't
+prisoner Kurt <NPC 681>! He's a person we can't
 afford to underestimate.",ui\00_message\npc\base\n0685.gmd,\npc\n0685.arc,n0685.arc,3,Megado Guard
 0,,任務お疲れ様です,Good job on your mission,ui\00_message\npc\base\n0685.gmd,\npc\n0685.arc,n0685.arc,4,Megado Guard
 0,,"囚人に面会する際は
@@ -655,7 +656,7 @@ even those of Arisen...",ui\00_message\npc\base\n0715.gmd,\npc\n0715.arc,n0715.a
 or should you choose to lead your own army
 with comrades, the choice is entirely yours.",ui\00_message\npc\base\n0715.gmd,\npc\n0715.arc,n0715.arc,5,Luca
 0,,"わたしはこの場所で、できる限りの
-手助けをいたしましょう","I will provide as much assistance as I am able.",ui\00_message\npc\base\n0715.gmd,\npc\n0715.arc,n0715.arc,6,Luca
+手助けをいたしましょう",I will provide as much assistance as I am able.,ui\00_message\npc\base\n0715.gmd,\npc\n0715.arc,n0715.arc,6,Luca
 0,,"姿形は違えど、あなたはあなた――
 その存在に違いはございません
 ただ、今までの全てを
@@ -1100,7 +1101,7 @@ you perfectly!",ui\00_message\npc\base\n1004.gmd,\npc\n1004.arc,n1004.arc,2,Morr
 容姿のスタイリングは<COL b92828><UNTN GS></COL> <VAL PRICE_PARLOR_GP>を頂くよ
 声やポーンの口調、発言頻度の変更はサービスさ！
 好きにチェンジしていくといいよ","Okay! Who wants a nice makeover?
-I accept <COL b92828><UNTN GS></COL> <VAL PRICE_PARLOR_GP>.
+I'll accept <VAL PRICE_PARLOR_GP> <COL b92828><UNTN GS> .</COL>
 We'll change your voice, pawn tone,
 and frequency of speech as part of our service!
 Change it up as you like!",ui\00_message\npc\base\n1004.gmd,\npc\n1004.arc,n1004.arc,3,Morris

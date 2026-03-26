@@ -15,12 +15,12 @@ except ImportError as e:
     exit()
 
 class ReviewEditor(tk.Toplevel):
-    def __init__(self, parent, tag_queue, wall_queue, dash_queue, limit, wall_limit, tag_map, callback):
+    def __init__(self, parent, tag_queue, wall_queue, dash_queue, anach_queue, limit, wall_limit, tag_map, callback):
         super().__init__(parent.root) 
         self.parent = parent 
         self.title("Dialogue Reviewer v5.3")
         self.geometry("1100x850")
-        
+
         self.limit, self.wall_limit, self.tag_map, self.callback = limit, wall_limit, tag_map, callback
         self.jp_source = ""
         self.speaker_name = ""
@@ -32,16 +32,127 @@ class ReviewEditor(tk.Toplevel):
             self.parent.cm.config.get("glossary_path", "")
         )
 
-        self.queues = {"Tag Issues (Complex Tags)": tag_queue, "Line Limit": wall_queue, "Double Dashes": dash_queue}
+        self.queues = {
+            "Tag Issues (Complex Tags)": tag_queue,
+            "Line Limit": wall_queue,
+            "Double Dashes": dash_queue,
+            "Anachronisms": anach_queue,
+        }
         self.current_category = next((cat for cat in self.queues if self.queues[cat]), "Tag Issues (Complex Tags)")
         self.current_texts = list(self.queues[self.current_category].keys())
         self.current_idx = 0
+        self.anach_ranges = []   # list of (start_idx, end_idx, word, [(suggestion, label), ...])
         self.tooltip_window = None
 
         self.dark_mode = self.parent.cm.config.get("dark_mode", False)
         self.apply_theme_colors()
         self.setup_ui()
         self.load_item()
+
+        # Single tooltip instance — bound once, reads self.anach_ranges dynamically
+        self._bind_tooltip()
+        # Tab inserts suggestion at cursor
+        self.txt.bind("<Tab>", self._tab_insert_suggestion)
+
+    def _build_suggestion_text(self, word):
+        """Return all vocab entries whose key matches this word (case-insensitive),
+        formatted as a tooltip string showing every option."""
+        from lore_engine import IN_UNIVERSE_VOCAB
+        word_lower = word.lower()
+        # Collect exact key match first, then look for synonym group
+        options = []
+        if word_lower in IN_UNIVERSE_VOCAB:
+            val = IN_UNIVERSE_VOCAB[word_lower]
+            if val:
+                options.append(val)
+        # Deduplicate preserving order
+        seen = set()
+        unique = [o for o in options if not (o in seen or seen.add(o))]
+        if not unique:
+            return f"⚠ \"{word}\" — no direct replacement (flag only)"
+        opts_str = "  /  ".join(unique)
+        return f"⚠ \"{word}\"  →  {opts_str}   (Tab to insert)"
+
+    def _bind_tooltip(self):
+        """Bind tooltip to the txt widget itself using Motion/Leave.
+        tag_bind("<Motion>") is unreliable on tk.Text — widget-level bindings
+        fire consistently and we do the hit-test ourselves."""
+        def on_motion(event):
+            idx = self.txt.index(f"@{event.x},{event.y}")
+            for start, end, word, _ in self.anach_ranges:
+                if self.txt.compare(start, "<=", idx) and self.txt.compare(idx, "<", end):
+                    tip = self._build_suggestion_text(word)
+                    if self.tooltip_window:
+                        # Reposition; update label text in case we moved to a different word
+                        self.tooltip_window.geometry(f"+{event.x_root+20}+{event.y_root+10}")
+                        for child in self.tooltip_window.winfo_children():
+                            child.config(text=tip)
+                    else:
+                        self._show_tooltip(event.x_root, event.y_root, tip)
+                    return
+            # Not over any highlight
+            self._hide_tooltip()
+
+        def on_leave(event):
+            self._hide_tooltip()
+
+        self.txt.bind("<Motion>", on_motion, add="+")
+        self.txt.bind("<Leave>",  on_leave,  add="+")
+
+    def _show_tooltip(self, x_root, y_root, text):
+        if self.tooltip_window:
+            # Already showing — just reposition and update text if needed
+            self.tooltip_window.geometry(f"+{x_root+20}+{y_root+10}")
+            return
+        tw = tk.Toplevel(self)
+        tw.wm_overrideredirect(True)
+        tw.wm_transient(self)
+        tw.geometry(f"+{x_root+20}+{y_root+10}")
+        tk.Label(tw, text=text, bg="#ffffe0", fg="black",
+                 relief="solid", borderwidth=1, font=("Arial", 9),
+                 wraplength=400, justify="left").pack()
+        self.tooltip_window = tw
+
+    def _hide_tooltip(self):
+        if self.tooltip_window:
+            try: self.tooltip_window.destroy()
+            except: pass
+            self.tooltip_window = None
+
+    def _tab_insert_suggestion(self, event):
+        """On Tab: if cursor is inside an anachronism range, insert the first suggestion."""
+        idx = self.txt.index(tk.INSERT)
+        for start, end, word, suggestions in self.anach_ranges:
+            if self.txt.compare(start, "<=", idx) and self.txt.compare(idx, "<=", end):
+                if not suggestions:
+                    return "break"
+                replacement = suggestions[0][0]
+                # Preserve capitalisation of the original word
+                matched = self.txt.get(start, end)
+                first_alpha_orig = next((c for c in matched if c.isalpha()), None)
+                first_alpha_idx  = next((i for i, c in enumerate(replacement) if c.isalpha()), None)
+                if first_alpha_orig and first_alpha_orig.isupper() and first_alpha_idx is not None:
+                    replacement = (replacement[:first_alpha_idx]
+                                   + replacement[first_alpha_idx].upper()
+                                   + replacement[first_alpha_idx+1:])
+                self.txt.delete(start, end)
+                self.txt.insert(start, replacement)
+                self._hide_tooltip()
+                self.update_counters()
+                return "break"   # prevent default Tab behaviour
+        return None  # not on a highlight — allow normal Tab
+
+    def update_counters(self, e=None):
+        content = self.txt.get("1.0", tk.END).splitlines()
+        self.cnt_lbl.config(state="normal")
+        self.cnt_lbl.delete("1.0", tk.END)
+        for i, line in enumerate(content):
+            sim = self.engine.get_simulated_len(line)
+            tag = f"over_{i}"
+            self.cnt_lbl.insert(tk.END, f"{sim:3}\n", tag)
+            color = "#ff5555" if sim > self.limit else self.colors["counter_fg"]
+            self.cnt_lbl.tag_config(tag, foreground=color)
+        self.cnt_lbl.config(state="disabled")
 
     def apply_theme_colors(self):
         if self.dark_mode:
@@ -89,6 +200,16 @@ class ReviewEditor(tk.Toplevel):
         self.archetype_combo.bind("<<ComboboxSelected>>", self.on_archetype_selected)
         tk.Button(spk_frame, text="Save Assignment", command=self.save_archetype,
                   bg=self.colors["btn_bg"], fg=self.colors["fg"], font=("Arial", 8)).pack(side="left")
+        tk.Label(spk_frame, text="Note:", fg=self.colors["label_fg"], bg=self.colors["bg"], font=("Arial", 9)).pack(side="left", padx=(16, 2))
+        self.speaker_note_var = tk.StringVar()
+        self.speaker_note_entry = tk.Entry(spk_frame, textvariable=self.speaker_note_var,
+                                           width=28, font=("Arial", 9),
+                                           bg=self.colors["text_bg"], fg=self.colors["fg"],
+                                           insertbackground=self.colors["fg"], relief="flat",
+                                           state="disabled")
+        self.speaker_note_entry.pack(side="left", padx=(0, 6))
+        self.speaker_note_entry.bind("<FocusOut>", lambda e: self.save_archetype())
+        self.speaker_note_entry.bind("<Return>",   lambda e: self.save_archetype())
         
         main = tk.Frame(self, bg=self.colors["bg"])
         main.pack(fill="both", expand=True, padx=20)
@@ -115,18 +236,22 @@ class ReviewEditor(tk.Toplevel):
         side.pack(side="right", fill="both", expand=True)
         self.lore_list = tk.Text(side, bg=self.colors["text_bg"], fg=self.colors["fg"], bd=0, 
                                  highlightthickness=0, font=("Arial", 10), wrap="word", state="disabled")
-        self.lore_list.pack(fill="both", expand=True)
+        self.lore_list.pack(fill="x")
         tk.Frame(side, bg=self.colors["label_fg"], height=1).pack(fill="x", pady=4)
         self.archetype_hint = tk.Text(side, bg=self.colors["text_bg"], fg=self.colors["fg"], bd=0,
                                       highlightthickness=0, font=("Arial", 9), wrap="word",
                                       state="disabled", height=6)
-        self.archetype_hint.pack(fill="x")
+        self.archetype_hint.pack(fill="both", expand=True)
 
         btns = tk.Frame(self, bg=self.colors["bg"], pady=20)
         btns.pack(side="bottom")
         tk.Button(btns, text="Skip", command=self.next_item, width=12, bg=self.colors["btn_bg"], fg=self.colors["fg"]).pack(side="left", padx=5)
         tk.Button(btns, text="Apply", command=self.save_item, bg="#03dac6" if self.dark_mode else "#d1ecf1", fg="black", width=20).pack(side="left", padx=5)
-
+        tk.Button(btns, text="Dashes → …", command=lambda: self.replace_dashes("…"),
+                  bg=self.colors["btn_bg"], fg=self.colors["fg"], width=12).pack(side="left", padx=5)
+        tk.Button(btns, text="Dashes → —", command=lambda: self.replace_dashes("—"),
+                  bg=self.colors["btn_bg"], fg=self.colors["fg"], width=12).pack(side="left", padx=5)
+    
     def load_item(self):
         if self.current_idx >= len(self.current_texts):
             # Try to switch to the next non-empty category automatically
@@ -152,7 +277,7 @@ class ReviewEditor(tk.Toplevel):
                 rows = list(csv.reader(f))
                 row_data = rows[first_inst['row_idx']]
                 jp_source = row_data[2] if len(row_data) > 2 else ""
-                self.speaker_name = row_data[9].strip() if len(row_data) > 9 else ""
+                self.speaker_name = row_data[8].strip() if len(row_data) > 8 else ""
         except:
             jp_source = "Source Error"
             self.speaker_name = ""
@@ -161,16 +286,24 @@ class ReviewEditor(tk.Toplevel):
         if self.speaker_name:
             self.speaker_lbl.config(text=self.speaker_name, fg=self.colors["counter_fg"])
             self.archetype_combo.config(state="readonly")
-            # Pre-fill from saved assignments
+            self.speaker_note_entry.config(state="normal")
+            self.archetype_combo.event_generate("<<ComboboxSelected>>")  # force update hint box
+            # Pre-fill archetype from saved assignments
             saved_key = self.parent.cm.config.get("speaker_archetypes", {}).get(self.speaker_name)
             if saved_key:
                 label = self.lore_engine.get_archetype_label(saved_key)
                 self.archetype_var.set(label)
             else:
                 self.archetype_var.set("(none)")
+            self.update_archetype_hint()  # FORCE refresh whenever speaker changes
+            # Pre-fill note
+            saved_note = self.parent.cm.config.get("speaker_notes", {}).get(self.speaker_name, "")
+            self.speaker_note_var.set(saved_note)
         else:
             self.speaker_lbl.config(text="Unknown", fg=self.colors["label_fg"])
             self.archetype_combo.config(state="disabled")
+            self.speaker_note_entry.config(state="disabled")
+            self.speaker_note_var.set("")
             self.archetype_var.set("(none)")
         self.update_archetype_hint()
 
@@ -189,8 +322,11 @@ class ReviewEditor(tk.Toplevel):
                 self.jp_txt.tag_config(tag, foreground="#6fb3ff", underline=True)
                 self.jp_txt.tag_bind(tag, "<Button-1>", lambda e, w=en: self.quick_insert(w))
                 self._apply_tag_to_text(jp, tag)
+            if matches:
+                height = max(3, min(len(matches) + 1, 12))
+                self.lore_list.config(height=height)
 
-        # Dash category: show matched patterns and replacement suggestions
+        # Dash category sidebar
         if self.current_category == "Double Dashes":
             _DASH_RE = re.compile(r'--+|——+|—-|-—')
             found_dashes = _DASH_RE.findall(txt)
@@ -204,7 +340,6 @@ class ReviewEditor(tk.Toplevel):
                     seen.add(d)
                     self.lore_list.insert(tk.END, f"  Found: \"{d}\"\n", "dash_found")
                     self.lore_list.insert(tk.END, "  Suggest: \"…\" (trailing off) or \"—\" (break)\n", "dash_suggest")
-                    # Clickable shortcut buttons in lore sidebar
                     for label, replacement in [("Insert …", "…"), ("Insert —", "—")]:
                         self.lore_list.insert(tk.END, f"  [{label}]", f"dash_btn_{label}")
                         self.lore_list.tag_config(f"dash_btn_{label}", foreground="#6fb3ff", underline=True)
@@ -213,6 +348,36 @@ class ReviewEditor(tk.Toplevel):
                     self.lore_list.insert(tk.END, "\n")
                 self.lore_list.tag_config("dash_found", foreground="#ff5555")
                 self.lore_list.tag_config("dash_suggest", foreground=self.colors["label_fg"])
+
+        # Anachronisms category sidebar — use the hits stored in the queue instance
+        if self.current_category == "Anachronisms":
+            from lore_engine import IN_UNIVERSE_VOCAB
+            # Pull stored hits from the first queue instance for this text
+            instances = self.queues["Anachronisms"].get(txt, [])
+            stored_hits = instances[0].get("hits", []) if instances else []
+            # Fall back to re-scanning if stored hits are missing (e.g. older queue entries)
+            if not stored_hits:
+                stored_hits = self.lore_engine.scan_anachronisms(txt)
+            if stored_hits:
+                self.lore_list.insert(tk.END, "── Anachronisms ──\n", "anach_hdr")
+                self.lore_list.tag_config("anach_hdr", foreground="#ff8c00", font=("Arial", 9, "bold"))
+                seen_words = set()
+                for found, suggestion in stored_hits:
+                    word_lower = found.lower()
+                    if word_lower in seen_words:
+                        continue
+                    seen_words.add(word_lower)
+                    # Get the replacement value directly from vocab (suggestion may be None)
+                    val = IN_UNIVERSE_VOCAB.get(word_lower)
+                    if val is not None:
+                        self.lore_list.insert(tk.END, f"  \"{found}\"  →  {val}\n", "anach_item")
+                    else:
+                        self.lore_list.insert(tk.END, f"  \"{found}\"  — no direct replacement\n", "anach_flag")
+                self.lore_list.tag_config("anach_item", foreground="#ffa040")
+                self.lore_list.tag_config("anach_flag", foreground=self.colors["label_fg"])
+            else:
+                self.lore_list.insert(tk.END, "No anachronisms detected.\n", "anach_flag")
+                self.lore_list.tag_config("anach_flag", foreground=self.colors["label_fg"])
 
         self.lore_list.config(state="disabled")
         self.jp_txt.config(state="disabled")
@@ -233,13 +398,18 @@ class ReviewEditor(tk.Toplevel):
             key = self.archetype_keys[idx] if idx >= 0 else None
             if key and key in self.lore_engine.archetypes:
                 a = self.lore_engine.archetypes[key]
-                profs = ", ".join(a.get("professions", [])) or "—"
+                #profs = ", ".join(a.get("professions", [])) or "—"
                 notes = a.get("notes", "—")
                 self.archetype_hint.insert(tk.END, f"[{key}] {a['name']}\n", "header")
-                self.archetype_hint.insert(tk.END, f"Typical roles: {profs}\n\n")
+                #self.archetype_hint.insert(tk.END, f"Typical roles: {profs}\n\n")
                 self.archetype_hint.insert(tk.END, notes)
                 self.archetype_hint.tag_config("header", font=("Arial", 9, "bold"),
                                                foreground=self.colors["counter_fg"])
+        # Always show note if one exists for this speaker
+        note_text = self.parent.cm.config.get("speaker_notes", {}).get(self.speaker_name, "") if self.speaker_name else ""
+        if note_text:
+            self.archetype_hint.insert(tk.END, f"\n\n📝 {note_text}", "note_tag")
+            self.archetype_hint.tag_config("note_tag", foreground=self.colors["fg"], font=("Arial", 9, "italic"))
         self.archetype_hint.config(state="disabled")
 
     def save_archetype(self):
@@ -253,7 +423,23 @@ class ReviewEditor(tk.Toplevel):
             key = self.archetype_keys[idx] if idx >= 0 else None
             if key:
                 self.parent.cm.config.setdefault("speaker_archetypes", {})[self.speaker_name] = key
+        # Save note
+        note_text = self.speaker_note_var.get().strip()
+        if note_text:
+            self.parent.cm.config.setdefault("speaker_notes", {})[self.speaker_name] = note_text
+        else:
+            self.parent.cm.config.setdefault("speaker_notes", {}).pop(self.speaker_name, None)
         self.parent.cm.save_all()
+        self.update_archetype_hint()
+
+    def replace_dashes(self, replacement):
+        """Replace all double-dash / double-em-dash patterns in the editor with replacement."""
+        current = self.txt.get(1.0, tk.END)
+        fixed = re.sub(r'--+|——+|—-|-—', replacement, current)
+        if fixed != current:
+            self.txt.delete(1.0, tk.END)
+            self.txt.insert(tk.END, fixed.rstrip("\n"))
+            self.update_counters()
 
     def quick_insert(self, text):
         self.txt.insert(tk.INSERT, text)
@@ -269,9 +455,9 @@ class ReviewEditor(tk.Toplevel):
             start = end
 
     def update_counters(self, e=None):
-        content = self.txt.get(1.0, tk.END).splitlines()
+        content = self.txt.get("1.0", tk.END).splitlines()
         self.cnt_lbl.config(state="normal")
-        self.cnt_lbl.delete(1.0, tk.END)
+        self.cnt_lbl.delete("1.0", tk.END)
         for i, line in enumerate(content):
             sim = self.engine.get_simulated_len(line)
             tag = f"over_{i}"
@@ -280,30 +466,39 @@ class ReviewEditor(tk.Toplevel):
             self.cnt_lbl.tag_config(tag, foreground=color)
         self.cnt_lbl.config(state="disabled")
 
-        # Anachronism warnings — append to lore_list when in-universe mode is on
+        # --- Anachronism highlighting (always runs when toggle is on) ---
+        self.txt.tag_remove("anachronism", "1.0", tk.END)
+        self.anach_ranges = []
+
         if self.in_universe_var.get():
-            full_text = self.txt.get(1.0, tk.END)
+            from lore_engine import IN_UNIVERSE_VOCAB
+            full_text = self.txt.get("1.0", tk.END)
             hits = self.lore_engine.scan_anachronisms(full_text)
-            self.lore_list.config(state="normal")
-            # Clear only the anachronism section (appended after lore terms)
-            # We use a separator tag to find where to start replacing
-            try:
-                sep_start = self.lore_list.search("── Anachronisms ──", "1.0", tk.END)
-                if sep_start:
-                    self.lore_list.delete(sep_start, tk.END)
-            except Exception:
-                pass
-            if hits:
-                self.lore_list.insert(tk.END, "\n── Anachronisms ──\n", "anach_hdr")
-                self.lore_list.tag_config("anach_hdr", foreground="#ff8c00", font=("Arial", 9, "bold"))
-                for found, suggestion in hits:
-                    if suggestion:
-                        self.lore_list.insert(tk.END, f"  ⚠ \"{found}\" → \"{suggestion}\"\n", "anach_item")
-                    else:
-                        self.lore_list.insert(tk.END, f"  ⚠ \"{found}\" (flag only — no direct replacement)\n", "anach_flag")
-                self.lore_list.tag_config("anach_item", foreground="#ffa040")
-                self.lore_list.tag_config("anach_flag", foreground="#888888")
-            self.lore_list.config(state="disabled")
+
+            for found, suggestion in hits:
+                # Collect all possible suggestions for this word
+                word_lower = found.lower()
+                suggestions = []
+                if word_lower in IN_UNIVERSE_VOCAB and IN_UNIVERSE_VOCAB[word_lower]:
+                    suggestions.append((IN_UNIVERSE_VOCAB[word_lower], "primary"))
+
+                pos = "1.0"
+                while True:
+                    pos = self.txt.search(found, pos, stopindex=tk.END, nocase=True)
+                    if not pos:
+                        break
+                    end = f"{pos}+{len(found)}c"
+                    # Word-boundary check: char before start and char after end must not be word chars
+                    char_before = self.txt.get(f"{pos}-1c", pos)
+                    char_after  = self.txt.get(end, f"{end}+1c")
+                    is_word_start = not char_before or not char_before.isalnum() and char_before != "'"
+                    is_word_end   = not char_after  or not char_after.isalnum()  and char_after  != "'"
+                    if is_word_start and is_word_end:
+                        self.txt.tag_add("anachronism", pos, end)
+                        self.anach_ranges.append((pos, end, found, suggestions))
+                    pos = end
+
+            self.txt.tag_config("anachronism", foreground="#ff8800", underline=True)
 
     def save_item(self):
         new_val = self.txt.get(1.0, tk.END).strip()
@@ -379,7 +574,7 @@ class CSVProcessorApp:
         self.wall_preset_var = tk.StringVar(value=saved_wall if saved_wall in self.wall_preset_names else (self.wall_preset_names[0] if self.wall_preset_names else "Standard"))
         self.prev_var = tk.BooleanVar(value=True)
         self.in_universe_var = tk.BooleanVar(value=self.cm.config.get("in_universe", False))
-        self.tag_q, self.wall_q, self.dash_q = defaultdict(list), defaultdict(list), defaultdict(list)
+        self.tag_q, self.wall_q, self.dash_q, self.anach_q = defaultdict(list), defaultdict(list), defaultdict(list), defaultdict(list)
         self.engine = TranslationEngine(self.cm.config.get("tag_map", {}))
         self.apply_theme_colors()
         self.setup_ui()
@@ -443,6 +638,7 @@ class CSVProcessorApp:
         self.cm.config["in_universe"] = self.in_universe_var.get()
         triggers = self.cm.config.get("triggers", [])
         do_in_universe = self.in_universe_var.get()
+        self.cm.save_all()
 
         # Build replacement table once (only if needed)
         lore_engine = LoreEngine()
@@ -467,6 +663,15 @@ class CSVProcessorApp:
         if not all_files:
             self.root.after(0, self.finish_batch, limit, wall_limit)
             return
+
+        def log(msg):
+            self.root.after(0, lambda m=msg: (
+                self.log_box.insert(tk.END, m + "\n"),
+                self.log_box.see(tk.END)
+            ))
+
+        auto_fixed = 0
+        reviewed   = 0
 
         for i, f_path in enumerate(all_files):
             pct = ((i + 1) / len(all_files)) * 100
@@ -498,7 +703,11 @@ class CSVProcessorApp:
                     # 2b. Dash scan (independent of other processing)
                     if _DASH_RE.search(orig_text):
                         self.dash_q[orig_text].append({'path': f_path, 'row_idx': r_idx})
-                        # Still let the row fall through to normal processing below
+
+                    # 2c. Anachronism scan (independent — always runs, not gated on in_universe toggle)
+                    anach_hits = lore_engine.scan_anachronisms(orig_text)
+                    if anach_hits:
+                        self.anach_q[orig_text].append({'path': f_path, 'row_idx': r_idx, 'hits': anach_hits})
 
                     # 3. Memory Branch
                     if orig_text in self.cm.memory:
@@ -542,19 +751,21 @@ class CSVProcessorApp:
                                     orig_text = repaired
                                     is_complex = bool(non_col_tags(repaired))
 
-                        # --- In-Universe replacements (before wrap) ---
+                        # --- In-Universe replacements —
+                        # Only applied to auto-fixed rows, NOT to rows going into review queues.
+                        # Anachronism queue already stores the original text for human review.
+                        text_for_wrap = orig_text
                         if do_in_universe:
-                            orig_text = self.engine.apply_in_universe(orig_text, in_universe_replacements)
-                            proposed_text = orig_text
+                            text_for_wrap = self.engine.apply_in_universe(orig_text, in_universe_replacements)
 
-                        lines = orig_text.split('\n')
+                        lines = text_for_wrap.split('\n')
                         max_w = max((self.engine.get_simulated_len(l) for l in lines), default=0)
 
                         if is_complex and max_w > (limit * 0.9):
                             needs_review = True
                             queue_type = 'tag'
                         else:
-                            wrapped = self.engine.master_tag_wrap(orig_text, limit)
+                            wrapped = self.engine.master_tag_wrap(text_for_wrap, limit)
                             wrap_lines = wrapped.split('\n')
                             wrap_max_w = max((self.engine.get_simulated_len(l) for l in wrap_lines), default=0)
 
@@ -586,26 +797,39 @@ class CSVProcessorApp:
                     with open(f_path, 'w', encoding='utf-8-sig', newline='') as f:
                         csv.writer(f).writerows(output_rows)
 
+                row_fixes = sum(1 for r in output_rows if r != current_file_data[output_rows.index(r)]) if file_modded else 0
+                queued = sum(1 for t in [self.tag_q, self.wall_q, self.dash_q]
+                             for v in t.values() if any(inst['path'] == f_path for inst in v))
+                if file_modded or queued:
+                    log(f"{'[FIXED]' if file_modded else '[QUEUED]'} {os.path.basename(f_path)}"
+                        + (f" — {queued} item(s) queued for review" if queued else ""))
+                if file_modded:
+                    auto_fixed += 1
+                if queued:
+                    reviewed += 1
+
             except Exception as e:
-                self.root.after(0, lambda p=f_path, err=e: [
+                self.root.after(0, lambda p=f_path, err=e: (
                     self.log_box.insert(tk.END, f"CRITICAL ERROR {os.path.basename(p)}: {err}\n"),
                     self.log_box.see(tk.END)
-                ])
+                ))
                 continue
 
+        log(f"─── Scan complete — {auto_fixed} file(s) auto-fixed, "
+            f"{sum(len(v) for v in self.tag_q.values()) + sum(len(v) for v in self.wall_q.values()) + sum(len(v) for v in self.dash_q.values()) + sum(len(v) for v in self.anach_q.values())} item(s) queued for review ───")
         self.root.after(0, self.finish_batch, limit, wall_limit)
 
     def start_thread(self):
         self.btn_run.config(state="disabled")
-        self.tag_q.clear(); self.wall_q.clear(); self.dash_q.clear()
+        self.tag_q.clear(); self.wall_q.clear(); self.dash_q.clear(); self.anach_q.clear()
         self.log_box.delete(1.0, tk.END)
         threading.Thread(target=self.run_batch, daemon=True).start()
 
     def finish_batch(self, limit, wall_limit):
         self.btn_run.config(state="normal")
-        if self.tag_q or self.wall_q or self.dash_q:
-            ReviewEditor(self, self.tag_q, self.wall_q, self.dash_q, limit, wall_limit,
-                         self.cm.config.get("tag_map", {}), self.propagate_fix)
+        if self.tag_q or self.wall_q or self.dash_q or self.anach_q:
+            ReviewEditor(self, self.tag_q, self.wall_q, self.dash_q, self.anach_q,
+                         limit, wall_limit, self.cm.config.get("tag_map", {}), self.propagate_fix)
         else:
             messagebox.showinfo("Done", "No issues found!")
 

@@ -7,7 +7,12 @@
     ],
     "tag_map": {
         "PLAYER_NAME": 21,
-        "PAWN_NAME": 12
+        "PAWN_NAME": 12,
+        "VAL PRICE_INN": 4,
+        "VAL PRICE_WEAK": 4,
+        "NPC 681": 5,
+        "UNTN GS": 16,
+        "VAL PRICE_PARLOR_GP": 2
     },
     "presets": {
         "Dialogue Box": 50,
@@ -16,11 +21,39 @@
     "bible_path": "D:/DDON-translation/Terms and references directory/DDON_BIBLE_V2.txt",
     "glossary_path": "D:/DDON-translation/Terms and references directory/glossary.csv",
     "memory": {
-        "Gather the tally demanded by the covenant, \r\n<COL b92828><SPAI NUM> in count</COL>, \r\nthen return and lay bare thy token before mine eyes.": "Gather the tally demanded by the covenant, \r\n<COL b92828><SPAI NUM> in count</COL>, \r\nthen return and lay bare thy \ntoken before mine eyes."
+        "Gather the tally demanded by the covenant, \r\n<COL b92828><SPAI NUM> in count</COL>, \r\nthen return and lay bare thy token before mine eyes.": "Gather the tally demanded by the covenant, \r\n<COL b92828><SPAI NUM> in count</COL>, \r\nthen return and lay bare thy \ntoken before mine eyes.",
+        "...Mmm, Arisen.\r\nThou hast not yet reached the time to bind a new\r\naccord.\r\nIt appeareth thou already governest the full\r\nmeasure of pawns thy vessel can hold.": "...Mmm, Arisen.\r\nThou hast not yet reached the time to bind a new\r\naccord.\r\nIt appeareth thou already governest the full\r\nmeasure of pawns thy vessel can hold.",
+        "...Very well.\r\nThou who art worthy of power,\r\nstand before me...": "...Very well.\r\nThou who art worthy of power,\r\nstand before me...",
+        "...Arisen,\r\nby mine eyes, thou hast not yet acquired\r\nthe needed amount of <COL b92828><SPAI NAME></COL>\r\nto form a new covenant with a pawn.": "...Arisen,\r\nby mine eyes, thou hast not yet acquired\r\nthe needed amount of <COL b92828><SPAI NAME></COL>\r\nto form a new covenant with a pawn.",
+        "\u300a<VAL>\u300b Will you release the power of this treasure?": "\u300a<VAL>\u300b\nWould you like to unleash the \npower of this treasure?",
+        "This... even if you use the\u300a<VAL>\u300bas is, it seems\r\nthere are no usable abilities. Are you going to\r\nuse the orb with your current vocation?": "This. . .\n\u300a<VAL>\u300b\nIt looks like there aren't any abilities \nto unlock even should you use this.\nDo you still wish to use the \norb with your current vocation?",
+        "Hmm\u2015\u2015 It seems that there are no skills to\r\nrelease by using \u300a<VAL>\u300b in this job. Although the\r\neffects related to skills will be wasted, is it\r\nokay to use the orb?": "Hmm... It seems that even if you use\n\u300a<VAL>\u300b\nwith this vocation, \nthere are no skills left to unlock.\nIt would be a waste of the skills-related effect,\nbut would you still like to use the Orb?",
+        "Hmm... In this job, even if you use\u300a<VAL>\u300b, the\r\neffects of leveling up will be wasted. Are you\r\nstill going to use the treasure orb?": "Hmm... \nWith this vocation, even if you were to use\n\u300a<VAL>,\u300b\nthe level-up effects would be wasted.\nDo you still wish to use the Orb?",
+        "It's a small place, but there is a sleeping space\r\nfor travelers as well. I will take <VAL PRICE_INN>\r\nas payment, is that okay with you?": "It's a small place, but there is a sleeping space\r\nfor travelers as well. I will take <VAL PRICE_INN>\r\nas payment, is that okay with you?",
+        "\"Treat Weakness,\" right? I learned it from Miss\r\nMucel, so I should be able to do it properly!\r\nIt'll cost you <VAL PRICE_WEAK>. What do you say?": "\"Treat Weakness,\" right? I learned it from Miss\r\nMucel, so I should be able to do it properly!\r\nIt'll cost you <VAL PRICE_WEAK>. What do you say?",
+        "I'm not yet sure what the future holds for the\r\nKurt family. <NPC 681> didn't seem to have a\r\nfamily of their own.": "I'm not yet sure what the future holds for the\r\nKurt family. \nIt seems <NPC 681> did not have any heirs.",
+        "The night in Megado is different from the day and\r\nhas a chaotic aspect\r\n-- due to the policies that<NPC 681>has\r\nimplemented since he took over the knighthood.": "Unlike the daytime, night in Megado\nhas a chaotic side to it.\n... All because of the policies\n<NPC 681> implemented after \ninheriting the title.",
+        "<NPC 681> was the former Marquis.\r\nHe is being held in the prison of this mansion\r\nuntil his formal trial.": "<NPC 681> was the former Marquis.\r\nHe is being held in the prison of this mansion\r\nuntil his formal trial.",
+        "I've been assigned the task of monitoring the\r\nprisoner <NPC 681> Kurt! He's a person we can't\r\nafford to underestimate.": "I've been assigned the task of monitoring the\r\nprisoner Kurt <NPC 681>! He's a person we can't\r\nafford to underestimate.",
+        "Okay! Who wants a nice makeover?\r\nI accept <COL b92828><UNTN GS></COL> <VAL PRICE_PARLOR_GP>.\r\nWe'll change your voice, pawn tone,\r\nand frequency of speech as part of our service!\r\nChange it up as you like!": "Okay! Who wants a nice makeover?\r\nI'll accept <VAL PRICE_PARLOR_GP> <COL b92828><UNTN GS> .\r</COL>\nWe'll change your voice, pawn tone,\r\nand frequency of speech as part of our service!\r\nChange it up as you like!",
+        "Oh, you haven't set up permission to visit your\r\nroom.\r\n<COL b92828>To visit your room, you need to go to\r\n<Visit My Room Settings>\r\nYou need to set up permission to visit your\r\nroom.</COL>": "Oh, it looks like you haven't enabled room \nvisit permissions yet.\n<COL b92828>To let others visit your room, you need to go to\r\n<My Room Visit Setup>\r and set it up.</COL>",
+        "Ah, well, if you're tired,\r\nI can show you to a nap room.\r\nIt costs a pretty penny to maintain the equipment,\r\nso I'm asking for <VAL PRICE_INN> if you don't mind.": "Ah, well, if you're tired,\r\nI can show you to a room you can rest in.\r\nIt costs a pretty penny to maintain the equipment,\r\nso I'm asking for <VAL PRICE_INN>, if you don't mind."
     },
     "dark_mode": false,
     "wall_presets": {
         "Dialogue Box": 7
     },
-    "speaker_archetypes": {}
+    "speaker_archetypes": {
+        "Joseph": "G",
+        "The White Dragon": "G",
+        "Morris": "C"
+    },
+    "speaker_notes": {
+        "Joseph": "Head Priest of WDT, Historian",
+        "The White Dragon": "Extremely archaic tone",
+        "Mephis": "Male, interrogator",
+        "Morris": "Beauty Salon Employee(owner?)"
+    },
+    "wall_preset": "Dialogue Box",
+    "in_universe": true
 }

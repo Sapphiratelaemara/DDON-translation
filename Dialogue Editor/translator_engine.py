@@ -102,7 +102,7 @@ class TranslationEngine:
     def apply_in_universe(self, text, replacements):
         """Apply modern->archaic replacements (whole-word, case-insensitive)."""
         for modern, archaic in replacements.items():
-            text = re.sub(r'\b' + re.escape(modern) + r'\b', archaic, text, flags=re.IGNORECASE)
+            text = re.sub(r'\b' + re.escape(modern) + r'\b', archaic, text)
         return text
 
     def has_complex_tags(self, text):
