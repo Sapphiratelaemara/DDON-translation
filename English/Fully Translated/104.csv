@@ -1,4 +1,4 @@
-0,,"《滅びの渦》に《黒剣》、《黒竜》ね――
+﻿0,,"《滅びの渦》に《黒剣》、《黒竜》ね――
 この酒場にいるといろいろな噂を聞くが
 これほどまでに""ただの噂""であってほしいと
 願ったことはないよ","In the ""Vortex of Ruin,"" there is the ""Black
@@ -583,12 +583,10 @@ Do you want any changes?",ui\00_message\npc\base\n1024.gmd,\npc\n1024.arc,n1024.
 <COL b92828><VAL></COL>",ui\00_message\npc\base\n1024.gmd,\npc\n1024.arc,n1024.arc,32,Barton
 0,,"おや、自室訪問の許可を設定されていませんね
 <COL b92828>自室を訪問するには＜自室訪問設定＞から
-自室訪問を許可していただく必要がありますぞ</COL>","Oh, you haven't set up permission to visit your
-room.
-<COL b92828>To visit your room, you need to go to
-<Visit My Room Settings>
-You need to set up permission to visit your
-room.</COL>",ui\00_message\npc\base\n1024.gmd,\npc\n1024.arc,n1024.arc,33,Barton
+自室訪問を許可していただく必要がありますぞ</COL>","Oh, it looks like you haven't enabled room 
+visit permissions yet.
+<COL b92828>To let others visit your room, you need to go to
+<My Room Visit Setup> and set it up.</COL>",ui\00_message\npc\base\n1024.gmd,\npc\n1024.arc,n1024.arc,33,Barton
 0,,どちらのお部屋に行かれますかな？,Which room would you like to go to?,ui\00_message\npc\base\n1024.gmd,\npc\n1024.arc,n1024.arc,34,Barton
 0,,"おお、覚者さま
 みなまではお聞きしませぬ
@@ -862,7 +860,7 @@ and cut corners?",ui\00_message\npc\base\n1029.gmd,\npc\n1029.arc,n1029.arc,1,Re
 based on my own experience",ui\00_message\npc\base\n1029.gmd,\npc\n1029.arc,n1029.arc,2,Renton
 0,,"いやぁ、俺も騎士団入りたてでさ
 人に教えた方が伸びるって言われたんだけど
-ほんとかなぁ","Well, I just joined the Knight Order
+ほんとかなぁ","Well, I just joined the Knights' Order
 and someone told me that you grow more when you
 teach others. Is it true, I wonder?",ui\00_message\npc\base\n1029.gmd,\npc\n1029.arc,n1029.arc,3,Renton
 0,,"初めての武器で扱い慣れてないと
@@ -1226,9 +1224,9 @@ What do you think?",ui\00_message\npc\base\n1046.gmd,\npc\n1046.arc,n1046.arc,5,
 ココの仮眠室にご案内するわ！
 備品の維持なんかに結構かかるから
 <VAL PRICE_INN>いただくけど、いいかしら？","Ah, well, if you're tired,
-I can show you to a nap room.
+I can show you to a room you can rest in.
 It costs a pretty penny to maintain the equipment,
-so I'm asking for <VAL PRICE_INN> if you don't mind.",ui\00_message\npc\base\n1046.gmd,\npc\n1046.arc,n1046.arc,6,Livia
+so I'm asking for <VAL PRICE_INN>, if you don't mind.",ui\00_message\npc\base\n1046.gmd,\npc\n1046.arc,n1046.arc,6,Livia
 0,,はい,Yes,ui\00_message\npc\base\n1046.gmd,\npc\n1046.arc,n1046.arc,7,Livia
 0,,いいえ,No,ui\00_message\npc\base\n1046.gmd,\npc\n1046.arc,n1046.arc,8,Livia
 0,,"覚者様、お疲れだったら
