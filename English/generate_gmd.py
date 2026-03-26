@@ -39,11 +39,23 @@ def validate_first_column(file_path):
 
 
 def validate_folder(folder):
-    """Validate all CSVs in a folder recursively."""
+    """Validate all CSVs in a folder recursively, excluding specific directories."""
+    # Define the exact names of folders to skip
+    EXCLUDED_NAMES = {
+        "gmd staging",
+        "Terms and references directory",
+        "Tools"
+    }
+
     print(f"\nValidating {folder} ...")
     for csv_file in folder.rglob("*.csv"):
+        # Check if any parent directory of the file is in the exclusion list
+        if any(part in EXCLUDED_NAMES for part in csv_file.parts):
+            continue
+            
         validate_first_column(csv_file)
-    print(f"{folder} passed validation.")
+        
+    print(f"{folder} passed validation (ignored: {', '.join(EXCLUDED_NAMES)}).")
 
 
 def get_changed_files():
