@@ -5,17 +5,29 @@ class ConfigManager:
     def __init__(self, config_file="formatter_config.json"):
         self.config_file = config_file
         self.config = self.load_all()
-        # Memory will store temporary things like speaker assignments
         self.memory = self.config.get("memory", {})
+        # Seed archetypes from defaults if not already in config
+        self._seed_archetypes()
+
+    def _seed_archetypes(self):
+        """Populate config['archetypes'] from DEFAULT_ARCHETYPES if absent."""
+        if "archetypes" not in self.config or not self.config["archetypes"]:
+            try:
+                from lore_engine import DEFAULT_ARCHETYPES
+                self.config["archetypes"] = {
+                    k: dict(v) for k, v in DEFAULT_ARCHETYPES.items()
+                }
+            except ImportError:
+                self.config["archetypes"] = {}
 
     def load_all(self):
         if os.path.exists(self.config_file):
             try:
                 with open(self.config_file, 'r', encoding='utf-8') as f:
                     data = json.load(f)
-                    # Ensure essential keys exist
                     keys_defaults = {
                         "tag_map": {},
+                        "tag_display": {},
                         "presets": {"Standard": 50},
                         "wall_presets": {"Standard": 7},
                         "folders": [],
@@ -24,7 +36,8 @@ class ConfigManager:
                         "speaker_notes": {},
                         "memory": {},
                         "bible_path": "",
-                        "glossary_path": ""
+                        "glossary_path": "",
+                        "archetypes": {},
                     }
                     for key, default in keys_defaults.items():
                         if key not in data:
@@ -33,9 +46,9 @@ class ConfigManager:
             except (json.JSONDecodeError, IOError):
                 print("Config file corrupted, creating new one.")
 
-        # Default config if file missing
         return {
             "tag_map": {},
+            "tag_display": {},
             "presets": {"Standard": 50},
             "wall_presets": {"Standard": 7},
             "folders": [],
@@ -44,7 +57,8 @@ class ConfigManager:
             "glossary_path": "",
             "memory": {},
             "speaker_archetypes": {},
-            "speaker_notes": {}
+            "speaker_notes": {},
+            "archetypes": {},
         }
 
     def save_all(self):

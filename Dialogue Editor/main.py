@@ -1,912 +1,717 @@
-import csv, os, threading, re, tkinter as tk
-from tkinter import messagebox, filedialog, ttk, simpledialog, scrolledtext
-from datetime import datetime
-from collections import defaultdict
+import os
+import csv
+import re
+import json
+import urllib.request
+import urllib.error
+import threading
 
-# CRITICAL IMPORTS
-try:
-    from config_manager import ConfigManager
-    from translator_engine import TranslationEngine
-    from lore_engine import LoreEngine
-    from options_module import OptionsMenu
-except ImportError as e:
-    print(f"CRITICAL ERROR: Missing module file! {e}")
-    input("Press Enter to close...")
-    exit()
+# Default archetypes — seeded into config on first run, then editable from Options.
+# Stored in config["archetypes"] as {key: {name, professions, notes, pawn_map}}.
+DEFAULT_ARCHETYPES = {
+    "A1": {
+        "name": "Sincere / Hopeful",
+        "professions": ["villager", "farmer", "parent", "ordinary townsfolk", "young adult commoner"],
+        "notes": (
+            "Warm, direct sincerity. Believes things can improve.\n"
+            "Full sentences, gentle hedging. Not naive, but not cynical.\n"
+            "Register: 'tis, aught, pray, afore — used naturally.\n"
+            "Hedging: \"I imagine...\", \"Mayhap...\", \"I should think...\""
+        ),
+        "pawn_map": "Ordinary",
+    },
+    "A2": {
+        "name": "Wise Elder",
+        "professions": ["village elder", "retired soldier", "old healer", "grandmother", "sage"],
+        "notes": (
+            "Measured, philosophical, slow to speak but worth hearing.\n"
+            "Long sentences with subordinate clauses. Reflective pauses.\n"
+            "Register: 'twas, ere, forsooth, methinks, in sooth.\n"
+            "Often references the past: \"In my day...\", \"I have seen...\""
+        ),
+        "pawn_map": "Ordinary (elder variant)",
+    },
+    "A3": {
+        "name": "Grief-stricken / Burdened",
+        "professions": ["bereaved parent", "survivor", "widow", "someone who lost everything"],
+        "notes": (
+            "Warm underneath, but weighed down. Sentences trail or break.\n"
+            "Does not wallow — dignified grief, not self-pity.\n"
+            "Register: mix of formal and plain. Occasional archaic slippage.\n"
+            "Pauses mid-thought. \"I know not how to...\" \"Would that I...\""
+        ),
+        "pawn_map": "Shy (grief variant)",
+    },
+    "A4": {
+        "name": "Warm but Weary",
+        "professions": ["overworked parent", "town guard who cares", "tired healer", "long-suffering official"],
+        "notes": (
+            "Genuinely kind, but tired. Short sentences from exhaustion, not bluntness.\n"
+            "Still uses full courtesies, just slightly clipped.\n"
+            "Register: 'tis, aye, aught — functional, not flowery.\n"
+            "\"Come in, then.\" \"Rest awhile.\" \"I'll see to it, aye.\""
+        ),
+        "pawn_map": "Ordinary (tired variant)",
+    },
+    "A5": {
+        "name": "Innkeeper / Host",
+        "professions": ["innkeeper", "tavern keeper", "host", "lodge owner", "boarding house keeper"],
+        "notes": (
+            "Welcoming, comfort-focused. Makes visitors feel expected and cared for.\n"
+            "Practical warmth — knows what people need before they ask.\n"
+            "Register: 'tis, ser, aye — easy and familiar without being presumptuous.\n"
+            "\"Come in from the road.\" \"Rest your weary feet.\" \"The fire's warm and the ale's fresh.\""
+        ),
+        "pawn_map": "Ordinary (host variant)",
+    },
+    "B": {
+        "name": "Rough / Blunt",
+        "professions": ["soldier", "guard", "bandit", "antagonist", "labourer", "mercenary"],
+        "notes": (
+            "Short clauses, punchy, direct. No hedging. Earthy vocabulary.\n"
+            "Register: \"cos\" (cousin) casual address, \"o'\" for \"of\".\n"
+            "Rhetorical questions. Light on archaic vocabulary."
+        ),
+        "pawn_map": "Peppy (battle cries), antagonists",
+    },
+    "C1": {
+        "name": "Upbeat Merchant / Trader",
+        "professions": ["merchant", "shopkeeper", "ferryman", "guild clerk", "travelling vendor"],
+        "notes": (
+            "Warm but businesslike. Transactions drive the tone.\n"
+            "Short sentences. Often ends with questions or invitations.\n"
+            "Register: \"ser\" casual respectful, \"mind\" mild emphasis, \"daresay\".\n"
+            "\"Have a look.\" \"I daresay you'll find this reasonable.\""
+        ),
+        "pawn_map": "Peppy (home/social lines)",
+    },
+    "C2": {
+        "name": "Gossipy / Chatty Townsfolk",
+        "professions": ["market regular", "neighbour", "town busybody", "fishwife", "dockhand"],
+        "notes": (
+            "Can't help sharing more than asked. Warm and nosy.\n"
+            "Run-on sentences, topic changes, rhetorical questions to themselves.\n"
+            "Register: colloquial, light archaic. \"o'\" for \"of\", \"cos\".\n"
+            "\"Did you hear about...?\" \"Not that it's my business, but...\""
+        ),
+        "pawn_map": "Peppy (chatty NPC variant)",
+    },
+    "C3": {
+        "name": "Eager / Excitable",
+        "professions": ["apprentice", "young recruit", "fan of the Arisen", "enthusiastic civilian"],
+        "notes": (
+            "Enthusiastic, slightly breathless. Admires strength or adventure.\n"
+            "Short sentences, exclamations, occasional stumble over words.\n"
+            "Register: light archaic. Not formally trained in speech.\n"
+            "\"Truly?!\" \"I knew it!\" \"Will you really...?\""
+        ),
+        "pawn_map": "Peppy (excited variant) / Shy crossover",
+    },
+    "D": {
+        "name": "Timid / Young / Shy",
+        "professions": ["child", "scared civilian", "refugee", "servant", "very young apprentice"],
+        "notes": (
+            "Incomplete sentences, trailing off, self-doubt, qualifications.\n"
+            "Register: frequent \"...\", \"I know not\", \"pray, forgive me\".\n"
+            "Self-deprecating but not broken."
+        ),
+        "pawn_map": "Shy pawn directly",
+    },
+    "E": {
+        "name": "Formal / Military",
+        "professions": ["knight", "captain", "duke's guard", "officer", "noble retainer", "ser"],
+        "notes": (
+            "Clipped, duty-focused, no-nonsense. Older honorifics.\n"
+            "Register: \"ser\" and \"Arisen\" as address, \"to say naught of\",\n"
+            "\"ill\" as qualifier. Short declarative sentences."
+        ),
+        "pawn_map": "Peppy (battle declarations, quest lines)",
+    },
+    "E2": {
+        "name": "Noble / Aristocratic",
+        "professions": ["lord", "lady", "duke", "count", "noble", "courtier"],
+        "notes": (
+            "Formal, measured, accustomed to being obeyed. Not always cruel — may be benevolent.\n"
+            "Long periodic sentences. Never contractions. Condescension can be polite.\n"
+            "Register: full archaic register, 'tis, naught, wherefore, henceforth.\n"
+            "\"You will see to it forthwith.\" \"I trust this requires no further explanation.\""
+        ),
+        "pawn_map": "Quest-giver nobles, antagonist lords",
+    },
+    "F": {
+        "name": "Wisecracking / Irreverent",
+        "professions": ["rogue", "traveling bard", "cynical merchant", "veteran adventurer", "barkeep"],
+        "notes": (
+            "Colloquial, self-aware humor, mild sarcasm.\n"
+            "Archaic vocabulary used lightly.\n"
+            "Register: \"cousin\"/\"cos\" casual address, \"s'pose\", \"naught\", rhetorical asides."
+        ),
+        "pawn_map": "Peppy (taunting lines)",
+    },
+    "G": {
+        "name": "Devout / Clerical",
+        "professions": ["priest", "cleric", "nun", "bishop", "temple keeper", "acolyte"],
+        "notes": (
+            "Calm, measured, reverent. Speaks with quiet authority.\n"
+            "Often invokes faith, fate, or divine will.\n"
+            "Register: 'mayhap', 'blessing', 'grace', 'divine', 'sin', 'fate'.\n"
+            "Avoids slang. Rarely emotional; composed and solemn.\n"
+            "Phrasing often feels sermonic or reflective."
+        ),
+        "pawn_map": "Shy / Calm support roles",
+    },
+    "H": {
+        "name": "Menacing / Threatening",
+        "professions": ["villain", "crime lord", "corrupt official", "dangerous antagonist", "enforcer"],
+        "notes": (
+            "Controlled, cold. Power comes from restraint, not shouting.\n"
+            "Short declaratives. Implied violence. Polite on the surface, cruel underneath.\n"
+            "Register: formal archaic for high-status villains; blunt for lower ones.\n"
+            "\"I would choose my next words with care.\" \"See that it does not happen again.\""
+        ),
+        "pawn_map": "Antagonist / boss NPC",
+    },
+    "I": {
+        "name": "Scholarly / Pedantic",
+        "professions": ["scholar", "scribe", "court mage", "archivist", "physician", "alchemist"],
+        "notes": (
+            "Verbose, precise, enjoys the sound of his own expertise.\n"
+            "Long sentences with qualifications, parentheticals, corrections.\n"
+            "Register: full archaic, technical vocabulary, Latin-flavoured.\n"
+            "\"Strictly speaking...\" \"One must distinguish between...\" \"As I have noted previously...\""
+        ),
+        "pawn_map": "Learned NPC, quest exposition",
+    },
+}
 
-class ReviewEditor(tk.Toplevel):
-    def __init__(self, parent, tag_queue, wall_queue, dash_queue, anach_queue, limit, wall_limit, tag_map, callback):
-        super().__init__(parent.root) 
-        self.parent = parent 
-        self.title("Dialogue Reviewer v5.3")
-        self.geometry("1100x850")
+# Modern→archaic replacements
+IN_UNIVERSE_VOCAB = {
+    "actually": "in truth",
+    "alright": "very well",
+    "alrighty": "very well",
+    "among": "amidst",
+    "anything": "aught",
+    "apart": "sunder",
+    "are": "art",
+    "aren't": "are not",
+    "aren't they": "are they not",
+    "aren't you": "are you not",
+    "awesome": "magnificent",
+    "barely": "scarce",
+    "basically": "in short",
+    "belike": "belike",
+    "probably": "belike",
+    "before": "ere",
+    "if ever": "ifsoe'er",
+    "before long": "erelong",
+    "between": "betwixt",
+    "by chance": "haply",
+    "bye": "fare well",
+    "can't": "cannot",
+    "command": "behest",
+    "cool": "fine",
+    "couldn't": "could not",
+    "couldn't he": "could he not",
+    "couldn't it": "could it not",
+    "couldn't she": "could she not",
+    "couldn't they": "could they not",
+    "couldn't you": "could you not",
+    "creature": "wight",
+    "curse": "bane",
+    "daren't": "dare not",
+    "delay": "tarry",
+    "did you not": "did you not",
+    "didn't": "did not",
+    "didn't he": "did he not",
+    "didn't it": "did it not",
+    "didn't she": "did she not",
+    "didn't they": "did they not",
+    "didn't you": "did you not",
+    "dire": "dire",
+    "do they not": "do they not",
+    "do you not": "do you not",
+    "doesn't": "does not",
+    "doesn't he": "does he not",
+    "doesn't it": "does it not",
+    "doesn't she": "does she not",
+    "don't": "do not",
+    "don't they": "do they not",
+    "don't you": "do you not",
+    "dunno": "I know not",
+    "early": "betimes",
+    "ever": "e'er",
+    "evil": "bane",
+    "for fear that": "lest",
+    "forsooth": "forsooth",
+    "forward": "forth",
+    "from here": "hence",
+    "from now on": "henceforth",
+    "from where": "whence",
+    "gladly": "fain",
+    "happy": "fain",
+    "inclined": "fain",
+    "pleased": "fain",
+    "gonna": "going to",
+    "good": "goodly",
+    "goodbye": "farewell",
+    "gotta": "must",
+    "hadn't": "had not",
+    "hadn't he": "had he not",
+    "hadn't it": "had it not",
+    "hadn't she": "had she not",
+    "hadn't they": "had they not",
+    "hadn't you": "had you not",
+    "handsome": "goodly",
+    "hardly": "scarce",
+    "hasn't": "has not",
+    "hasn't he": "has he not",
+    "hasn't it": "has it not",
+    "hasn't she": "has she not",
+    "hasn't they": "has they not",
+    "haven't": "have not",
+    "haven't they": "have they not",
+    "haven't you": "have you not",
+    "hello": "hail",
+    "hi": "hail",
+    "hit": "smite",
+    "honestly": "in truth",
+    "immediately": "forthwith",
+    "in short": "in short",
+    "in truth": "forsooth",
+    "is he not": "is he not",
+    "is it not": "is it not",
+    "is she not": "is she not",
+    "isn't": "is not",
+    "isn't he": "is he not",
+    "isn't it": "is it not",
+    "isn't she": "is she not",
+    "it is": "'tis",
+    "it seems to me": "methinks",
+    "it was": "'twas",
+    "it were": "'twere",
+    "it will": "'twill",
+    "it would": "'twould",
+    "jest": "jest",
+    "joke": "jest",
+    "kinda": "somewhat",
+    "like": None,
+    "look": "lo",
+    "middle": "amidst",
+    "morning": "morrow",
+    "most inqu": "inquest",
+    "most wis": "wisest",
+    "mustn't": "must not",
+    "mustn't he": "must he not",
+    "mustn't it": "must it not",
+    "mustn't she": "must she not",
+    "mustn't they": "must they not",
+    "mustn't you": "must you not",
+    "near": "nigh",
+    "nearly": "nigh",
+    "needn't": "need not",
+    "never": "ne'er",
+    "no": "nay",
+    "nope": "nay",
+    "nothing": "naught",
+    "often": "ofttimes",
+    "okay": "aye",
+    "over": "o'er",
+    "perhaps": "perchance",
+    "please": "prithee",
+    "primary": "main",
+    "principal": "main",
+    "really": "truly",
+    "relative": "kinsman",
+    "request": "behest",
+    "see": "behold",
+    "separated": "sunder",
+    "shame": "fie",
+    "disapprove": "fie",
+    "shortly": "anon",
+    "shouldn't": "should not",
+    "shouldn't he": "should he not",
+    "shouldn't it": "should it not",
+    "shouldn't she": "should she not",
+    "shouldn't they": "should they not",
+    "shouldn't you": "should you not",
+    "soon": "anon",
+    "sorry": "forgive me",
+    "sorta": "somewhat",
+    "strange": "queer",
+    "strike": "smite",
+    "sure": "aye",
+    "tarry": "tarry",
+    "terrible": "dire",
+    "therefore": "wherefore",
+    "to": "unto",
+    "to where": "whither",
+    "tomorrow": "morrow",
+    "totally": "quite",
+    "toward": "unto",
+    "travel": "wend",
+    "truly": "truly",
+    "urgent": "dire",
+    "very": "most",
+    "very little": "scant",
+    "wait": "tarry",
+    "wanna": "wish to",
+    "was he not": "was he not",
+    "was it not": "was it not",
+    "was she not": "was she not",
+    "wasn't": "was not",
+    "wasn't he": "was he not",
+    "wasn't it": "was it not",
+    "wasn't she": "was she not",
+    "weird": "queer",
+    "were not": "were not",
+    "were they not": "were they not",
+    "were you not": "were you not",
+    "weren't": "were not",
+    "weren't they": "were they not",
+    "weren't you": "were you not",
+    "whatever": "whate'er",
+    "whenever": "whene'er",
+    "wherever": "where'er",
+    "will": "wilt",
+    "will he not": "will he not",
+    "will it not": "will it not",
+    "will not": "will not",
+    "will she not": "will she not",
+    "will you not": "will you not",
+    "willingly": "fain",
+    "won't": "will not",
+    "won't he": "will he not",
+    "won't it": "will it not",
+    "won't she": "will she not",
+    "won't they": "will they not",
+    "won't you": "will you not",
+    "would he not": "would he not",
+    "would it not": "would it not",
+    "would she not": "would she not",
+    "would you not": "would you not",
+    "wouldn't": "would not",
+    "wouldn't he": "would he not",
+    "wouldn't it": "would it not",
+    "wouldn't she": "would she not",
+    "wouldn't you": "would you not",
+    "yeah": "aye",
+    "yep": "aye",
+    "yes": "yea",
+    "you": "ye",
+    "enough": "enow",
+    "frightened": "afeard",
+    "frighten": "affright",
+    "attempt": "assay",
+    "apart": "asunder",
+    "recollect": "bethink",
+    "remember": "bethink",
+    "entrust": "commend",
+    "corpse": "corse",
+    "corpse": "carrion",
+    "cousin": "coz",
+    "domain": "demesne",
+    "avert": "forfend",
+    "prevent": "forfend",
+    "here": "hence",
+    "there": "thence",
+    "quickly": "anon",
+    "to": "hither",
+    "repulsive": "loathly",
+    "bewildered": "mazed",
+    "charm": "periapt",
+    "amulet": "periapt",
+    "clothing": "raiment",
+    "punish": "recompense",
+    "reward": "recompense",
+    "coward": " recreant",
+    "cowardly": " recreant",
+    "stain": "soil",
+    "truth": "verity",
+    "truth": "sooth",
+    "defeat": "vanquish",
+    "defeat": "smite",
+    "conquer": "vanquish",
+    "conquer": "smite",
+    "to that": "thereunto",
+    "three": "thrice",
+    "tenth": "tithe",
+    "faith": "troth",
+    "loyalty": "troth",
+    "a year": "twelvemonth",
+    "wagon": "wain",
+    "cart": "wain",
+    "at which": "whereat",
+    "by which": "whereby",
+    "in which": "wherein",
+    "on which": "whereon",
+    "to what place": "whither",
+    "builder": "wright",
+    "maker": "wright",
+    "over there": "yonder",
 
-        self.limit, self.wall_limit, self.tag_map, self.callback = limit, wall_limit, tag_map, callback
-        self.jp_source = ""
-        self.speaker_name = ""
-        self.in_universe_var = tk.BooleanVar(value=self.parent.cm.config.get("in_universe", False))
-        self.engine = TranslationEngine(tag_map)
-        self.lore_engine = LoreEngine()
-        self.lore_engine.load_data(
-            self.parent.cm.config.get("bible_path", ""), 
-            self.parent.cm.config.get("glossary_path", "")
-        )
+    # --- Additions: modern triggers for archaic words lacking them ---
+    # cease
+    "stop":         "cease",
+    "end":          "cease",
+    # beseech
+    "beg":          "beseech",
+    "implore":      "beseech",
+    "plead":        "beseech",
+    # bespeak
+    "indicate":     "bespeak",
+    "arrange":      "bespeak",
+    # betide
+    "happen":       "betide",
+    "befall":       "betide",
+    # quaff / sup
+    "drink":        "quaff",
+    "guzzle":       "quaff",
+    "sip":          "sup",
+    "eat":          "sup",
+    "snack":        "sup",
+    # vanquish
+    "defeat":       "vanquish",
+    "conquer":      "vanquish",
+    "overcome":     "vanquish",
+    # quell
+    "suppress":     "quell",
+    "crush":        "quell",
+    "subdue":       "quell",
+    # quench
+    "satisfy":      "quench",
+    "extinguish":   "quench",
+    # e'en
+    "even":         "e'en",
+    # eventide / evenfall
+    "evening":      "eventide",
+    "dusk":         "evenfall",
+    "nightfall":    "evenfall",
+    # wit
+    "know":         "wit",
+    "understand":   "wit",
+    # amiss
+    "wrong":        "amiss",
+    "awry":         "amiss",
+    "astray":       "amiss",
+    # howbeit
+    "however":      "howbeit",
+    "nevertheless": "howbeit",
+    "nonetheless":  "howbeit",
+    # yon / yonder (yonder already present for "over there")
+    "over yonder":  "yon",
+    # corse
+    "body":         "corse",
+    "dead body":    "corse",
+    # swain
+    "young man":    "swain",
+    "youth":        "swain",
+    "lad":          "swain",
+    # witting / unwitting
+    "knowing":      "witting",
+    "aware":        "witting",
+    # verity (sooth already exists but verity is more formal)
+    "truth":        "verity",
+    "reality":      "verity",
+}
 
-        self.queues = {
-            "Tag Issues (Complex Tags)": tag_queue,
-            "Line Limit": wall_queue,
-            "Double Dashes": dash_queue,
-            "Anachronisms": anach_queue,
+
+ANACHRONISM_PATTERNS = list(IN_UNIVERSE_VOCAB.keys())
+
+class LoreEngine:
+    def __init__(self, config_archetypes=None):
+        # Use config archetypes if provided, else seed from defaults
+        if config_archetypes:
+            self.archetypes = config_archetypes
+        else:
+            self.archetypes = dict(DEFAULT_ARCHETYPES)
+        self.lore_map = {
+            "剛化": "Harden",
+            "重化": "Heavy",
+            "癒活": "Restoration",
+            "守護": "Protection",
+            "柔化": "Weaken",
+            "集視": "Attention",
+            "無恐": "Fearless",
+            "集中": "Concentration",
+            "蘇生": "Resurrection"
         }
-        self.current_category = next((cat for cat in self.queues if self.queues[cat]), "Tag Issues (Complex Tags)")
-        self.current_texts = list(self.queues[self.current_category].keys())
-        self.current_idx = 0
-        self.anach_ranges = []   # list of (start_idx, end_idx, word, [(suggestion, label), ...])
-        self.tooltip_window = None
 
-        self.dark_mode = self.parent.cm.config.get("dark_mode", False)
-        self.apply_theme_colors()
-        self.setup_ui()
-        self.load_item()
-
-        # Single tooltip instance — bound once, reads self.anach_ranges dynamically
-        self._bind_tooltip()
-        # Tab inserts suggestion at cursor
-        self.txt.bind("<Tab>", self._tab_insert_suggestion)
-
-    def _build_suggestion_text(self, word):
-        """Return all vocab entries whose key matches this word (case-insensitive),
-        formatted as a tooltip string showing every option."""
-        from lore_engine import IN_UNIVERSE_VOCAB
-        word_lower = word.lower()
-        # Collect exact key match first, then look for synonym group
-        options = []
-        if word_lower in IN_UNIVERSE_VOCAB:
-            val = IN_UNIVERSE_VOCAB[word_lower]
-            if val:
-                options.append(val)
-        # Deduplicate preserving order
-        seen = set()
-        unique = [o for o in options if not (o in seen or seen.add(o))]
-        if not unique:
-            return f"⚠ \"{word}\" — no direct replacement (flag only)"
-        opts_str = "  /  ".join(unique)
-        return f"⚠ \"{word}\"  →  {opts_str}   (Tab to insert)"
-
-    def _bind_tooltip(self):
-        """Bind tooltip to the txt widget itself using Motion/Leave.
-        tag_bind("<Motion>") is unreliable on tk.Text — widget-level bindings
-        fire consistently and we do the hit-test ourselves."""
-        def on_motion(event):
-            idx = self.txt.index(f"@{event.x},{event.y}")
-            for start, end, word, _ in self.anach_ranges:
-                if self.txt.compare(start, "<=", idx) and self.txt.compare(idx, "<", end):
-                    tip = self._build_suggestion_text(word)
-                    if self.tooltip_window:
-                        # Reposition; update label text in case we moved to a different word
-                        self.tooltip_window.geometry(f"+{event.x_root+20}+{event.y_root+10}")
-                        for child in self.tooltip_window.winfo_children():
-                            child.config(text=tip)
-                    else:
-                        self._show_tooltip(event.x_root, event.y_root, tip)
-                    return
-            # Not over any highlight
-            self._hide_tooltip()
-
-        def on_leave(event):
-            self._hide_tooltip()
-
-        self.txt.bind("<Motion>", on_motion, add="+")
-        self.txt.bind("<Leave>",  on_leave,  add="+")
-
-    def _show_tooltip(self, x_root, y_root, text):
-        if self.tooltip_window:
-            # Already showing — just reposition and update text if needed
-            self.tooltip_window.geometry(f"+{x_root+20}+{y_root+10}")
-            return
-        tw = tk.Toplevel(self)
-        tw.wm_overrideredirect(True)
-        tw.wm_transient(self)
-        tw.geometry(f"+{x_root+20}+{y_root+10}")
-        tk.Label(tw, text=text, bg="#ffffe0", fg="black",
-                 relief="solid", borderwidth=1, font=("Arial", 9),
-                 wraplength=400, justify="left").pack()
-        self.tooltip_window = tw
-
-    def _hide_tooltip(self):
-        if self.tooltip_window:
-            try: self.tooltip_window.destroy()
-            except: pass
-            self.tooltip_window = None
-
-    def _tab_insert_suggestion(self, event):
-        """On Tab: if cursor is inside an anachronism range, insert the first suggestion."""
-        idx = self.txt.index(tk.INSERT)
-        for start, end, word, suggestions in self.anach_ranges:
-            if self.txt.compare(start, "<=", idx) and self.txt.compare(idx, "<=", end):
-                if not suggestions:
-                    return "break"
-                replacement = suggestions[0][0]
-                # Preserve capitalisation of the original word
-                matched = self.txt.get(start, end)
-                first_alpha_orig = next((c for c in matched if c.isalpha()), None)
-                first_alpha_idx  = next((i for i, c in enumerate(replacement) if c.isalpha()), None)
-                if first_alpha_orig and first_alpha_orig.isupper() and first_alpha_idx is not None:
-                    replacement = (replacement[:first_alpha_idx]
-                                   + replacement[first_alpha_idx].upper()
-                                   + replacement[first_alpha_idx+1:])
-                self.txt.delete(start, end)
-                self.txt.insert(start, replacement)
-                self._hide_tooltip()
-                self.update_counters()
-                return "break"   # prevent default Tab behaviour
-        return None  # not on a highlight — allow normal Tab
-
-    def update_counters(self, e=None):
-        content = self.txt.get("1.0", tk.END).splitlines()
-        self.cnt_lbl.config(state="normal")
-        self.cnt_lbl.delete("1.0", tk.END)
-        for i, line in enumerate(content):
-            sim = self.engine.get_simulated_len(line)
-            tag = f"over_{i}"
-            self.cnt_lbl.insert(tk.END, f"{sim:3}\n", tag)
-            color = "#ff5555" if sim > self.limit else self.colors["counter_fg"]
-            self.cnt_lbl.tag_config(tag, foreground=color)
-        self.cnt_lbl.config(state="disabled")
-
-    def apply_theme_colors(self):
-        if self.dark_mode:
-            self.colors = {"bg": "#1e1e1e", "fg": "#d4d4d4", "text_bg": "#252526", "jp_bg": "#1a1a1b", 
-                           "sidebar_bg": "#2d2d2d", "btn_bg": "#3c3c3c", "label_fg": "#858585", 
-                           "counter_fg": "#4ec9b0", "insert_color": "white"}
-        else:
-            self.colors = {"bg": "#f0f0f0", "fg": "#000000", "text_bg": "#ffffff", "jp_bg": "#ffffff", 
-                           "sidebar_bg": "#f0f0f0", "btn_bg": "#e1e1e1", "label_fg": "gray", 
-                           "counter_fg": "#0056b3", "insert_color": "black"}
-
-    def setup_ui(self):
-        self.configure(bg=self.colors["bg"])
-        ctrl = tk.Frame(self, bg=self.colors["bg"], pady=10)
-        ctrl.pack(fill="x", padx=20)
-        
-        self.cat_combo = ttk.Combobox(ctrl, values=list(self.queues.keys()), state="readonly", width=35)
-        self.cat_combo.set(self.current_category)
-        self.cat_combo.pack(side="left", padx=10)
-        self.cat_combo.bind("<<ComboboxSelected>>", self.change_category)
-
-        tk.Button(ctrl, text="🌙" if not self.dark_mode else "☀️", command=self.toggle_dark_mode,
-                  bg=self.colors["btn_bg"], fg=self.colors["fg"], bd=0, padx=10).pack(side="right")
-        tk.Checkbutton(ctrl, text="In-Universe Language", variable=self.in_universe_var,
-                       bg=self.colors["bg"], fg=self.colors["fg"], selectcolor=self.colors["bg"],
-                       command=self.update_counters).pack(side="right", padx=10)
-        
-        self.info_lbl = tk.Label(self, text="", fg="#bb86fc" if self.dark_mode else "purple", bg=self.colors["bg"], font=("Arial", 10, "bold"))
-        self.info_lbl.pack()
-
-        # --- Speaker / Archetype bar ---
-        spk_frame = tk.Frame(self, bg=self.colors["bg"], padx=20, pady=4)
-        spk_frame.pack(fill="x")
-        tk.Label(spk_frame, text="Speaker:", fg=self.colors["label_fg"], bg=self.colors["bg"], font=("Arial", 9)).pack(side="left")
-        self.speaker_lbl = tk.Label(spk_frame, text="—", fg=self.colors["counter_fg"], bg=self.colors["bg"], font=("Arial", 9, "bold"))
-        self.speaker_lbl.pack(side="left", padx=(4, 20))
-        tk.Label(spk_frame, text="Archetype:", fg=self.colors["label_fg"], bg=self.colors["bg"], font=("Arial", 9)).pack(side="left")
-        archetype_options = self.lore_engine.get_archetype_options()
-        archetype_labels = ["(none)"] + [opt[1] for opt in archetype_options]
-        self.archetype_keys = [None] + [opt[0] for opt in archetype_options]
-        self.archetype_var = tk.StringVar(value="(none)")
-        self.archetype_combo = ttk.Combobox(spk_frame, textvariable=self.archetype_var,
-                                             values=archetype_labels, state="disabled", width=30)
-        self.archetype_combo.pack(side="left", padx=(4, 10))
-        self.archetype_combo.bind("<<ComboboxSelected>>", self.on_archetype_selected)
-        tk.Button(spk_frame, text="Save Assignment", command=self.save_archetype,
-                  bg=self.colors["btn_bg"], fg=self.colors["fg"], font=("Arial", 8)).pack(side="left")
-        tk.Label(spk_frame, text="Note:", fg=self.colors["label_fg"], bg=self.colors["bg"], font=("Arial", 9)).pack(side="left", padx=(16, 2))
-        self.speaker_note_var = tk.StringVar()
-        self.speaker_note_entry = tk.Entry(spk_frame, textvariable=self.speaker_note_var,
-                                           width=28, font=("Arial", 9),
-                                           bg=self.colors["text_bg"], fg=self.colors["fg"],
-                                           insertbackground=self.colors["fg"], relief="flat",
-                                           state="disabled")
-        self.speaker_note_entry.pack(side="left", padx=(0, 6))
-        self.speaker_note_entry.bind("<FocusOut>", lambda e: self.save_archetype())
-        self.speaker_note_entry.bind("<Return>",   lambda e: self.save_archetype())
-        
-        main = tk.Frame(self, bg=self.colors["bg"])
-        main.pack(fill="both", expand=True, padx=20)
-
-        left_f = tk.Frame(main, bg=self.colors["bg"])
-        left_f.pack(side="left", fill="y")
-
-        tk.Label(left_f, text="English Editor:", fg=self.colors["label_fg"], bg=self.colors["bg"]).pack(anchor="w")
-        self.txt = tk.Text(left_f, height=15, width=64, font=("Consolas", 12), bg=self.colors["text_bg"], 
-                           fg=self.colors["fg"], insertbackground=self.colors["insert_color"], bd=0)
-        self.txt.pack(fill="y", expand=True)
-        self.txt.bind("<KeyRelease>", self.update_counters)
-
-        tk.Label(left_f, text="Japanese Source:", fg=self.colors["label_fg"], bg=self.colors["bg"]).pack(anchor="w", pady=(10, 0))
-        self.jp_txt = tk.Text(left_f, height=12, width=64, font=("MS Gothic", 12), bg=self.colors["jp_bg"], 
-                              fg=self.colors["fg"], insertbackground=self.colors["insert_color"], state="disabled", bd=0)
-        self.jp_txt.pack(fill="y", expand=True)
-
-        self.cnt_lbl = tk.Text(main, font=("Consolas", 11), width=4, bg=self.colors["bg"], 
-                               fg=self.colors["counter_fg"], state="disabled", bd=0, highlightthickness=0)
-        self.cnt_lbl.pack(side="left", fill="y", pady=20, padx=(2, 5))
-
-        side = tk.Frame(main, bg=self.colors["sidebar_bg"])
-        side.pack(side="right", fill="both", expand=True)
-        self.lore_list = tk.Text(side, bg=self.colors["text_bg"], fg=self.colors["fg"], bd=0, 
-                                 highlightthickness=0, font=("Arial", 10), wrap="word", state="disabled")
-        self.lore_list.pack(fill="x")
-        tk.Frame(side, bg=self.colors["label_fg"], height=1).pack(fill="x", pady=4)
-        self.archetype_hint = tk.Text(side, bg=self.colors["text_bg"], fg=self.colors["fg"], bd=0,
-                                      highlightthickness=0, font=("Arial", 9), wrap="word",
-                                      state="disabled", height=6)
-        self.archetype_hint.pack(fill="both", expand=True)
-
-        btns = tk.Frame(self, bg=self.colors["bg"], pady=20)
-        btns.pack(side="bottom")
-        tk.Button(btns, text="Skip", command=self.next_item, width=12, bg=self.colors["btn_bg"], fg=self.colors["fg"]).pack(side="left", padx=5)
-        tk.Button(btns, text="Apply", command=self.save_item, bg="#03dac6" if self.dark_mode else "#d1ecf1", fg="black", width=20).pack(side="left", padx=5)
-        tk.Button(btns, text="Dashes → …", command=lambda: self.replace_dashes("…"),
-                  bg=self.colors["btn_bg"], fg=self.colors["fg"], width=12).pack(side="left", padx=5)
-        tk.Button(btns, text="Dashes → —", command=lambda: self.replace_dashes("—"),
-                  bg=self.colors["btn_bg"], fg=self.colors["fg"], width=12).pack(side="left", padx=5)
-    
-    def load_item(self):
-        if self.current_idx >= len(self.current_texts):
-            # Try to switch to the next non-empty category automatically
-            for cat, queue in self.queues.items():
-                if cat != self.current_category and queue:
-                    self.current_category = cat
-                    self.cat_combo.set(cat)
-                    self.current_texts = list(queue.keys())
-                    self.current_idx = 0
-                    break
-            else:
-                # All categories exhausted — close the window
-                self.destroy()
-                return
-        txt = self.current_texts[self.current_idx]
-        self.info_lbl.config(text=f"REVIEWING: {self.current_idx+1}/{len(self.current_texts)}")
-        self.txt.delete(1.0, tk.END)
-        self.txt.insert(tk.END, txt)
-        
-        first_inst = self.queues[self.current_category][txt][0]
-        try:
-            with open(first_inst['path'], 'r', encoding='utf-8-sig') as f:
-                rows = list(csv.reader(f))
-                row_data = rows[first_inst['row_idx']]
-                jp_source = row_data[2] if len(row_data) > 2 else ""
-                self.speaker_name = row_data[8].strip() if len(row_data) > 8 else ""
-        except:
-            jp_source = "Source Error"
-            self.speaker_name = ""
-
-        # --- Update speaker / archetype bar ---
-        if self.speaker_name:
-            self.speaker_lbl.config(text=self.speaker_name, fg=self.colors["counter_fg"])
-            self.archetype_combo.config(state="readonly")
-            self.speaker_note_entry.config(state="normal")
-            self.archetype_combo.event_generate("<<ComboboxSelected>>")  # force update hint box
-            # Pre-fill archetype from saved assignments
-            saved_key = self.parent.cm.config.get("speaker_archetypes", {}).get(self.speaker_name)
-            if saved_key:
-                label = self.lore_engine.get_archetype_label(saved_key)
-                self.archetype_var.set(label)
-            else:
-                self.archetype_var.set("(none)")
-            self.update_archetype_hint()  # FORCE refresh whenever speaker changes
-            # Pre-fill note
-            saved_note = self.parent.cm.config.get("speaker_notes", {}).get(self.speaker_name, "")
-            self.speaker_note_var.set(saved_note)
-        else:
-            self.speaker_lbl.config(text="Unknown", fg=self.colors["label_fg"])
-            self.archetype_combo.config(state="disabled")
-            self.speaker_note_entry.config(state="disabled")
-            self.speaker_note_var.set("")
-            self.archetype_var.set("(none)")
-        self.update_archetype_hint()
-
-        self.jp_txt.config(state="normal")
-        self.jp_txt.delete(1.0, tk.END)
-        self.jp_txt.insert(tk.END, jp_source)
-        self.jp_source = jp_source  # Store for validation in save_item
-        self.lore_list.config(state="normal")
-        self.lore_list.delete(1.0, tk.END)
-
-        if jp_source:
-            matches = self.lore_engine.scan_text(jp_source)
-            for jp, en in matches:
-                self.lore_list.insert(tk.END, f"• {jp}: {en}\n")
-                tag = f"lore_{hash(jp)}"
-                self.jp_txt.tag_config(tag, foreground="#6fb3ff", underline=True)
-                self.jp_txt.tag_bind(tag, "<Button-1>", lambda e, w=en: self.quick_insert(w))
-                self._apply_tag_to_text(jp, tag)
-            if matches:
-                height = max(3, min(len(matches) + 1, 12))
-                self.lore_list.config(height=height)
-
-        # Dash category sidebar
-        if self.current_category == "Double Dashes":
-            _DASH_RE = re.compile(r'--+|——+|—-|-—')
-            found_dashes = _DASH_RE.findall(txt)
-            if found_dashes:
-                self.lore_list.insert(tk.END, "── Dash Issues ──\n", "dash_hdr")
-                self.lore_list.tag_config("dash_hdr", foreground="#ff8c00", font=("Arial", 9, "bold"))
-                seen = set()
-                for d in found_dashes:
-                    if d in seen:
-                        continue
-                    seen.add(d)
-                    self.lore_list.insert(tk.END, f"  Found: \"{d}\"\n", "dash_found")
-                    self.lore_list.insert(tk.END, "  Suggest: \"…\" (trailing off) or \"—\" (break)\n", "dash_suggest")
-                    for label, replacement in [("Insert …", "…"), ("Insert —", "—")]:
-                        self.lore_list.insert(tk.END, f"  [{label}]", f"dash_btn_{label}")
-                        self.lore_list.tag_config(f"dash_btn_{label}", foreground="#6fb3ff", underline=True)
-                        self.lore_list.tag_bind(f"dash_btn_{label}", "<Button-1>",
-                                                lambda e, r=replacement: self.quick_insert(r))
-                    self.lore_list.insert(tk.END, "\n")
-                self.lore_list.tag_config("dash_found", foreground="#ff5555")
-                self.lore_list.tag_config("dash_suggest", foreground=self.colors["label_fg"])
-
-        # Anachronisms category sidebar — use the hits stored in the queue instance
-        if self.current_category == "Anachronisms":
-            from lore_engine import IN_UNIVERSE_VOCAB
-            # Pull stored hits from the first queue instance for this text
-            instances = self.queues["Anachronisms"].get(txt, [])
-            stored_hits = instances[0].get("hits", []) if instances else []
-            # Fall back to re-scanning if stored hits are missing (e.g. older queue entries)
-            if not stored_hits:
-                stored_hits = self.lore_engine.scan_anachronisms(txt)
-            if stored_hits:
-                self.lore_list.insert(tk.END, "── Anachronisms ──\n", "anach_hdr")
-                self.lore_list.tag_config("anach_hdr", foreground="#ff8c00", font=("Arial", 9, "bold"))
-                seen_words = set()
-                for found, suggestion in stored_hits:
-                    word_lower = found.lower()
-                    if word_lower in seen_words:
-                        continue
-                    seen_words.add(word_lower)
-                    # Get the replacement value directly from vocab (suggestion may be None)
-                    val = IN_UNIVERSE_VOCAB.get(word_lower)
-                    if val is not None:
-                        self.lore_list.insert(tk.END, f"  \"{found}\"  →  {val}\n", "anach_item")
-                    else:
-                        self.lore_list.insert(tk.END, f"  \"{found}\"  — no direct replacement\n", "anach_flag")
-                self.lore_list.tag_config("anach_item", foreground="#ffa040")
-                self.lore_list.tag_config("anach_flag", foreground=self.colors["label_fg"])
-            else:
-                self.lore_list.insert(tk.END, "No anachronisms detected.\n", "anach_flag")
-                self.lore_list.tag_config("anach_flag", foreground=self.colors["label_fg"])
-
-        self.lore_list.config(state="disabled")
-        self.jp_txt.config(state="disabled")
-        self.update_counters()
-
-    def on_archetype_selected(self, e=None):
-        self.update_archetype_hint()
-
-    def update_archetype_hint(self):
-        self.archetype_hint.config(state="normal")
-        self.archetype_hint.delete(1.0, tk.END)
-        label = self.archetype_var.get()
-        if label == "(none)" or not self.speaker_name:
-            self.archetype_hint.insert(tk.END, "No archetype assigned.")
-        else:
-            # Find the key from the selected label
-            idx = self.archetype_combo["values"].index(label) if label in self.archetype_combo["values"] else -1
-            key = self.archetype_keys[idx] if idx >= 0 else None
-            if key and key in self.lore_engine.archetypes:
-                a = self.lore_engine.archetypes[key]
-                #profs = ", ".join(a.get("professions", [])) or "—"
-                notes = a.get("notes", "—")
-                self.archetype_hint.insert(tk.END, f"[{key}] {a['name']}\n", "header")
-                #self.archetype_hint.insert(tk.END, f"Typical roles: {profs}\n\n")
-                self.archetype_hint.insert(tk.END, notes)
-                self.archetype_hint.tag_config("header", font=("Arial", 9, "bold"),
-                                               foreground=self.colors["counter_fg"])
-        # Always show note if one exists for this speaker
-        note_text = self.parent.cm.config.get("speaker_notes", {}).get(self.speaker_name, "") if self.speaker_name else ""
-        if note_text:
-            self.archetype_hint.insert(tk.END, f"\n\n📝 {note_text}", "note_tag")
-            self.archetype_hint.tag_config("note_tag", foreground=self.colors["fg"], font=("Arial", 9, "italic"))
-        self.archetype_hint.config(state="disabled")
-
-    def save_archetype(self):
-        if not self.speaker_name:
-            return
-        label = self.archetype_var.get()
-        if label == "(none)":
-            self.parent.cm.config.setdefault("speaker_archetypes", {}).pop(self.speaker_name, None)
-        else:
-            idx = list(self.archetype_combo["values"]).index(label) if label in self.archetype_combo["values"] else -1
-            key = self.archetype_keys[idx] if idx >= 0 else None
-            if key:
-                self.parent.cm.config.setdefault("speaker_archetypes", {})[self.speaker_name] = key
-        # Save note
-        note_text = self.speaker_note_var.get().strip()
-        if note_text:
-            self.parent.cm.config.setdefault("speaker_notes", {})[self.speaker_name] = note_text
-        else:
-            self.parent.cm.config.setdefault("speaker_notes", {}).pop(self.speaker_name, None)
-        self.parent.cm.save_all()
-        self.update_archetype_hint()
-
-    def replace_dashes(self, replacement):
-        """Replace all double-dash / double-em-dash patterns in the editor with replacement."""
-        current = self.txt.get(1.0, tk.END)
-        fixed = re.sub(r'--+|——+|—-|-—', replacement, current)
-        if fixed != current:
-            self.txt.delete(1.0, tk.END)
-            self.txt.insert(tk.END, fixed.rstrip("\n"))
-            self.update_counters()
-
-    def quick_insert(self, text):
-        self.txt.insert(tk.INSERT, text)
-        self.update_counters()
-
-    def _apply_tag_to_text(self, search_term, tag_name):
-        start = "1.0"
-        while True:
-            start = self.jp_txt.search(search_term, start, stopindex=tk.END)
-            if not start: break
-            end = f"{start}+{len(search_term)}c"
-            self.jp_txt.tag_add(tag_name, start, end)
-            start = end
-
-    def update_counters(self, e=None):
-        content = self.txt.get("1.0", tk.END).splitlines()
-        self.cnt_lbl.config(state="normal")
-        self.cnt_lbl.delete("1.0", tk.END)
-        for i, line in enumerate(content):
-            sim = self.engine.get_simulated_len(line)
-            tag = f"over_{i}"
-            self.cnt_lbl.insert(tk.END, f"{sim:3}\n", tag)
-            color = "#ff5555" if sim > self.limit else self.colors["counter_fg"]
-            self.cnt_lbl.tag_config(tag, foreground=color)
-        self.cnt_lbl.config(state="disabled")
-
-        # --- Anachronism highlighting (always runs when toggle is on) ---
-        self.txt.tag_remove("anachronism", "1.0", tk.END)
-        self.anach_ranges = []
-
-        if self.in_universe_var.get():
-            from lore_engine import IN_UNIVERSE_VOCAB
-            full_text = self.txt.get("1.0", tk.END)
-            hits = self.lore_engine.scan_anachronisms(full_text)
-
-            for found, suggestion in hits:
-                # Collect all possible suggestions for this word
-                word_lower = found.lower()
-                suggestions = []
-                if word_lower in IN_UNIVERSE_VOCAB and IN_UNIVERSE_VOCAB[word_lower]:
-                    suggestions.append((IN_UNIVERSE_VOCAB[word_lower], "primary"))
-
-                pos = "1.0"
-                while True:
-                    pos = self.txt.search(found, pos, stopindex=tk.END, nocase=True)
-                    if not pos:
-                        break
-                    end = f"{pos}+{len(found)}c"
-                    # Word-boundary check: char before start and char after end must not be word chars
-                    char_before = self.txt.get(f"{pos}-1c", pos)
-                    char_after  = self.txt.get(end, f"{end}+1c")
-                    is_word_start = not char_before or not char_before.isalnum() and char_before != "'"
-                    is_word_end   = not char_after  or not char_after.isalnum()  and char_after  != "'"
-                    if is_word_start and is_word_end:
-                        self.txt.tag_add("anachronism", pos, end)
-                        self.anach_ranges.append((pos, end, found, suggestions))
-                    pos = end
-
-            self.txt.tag_config("anachronism", foreground="#ff8800", underline=True)
-
-    def save_item(self):
-        new_val = self.txt.get(1.0, tk.END).strip()
-        lines = new_val.splitlines()
-
-        # --- Blocker 1: Line length ---
-        overlong = [i + 1 for i, l in enumerate(lines) if self.engine.get_simulated_len(l) > self.limit]
-        if overlong:
-            ln_str = ", ".join(str(n) for n in overlong)
-            messagebox.showerror("Line Too Long",
-                f"Line{'s' if len(overlong) > 1 else ''} {ln_str} exceed{'s' if len(overlong) == 1 else ''} "
-                f"the {self.limit}-char limit. Fix before saving.", parent=self)
-            return
-
-        # --- Blocker 2: Line limit (too many lines) ---
-        if len(lines) >= self.wall_limit:
-            messagebox.showerror("Too Many Lines",
-                f"Text has {len(lines)} lines — line limit is {self.wall_limit - 1}. "
-                f"Split or shorten before saving.", parent=self)
-            return
-
-        # --- Blocker 3: Missing tags vs Japanese source ---
-        def extract_non_col_tags(text):
-            return [t for t in re.findall(r'<([^>]+)>', text)
-                    if not t.upper().startswith('COL') and t.upper() != '/COL']
-
-        jp_tags = extract_non_col_tags(self.jp_source)
-        en_tags = extract_non_col_tags(new_val)
-        # Check as a multiset — same tag appearing N times in JP must appear N times in EN
-        from collections import Counter
-        jp_counts, en_counts = Counter(jp_tags), Counter(en_tags)
-        missing = list((jp_counts - en_counts).elements())
-        extra   = list((en_counts - jp_counts).elements())
-        if missing or extra:
-            parts = []
-            if missing: parts.append(f"Missing: {', '.join(f'<{t}>' for t in missing)}")
-            if extra:   parts.append(f"Extra: {', '.join(f'<{t}>' for t in extra)}")
-            if not messagebox.askyesno("Tag Mismatch",
-                    f"Tag mismatch vs Japanese source.\n" + "\n".join(parts) +
-                    "\n\nSave anyway?", parent=self):
-                return
-
-        old_val = self.current_texts[self.current_idx]
-        self.callback(self.queues[self.current_category][old_val], new_val, old_val)
-        self.next_item()
-
-    def next_item(self): self.current_idx += 1; self.load_item()
-    def toggle_dark_mode(self):
-        self.dark_mode = not self.dark_mode
-        self.parent.cm.config["dark_mode"] = self.dark_mode
-        self.parent.cm.save_all()
-        self.apply_theme_colors()
-        for w in self.winfo_children(): w.destroy()
-        self.setup_ui()
-        self.load_item()
-
-    def change_category(self, e): 
-        self.current_category = self.cat_combo.get()
-        self.current_texts = list(self.queues[self.current_category].keys())
-        self.current_idx = 0
-        self.load_item()
-
-class CSVProcessorApp:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("DDON CSV Batch Processor")
-        self.cm = ConfigManager()
-        self.dark_mode = self.cm.config.get("dark_mode", False)
-        self.preset_names = list(self.cm.config.get("presets", {"Standard": 50}).keys())
-        self.wall_preset_names = list(self.cm.config.get("wall_presets", {"Standard": 7}).keys())
-        self.preset_var = tk.StringVar(value=self.preset_names[0] if self.preset_names else "Standard")
-        saved_wall = self.cm.config.get("wall_preset", self.wall_preset_names[0] if self.wall_preset_names else "Standard")
-        self.wall_preset_var = tk.StringVar(value=saved_wall if saved_wall in self.wall_preset_names else (self.wall_preset_names[0] if self.wall_preset_names else "Standard"))
-        self.prev_var = tk.BooleanVar(value=True)
-        self.in_universe_var = tk.BooleanVar(value=self.cm.config.get("in_universe", False))
-        self.tag_q, self.wall_q, self.dash_q, self.anach_q = defaultdict(list), defaultdict(list), defaultdict(list), defaultdict(list)
-        self.engine = TranslationEngine(self.cm.config.get("tag_map", {}))
-        self.apply_theme_colors()
-        self.setup_ui()
-
-    def setup_ui(self):
-        self.root.configure(bg=self.colors["bg"])
-        top = tk.Frame(self.root, padx=15, pady=10, bg=self.colors["bg"])
-        top.pack(fill="x")
-        
-        f_box = tk.LabelFrame(top, text=" Folders ", bg=self.colors["bg"], fg=self.colors["fg"])
-        f_box.pack(side="left", fill="both", expand=True, padx=5)
-        self.f_list = tk.Listbox(f_box, height=4, bg=self.colors["list_bg"], fg=self.colors["fg"], bd=0)
-        self.f_list.pack(fill="both")
-        for f in self.cm.config.get("folders", []): self.f_list.insert(tk.END, f)
-        
-        fb = tk.Frame(f_box, bg=self.colors["bg"])
-        fb.pack(fill="x")
-        tk.Button(fb, text="Add", command=self.add_folder, bg=self.colors["btn_bg"], fg=self.colors["fg"]).pack(side="left")
-        tk.Button(fb, text="Rem", command=self.rem_folder, bg=self.colors["btn_bg"], fg=self.colors["fg"]).pack(side="left")
-
-        t_box = tk.LabelFrame(top, text=" Triggers ", bg=self.colors["bg"], fg=self.colors["fg"])
-        t_box.pack(side="right", fill="both", expand=True, padx=5)
-        self.t_list = tk.Listbox(t_box, height=4, bg=self.colors["list_bg"], fg=self.colors["fg"], bd=0)
-        self.t_list.pack(fill="both")
-        for t in self.cm.config.get("triggers", []): self.t_list.insert(tk.END, t)
-
-        tb = tk.Frame(t_box, bg=self.colors["bg"])
-        tb.pack(fill="x")
-        tk.Button(tb, text="Add", command=self.add_trigger, bg=self.colors["btn_bg"], fg=self.colors["fg"]).pack(side="left")
-        tk.Button(tb, text="Rem", command=self.rem_trigger, bg=self.colors["btn_bg"], fg=self.colors["fg"]).pack(side="left")
-
-        set_f = tk.LabelFrame(self.root, text=" Settings ", padx=15, pady=5, bg=self.colors["bg"], fg=self.colors["fg"])
-        set_f.pack(fill="x", padx=15)
-        tk.Label(set_f, text="Char limit:", bg=self.colors["bg"], fg=self.colors["fg"]).pack(side="left")
-        self.preset_menu = ttk.Combobox(set_f, textvariable=self.preset_var, values=self.preset_names, state="readonly", width=14)
-        self.preset_menu.pack(side="left", padx=(2, 10))
-        tk.Label(set_f, text="Line limit:", bg=self.colors["bg"], fg=self.colors["fg"]).pack(side="left")
-        self.wall_preset_menu = ttk.Combobox(set_f, textvariable=self.wall_preset_var, values=self.wall_preset_names, state="readonly", width=14)
-        self.wall_preset_menu.pack(side="left", padx=(2, 10))
-        tk.Checkbutton(set_f, text="Preview Mode", variable=self.prev_var, bg=self.colors["bg"], fg=self.colors["fg"], selectcolor=self.colors["bg"]).pack(side="left")
-        tk.Checkbutton(set_f, text="In-Universe Language", variable=self.in_universe_var,
-                       bg=self.colors["bg"], fg=self.colors["fg"], selectcolor=self.colors["bg"]).pack(side="left", padx=(10, 0))
-        
-        tk.Button(set_f, text="🌙" if not self.dark_mode else "☀️", command=self.toggle_global_dark_mode, bg=self.colors["btn_bg"], fg=self.colors["fg"]).pack(side="right", padx=5)
-        tk.Button(set_f, text="Options...", command=self.open_options, bg=self.colors["btn_bg"], fg=self.colors["fg"]).pack(side="right")
-
-        self.log_box = tk.Text(self.root, height=12, bg=self.colors["log_bg"], fg=self.colors["log_fg"], font=("Consolas", 10), bd=0)
-        self.log_box.pack(padx=15, pady=10, fill="both", expand=True)
-        
-        self.btn_run = tk.Button(self.root, text="EXECUTE BATCH SCAN", bg="#28a745", fg="white", command=self.start_thread, height=2, bd=0)
-        self.btn_run.pack(padx=15, fill="x", pady=5)
-        self.progress = ttk.Progressbar(self.root, length=700)
-        self.progress.pack(pady=5)
-
-    def run_batch(self):
-        selected_preset = self.preset_var.get()
-        limit = self.cm.config.get("presets", {}).get(selected_preset, 50)
-        selected_wall_preset = self.wall_preset_var.get()
-        wall_limit = self.cm.config.get("wall_presets", {}).get(selected_wall_preset, 7)
-        self.cm.config["wall_preset"] = selected_wall_preset
-        self.cm.config["in_universe"] = self.in_universe_var.get()
-        triggers = self.cm.config.get("triggers", [])
-        do_in_universe = self.in_universe_var.get()
-        self.cm.save_all()
-
-        # Build replacement table once (only if needed)
-        lore_engine = LoreEngine()
-        lore_engine.load_data(
-            self.cm.config.get("bible_path", ""),
-            self.cm.config.get("glossary_path", "")
-        )
-        in_universe_replacements = lore_engine.get_in_universe_replacements() if do_in_universe else {}
-
-        self.tag_q.clear()
-        self.wall_q.clear()
-        self.dash_q.clear()
-
-        # Dash pattern: two or more hyphens, OR two or more em-dashes
-        _DASH_RE = re.compile(r'--+|——+|—-|-—')
-
-        all_files = []
-        for folder in self.cm.config.get("folders", []):
-            if os.path.exists(folder):
-                all_files.extend([os.path.join(r, n) for r, d, fs in os.walk(folder) for n in fs if n.endswith('.csv')])
-
-        if not all_files:
-            self.root.after(0, self.finish_batch, limit, wall_limit)
-            return
-
-        def log(msg):
-            self.root.after(0, lambda m=msg: (
-                self.log_box.insert(tk.END, m + "\n"),
-                self.log_box.see(tk.END)
-            ))
-
-        auto_fixed = 0
-        reviewed   = 0
-
-        for i, f_path in enumerate(all_files):
-            pct = ((i + 1) / len(all_files)) * 100
-            self.root.after(0, lambda v=pct: self.progress.configure(value=v))
-            file_modded = False
-            output_rows = []
-
-            try:
-                with open(f_path, 'r', encoding='utf-8-sig', newline='') as f:
-                    current_file_data = list(csv.reader(f))
-
-                for r_idx, row in enumerate(current_file_data):
-                    # 1. Structural preservation
-                    if len(row) <= 3:
-                        output_rows.append(row)
-                        continue
-
-                    # 2. Trigger check
-                    if triggers and not any(tr in "|".join(row) for tr in triggers):
-                        output_rows.append(row)
-                        continue
-
-                    orig_text = row[3]
-                    proposed_text = orig_text
-                    needs_review = False
-                    queue_type = None
-                    wall_wrapped_text = ""
-
-                    # 2b. Dash scan (independent of other processing)
-                    if _DASH_RE.search(orig_text):
-                        self.dash_q[orig_text].append({'path': f_path, 'row_idx': r_idx})
-
-                    # 2c. Anachronism scan (independent — always runs, not gated on in_universe toggle)
-                    anach_hits = lore_engine.scan_anachronisms(orig_text)
-                    if anach_hits:
-                        self.anach_q[orig_text].append({'path': f_path, 'row_idx': r_idx, 'hits': anach_hits})
-
-                    # 3. Memory Branch
-                    if orig_text in self.cm.memory:
-                        learned = self.cm.memory[orig_text]
-                        lines = learned.split('\n')
-                        max_w = max((self.engine.get_simulated_len(l) for l in lines), default=0)
-                        if max_w > limit:
-                            needs_review = True
-                            queue_type = 'tag'
-                        else:
-                            proposed_text = learned
-
-                    # 4. Auto-Processing Branch
-                    else:
-                        jp_source = row[2] if len(row) > 2 else ""
-
-                        clean_txt = re.sub(r'(?i)<(?:COL(?: [A-F0-9]+)?|/COL)>|\[NAME\]', '', orig_text)
-                        is_complex = '<' in clean_txt or '[' in clean_txt
-
-                        # --- Auto Tag Fix ---
-                        def non_col_tags(text):
-                            return [t for t in re.findall(r'<([^>]+)>', text)
-                                    if not t.upper().startswith('COL') and t.upper() != '/COL']
-
-                        if jp_source and is_complex:
-                            from collections import Counter
-                            jp_tags = non_col_tags(jp_source)
-                            en_tags = non_col_tags(orig_text)
-                            if Counter(jp_tags) != Counter(en_tags):
-                                stripped = re.sub(r'<(?![Cc][Oo][Ll])[^>]+>', '', orig_text).strip()
-                                if jp_tags:
-                                    total_len = max(len(stripped), 1)
-                                    repaired = stripped
-                                    offset = 0
-                                    for k, tag in enumerate(jp_tags):
-                                        insert_pos = int((k + 1) / (len(jp_tags) + 1) * total_len) + offset
-                                        insert_pos = min(insert_pos, len(repaired))
-                                        repaired = repaired[:insert_pos] + f"<{tag}>" + repaired[insert_pos:]
-                                        offset += len(f"<{tag}>")
-                                    proposed_text = repaired
-                                    orig_text = repaired
-                                    is_complex = bool(non_col_tags(repaired))
-
-                        # --- In-Universe replacements —
-                        # Only applied to auto-fixed rows, NOT to rows going into review queues.
-                        # Anachronism queue already stores the original text for human review.
-                        text_for_wrap = orig_text
-                        if do_in_universe:
-                            text_for_wrap = self.engine.apply_in_universe(orig_text, in_universe_replacements)
-
-                        lines = text_for_wrap.split('\n')
-                        max_w = max((self.engine.get_simulated_len(l) for l in lines), default=0)
-
-                        if is_complex and max_w > (limit * 0.9):
-                            needs_review = True
-                            queue_type = 'tag'
-                        else:
-                            wrapped = self.engine.master_tag_wrap(text_for_wrap, limit)
-                            wrap_lines = wrapped.split('\n')
-                            wrap_max_w = max((self.engine.get_simulated_len(l) for l in wrap_lines), default=0)
-
-                            if wrap_max_w > limit:
-                                needs_review = True
-                                queue_type = 'tag'
-                            elif len(wrap_lines) >= wall_limit:
-                                needs_review = True
-                                queue_type = 'linelimit'
-                                wall_wrapped_text = wrapped
-                            elif wrapped != row[3]:
-                                proposed_text = wrapped
-
-                    # 5. Application
-                    if needs_review:
-                        if queue_type == 'tag':
-                            self.tag_q[orig_text].append({'path': f_path, 'row_idx': r_idx})
-                        elif queue_type == 'linelimit':
-                            self.wall_q[orig_text].append({'path': f_path, 'row_idx': r_idx, 'wrapped': wall_wrapped_text})
-                    else:
-                        if row[3] != proposed_text:
-                            row[3] = proposed_text
-                            file_modded = True
-
-                    output_rows.append(row)
-
-                # 6. Safety Write
-                if file_modded and not self.prev_var.get() and len(output_rows) == len(current_file_data):
-                    with open(f_path, 'w', encoding='utf-8-sig', newline='') as f:
-                        csv.writer(f).writerows(output_rows)
-
-                row_fixes = sum(1 for r in output_rows if r != current_file_data[output_rows.index(r)]) if file_modded else 0
-                queued = sum(1 for t in [self.tag_q, self.wall_q, self.dash_q]
-                             for v in t.values() if any(inst['path'] == f_path for inst in v))
-                if file_modded or queued:
-                    log(f"{'[FIXED]' if file_modded else '[QUEUED]'} {os.path.basename(f_path)}"
-                        + (f" — {queued} item(s) queued for review" if queued else ""))
-                if file_modded:
-                    auto_fixed += 1
-                if queued:
-                    reviewed += 1
-
-            except Exception as e:
-                self.root.after(0, lambda p=f_path, err=e: (
-                    self.log_box.insert(tk.END, f"CRITICAL ERROR {os.path.basename(p)}: {err}\n"),
-                    self.log_box.see(tk.END)
-                ))
+    def load_data(self, bible_path, glossary_path):
+        for path in [bible_path, glossary_path]:
+            if not path or not os.path.exists(path):
                 continue
-
-        log(f"─── Scan complete — {auto_fixed} file(s) auto-fixed, "
-            f"{sum(len(v) for v in self.tag_q.values()) + sum(len(v) for v in self.wall_q.values()) + sum(len(v) for v in self.dash_q.values()) + sum(len(v) for v in self.anach_q.values())} item(s) queued for review ───")
-        self.root.after(0, self.finish_batch, limit, wall_limit)
-
-    def start_thread(self):
-        self.btn_run.config(state="disabled")
-        self.tag_q.clear(); self.wall_q.clear(); self.dash_q.clear(); self.anach_q.clear()
-        self.log_box.delete(1.0, tk.END)
-        threading.Thread(target=self.run_batch, daemon=True).start()
-
-    def finish_batch(self, limit, wall_limit):
-        self.btn_run.config(state="normal")
-        if self.tag_q or self.wall_q or self.dash_q or self.anach_q:
-            ReviewEditor(self, self.tag_q, self.wall_q, self.dash_q, self.anach_q,
-                         limit, wall_limit, self.cm.config.get("tag_map", {}), self.propagate_fix)
-        else:
-            messagebox.showinfo("Done", "No issues found!")
-
-    def toggle_global_dark_mode(self):
-        self.dark_mode = not self.dark_mode
-        self.cm.config["dark_mode"] = self.dark_mode
-        self.cm.save_all()
-        self.apply_theme_colors()
-        for w in self.root.winfo_children(): w.destroy()
-        self.setup_ui()
-
-    def apply_theme_colors(self):
-        if self.dark_mode:
-            self.colors = {"bg": "#1e1e1e", "fg": "#d4d4d4", "list_bg": "#252526", 
-                           "btn_bg": "#333333", "log_bg": "#121212", "log_fg": "#d4d4d4"}
-        else:
-            self.colors = {"bg": "#f0f0f0", "fg": "#000000", "list_bg": "#ffffff", 
-                           "btn_bg": "#e1e1e1", "log_bg": "#ffffff", "log_fg": "#000000"}
-
-    def propagate_fix(self, instances, new_text, orig_text):
-        # Update the RAM dictionary
-        self.cm.memory[orig_text] = new_text
-        
-        # CRITICAL: Force the ConfigManager to write the dictionary to learned_fixes.json
-        self.cm.save_all() 
-        
-        # Update the physical CSV files
-        for inst in instances:
             try:
-                with open(inst['path'], 'r', encoding='utf-8-sig', newline='') as f:
-                    rows = list(csv.reader(f))
-                
-                if inst['row_idx'] < len(rows):
-                    rows[inst['row_idx']][3] = new_text
-                    
-                    with open(inst['path'], 'w', encoding='utf-8-sig', newline='') as f:
-                        csv.writer(f).writerows(rows)
+                with open(path, 'r', encoding='utf-8-sig') as f:
+                    content = f.read(1024)
+                    f.seek(0)
+                    try:
+                        dialect = csv.Sniffer().sniff(content) if ',' in content or '\t' in content else 'excel'
+                    except csv.Error:
+                        dialect = 'excel'
+
+                    reader = csv.reader(f, dialect=dialect)
+                    for row in reader:
+                        if len(row) >= 2 and row[0].strip():
+                            self.lore_map[row[0].strip()] = row[1].strip()
             except Exception as e:
-                print(f"Error updating CSV: {e}")
+                print(f"Lore Engine Error on {path}: {e}")
 
-    def open_options(self):
-        opt_win = OptionsMenu(self.root, self.cm).open_window()
-        self.root.wait_window(opt_win)
-        self.refresh_ui()
+    def scan_text(self, jp_text):
+        if not jp_text: return []
+        matches = []
+        for jp_term, en_term in self.lore_map.items():
+            if jp_term in jp_text:
+                matches.append((jp_term, en_term))
+        return matches
 
-    def refresh_ui(self):
-        self.preset_names = list(self.cm.config.get("presets", {"Standard": 50}).keys())
-        self.wall_preset_names = list(self.cm.config.get("wall_presets", {"Standard": 7}).keys())
-        self.f_list.delete(0, tk.END)
-        for f in self.cm.config.get("folders", []): self.f_list.insert(tk.END, f)
-        self.t_list.delete(0, tk.END)
-        for t in self.cm.config.get("triggers", []): self.t_list.insert(tk.END, t)
-        self.preset_menu.config(values=self.preset_names)
-        self.wall_preset_menu.config(values=self.wall_preset_names)
-        # Refresh preset dropdown so newly added/removed presets appear immediately
-        self.preset_names = list(self.cm.config.get("presets", {"Standard": 50}).keys())
-        self.preset_menu.configure(values=self.preset_names)
-        if self.preset_var.get() not in self.preset_names and self.preset_names:
-            self.preset_var.set(self.preset_names[0])
+    # ---------------- Archetype Handling ----------------
+    def get_archetype_options(self):
+        """Return (key, name) pairs for dropdown without professions."""
+        return [(key, data["name"]) for key, data in self.archetypes.items()]
 
-    def add_folder(self):
-        f = filedialog.askdirectory()
-        if f: self.cm.config.setdefault("folders", []).append(f); self.f_list.insert(tk.END, f); self.cm.save_all()
+    def get_archetype_label(self, key):
+        if key not in self.archetypes:
+            return "(none)"
+        return self.archetypes[key]["name"]
 
-    def rem_folder(self):
-        sel = self.f_list.curselection()
-        if sel: idx = sel[0]; self.f_list.delete(idx); self.cm.config["folders"].pop(idx); self.cm.save_all()
+    def get_archetype_hint_for_speaker(self, speaker_name):
+        """Return notes for a speaker based on assigned archetype."""
+        archetype_key = self.memory.get(speaker_name)
+        if not archetype_key or archetype_key not in self.archetypes:
+            return "(none)"
+        return self.archetypes[archetype_key].get("notes", "")
 
-    def add_trigger(self):
-        t = simpledialog.askstring("Trig", "Enter trigger:")
-        if t: self.cm.config.setdefault("triggers", []).append(t); self.t_list.insert(tk.END, t); self.cm.save_all()
+    # ---------------- In-Universe Replacements ----------------
+    def get_in_universe_replacements(self):
+        return {k: v for k, v in IN_UNIVERSE_VOCAB.items() if v is not None}
 
-    def rem_trigger(self):
-        sel = self.t_list.curselection()
-        if sel: idx = sel[0]; self.t_list.delete(idx); self.cm.config["triggers"].pop(idx); self.cm.save_all()
+    # Pre-compiled anachronism regex — built once per session, reset when vocab changes
+    _ANACH_PATTERN = None
+    _ANACH_KEYS    = None
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = CSVProcessorApp(root)
-    root.mainloop()
+    @classmethod
+    def _build_anach_pattern(cls):
+        if cls._ANACH_PATTERN is not None:
+            return
+        # Longest keys first so multi-word phrases match before single words
+        sorted_keys = sorted(IN_UNIVERSE_VOCAB.keys(), key=lambda x: -len(x))
+        parts = []
+        for k in sorted_keys:
+            if " " in k:
+                parts.append(re.escape(k))
+            else:
+                parts.append(r'\b' + re.escape(k) + r'\b')
+        cls._ANACH_PATTERN = re.compile('|'.join(parts), re.IGNORECASE)
+        cls._ANACH_KEYS    = sorted_keys
+
+    def scan_anachronisms(self, en_text):
+        if not en_text: return []
+        self._build_anach_pattern()
+        seen = set()
+        unique = []
+        for m in self._ANACH_PATTERN.finditer(en_text):
+            word = m.group(0)
+            key  = word.lower()
+            if key not in seen:
+                seen.add(key)
+                unique.append((word, IN_UNIVERSE_VOCAB.get(key)))
+        return unique
+
+    # ---------------- Definition Cache ----------------
+    DEFINITIONS_FILE = "anach_definitions.json"
+
+    @classmethod
+    def _load_def_cache(cls):
+        if os.path.exists(cls.DEFINITIONS_FILE):
+            try:
+                with open(cls.DEFINITIONS_FILE, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except Exception:
+                pass
+        return {}
+
+    @classmethod
+    def _save_def_cache(cls, cache):
+        try:
+            with open(cls.DEFINITIONS_FILE, 'w', encoding='utf-8') as f:
+                json.dump(cache, f, indent=2, ensure_ascii=False)
+        except Exception as e:
+            print(f"Definition cache save error: {e}")
+
+    @classmethod
+    def get_definition(cls, word, callback=None):
+        """Return cached short definition for word, or fetch it asynchronously.
+        If callback is given, calls callback(word, definition) when fetch completes.
+        Returns cached value immediately if available, else None."""
+        cache = cls._load_def_cache()
+        word_lower = word.lower()
+        if word_lower in cache:
+            return cache[word_lower]
+        if callback:
+            def _fetch():
+                defn = cls._fetch_definition(word_lower)
+                cache2 = cls._load_def_cache()
+                cache2[word_lower] = defn
+                cls._save_def_cache(cache2)
+                if callback:
+                    callback(word, defn)
+            threading.Thread(target=_fetch, daemon=True).start()
+        return None
+
+    @classmethod
+    def _fetch_definition(cls, word):
+        """Fetch short definition from Free Dictionary API. Returns string or empty str."""
+        try:
+            url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{urllib.request.quote(word)}"
+            req = urllib.request.Request(url, headers={'User-Agent': 'DDON-tool/1.0'})
+            with urllib.request.urlopen(req, timeout=4) as resp:
+                data = json.loads(resp.read().decode())
+                # Walk to first short definition
+                for entry in data:
+                    for meaning in entry.get('meanings', []):
+                        for defn in meaning.get('definitions', []):
+                            d = defn.get('definition', '').strip()
+                            if d:
+                                # Truncate to ~80 chars
+                                return d if len(d) <= 80 else d[:77] + '...'
+        except Exception:
+            pass
+        return ""
+
+    @classmethod
+    def prefetch_definitions(cls, words):
+        """Background-fetch definitions for a list of words, populating the cache."""
+        def _run():
+            cache = cls._load_def_cache()
+            changed = False
+            for w in words:
+                wl = w.lower()
+                if wl not in cache:
+                    defn = cls._fetch_definition(wl)
+                    cache[wl] = defn
+                    changed = True
+            if changed:
+                cls._save_def_cache(cache)
+        threading.Thread(target=_run, daemon=True).start()
+
+    def apply_in_universe(self, en_text):
+        """Replace text where possible, flag-only terms returned separately."""
+        replacements = self.get_in_universe_replacements()
+        flags = []
+        sorted_keys = sorted(IN_UNIVERSE_VOCAB.keys(), key=lambda x: -len(x))
+
+        def replace_match(match):
+            word = match.group(0)
+            lower = word.lower()
+            if lower in replacements:
+                return replacements[lower]
+            elif lower in IN_UNIVERSE_VOCAB and IN_UNIVERSE_VOCAB[lower] is None:
+                flags.append(word)
+            return word
+
+        pattern = r'|'.join(
+            re.escape(k) if " " in k else r'\b' + re.escape(k) + r'\b'
+            for k in sorted_keys
+        )
+        new_text = re.sub(pattern, replace_match, en_text, flags=re.IGNORECASE)
+        return new_text, flags

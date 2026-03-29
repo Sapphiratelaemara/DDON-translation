@@ -1,18 +1,68 @@
 import os
 import csv
 import re
+import json
+import urllib.request
+import urllib.error
+import threading
 
-# Archetypes parsed from DDON_BIBLE_V2.txt Section 13.
-ARCHETYPES = {
-    "A": {
-        "name": "Warm / Earnest",
-        "professions": ["villager", "farmer", "healer", "innkeeper", "parent", "ordinary townsfolk"],
+# Default archetypes — seeded into config on first run, then editable from Options.
+# Stored in config["archetypes"] as {key: {name, professions, notes, pawn_map}}.
+DEFAULT_ARCHETYPES = {
+    "A1": {
+        "name": "Sincere / Hopeful",
+        "professions": ["villager", "farmer", "parent", "ordinary townsfolk", "young adult commoner"],
         "notes": (
-            "Measured, sincere, full sentences, gentle hedging.\n"
-            "Register: 'tis, aught, pray, afore, ere — used naturally.\n"
-            "Hedging: \"I imagine...\", \"I should think...\", \"It seems...\", \"Mayhap...\""
+            "Warm, direct sincerity. Believes things can improve.\n"
+            "Full sentences, gentle hedging. Not naive, but not cynical.\n"
+            "Register: 'tis, aught, pray, afore — used naturally.\n"
+            "Hedging: \"I imagine...\", \"Mayhap...\", \"I should think...\""
         ),
-        "pawn_map": "Ordinary, Shy",
+        "pawn_map": "Ordinary",
+    },
+    "A2": {
+        "name": "Wise Elder",
+        "professions": ["village elder", "retired soldier", "old healer", "grandmother", "sage"],
+        "notes": (
+            "Measured, philosophical, slow to speak but worth hearing.\n"
+            "Long sentences with subordinate clauses. Reflective pauses.\n"
+            "Register: 'twas, ere, forsooth, methinks, in sooth.\n"
+            "Often references the past: \"In my day...\", \"I have seen...\""
+        ),
+        "pawn_map": "Ordinary (elder variant)",
+    },
+    "A3": {
+        "name": "Grief-stricken / Burdened",
+        "professions": ["bereaved parent", "survivor", "widow", "someone who lost everything"],
+        "notes": (
+            "Warm underneath, but weighed down. Sentences trail or break.\n"
+            "Does not wallow — dignified grief, not self-pity.\n"
+            "Register: mix of formal and plain. Occasional archaic slippage.\n"
+            "Pauses mid-thought. \"I know not how to...\" \"Would that I...\""
+        ),
+        "pawn_map": "Shy (grief variant)",
+    },
+    "A4": {
+        "name": "Warm but Weary",
+        "professions": ["overworked parent", "town guard who cares", "tired healer", "long-suffering official"],
+        "notes": (
+            "Genuinely kind, but tired. Short sentences from exhaustion, not bluntness.\n"
+            "Still uses full courtesies, just slightly clipped.\n"
+            "Register: 'tis, aye, aught — functional, not flowery.\n"
+            "\"Come in, then.\" \"Rest awhile.\" \"I'll see to it, aye.\""
+        ),
+        "pawn_map": "Ordinary (tired variant)",
+    },
+    "A5": {
+        "name": "Innkeeper / Host",
+        "professions": ["innkeeper", "tavern keeper", "host", "lodge owner", "boarding house keeper"],
+        "notes": (
+            "Welcoming, comfort-focused. Makes visitors feel expected and cared for.\n"
+            "Practical warmth — knows what people need before they ask.\n"
+            "Register: 'tis, ser, aye — easy and familiar without being presumptuous.\n"
+            "\"Come in from the road.\" \"Rest your weary feet.\" \"The fire's warm and the ale's fresh.\""
+        ),
+        "pawn_map": "Ordinary (host variant)",
     },
     "B": {
         "name": "Rough / Blunt",
@@ -24,19 +74,42 @@ ARCHETYPES = {
         ),
         "pawn_map": "Peppy (battle cries), antagonists",
     },
-    "C": {
-        "name": "Cheerful / Mercantile",
-        "professions": ["merchant", "shopkeeper", "innkeeper", "ferryman", "guild clerk", "artisan"],
+    "C1": {
+        "name": "Upbeat Merchant / Trader",
+        "professions": ["merchant", "shopkeeper", "ferryman", "guild clerk", "travelling vendor"],
         "notes": (
-            "Warm but businesslike. Upbeat. Short sentences.\n"
-            "Often ends with questions or invitations.\n"
-            "Register: \"ser\" casual respectful, \"mind\" mild emphasis, \"daresay\"."
+            "Warm but businesslike. Transactions drive the tone.\n"
+            "Short sentences. Often ends with questions or invitations.\n"
+            "Register: \"ser\" casual respectful, \"mind\" mild emphasis, \"daresay\".\n"
+            "\"Have a look.\" \"I daresay you'll find this reasonable.\""
         ),
         "pawn_map": "Peppy (home/social lines)",
     },
+    "C2": {
+        "name": "Gossipy / Chatty Townsfolk",
+        "professions": ["market regular", "neighbour", "town busybody", "fishwife", "dockhand"],
+        "notes": (
+            "Can't help sharing more than asked. Warm and nosy.\n"
+            "Run-on sentences, topic changes, rhetorical questions to themselves.\n"
+            "Register: colloquial, light archaic. \"o'\" for \"of\", \"cos\".\n"
+            "\"Did you hear about...?\" \"Not that it's my business, but...\""
+        ),
+        "pawn_map": "Peppy (chatty NPC variant)",
+    },
+    "C3": {
+        "name": "Eager / Excitable",
+        "professions": ["apprentice", "young recruit", "fan of the Arisen", "enthusiastic civilian"],
+        "notes": (
+            "Enthusiastic, slightly breathless. Admires strength or adventure.\n"
+            "Short sentences, exclamations, occasional stumble over words.\n"
+            "Register: light archaic. Not formally trained in speech.\n"
+            "\"Truly?!\" \"I knew it!\" \"Will you really...?\""
+        ),
+        "pawn_map": "Peppy (excited variant) / Shy crossover",
+    },
     "D": {
         "name": "Timid / Young / Shy",
-        "professions": ["child", "apprentice", "scared civilian", "refugee", "servant"],
+        "professions": ["child", "scared civilian", "refugee", "servant", "very young apprentice"],
         "notes": (
             "Incomplete sentences, trailing off, self-doubt, qualifications.\n"
             "Register: frequent \"...\", \"I know not\", \"pray, forgive me\".\n"
@@ -53,6 +126,17 @@ ARCHETYPES = {
             "\"ill\" as qualifier. Short declarative sentences."
         ),
         "pawn_map": "Peppy (battle declarations, quest lines)",
+    },
+    "E2": {
+        "name": "Noble / Aristocratic",
+        "professions": ["lord", "lady", "duke", "count", "noble", "courtier"],
+        "notes": (
+            "Formal, measured, accustomed to being obeyed. Not always cruel — may be benevolent.\n"
+            "Long periodic sentences. Never contractions. Condescension can be polite.\n"
+            "Register: full archaic register, 'tis, naught, wherefore, henceforth.\n"
+            "\"You will see to it forthwith.\" \"I trust this requires no further explanation.\""
+        ),
+        "pawn_map": "Quest-giver nobles, antagonist lords",
     },
     "F": {
         "name": "Wisecracking / Irreverent",
@@ -75,6 +159,28 @@ ARCHETYPES = {
             "Phrasing often feels sermonic or reflective."
         ),
         "pawn_map": "Shy / Calm support roles",
+    },
+    "H": {
+        "name": "Menacing / Threatening",
+        "professions": ["villain", "crime lord", "corrupt official", "dangerous antagonist", "enforcer"],
+        "notes": (
+            "Controlled, cold. Power comes from restraint, not shouting.\n"
+            "Short declaratives. Implied violence. Polite on the surface, cruel underneath.\n"
+            "Register: formal archaic for high-status villains; blunt for lower ones.\n"
+            "\"I would choose my next words with care.\" \"See that it does not happen again.\""
+        ),
+        "pawn_map": "Antagonist / boss NPC",
+    },
+    "I": {
+        "name": "Scholarly / Pedantic",
+        "professions": ["scholar", "scribe", "court mage", "archivist", "physician", "alchemist"],
+        "notes": (
+            "Verbose, precise, enjoys the sound of his own expertise.\n"
+            "Long sentences with qualifications, parentheticals, corrections.\n"
+            "Register: full archaic, technical vocabulary, Latin-flavoured.\n"
+            "\"Strictly speaking...\" \"One must distinguish between...\" \"As I have noted previously...\""
+        ),
+        "pawn_map": "Learned NPC, quest exposition",
     },
 }
 
@@ -188,6 +294,7 @@ IN_UNIVERSE_VOCAB = {
     "jest": "jest",
     "joke": "jest",
     "kinda": "somewhat",
+    "like": None,
     "look": "lo",
     "middle": "amidst",
     "morning": "morrow",
@@ -236,6 +343,7 @@ IN_UNIVERSE_VOCAB = {
     "tarry": "tarry",
     "terrible": "dire",
     "therefore": "wherefore",
+    "to": "unto",
     "to where": "whither",
     "tomorrow": "morrow",
     "totally": "quite",
@@ -307,6 +415,7 @@ IN_UNIVERSE_VOCAB = {
     "here": "hence",
     "there": "thence",
     "quickly": "anon",
+    "to": "hither",
     "repulsive": "loathly",
     "bewildered": "mazed",
     "charm": "periapt",
@@ -340,17 +449,81 @@ IN_UNIVERSE_VOCAB = {
     "maker": "wright",
     "over there": "yonder",
 
-
-
+    # --- Additions: modern triggers for archaic words lacking them ---
+    # cease
+    "stop":         "cease",
+    "end":          "cease",
+    # beseech
+    "beg":          "beseech",
+    "implore":      "beseech",
+    "plead":        "beseech",
+    # bespeak
+    "indicate":     "bespeak",
+    "arrange":      "bespeak",
+    # betide
+    "happen":       "betide",
+    "befall":       "betide",
+    # quaff / sup
+    "drink":        "quaff",
+    "guzzle":       "quaff",
+    "sip":          "sup",
+    "eat":          "sup",
+    "snack":        "sup",
+    # vanquish
+    "defeat":       "vanquish",
+    "conquer":      "vanquish",
+    "overcome":     "vanquish",
+    # quell
+    "suppress":     "quell",
+    "crush":        "quell",
+    "subdue":       "quell",
+    # quench
+    "satisfy":      "quench",
+    "extinguish":   "quench",
+    # e'en
+    "even":         "e'en",
+    # eventide / evenfall
+    "evening":      "eventide",
+    "dusk":         "evenfall",
+    "nightfall":    "evenfall",
+    # wit
+    "know":         "wit",
+    "understand":   "wit",
+    # amiss
+    "wrong":        "amiss",
+    "awry":         "amiss",
+    "astray":       "amiss",
+    # howbeit
+    "however":      "howbeit",
+    "nevertheless": "howbeit",
+    "nonetheless":  "howbeit",
+    # yon / yonder (yonder already present for "over there")
+    "over yonder":  "yon",
+    # corse
+    "body":         "corse",
+    "dead body":    "corse",
+    # swain
+    "young man":    "swain",
+    "youth":        "swain",
+    "lad":          "swain",
+    # witting / unwitting
+    "knowing":      "witting",
+    "aware":        "witting",
+    # verity (sooth already exists but verity is more formal)
+    "truth":        "verity",
+    "reality":      "verity",
 }
 
 
 ANACHRONISM_PATTERNS = list(IN_UNIVERSE_VOCAB.keys())
 
 class LoreEngine:
-    def __init__(self):
-        self.archetypes = ARCHETYPES
-        self.memory = {}  # track speaker -> archetype assignments
+    def __init__(self, config_archetypes=None):
+        # Use config archetypes if provided, else seed from defaults
+        if config_archetypes:
+            self.archetypes = config_archetypes
+        else:
+            self.archetypes = dict(DEFAULT_ARCHETYPES)
         self.lore_map = {
             "剛化": "Harden",
             "重化": "Heavy",
@@ -412,27 +585,114 @@ class LoreEngine:
     def get_in_universe_replacements(self):
         return {k: v for k, v in IN_UNIVERSE_VOCAB.items() if v is not None}
 
+    # Pre-compiled anachronism regex — built once per session, reset when vocab changes
+    _ANACH_PATTERN = None
+    _ANACH_KEYS    = None
+
+    @classmethod
+    def _build_anach_pattern(cls):
+        if cls._ANACH_PATTERN is not None:
+            return
+        # Longest keys first so multi-word phrases match before single words
+        sorted_keys = sorted(IN_UNIVERSE_VOCAB.keys(), key=lambda x: -len(x))
+        parts = []
+        for k in sorted_keys:
+            if " " in k:
+                parts.append(re.escape(k))
+            else:
+                parts.append(r'\b' + re.escape(k) + r'\b')
+        cls._ANACH_PATTERN = re.compile('|'.join(parts), re.IGNORECASE)
+        cls._ANACH_KEYS    = sorted_keys
+
     def scan_anachronisms(self, en_text):
         if not en_text: return []
-
-        sorted_keys = sorted(IN_UNIVERSE_VOCAB.keys(), key=lambda x: -len(x))
-        hits = []
-
-        for modern in sorted_keys:
-            archaic = IN_UNIVERSE_VOCAB[modern]
-            pattern = re.escape(modern) if " " in modern else r'\b' + re.escape(modern) + r'\b'
-            for m in re.finditer(pattern, en_text, flags=re.IGNORECASE):
-                hits.append((m.group(0), archaic))
-
-        # Deduplicate
+        self._build_anach_pattern()
         seen = set()
         unique = []
-        for found, suggestion in hits:
-            key = found.lower()
+        for m in self._ANACH_PATTERN.finditer(en_text):
+            word = m.group(0)
+            key  = word.lower()
             if key not in seen:
                 seen.add(key)
-                unique.append((found, suggestion))
+                unique.append((word, IN_UNIVERSE_VOCAB.get(key)))
         return unique
+
+    # ---------------- Definition Cache ----------------
+    DEFINITIONS_FILE = "anach_definitions.json"
+
+    @classmethod
+    def _load_def_cache(cls):
+        if os.path.exists(cls.DEFINITIONS_FILE):
+            try:
+                with open(cls.DEFINITIONS_FILE, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except Exception:
+                pass
+        return {}
+
+    @classmethod
+    def _save_def_cache(cls, cache):
+        try:
+            with open(cls.DEFINITIONS_FILE, 'w', encoding='utf-8') as f:
+                json.dump(cache, f, indent=2, ensure_ascii=False)
+        except Exception as e:
+            print(f"Definition cache save error: {e}")
+
+    @classmethod
+    def get_definition(cls, word, callback=None):
+        """Return cached short definition for word, or fetch it asynchronously.
+        If callback is given, calls callback(word, definition) when fetch completes.
+        Returns cached value immediately if available, else None."""
+        cache = cls._load_def_cache()
+        word_lower = word.lower()
+        if word_lower in cache:
+            return cache[word_lower]
+        if callback:
+            def _fetch():
+                defn = cls._fetch_definition(word_lower)
+                cache2 = cls._load_def_cache()
+                cache2[word_lower] = defn
+                cls._save_def_cache(cache2)
+                if callback:
+                    callback(word, defn)
+            threading.Thread(target=_fetch, daemon=True).start()
+        return None
+
+    @classmethod
+    def _fetch_definition(cls, word):
+        """Fetch short definition from Free Dictionary API. Returns string or empty str."""
+        try:
+            url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{urllib.request.quote(word)}"
+            req = urllib.request.Request(url, headers={'User-Agent': 'DDON-tool/1.0'})
+            with urllib.request.urlopen(req, timeout=4) as resp:
+                data = json.loads(resp.read().decode())
+                # Walk to first short definition
+                for entry in data:
+                    for meaning in entry.get('meanings', []):
+                        for defn in meaning.get('definitions', []):
+                            d = defn.get('definition', '').strip()
+                            if d:
+                                # Truncate to ~80 chars
+                                return d if len(d) <= 80 else d[:77] + '...'
+        except Exception:
+            pass
+        return ""
+
+    @classmethod
+    def prefetch_definitions(cls, words):
+        """Background-fetch definitions for a list of words, populating the cache."""
+        def _run():
+            cache = cls._load_def_cache()
+            changed = False
+            for w in words:
+                wl = w.lower()
+                if wl not in cache:
+                    defn = cls._fetch_definition(wl)
+                    cache[wl] = defn
+                    changed = True
+            if changed:
+                cls._save_def_cache(cache)
+        threading.Thread(target=_run, daemon=True).start()
 
     def apply_in_universe(self, en_text):
         """Replace text where possible, flag-only terms returned separately."""
