@@ -59,7 +59,7 @@ def load_speakers(mss_root=None):
                                 pass
     return m
 
-def process_csv(path, mapping, speaker_map, out_dir, dry_run, review_writer):
+def process_csv(path, mapping, speaker_map, csv_dir, out_dir, dry_run, review_writer):
     rows = []
     with open(path, encoding='utf-8', newline='') as f:
         reader = csv.reader(f)
@@ -159,10 +159,18 @@ def process_csv(path, mapping, speaker_map, out_dir, dry_run, review_writer):
         os.makedirs(backup_dir, exist_ok=True)
         shutil.copy2(path, os.path.join(backup_dir, os.path.basename(path)))
 
-        out_path = path if out_dir is None else os.path.join(out_dir, os.path.basename(path))
+        if out_dir is None:
+            # Overwrite original file
+            out_path = path
+        else:
+                    # Preserve directory structure relative to csv_dir
+                    relative = os.path.relpath(path, csv_dir)
+                    out_path = os.path.join(out_dir, relative)
+                    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+
         with open(out_path, 'w', encoding='utf-8', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerows(rows)
+                    writer = csv.writer(f)
+                    writer.writerows(rows)
 
     return changed
 
@@ -230,7 +238,7 @@ def main():
             for fn in files:
                 if fn.lower().endswith('.csv'):
                     fp = os.path.join(root, fn)
-                    process_csv(fp, mapping, speaker_map, out_dir, args.dry_run, rw)
+                    process_csv(fp, mapping, speaker_map, csv_dir, out_dir, args.dry_run, rw)
 
     print('Done. Review:', review_path)
 
