@@ -1,4 +1,4 @@
-﻿﻿0,,"地上の水、動物、人、全てが恋しい
+﻿﻿﻿0,,"地上の水、動物、人、全てが恋しい
 貴方達を見ると不思議なことに
 そういう想いが湧いてきます","I miss the water on the surface, the animals, and the people.
 When I see all of you, strangely enough such feelings well up within me.",ui\00_message\npc\base\n2303.gmd,\npc\n2303.arc,n2303.arc,0,Ariadne
@@ -645,63 +645,35 @@ turning it into a nest of corpses.
 The summoners have set amulets
 throughout the fortress, and dealing with these
 is essential to capturing the fortress.",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,1,The White Dragon,QUEST_TEXT_TYPE_ORDER
-2,q90030204_00_3374,【主目標】ジフール砦内に進攻する（残り５分）,"[Main Objective] Advance into Jifule Fortress
-(5 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,2,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-3,q90030204_00_3396,【主目標】ジフール砦内に進攻する（残り４分）,"[Main Objective] Advance into Jifule Fortress
-(4 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,3,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-4,q90030204_00_3397,【主目標】ジフール砦内に進攻する（残り３分）,"[Main Objective] Advance into Jifule Fortress
-(3 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,4,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-5,q90030204_00_3398,【主目標】ジフール砦内に進攻する（残り２分）,"[Main Objective] Advance into Jifule Fortress
-(2 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,5,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-6,q90030204_00_3998,【主目標】ジフール砦内に進攻する（残り１分）,"[Main Objective] Advance into Jifule Fortress
-(1 minute left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,6,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-7,q90030204_00_3999,【主目標】中央広場を彷徨う魔物を討伐する（残り５分）,"[Main Objective] Defeat the foe(s) in the Central Plaza
-(5 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,7,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-8,q90030204_00_4023,【主目標】中央広場を彷徨う魔物を討伐する（残り４分）,"[Main Objective] Defeat the foe(s) in the Central Plaza
-(4 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,8,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-9,q90030204_00_4024,【主目標】中央広場を彷徨う魔物を討伐する（残り３分）,"[Main Objective] Defeat the foe(s) in the Central Plaza
-(3 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,9,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-10,q90030204_00_4025,【主目標】中央広場を彷徨う魔物を討伐する（残り２分）,"[Main Objective] Defeat the foe(s) in the Central Plaza
-(2 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,10,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-11,q90030204_00_4026,【主目標】中央広場を彷徨う魔物を討伐する（残り１分）,"[Main Objective] Defeat the foe(s) in the Central Plaza
-(1 minute left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,11,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-12,q90030204_00_4027,浮遊呪符を全て破壊して召喚士を塞ぐ扉を開く,"Destroy all floating amulets and open the door
-to get to the Summoner.",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,12,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-13,q90030204_00_4028,【主目標】１階奥の魔物を討伐して砦を征圧する（残り３分）,"[Main Objective] Defeat the enemy on the 1st floor
-and conquer the fortress (3 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,13,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-14,q90030204_00_4029,【主目標】１階奥の魔物を討伐して砦を征圧する（残り２分）,"[Main Objective] Defeat the enemy on the 1st floor
-and conquer the fortress (2 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,14,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-15,q90030204_00_4030,【主目標】１階奥の魔物を討伐して砦を征圧する（残り１分）,"[Main Objective] Defeat the enemy on the 1st floor
-and conquer the fortress (1 minute left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,15,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-16,q90030204_00_4031,【急報】再び現れた魔物から中央広場を防衛する（残り４分）,"[Urgent Report] Defend the Central Plaza from the enemy
-that has appeared again (4 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,16,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-17,q90030204_00_4032,【急報】再び現れた魔物から中央広場を防衛する（残り３分）,"[Urgent Report] Defend the Central Plaza from the enemy
-that has appeared again (3 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,17,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-18,q90030204_00_4033,【急報】再び現れた魔物から中央広場を防衛する（残り２分）,"[Urgent Report] Defend the Central Plaza from the enemy
-that has appeared again (2 minutes left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,18,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-19,q90030204_00_4034,【急報】再び現れた魔物から中央広場を防衛する（残り１分）,"[Urgent Report] Defend the Central Plaza from the enemy
-that has appeared again (1 minute left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,19,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+2,q90030204_00_3374,【主目標】ジフール砦内に進攻する（残り５分）,[Main Objective] Advance into Jifule Fortress (5 minutes left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,2,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+3,q90030204_00_3396,【主目標】ジフール砦内に進攻する（残り４分）,[Main Objective] Advance into Jifule Fortress (4 minutes left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,3,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+4,q90030204_00_3397,【主目標】ジフール砦内に進攻する（残り３分）,[Main Objective] Advance into Jifule Fortress (3 minutes left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,4,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+5,q90030204_00_3398,【主目標】ジフール砦内に進攻する（残り２分）,[Main Objective] Advance into Jifule Fortress (2 minutes left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,5,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+6,q90030204_00_3998,【主目標】ジフール砦内に進攻する（残り１分）,[Main Objective] Advance into Jifule Fortress (1 minute left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,6,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+7,q90030204_00_3999,【主目標】中央広場を彷徨う魔物を討伐する（残り５分）,[Main Objective] Defeat the foe(s) in the Central Plaza (5 minutes left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,7,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+8,q90030204_00_4023,【主目標】中央広場を彷徨う魔物を討伐する（残り４分）,[Main Objective] Defeat the foe(s) in the Central Plaza (4 minutes left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,8,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+9,q90030204_00_4024,【主目標】中央広場を彷徨う魔物を討伐する（残り３分）,[Main Objective] Defeat the foe(s) in the Central Plaza (3 minutes left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,9,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+10,q90030204_00_4025,【主目標】中央広場を彷徨う魔物を討伐する（残り２分）,[Main Objective] Defeat the foe(s) in the Central Plaza (2 minutes left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,10,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+11,q90030204_00_4026,【主目標】中央広場を彷徨う魔物を討伐する（残り１分）,[Main Objective] Defeat the foe(s) in the Central Plaza (1 minute left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,11,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+12,q90030204_00_4027,浮遊呪符を全て破壊して召喚士を塞ぐ扉を開く,Destroy all floating amulets and open the door to get to the Summoner,ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,12,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+13,q90030204_00_4028,【主目標】１階奥の魔物を討伐して砦を征圧する（残り３分）,[Main Objective] Defeat the enemy on the 1st floor and conquer the fortress (3 minutes left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,13,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+14,q90030204_00_4029,【主目標】１階奥の魔物を討伐して砦を征圧する（残り２分）,[Main Objective] Defeat the enemy on the 1st floor and conquer the fortress (2 minutes left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,14,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+15,q90030204_00_4030,【主目標】１階奥の魔物を討伐して砦を征圧する（残り１分）,[Main Objective] Defeat the enemy on the 1st floor and conquer the fortress (1 minute left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,15,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+16,q90030204_00_4031,【急報】再び現れた魔物から中央広場を防衛する（残り４分）,[Urgent Report] Defend the Central Plaza from the enemy that has appeared again (4 minutes left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,16,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+17,q90030204_00_4032,【急報】再び現れた魔物から中央広場を防衛する（残り３分）,[Urgent Report] Defend the Central Plaza from the enemy that has appeared again (3 minutes left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,17,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+18,q90030204_00_4033,【急報】再び現れた魔物から中央広場を防衛する（残り２分）,[Urgent Report] Defend the Central Plaza from the enemy that has appeared again (2 minutes left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,18,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+19,q90030204_00_4034,【急報】再び現れた魔物から中央広場を防衛する（残り１分）,[Urgent Report] Defend the Central Plaza from the enemy that has appeared again (1 minute left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,19,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
 20,q90030204_00_4035,召喚士を討伐する,Defeat the summoned warriors,ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,20,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-21,q90030204_00_4036,【緊急指令】現れた＜骸の将＞を仕留める（残り：１０分）,"[Urgent Order] Bring down Necro Master that appeared
-(10 min left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,21,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
-22,q90030204_00_4037,【緊急指令】現れた＜骸の将＞を仕留める（残り：９分）,"[Urgent Order] Bring down Necro Master that appeared
-(9 min left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,22,,QUEST_TEXT_TYPE_PURPOSE
-23,q90030204_00_4038,【緊急指令】現れた＜骸の将＞を仕留める（残り：８分）,"[Urgent Order] Bring down Necro Master that appeared
-(8 min left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,23,,QUEST_TEXT_TYPE_PURPOSE
-24,q90030204_00_4039,【緊急指令】現れた＜骸の将＞を仕留める（残り：７分）,"[Urgent Order] Bring down Necro Master that appeared
-(7 min left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,24,,QUEST_TEXT_TYPE_PURPOSE
-25,q90030204_00_4040,【緊急指令】現れた＜骸の将＞を仕留める（残り：６分）,"[Urgent Order] Bring down Necro Master that appeared
-(6 min left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,25,,QUEST_TEXT_TYPE_PURPOSE
-26,q90030204_00_4041,【緊急指令】現れた＜骸の将＞を仕留める（残り：５分）,"[Urgent Order] Bring down Necro Master that appeared
-(5 min left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,26,,QUEST_TEXT_TYPE_PURPOSE
-27,q90030204_00_4042,【緊急指令】現れた＜骸の将＞を仕留める（残り：４分）,"[Urgent Order] Bring down Necro Master that appeared
-(4 min left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,27,,QUEST_TEXT_TYPE_PURPOSE
-28,q90030204_00_4043,【緊急指令】現れた＜骸の将＞を仕留める（残り：３分）,"[Urgent Order] Bring down Necro Master that appeared
-(3 min left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,28,,QUEST_TEXT_TYPE_PURPOSE
-29,q90030204_00_4044,【緊急指令】現れた＜骸の将＞を仕留める（残り：２分）,"[Urgent Order] Bring down Necro Master that appeared
-(2 min left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,29,,QUEST_TEXT_TYPE_PURPOSE
-30,q90030204_00_4045,【緊急指令】現れた＜骸の将＞を仕留める（残り：１分）,"[Urgent Order] Bring down Necro Master that appeared
-(1 min left)",ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,30,,QUEST_TEXT_TYPE_PURPOSE
+21,q90030204_00_4036,【緊急指令】現れた＜骸の将＞を仕留める（残り：１０分）,[Urgent Order] Bring down Necro Master that appeared (10 min left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,21,The White Dragon,QUEST_TEXT_TYPE_PURPOSE
+22,q90030204_00_4037,【緊急指令】現れた＜骸の将＞を仕留める（残り：９分）,[Urgent Order] Bring down Necro Master that appeared (9 min left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,22,,QUEST_TEXT_TYPE_PURPOSE
+23,q90030204_00_4038,【緊急指令】現れた＜骸の将＞を仕留める（残り：８分）,[Urgent Order] Bring down Necro Master that appeared (8 min left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,23,,QUEST_TEXT_TYPE_PURPOSE
+24,q90030204_00_4039,【緊急指令】現れた＜骸の将＞を仕留める（残り：７分）,[Urgent Order] Bring down Necro Master that appeared (7 min left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,24,,QUEST_TEXT_TYPE_PURPOSE
+25,q90030204_00_4040,【緊急指令】現れた＜骸の将＞を仕留める（残り：６分）,[Urgent Order] Bring down Necro Master that appeared (6 min left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,25,,QUEST_TEXT_TYPE_PURPOSE
+26,q90030204_00_4041,【緊急指令】現れた＜骸の将＞を仕留める（残り：５分）,[Urgent Order] Bring down Necro Master that appeared (5 min left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,26,,QUEST_TEXT_TYPE_PURPOSE
+27,q90030204_00_4042,【緊急指令】現れた＜骸の将＞を仕留める（残り：４分）,[Urgent Order] Bring down Necro Master that appeared (4 min left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,27,,QUEST_TEXT_TYPE_PURPOSE
+28,q90030204_00_4043,【緊急指令】現れた＜骸の将＞を仕留める（残り：３分）,[Urgent Order] Bring down Necro Master that appeared (3 min left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,28,,QUEST_TEXT_TYPE_PURPOSE
+29,q90030204_00_4044,【緊急指令】現れた＜骸の将＞を仕留める（残り：２分）,[Urgent Order] Bring down Necro Master that appeared (2 min left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,29,,QUEST_TEXT_TYPE_PURPOSE
+30,q90030204_00_4045,【緊急指令】現れた＜骸の将＞を仕留める（残り：１分）,[Urgent Order] Bring down Necro Master that appeared (1 min left),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,30,,QUEST_TEXT_TYPE_PURPOSE
 31,q90030204_00_4046,【征圧完了】地下の宝物庫で報酬を獲得する,[Conquest Complete] Obtain rewards in underground treasury,ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,31,,QUEST_TEXT_TYPE_PURPOSE
 32,q90030204_00_110,ウォーミッション：ジフール砦《リザルト報酬》,War Mission: Jifule Fortress (Result Reward),ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,32,,QUEST_TEXT_TYPE_REWARD_NAME
 33,q90030204_00_110,,,ui\00_message\quest_info\q90030204_00.gmd,\quest\q90030204.arc,q90030204.arc,33,,QUEST_TEXT_TYPE_GM_INFO
