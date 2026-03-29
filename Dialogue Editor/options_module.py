@@ -9,10 +9,33 @@ class OptionsMenu:
     def open_window(self):
         self.win = tk.Toplevel(self.parent)
         self.win.title("Advanced Configuration")
-        self.win.geometry("600x900")
+        self.win.geometry("640x720")
+        self.win.resizable(True, True)
+
+        # Scrollable container
+        canvas = tk.Canvas(self.win, highlightthickness=0)
+        scrollbar = ttk.Scrollbar(self.win, orient="vertical", command=canvas.yview)
+        self.scroll_frame = tk.Frame(canvas)
+
+        self.scroll_frame.bind("<Configure>",
+            lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
+        canvas.create_window((0, 0), window=self.scroll_frame, anchor="nw")
+        canvas.configure(yscrollcommand=scrollbar.set)
+
+        scrollbar.pack(side="right", fill="y")
+        canvas.pack(side="left", fill="both", expand=True)
+
+        # Mouse wheel scrolling
+        def _on_mousewheel(event):
+            canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
+        canvas.bind_all("<MouseWheel>", _on_mousewheel)
+        self.win.bind("<Destroy>", lambda e: canvas.unbind_all("<MouseWheel>"))
+
+        # All content goes into scroll_frame instead of self.win
+        w = self.scroll_frame
         
         # --- SECTION 1: Tag Length Mapping ---
-        tag_frame = tk.LabelFrame(self.win, text=" Tag Length Mapping ", padx=10, pady=10)
+        tag_frame = tk.LabelFrame(w, text=" Tag Length Mapping ", padx=10, pady=10)
         tag_frame.pack(fill="x", padx=15, pady=5)
         
         self.tag_lb = tk.Listbox(tag_frame, height=5)
@@ -25,7 +48,7 @@ class OptionsMenu:
         tk.Button(t_btns, text="Delete", width=10, command=self.delete_tag).pack(pady=2)
 
         # --- SECTION 2: Line Limit Presets ---
-        lim_frame = tk.LabelFrame(self.win, text=" Line Limit Presets (characters) ", padx=10, pady=10)
+        lim_frame = tk.LabelFrame(w, text=" Line Limit Presets (characters) ", padx=10, pady=10)
         lim_frame.pack(fill="x", padx=15, pady=5)
         
         self.lim_lb = tk.Listbox(lim_frame, height=5)
@@ -38,7 +61,7 @@ class OptionsMenu:
         tk.Button(l_btns, text="Delete", width=10, command=self.delete_limit).pack(pady=2)
 
         # --- SECTION 3: Wall of Text Presets ---
-        wall_frame = tk.LabelFrame(self.win, text=" Wall of Text Presets (max lines) ", padx=10, pady=10)
+        wall_frame = tk.LabelFrame(w, text=" Wall of Text Presets (max lines) ", padx=10, pady=10)
         wall_frame.pack(fill="x", padx=15, pady=5)
 
         self.wall_lb = tk.Listbox(wall_frame, height=4)
@@ -51,7 +74,7 @@ class OptionsMenu:
         tk.Button(w_btns, text="Delete", width=10, command=self.delete_wall_preset).pack(pady=2)
 
         # --- SECTION 4: External References ---
-        ref_frame = tk.LabelFrame(self.win, text=" External Reference Paths ", padx=10, pady=10)
+        ref_frame = tk.LabelFrame(w, text=" External Reference Paths ", padx=10, pady=10)
         ref_frame.pack(fill="x", padx=15, pady=5)
 
         # Bible Path
@@ -69,7 +92,7 @@ class OptionsMenu:
         tk.Button(ref_frame, text="...", command=lambda: self.pick_file("glossary_path", self.gloss_ent)).grid(row=1, column=2)
 
         # --- SECTION 5: Archetypes ---
-        arch_frame = tk.LabelFrame(self.win, text=" Archetypes ", padx=10, pady=10)
+        arch_frame = tk.LabelFrame(w, text=" Archetypes ", padx=10, pady=10)
         arch_frame.pack(fill="x", padx=15, pady=5)
 
         self.arch_lb = tk.Listbox(arch_frame, height=6)
@@ -83,7 +106,7 @@ class OptionsMenu:
         tk.Button(a_btns, text="Delete", width=10, command=self.delete_archetype).pack(pady=2)
         tk.Button(a_btns, text="Reset\nDefaults", width=10, command=self.reset_archetypes).pack(pady=2)
 
-        tk.Button(self.win, text="SAVE ALL CHANGES", bg="#d1ecf1", height=2, command=self.save_and_close).pack(pady=20)
+        tk.Button(w, text="SAVE ALL CHANGES", bg="#d1ecf1", height=2, command=self.save_and_close).pack(pady=20)
         
         return self.win # CRITICAL: Allows main.py to wait for this window
 

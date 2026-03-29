@@ -524,6 +524,9 @@ class LoreEngine:
             self.archetypes = config_archetypes
         else:
             self.archetypes = dict(DEFAULT_ARCHETYPES)
+        # Invalidate the compiled pattern so any vocab changes take effect this session
+        LoreEngine._ANACH_PATTERN = None
+        LoreEngine._ANACH_KEYS    = None
         self.lore_map = {
             "剛化": "Harden",
             "重化": "Heavy",
@@ -618,7 +621,8 @@ class LoreEngine:
         return unique
 
     # ---------------- Definition Cache ----------------
-    DEFINITIONS_FILE = "anach_definitions.json"
+    # Always resolve relative to this source file so it works regardless of working directory
+    DEFINITIONS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "anach_definitions.json")
 
     @classmethod
     def _load_def_cache(cls):
