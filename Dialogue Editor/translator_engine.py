@@ -55,14 +55,25 @@ class TranslationEngine:
 
         return "\n".join(result_lines)
 
+    def _tokenise(self, text):
+        """Split text into word-level tokens where complete <tags> are always atomic.
+        Spaces inside angle brackets are never treated as split points."""
+        parts = re.split(r'(<[^>]+>)', text)   # alternates: text, tag, text, tag, ...
+        tokens = []
+        for part in parts:
+            if part.startswith('<') and part.endswith('>'):
+                tokens.append(part)             # whole tag — never split
+            elif part:
+                tokens.extend(re.split(r'(\s+)', part))   # normal text — split on whitespace
+        return tokens
+
     def _wrap_segment(self, text, limit):
         """Wrap a single flat string into lines within limit."""
         if not text:
             return []
-        words = re.split(r'(\s+)', text)
         lines = []
         current_line = ""
-        for word in words:
+        for word in self._tokenise(text):
             test_line = current_line + word
             if self.get_simulated_len(test_line) <= limit:
                 current_line = test_line
@@ -85,7 +96,7 @@ class TranslationEngine:
         last_len = self.get_simulated_len(lines[-1])
         if last_len >= limit * stub_ratio:
             return lines
-        tokens = re.split(r'(\s+)', lines[-2])
+        tokens = self._tokenise(lines[-2])
         word_tokens = [(idx, t) for idx, t in enumerate(tokens) if t.strip()]
         if not word_tokens:
             return lines

@@ -9,7 +9,30 @@ class OptionsMenu:
     def open_window(self):
         self.win = tk.Toplevel(self.parent)
         self.win.title("Advanced Configuration")
-        self.win.geometry("600x700")
+        self.win.geometry("640x720")
+        self.win.resizable(True, True)
+
+        # Scrollable container
+        canvas = tk.Canvas(self.win, highlightthickness=0)
+        scrollbar = ttk.Scrollbar(self.win, orient="vertical", command=canvas.yview)
+        self.scroll_frame = tk.Frame(canvas)
+
+        self.scroll_frame.bind("<Configure>",
+            lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
+        canvas.create_window((0, 0), window=self.scroll_frame, anchor="nw")
+        canvas.configure(yscrollcommand=scrollbar.set)
+
+        scrollbar.pack(side="right", fill="y")
+        canvas.pack(side="left", fill="both", expand=True)
+
+        # Mouse wheel scrolling
+        def _on_mousewheel(event):
+            canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
+        canvas.bind_all("<MouseWheel>", _on_mousewheel)
+        self.win.bind("<Destroy>", lambda e: canvas.unbind_all("<MouseWheel>"))
+
+        # All content goes into scroll_frame instead of self.win
+        w = self.scroll_frame
         
         # --- SECTION 1: Tag Length Mapping ---
         tag_frame = tk.LabelFrame(self.win, text=" Tag Length Mapping ", padx=10, pady=10)
@@ -68,7 +91,22 @@ class OptionsMenu:
         self.gloss_ent.grid(row=1, column=1, pady=5)
         tk.Button(ref_frame, text="...", command=lambda: self.pick_file("glossary_path", self.gloss_ent)).grid(row=1, column=2)
 
-        tk.Button(self.win, text="SAVE ALL CHANGES", bg="#d1ecf1", height=2, command=self.save_and_close).pack(pady=20)
+        # --- SECTION 5: Archetypes ---
+        arch_frame = tk.LabelFrame(w, text=" Archetypes ", padx=10, pady=10)
+        arch_frame.pack(fill="x", padx=15, pady=5)
+
+        self.arch_lb = tk.Listbox(arch_frame, height=6)
+        self.arch_lb.pack(side="left", fill="both", expand=True)
+        self.refresh_archetypes()
+
+        a_btns = tk.Frame(arch_frame)
+        a_btns.pack(side="right", padx=5)
+        tk.Button(a_btns, text="Add",    width=10, command=self.add_archetype).pack(pady=2)
+        tk.Button(a_btns, text="Edit",   width=10, command=self.edit_archetype).pack(pady=2)
+        tk.Button(a_btns, text="Delete", width=10, command=self.delete_archetype).pack(pady=2)
+        tk.Button(a_btns, text="Reset\nDefaults", width=10, command=self.reset_archetypes).pack(pady=2)
+
+        tk.Button(w, text="SAVE ALL CHANGES", bg="#d1ecf1", height=2, command=self.save_and_close).pack(pady=20)
         
         return self.win # CRITICAL: Allows main.py to wait for this window
 
@@ -152,6 +190,138 @@ class OptionsMenu:
             del self.cm.config["wall_presets"][key]
         self.wall_lb.delete(sel[0])
         self.refresh_wall_presets()
+
+    # --- ARCHETYPE LOGIC ---
+    def refresh_archetypes(self):
+        self.arch_lb.delete(0, tk.END)
+        for key, data in sorted(self.cm.config.get("archetypes", {}).items()):
+            self.arch_lb.insert(tk.END, f"{key}: {data.get('name', '')}")
+
+    def _archetype_dialog(self, title, key="", name="", professions="", notes="", pawn_map=""):
+        """Open a multi-field dialog for adding/editing an archetype.
+        Returns (key, name, professions_list, notes, pawn_map) or None if cancelled."""
+        dlg = tk.Toplevel(self.win)
+        dlg.title(title)
+        dlg.geometry("520x480")
+        dlg.grab_set()
+
+        def lbl(text, row):
+            tk.Label(dlg, text=text, anchor="w").grid(row=row, column=0, sticky="w", padx=10, pady=4)
+
+        lbl("Key (e.g. A1, B, H):", 0)
+        key_var = tk.StringVar(value=key)
+        tk.Entry(dlg, textvariable=key_var, width=10).grid(row=0, column=1, sticky="w", padx=10)
+
+        lbl("Name:", 1)
+        name_var = tk.StringVar(value=name)
+        tk.Entry(dlg, textvariable=name_var, width=40).grid(row=1, column=1, sticky="ew", padx=10)
+
+        lbl("Professions\n(comma-separated):", 2)
+        prof_var = tk.StringVar(value=professions)
+        tk.Entry(dlg, textvariable=prof_var, width=40).grid(row=2, column=1, sticky="ew", padx=10)
+
+        lbl("Pawn map:", 3)
+        pawn_var = tk.StringVar(value=pawn_map)
+        tk.Entry(dlg, textvariable=pawn_var, width=40).grid(row=3, column=1, sticky="ew", padx=10)
+
+        lbl("Notes / Register:", 4)
+        notes_txt = tk.Text(dlg, height=8, width=40, wrap="word", font=("Arial", 9))
+        notes_txt.grid(row=4, column=1, sticky="ew", padx=10, pady=4)
+        notes_txt.insert("1.0", notes)
+
+        result = [None]
+
+        def ok():
+            k = key_var.get().strip()
+            n = name_var.get().strip()
+            if not k or not n:
+                messagebox.showerror("Error", "Key and Name are required.", parent=dlg)
+                return
+            result[0] = (
+                k, n,
+                [p.strip() for p in prof_var.get().split(",") if p.strip()],
+                notes_txt.get("1.0", tk.END).strip(),
+                pawn_var.get().strip(),
+            )
+            dlg.destroy()
+
+        def cancel():
+            dlg.destroy()
+
+        btn_row = tk.Frame(dlg)
+        btn_row.grid(row=5, column=0, columnspan=2, pady=10)
+        tk.Button(btn_row, text="OK",     width=12, command=ok).pack(side="left", padx=8)
+        tk.Button(btn_row, text="Cancel", width=12, command=cancel).pack(side="left", padx=8)
+
+        dlg.columnconfigure(1, weight=1)
+        self.win.wait_window(dlg)
+        return result[0]
+
+    def add_archetype(self):
+        res = self._archetype_dialog("Add Archetype")
+        if not res:
+            return
+        key, name, profs, notes, pawn_map = res
+        archetypes = self.cm.config.setdefault("archetypes", {})
+        if key in archetypes:
+            if not messagebox.askyesno("Overwrite?", f"Key '{key}' already exists. Overwrite?", parent=self.win):
+                return
+        archetypes[key] = {"name": name, "professions": profs, "notes": notes, "pawn_map": pawn_map}
+        self.refresh_archetypes()
+
+    def edit_archetype(self):
+        sel = self.arch_lb.curselection()
+        if not sel:
+            return
+        raw = self.arch_lb.get(sel[0])
+        key = raw.split(":")[0].strip()
+        archetypes = self.cm.config.get("archetypes", {})
+        data = archetypes.get(key, {})
+        res = self._archetype_dialog(
+            f"Edit Archetype — {key}",
+            key=key,
+            name=data.get("name", ""),
+            professions=", ".join(data.get("professions", [])),
+            notes=data.get("notes", ""),
+            pawn_map=data.get("pawn_map", ""),
+        )
+        if not res:
+            return
+        new_key, name, profs, notes, pawn_map = res
+        # Handle key rename
+        if new_key != key and key in archetypes:
+            del archetypes[key]
+            # Update any speaker assignments using the old key
+            for spk, assigned in self.cm.config.get("speaker_archetypes", {}).items():
+                if assigned == key:
+                    self.cm.config["speaker_archetypes"][spk] = new_key
+        archetypes[new_key] = {"name": name, "professions": profs, "notes": notes, "pawn_map": pawn_map}
+        self.refresh_archetypes()
+
+    def delete_archetype(self):
+        sel = self.arch_lb.curselection()
+        if not sel:
+            return
+        raw = self.arch_lb.get(sel[0])
+        key = raw.split(":")[0].strip()
+        if not messagebox.askyesno("Delete?", f"Delete archetype '{key}'?\nSpeaker assignments using it will be cleared.", parent=self.win):
+            return
+        archetypes = self.cm.config.get("archetypes", {})
+        archetypes.pop(key, None)
+        # Clear speaker assignments pointing to this key
+        for spk in list(self.cm.config.get("speaker_archetypes", {}).keys()):
+            if self.cm.config["speaker_archetypes"][spk] == key:
+                del self.cm.config["speaker_archetypes"][spk]
+        self.refresh_archetypes()
+
+    def reset_archetypes(self):
+        if not messagebox.askyesno("Reset Archetypes?",
+                "Replace all archetypes with the built-in defaults?\n"
+                "Custom archetypes will be lost.", parent=self.win):
+            return
+        from lore_engine import DEFAULT_ARCHETYPES
+        self.cm.config["archetypes"] = {k: dict(v) for k, v in DEFAULT_ARCHETYPES.items()}
+        self.refresh_archetypes()
 
     # --- FILE PICKER ---
     def pick_file(self, key, entry_widget):
