@@ -29,7 +29,7 @@ class ReviewEditor(tk.Toplevel):
         self.entry_type_var = tk.StringVar()
         self.in_universe_var = tk.BooleanVar(value=self.parent.cm.config.get("in_universe", False))
         self.engine = TranslationEngine(tag_map)
-        self.lore_engine = LoreEngine()
+        self.lore_engine = LoreEngine(self.parent.cm.config.get("archetypes"))
         self.lore_engine.load_data(
             self.parent.cm.config.get("bible_path", ""), 
             self.parent.cm.config.get("glossary_path", "")
@@ -39,13 +39,12 @@ class ReviewEditor(tk.Toplevel):
             "Tag Issues (Complex Tags)": tag_queue,
             "Line Limit": wall_queue,
             "Double Dashes": dash_queue,
-            "Anachronisms": anach_queue,
+            "Possible Anachronisms": anach_queue,
         }
         self.current_category = next((cat for cat in self.queues if self.queues[cat]), "Tag Issues (Complex Tags)")
         self.current_texts = list(self.queues[self.current_category].keys())
         self.current_idx = 0
         self.anach_ranges = []   # list of (start_idx, end_idx, word, [(suggestion, label), ...])
-        self.tooltip_window = None
         self._hovered_range = None   # set by tooltip motion handler, read by Tab handler
         self._tip_visible = False
         # Dummy label created early so _jp_motion closures in load_item never hit AttributeError.
@@ -57,130 +56,123 @@ class ReviewEditor(tk.Toplevel):
         self.setup_ui()
         self.load_item()
 
+        # Prefetch definitions for all vocab words in the background (only fetches missing ones)
+        from lore_engine import IN_UNIVERSE_VOCAB
+        self.lore_engine.prefetch_definitions(list(IN_UNIVERSE_VOCAB.keys()))
+
         # Single tooltip instance — bound once, reads self.anach_ranges dynamically
         self._bind_tooltip()
         # Tab inserts suggestion at cursor
         self.txt.bind("<Tab>", self._tab_insert_suggestion)
 
     def _build_suggestion_text(self, word):
-        """Return all vocab entries whose key matches this word (case-insensitive),
-        formatted as a tooltip string showing every option."""
+        """Return tooltip text: archaic alternatives + cached definition.
+        Checks 'modern→archaic' context override first, then falls back to archaic definition."""
         from lore_engine import IN_UNIVERSE_VOCAB
         word_lower = word.lower()
-        # Collect exact key match first, then look for synonym group
         options = []
         if word_lower in IN_UNIVERSE_VOCAB:
             val = IN_UNIVERSE_VOCAB[word_lower]
             if val:
                 options.append(val)
-        # Deduplicate preserving order
-        seen = set()
-        unique = [o for o in options if not (o in seen or seen.add(o))]
-        if not unique:
+        if not options:
             return f"⚠ \"{word}\" — no direct replacement (flag only)"
-        opts_str = "  /  ".join(unique)
-        return f"⚠ \"{word}\"  →  {opts_str}   (Tab to insert)"
+        opts_str = "  /  ".join(options)
+        tip = f"⚠ \"{word}\"  →  {opts_str}   (Tab to insert)"
+        # Check context-specific override first (e.g. "are→art"), then generic archaic definition
+        for archaic in options:
+            override_key = f"{word_lower}→{archaic.lower()}"
+            defn = self.lore_engine.get_definition(override_key)
+            if not defn:
+                defn = self.lore_engine.get_definition(archaic.lower())
+            if defn:
+                tip += f"\n{defn}"
+                break
+        return tip
 
     def _bind_tooltip(self):
-        """Bind tooltip to the txt widget itself using Motion/Leave.
-        tag_bind("<Motion>") is unreliable on tk.Text — widget-level bindings
-        fire consistently and we do the hit-test ourselves."""
+        """Bind tooltip to the txt widget. Safe to call multiple times (e.g. after dark mode toggle)."""
+        # (Re)create the tooltip label — destroy old one if present
+        if hasattr(self, '_tip_label') and self._tip_label.winfo_exists():
+            self._tip_label.destroy()
+        self._tip_label = tk.Label(
+            self, text="", bg="#ffffe0", fg="black",
+            relief="solid", borderwidth=1, font=("Arial", 9),
+            wraplength=400, justify="left"
+        )
+        self._tip_visible = False
+        self._hovered_range = None
+
         def on_motion(event):
             idx = self.txt.index(f"@{event.x},{event.y}")
-            for start, end, word, _ in self.anach_ranges:
+            for entry in self.anach_ranges:
+                start, end, word, _ = entry
                 if self.txt.compare(start, "<=", idx) and self.txt.compare(idx, "<", end):
                     tip = self._build_suggestion_text(word)
-                    if self.tooltip_window:
-                        # Reposition; update label text in case we moved to a different word
-                        self.tooltip_window.geometry(f"+{event.x_root+20}+{event.y_root+10}")
-                        for child in self.tooltip_window.winfo_children():
-                            child.config(text=tip)
-                    else:
-                        self._show_tooltip(event.x_root, event.y_root, tip)
+                    self._tip_label.config(text=tip)
+                    rx = event.x_root - self.winfo_rootx() + 20
+                    ry = event.y_root - self.winfo_rooty() + 10
+                    self._tip_label.place(x=rx, y=ry)
+                    self._tip_label.lift()
+                    self._tip_visible = True
+                    self._hovered_range = entry
                     return
-            # Not over any highlight
-            self._hide_tooltip()
+            if self._tip_visible:
+                self._tip_label.place_forget()
+                self._tip_visible = False
+            self._hovered_range = None
 
         def on_leave(event):
-            self._hide_tooltip()
+            if self._tip_visible:
+                self._tip_label.place_forget()
+                self._tip_visible = False
+            self._hovered_range = None
 
         self.txt.bind("<Motion>", on_motion)
         self.txt.bind("<Leave>",  on_leave)
 
-    def _show_tooltip(self, x_root, y_root, text):
-        if self.tooltip_window:
-            # Already showing — just reposition and update text if needed
-            self.tooltip_window.geometry(f"+{x_root+20}+{y_root+10}")
-            return
-        tw = tk.Toplevel(self)
-        tw.wm_overrideredirect(True)
-        tw.wm_transient(self)
-        tw.geometry(f"+{x_root+20}+{y_root+10}")
-        tk.Label(tw, text=text, bg="#ffffe0", fg="black",
-                 relief="solid", borderwidth=1, font=("Arial", 9),
-                 wraplength=400, justify="left").pack()
-        self.tooltip_window = tw
-
-    def _hide_tooltip(self):
-        if self.tooltip_window:
-            try: self.tooltip_window.destroy()
-            except: pass
-            self.tooltip_window = None
-
-    def _show_tooltip(self, x_root, y_root, text):
-        if self.tooltip_window:
-            # Already showing — just reposition and update text if needed
-            self.tooltip_window.geometry(f"+{x_root+20}+{y_root+10}")
-            return
-        tw = tk.Toplevel(self)
-        tw.wm_overrideredirect(True)
-        tw.wm_transient(self)
-        tw.geometry(f"+{x_root+20}+{y_root+10}")
-        tk.Label(tw, text=text, bg="#ffffe0", fg="black",
-                 relief="solid", borderwidth=1, font=("Arial", 9),
-                 wraplength=400, justify="left").pack()
-        self.tooltip_window = tw
-
-    def _hide_tooltip(self):
-        if self.tooltip_window:
-            try: self.tooltip_window.destroy()
-            except: pass
-            self.tooltip_window = None
-
     def _tab_insert_suggestion(self, event):
-        """On Tab: if cursor is inside an anachronism range, insert the first suggestion."""
-        idx = self.txt.index(tk.INSERT)
-        for start, end, word, suggestions in self.anach_ranges:
-            if self.txt.compare(start, "<=", idx) and self.txt.compare(idx, "<=", end):
-                if not suggestions:
-                    return "break"
-                replacement = suggestions[0][0]
-                # Preserve capitalisation of the original word
-                matched = self.txt.get(start, end)
-                first_alpha_orig = next((c for c in matched if c.isalpha()), None)
-                first_alpha_idx  = next((i for i, c in enumerate(replacement) if c.isalpha()), None)
-                if first_alpha_orig and first_alpha_orig.isupper() and first_alpha_idx is not None:
-                    replacement = (replacement[:first_alpha_idx]
-                                   + replacement[first_alpha_idx].upper()
-                                   + replacement[first_alpha_idx+1:])
-                self.txt.delete(start, end)
-                self.txt.insert(start, replacement)
-                self._hide_tooltip()
-                self.update_counters()
-                return "break"   # prevent default Tab behaviour
-        return None  # not on a highlight — allow normal Tab
+        """On Tab: replace the hovered word (if tooltip is showing) or the word
+        under the text cursor. Hover takes priority so mouse workflow feels natural."""
+        # Prefer the hovered word — so hovering + Tab works without moving the cursor
+        if self._hovered_range:
+            start, end, word, suggestions = self._hovered_range
+        else:
+            # Fall back to cursor position
+            idx = self.txt.index(tk.INSERT)
+            match = next(
+                ((s, e, w, sg) for s, e, w, sg in self.anach_ranges
+                 if self.txt.compare(s, "<=", idx) and self.txt.compare(idx, "<=", e)),
+                None
+            )
+            if not match:
+                return None   # not on a highlight — allow normal Tab
+            start, end, word, suggestions = match
 
-    def update_counters(self, e=None):
-        content = self.txt.get("1.0", tk.END).splitlines()
-        self.cnt_lbl.config(state="normal")
-        self.cnt_lbl.delete("1.0", tk.END)
-        for i, line in enumerate(content):
-            sim = self.engine.get_simulated_len(line)
-            tag = f"over_{i}"
-            self.cnt_lbl.insert(tk.END, f"{sim:3}\n", tag)
-            color = "#ff5555" if sim > self.limit else self.colors["counter_fg"]
-            self.cnt_lbl.tag_config(tag, foreground=color)
-        self.cnt_lbl.config(state="disabled")
+        if not suggestions:
+            return "break"
+
+        replacement = suggestions[0][0]
+        matched = self.txt.get(start, end)
+        first_alpha_orig = next((c for c in matched if c.isalpha()), None)
+        first_alpha_idx  = next((i for i, c in enumerate(replacement) if c.isalpha()), None)
+        if first_alpha_orig and first_alpha_orig.isupper() and first_alpha_idx is not None:
+            replacement = (replacement[:first_alpha_idx]
+                           + replacement[first_alpha_idx].upper()
+                           + replacement[first_alpha_idx+1:])
+        self.txt.delete(start, end)
+        self.txt.insert(start, replacement)
+        # Explicitly clear the tag on the replaced span — the indices shift after insert,
+        # so recalculate end based on replacement length before update_counters re-scans
+        new_end = f"{start}+{len(replacement)}c"
+        self.txt.tag_remove("anachronism", start, new_end)
+        # Hide tooltip
+        if self._tip_visible:
+            self._tip_label.place_forget()
+            self._tip_visible = False
+        self._hovered_range = None
+        self.update_counters()
+        return "break"
 
     def apply_theme_colors(self):
         if self.dark_mode:
@@ -352,14 +344,6 @@ class ReviewEditor(tk.Toplevel):
         # Sidebar
         side = tk.Frame(main, bg=self.colors["sidebar_bg"])
         side.pack(side="right", fill="both", expand=True)
-        self.lore_list = tk.Text(side, bg=self.colors["text_bg"], fg=self.colors["fg"], bd=0, 
-                                 highlightthickness=0, font=("Arial", 10), wrap="word", state="disabled")
-        self.lore_list.pack(fill="x")
-        tk.Frame(side, bg=self.colors["label_fg"], height=1).pack(fill="x", pady=4)
-        self.archetype_hint = tk.Text(side, bg=self.colors["text_bg"], fg=self.colors["fg"], bd=0,
-                                      highlightthickness=0, font=("Arial", 9), wrap="word",
-                                      state="disabled", height=6)
-        self.archetype_hint.pack(fill="both", expand=True)
         tk.Label(side, text="References", fg=self.colors["label_fg"],
                  bg=self.colors["sidebar_bg"], font=("Arial", 8, "bold")).pack(anchor="w", padx=6, pady=(4, 0))
         self.lore_list = tk.Text(side, bg=self.colors["text_bg"], fg=self.colors["fg"],
@@ -471,12 +455,30 @@ class ReviewEditor(tk.Toplevel):
 
         if jp_source:
             matches = self.lore_engine.scan_text(jp_source)
+            tag_display = self.parent.cm.config.get("tag_display", {})
             for jp, en in matches:
-                self.lore_list.insert(tk.END, f"• {jp}: {en}\n")
-                tag = f"lore_{hash(jp)}"
-                self.jp_txt.tag_config(tag, foreground="#6fb3ff", underline=True)
-                self.jp_txt.tag_bind(tag, "<Button-1>", lambda e, w=en: self.quick_insert(w))
-                self._apply_tag_to_text(jp, tag)
+                # Insert JP term label
+                self.lore_list.insert(tk.END, f"• {jp}:  ", f"lore_label_{hash(jp)}")
+                # Insert clickable EN translation
+                en_tag = f"lore_en_{hash(jp)}"
+                self.lore_list.insert(tk.END, en, en_tag)
+                self.lore_list.tag_config(en_tag, foreground="#6fb3ff", underline=True)
+                self.lore_list.tag_bind(en_tag, "<Button-1>",
+                                        lambda e, w=en: self.quick_insert(w))
+                self.lore_list.insert(tk.END, "\n")
+                # Highlight JP term in source panel
+                jtag = f"lore_{hash(jp)}"
+                self.jp_txt.tag_config(jtag, foreground="#6fb3ff", underline=True)
+                self.jp_txt.tag_bind(jtag, "<Button-1>", lambda e, w=en: self.quick_insert(w))
+                self._apply_tag_to_text(jp, jtag)
+            # Show tag display text so translators know what <TAG_NAME> renders as
+            if tag_display:
+                shown = set()
+                for tag_key, display_text in tag_display.items():
+                    if f"<{tag_key}>" in jp_source and tag_key not in shown:
+                        shown.add(tag_key)
+                        self.lore_list.insert(tk.END, f"  <{tag_key}>  =  \"{display_text}\"\n", "tag_disp")
+                self.lore_list.tag_config("tag_disp", foreground="#aaaaaa", font=("Arial", 9, "italic"))
             if matches:
                 height = max(3, min(len(matches) + 1, 12))
                 self.lore_list.config(height=height)
@@ -566,10 +568,10 @@ class ReviewEditor(tk.Toplevel):
                         "tag_tip")
                     self.lore_list.tag_config("tag_tip", foreground=self.colors["label_fg"],
                                               font=("Arial", 8, "italic"))
-                    
+
         # Dash category sidebar
         if self.current_category == "Double Dashes":
-            _DASH_RE = re.compile(r'--+|——+|—-|-—')
+            _DASH_RE = re.compile(r'[-–—―]{2,}')
             found_dashes = _DASH_RE.findall(txt)
             if found_dashes:
                 self.lore_list.insert(tk.END, "── Dash Issues ──\n", "dash_hdr")
@@ -590,35 +592,40 @@ class ReviewEditor(tk.Toplevel):
                 self.lore_list.tag_config("dash_found", foreground="#ff5555")
                 self.lore_list.tag_config("dash_suggest", foreground=self.colors["label_fg"])
 
-        # Anachronisms category sidebar — use the hits stored in the queue instance
-        if self.current_category == "Anachronisms":
-            from lore_engine import IN_UNIVERSE_VOCAB
-            # Pull stored hits from the first queue instance for this text
-            instances = self.queues["Anachronisms"].get(txt, [])
+        # Possible Anachronisms sidebar — always run, regardless of category
+        from lore_engine import IN_UNIVERSE_VOCAB
+        if self.current_category == "Possible Anachronisms":
+            instances = self.queues["Possible Anachronisms"].get(txt, [])
             stored_hits = instances[0].get("hits", []) if instances else []
-            # Fall back to re-scanning if stored hits are missing (e.g. older queue entries)
             if not stored_hits:
                 stored_hits = self.lore_engine.scan_anachronisms(txt)
-            if stored_hits:
-                self.lore_list.insert(tk.END, "── Anachronisms ──\n", "anach_hdr")
-                self.lore_list.tag_config("anach_hdr", foreground="#ff8c00", font=("Arial", 9, "bold"))
-                seen_words = set()
-                for found, suggestion in stored_hits:
-                    word_lower = found.lower()
-                    if word_lower in seen_words:
-                        continue
-                    seen_words.add(word_lower)
-                    # Get the replacement value directly from vocab (suggestion may be None)
-                    val = IN_UNIVERSE_VOCAB.get(word_lower)
-                    if val is not None:
-                        self.lore_list.insert(tk.END, f"  \"{found}\"  →  {val}\n", "anach_item")
-                    else:
-                        self.lore_list.insert(tk.END, f"  \"{found}\"  — no direct replacement\n", "anach_flag")
-                self.lore_list.tag_config("anach_item", foreground="#ffa040")
-                self.lore_list.tag_config("anach_flag", foreground=self.colors["label_fg"])
-            else:
-                self.lore_list.insert(tk.END, "No anachronisms detected.\n", "anach_flag")
-                self.lore_list.tag_config("anach_flag", foreground=self.colors["label_fg"])
+        else:
+            stored_hits = self.lore_engine.scan_anachronisms(txt)
+
+        if stored_hits:
+            self.lore_list.insert(tk.END, "── Possible Anachronisms ──\n", "anach_hdr")
+            self.lore_list.tag_config("anach_hdr", foreground="#ff8c00", font=("Arial", 9, "bold"))
+            seen_words = set()
+            for found, suggestion in stored_hits:
+                word_lower = found.lower()
+                if word_lower in seen_words:
+                    continue
+                seen_words.add(word_lower)
+                val = IN_UNIVERSE_VOCAB.get(word_lower)
+                # Check context-specific override ("modern→archaic") before generic archaic def
+                if val is not None:
+                    override_key = f"{word_lower}→{val.lower()}"
+                    defn = self.lore_engine.get_definition(override_key) or \
+                           self.lore_engine.get_definition(val.lower()) or ""
+                else:
+                    defn = ""
+                defn_str = f"  — {defn}" if defn else ""
+                if val is not None:
+                    self.lore_list.insert(tk.END, f"  \"{found}\"  →  {val}{defn_str}\n", "anach_item")
+                else:
+                    self.lore_list.insert(tk.END, f"  \"{found}\"  — no direct replacement{defn_str}\n", "anach_flag")
+            self.lore_list.tag_config("anach_item", foreground="#ffa040")
+            self.lore_list.tag_config("anach_flag", foreground=self.colors["label_fg"])
 
         self.lore_list.config(state="disabled")
         self.jp_txt.config(state="disabled")
@@ -727,9 +734,14 @@ class ReviewEditor(tk.Toplevel):
         self.update_archetype_hint()
 
     def replace_dashes(self, replacement):
-        """Replace all double-dash / double-em-dash patterns in the editor with replacement."""
+        """Replace double-dash patterns with replacement.
+        Covers: -- (hyphens), —— (em dash U+2014), ―― (horiz bar U+2015),
+        –– (en dash U+2013), and any mixed combinations of two or more."""
         current = self.txt.get(1.0, tk.END)
-        fixed = re.sub(r'--+|——+|—-|-—', replacement, current)
+        fixed = re.sub(r'[-–—―]{2,}', replacement, current)
+        # If replacing with ellipsis, ensure a space before the next word/digit
+        if replacement == "…":
+            fixed = re.sub(r'…(\w)', r'… \1', fixed)
         if fixed != current:
             self.txt.delete(1.0, tk.END)
             self.txt.insert(tk.END, fixed.rstrip("\n"))
@@ -860,6 +872,9 @@ class ReviewEditor(tk.Toplevel):
         for w in self.winfo_children(): w.destroy()
         self.setup_ui()
         self.load_item()
+        # Rebind after UI rebuild — setup_ui recreates self.txt
+        self._bind_tooltip()
+        self.txt.bind("<Tab>", self._tab_insert_suggestion)
 
     def change_category(self, e): 
         self.current_category = self.cat_combo.get()
@@ -887,53 +902,102 @@ class CSVProcessorApp:
 
     def setup_ui(self):
         self.root.configure(bg=self.colors["bg"])
-        top = tk.Frame(self.root, padx=15, pady=10, bg=self.colors["bg"])
+        self.root.title("DDON CSV Batch Processor")
+        self.root.minsize(750, 600)
+
+        # ── Title bar ──
+        title_bar = tk.Frame(self.root, bg=self.colors["accent"], pady=8)
+        title_bar.pack(fill="x")
+        tk.Label(title_bar, text="DDON CSV Batch Processor",
+                 bg=self.colors["accent"], fg="white",
+                 font=("Arial", 13, "bold")).pack(side="left", padx=16)
+        tk.Button(title_bar, text="🌙" if not self.dark_mode else "☀️",
+                  command=self.toggle_global_dark_mode,
+                  bg=self.colors["accent"], fg="white", bd=0,
+                  font=("Arial", 12), activebackground=self.colors["accent"]).pack(side="right", padx=8)
+        tk.Button(title_bar, text="⚙ Options",
+                  command=self.open_options,
+                  bg=self.colors["accent"], fg="white", bd=0,
+                  font=("Arial", 10), activebackground=self.colors["accent"]).pack(side="right", padx=4)
+
+        # ── Folders + Triggers ──
+        top = tk.Frame(self.root, padx=12, pady=8, bg=self.colors["bg"])
         top.pack(fill="x")
-        
-        f_box = tk.LabelFrame(top, text=" Folders ", bg=self.colors["bg"], fg=self.colors["fg"])
-        f_box.pack(side="left", fill="both", expand=True, padx=5)
-        self.f_list = tk.Listbox(f_box, height=4, bg=self.colors["list_bg"], fg=self.colors["fg"], bd=0)
-        self.f_list.pack(fill="both")
+
+        f_box = tk.LabelFrame(top, text=" Folders ", bg=self.colors["bg"], fg=self.colors["fg"],
+                              font=("Arial", 9, "bold"))
+        f_box.pack(side="left", fill="both", expand=True, padx=4)
+        self.f_list = tk.Listbox(f_box, height=3, bg=self.colors["list_bg"],
+                                 fg=self.colors["fg"], bd=0, selectbackground=self.colors["accent"],
+                                 selectforeground="white", font=("Consolas", 9))
+        self.f_list.pack(fill="both", padx=4, pady=2)
         for f in self.cm.config.get("folders", []): self.f_list.insert(tk.END, f)
-        
         fb = tk.Frame(f_box, bg=self.colors["bg"])
-        fb.pack(fill="x")
-        tk.Button(fb, text="Add", command=self.add_folder, bg=self.colors["btn_bg"], fg=self.colors["fg"]).pack(side="left")
-        tk.Button(fb, text="Rem", command=self.rem_folder, bg=self.colors["btn_bg"], fg=self.colors["fg"]).pack(side="left")
+        fb.pack(fill="x", padx=4, pady=2)
+        for txt, cmd in [("+ Add", self.add_folder), ("− Remove", self.rem_folder)]:
+            tk.Button(fb, text=txt, command=cmd, bg=self.colors["btn_bg"],
+                      fg=self.colors["fg"], relief="flat", padx=6).pack(side="left", padx=2)
 
-        t_box = tk.LabelFrame(top, text=" Triggers ", bg=self.colors["bg"], fg=self.colors["fg"])
-        t_box.pack(side="right", fill="both", expand=True, padx=5)
-        self.t_list = tk.Listbox(t_box, height=4, bg=self.colors["list_bg"], fg=self.colors["fg"], bd=0)
-        self.t_list.pack(fill="both")
+        t_box = tk.LabelFrame(top, text=" Triggers ", bg=self.colors["bg"], fg=self.colors["fg"],
+                              font=("Arial", 9, "bold"))
+        t_box.pack(side="right", fill="both", expand=True, padx=4)
+        self.t_list = tk.Listbox(t_box, height=3, bg=self.colors["list_bg"],
+                                 fg=self.colors["fg"], bd=0, selectbackground=self.colors["accent"],
+                                 selectforeground="white", font=("Consolas", 9))
+        self.t_list.pack(fill="both", padx=4, pady=2)
         for t in self.cm.config.get("triggers", []): self.t_list.insert(tk.END, t)
-
         tb = tk.Frame(t_box, bg=self.colors["bg"])
-        tb.pack(fill="x")
-        tk.Button(tb, text="Add", command=self.add_trigger, bg=self.colors["btn_bg"], fg=self.colors["fg"]).pack(side="left")
-        tk.Button(tb, text="Rem", command=self.rem_trigger, bg=self.colors["btn_bg"], fg=self.colors["fg"]).pack(side="left")
+        tb.pack(fill="x", padx=4, pady=2)
+        for txt, cmd in [("+ Add", self.add_trigger), ("− Remove", self.rem_trigger)]:
+            tk.Button(tb, text=txt, command=cmd, bg=self.colors["btn_bg"],
+                      fg=self.colors["fg"], relief="flat", padx=6).pack(side="left", padx=2)
 
-        set_f = tk.LabelFrame(self.root, text=" Settings ", padx=15, pady=5, bg=self.colors["bg"], fg=self.colors["fg"])
-        set_f.pack(fill="x", padx=15)
-        tk.Label(set_f, text="Char limit:", bg=self.colors["bg"], fg=self.colors["fg"]).pack(side="left")
-        self.preset_menu = ttk.Combobox(set_f, textvariable=self.preset_var, values=self.preset_names, state="readonly", width=14)
-        self.preset_menu.pack(side="left", padx=(2, 10))
-        tk.Label(set_f, text="Line limit:", bg=self.colors["bg"], fg=self.colors["fg"]).pack(side="left")
-        self.wall_preset_menu = ttk.Combobox(set_f, textvariable=self.wall_preset_var, values=self.wall_preset_names, state="readonly", width=14)
-        self.wall_preset_menu.pack(side="left", padx=(2, 10))
-        tk.Checkbutton(set_f, text="Preview Mode", variable=self.prev_var, bg=self.colors["bg"], fg=self.colors["fg"], selectcolor=self.colors["bg"]).pack(side="left")
-        tk.Checkbutton(set_f, text="In-Universe Language", variable=self.in_universe_var,
-                       bg=self.colors["bg"], fg=self.colors["fg"], selectcolor=self.colors["bg"]).pack(side="left", padx=(10, 0))
-        
-        tk.Button(set_f, text="🌙" if not self.dark_mode else "☀️", command=self.toggle_global_dark_mode, bg=self.colors["btn_bg"], fg=self.colors["fg"]).pack(side="right", padx=5)
-        tk.Button(set_f, text="Options...", command=self.open_options, bg=self.colors["btn_bg"], fg=self.colors["fg"]).pack(side="right")
+        # ── Settings bar ──
+        set_f = tk.Frame(self.root, bg=self.colors["bg"], padx=12, pady=6)
+        set_f.pack(fill="x")
+        for lbl, var, names in [
+            ("Char limit:", self.preset_var, self.preset_names),
+            ("Line limit:", self.wall_preset_var, self.wall_preset_names),
+        ]:
+            tk.Label(set_f, text=lbl, bg=self.colors["bg"], fg=self.colors["fg"],
+                     font=("Arial", 9)).pack(side="left")
+            cb = ttk.Combobox(set_f, textvariable=var, values=names, state="readonly", width=14)
+            cb.pack(side="left", padx=(2, 10))
+            if lbl.startswith("Char"):
+                self.preset_menu = cb
+            else:
+                self.wall_preset_menu = cb
 
-        self.log_box = tk.Text(self.root, height=12, bg=self.colors["log_bg"], fg=self.colors["log_fg"], font=("Consolas", 10), bd=0)
-        self.log_box.pack(padx=15, pady=10, fill="both", expand=True)
-        
-        self.btn_run = tk.Button(self.root, text="EXECUTE BATCH SCAN", bg="#28a745", fg="white", command=self.start_thread, height=2, bd=0)
-        self.btn_run.pack(padx=15, fill="x", pady=5)
-        self.progress = ttk.Progressbar(self.root, length=700)
-        self.progress.pack(pady=5)
+        sep = tk.Frame(set_f, bg=self.colors["btn_bg"], width=1, height=20)
+        sep.pack(side="left", padx=8, fill="y")
+
+        for txt, var in [("Preview Mode", self.prev_var), ("In-Universe Language", self.in_universe_var)]:
+            tk.Checkbutton(set_f, text=txt, variable=var,
+                           bg=self.colors["bg"], fg=self.colors["fg"],
+                           selectcolor=self.colors["bg"],
+                           activebackground=self.colors["bg"],
+                           font=("Arial", 9)).pack(side="left", padx=4)
+
+        # ── Log ──
+        log_frame = tk.Frame(self.root, bg=self.colors["bg"], padx=12)
+        log_frame.pack(fill="both", expand=True, pady=(4, 0))
+        tk.Label(log_frame, text="Scan Log", bg=self.colors["bg"], fg=self.colors["fg"],
+                 font=("Arial", 9, "bold"), anchor="w").pack(fill="x")
+        self.log_box = tk.Text(log_frame, height=10, bg=self.colors["log_bg"],
+                               fg=self.colors["log_fg"], font=("Consolas", 9),
+                               bd=1, relief="flat", padx=6, pady=4)
+        self.log_box.pack(fill="both", expand=True)
+
+        # ── Run button + progress ──
+        bottom = tk.Frame(self.root, bg=self.colors["bg"], padx=12, pady=8)
+        bottom.pack(fill="x", side="bottom")
+        self.btn_run = tk.Button(bottom, text="▶  EXECUTE BATCH SCAN",
+                                 bg=self.colors["run_bg"], fg="white",
+                                 font=("Arial", 11, "bold"), height=2,
+                                 bd=0, relief="flat", command=self.start_thread)
+        self.btn_run.pack(fill="x", pady=(0, 4))
+        self.progress = ttk.Progressbar(bottom, length=700)
+        self.progress.pack(fill="x")
 
     def run_batch(self):
         selected_preset = self.preset_var.get()
@@ -947,7 +1011,7 @@ class CSVProcessorApp:
         self.cm.save_all()
 
         # Build replacement table once (only if needed)
-        lore_engine = LoreEngine()
+        lore_engine = LoreEngine(self.cm.config.get("archetypes"))
         lore_engine.load_data(
             self.cm.config.get("bible_path", ""),
             self.cm.config.get("glossary_path", "")
@@ -959,7 +1023,7 @@ class CSVProcessorApp:
         self.dash_q.clear()
 
         # Dash pattern: two or more hyphens, OR two or more em-dashes
-        _DASH_RE = re.compile(r'--+|——+|—-|-—')
+        _DASH_RE = re.compile(r'[-–—―]{2,}')
 
         all_files = []
         for folder in self.cm.config.get("folders", []):
@@ -1065,9 +1129,6 @@ class CSVProcessorApp:
                     queue_type = None
                     wall_wrapped_text = ""
 
-                    # 2b. Dash scan (independent of other processing)
-                    if _DASH_RE.search(orig_text):
-                        self.dash_q[orig_text].append({'path': f_path, 'row_idx': r_idx})
                     # Read entry type from col 9 (zero-indexed) and look up rules
                     entry_type = row[9].strip() if len(row) > 9 else ""
                     speaker    = row[8].strip() if len(row) > 8 else ""
@@ -1079,10 +1140,9 @@ class CSVProcessorApp:
                     # 2b. Dash scan — skip if this text is already queued for mandatory review
                     if _DASH_RE.search(orig_text) and orig_text not in self.tag_q and orig_text not in self.wall_q:
                         self.dash_q[orig_text].append({'path': f_path, 'row_idx': r_idx, 'entry_type': entry_type})
-                    # 2c. Anachronism scan (independent — always runs, not gated on in_universe toggle)
+
+                    # 2c. Anachronism scan — likewise skip if already in mandatory queues
                     anach_hits = lore_engine.scan_anachronisms(orig_text)
-                    if anach_hits:
-                        self.anach_q[orig_text].append({'path': f_path, 'row_idx': r_idx, 'hits': anach_hits})
                     if anach_hits and orig_text not in self.tag_q and orig_text not in self.wall_q:
                         self.anach_q[orig_text].append({'path': f_path, 'row_idx': r_idx, 'hits': anach_hits, 'entry_type': entry_type})
 
@@ -1103,19 +1163,12 @@ class CSVProcessorApp:
                     else:
                         jp_source = row[2] if len(row) > 2 else ""
 
-                        clean_txt = re.sub(r'(?i)<(?:COL(?: [A-F0-9]+)?|/COL)>|\[NAME\]', '', orig_text)
-                        is_complex = '<' in clean_txt or '[' in clean_txt
                         # Strip COL, [NAME], and any registered tag_map tag before complexity check
                         clean_txt = strip_known_tags(orig_text)
                         is_complex = '<' in clean_txt
 
                         # --- Auto Tag Fix ---
-                        def non_col_tags(text):
-                            return [t for t in re.findall(r'<([^>]+)>', text)
-                                    if not t.upper().startswith('COL') and t.upper() != '/COL']
-
                         if jp_source and is_complex:
-                            from collections import Counter
                             jp_tags = non_col_tags(jp_source)
                             en_tags = non_col_tags(orig_text)
                             if Counter(jp_tags) != Counter(en_tags):
@@ -1235,24 +1288,40 @@ class CSVProcessorApp:
 
     def apply_theme_colors(self):
         if self.dark_mode:
-            self.colors = {"bg": "#1e1e1e", "fg": "#d4d4d4", "list_bg": "#252526", 
-                           "btn_bg": "#333333", "log_bg": "#121212", "log_fg": "#d4d4d4"}
+            self.colors = {
+                "bg":       "#1a1a2e",   # deep navy
+                "fg":       "#e0e0e0",
+                "list_bg":  "#16213e",
+                "btn_bg":   "#0f3460",
+                "log_bg":   "#0d0d1a",
+                "log_fg":   "#c8c8d0",
+                "accent":   "#e94560",
+                "run_bg":   "#e94560",
+            }
         else:
-            self.colors = {"bg": "#f0f0f0", "fg": "#000000", "list_bg": "#ffffff", 
-                           "btn_bg": "#e1e1e1", "log_bg": "#ffffff", "log_fg": "#000000"}
+            self.colors = {
+                "bg":       "#f5f6fa",
+                "fg":       "#2c2c3e",
+                "list_bg":  "#ffffff",
+                "btn_bg":   "#dfe4ea",
+                "log_bg":   "#ffffff",
+                "log_fg":   "#2c2c3e",
+                "accent":   "#3867d6",
+                "run_bg":   "#20bf6b",
+            }
 
     def propagate_fix(self, instances, new_text, orig_text):
-        # Update the RAM dictionary
+        # Always update the in-memory fix dictionary
         self.cm.memory[orig_text] = new_text
-        
-        # CRITICAL: Force the ConfigManager to write the dictionary to learned_fixes.json
-        self.cm.save_all() 
-        
-        # Update the physical CSV files
+        self.cm.save_all()
+
+        # Respect Preview Mode — don't write to disk if user is just reviewing
+        if self.prev_var.get():
+            return
+
         for inst in instances:
             try:
                 with open(inst['path'], 'r', encoding='utf-8-sig', newline='') as f:
-                    rows = list(csv.reader(f))
                     raw = f.read()
                 try:
                     dialect = csv.Sniffer().sniff(raw[:4096])
@@ -1262,7 +1331,6 @@ class CSVProcessorApp:
                 rows = list(csv.reader(io.StringIO(raw), dialect))
                 if inst['row_idx'] < len(rows):
                     rows[inst['row_idx']][3] = new_text
-                    
                     with open(inst['path'], 'w', encoding='utf-8-sig', newline='') as f:
                         csv.writer(f, dialect).writerows(rows)
             except Exception as e:

@@ -88,27 +88,43 @@ class TranslationEngine:
         return lines
 
     def _balance_stubs(self, lines, limit, stub_ratio=0.40):
-        """If the last line is a stub (< stub_ratio * limit), try pulling the
-        last word from the previous line onto it."""
+        """Eliminate stub lines (lines that are too short relative to the limit).
+        Runs multiple passes across all adjacent pairs, not just the last line.
+        A stub is a line whose simulated length is below stub_ratio * limit AND
+        contains only one visible word-group (or is very short)."""
         if len(lines) < 2:
             return lines
         lines = list(lines)
-        last_len = self.get_simulated_len(lines[-1])
-        if last_len >= limit * stub_ratio:
-            return lines
-        tokens = self._tokenise(lines[-2])
-        word_tokens = [(idx, t) for idx, t in enumerate(tokens) if t.strip()]
-        if not word_tokens:
-            return lines
-        last_word_idx, last_word = word_tokens[-1]
-        candidate_prev = ''.join(tokens[:last_word_idx]).rstrip()
-        candidate_last = last_word.lstrip() + (' ' if lines[-1].strip() else '') + lines[-1]
-        if (candidate_prev and
-                self.get_simulated_len(candidate_prev) >= 1 and
-                self.get_simulated_len(candidate_last) <= limit):
-            lines[-2] = candidate_prev
-            lines[-1] = candidate_last.lstrip()
-        return lines
+        changed = True
+        max_passes = len(lines)   # safety ceiling
+        passes = 0
+        while changed and passes < max_passes:
+            changed = False
+            passes += 1
+            for i in range(len(lines) - 1, 0, -1):   # work backwards so fixes propagate cleanly
+                line_len = self.get_simulated_len(lines[i])
+                if line_len >= limit * stub_ratio:
+                    continue
+                # Count visible word groups on this line (tags count as one group)
+                visible = [t for t in self._tokenise(lines[i]) if t.strip()]
+                if not visible:
+                    continue
+                # Try pulling the last word from the previous line onto this one
+                prev_tokens = self._tokenise(lines[i - 1])
+                word_tokens = [(idx, t) for idx, t in enumerate(prev_tokens) if t.strip()]
+                if not word_tokens:
+                    continue
+                last_word_idx, last_word = word_tokens[-1]
+                candidate_prev = ''.join(prev_tokens[:last_word_idx]).rstrip()
+                candidate_curr = last_word.lstrip() + (' ' if lines[i].strip() else '') + lines[i]
+                if (candidate_prev and
+                        self.get_simulated_len(candidate_prev) >= 1 and
+                        self.get_simulated_len(candidate_curr) <= limit):
+                    lines[i - 1] = candidate_prev
+                    lines[i]     = candidate_curr.lstrip()
+                    changed = True
+        # Remove any lines that became empty during balancing
+        return [l for l in lines if l]
 
     def apply_in_universe(self, text, replacements):
         """Apply modern->archaic replacements (whole-word, case-insensitive)."""
