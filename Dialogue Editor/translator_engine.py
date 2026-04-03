@@ -1,7 +1,8 @@
 import re
 
 # Punctuation after which a manual line break is considered intentional and preserved.
-_BREAK_PUNCT = r'[.!?;:,\—\…\"\'」』\)\]]'
+# Also includes > so lines ending with a tag are never merged forward.
+_BREAK_PUNCT = r'[.!?;:,\—\"\'」』\)\]>]'
 
 class TranslationEngine:
     def __init__(self, tag_map=None):
@@ -17,23 +18,31 @@ class TranslationEngine:
         return len(clean_text)
 
     def strip_erroneous_breaks(self, text):
-        """Remove line breaks NOT directly preceded by punctuation.
-        Trailing spaces before the break are consumed. Intentional breaks
-        (after . ! ? ; : , — … quotes/brackets) are preserved."""
+        """Remove line breaks NOT directly preceded by punctuation or a closing tag,
+        and not directly followed by an opening tag.
+        Intentional breaks are preserved; erroneous ones are merged."""
         lines = text.split('\n')
         if len(lines) <= 1:
             return text
         i = 0
         while i < len(lines) - 1:
             stripped = lines[i].rstrip()
+            # Preserve if this line ends with a closing tag >
+            if stripped.endswith('>'):
+                i += 1
+                continue
+            # Preserve if the next line starts with an opening tag <
+            next_stripped = lines[i + 1].lstrip()
+            if next_stripped.startswith('<'):
+                i += 1
+                continue
             bare = re.sub(r'<[^>]*>', '', stripped).rstrip()
             if bare and re.search(_BREAK_PUNCT + r'$', bare):
                 lines[i] = stripped          # intentional — keep break, just trim trailing space
                 i += 1
             else:
                 # Erroneous — merge into next line
-                next_line = lines[i + 1].lstrip()
-                lines[i + 1] = stripped + (' ' if stripped and next_line else '') + next_line
+                lines[i + 1] = stripped + (' ' if stripped and next_stripped else '') + next_stripped
                 lines.pop(i)                 # remove current line (don't advance i)
         return '\n'.join(lines)
 
@@ -47,13 +56,17 @@ class TranslationEngine:
         # Step 2: wrap each intentional segment independently
         segments = cleaned.split('\n')
         result_lines = []
-        # Track which line indices are segment boundaries (must not balance across them)
         segment_ends = set()
         for seg in segments:
-            wrapped = self._wrap_segment(seg.strip(), limit)
-            if wrapped:
-                result_lines.extend(wrapped)
-                segment_ends.add(len(result_lines) - 1)  # last line of this segment
+            seg = seg.strip()
+            if not seg:
+                continue
+            # If this segment is already within the limit, don't re-wrap it
+            if self.get_simulated_len(seg) <= limit:
+                result_lines.append(seg)
+            else:
+                result_lines.extend(self._wrap_segment(seg, limit))
+            segment_ends.add(len(result_lines) - 1)
 
         # Step 3: stub balancing — but never across segment boundaries
         result_lines = self._balance_stubs(result_lines, limit, segment_ends)

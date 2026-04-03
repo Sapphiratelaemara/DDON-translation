@@ -8,7 +8,7 @@ from datetime import datetime
 import os
 
 # ------------------------------------------------------------
-# Forbidden symbol replacements (from script 1)
+# Forbidden symbol replacements
 # ------------------------------------------------------------
 FORBIDDEN_SYMBOLS = {
     "“": '"', "”": '"',
@@ -19,7 +19,7 @@ FORBIDDEN_SYMBOLS = {
 DATE_PATTERN = re.compile(r"\b\d{1,2}/\d{1,2}/\d{2}\b")
 
 # ------------------------------------------------------------
-# Bracket normalization rules (from script 2)
+# Bracket normalization rules
 # ------------------------------------------------------------
 ENGLISH_COLUMN = 3
 
@@ -40,6 +40,7 @@ SKIP_SPACING_KEYWORDS = [
     "uGUIPopFilter",
     "ana_om_warp",
     "EDIT_MSG_DIALOG_SAVE_",
+    "EDIT_MSG_TYPE_",
     "QUEST_MSG_UI_REWARD_TRADE_",
     "OS_index_loginskip"
 ]
@@ -53,10 +54,9 @@ def fix_text(text, skip_override=False):
     if text is None:
         return text
 
-    # Skip spacing normalization if special keywords appear OR row override
     skip_spacing = skip_override or any(key in text for key in SKIP_SPACING_KEYWORDS)
 
-    # --- 0. Extract only the COL tags, not their contents ---
+    # --- 0. Extract COL tags ---
     col_tags = []
 
     def col_tag_replacer(match):
@@ -72,25 +72,29 @@ def fix_text(text, skip_override=False):
     text = text.replace('：<', ': <')
     text = re.sub(r'：(?!<)', ':', text)
 
-    # ASCII colon rules:
-    # 1) Add space before letters
-    text = re.sub(r':(?=[A-Za-z])', ': ', text)
+    # ------------------------------------------------------------
+    # FINAL PYTHON‑LEGAL COLON RULE
+    # Add space after colon if followed by a digit,
+    # UNLESS colon is part of HH:MM (digit before + two digits after)
+    # ------------------------------------------------------------
+    text = re.sub(
+        r':(?=\d)(?!\d{2})',
+        ': ',
+        text
+    )
 
-    # 2) Add space before digits UNLESS it's a time like 20:00
-    text = re.sub(r':(?=\d(?!\d:))', ': ', text)
-
-    # --- 2. Remove spaces directly inside brackets ---
+    # --- 2. Remove spaces inside brackets ---
     text = re.sub(r'\[\s+', '[', text)
     text = re.sub(r'\s+\]', ']', text)
 
-    # --- 3. Rule B: move punctuation outside brackets EXCEPT ellipsis ---
+    # --- 3. Move punctuation outside brackets except ellipsis ---
     text = re.sub(
         r'\[([^\[\]]+?)(?<!\.\.)([.!?;:])(?!\.)\]',
         r'[\1]\2',
         text
     )
 
-    # --- 4 & 5. Spacing rules (SKIPPED if skip_spacing=True) ---
+    # --- 4 & 5. Spacing rules (skip if flagged) ---
     if not skip_spacing:
         text = re.sub(
             r'(?<!__COLTAG_\d__)(?<=\w)\[',
@@ -118,43 +122,84 @@ def fix_text(text, skip_override=False):
     for idx, tag in enumerate(col_tags):
         text = text.replace(f"__COLTAG_{idx}__", tag)
 
-    # --- 7. COL spacing rules (also SKIPPED if skip_spacing=True) ---
+    # --- 7. COL spacing rules ---
     if not skip_spacing:
         text = re.sub(r'(?<=\w)(<COL[^>]*>)', r' \1', text)
         text = re.sub(r'(<COL[^>]*>)\s+\[', r'\1[', text)
         text = re.sub(r'\s+(</COL>)', r'\1', text)
         text = re.sub(r'\]\s+(</COL>)', r']\1', text)
         text = re.sub(r'(</COL>)(?=\w)', r'\1 ', text)
-
-        # Collapse multiple spaces only when followed by non-space
         text = re.sub(r' {2,}(?=\S)', ' ', text)
 
-    # --- 8. Move punctuation outside COL blocks (ellipsis preserved) ---
+    # --- 8. Move punctuation outside COL blocks ---
     text = re.sub(r'(</COL>)[ ]*([.!?;:])(?!\.)', r'\1\2', text)
+
+    # ------------------------------------------------------------
+    # SAFE TIME‑UNIT RULE
+    # Only insert space when a digit is glued to a unit
+    # ------------------------------------------------------------
+    text = re.sub(
+        r'(\d)(?=(minutes?|mins?|minute|hours?|hrs?|hour|seconds?|secs?|second)\b)',
+        r'\1 ',
+        text
+    )
 
     return text
 
 
 # ------------------------------------------------------------
-# Script 1: CSV validation + merging
+# CSV validation
 # ------------------------------------------------------------
-def validate_first_column(file_path):
+def validate_csv_file(file_path):
+    errors = []
+
     with open(file_path, newline='', encoding='utf-8-sig') as csvfile:
         reader = csv.reader(csvfile)
         for row_number, row in enumerate(reader, start=1):
             if not row:
                 continue
+
             first_column = row[0].strip().lstrip('\ufeff')
             if first_column == "#Index":
                 continue
+
             if not first_column.isdigit():
-                print(
-                    f"\n❌ CSV Validation Failed!\n"
-                    f"File: {file_path}\n"
-                    f"Row: {row_number}\n"
-                    f"Offending value in first column: '{first_column}'\n"
+                errors.append(
+                    f"{file_path} (row {row_number}): Column 1 must be digits (got '{first_column}')"
                 )
-                sys.exit(1)
+
+            if len(row) < 8:
+                errors.append(
+                    f"{file_path} (row {row_number}): Row has {len(row)} columns, expected 8"
+                )
+                continue
+
+            gmd_path = row[4].strip()
+            arc_path = row[5].strip()
+            arc_name = row[6].strip()
+            read_index = row[7].strip()
+
+            if not gmd_path.endswith(".gmd"):
+                errors.append(
+                    f"{file_path} (row {row_number}): Column 5 must end with .gmd (got '{gmd_path}')"
+                )
+
+            if not arc_path.endswith(".arc") or "\\" not in arc_path:
+                errors.append(
+                    f"{file_path} (row {row_number}): Column 6 must end with .arc and contain '\\' (got '{arc_path}')"
+                )
+
+            if not arc_name.endswith(".arc"):
+                errors.append(
+                    f"{file_path} (row {row_number}): Column 7 must end with .arc (got '{arc_name}')"
+                )
+
+            if not read_index.isdigit():
+                errors.append(
+                    f"{file_path} (row {row_number}): Column 8 must be digits (got '{read_index}')"
+                )
+
+    return errors
 
 
 def validate_folder(folder):
@@ -165,10 +210,18 @@ def validate_folder(folder):
     }
 
     print(f"\nValidating {folder} ...")
+    all_errors = []
+
     for csv_file in folder.rglob("*.csv"):
         if any(part in EXCLUDED_NAMES for part in csv_file.parts):
             continue
-        validate_first_column(csv_file)
+        all_errors.extend(validate_csv_file(csv_file))
+
+    if all_errors:
+        print(f"\n❌ CSV Validation Failed in {folder}:\n")
+        for err in all_errors:
+            print(" - " + err)
+        sys.exit(1)
 
     print(f"{folder} passed validation (ignored: {', '.join(EXCLUDED_NAMES)}).")
 
@@ -179,18 +232,9 @@ def get_changed_files():
             ["git", "diff", "--name-only", "origin/main...HEAD"],
             capture_output=True, text=True, check=True
         )
-        files = result.stdout.splitlines()
-        return [f for f in files if f.endswith(".csv")]
+        return [f for f in result.stdout.splitlines() if f.endswith(".csv")]
     except Exception:
         return []
-
-
-def replace_forbidden_symbols(file_path):
-    content = file_path.read_text(encoding='utf-8-sig')
-    for old, new in FORBIDDEN_SYMBOLS.items():
-        content = content.replace(old, new)
-    content = content.replace('\ufeff', '')
-    file_path.write_text(content, encoding='utf-8')
 
 
 def modify_specific_entry():
@@ -213,8 +257,6 @@ def merge_english():
     splits_folder = english / "splits"
     output_file = english / "gmd.csv"
 
-    english.mkdir(parents=True, exist_ok=True)
-
     csv_files = list(fully_translated.glob("*.csv")) + list(splits_folder.glob("*.csv"))
 
     def numeric_sort_key(p):
@@ -225,13 +267,6 @@ def merge_english():
 
     csv_files = sorted(csv_files, key=numeric_sort_key)
 
-    if not csv_files:
-        print("No CSVs found in Fully Translated or splits!")
-        return
-
-    for csv_file in csv_files:
-        validate_first_column(csv_file)
-
     with open(output_file, 'w', encoding='utf-8', newline='') as outfile:
         writer = csv.writer(outfile)
         writer.writerow([
@@ -240,41 +275,28 @@ def merge_english():
         ])
         for csv_file in csv_files:
             with open(csv_file, newline='', encoding='utf-8-sig') as infile:
-                reader = csv.reader(infile)
-                for row in reader:
-                    if not row:
-                        continue
-                    row[0] = row[0].lstrip('\ufeff').strip()
-                    writer.writerow(row)
+                for row in csv.reader(infile):
+                    if row:
+                        row[0] = row[0].lstrip('\ufeff').strip()
+                        writer.writerow(row)
 
     print(f"English gmd.csv generated from {len(csv_files)} CSV files.")
 
 
-# ------------------------------------------------------------
-# Script 2: Apply bracket/punctuation fixes ONLY inside English folder
-# ------------------------------------------------------------
 def process_english_csv(path):
     changed = False
     rows = []
 
     with open(path, 'r', encoding='utf-8', newline='') as f:
-        reader = csv.reader(f)
-        for row in reader:
+        for row in csv.reader(f):
 
-            # Row-level skip logic
             row_text = ",".join(row)
             skip_row = any(key in row_text for key in SKIP_SPACING_KEYWORDS)
 
             if len(row) > ENGLISH_COLUMN:
                 cell = row[ENGLISH_COLUMN]
 
-                if (
-                    any(c in cell for c in TARGET_CHARS)
-                    or '：' in cell
-                    or ':' in cell
-                    or '[' in cell
-                    or ']' in cell
-                ):
+                if any(c in cell for c in TARGET_CHARS) or '：' in cell or ':' in cell or '[' in cell or ']' in cell:
                     fixed = fix_text(cell, skip_override=skip_row)
                     if fixed != cell:
                         row[ENGLISH_COLUMN] = fixed
@@ -282,12 +304,9 @@ def process_english_csv(path):
 
             rows.append(row)
 
-    if not changed:
-        return
-
-    with open(path, 'w', encoding='utf-8', newline='') as f:
-        writer = csv.writer(f, quoting=csv.QUOTE_MINIMAL)
-        writer.writerows(rows)
+    if changed:
+        with open(path, 'w', encoding='utf-8', newline='') as f:
+            csv.writer(f, quoting=csv.QUOTE_MINIMAL).writerows(rows)
 
 
 def walk_and_process_english(root):
@@ -297,9 +316,6 @@ def walk_and_process_english(root):
                 process_english_csv(os.path.join(folder, file))
 
 
-# ------------------------------------------------------------
-# Main
-# ------------------------------------------------------------
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--ci", action="store_true")
@@ -315,7 +331,6 @@ def main():
                 validate_folder(folder)
 
         walk_and_process_english(english_folder)
-
         modify_specific_entry()
         merge_english()
 
@@ -333,15 +348,12 @@ def main():
         for folder in [fully_translated, splits_folder]:
             if folder.exists():
                 validate_folder(folder)
-
         walk_and_process_english(english_folder)
 
     repo_root = english_folder.parent
     for folder_name in changed_folders:
         if folder_name != "English":
-            folder_path = repo_root / folder_name
-            if folder_path.exists():
-                validate_folder(folder_path)
+            validate_folder(repo_root / folder_name)
 
     print("\nCI validation complete.")
 
