@@ -327,11 +327,10 @@ If you find a ladder, a rock wall covered in
 vines, or a giant tree, try climbing it.
 However, be careful of the damage from falling
 from a high place.
-<PADM>During climbing, use the 【left stick】 to
-move.<KEYM>During climbing, use the 【<KC MOVE_FORWARD>
-<KC MOVE_LEFT><KC MOVE_BACKWARD><KC MOVE_RIGHT>
-】 to move.</KEYM>
-<PADM>(Pressing 【<KC DASH>】 while moving will
+<PADM>During climbing, use the [left stick] to
+move.<KEYM>During climbing, use the [<KC MOVE_FORWARD>
+<KC MOVE_LEFT><KC MOVE_BACKWARD><KC MOVE_RIGHT>] to move.</KEYM>
+<PADM>(Pressing [<KC DASH>] while moving will
 make you jump forward) <KEYM>(Pressing the same
 movement key twice will make you jump
 forward)</KEYM>",ui\00_message\tutorial_guide\steps\tutorial_guide_step53.gmd,\tguide\tutorial_guide_53.arc,tutorial_guide_53.arc,0,
@@ -646,12 +645,12 @@ through these upgrades.",ui\00_message\tutorial_guide\steps\tutorial_guide_step1
 combatant specialized in ground-based attacks.
 Equipped with a sword and shield, they can also
 use the shield to defend themselves.
-＜Basic Controls＞
-- Press 【<KC ATTACK1>】for a combo attack with the
+[Basic Controls]
+- Press [<KC ATTACK1>] for a combo attack with the
 sword.
-- Hold 【<KC ATTACK2>】for a charged slashing
+- Hold [<KC ATTACK2>] for a charged slashing
 attack.
-- Press 【<KC WEAPON_SUB>】to guard.",ui\00_message\tutorial_guide\steps\tutorial_guide_step73.gmd,\tguide\tutorial_guide_73.arc,tutorial_guide_73.arc,0,
+- Press [<KC WEAPON_SUB>] to guard.",ui\00_message\tutorial_guide\steps\tutorial_guide_step73.gmd,\tguide\tutorial_guide_73.arc,tutorial_guide_73.arc,0,
 0,TUTORIAL_STEP_123,"ハンターは弓による射撃を得意とする
 遠隔攻撃の名手です。空の敵、大型敵相手の
 弱点狙撃で特に真価を発揮します
@@ -663,7 +662,7 @@ attack.
 master of long-range attacks. They particularly
 demonstrate their skills by aiming for weak points
 when facing airborne or large enemies.
-<Basic Controls>
+[Basic Operations]
 - Hold <KC HOLD_BOW> to ready the bow.
 - While aiming, press <KC SHOOT> to release an
 arrow.
@@ -678,7 +677,7 @@ arrow.
 　【<KC SKILL_NORMAL1>】セイントオーラ（自身に攻撃用の聖撃陣）","Priests are experts in supporting their alliesand
 excel in support such as recovery, ability
 increases and detecting enemy weaknesses.
-<Basic Operations>
+[Basic Operations]
 [<KC ATTACK1>] Heal Aura (Creates a recovery
 field around oneself)
 [<KC ATTACK2>] Blast Bit (Attack with magick
@@ -708,7 +707,7 @@ elemental magicks.
 　【<KC ROLLING>】転身（回避移動）","The Seeker is a skilled performer in the art of
 acrobatics, using a combination of dagger strikes
 and aerial attacks such as the Seeker Rope.
-<Basic Controls>
+[Basic Operations]
 - Press <KC ATTACK1> for a rapid onslaught of
 dagger attacks.
 - Use <KC ATTACK2> for the Scarlet Kisses
@@ -723,12 +722,12 @@ for evasive maneuvers.",ui\00_message\tutorial_guide\steps\tutorial_guide_step77
 <PADM>　【<KC WEAPON_SUB>】＋【右スティック】<KEYM>　【<KC HOLD_BOW>】＋【<ICON MOUSE>移動】</KEYM>
 　　　　　　闘波の魔眼（複数敵ロックオン）
 　構えながら【<KC SHOOT>】闘波の矢
-　【<KC ATTACK1>】前蹴り","The Element Archer uses a magical bow and magick
+　【<KC ATTACK1>】前蹴り","The Element Archer uses a magickal bow and magick
 arrows to perform both attacks and support for
 allies.
 They are a mystic sniper who can target multiple
 opponents at once.
-<Basic Controls/Attack>
+[Basic Operations]
 <PADM> Press [<KC WEAPON_SUB>] for Seeker Stance
 (Attack Arrow Stance).
 <KEYM>Hold [<KC HOLD_BOW>] for Seeker Stance
@@ -749,7 +748,7 @@ Press [<KC ATTACK1>] for a Front Kick.",ui\00_message\tutorial_guide\steps\tutor
 their steel body and heavy two-handed weapon. The
 more they withstand enemy attacks, the more their
 destructive power increases.
-<Basic Controls/Attacks>
+[Basic Operations]
 - [KC ATTACK1]: Hack (Multiple slashes)
 - [KC ATTACK2]: Savage Lash (Hold down to charge
 the slash)",ui\00_message\tutorial_guide\steps\tutorial_guide_step78.gmd,\tguide\tutorial_guide_78.arc,tutorial_guide_78.arc,0,
@@ -762,9 +761,9 @@ the slash)",ui\00_message\tutorial_guide\steps\tutorial_guide_step78.gmd,\tguide
 and powerful attack magick. They excel in firepower
 and wide-range combat by exploiting the weaknesses
 in their enemies' attributes.
-<Basic Controls>
-【Magick Bolts】<KC ATTACK1>
-【Magick Trap】<KC ATTACK2>",ui\00_message\tutorial_guide\steps\tutorial_guide_step79.gmd,\tguide\tutorial_guide_79.arc,tutorial_guide_79.arc,0,
+[Basic Operations]
+[Magick Bolts] <KC ATTACK1>
+[Magick Trap] <KC ATTACK2>",ui\00_message\tutorial_guide\steps\tutorial_guide_step79.gmd,\tguide\tutorial_guide_79.arc,tutorial_guide_79.arc,0,
 1,TUTORIAL_STEP_130,"盾はカウンター攻撃の起点として使ったり、
 仲間を高所に跳ねあげることもできます
 魔法耐性は低いので、敵からの属性攻撃には
@@ -914,7 +913,7 @@ allies, and shoot accurately.",ui\00_message\tutorial_guide\steps\tutorial_guide
 さらに集中時間が満了した瞬間に魔矢を放つことで
 その威力はさらに上昇します","The biggest feature of the Element Archer is that
 the arrows released from the Magick Bow can change
-into both magical blades and healing light
+into both magickal blades and healing light
 depending on how the bow is held.
 In addition, by taking aim with the Magick Bow
 and focusing on the target, it is possible to
@@ -971,7 +970,7 @@ in combat.",ui\00_message\tutorial_guide\steps\tutorial_guide_step72.gmd,\tguide
 function that makes long-distance travel easier.
 When going on adventures to faraway places, be
 sure to give it a try.
-【<KC AUTO_RUN>】Auto-Run (continuous running)
+[<KC AUTO_RUN>] Auto-Run (continuous running)
 ※Press again to deactivate.",ui\00_message\tutorial_guide\steps\tutorial_guide_step114.gmd,\tguide\tutorial_guide_114.arc,tutorial_guide_114.arc,0,
 0,TUTORIAL_STEP_152,"<COL ffdc78>《アチーブメント》</COL>は、
 あなたがゲーム内で行ったさまざまな行動に
@@ -1004,7 +1003,7 @@ players who are currently recruiting!",ui\00_message\tutorial_guide\steps\tutori
 交換してくれる者がいます
 彼らとのブラッドオーブの取引では
 クレストやレア素材などが得られます
-機会があれば訪ねてみましょう","《Blood Orb》 can be exchanged for valuable items,
+機会があれば訪ねてみましょう","[Blood Orb] can be exchanged for valuable items,
 such as the Crest and rare materials, by
 individuals such as Alvar from the Pawn Cathedral,
 aside from the White Dragon.
@@ -1045,7 +1044,7 @@ Find a combat style that suits you.",ui\00_message\tutorial_guide\steps\tutorial
 <COL ffdc78>状態異常【弱化】により、基本能力が
 一定時間通常より低くなってしまいます</COL>
 《復活力》や《黄金石》の残量には
-常に気を配りましょう","If the 《Revival Power》 and 《Golden Gemstone》 are
+常に気を配りましょう","If the [Revival Power] and [Golden Gemstone] are
 depleted,
 you will not be able to revive on the spot.
 You can revive by choosing ""Return to Base"", but
@@ -1053,7 +1052,7 @@ due to the <COL ffdc78>debuff of Weakened</COL>,
 your basic abilities will be lower than usual for
 a certain period of time.
 Always keep an eye on the remaining amount of
-《Revival Power》 and 《Golden Gemstone》.",ui\00_message\tutorial_guide\steps\tutorial_guide_step115.gmd,\tguide\tutorial_guide_115.arc,tutorial_guide_115.arc,2,
+[Revival Power] and [Golden Gemstone].",ui\00_message\tutorial_guide\steps\tutorial_guide_step115.gmd,\tguide\tutorial_guide_115.arc,tutorial_guide_115.arc,2,
 6,TUTORIAL_STEP_218,"パーティーリーダーが誰なのか
 冒険時は必ず確認しましょう
 <COL ffdc78>リーダーが不在の場合は冒険が進行できません</COL>
@@ -1124,7 +1123,7 @@ Remember these two points.",ui\00_message\tutorial_guide\steps\tutorial_guide_st
 タンクを狙っている敵を攻撃したり、回復や支援を
 行うことで安全な立ち回りが可能です
 タンクはアトラクトなど《挑発スキル》の使用
-により、敵の注目を集めることができます","【Basic During Party Play】
+により、敵の注目を集めることができます","[Basic During Party Play]
 When enemies target tank jobs, the tank icon <COL ffdc78>
 《tank icon》</COL> will be displayed on
 their health gauge.

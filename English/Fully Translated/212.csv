@@ -109,53 +109,60 @@ figure carrying a mysterious weapon",ui\00_message\quest_info\q60300044_00.gmd,\
 2,q60300044_00_4516,クラフトルームのクレイグから話を聞く,Hear what Craig has to say in the Workshop,ui\00_message\quest_info\q60300044_00.gmd,\quest\q60300044.arc,q60300044.arc,2,Craig,QUEST_TEXT_TYPE_PURPOSE
 0,q60300047_00_310,黒呪の迷宮へ,To the Bitterblack Maze,ui\00_message\quest_info\q60300047_00.gmd,\quest\q60300047.arc,q60300047.arc,0,Luca,QUEST_TEXT_TYPE_NAME
 1,q60300047_00_310,"とある場所について
-リュカから話を聞く",Listen to a story from Luca about a certain place,ui\00_message\quest_info\q60300047_00.gmd,\quest\q60300047.arc,q60300047.arc,1,Luca,QUEST_TEXT_TYPE_ORDER
-2,q60300047_00_4228,リュカから詳しい話を聞く,Hear more from Luca,ui\00_message\quest_info\q60300047_00.gmd,\quest\q60300047.arc,q60300047.arc,2,Luca,QUEST_TEXT_TYPE_PURPOSE
-0,q60300050_00_273,【調理日課】ティネス　調理支給,【Daily Cooking】Fort Thines - Cooking Supply,ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,0,Carrie,QUEST_TEXT_TYPE_NAME
+リュカから話を聞く",Listen to a story from Luca about a certain place,ui\00_message\quest_info\q60300047_00.gmd,\quest\q60300047.arc,q60300047.arc,1,Luca
+2,q60300047_00_4228,リュカから詳しい話を聞く,Hear more from Luca,ui\00_message\quest_info\q60300047_00.gmd,\quest\q60300047.arc,q60300047.arc,2,Luca
+0,q60300050_00_273,【調理日課】ティネス　調理支給,[Daily Cooking] Fort Thines - Cooking Supply,ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,0,Carrie
 1,q60300050_00_273,"依頼者から復興に関する
 問題解決に挑む","Tackle the issue related to reconstruction,
-as presented by the requester",ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,1,Carrie,QUEST_TEXT_TYPE_ORDER
-3,q60300050_00_3377,<NPC 580>を手伝うか決める,Decide if you want to help <NPC 580>,ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,3,Carrie,QUEST_TEXT_TYPE_PURPOSE
-4,q60300050_00_3378,<STG 443>で<NPC 580>と待ち合わせる,Meet up with <NPC 580> at <STG 443>,ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,4,Carrie,QUEST_TEXT_TYPE_PURPOSE
-5,q60300050_00_3379,<STG 443>で帰還兵を探し料理をふるまう（残り３）,Find and serve returning soldiers in <STG 443> (3 left),ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,5,Carrie,QUEST_TEXT_TYPE_PURPOSE
-2,q60300050_00_3387,<STG 448>に向かい<NPC 580>の用事を聞く,Head to <STG 448> and ask about <NPC 580>'s errands,ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,2,Carrie,QUEST_TEXT_TYPE_PURPOSE
-6,q60300050_00_3388,<STG 443>で帰還兵を探し料理をふるまう（残り２）,Find and serve returning soldiers in <STG 443> (2 left),ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,6,Carrie,QUEST_TEXT_TYPE_PURPOSE
-7,q60300050_00_3391,<STG 443>で帰還兵を探し料理をふるまう（残り１）,Find and serve returning soldiers in <STG 443> (1 left),ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,7,Carrie,QUEST_TEXT_TYPE_PURPOSE
-8,q60300050_00_3395,<STG 448>に戻って料理を作り直す,Go back to <STG 448> and remake the food,ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,8,Carrie,QUEST_TEXT_TYPE_PURPOSE
-0,q60300051_00_274,【調理日課】ロスギル　出張調理,【Daily Cooking】 Rothgill - Cooking Trip,ui\00_message\quest_info\q60300051_00.gmd,\quest\q60300051.arc,q60300051.arc,0,Carrie,QUEST_TEXT_TYPE_NAME
+as presented by the requester",ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,1,Carrie
+3,q60300050_00_3377,<NPC 580>を手伝うか決める,Decide if you want to help <NPC 580>,ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,3,Carrie
+4,q60300050_00_3378,<STG 443>で<NPC 580>と待ち合わせる,Meet up with <NPC 580> at <STG 443>,ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,4,Carrie
+5,q60300050_00_3379,<STG 443>で帰還兵を探し料理をふるまう（残り３）,"Find and serve returning soldiers 
+in <STG 443> (3 left)",ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,5,Carrie
+2,q60300050_00_3387,<STG 448>に向かい<NPC 580>の用事を聞く,Head to <STG 448> and ask about <NPC 580>'s errands,ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,2,Carrie
+6,q60300050_00_3388,<STG 443>で帰還兵を探し料理をふるまう（残り２）,"Find and serve returning soldiers 
+in <STG 443> (2 left)",ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,6,Carrie
+7,q60300050_00_3391,<STG 443>で帰還兵を探し料理をふるまう（残り１）,"Find and serve returning soldiers 
+in <STG 443> (1 left)",ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,7,Carrie
+8,q60300050_00_3395,<STG 448>に戻って料理を作り直す,Go back to <STG 448> and remake the food,ui\00_message\quest_info\q60300050_00.gmd,\quest\q60300050.arc,q60300050.arc,8,Carrie
+0,q60300051_00_274,【調理日課】ロスギル　出張調理,[Daily Cooking] Rothgill - Cooking Trip,ui\00_message\quest_info\q60300051_00.gmd,\quest\q60300051.arc,q60300051.arc,0,Carrie
 1,q60300051_00_274,"依頼者から復興に関する
 問題解決に挑む","Tackle the issue related to reconstruction,
-as presented by the requester",ui\00_message\quest_info\q60300051_00.gmd,\quest\q60300051.arc,q60300051.arc,1,Carrie,QUEST_TEXT_TYPE_ORDER
-2,q60300051_00_3380,<SPOT 1032> で<NPC 580>と待ち合わせる,Meet with <NPC 580> at <SPOT 1032>,ui\00_message\quest_info\q60300051_00.gmd,\quest\q60300051.arc,q60300051.arc,2,Carrie,QUEST_TEXT_TYPE_PURPOSE
-3,q60300051_00_3381,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、<NPC 580>に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to <NPC 580> (need: <SQDI DNUM>),ui\00_message\quest_info\q60300051_00.gmd,\quest\q60300051.arc,q60300051.arc,3,Carrie,QUEST_TEXT_TYPE_PURPOSE
-0,q60300052_00_275,【調理日課】ピレモス　悪童保護,【Daily Cooking】 Piremoth - Babysitting Brats,ui\00_message\quest_info\q60300052_00.gmd,\quest\q60300052.arc,q60300052.arc,0,Carrie,QUEST_TEXT_TYPE_NAME
+as presented by the requester",ui\00_message\quest_info\q60300051_00.gmd,\quest\q60300051.arc,q60300051.arc,1,Carrie
+2,q60300051_00_3380,<SPOT 1032> で<NPC 580>と待ち合わせる,Meet with <NPC 580> at <SPOT 1032>,ui\00_message\quest_info\q60300051_00.gmd,\quest\q60300051.arc,q60300051.arc,2,Carrie
+3,q60300051_00_3381,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、<NPC 580>に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to <NPC 580> (need: <SQDI DNUM>),ui\00_message\quest_info\q60300051_00.gmd,\quest\q60300051.arc,q60300051.arc,3,Carrie
+0,q60300052_00_275,【調理日課】ピレモス　悪童保護,[Daily Cooking] Piremoth - Babysitting Brats,ui\00_message\quest_info\q60300052_00.gmd,\quest\q60300052.arc,q60300052.arc,0,Carrie
 1,q60300052_00_275,"依頼者から復興に関する
 問題解決に挑む","Tackle the issue related to reconstruction,
-as presented by the requester",ui\00_message\quest_info\q60300052_00.gmd,\quest\q60300052.arc,q60300052.arc,1,Carrie,QUEST_TEXT_TYPE_ORDER
-2,q60300052_00_3383,<SPOT 1031> で<NPC 580>と待ち合わせる,Meet at <SPOT 1031> with <NPC 580>,ui\00_message\quest_info\q60300052_00.gmd,\quest\q60300052.arc,q60300052.arc,2,Carrie,QUEST_TEXT_TYPE_PURPOSE
-3,q60300052_00_3384,行方不明になった<NPC 581>を探しに向かう,Head to find the missing <NPC 581>,ui\00_message\quest_info\q60300052_00.gmd,\quest\q60300052.arc,q60300052.arc,3,Carrie,QUEST_TEXT_TYPE_PURPOSE
-4,q60300052_00_3385,敵を討伐する,Defeat the enemy,ui\00_message\quest_info\q60300052_00.gmd,\quest\q60300052.arc,q60300052.arc,4,Carrie,QUEST_TEXT_TYPE_PURPOSE
-6,q60300052_00_3392,新たに襲撃にきた敵を討伐する,Defeat the newly attacking enemy,ui\00_message\quest_info\q60300052_00.gmd,\quest\q60300052.arc,q60300052.arc,6,Carrie,QUEST_TEXT_TYPE_PURPOSE
-5,q60300052_00_3393,<NPC 581>の様子を確認する,Confirm the condition of <NPC 581>,ui\00_message\quest_info\q60300052_00.gmd,\quest\q60300052.arc,q60300052.arc,5,Carrie,QUEST_TEXT_TYPE_PURPOSE
-7,q60300052_00_3394,<SPOT 1031> に戻り<NPC 580>に報告する,Return to <SPOT 1031> and report to <NPC 580>,ui\00_message\quest_info\q60300052_00.gmd,\quest\q60300052.arc,q60300052.arc,7,Carrie,QUEST_TEXT_TYPE_PURPOSE
-0,q60300060_00_279,【参謀日課】展望城　任務指示,【Daily Council】Lookout Castle - Mission Instructions,ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,0,Sonel,QUEST_TEXT_TYPE_NAME
+as presented by the requester",ui\00_message\quest_info\q60300052_00.gmd,\quest\q60300052.arc,q60300052.arc,1,Carrie
+2,q60300052_00_3383,<SPOT 1031> で<NPC 580>と待ち合わせる,Meet at <SPOT 1031> with <NPC 580>,ui\00_message\quest_info\q60300052_00.gmd,\quest\q60300052.arc,q60300052.arc,2,Carrie
+3,q60300052_00_3384,行方不明になった<NPC 581>を探しに向かう,Head to find the missing <NPC 581>,ui\00_message\quest_info\q60300052_00.gmd,\quest\q60300052.arc,q60300052.arc,3,Carrie
+4,q60300052_00_3385,敵を討伐する,Defeat the enemy,ui\00_message\quest_info\q60300052_00.gmd,\quest\q60300052.arc,q60300052.arc,4,Carrie
+6,q60300052_00_3392,新たに襲撃にきた敵を討伐する,Defeat the newly attacking enemy,ui\00_message\quest_info\q60300052_00.gmd,\quest\q60300052.arc,q60300052.arc,6,Carrie
+5,q60300052_00_3393,<NPC 581>の様子を確認する,Confirm the condition of <NPC 581>,ui\00_message\quest_info\q60300052_00.gmd,\quest\q60300052.arc,q60300052.arc,5,Carrie
+7,q60300052_00_3394,<SPOT 1031> に戻り<NPC 580>に報告する,Return to <SPOT 1031> and report to <NPC 580>,ui\00_message\quest_info\q60300052_00.gmd,\quest\q60300052.arc,q60300052.arc,7,Carrie
+0,q60300060_00_279,【参謀日課】展望城　任務指示,[Daily Council] Lookout Castle - Mission Instructions,ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,0,Sonel
 1,q60300060_00_279,"依頼者から復興に関する
 問題解決に挑む","Tackle the issue related to reconstruction,
-as presented by the requester",ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,1,Sonel,QUEST_TEXT_TYPE_ORDER
-2,q60300060_00_3543,<STG 451>に向かい<NPC 582>の用事を聞く,Head to <STG 451> and ask about <NPC 582>'s errands,ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,2,Sonel,QUEST_TEXT_TYPE_PURPOSE
-3,q60300060_00_3544,<NPC 582>を手伝うか決める,Decide if you want to help <NPC 582>,ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,3,Sonel,QUEST_TEXT_TYPE_PURPOSE
-4,q60300060_00_3545,<STG 451>で<NPC 582>と待ち合わせる,Meet up with <NPC 582> at <STG 451>,ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,4,Sonel,QUEST_TEXT_TYPE_PURPOSE
-5,q60300060_00_3546,<STG 451>で兵士を探し指示を伝える（残り３）,Search for soldiers in <STG 451> and give them instructions (3 left),ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,5,Sonel,QUEST_TEXT_TYPE_PURPOSE
-6,q60300060_00_3547,<STG 451>で兵士を探し指示を伝える（残り２）,Search for soldiers in <STG 451> and give them instructions (2 left),ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,6,Sonel,QUEST_TEXT_TYPE_PURPOSE
-7,q60300060_00_3548,<STG 451>で兵士を探し指示を伝える（残り１）,Search for soldiers in <STG 451> and give them instructions (1 left),ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,7,Sonel,QUEST_TEXT_TYPE_PURPOSE
-8,q60300060_00_3549,<STG 451>に戻って休憩する,Go back to <STG 451> and take a break,ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,8,Sonel,QUEST_TEXT_TYPE_PURPOSE
-0,q60300061_00_280,【参謀日課】メフィテ　弱点研究,【Daily Council】Mephite - Research Materials,ui\00_message\quest_info\q60300061_00.gmd,\quest\q60300061.arc,q60300061.arc,0,Sonel,QUEST_TEXT_TYPE_NAME
+as presented by the requester",ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,1,Sonel
+2,q60300060_00_3543,<STG 451>に向かい<NPC 582>の用事を聞く,Head to <STG 451> and ask about <NPC 582>'s errands,ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,2,Sonel
+3,q60300060_00_3544,<NPC 582>を手伝うか決める,Decide if you want to help <NPC 582>,ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,3,Sonel
+4,q60300060_00_3545,<STG 451>で<NPC 582>と待ち合わせる,Meet up with <NPC 582> at <STG 451>,ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,4,Sonel
+5,q60300060_00_3546,<STG 451>で兵士を探し指示を伝える（残り３）,"Search for soldiers in <STG 451> 
+and give them instructions (3 left)",ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,5,Sonel
+6,q60300060_00_3547,<STG 451>で兵士を探し指示を伝える（残り２）,"Search for soldiers in <STG 451> 
+and give them instructions (2 left)",ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,6,Sonel
+7,q60300060_00_3548,<STG 451>で兵士を探し指示を伝える（残り１）,"Search for soldiers in <STG 451> 
+and give them instructions (1 left)",ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,7,Sonel
+8,q60300060_00_3549,<STG 451>に戻って休憩する,"Go back to <STG 451> 
+and take a break",ui\00_message\quest_info\q60300060_00.gmd,\quest\q60300060.arc,q60300060.arc,8,Sonel
+0,q60300061_00_280,【参謀日課】メフィテ　弱点研究,[Daily Council] Mephite - Research Materials,ui\00_message\quest_info\q60300061_00.gmd,\quest\q60300061.arc,q60300061.arc,0,Sonel
 1,q60300061_00_280,"依頼者から復興に関する
 問題解決に挑む","Tackle the issue related to reconstruction,
-as presented by the requester",ui\00_message\quest_info\q60300061_00.gmd,\quest\q60300061.arc,q60300061.arc,1,Sonel,QUEST_TEXT_TYPE_ORDER
-2,q60300061_00_3550,<SPOT 1093>で<NPC 582>と待ち合わせる,Meet up with <NPC 582> at <SPOT 1093>,ui\00_message\quest_info\q60300061_00.gmd,\quest\q60300061.arc,q60300061.arc,2,Sonel,QUEST_TEXT_TYPE_PURPOSE
-3,q60300061_00_3551,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、<NPC 582>に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to <NPC 582> (need: <SQDI DNUM>),ui\00_message\quest_info\q60300061_00.gmd,\quest\q60300061.arc,q60300061.arc,3,Sonel,QUEST_TEXT_TYPE_PURPOSE
-0,q60300062_00_281,【参謀日課】盗賊アジト　情報収集,【Daily Council】 Bandit Hideout - Collect Information,ui\00_message\quest_info\q60300062_00.gmd,\quest\q60300062.arc,q60300062.arc,0,Sonel,QUEST_TEXT_TYPE_NAME
+as presented by the requester",ui\00_message\quest_info\q60300061_00.gmd,\quest\q60300061.arc,q60300061.arc,1,Sonel
+2,q60300061_00_3550,<SPOT 1093>で<NPC 582>と待ち合わせる,Meet up with <NPC 582> at <SPOT 1093>,ui\00_message\quest_info\q60300061_00.gmd,\quest\q60300061.arc,q60300061.arc,2,Sonel
+3,q60300061_00_3551,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、<NPC 582>に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to <NPC 582> (need: <SQDI DNUM>),ui\00_message\quest_info\q60300061_00.gmd,\quest\q60300061.arc,q60300061.arc,3,Sonel
+0,q60300062_00_281,【参謀日課】盗賊アジト　情報収集,[Daily Council] Bandit Hideout - Collect Information,ui\00_message\quest_info\q60300062_00.gmd,\quest\q60300062.arc,q60300062.arc,0,Sonel
 1,q60300062_00_281,"依頼者から復興に関する
 問題解決に挑む","Tackle the issue related to reconstruction,
 as presented by the requester",ui\00_message\quest_info\q60300062_00.gmd,\quest\q60300062.arc,q60300062.arc,1,Sonel,QUEST_TEXT_TYPE_ORDER
@@ -550,55 +557,56 @@ of your choice at the tavern",ui\00_message\quest_info\q60301022_00.gmd,\quest\q
 4,q60301022_00_4197,アンジェロに報告する,Report to Angelo,ui\00_message\quest_info\q60301022_00.gmd,\quest\q60301022.arc,q60301022.arc,4,Angelo,QUEST_TEXT_TYPE_PURPOSE
 0,q60301030_00_301,ただ一つの想い＜For Women＞,The Only One in My Thoughts (For Women),ui\00_message\quest_info\q60301030_00.gmd,\quest\q60301030.arc,q60301030.arc,0,Shelly,QUEST_TEXT_TYPE_NAME
 1,q60301030_00_301,酒場に集まった任意の彼女にチョコレートを贈る,"Present chocolate to someone
-of your choice at the tavern",ui\00_message\quest_info\q60301030_00.gmd,\quest\q60301030.arc,q60301030.arc,1,Shelly,QUEST_TEXT_TYPE_ORDER
-2,q60301030_00_4198,全員のアピールを聞いてまわる,Go around and listen each person,ui\00_message\quest_info\q60301030_00.gmd,\quest\q60301030.arc,q60301030.arc,2,Angelo,QUEST_TEXT_TYPE_PURPOSE
-3,q60301030_00_4199,一人だけにチョコレートケーキを納品する,Choose a single person to give chocolate to,ui\00_message\quest_info\q60301030_00.gmd,\quest\q60301030.arc,q60301030.arc,3,Angelo,QUEST_TEXT_TYPE_PURPOSE
-4,q60301030_00_4200,シェリーに報告する,Report to Shelly,ui\00_message\quest_info\q60301030_00.gmd,\quest\q60301030.arc,q60301030.arc,4,Shelly,QUEST_TEXT_TYPE_PURPOSE
-0,q60301041_00_305,愛し君のための贈り物＜１＞,"A Gift for You, My Love (1)",ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,0,Angelo,QUEST_TEXT_TYPE_NAME
-1,q60301041_00_305,アンジェロのお悩み相談に乗る,Consult with Angelo about your problems,ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,1,Angelo,QUEST_TEXT_TYPE_ORDER
-2,q60301041_00_4209,ヴァネッサとアデルドナハにアドバイスを聞く,Hear advice from Vanessa and Adair Donnchadh,ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,2,Angelo,QUEST_TEXT_TYPE_PURPOSE
-3,q60301041_00_4210,アンジェロに報告する,Report to Angelo,ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,3,Angelo,QUEST_TEXT_TYPE_PURPOSE
-4,q60301041_00_4211,《レスタニア産はちみつ》を入手する,"Obtain ""Lestanian Honey""",ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,4,Vanessa,QUEST_TEXT_TYPE_PURPOSE
-5,q60301041_00_4212,アンジェロに《レスタニア産はちみつ》を納品する,"Deliver ""Lestanian Honey"" to Angelo",ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,5,Adair Donnchadh,QUEST_TEXT_TYPE_PURPOSE
-6,q60301041_00_4213,グレゴリーに相談する,Consult with Gregory,ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,6,Angelo,QUEST_TEXT_TYPE_PURPOSE
-7,q60301041_00_4214,鑑定交換で《スイートハニーケーキ》を入手する,"Obtain ""Sweet Honey Cake"" at Appraisal Exchange",ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,7,Angelo,QUEST_TEXT_TYPE_PURPOSE
-8,q60301041_00_4215,アンジェロに《スイートハニーケーキ》を納品する,"Deliver ""Sweet Honey Cake"" to Angelo",ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,8,Vanessa,QUEST_TEXT_TYPE_PURPOSE
-0,q60301042_00_306,愛し君のための贈り物＜２＞,"A Gift for You, My Love (2)",ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,0,Angelo,QUEST_TEXT_TYPE_NAME
-1,q60301042_00_306,アンジェロのお悩み相談に乗る,Consult with Angelo about your problems,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,1,Angelo,QUEST_TEXT_TYPE_ORDER
-19,q60301042_00_2784,(ｱ|ア|あ)(ｲ|イ|い)(ｼ|シ|し)(ﾃ|テ|て)(ﾙ|ル|る),(I|i).*(L|l)(o)(v)(e).*(Y|y)(o)(u),ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,19,Angelo,QUEST_TEXT_TYPE_SAY_PATTERN
-2,q60301042_00_4203,ハインツにアドバイスを聞く,Hear advice from Heinz,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,2,Angelo,QUEST_TEXT_TYPE_PURPOSE
-3,q60301042_00_4204,モーリスにオシャレの相談をしに行く,Head to and consult with the fashionable Morris,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,3,Angelo,QUEST_TEXT_TYPE_PURPOSE
-4,q60301042_00_4205,モーリスに《巨人の毛髪》を納品する,"Deliver ""Giant Fur"" to Morris",ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,4,Heinz,QUEST_TEXT_TYPE_PURPOSE
-5,q60301042_00_4206,アンジェロを確認しに行く,Head to and check Angelo,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,5,Craig,QUEST_TEXT_TYPE_PURPOSE
-6,q60301042_00_4207,クレイグにアドバイスを聞く,Hear advice from Craig,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,6,Emerada,QUEST_TEXT_TYPE_PURPOSE
-7,q60301042_00_4208,アンジェロに報告する,Report to Angelo,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,7,Heinz,QUEST_TEXT_TYPE_PURPOSE
-8,q60301042_00_4216,テルの井戸底でアンジェロと待ち合わせする,Meet up with Angelo at the bottom of Tel's well,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,8,Heinz,QUEST_TEXT_TYPE_PURPOSE
-9,q60301042_00_4217,アンジェロの男気を試すためキラービーを探す,Find a Killer Bee to test Angelo's masculinity,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,9,Heinz,QUEST_TEXT_TYPE_PURPOSE
-10,q60301042_00_4218,遭遇した敵を殲滅する,Defeat the enemy encountered,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,10,Morris,QUEST_TEXT_TYPE_PURPOSE
-11,q60301042_00_4219,アンジェロの安否を確認する,Check Angelo's well-being,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,11,Morris,QUEST_TEXT_TYPE_PURPOSE
-12,q60301042_00_4220,神殿の酒場に戻る,Return to the Temple tavern,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,12,Morris,QUEST_TEXT_TYPE_PURPOSE
-13,q60301042_00_4221,エメラダのアドバイスを聞く,Hear Emerada's advice,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,13,Morris,QUEST_TEXT_TYPE_PURPOSE
-14,q60301042_00_4222,アンジェロの前で＜投げキス＞のエモートをする,"Do the ""Blow Kiss"" emote in front of Angelo",ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,14,Morris,QUEST_TEXT_TYPE_PURPOSE
-15,q60301042_00_4223,アンジェロにsayで「あいしてる」の告白を教える,"Use the chat to say ""I love you"" to Angelo",ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,15,Morris,QUEST_TEXT_TYPE_PURPOSE
-16,q60301042_00_4224,アンジェロの覚悟を聞く,Hear Angelo's preparedness,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,16,Angelo,QUEST_TEXT_TYPE_PURPOSE
-17,q60301042_00_4225,シェリーと話をする,Speak to Shelly,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,17,Angelo,QUEST_TEXT_TYPE_PURPOSE
-18,q60301042_00_4226,アンジェロと話をする,Speak to Angelo,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,18,Angelo,QUEST_TEXT_TYPE_PURPOSE
-0,q60301052_00_342,緊急！　お菓子が足りない！＜１＞,Emergency! Not Enough Candy! (1),ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,0,Angelo,QUEST_TEXT_TYPE_NAME
-1,q60301052_00_342,ハロウィンパーティーのお菓子集めを手伝おう,Help collect candy for the Halloween party,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,1,Angelo,QUEST_TEXT_TYPE_ORDER
-2,q60301052_00_4759,＜ハロウィンプチマフィン＞を入手する,"Obtain ""Halloween Petit Muffin""",ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,2,Angelo,QUEST_TEXT_TYPE_PURPOSE
-3,q60301052_00_4760,アンジェロに入手したプチマフィンを見せる,Show Angelo the acquired petit muffin,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,3,Angelo,QUEST_TEXT_TYPE_PURPOSE
-4,q60301052_00_4763,＜ハロウィンプチマフィン＞を２0個納品する,"Deliver ""Halloween Petit Muffin"" x20",ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,4,Angelo,QUEST_TEXT_TYPE_PURPOSE
-5,q60301052_00_4765,ファビオに相談する,Consult with Fabio,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,5,Angelo,QUEST_TEXT_TYPE_PURPOSE
-6,q60301052_00_4766,ファビオから聞いた話をアンジェロに報告する,Report Fabio's story to Angelo,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,6,Angelo,QUEST_TEXT_TYPE_PURPOSE
-7,q60301052_00_4767,アンジェロと一緒に《ハイデル地下霊廟》へ向かう,Head to Hidell Catacombs with Angelo,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,7,Angelo,QUEST_TEXT_TYPE_PURPOSE
-9,q60301052_00_4768,プチマフィンを落とすゴーストを探す,Search for Ghosts that drop petit muffins,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,9,Angelo,QUEST_TEXT_TYPE_PURPOSE
-11,q60301052_00_4769,アンジェロのところに戻る,Return to Angelo's location,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,11,Angelo,QUEST_TEXT_TYPE_PURPOSE
-12,q60301052_00_4770,アンジェロと話をする,Speak to Angelo,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,12,Angelo,QUEST_TEXT_TYPE_PURPOSE
-8,q60301052_00_4801,アンジェロと合流する,Rendezvous with Angelo,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,8,Angelo,QUEST_TEXT_TYPE_PURPOSE
-10,q60301052_00_4802,発見したゴーストを討伐する,Hunt the Ghosts,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,10,Angelo,QUEST_TEXT_TYPE_PURPOSE
-0,q60301053_00_343,事件？　お菓子が足りない！＜２＞,Emergency! Not Enough Candy! (2),ui\00_message\quest_info\q60301053_00.gmd,\quest\q60301053.arc,q60301053.arc,0,Shelly,QUEST_TEXT_TYPE_NAME
-1,q60301053_00_343,お菓子集めを邪魔する者の正体は！？,Who is hindering the collection of sweets!?,ui\00_message\quest_info\q60301053_00.gmd,\quest\q60301053.arc,q60301053.arc,1,Shelly,QUEST_TEXT_TYPE_ORDER
-2,q60301053_00_4771,シェリーの言う謎の存在について神殿内で聞き込みする,Inquire within the Temple about the mysterious entity Shelly mentioned,ui\00_message\quest_info\q60301053_00.gmd,\quest\q60301053.arc,q60301053.arc,2,Shelly,QUEST_TEXT_TYPE_PURPOSE
-5,q60301053_00_4772,集めた噂話をシェリーに報告する,Report gossip to Shelly,ui\00_message\quest_info\q60301053_00.gmd,\quest\q60301053.arc,q60301053.arc,5,Shelly,QUEST_TEXT_TYPE_PURPOSE
-6,q60301053_00_4773,神殿内で謎の存在を探す,Search for the mystery in the Temple,ui\00_message\quest_info\q60301053_00.gmd,\quest\q60301053.arc,q60301053.arc,6,Shelly,QUEST_TEXT_TYPE_PURPOSE
-11,q60301053_00_4774,シェリーに報告する,Report to Shelly,ui\00_message\quest_info\q60301053_00.gmd,\quest\q60301053.arc,q60301053.arc,11,Joseph,QUEST_TEXT_TYPE_PURPOSE
+of your choice at the tavern",ui\00_message\quest_info\q60301030_00.gmd,\quest\q60301030.arc,q60301030.arc,1,Shelly
+2,q60301030_00_4198,全員のアピールを聞いてまわる,Go around and listen each person,ui\00_message\quest_info\q60301030_00.gmd,\quest\q60301030.arc,q60301030.arc,2,Angelo
+3,q60301030_00_4199,一人だけにチョコレートケーキを納品する,Choose a single person to give chocolate to,ui\00_message\quest_info\q60301030_00.gmd,\quest\q60301030.arc,q60301030.arc,3,Angelo
+4,q60301030_00_4200,シェリーに報告する,Report to Shelly,ui\00_message\quest_info\q60301030_00.gmd,\quest\q60301030.arc,q60301030.arc,4,Shelly
+0,q60301041_00_305,愛し君のための贈り物＜１＞,"A Gift for You, My Love (1)",ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,0,Angelo
+1,q60301041_00_305,アンジェロのお悩み相談に乗る,Consult with Angelo about your problems,ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,1,Angelo
+2,q60301041_00_4209,ヴァネッサとアデルドナハにアドバイスを聞く,Hear advice from Vanessa and Adair Donnchadh,ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,2,Angelo
+3,q60301041_00_4210,アンジェロに報告する,Report to Angelo,ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,3,Angelo
+4,q60301041_00_4211,《レスタニア産はちみつ》を入手する,"Obtain ""Lestanian Honey""",ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,4,Vanessa
+5,q60301041_00_4212,アンジェロに《レスタニア産はちみつ》を納品する,"Deliver ""Lestanian Honey"" to Angelo",ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,5,Adair Donnchadh
+6,q60301041_00_4213,グレゴリーに相談する,Consult with Gregory,ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,6,Angelo
+7,q60301041_00_4214,鑑定交換で《スイートハニーケーキ》を入手する,"Obtain ""Sweet Honey Cake"" at Appraisal Exchange",ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,7,Angelo
+8,q60301041_00_4215,アンジェロに《スイートハニーケーキ》を納品する,"Deliver ""Sweet Honey Cake"" to Angelo",ui\00_message\quest_info\q60301041_00.gmd,\quest\q60301041.arc,q60301041.arc,8,Vanessa
+0,q60301042_00_306,愛し君のための贈り物＜２＞,"A Gift for You, My Love (2)",ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,0,Angelo
+1,q60301042_00_306,アンジェロのお悩み相談に乗る,Consult with Angelo about your problems,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,1,Angelo
+19,q60301042_00_2784,(ｱ|ア|あ)(ｲ|イ|い)(ｼ|シ|し)(ﾃ|テ|て)(ﾙ|ル|る),(I|i).*(L|l)(o)(v)(e).*(Y|y)(o)(u),ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,19,Angelo
+2,q60301042_00_4203,ハインツにアドバイスを聞く,Hear advice from Heinz,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,2,Angelo
+3,q60301042_00_4204,モーリスにオシャレの相談をしに行く,Head to and consult with the fashionable Morris,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,3,Angelo
+4,q60301042_00_4205,モーリスに《巨人の毛髪》を納品する,"Deliver ""Giant Fur"" to Morris",ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,4,Heinz
+5,q60301042_00_4206,アンジェロを確認しに行く,Head to and check Angelo,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,5,Craig
+6,q60301042_00_4207,クレイグにアドバイスを聞く,Hear advice from Craig,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,6,Emerada
+7,q60301042_00_4208,アンジェロに報告する,Report to Angelo,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,7,Heinz
+8,q60301042_00_4216,テルの井戸底でアンジェロと待ち合わせする,Meet up with Angelo at the bottom of Tel's well,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,8,Heinz
+9,q60301042_00_4217,アンジェロの男気を試すためキラービーを探す,Find a Killer Bee to test Angelo's masculinity,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,9,Heinz
+10,q60301042_00_4218,遭遇した敵を殲滅する,Defeat the enemy encountered,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,10,Morris
+11,q60301042_00_4219,アンジェロの安否を確認する,Check Angelo's well-being,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,11,Morris
+12,q60301042_00_4220,神殿の酒場に戻る,Return to the Temple tavern,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,12,Morris
+13,q60301042_00_4221,エメラダのアドバイスを聞く,Hear Emerada's advice,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,13,Morris
+14,q60301042_00_4222,アンジェロの前で＜投げキス＞のエモートをする,"Do the ""Blow Kiss"" emote in front of Angelo",ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,14,Morris
+15,q60301042_00_4223,アンジェロにsayで「あいしてる」の告白を教える,"Use the chat to say ""I love you"" to Angelo",ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,15,Morris
+16,q60301042_00_4224,アンジェロの覚悟を聞く,Hear Angelo's preparedness,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,16,Angelo
+17,q60301042_00_4225,シェリーと話をする,Speak to Shelly,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,17,Angelo
+18,q60301042_00_4226,アンジェロと話をする,Speak to Angelo,ui\00_message\quest_info\q60301042_00.gmd,\quest\q60301042.arc,q60301042.arc,18,Angelo
+0,q60301052_00_342,緊急！　お菓子が足りない！＜１＞,Emergency! Not Enough Candy! (1),ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,0,Angelo
+1,q60301052_00_342,ハロウィンパーティーのお菓子集めを手伝おう,Help collect candy for the Halloween party,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,1,Angelo
+2,q60301052_00_4759,＜ハロウィンプチマフィン＞を入手する,"Obtain ""Halloween Petit Muffin""",ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,2,Angelo
+3,q60301052_00_4760,アンジェロに入手したプチマフィンを見せる,Show Angelo the acquired petit muffin,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,3,Angelo
+4,q60301052_00_4763,＜ハロウィンプチマフィン＞を２0個納品する,"Deliver ""Halloween Petit Muffin"" x20",ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,4,Angelo
+5,q60301052_00_4765,ファビオに相談する,Consult with Fabio,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,5,Angelo
+6,q60301052_00_4766,ファビオから聞いた話をアンジェロに報告する,Report Fabio's story to Angelo,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,6,Angelo
+7,q60301052_00_4767,アンジェロと一緒に《ハイデル地下霊廟》へ向かう,Head to Hidell Catacombs with Angelo,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,7,Angelo
+9,q60301052_00_4768,プチマフィンを落とすゴーストを探す,Search for Ghosts that drop petit muffins,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,9,Angelo
+11,q60301052_00_4769,アンジェロのところに戻る,Return to Angelo's location,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,11,Angelo
+12,q60301052_00_4770,アンジェロと話をする,Speak to Angelo,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,12,Angelo
+8,q60301052_00_4801,アンジェロと合流する,Rendezvous with Angelo,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,8,Angelo
+10,q60301052_00_4802,発見したゴーストを討伐する,Hunt the Ghosts,ui\00_message\quest_info\q60301052_00.gmd,\quest\q60301052.arc,q60301052.arc,10,Angelo
+0,q60301053_00_343,事件？　お菓子が足りない！＜２＞,Emergency! Not Enough Candy! (2),ui\00_message\quest_info\q60301053_00.gmd,\quest\q60301053.arc,q60301053.arc,0,Shelly
+1,q60301053_00_343,お菓子集めを邪魔する者の正体は！？,Who is hindering the collection of sweets!?,ui\00_message\quest_info\q60301053_00.gmd,\quest\q60301053.arc,q60301053.arc,1,Shelly
+2,q60301053_00_4771,シェリーの言う謎の存在について神殿内で聞き込みする,"Inquire within the Temple
+about the mysterious entity Shelly mentioned",ui\00_message\quest_info\q60301053_00.gmd,\quest\q60301053.arc,q60301053.arc,2,Shelly
+5,q60301053_00_4772,集めた噂話をシェリーに報告する,Report gossip to Shelly,ui\00_message\quest_info\q60301053_00.gmd,\quest\q60301053.arc,q60301053.arc,5,Shelly
+6,q60301053_00_4773,神殿内で謎の存在を探す,Search for the mystery in the Temple,ui\00_message\quest_info\q60301053_00.gmd,\quest\q60301053.arc,q60301053.arc,6,Shelly
+11,q60301053_00_4774,シェリーに報告する,Report to Shelly,ui\00_message\quest_info\q60301053_00.gmd,\quest\q60301053.arc,q60301053.arc,11,Joseph

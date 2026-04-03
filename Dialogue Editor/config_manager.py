@@ -38,6 +38,9 @@ class ConfigManager:
                         "bible_path": "",
                         "glossary_path": "",
                         "archetypes": {},
+                        "entry_type_rules": {},
+                        "replace_rules": [],
+                        "substitution_rules": [],
                     }
                     for key, default in keys_defaults.items():
                         if key not in data:
@@ -59,6 +62,8 @@ class ConfigManager:
             "speaker_archetypes": {},
             "speaker_notes": {},
             "archetypes": {},
+            "entry_type_rules": {},
+            "replace_rules": [],
         }
 
     def save_all(self):

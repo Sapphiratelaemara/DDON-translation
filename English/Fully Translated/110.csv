@@ -333,7 +333,7 @@ A safe sleeping place, rest as you please.",ui\00_message\npc\base\n2550.gmd,\np
 0,,はい,OK,ui\00_message\npc\base\n2550.gmd,\npc\n2550.arc,n2550.arc,5,Gas
 0,,いいえ,Cancel,ui\00_message\npc\base\n2550.gmd,\npc\n2550.arc,n2550.arc,6,Gas
 0,,"俺《弱化の治療》できる
-<VAL PRICE_WEAK>だ","If it's 《Weakness Treatment》, it's <VAL PRICE_WEAK>.
+<VAL PRICE_WEAK>だ","If it's [Weakness Treatment], it's <VAL PRICE_WEAK>.
 What do you want to do?",ui\00_message\npc\base\n2550.gmd,\npc\n2550.arc,n2550.arc,7,Gas
 0,,はい,OK,ui\00_message\npc\base\n2550.gmd,\npc\n2550.arc,n2550.arc,8,Gas
 0,,いいえ,Cancel,ui\00_message\npc\base\n2550.gmd,\npc\n2550.arc,n2550.arc,9,Gas
@@ -547,9 +547,8 @@ ask, if I may...",ui\00_message\npc\base\n2600.gmd,\npc\n2600.arc,n2600.arc,18,A
 侵食が拡がっていないかを
 調査していただけないでしょうか","Could you please investigate if there is no
 spreading of corruption or infected near the
-vicinity of《<SPOT 907>》, 
-on the south side of the
- forest?",ui\00_message\npc\base\n2600.gmd,\npc\n2600.arc,n2600.arc,19,Arthfael
+vicinity of [<SPOT 907>], on the south side of the
+forest?",ui\00_message\npc\base\n2600.gmd,\npc\n2600.arc,n2600.arc,19,Arthfael
 0,,"もしも侵食が拡がっている形跡が認められれば
 それらを排除してくださると幸いです","If there are any signs of the corruption
 spreading, I would be grateful if you could
@@ -599,10 +598,10 @@ There must be some kind
  way out somewhere.",ui\00_message\npc\base\n2600.gmd,\npc\n2600.arc,n2600.arc,28,Arthfael
 0,,"このまま封鎖し続けても後はありません
 《<SPOT 906>》も調査の対象とできるよう
-封鎖を解除いたしました","We can’t keep this area cordoned off indefinitely.
-We have lifted the cordon so that
-《<SPOT 906>》 
-can also be included in the investigation.",ui\00_message\npc\base\n2600.gmd,\npc\n2600.arc,n2600.arc,29,Arthfael
+封鎖を解除いたしました","There is no future if we continue to keep it
+blocked like this.
+In order to include [<SPOT 906>] in the
+investigation, we have released the blockade.",ui\00_message\npc\base\n2600.gmd,\npc\n2600.arc,n2600.arc,29,Arthfael
 0,,"覚者様も、もしよろしければ
 一度現状を確認していただけないでしょうか","Ser Arisen, if you wouldn't mind, could you
 please take a moment to review the current
@@ -715,10 +714,8 @@ remove the debris that was blocking the path to
 the deeper regions.",ui\00_message\npc\base\n2600.gmd,\npc\n2600.arc,n2600.arc,50,Arthfael
 0,,"今回の整備によって
 《<SPOT 909>》へ足を踏み入れることが
-できるようになっています、が――","Thanks to the recent maintenance, 
-you will now be able
- to set foot in 
-《<SPOT 909>》, but...",ui\00_message\npc\base\n2600.gmd,\npc\n2600.arc,n2600.arc,51,Arthfael
+できるようになっています、が――","Thanks to this maintenance, you will now be able
+to set foot into [<SPOT 909>], but...",ui\00_message\npc\base\n2600.gmd,\npc\n2600.arc,n2600.arc,51,Arthfael
 0,,"かの地はこのモルフォール一帯においても
 特に侵食の進んだ森のひとつ","That area is one of the forests in this entire
 Morfaul region that has been particularly ravaged
