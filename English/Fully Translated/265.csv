@@ -148,13 +148,13 @@ Can also be triggered while mid-air in battle.
 14,CUSTOM_SKILL_INFO_02_160,"【ＥＸ追加効果】
 ダメージ量が増加
 気絶攻力が増加","EX Additional Effects:
-Increase damage.     
+Increase damage. 
 Increase Stun Power.",ui\00_message\skill\custom_skill_info_02.gmd,\skill\custom_skill_data_02.arc,custom_skill_data_02.arc,14,
 15,CUSTOM_SKILL_INFO_02_161,"【ＥＸ追加効果】
 空中で使用可能になる
 チャンス攻力が増加
 疲労攻力が増加","EX Additional Effects:
-Possible to activate in the air.    
+Possible to activate in the air. 
 Increase Chance Attack.
 Increase exhaust power.",ui\00_message\skill\custom_skill_info_02.gmd,\skill\custom_skill_data_02.arc,custom_skill_data_02.arc,15,
 16,CUSTOM_SKILL_INFO_02_158,"【ＥＸ追加効果】
@@ -466,7 +466,7 @@ LV.6: Increases number of magick spheres (3→5).</COL>",ui\00_message\skill\cus
 LV.６で魔球数増加（３→５）</COL>","Creates magick spheres that rapidly
 orbit around you. Nullifies one incoming
 attack per sphere. 
-<COL ffdc78>LV ↑:Longer duration. LV6: +spheres(3→5).</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,3,
+<COL ffdc78>LV ↑: Longer duration. LV6: +spheres(3→5).</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,3,
 4,CUSTOM_SKILL_INFO_04_44,"急速に体力を回復させる魔法エリアを発現させる
 （最大回復量は治癒上限値）（対不死には攻撃）
 <COL ffdc78>LV UP毎に設置持続時間が延長
@@ -542,7 +542,7 @@ LV6: Area size increases.</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\s
 LV.６で魔法球の威力上昇／魔法砲台増加（１→２）</COL>","Creates a turret that fires 
 additional shots when hit by Blast Bit.
 Lasts for limited time. 
-<COL ffdc78>LV ↑:Longer duration.
+<COL ffdc78>LV ↑: Longer duration.
 LV6: +Orb power/+Turrets (1→2).</COL>",ui\00_message\skill\custom_skill_info_04.gmd,\skill\custom_skill_data_04.arc,custom_skill_data_04.arc,13,
 14,CUSTOM_SKILL_INFO_04_166,"【ＥＸ追加効果】
 魔法エリア内にいる味方の
@@ -707,7 +707,7 @@ LV.6: Increases the range of the effect.</COL>",ui\00_message\skill\custom_skill
 LV.６で射程距離延長</COL>","Fires a magick anchor to restrain foes.
 Against large/special enemies: builds
 ATK↓/MAG↓/DEF↓/RES↓ status. 
-<COL ffdc78>LV ↑:Less stamina drain/+status buildup. 
+<COL ffdc78>LV ↑: Less stamina drain/+status buildup. 
 LV6: +Range.</COL>",ui\00_message\skill\custom_skill_info_05.gmd,\skill\custom_skill_data_05.arc,custom_skill_data_05.arc,6,
 7,CUSTOM_SKILL_INFO_05_57,"大盾に広範囲を防御できる魔法の壁を付加する
 <COL ffdc78>LV UP毎に効果持続時間延長
@@ -1066,8 +1066,8 @@ LV.6: Motion changes. Increases number of hits.</COL>",ui\00_message\skill\custo
 <COL ffdc78>LV UP毎に攻撃威力の上昇
 LV.６で移動距離が延長／攻撃ヒット数増加</COL>","Charge forward with blade extended,
 knocking down any caught in its path.
-<PADM>Left stick<KEYM>movement keys</KEYM> steer charge.  
-<COL ffdc78>LV+: Boosts attack power.  
+<PADM>Left stick<KEYM>movement keys</KEYM> steer charge. 
+<COL ffdc78>LV+: Boosts attack power. 
 LV6: Extends range/hits more times.</COL> ",ui\00_message\skill\custom_skill_info_07.gmd,\skill\custom_skill_data_07.arc,custom_skill_data_07.arc,1,
 2,CUSTOM_SKILL_INFO_07_81,"前方に踏み込みながら剣の柄を打ち込む
 敵を怯ませやすく、怒り状態の敵のスタミナも
@@ -1277,37 +1277,37 @@ LV.6: Increases magickal arrows fired (4→6).</COL>",ui\00_message\skill\custom
 強化効果のある魔矢を放つ（対不死には攻撃）
 味方に接触させれば魔法球が吸着する
 <COL ffdc78>LV UP毎に回復力上昇／展開エリア拡張
-LV.６でターゲット数増加（３→７）</COL>","Fires magick arrows that create health-  
-restoring fields on impact. Fields  
-damage undead enemies in range.  
-<COL ffdc78>LV↑: Heal strength/area ↑  
-LV6: Max targets ↑ (3→7)</COL>  ",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,1,
+LV.６でターゲット数増加（３→７）</COL>","Fires magick arrows that create health- 
+restoring fields on impact. Fields 
+damage undead enemies in range. 
+<COL ffdc78>LV↑: Heal strength/area ↑ 
+LV6: Max targets ↑ (3→7)</COL> ",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,1,
 2,CUSTOM_SKILL_INFO_08_93,"一部の状態異常回復に加え、物理防御力と魔法防御力の
 強化効果のある魔矢を放つ（対不死には攻撃）
 味方に接触させれば魔法球が吸着する
 <COL ffdc78>LV UP毎にスタミナ消費減少
-LV.６でターゲット数増加（３→７）</COL>","Fires magick arrows emit curative fields on impact:  
-Cures status for allies・Boosts defense・Harms undead  
-<COL ffdc78>LV+: ↓Stamina use  
+LV.６でターゲット数増加（３→７）</COL>","Fires magick arrows emit curative fields on impact: 
+Cures status for allies・Boosts defense・Harms undead 
+<COL ffdc78>LV+: ↓Stamina use 
 LV6: ↑Max targets (3→7)</COL> ",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,2,
 3,CUSTOM_SKILL_INFO_08_94,"起爆性のある魔矢を放つ
 敵に刺さった魔矢への攻撃には爆発がともなう
 爆発に接触した周囲の敵は中心地に吹き飛ぶ
 <COL ffdc78>LV UP毎に攻撃威力の上昇
-LV.６で爆発範囲が拡張</COL>","Fires magick arrows that lodge in enemies.  
-Attacking embedded arrows triggers explosions,  
-knocking back nearby foes from the blast.  
-<COL ffdc78>LV↑: +Explosion power  
-LV6: Blast radius ↑</COL>  ",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,3,
+LV.６で爆発範囲が拡張</COL>","Fires magick arrows that lodge in enemies. 
+Attacking embedded arrows triggers explosions, 
+knocking back nearby foes from the blast. 
+<COL ffdc78>LV↑: +Explosion power 
+LV6: Blast radius ↑</COL> ",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,3,
 4,CUSTOM_SKILL_INFO_08_97,"聖属性の魔矢を放ち、着弾場所に魔法球を
 展開する。敵に接触させた場合魔法球が付着し
 継続して体力を奪う
 <COL ffdc78>LV UP毎に攻撃威力の上昇
-LV.６で魔法球継続時間が延長／攻撃ヒット数増加</COL>","Fires holy magick arrows that deploy  
-spheres on impact. Attached spheres  
-drain enemy HP continuously.  
-<COL ffdc78>LV↑: Damage ↑  
-LV6: Duration ↑ + hits ↑</COL>  ",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,4,
+LV.６で魔法球継続時間が延長／攻撃ヒット数増加</COL>","Fires holy magick arrows that deploy 
+spheres on impact. Attached spheres 
+drain enemy HP continuously. 
+<COL ffdc78>LV↑: Damage ↑ 
+LV6: Duration ↑ + hits ↑</COL> ",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,4,
 5,CUSTOM_SKILL_INFO_08_98,"敵の物理攻撃力と魔法攻撃力を
 一定時間低下させる魔矢を放つ
 <COL ffdc78>LV UP毎に低下力の強化
@@ -1334,11 +1334,11 @@ LV.6: Increases the number of ricochets.</COL>",ui\00_message\skill\custom_skill
 8,CUSTOM_SKILL_INFO_08_100,"スタミナ回復効果のある魔矢を放つ（対不死には攻撃）
 味方に接触させれば魔法球が吸着する
 <COL ffdc78>LV UP毎に魔法球継続時間の延長／展開エリア拡張
-LV.６で魔力増加速度の上昇／ターゲット数増加（３→７）</COL>","Fires magick arrows that create stamina-  
-restoring fields on impact. These fields  
-also damage undead enemies in range.  
-<COL ffdc78>LV↑: Field duration/size ↑  
-LV6: Faster recovery + targets (3→7)</COL>  ",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,8,
+LV.６で魔力増加速度の上昇／ターゲット数増加（３→７）</COL>","Fires magick arrows that create stamina- 
+restoring fields on impact. These fields 
+also damage undead enemies in range. 
+<COL ffdc78>LV↑: Field duration/size ↑ 
+LV6: Faster recovery + targets (3→7)</COL> ",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,8,
 9,CUSTOM_SKILL_INFO_08_101,"敵の耐久力を一定時間低下させる魔矢を放つ
 <COL ffdc78>LV UP毎に低下力の強化
 LV.６で魔力増加速度の上昇／
@@ -1360,20 +1360,20 @@ LV6: Extends sphere duration</COL>",ui\00_message\skill\custom_skill_info_08.gmd
 <PADM>左スティック<KEYM>移動キー</KEYM>で軌道操作可能。威力はスタミナ依存
 なお当たった部位は暫く自動的に魔矢の標的になる
 <COL ffdc78>LV UP毎に攻撃威力／魔力増加速度の上昇
-LV.６で攻撃ヒット数増加</COL>","Fires a massive holy magick arrow after charging.  
-<PADM>Left stick<KEYM>movement keys</KEYM> steers in flight.  
-Hit body parts become auto-targets.  
-<COL ffdc78>LV↑: Power/charge speed ↑  
-LV6: Max hits ↑</COL>  ",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,11,
+LV.６で攻撃ヒット数増加</COL>","Fires a massive holy magick arrow after charging. 
+<PADM>Left stick<KEYM>movement keys</KEYM> steers in flight. 
+Hit body parts become auto-targets. 
+<COL ffdc78>LV↑: Power/charge speed ↑ 
+LV6: Max hits ↑</COL> ",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,11,
 12,CUSTOM_SKILL_INFO_08_141,"癒しの力を込めた魔矢を放ち、上空で起爆させる
 矢は起爆時に強い光を放ち、照らされた味方の
 体力を一定量回復する（対不死には攻撃）
 <COL ffdc78>LV UP毎に回復量上昇
-LV.６で起爆時の閃光効果強化</COL>","Fires a healing magick arrow that detonates  
-midair, emitting a flash that restores HP  
-to illuminated allies (damages undead).  
-<COL ffdc78>LV↑: Heal amount ↑  
-LV6: Flash power ↑</COL>  ",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,12,
+LV.６で起爆時の閃光効果強化</COL>","Fires a healing magick arrow that detonates 
+midair, emitting a flash that restores HP 
+to illuminated allies (damages undead). 
+<COL ffdc78>LV↑: Heal amount ↑ 
+LV6: Flash power ↑</COL> ",ui\00_message\skill\custom_skill_info_08.gmd,\skill\custom_skill_data_08.arc,custom_skill_data_08.arc,12,
 13,CUSTOM_SKILL_INFO_08_142,"魔矢を放ち、接触した敵を引き裂く触手を発生させる
 触手は攻撃対象を自ら追尾し、攻撃が連鎖する
 連鎖回数は敵の大きさで変動。侵食核の破壊に有効
@@ -1573,7 +1573,7 @@ LV.６で最大入力回数が増加し、展開時間が延長</COL>","Generate
 all damage to allies inside while applying
 Elixir status to enemies. Properly timed
 button inputs extend the duration.
-<COL ffdc78>LV↑: Status potency ↑  LV6: +Inputs/Duration</COL>",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,11,
+<COL ffdc78>LV↑: Status potency ↑ LV6: +Inputs/Duration</COL>",ui\00_message\skill\custom_skill_info_09.gmd,\skill\custom_skill_data_09.arc,custom_skill_data_09.arc,11,
 12,CUSTOM_SKILL_INFO_09_189,"【ＥＸ追加効果】
 ダメージ量が増加
 打ち込まれた錬成杭の錬成値が徐々に増加する
