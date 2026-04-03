@@ -190,22 +190,22 @@ and try to solve the problem.",ui\00_message\quest_info\q60319004_00.gmd,\quest\
 0,q60319010_00_236,フェルヤナ荒原　試練：魔の封印捜査,FW Trial: Investigate Sealed Evil,ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,0,Nazik,QUEST_TEXT_TYPE_NAME
 1,q60319010_00_236,"依頼者から事件の詳細を聞き
 問題解決に挑む","Get the details of the case from the client
-and try to solve the problem.",ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,1,Nazik
-3,q60319010_00_2962,<NPC 3050>から古の魔物について確認する,Check with <NPC 3050> about the ancient monsters,ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,3,Nazik
-4,q60319010_00_2963,<STG 635>の<NPC 3053>に相談する,Talk to <NPC 3053> in <STG 635>,ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,4,Nazik
-5,q60319010_00_3300,<STG 201>にいる<NPC 3>に解読依頼する,Ask <NPC 3> in <STG 201> to decipher it,ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,5,Nazik
+and try to solve the problem.",ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,1,Nazik,QUEST_TEXT_TYPE_ORDER
+3,q60319010_00_2962,<NPC 3050>から古の魔物について確認する,Check with <NPC 3050> about the ancient monsters,ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,3,Nazik,QUEST_TEXT_TYPE_PURPOSE
+4,q60319010_00_2963,<STG 635>の<NPC 3053>に相談する,Talk to <NPC 3053> in <STG 635>,ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,4,Nazik,QUEST_TEXT_TYPE_PURPOSE
+5,q60319010_00_3300,<STG 201>にいる<NPC 3>に解読依頼する,Ask <NPC 3> in <STG 201> to decipher it,ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,5,Nazik,QUEST_TEXT_TYPE_PURPOSE
 6,q60319010_00_3301,<STG 635>にて解読完了を待つ【待ち時間：3分（現実時間）】,"Wait for decryption to complete at <STG 635>
-[Wait time: 3 minutes (real time)]",ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,6,Shekel
+[Wait time: 3 minutes (real time)]",ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,6,Shekel,QUEST_TEXT_TYPE_PURPOSE
 7,q60319010_00_3302,<STG 635>にて<NPC 3>の解読結果を聞く,"Listen to the decoding results from <NPC 3> 
-in <STG 635>",ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,7,Shekel
-8,q60319010_00_3303,<STG 1001>にいる<NPC 2954>に解読相談する,Talk to <NPC 2954> who is in <STG 1001> for decryption,ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,8,Shekel
-9,q60319010_00_3304,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、<NPC 2954>に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to <NPC 2954> (need: <SQDI DNUM>),ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,9,Shekel
+in <STG 635>",ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,7,Shekel,QUEST_TEXT_TYPE_PURPOSE
+8,q60319010_00_3303,<STG 1001>にいる<NPC 2954>に解読相談する,Talk to <NPC 2954> who is in <STG 1001> for decryption,ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,8,Shekel,QUEST_TEXT_TYPE_PURPOSE
+9,q60319010_00_3304,＜<SQDI NAME>＞を＜<SQDI NUM>＞個、<NPC 2954>に渡す（残り:<SQDI DNUM>）,Deliver <SQDI NAME> x<SQDI NUM> to <NPC 2954> (need: <SQDI DNUM>),ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,9,Shekel,QUEST_TEXT_TYPE_PURPOSE
 10,q60319010_00_3305,<STG 1063>前に向かい<NPC 600>に調査結果を聞く,"Head to <STG 1063> and ask 
-<NPC 600> for the results",ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,10,Shekel
-11,q60319010_00_3306,<NPC 3050>に解除方法を報告する,Report how to release it to <NPC 3050>,ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,11,Shekel
+<NPC 600> for the results",ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,10,Shekel,QUEST_TEXT_TYPE_PURPOSE
+11,q60319010_00_3306,<NPC 3050>に解除方法を報告する,Report how to release it to <NPC 3050>,ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,11,Shekel,QUEST_TEXT_TYPE_PURPOSE
 2,q60319010_00_3309,<NPC 3050>から話の内容を確認する,"Confirm the details of the conversation 
-with <NPC 3050>",ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,2,Nazik
-0,q60319011_00_238,古代の闇の中へ,Into the Ancient Darkness,ui\00_message\quest_info\q60319011_00.gmd,\quest\q60319011.arc,q60319011.arc,0,Nazik
+with <NPC 3050>",ui\00_message\quest_info\q60319010_00.gmd,\quest\q60319010.arc,q60319010.arc,2,Nazik,QUEST_TEXT_TYPE_PURPOSE
+0,q60319011_00_238,古代の闇の中へ,Into the Ancient Darkness,ui\00_message\quest_info\q60319011_00.gmd,\quest\q60319011.arc,q60319011.arc,0,Nazik,QUEST_TEXT_TYPE_NAME
 1,q60319011_00_238,"依頼者から事件の詳細を聞き
 問題解決に挑む","Get the details of the case from the client
 and try to solve the problem.",ui\00_message\quest_info\q60319011_00.gmd,\quest\q60319011.arc,q60319011.arc,1,Nazik,QUEST_TEXT_TYPE_ORDER
@@ -289,12 +289,12 @@ and try to solve the problem.",ui\00_message\quest_info\q60320010_00.gmd,\quest\
 問題解決に挑む
 ※クエストの破棄はできません","Hear the details of the incident from the 
 requester and tackle the problem.
-Note: You cannot abandon this quest.",ui\00_message\quest_info\q60320011_00.gmd,\quest\q60320011.arc,q60320011.arc,1,Doris
+Note: You cannot abandon this quest.",ui\00_message\quest_info\q60320011_00.gmd,\quest\q60320011.arc,q60320011.arc,1,Doris,QUEST_TEXT_TYPE_ORDER
 2,q60320011_00_4325,ワールドクエストを受注し、<SPOT 1102>へ向かう,"Get an order for the World Quest and head to 
-<SPOT 1102>",ui\00_message\quest_info\q60320011_00.gmd,\quest\q60320011.arc,q60320011.arc,2,Doris
-3,q60320011_00_4326,イフリートを討伐する,Defeat the Ifrit,ui\00_message\quest_info\q60320011_00.gmd,\quest\q60320011.arc,q60320011.arc,3,Doris
-4,q60320011_00_4327,<NPC 3200>へ報告する,Report to <NPC 3200>,ui\00_message\quest_info\q60320011_00.gmd,\quest\q60320011.arc,q60320011.arc,4,Doris
-0,q60320013_00_339,【ベルセルク】因果の流れの中に――,[Berserk] In the Flow of Causality...,ui\00_message\quest_info\q60320013_00.gmd,\quest\q60320013.arc,q60320013.arc,0,Wilson
+<SPOT 1102>",ui\00_message\quest_info\q60320011_00.gmd,\quest\q60320011.arc,q60320011.arc,2,Doris,QUEST_TEXT_TYPE_PURPOSE
+3,q60320011_00_4326,イフリートを討伐する,Defeat the Ifrit,ui\00_message\quest_info\q60320011_00.gmd,\quest\q60320011.arc,q60320011.arc,3,Doris,QUEST_TEXT_TYPE_PURPOSE
+4,q60320011_00_4327,<NPC 3200>へ報告する,Report to <NPC 3200>,ui\00_message\quest_info\q60320011_00.gmd,\quest\q60320011.arc,q60320011.arc,4,Doris,QUEST_TEXT_TYPE_PURPOSE
+0,q60320013_00_339,【ベルセルク】因果の流れの中に――,[Berserk] In the Flow of Causality...,ui\00_message\quest_info\q60320013_00.gmd,\quest\q60320013.arc,q60320013.arc,0,Wilson,QUEST_TEXT_TYPE_NAME
 1,q60320013_00_339,"白竜神殿にいるウィルソンから
 突如現れた物体についての噂を聞き
 詳細を調べる","Ask Wilson at the White Dragon Temple
@@ -363,12 +363,12 @@ and try to solve the problem.",ui\00_message\quest_info\q60321010_00.gmd,\quest\
 0,q60321011_00_336,彼方より堕ち呼ばれし魔道,Magick Called to the Deepest Depths,ui\00_message\quest_info\q60321011_00.gmd,\quest\q60321011.arc,q60321011.arc,0,Bacias,QUEST_TEXT_TYPE_NAME
 1,q60321011_00_336,"依頼者から事件の詳細を聞き
 問題解決に挑む","Get the details of the case from the client
-and try to solve the problem.",ui\00_message\quest_info\q60321011_00.gmd,\quest\q60321011.arc,q60321011.arc,1,Bacias
+and try to solve the problem.",ui\00_message\quest_info\q60321011_00.gmd,\quest\q60321011.arc,q60321011.arc,1,Bacias,QUEST_TEXT_TYPE_ORDER
 2,q60321011_00_4706,闇の魔法を操る魔物の居場所へ向かう,"Head to the location of the monster that 
-manipulates dark magick",ui\00_message\quest_info\q60321011_00.gmd,\quest\q60321011.arc,q60321011.arc,2,Bacias
-3,q60321011_00_4707,魔物を討伐する,Defeat the foe(s),ui\00_message\quest_info\q60321011_00.gmd,\quest\q60321011.arc,q60321011.arc,3,Bacias
-4,q60321011_00_4708,エリアマスターの<NPC 4512>に報告する,"Report to <NPC 4512>, the Area Master",ui\00_message\quest_info\q60321011_00.gmd,\quest\q60321011.arc,q60321011.arc,4,Bacias
-0,q60340000_00_362,一目ごとに想いを込めて＜１＞,All Your Feelings in One Glance I,ui\00_message\quest_info\q60340000_00.gmd,\quest\q60340000.arc,q60340000.arc,0,Shelly
+manipulates dark magick",ui\00_message\quest_info\q60321011_00.gmd,\quest\q60321011.arc,q60321011.arc,2,Bacias,QUEST_TEXT_TYPE_PURPOSE
+3,q60321011_00_4707,魔物を討伐する,Defeat the foe(s),ui\00_message\quest_info\q60321011_00.gmd,\quest\q60321011.arc,q60321011.arc,3,Bacias,QUEST_TEXT_TYPE_PURPOSE
+4,q60321011_00_4708,エリアマスターの<NPC 4512>に報告する,"Report to <NPC 4512>, the Area Master",ui\00_message\quest_info\q60321011_00.gmd,\quest\q60321011.arc,q60321011.arc,4,Bacias,QUEST_TEXT_TYPE_PURPOSE
+0,q60340000_00_362,一目ごとに想いを込めて＜１＞,All Your Feelings in One Glance I,ui\00_message\quest_info\q60340000_00.gmd,\quest\q60340000.arc,q60340000.arc,0,Shelly,QUEST_TEXT_TYPE_NAME
 1,q60340000_00_362,"シェリーと今年のバレンタインのため
 プレゼントを作る","Make a present with Shelly for this year's
 Valentine's Day",ui\00_message\quest_info\q60340000_00.gmd,\quest\q60340000.arc,q60340000.arc,1,Shelly,QUEST_TEXT_TYPE_ORDER
@@ -440,202 +440,202 @@ with Sonia (tentative)",ui\00_message\quest_info\q61000003_00.gmd,\quest\q610000
 0,q61000005_00_370,途絶えぬ闇,Unending Darkness,ui\00_message\quest_info\q61000005_00.gmd,\quest\q61000005.arc,q61000005.arc,0,The White Dragon,QUEST_TEXT_TYPE_NAME
 1,q61000005_00_370,"白竜が感知した凶悪な気配について
 詳細を聞く","Ask for details about the malevolent presence 
-sensed by the White Dragon",ui\00_message\quest_info\q61000005_00.gmd,\quest\q61000005.arc,q61000005.arc,1,The White Dragon
-2,q61000005_00_5237,白竜と話す,Speak with the White Dragon,ui\00_message\quest_info\q61000005_00.gmd,\quest\q61000005.arc,q61000005.arc,2,Travers
-3,q61000005_00_5238,トラバースの元へ向かう,Seek out Travers,ui\00_message\quest_info\q61000005_00.gmd,\quest\q61000005.arc,q61000005.arc,3,Travers
-0,q80200000_00_1,野菜料理初級編,Elementary Vegetable Dish,ui\00_message\quest_info\q80200000_00.gmd,\quest\q80200000.arc,q80200000.arc,0,Partner Pawn
-1,q80200000_00_1,,,ui\00_message\quest_info\q80200000_00.gmd,\quest\q80200000.arc,q80200000.arc,1,Partner Pawn
-2,q80200000_00_2466,パートナーポーンに《<ITEM 9407>》を１個納品する,"Deliver 1 ""<ITEM 9407>"" to your Partner Pawn",ui\00_message\quest_info\q80200000_00.gmd,\quest\q80200000.arc,q80200000.arc,2,Partner Pawn
-0,q80200001_00_4,キノコ料理初級編,Elementary Mushroom Dish,ui\00_message\quest_info\q80200001_00.gmd,\quest\q80200001.arc,q80200001.arc,0,Partner Pawn
-1,q80200001_00_4,,,ui\00_message\quest_info\q80200001_00.gmd,\quest\q80200001.arc,q80200001.arc,1,Partner Pawn
-2,q80200001_00_2550,パートナーポーンに《<ITEM 1351>》を１個納品する,"Deliver 1 ""<ITEM 1351>"" to your Partner Pawn",ui\00_message\quest_info\q80200001_00.gmd,\quest\q80200001.arc,q80200001.arc,2,Partner Pawn
-0,q80200002_00_5,肉料理初級編,Elementary Meat Dish,ui\00_message\quest_info\q80200002_00.gmd,\quest\q80200002.arc,q80200002.arc,0,Partner Pawn
-1,q80200002_00_5,,,ui\00_message\quest_info\q80200002_00.gmd,\quest\q80200002.arc,q80200002.arc,1,Partner Pawn
-2,q80200002_00_2551,パートナーポーンに《<ITEM 9408>》を１個納品する,"Deliver 1 ""<ITEM 9408>"" to your Partner Pawn",ui\00_message\quest_info\q80200002_00.gmd,\quest\q80200002.arc,q80200002.arc,2,Partner Pawn
-0,q80200003_00_6,野菜料理中級編,Intermediate Vegetable Dish,ui\00_message\quest_info\q80200003_00.gmd,\quest\q80200003.arc,q80200003.arc,0,Partner Pawn
-1,q80200003_00_6,,,ui\00_message\quest_info\q80200003_00.gmd,\quest\q80200003.arc,q80200003.arc,1,Partner Pawn
-2,q80200003_00_2552,パートナーポーンに《<ITEM 9410>》を１個納品する,"Deliver 1 ""<ITEM 9410>"" to your Partner Pawn",ui\00_message\quest_info\q80200003_00.gmd,\quest\q80200003.arc,q80200003.arc,2,Partner Pawn
-0,q80200004_00_7,キノコ料理中級編,Intermediate Mushroom Dish,ui\00_message\quest_info\q80200004_00.gmd,\quest\q80200004.arc,q80200004.arc,0,Partner Pawn
-1,q80200004_00_7,,,ui\00_message\quest_info\q80200004_00.gmd,\quest\q80200004.arc,q80200004.arc,1,Partner Pawn
-2,q80200004_00_2553,パートナーポーンに《<ITEM 9411>》を１個納品する,"Deliver 1 ""<ITEM 9411>"" to your Partner Pawn",ui\00_message\quest_info\q80200004_00.gmd,\quest\q80200004.arc,q80200004.arc,2,Partner Pawn
-0,q80200005_00_8,肉料理中級編,Intermediate Meat Dish,ui\00_message\quest_info\q80200005_00.gmd,\quest\q80200005.arc,q80200005.arc,0,Partner Pawn
-1,q80200005_00_8,,,ui\00_message\quest_info\q80200005_00.gmd,\quest\q80200005.arc,q80200005.arc,1,Partner Pawn
-2,q80200005_00_2554,パートナーポーンに《<ITEM 9412>》を１個納品する,"Deliver 1 ""<ITEM 9412>"" to your Partner Pawn",ui\00_message\quest_info\q80200005_00.gmd,\quest\q80200005.arc,q80200005.arc,2,Partner Pawn
-0,q80201000_00_9,駐労感謝の日,Labor Appreciation Day,ui\00_message\quest_info\q80201000_00.gmd,\quest\q80201000.arc,q80201000.arc,0,Partner Pawn
-1,q80201000_00_9,,,ui\00_message\quest_info\q80201000_00.gmd,\quest\q80201000.arc,q80201000.arc,1,Partner Pawn
+sensed by the White Dragon",ui\00_message\quest_info\q61000005_00.gmd,\quest\q61000005.arc,q61000005.arc,1,The White Dragon,QUEST_TEXT_TYPE_ORDER
+2,q61000005_00_5237,白竜と話す,Speak with the White Dragon,ui\00_message\quest_info\q61000005_00.gmd,\quest\q61000005.arc,q61000005.arc,2,Travers,QUEST_TEXT_TYPE_PURPOSE
+3,q61000005_00_5238,トラバースの元へ向かう,Seek out Travers,ui\00_message\quest_info\q61000005_00.gmd,\quest\q61000005.arc,q61000005.arc,3,Travers,QUEST_TEXT_TYPE_PURPOSE
+0,q80200000_00_1,野菜料理初級編,Elementary Vegetable Dish,ui\00_message\quest_info\q80200000_00.gmd,\quest\q80200000.arc,q80200000.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80200000_00_1,,,ui\00_message\quest_info\q80200000_00.gmd,\quest\q80200000.arc,q80200000.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
+2,q80200000_00_2466,パートナーポーンに《<ITEM 9407>》を１個納品する,"Deliver 1 ""<ITEM 9407>"" to your Partner Pawn",ui\00_message\quest_info\q80200000_00.gmd,\quest\q80200000.arc,q80200000.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80200001_00_4,キノコ料理初級編,Elementary Mushroom Dish,ui\00_message\quest_info\q80200001_00.gmd,\quest\q80200001.arc,q80200001.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80200001_00_4,,,ui\00_message\quest_info\q80200001_00.gmd,\quest\q80200001.arc,q80200001.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
+2,q80200001_00_2550,パートナーポーンに《<ITEM 1351>》を１個納品する,"Deliver 1 ""<ITEM 1351>"" to your Partner Pawn",ui\00_message\quest_info\q80200001_00.gmd,\quest\q80200001.arc,q80200001.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80200002_00_5,肉料理初級編,Elementary Meat Dish,ui\00_message\quest_info\q80200002_00.gmd,\quest\q80200002.arc,q80200002.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80200002_00_5,,,ui\00_message\quest_info\q80200002_00.gmd,\quest\q80200002.arc,q80200002.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
+2,q80200002_00_2551,パートナーポーンに《<ITEM 9408>》を１個納品する,"Deliver 1 ""<ITEM 9408>"" to your Partner Pawn",ui\00_message\quest_info\q80200002_00.gmd,\quest\q80200002.arc,q80200002.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80200003_00_6,野菜料理中級編,Intermediate Vegetable Dish,ui\00_message\quest_info\q80200003_00.gmd,\quest\q80200003.arc,q80200003.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80200003_00_6,,,ui\00_message\quest_info\q80200003_00.gmd,\quest\q80200003.arc,q80200003.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
+2,q80200003_00_2552,パートナーポーンに《<ITEM 9410>》を１個納品する,"Deliver 1 ""<ITEM 9410>"" to your Partner Pawn",ui\00_message\quest_info\q80200003_00.gmd,\quest\q80200003.arc,q80200003.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80200004_00_7,キノコ料理中級編,Intermediate Mushroom Dish,ui\00_message\quest_info\q80200004_00.gmd,\quest\q80200004.arc,q80200004.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80200004_00_7,,,ui\00_message\quest_info\q80200004_00.gmd,\quest\q80200004.arc,q80200004.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
+2,q80200004_00_2553,パートナーポーンに《<ITEM 9411>》を１個納品する,"Deliver 1 ""<ITEM 9411>"" to your Partner Pawn",ui\00_message\quest_info\q80200004_00.gmd,\quest\q80200004.arc,q80200004.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80200005_00_8,肉料理中級編,Intermediate Meat Dish,ui\00_message\quest_info\q80200005_00.gmd,\quest\q80200005.arc,q80200005.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80200005_00_8,,,ui\00_message\quest_info\q80200005_00.gmd,\quest\q80200005.arc,q80200005.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
+2,q80200005_00_2554,パートナーポーンに《<ITEM 9412>》を１個納品する,"Deliver 1 ""<ITEM 9412>"" to your Partner Pawn",ui\00_message\quest_info\q80200005_00.gmd,\quest\q80200005.arc,q80200005.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201000_00_9,駐労感謝の日,Labor Appreciation Day,ui\00_message\quest_info\q80201000_00.gmd,\quest\q80201000.arc,q80201000.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201000_00_9,,,ui\00_message\quest_info\q80201000_00.gmd,\quest\q80201000.arc,q80201000.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201000_00_2555,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201000_00.gmd,\quest\q80201000.arc,q80201000.arc,2,Partner Pawn
-3,q80201000_00_2635,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201000_00.gmd,\quest\q80201000.arc,q80201000.arc,3,Partner Pawn
-0,q80201001_00_2,始まりの扉,Gate of Origin,ui\00_message\quest_info\q80201001_00.gmd,\quest\q80201001.arc,q80201001.arc,0,Partner Pawn
-1,q80201001_00_2,,,ui\00_message\quest_info\q80201001_00.gmd,\quest\q80201001.arc,q80201001.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201000_00.gmd,\quest\q80201000.arc,q80201000.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201000_00_2635,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201000_00.gmd,\quest\q80201000.arc,q80201000.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201001_00_2,始まりの扉,Gate of Origin,ui\00_message\quest_info\q80201001_00.gmd,\quest\q80201001.arc,q80201001.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201001_00_2,,,ui\00_message\quest_info\q80201001_00.gmd,\quest\q80201001.arc,q80201001.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201001_00_2467,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201001_00.gmd,\quest\q80201001.arc,q80201001.arc,2,Partner Pawn
-3,q80201001_00_2634,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201001_00.gmd,\quest\q80201001.arc,q80201001.arc,3,Partner Pawn
-0,q80201002_00_10,禁断のスプラッシュ！,Forbidden Splash!,ui\00_message\quest_info\q80201002_00.gmd,\quest\q80201002.arc,q80201002.arc,0,Partner Pawn
-1,q80201002_00_10,,,ui\00_message\quest_info\q80201002_00.gmd,\quest\q80201002.arc,q80201002.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201001_00.gmd,\quest\q80201001.arc,q80201001.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201001_00_2634,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201001_00.gmd,\quest\q80201001.arc,q80201001.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201002_00_10,禁断のスプラッシュ！,Forbidden Splash!,ui\00_message\quest_info\q80201002_00.gmd,\quest\q80201002.arc,q80201002.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201002_00_10,,,ui\00_message\quest_info\q80201002_00.gmd,\quest\q80201002.arc,q80201002.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201002_00_2556,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201002_00.gmd,\quest\q80201002.arc,q80201002.arc,2,Partner Pawn
-3,q80201002_00_2633,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201002_00.gmd,\quest\q80201002.arc,q80201002.arc,3,Partner Pawn
-0,q80201003_00_11,名も無き墓標,Nameless Gravestone,ui\00_message\quest_info\q80201003_00.gmd,\quest\q80201003.arc,q80201003.arc,0,Partner Pawn
-1,q80201003_00_11,,,ui\00_message\quest_info\q80201003_00.gmd,\quest\q80201003.arc,q80201003.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201002_00.gmd,\quest\q80201002.arc,q80201002.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201002_00_2633,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201002_00.gmd,\quest\q80201002.arc,q80201002.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201003_00_11,名も無き墓標,Nameless Gravestone,ui\00_message\quest_info\q80201003_00.gmd,\quest\q80201003.arc,q80201003.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201003_00_11,,,ui\00_message\quest_info\q80201003_00.gmd,\quest\q80201003.arc,q80201003.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201003_00_2557,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201003_00.gmd,\quest\q80201003.arc,q80201003.arc,2,Partner Pawn
-3,q80201003_00_2632,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201003_00.gmd,\quest\q80201003.arc,q80201003.arc,3,Partner Pawn
-0,q80201004_00_12,青空キャンプ,Blue Sky Camp,ui\00_message\quest_info\q80201004_00.gmd,\quest\q80201004.arc,q80201004.arc,0,Partner Pawn
-1,q80201004_00_12,,,ui\00_message\quest_info\q80201004_00.gmd,\quest\q80201004.arc,q80201004.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201003_00.gmd,\quest\q80201003.arc,q80201003.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201003_00_2632,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201003_00.gmd,\quest\q80201003.arc,q80201003.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201004_00_12,青空キャンプ,Blue Sky Camp,ui\00_message\quest_info\q80201004_00.gmd,\quest\q80201004.arc,q80201004.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201004_00_12,,,ui\00_message\quest_info\q80201004_00.gmd,\quest\q80201004.arc,q80201004.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201004_00_2558,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201004_00.gmd,\quest\q80201004.arc,q80201004.arc,2,Partner Pawn
-3,q80201004_00_2631,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201004_00.gmd,\quest\q80201004.arc,q80201004.arc,3,Partner Pawn
-0,q80201005_00_13,不思議なかたち,Mysterious Shape,ui\00_message\quest_info\q80201005_00.gmd,\quest\q80201005.arc,q80201005.arc,0,Partner Pawn
-1,q80201005_00_13,,,ui\00_message\quest_info\q80201005_00.gmd,\quest\q80201005.arc,q80201005.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201004_00.gmd,\quest\q80201004.arc,q80201004.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201004_00_2631,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201004_00.gmd,\quest\q80201004.arc,q80201004.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201005_00_13,不思議なかたち,Mysterious Shape,ui\00_message\quest_info\q80201005_00.gmd,\quest\q80201005.arc,q80201005.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201005_00_13,,,ui\00_message\quest_info\q80201005_00.gmd,\quest\q80201005.arc,q80201005.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201005_00_2559,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201005_00.gmd,\quest\q80201005.arc,q80201005.arc,2,Partner Pawn
-3,q80201005_00_2630,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201005_00.gmd,\quest\q80201005.arc,q80201005.arc,3,Partner Pawn
-0,q80201006_00_14,蒼き神樹,Blue Heavenly Tree,ui\00_message\quest_info\q80201006_00.gmd,\quest\q80201006.arc,q80201006.arc,0,Partner Pawn
-1,q80201006_00_14,,,ui\00_message\quest_info\q80201006_00.gmd,\quest\q80201006.arc,q80201006.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201005_00.gmd,\quest\q80201005.arc,q80201005.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201005_00_2630,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201005_00.gmd,\quest\q80201005.arc,q80201005.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201006_00_14,蒼き神樹,Blue Heavenly Tree,ui\00_message\quest_info\q80201006_00.gmd,\quest\q80201006.arc,q80201006.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201006_00_14,,,ui\00_message\quest_info\q80201006_00.gmd,\quest\q80201006.arc,q80201006.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201006_00_2560,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201006_00.gmd,\quest\q80201006.arc,q80201006.arc,2,Partner Pawn
-3,q80201006_00_2629,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201006_00.gmd,\quest\q80201006.arc,q80201006.arc,3,Partner Pawn
-0,q80201007_00_15,楽園の扉,Gate of Paradise,ui\00_message\quest_info\q80201007_00.gmd,\quest\q80201007.arc,q80201007.arc,0,Partner Pawn
-1,q80201007_00_15,,,ui\00_message\quest_info\q80201007_00.gmd,\quest\q80201007.arc,q80201007.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201006_00.gmd,\quest\q80201006.arc,q80201006.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201006_00_2629,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201006_00.gmd,\quest\q80201006.arc,q80201006.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201007_00_15,楽園の扉,Gate of Paradise,ui\00_message\quest_info\q80201007_00.gmd,\quest\q80201007.arc,q80201007.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201007_00_15,,,ui\00_message\quest_info\q80201007_00.gmd,\quest\q80201007.arc,q80201007.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201007_00_2561,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201007_00.gmd,\quest\q80201007.arc,q80201007.arc,2,Partner Pawn
-3,q80201007_00_2636,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201007_00.gmd,\quest\q80201007.arc,q80201007.arc,3,Partner Pawn
-0,q80201008_00_3,端正なる鋭槍,A Straight Sharp Spear,ui\00_message\quest_info\q80201008_00.gmd,\quest\q80201008.arc,q80201008.arc,0,Partner Pawn
-1,q80201008_00_3,,,ui\00_message\quest_info\q80201008_00.gmd,\quest\q80201008.arc,q80201008.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201007_00.gmd,\quest\q80201007.arc,q80201007.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201007_00_2636,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201007_00.gmd,\quest\q80201007.arc,q80201007.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201008_00_3,端正なる鋭槍,A Straight Sharp Spear,ui\00_message\quest_info\q80201008_00.gmd,\quest\q80201008.arc,q80201008.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201008_00_3,,,ui\00_message\quest_info\q80201008_00.gmd,\quest\q80201008.arc,q80201008.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201008_00_2468,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201008_00.gmd,\quest\q80201008.arc,q80201008.arc,2,Partner Pawn
-3,q80201008_00_2637,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201008_00.gmd,\quest\q80201008.arc,q80201008.arc,3,Partner Pawn
-0,q80201009_00_16,湖畔の涼地,Lush Lake Shore,ui\00_message\quest_info\q80201009_00.gmd,\quest\q80201009.arc,q80201009.arc,0,Partner Pawn
-1,q80201009_00_16,,,ui\00_message\quest_info\q80201009_00.gmd,\quest\q80201009.arc,q80201009.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201008_00.gmd,\quest\q80201008.arc,q80201008.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201008_00_2637,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201008_00.gmd,\quest\q80201008.arc,q80201008.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201009_00_16,湖畔の涼地,Lush Lake Shore,ui\00_message\quest_info\q80201009_00.gmd,\quest\q80201009.arc,q80201009.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201009_00_16,,,ui\00_message\quest_info\q80201009_00.gmd,\quest\q80201009.arc,q80201009.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201009_00_2563,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201009_00.gmd,\quest\q80201009.arc,q80201009.arc,2,Partner Pawn
-3,q80201009_00_2638,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201009_00.gmd,\quest\q80201009.arc,q80201009.arc,3,Partner Pawn
-0,q80201010_00_17,賢者の墓参り,A Visit to the Sage's Grave,ui\00_message\quest_info\q80201010_00.gmd,\quest\q80201010.arc,q80201010.arc,0,Partner Pawn
-1,q80201010_00_17,,,ui\00_message\quest_info\q80201010_00.gmd,\quest\q80201010.arc,q80201010.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201009_00.gmd,\quest\q80201009.arc,q80201009.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201009_00_2638,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201009_00.gmd,\quest\q80201009.arc,q80201009.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201010_00_17,賢者の墓参り,A Visit to the Sage's Grave,ui\00_message\quest_info\q80201010_00.gmd,\quest\q80201010.arc,q80201010.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201010_00_17,,,ui\00_message\quest_info\q80201010_00.gmd,\quest\q80201010.arc,q80201010.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201010_00_2562,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201010_00.gmd,\quest\q80201010.arc,q80201010.arc,2,Partner Pawn
-3,q80201010_00_2639,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201010_00.gmd,\quest\q80201010.arc,q80201010.arc,3,Partner Pawn
-0,q80201011_00_18,本の虫？,A Bookworm?,ui\00_message\quest_info\q80201011_00.gmd,\quest\q80201011.arc,q80201011.arc,0,Partner Pawn
-1,q80201011_00_18,,,ui\00_message\quest_info\q80201011_00.gmd,\quest\q80201011.arc,q80201011.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201010_00.gmd,\quest\q80201010.arc,q80201010.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201010_00_2639,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201010_00.gmd,\quest\q80201010.arc,q80201010.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201011_00_18,本の虫？,A Bookworm?,ui\00_message\quest_info\q80201011_00.gmd,\quest\q80201011.arc,q80201011.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201011_00_18,,,ui\00_message\quest_info\q80201011_00.gmd,\quest\q80201011.arc,q80201011.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201011_00_2564,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201011_00.gmd,\quest\q80201011.arc,q80201011.arc,2,Partner Pawn
-3,q80201011_00_2640,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201011_00.gmd,\quest\q80201011.arc,q80201011.arc,3,Partner Pawn
-0,q80201012_00_19,動かぬ番人,Unyielding Watchman,ui\00_message\quest_info\q80201012_00.gmd,\quest\q80201012.arc,q80201012.arc,0,Partner Pawn
-1,q80201012_00_19,,,ui\00_message\quest_info\q80201012_00.gmd,\quest\q80201012.arc,q80201012.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201011_00.gmd,\quest\q80201011.arc,q80201011.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201011_00_2640,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201011_00.gmd,\quest\q80201011.arc,q80201011.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201012_00_19,動かぬ番人,Unyielding Watchman,ui\00_message\quest_info\q80201012_00.gmd,\quest\q80201012.arc,q80201012.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201012_00_19,,,ui\00_message\quest_info\q80201012_00.gmd,\quest\q80201012.arc,q80201012.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201012_00_2565,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201012_00.gmd,\quest\q80201012.arc,q80201012.arc,2,Partner Pawn
-3,q80201012_00_2641,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201012_00.gmd,\quest\q80201012.arc,q80201012.arc,3,Partner Pawn
-0,q80201013_00_20,厳かなる泉,The Solemn Spring,ui\00_message\quest_info\q80201013_00.gmd,\quest\q80201013.arc,q80201013.arc,0,Partner Pawn
-1,q80201013_00_20,,,ui\00_message\quest_info\q80201013_00.gmd,\quest\q80201013.arc,q80201013.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201012_00.gmd,\quest\q80201012.arc,q80201012.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201012_00_2641,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201012_00.gmd,\quest\q80201012.arc,q80201012.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201013_00_20,厳かなる泉,The Solemn Spring,ui\00_message\quest_info\q80201013_00.gmd,\quest\q80201013.arc,q80201013.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201013_00_20,,,ui\00_message\quest_info\q80201013_00.gmd,\quest\q80201013.arc,q80201013.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201013_00_2566,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201013_00.gmd,\quest\q80201013.arc,q80201013.arc,2,Partner Pawn
-3,q80201013_00_2642,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201013_00.gmd,\quest\q80201013.arc,q80201013.arc,3,Partner Pawn
-0,q80201014_00_21,君を想う,Thinking of You,ui\00_message\quest_info\q80201014_00.gmd,\quest\q80201014.arc,q80201014.arc,0,Partner Pawn
-1,q80201014_00_21,,,ui\00_message\quest_info\q80201014_00.gmd,\quest\q80201014.arc,q80201014.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201013_00.gmd,\quest\q80201013.arc,q80201013.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201013_00_2642,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201013_00.gmd,\quest\q80201013.arc,q80201013.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201014_00_21,君を想う,Thinking of You,ui\00_message\quest_info\q80201014_00.gmd,\quest\q80201014.arc,q80201014.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201014_00_21,,,ui\00_message\quest_info\q80201014_00.gmd,\quest\q80201014.arc,q80201014.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201014_00_2567,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201014_00.gmd,\quest\q80201014.arc,q80201014.arc,2,Partner Pawn
-3,q80201014_00_2643,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201014_00.gmd,\quest\q80201014.arc,q80201014.arc,3,Partner Pawn
-0,q80201015_00_22,写っているのは――？,What Is Being Photographed?,ui\00_message\quest_info\q80201015_00.gmd,\quest\q80201015.arc,q80201015.arc,0,Partner Pawn
-1,q80201015_00_22,,,ui\00_message\quest_info\q80201015_00.gmd,\quest\q80201015.arc,q80201015.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201014_00.gmd,\quest\q80201014.arc,q80201014.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201014_00_2643,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201014_00.gmd,\quest\q80201014.arc,q80201014.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201015_00_22,写っているのは――？,What Is Being Photographed?,ui\00_message\quest_info\q80201015_00.gmd,\quest\q80201015.arc,q80201015.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201015_00_22,,,ui\00_message\quest_info\q80201015_00.gmd,\quest\q80201015.arc,q80201015.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201015_00_2568,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201015_00.gmd,\quest\q80201015.arc,q80201015.arc,2,Partner Pawn
-3,q80201015_00_2644,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201015_00.gmd,\quest\q80201015.arc,q80201015.arc,3,Partner Pawn
-0,q80201016_00_23,改めて敬意を,Paying Respects Again,ui\00_message\quest_info\q80201016_00.gmd,\quest\q80201016.arc,q80201016.arc,0,Partner Pawn
-1,q80201016_00_23,,,ui\00_message\quest_info\q80201016_00.gmd,\quest\q80201016.arc,q80201016.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201015_00.gmd,\quest\q80201015.arc,q80201015.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201015_00_2644,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201015_00.gmd,\quest\q80201015.arc,q80201015.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201016_00_23,改めて敬意を,Paying Respects Again,ui\00_message\quest_info\q80201016_00.gmd,\quest\q80201016.arc,q80201016.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201016_00_23,,,ui\00_message\quest_info\q80201016_00.gmd,\quest\q80201016.arc,q80201016.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201016_00_2569,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201016_00.gmd,\quest\q80201016.arc,q80201016.arc,2,Partner Pawn
-3,q80201016_00_2645,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201016_00.gmd,\quest\q80201016.arc,q80201016.arc,3,Partner Pawn
-0,q80201017_00_24,悩める右腕,A Troublesome Right Arm,ui\00_message\quest_info\q80201017_00.gmd,\quest\q80201017.arc,q80201017.arc,0,Partner Pawn
-1,q80201017_00_24,,,ui\00_message\quest_info\q80201017_00.gmd,\quest\q80201017.arc,q80201017.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201016_00.gmd,\quest\q80201016.arc,q80201016.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201016_00_2645,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201016_00.gmd,\quest\q80201016.arc,q80201016.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201017_00_24,悩める右腕,A Troublesome Right Arm,ui\00_message\quest_info\q80201017_00.gmd,\quest\q80201017.arc,q80201017.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201017_00_24,,,ui\00_message\quest_info\q80201017_00.gmd,\quest\q80201017.arc,q80201017.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201017_00_2570,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201017_00.gmd,\quest\q80201017.arc,q80201017.arc,2,Partner Pawn
-3,q80201017_00_2646,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201017_00.gmd,\quest\q80201017.arc,q80201017.arc,3,Partner Pawn
-0,q80201018_00_25,青田買い？,Recruiting Already?,ui\00_message\quest_info\q80201018_00.gmd,\quest\q80201018.arc,q80201018.arc,0,Partner Pawn
-1,q80201018_00_25,,,ui\00_message\quest_info\q80201018_00.gmd,\quest\q80201018.arc,q80201018.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201017_00.gmd,\quest\q80201017.arc,q80201017.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201017_00_2646,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201017_00.gmd,\quest\q80201017.arc,q80201017.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201018_00_25,青田買い？,Recruiting Already?,ui\00_message\quest_info\q80201018_00.gmd,\quest\q80201018.arc,q80201018.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201018_00_25,,,ui\00_message\quest_info\q80201018_00.gmd,\quest\q80201018.arc,q80201018.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201018_00_2571,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201018_00.gmd,\quest\q80201018.arc,q80201018.arc,2,Partner Pawn
-3,q80201018_00_2647,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201018_00.gmd,\quest\q80201018.arc,q80201018.arc,3,Partner Pawn
-4,q80201018_00_2648,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201018_00.gmd,\quest\q80201018.arc,q80201018.arc,4,Partner Pawn
-0,q80201019_00_26,秘密の部屋,The Hidden Chamber,ui\00_message\quest_info\q80201019_00.gmd,\quest\q80201019.arc,q80201019.arc,0,Partner Pawn
-1,q80201019_00_26,,,ui\00_message\quest_info\q80201019_00.gmd,\quest\q80201019.arc,q80201019.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201018_00.gmd,\quest\q80201018.arc,q80201018.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201018_00_2647,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201018_00.gmd,\quest\q80201018.arc,q80201018.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+4,q80201018_00_2648,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201018_00.gmd,\quest\q80201018.arc,q80201018.arc,4,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201019_00_26,秘密の部屋,The Hidden Chamber,ui\00_message\quest_info\q80201019_00.gmd,\quest\q80201019.arc,q80201019.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201019_00_26,,,ui\00_message\quest_info\q80201019_00.gmd,\quest\q80201019.arc,q80201019.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201019_00_2572,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201019_00.gmd,\quest\q80201019.arc,q80201019.arc,2,Partner Pawn
-3,q80201019_00_2649,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201019_00.gmd,\quest\q80201019.arc,q80201019.arc,3,Partner Pawn
-0,q80201020_00_27,堅守の灯火,The Light of Defense,ui\00_message\quest_info\q80201020_00.gmd,\quest\q80201020.arc,q80201020.arc,0,Partner Pawn
-1,q80201020_00_27,,,ui\00_message\quest_info\q80201020_00.gmd,\quest\q80201020.arc,q80201020.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201019_00.gmd,\quest\q80201019.arc,q80201019.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201019_00_2649,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201019_00.gmd,\quest\q80201019.arc,q80201019.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201020_00_27,堅守の灯火,The Light of Defense,ui\00_message\quest_info\q80201020_00.gmd,\quest\q80201020.arc,q80201020.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201020_00_27,,,ui\00_message\quest_info\q80201020_00.gmd,\quest\q80201020.arc,q80201020.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201020_00_2573,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201020_00.gmd,\quest\q80201020.arc,q80201020.arc,2,Partner Pawn
-3,q80201020_00_2650,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201020_00.gmd,\quest\q80201020.arc,q80201020.arc,3,Partner Pawn
-0,q80201021_00_28,燐光に包まれて,Engulfed in Phosphorescence,ui\00_message\quest_info\q80201021_00.gmd,\quest\q80201021.arc,q80201021.arc,0,Partner Pawn
-1,q80201021_00_28,,,ui\00_message\quest_info\q80201021_00.gmd,\quest\q80201021.arc,q80201021.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201020_00.gmd,\quest\q80201020.arc,q80201020.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201020_00_2650,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201020_00.gmd,\quest\q80201020.arc,q80201020.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201021_00_28,燐光に包まれて,Engulfed in Phosphorescence,ui\00_message\quest_info\q80201021_00.gmd,\quest\q80201021.arc,q80201021.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201021_00_28,,,ui\00_message\quest_info\q80201021_00.gmd,\quest\q80201021.arc,q80201021.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201021_00_2574,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201021_00.gmd,\quest\q80201021.arc,q80201021.arc,2,Partner Pawn
-3,q80201021_00_2651,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201021_00.gmd,\quest\q80201021.arc,q80201021.arc,3,Partner Pawn
-0,q80201022_00_29,遺風残香,Traces of Old Customs,ui\00_message\quest_info\q80201022_00.gmd,\quest\q80201022.arc,q80201022.arc,0,Partner Pawn
-1,q80201022_00_29,,,ui\00_message\quest_info\q80201022_00.gmd,\quest\q80201022.arc,q80201022.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201021_00.gmd,\quest\q80201021.arc,q80201021.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201021_00_2651,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201021_00.gmd,\quest\q80201021.arc,q80201021.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201022_00_29,遺風残香,Traces of Old Customs,ui\00_message\quest_info\q80201022_00.gmd,\quest\q80201022.arc,q80201022.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201022_00_29,,,ui\00_message\quest_info\q80201022_00.gmd,\quest\q80201022.arc,q80201022.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201022_00_2575,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201022_00.gmd,\quest\q80201022.arc,q80201022.arc,2,Partner Pawn
-3,q80201022_00_2652,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201022_00.gmd,\quest\q80201022.arc,q80201022.arc,3,Partner Pawn
-0,q80201023_00_30,ご機嫌を伺いに,Courtesy Visit,ui\00_message\quest_info\q80201023_00.gmd,\quest\q80201023.arc,q80201023.arc,0,Partner Pawn
-1,q80201023_00_30,,,ui\00_message\quest_info\q80201023_00.gmd,\quest\q80201023.arc,q80201023.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201022_00.gmd,\quest\q80201022.arc,q80201022.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201022_00_2652,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201022_00.gmd,\quest\q80201022.arc,q80201022.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201023_00_30,ご機嫌を伺いに,Courtesy Visit,ui\00_message\quest_info\q80201023_00.gmd,\quest\q80201023.arc,q80201023.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201023_00_30,,,ui\00_message\quest_info\q80201023_00.gmd,\quest\q80201023.arc,q80201023.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201023_00_2576,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201023_00.gmd,\quest\q80201023.arc,q80201023.arc,2,Partner Pawn
-3,q80201023_00_2653,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201023_00.gmd,\quest\q80201023.arc,q80201023.arc,3,Partner Pawn
-0,q80201024_00_31,和みの湯,A Soothing Hot Bath,ui\00_message\quest_info\q80201024_00.gmd,\quest\q80201024.arc,q80201024.arc,0,Partner Pawn
-1,q80201024_00_31,,,ui\00_message\quest_info\q80201024_00.gmd,\quest\q80201024.arc,q80201024.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201023_00.gmd,\quest\q80201023.arc,q80201023.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201023_00_2653,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201023_00.gmd,\quest\q80201023.arc,q80201023.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201024_00_31,和みの湯,A Soothing Hot Bath,ui\00_message\quest_info\q80201024_00.gmd,\quest\q80201024.arc,q80201024.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201024_00_31,,,ui\00_message\quest_info\q80201024_00.gmd,\quest\q80201024.arc,q80201024.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201024_00_2577,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201024_00.gmd,\quest\q80201024.arc,q80201024.arc,2,Partner Pawn
-3,q80201024_00_2654,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201024_00.gmd,\quest\q80201024.arc,q80201024.arc,3,Partner Pawn
-0,q80201025_00_32,光るガラクタ,Shining Junk,ui\00_message\quest_info\q80201025_00.gmd,\quest\q80201025.arc,q80201025.arc,0,Partner Pawn
-1,q80201025_00_32,,,ui\00_message\quest_info\q80201025_00.gmd,\quest\q80201025.arc,q80201025.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201024_00.gmd,\quest\q80201024.arc,q80201024.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201024_00_2654,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201024_00.gmd,\quest\q80201024.arc,q80201024.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201025_00_32,光るガラクタ,Shining Junk,ui\00_message\quest_info\q80201025_00.gmd,\quest\q80201025.arc,q80201025.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201025_00_32,,,ui\00_message\quest_info\q80201025_00.gmd,\quest\q80201025.arc,q80201025.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201025_00_2578,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201025_00.gmd,\quest\q80201025.arc,q80201025.arc,2,Partner Pawn
-3,q80201025_00_2655,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201025_00.gmd,\quest\q80201025.arc,q80201025.arc,3,Partner Pawn
-0,q80201026_00_33,豪奢な隠れ家,A Luxurious Hideout,ui\00_message\quest_info\q80201026_00.gmd,\quest\q80201026.arc,q80201026.arc,0,Partner Pawn
-1,q80201026_00_33,,,ui\00_message\quest_info\q80201026_00.gmd,\quest\q80201026.arc,q80201026.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201025_00.gmd,\quest\q80201025.arc,q80201025.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201025_00_2655,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201025_00.gmd,\quest\q80201025.arc,q80201025.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201026_00_33,豪奢な隠れ家,A Luxurious Hideout,ui\00_message\quest_info\q80201026_00.gmd,\quest\q80201026.arc,q80201026.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201026_00_33,,,ui\00_message\quest_info\q80201026_00.gmd,\quest\q80201026.arc,q80201026.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201026_00_2579,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201026_00.gmd,\quest\q80201026.arc,q80201026.arc,2,Partner Pawn
-3,q80201026_00_2656,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201026_00.gmd,\quest\q80201026.arc,q80201026.arc,3,Partner Pawn
-0,q80201027_00_34,古城の眺望,View from the Old Castle,ui\00_message\quest_info\q80201027_00.gmd,\quest\q80201027.arc,q80201027.arc,0,Partner Pawn
-1,q80201027_00_34,,,ui\00_message\quest_info\q80201027_00.gmd,\quest\q80201027.arc,q80201027.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201026_00.gmd,\quest\q80201026.arc,q80201026.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201026_00_2656,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201026_00.gmd,\quest\q80201026.arc,q80201026.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201027_00_34,古城の眺望,View from the Old Castle,ui\00_message\quest_info\q80201027_00.gmd,\quest\q80201027.arc,q80201027.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201027_00_34,,,ui\00_message\quest_info\q80201027_00.gmd,\quest\q80201027.arc,q80201027.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201027_00_2580,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201027_00.gmd,\quest\q80201027.arc,q80201027.arc,2,Partner Pawn
-3,q80201027_00_2657,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201027_00.gmd,\quest\q80201027.arc,q80201027.arc,3,Partner Pawn
-0,q80201028_00_35,お邪魔はしません,Won't Intrude,ui\00_message\quest_info\q80201028_00.gmd,\quest\q80201028.arc,q80201028.arc,0,Partner Pawn
-1,q80201028_00_35,,,ui\00_message\quest_info\q80201028_00.gmd,\quest\q80201028.arc,q80201028.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201027_00.gmd,\quest\q80201027.arc,q80201027.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201027_00_2657,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201027_00.gmd,\quest\q80201027.arc,q80201027.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201028_00_35,お邪魔はしません,Won't Intrude,ui\00_message\quest_info\q80201028_00.gmd,\quest\q80201028.arc,q80201028.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201028_00_35,,,ui\00_message\quest_info\q80201028_00.gmd,\quest\q80201028.arc,q80201028.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201028_00_2581,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201028_00.gmd,\quest\q80201028.arc,q80201028.arc,2,Partner Pawn
-3,q80201028_00_2658,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201028_00.gmd,\quest\q80201028.arc,q80201028.arc,3,Partner Pawn
-0,q80201029_00_58,イニアスの猟奇,Seeking the Strange Inias,ui\00_message\quest_info\q80201029_00.gmd,\quest\q80201029.arc,q80201029.arc,0,Partner Pawn
-1,q80201029_00_58,,,ui\00_message\quest_info\q80201029_00.gmd,\quest\q80201029.arc,q80201029.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201028_00.gmd,\quest\q80201028.arc,q80201028.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201028_00_2658,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201028_00.gmd,\quest\q80201028.arc,q80201028.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201029_00_58,イニアスの猟奇,Seeking the Strange Inias,ui\00_message\quest_info\q80201029_00.gmd,\quest\q80201029.arc,q80201029.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201029_00_58,,,ui\00_message\quest_info\q80201029_00.gmd,\quest\q80201029.arc,q80201029.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201029_00_2582,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201029_00.gmd,\quest\q80201029.arc,q80201029.arc,2,Partner Pawn
-3,q80201029_00_2659,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201029_00.gmd,\quest\q80201029.arc,q80201029.arc,3,Partner Pawn
-0,q80201030_00_37,密猟駆逐作戦,Poaching Elimination Strategy,ui\00_message\quest_info\q80201030_00.gmd,\quest\q80201030.arc,q80201030.arc,0,Partner Pawn
-1,q80201030_00_37,,,ui\00_message\quest_info\q80201030_00.gmd,\quest\q80201030.arc,q80201030.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201029_00.gmd,\quest\q80201029.arc,q80201029.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201029_00_2659,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201029_00.gmd,\quest\q80201029.arc,q80201029.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201030_00_37,密猟駆逐作戦,Poaching Elimination Strategy,ui\00_message\quest_info\q80201030_00.gmd,\quest\q80201030.arc,q80201030.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201030_00_37,,,ui\00_message\quest_info\q80201030_00.gmd,\quest\q80201030.arc,q80201030.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201030_00_2583,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201030_00.gmd,\quest\q80201030.arc,q80201030.arc,2,Partner Pawn
-3,q80201030_00_2660,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201030_00.gmd,\quest\q80201030.arc,q80201030.arc,3,Partner Pawn
-0,q80201031_00_38,可憐なる射手,The Lovely Archer,ui\00_message\quest_info\q80201031_00.gmd,\quest\q80201031.arc,q80201031.arc,0,Partner Pawn
-1,q80201031_00_38,,,ui\00_message\quest_info\q80201031_00.gmd,\quest\q80201031.arc,q80201031.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201030_00.gmd,\quest\q80201030.arc,q80201030.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201030_00_2660,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201030_00.gmd,\quest\q80201030.arc,q80201030.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201031_00_38,可憐なる射手,The Lovely Archer,ui\00_message\quest_info\q80201031_00.gmd,\quest\q80201031.arc,q80201031.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201031_00_38,,,ui\00_message\quest_info\q80201031_00.gmd,\quest\q80201031.arc,q80201031.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201031_00_2584,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201031_00.gmd,\quest\q80201031.arc,q80201031.arc,2,Partner Pawn
-3,q80201031_00_2661,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201031_00.gmd,\quest\q80201031.arc,q80201031.arc,3,Partner Pawn
-0,q80201032_00_39,秘境の温泉,A Secluded Hot Spring,ui\00_message\quest_info\q80201032_00.gmd,\quest\q80201032.arc,q80201032.arc,0,Partner Pawn
-1,q80201032_00_39,,,ui\00_message\quest_info\q80201032_00.gmd,\quest\q80201032.arc,q80201032.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201031_00.gmd,\quest\q80201031.arc,q80201031.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201031_00_2661,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201031_00.gmd,\quest\q80201031.arc,q80201031.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201032_00_39,秘境の温泉,A Secluded Hot Spring,ui\00_message\quest_info\q80201032_00.gmd,\quest\q80201032.arc,q80201032.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201032_00_39,,,ui\00_message\quest_info\q80201032_00.gmd,\quest\q80201032.arc,q80201032.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201032_00_2585,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201032_00.gmd,\quest\q80201032.arc,q80201032.arc,2,Partner Pawn
-3,q80201032_00_2662,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201032_00.gmd,\quest\q80201032.arc,q80201032.arc,3,Partner Pawn
-0,q80201033_00_40,華麗な遺風,Magnificent Traditions,ui\00_message\quest_info\q80201033_00.gmd,\quest\q80201033.arc,q80201033.arc,0,Partner Pawn
-1,q80201033_00_40,,,ui\00_message\quest_info\q80201033_00.gmd,\quest\q80201033.arc,q80201033.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201032_00.gmd,\quest\q80201032.arc,q80201032.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201032_00_2662,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201032_00.gmd,\quest\q80201032.arc,q80201032.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201033_00_40,華麗な遺風,Magnificent Traditions,ui\00_message\quest_info\q80201033_00.gmd,\quest\q80201033.arc,q80201033.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201033_00_40,,,ui\00_message\quest_info\q80201033_00.gmd,\quest\q80201033.arc,q80201033.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201033_00_2586,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201033_00.gmd,\quest\q80201033.arc,q80201033.arc,2,Partner Pawn
-3,q80201033_00_2663,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201033_00.gmd,\quest\q80201033.arc,q80201033.arc,3,Partner Pawn
-0,q80201034_00_41,湖畔の神殿,The Temple on the Lake,ui\00_message\quest_info\q80201034_00.gmd,\quest\q80201034.arc,q80201034.arc,0,Partner Pawn
-1,q80201034_00_41,,,ui\00_message\quest_info\q80201034_00.gmd,\quest\q80201034.arc,q80201034.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201033_00.gmd,\quest\q80201033.arc,q80201033.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201033_00_2663,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201033_00.gmd,\quest\q80201033.arc,q80201033.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201034_00_41,湖畔の神殿,The Temple on the Lake,ui\00_message\quest_info\q80201034_00.gmd,\quest\q80201034.arc,q80201034.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201034_00_41,,,ui\00_message\quest_info\q80201034_00.gmd,\quest\q80201034.arc,q80201034.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER
 2,q80201034_00_2587,フォトモードを使い、指定の場所でポーンと写真を撮る,"Take a picture with your pawn at the 
-specified location using Photo Mode",ui\00_message\quest_info\q80201034_00.gmd,\quest\q80201034.arc,q80201034.arc,2,Partner Pawn
-3,q80201034_00_2664,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201034_00.gmd,\quest\q80201034.arc,q80201034.arc,3,Partner Pawn
-0,q80201035_00_42,華麗なる戦士,The Splendid Soldier,ui\00_message\quest_info\q80201035_00.gmd,\quest\q80201035.arc,q80201035.arc,0,Partner Pawn
-1,q80201035_00_42,,,ui\00_message\quest_info\q80201035_00.gmd,\quest\q80201035.arc,q80201035.arc,1,Partner Pawn
+specified location using Photo Mode",ui\00_message\quest_info\q80201034_00.gmd,\quest\q80201034.arc,q80201034.arc,2,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+3,q80201034_00_2664,自室に戻りポーンと会話する,Go back to your room and talk to your Pawn,ui\00_message\quest_info\q80201034_00.gmd,\quest\q80201034.arc,q80201034.arc,3,Partner Pawn,QUEST_TEXT_TYPE_PURPOSE
+0,q80201035_00_42,華麗なる戦士,The Splendid Soldier,ui\00_message\quest_info\q80201035_00.gmd,\quest\q80201035.arc,q80201035.arc,0,Partner Pawn,QUEST_TEXT_TYPE_NAME
+1,q80201035_00_42,,,ui\00_message\quest_info\q80201035_00.gmd,\quest\q80201035.arc,q80201035.arc,1,Partner Pawn,QUEST_TEXT_TYPE_ORDER

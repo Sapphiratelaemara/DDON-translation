@@ -103,11 +103,11 @@ They say there's a vicious monster in an old
 building in the Northern Urteca Mountains,
 and that ""those who encounter it never return.""
 In the current situation, no one dares to go near,
-but if it's true, it's a serious matter.",ui\00_message\quest_info\q22018053_00.gmd,\quest\q22018053.arc,q22018053.arc,3,Cory
-4,q22018053_00_1174,指定された場所へ行き、狂暴な魔物を見つける,Root out the rabid beasts,ui\00_message\quest_info\q22018053_00.gmd,\quest\q22018053.arc,q22018053.arc,4,Cory
-5,q22018053_00_1175,遭遇した魔物を討伐する,Defeat the encountered foe(s),ui\00_message\quest_info\q22018053_00.gmd,\quest\q22018053.arc,q22018053.arc,5,Cory
-6,q22018053_00_1176,依頼者へ経緯を報告する,Report back to the requester,ui\00_message\quest_info\q22018053_00.gmd,\quest\q22018053.arc,q22018053.arc,6,Cory
-0,q22018054_00_707,拭えぬ心労,Unshakeable Anxiety,ui\00_message\quest_info\q22018054_00.gmd,\quest\q22018054.arc,q22018054.arc,0,Sema
+but if it's true, it's a serious matter.",ui\00_message\quest_info\q22018053_00.gmd,\quest\q22018053.arc,q22018053.arc,3,Cory,QUEST_TEXT_TYPE_FIND_INFO_DETAIL
+4,q22018053_00_1174,指定された場所へ行き、狂暴な魔物を見つける,Root out the rabid beasts,ui\00_message\quest_info\q22018053_00.gmd,\quest\q22018053.arc,q22018053.arc,4,Cory,QUEST_TEXT_TYPE_PURPOSE
+5,q22018053_00_1175,遭遇した魔物を討伐する,Defeat the encountered foe(s),ui\00_message\quest_info\q22018053_00.gmd,\quest\q22018053.arc,q22018053.arc,5,Cory,QUEST_TEXT_TYPE_PURPOSE
+6,q22018053_00_1176,依頼者へ経緯を報告する,Report back to the requester,ui\00_message\quest_info\q22018053_00.gmd,\quest\q22018053.arc,q22018053.arc,6,Cory,QUEST_TEXT_TYPE_PURPOSE
+0,q22018054_00_707,拭えぬ心労,Unshakeable Anxiety,ui\00_message\quest_info\q22018054_00.gmd,\quest\q22018054.arc,q22018054.arc,0,Sema,QUEST_TEXT_TYPE_NAME
 1,q22018054_00_707,"【敵群討伐クエスト】
 依頼者から話を聞き
 敵の群れを討伐する","[Enemy Horde Extermination Quest]
@@ -202,11 +202,11 @@ Even after defeating countless monsters,
 their numbers don't seem to drop.
 It appears they're summoning more
 from the surrounding regions.
-We need to hit them hard to send a message.",ui\00_message\quest_info\q22018057_00.gmd,\quest\q22018057.arc,q22018057.arc,3,Zef
-5,q22018057_00_1162,遭遇した魔物を討伐する,Defeat the encountered foe(s),ui\00_message\quest_info\q22018057_00.gmd,\quest\q22018057.arc,q22018057.arc,5,Zef
-4,q22018057_00_1174,指定された場所へ行き、狂暴な魔物を見つける,Root out the rabid beasts,ui\00_message\quest_info\q22018057_00.gmd,\quest\q22018057.arc,q22018057.arc,4,Zef
-6,q22018057_00_1176,依頼者へ経緯を報告する,Report back to the requester,ui\00_message\quest_info\q22018057_00.gmd,\quest\q22018057.arc,q22018057.arc,6,Zef
-0,q22018058_00_711,【高難度】アッカーシェラン各地より救援要請,High Difficulty: Rescue Acre Selund,ui\00_message\quest_info\q22018058_00.gmd,\quest\q22018058.arc,q22018058.arc,0,Bacias
+We need to hit them hard to send a message.",ui\00_message\quest_info\q22018057_00.gmd,\quest\q22018057.arc,q22018057.arc,3,Zef,QUEST_TEXT_TYPE_FIND_INFO_DETAIL
+5,q22018057_00_1162,遭遇した魔物を討伐する,Defeat the encountered foe(s),ui\00_message\quest_info\q22018057_00.gmd,\quest\q22018057.arc,q22018057.arc,5,Zef,QUEST_TEXT_TYPE_PURPOSE
+4,q22018057_00_1174,指定された場所へ行き、狂暴な魔物を見つける,Root out the rabid beasts,ui\00_message\quest_info\q22018057_00.gmd,\quest\q22018057.arc,q22018057.arc,4,Zef,QUEST_TEXT_TYPE_PURPOSE
+6,q22018057_00_1176,依頼者へ経緯を報告する,Report back to the requester,ui\00_message\quest_info\q22018057_00.gmd,\quest\q22018057.arc,q22018057.arc,6,Zef,QUEST_TEXT_TYPE_PURPOSE
+0,q22018058_00_711,【高難度】アッカーシェラン各地より救援要請,High Difficulty: Rescue Acre Selund,ui\00_message\quest_info\q22018058_00.gmd,\quest\q22018058.arc,q22018058.arc,0,Bacias,QUEST_TEXT_TYPE_NAME
 1,q22018058_00_711,"【連続討伐クエスト】
 エリアマスターの願いを聞き入れ
 一斉進軍してきた魔軍を撃退する","[Consecutive Conquest Quest]
@@ -491,13 +491,13 @@ in a battle against an enemy.",ui\00_message\quest_info\q29999990_00.gmd,\quest\
 １２３４５６７８９０１２３４５６７８９０１２３４５６７
 １２３４５６７８９０１２３４５６７８９０１２３４５６７
 １２３４５６７８９０１２３４５６７８９０１２３４５６７
-１２３４５６７８９０１２３４５６７８９０１２３４５６７",ui\00_message\quest_info\q29999990_00.gmd,\quest\q29999990.arc,q29999990.arc,3,Mayleaf
-4,q29999990_00_1174,指定された場所へ行き、狂暴な魔物を見つける,Root out the rabid beasts,ui\00_message\quest_info\q29999990_00.gmd,\quest\q29999990.arc,q29999990.arc,4,Mayleaf
-5,q29999990_00_1175,遭遇した魔物を討伐する,Defeat the encountered foe(s),ui\00_message\quest_info\q29999990_00.gmd,\quest\q29999990.arc,q29999990.arc,5,0
-6,q29999990_00_1176,依頼者へ経緯を報告する,Report back to the requester,ui\00_message\quest_info\q29999990_00.gmd,\quest\q29999990.arc,q29999990.arc,6,
-7,q29999990_00_1178,依頼者からの報酬を得る,Collect the reward from the requester,ui\00_message\quest_info\q29999990_00.gmd,\quest\q29999990.arc,q29999990.arc,7,
-0,q29999991_00_305,須田テスト突発！,unused,ui\00_message\quest_info\q29999991_00.gmd,\quest\q29999991.arc,q29999991.arc,0,
-1,q29999991_00_305,遭遇した敵を討伐する,Defeat encountered foe(s),ui\00_message\quest_info\q29999991_00.gmd,\quest\q29999991.arc,q29999991.arc,1,
+１２３４５６７８９０１２３４５６７８９０１２３４５６７",ui\00_message\quest_info\q29999990_00.gmd,\quest\q29999990.arc,q29999990.arc,3,Mayleaf,QUEST_TEXT_TYPE_FIND_INFO_DETAIL
+4,q29999990_00_1174,指定された場所へ行き、狂暴な魔物を見つける,Root out the rabid beasts,ui\00_message\quest_info\q29999990_00.gmd,\quest\q29999990.arc,q29999990.arc,4,Mayleaf,QUEST_TEXT_TYPE_PURPOSE
+5,q29999990_00_1175,遭遇した魔物を討伐する,Defeat the encountered foe(s),ui\00_message\quest_info\q29999990_00.gmd,\quest\q29999990.arc,q29999990.arc,5,0,QUEST_TEXT_TYPE_PURPOSE
+6,q29999990_00_1176,依頼者へ経緯を報告する,Report back to the requester,ui\00_message\quest_info\q29999990_00.gmd,\quest\q29999990.arc,q29999990.arc,6,,QUEST_TEXT_TYPE_PURPOSE
+7,q29999990_00_1178,依頼者からの報酬を得る,Collect the reward from the requester,ui\00_message\quest_info\q29999990_00.gmd,\quest\q29999990.arc,q29999990.arc,7,,QUEST_TEXT_TYPE_PURPOSE
+0,q29999991_00_305,須田テスト突発！,unused,ui\00_message\quest_info\q29999991_00.gmd,\quest\q29999991.arc,q29999991.arc,0,,QUEST_TEXT_TYPE_NAME
+1,q29999991_00_305,遭遇した敵を討伐する,Defeat encountered foe(s),ui\00_message\quest_info\q29999991_00.gmd,\quest\q29999991.arc,q29999991.arc,1,,QUEST_TEXT_TYPE_ORDER
 2,q29999991_00_305,"<NAME AREA>は
 ここ数日異様な気配に満ちているらしい","<NAME AREA> seems to be filled
 with an unusual atmosphere these past few days.",ui\00_message\quest_info\q29999991_00.gmd,\quest\q29999991.arc,q29999991.arc,2,,QUEST_TEXT_TYPE_FIND_INFO
@@ -997,5 +997,5 @@ I've accidentally dropped
 the <LQIM> 
 bazaar items from the client!
 I had <LQVA> of them...!
-Please, someone help me!",ui\00_message\quest_info\q40000016_00.gmd,\quest\q40000016.arc,q40000016.arc,1,
-0,q40000017_00_17,我が主のために――,For a Master,ui\00_message\quest_info\q40000017_00.gmd,\quest\q40000017.arc,q40000017.arc,0,
+Please, someone help me!",ui\00_message\quest_info\q40000016_00.gmd,\quest\q40000016.arc,q40000016.arc,1,,QUEST_TEXT_TYPE_ORDER
+0,q40000017_00_17,我が主のために――,For a Master,ui\00_message\quest_info\q40000017_00.gmd,\quest\q40000017.arc,q40000017.arc,0,,QUEST_TEXT_TYPE_NAME

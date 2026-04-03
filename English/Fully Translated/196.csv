@@ -484,11 +484,11 @@ When I turned around, a massive monster
 was coming towards us with its arms outstretched!
 I was totally shocked. I managed to run away fast,
 but I tripped and injured my leg along the way. 
-Oh, it's all just so awful.",ui\00_message\quest_info\q20085004_00.gmd,\quest\q20085004.arc,q20085004.arc,3,Rick
-6,q20085004_00_804,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q20085004_00.gmd,\quest\q20085004.arc,q20085004.arc,6,Rick
-5,q20085004_00_806,遭遇した敵を討伐する,Defeat encountered foe(s),ui\00_message\quest_info\q20085004_00.gmd,\quest\q20085004.arc,q20085004.arc,5,Rick
-4,q20085004_00_1137,魔像の正体を暴く,Uncover the true nature of the magick statue,ui\00_message\quest_info\q20085004_00.gmd,\quest\q20085004.arc,q20085004.arc,4,Rick
-0,q20085005_00_195,不毛なる黒翼,The Barren Black Wings,ui\00_message\quest_info\q20085005_00.gmd,\quest\q20085005.arc,q20085005.arc,0,Sonya
+Oh, it's all just so awful.",ui\00_message\quest_info\q20085004_00.gmd,\quest\q20085004.arc,q20085004.arc,3,Rick,QUEST_TEXT_TYPE_FIND_INFO_DETAIL
+6,q20085004_00_804,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q20085004_00.gmd,\quest\q20085004.arc,q20085004.arc,6,Rick,QUEST_TEXT_TYPE_PURPOSE
+5,q20085004_00_806,遭遇した敵を討伐する,Defeat encountered foe(s),ui\00_message\quest_info\q20085004_00.gmd,\quest\q20085004.arc,q20085004.arc,5,Rick,QUEST_TEXT_TYPE_PURPOSE
+4,q20085004_00_1137,魔像の正体を暴く,Uncover the true nature of the magick statue,ui\00_message\quest_info\q20085004_00.gmd,\quest\q20085004.arc,q20085004.arc,4,Rick,QUEST_TEXT_TYPE_PURPOSE
+0,q20085005_00_195,不毛なる黒翼,The Barren Black Wings,ui\00_message\quest_info\q20085005_00.gmd,\quest\q20085005.arc,q20085005.arc,0,Sonya,QUEST_TEXT_TYPE_NAME
 1,q20085005_00_195,"依頼者の願いを聞き入れ
 対象の敵を討伐する","Listen to the client's request
 and defeat the enemy.",ui\00_message\quest_info\q20085005_00.gmd,\quest\q20085005.arc,q20085005.arc,1,Sonya,QUEST_TEXT_TYPE_ORDER
@@ -582,9 +582,9 @@ the carnival is about to begin.
 The living and the dead are invited to join hands
 and enjoy the dance together.
 For those who stay until the end,
-a splendid reward awaits.",ui\00_message\quest_info\q20085009_00.gmd,\quest\q20085009.arc,q20085009.arc,3,
-4,q20085009_00_806,遭遇した敵を討伐する,Defeat encountered foe(s),ui\00_message\quest_info\q20085009_00.gmd,\quest\q20085009.arc,q20085009.arc,4,
-0,q20085010_00_427,【緊急探索】財宝調査隊　ザンドラ東部,[Urgent Inspection] Eastern Zandora Treasure Expedition,ui\00_message\quest_info\q20085010_00.gmd,\quest\q20085010.arc,q20085010.arc,0,Arisen Corps Regimental Soldier
+a splendid reward awaits.",ui\00_message\quest_info\q20085009_00.gmd,\quest\q20085009.arc,q20085009.arc,3,,QUEST_TEXT_TYPE_FIND_INFO_DETAIL
+4,q20085009_00_806,遭遇した敵を討伐する,Defeat encountered foe(s),ui\00_message\quest_info\q20085009_00.gmd,\quest\q20085009.arc,q20085009.arc,4,,QUEST_TEXT_TYPE_PURPOSE
+0,q20085010_00_427,【緊急探索】財宝調査隊　ザンドラ東部,[Urgent Inspection] Eastern Zandora Treasure Expedition,ui\00_message\quest_info\q20085010_00.gmd,\quest\q20085010.arc,q20085010.arc,0,Arisen Corps Regimental Soldier,QUEST_TEXT_TYPE_NAME
 1,q20085010_00_427,"探索者の障害となる
 魔物の討伐に協力する",Defeat the enemies hindering the explorer.,ui\00_message\quest_info\q20085010_00.gmd,\quest\q20085010.arc,q20085010.arc,1,Arisen Corps Regimental Soldier,QUEST_TEXT_TYPE_ORDER
 2,q20085010_00_427,"<NAME AREA>は
@@ -958,9 +958,9 @@ for an enemy assault.",ui\00_message\quest_info\q20095013_00.gmd,\quest\q2009501
 to hunt an animal with a unique pelt
 just because your lover asked. 
 They say he was attacked by a huge black beast, 
-but maybe he chickened out and didn't go at all.",ui\00_message\quest_info\q20095013_00.gmd,\quest\q20095013.arc,q20095013.arc,3,
-4,q20095013_00_806,遭遇した敵を討伐する,Defeat encountered foe(s),ui\00_message\quest_info\q20095013_00.gmd,\quest\q20095013.arc,q20095013.arc,4,
-0,q20095014_00_428,【緊急探索】財宝調査隊　ザンドラ禁域,[Urgent Inspection] Zandora Wastelands Treasure Expedition,ui\00_message\quest_info\q20095014_00.gmd,\quest\q20095014.arc,q20095014.arc,0,Ludovika
+but maybe he chickened out and didn't go at all.",ui\00_message\quest_info\q20095013_00.gmd,\quest\q20095013.arc,q20095013.arc,3,,QUEST_TEXT_TYPE_FIND_INFO_DETAIL
+4,q20095013_00_806,遭遇した敵を討伐する,Defeat encountered foe(s),ui\00_message\quest_info\q20095013_00.gmd,\quest\q20095013.arc,q20095013.arc,4,,QUEST_TEXT_TYPE_PURPOSE
+0,q20095014_00_428,【緊急探索】財宝調査隊　ザンドラ禁域,[Urgent Inspection] Zandora Wastelands Treasure Expedition,ui\00_message\quest_info\q20095014_00.gmd,\quest\q20095014.arc,q20095014.arc,0,Ludovika,QUEST_TEXT_TYPE_NAME
 1,q20095014_00_428,"探索者から話を聞き
 探索の障害排除に協力する","Hear from the explorers
 and help eliminate their obstacles",ui\00_message\quest_info\q20095014_00.gmd,\quest\q20095014.arc,q20095014.arc,1,Ludovika,QUEST_TEXT_TYPE_ORDER
@@ -1109,4 +1109,4 @@ the monster. That glorious pelt shall be mine.",ui\00_message\quest_info\q201050
 2,q20105003_00_155,"<NAME AREA>方面から
 原因不明の怪音や震動が続いているとの報せがあった","There have been reports of unexplained noises 
 and tremors in the regions around
-<NAME AREA>",ui\00_message\quest_info\q20105003_00.gmd,\quest\q20105003.arc,q20105003.arc,2,
+<NAME AREA>",ui\00_message\quest_info\q20105003_00.gmd,\quest\q20105003.arc,q20105003.arc,2,,QUEST_TEXT_TYPE_FIND_INFO

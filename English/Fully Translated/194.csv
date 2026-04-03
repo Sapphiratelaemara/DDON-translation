@@ -541,15 +541,15 @@ survey team, but they haven't come back yet.
 
 We might need to send a second survey team. 
 Moreover, there are similar reports from the 
-north, so things are looking increasingly dire.",ui\00_message\quest_info\q20025002_00.gmd,\quest\q20025002.arc,q20025002.arc,3,Zuhl
-6,q20025002_00_804,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q20025002_00.gmd,\quest\q20025002.arc,q20025002.arc,6,Dikka
-9,q20025002_00_804,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q20025002_00.gmd,\quest\q20025002.arc,q20025002.arc,9,Dikka
-5,q20025002_00_1150,邪悪な魔物を討伐する,Defeat the foe(s),ui\00_message\quest_info\q20025002_00.gmd,\quest\q20025002.arc,q20025002.arc,5,Dikka
-8,q20025002_00_1152,邪悪の根源である敵を討伐する,Defeat the enemy that is the source of evil,ui\00_message\quest_info\q20025002_00.gmd,\quest\q20025002.arc,q20025002.arc,8,Dikka
-4,q20025002_00_1159,＜第三のアーク＞で邪悪な気配の源を探る,Investigate the source of the evil presence in the [Third Ark].,ui\00_message\quest_info\q20025002_00.gmd,\quest\q20025002.arc,q20025002.arc,4,Zuhl
-7,q20025002_00_1160,＜メルゴダ護政区＞でさらなる邪悪な気配の源を探る,Investigate the source of further evil aura in the [Mergoda Security District].,ui\00_message\quest_info\q20025002_00.gmd,\quest\q20025002.arc,q20025002.arc,7,Dikka
-0,q20025003_00_88,潜みし略奪者,The Lurking Marauders,ui\00_message\quest_info\q20025003_00.gmd,\quest\q20025003.arc,q20025003.arc,0,
-1,q20025003_00_88,遭遇した敵を討伐する,Defeat encountered foe(s),ui\00_message\quest_info\q20025003_00.gmd,\quest\q20025003.arc,q20025003.arc,1,
+north, so things are looking increasingly dire.",ui\00_message\quest_info\q20025002_00.gmd,\quest\q20025002.arc,q20025002.arc,3,Zuhl,QUEST_TEXT_TYPE_FIND_INFO_DETAIL
+6,q20025002_00_804,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q20025002_00.gmd,\quest\q20025002.arc,q20025002.arc,6,Dikka,QUEST_TEXT_TYPE_PURPOSE
+9,q20025002_00_804,依頼者に報告する,Report to the requester,ui\00_message\quest_info\q20025002_00.gmd,\quest\q20025002.arc,q20025002.arc,9,Dikka,QUEST_TEXT_TYPE_PURPOSE
+5,q20025002_00_1150,邪悪な魔物を討伐する,Defeat the foe(s),ui\00_message\quest_info\q20025002_00.gmd,\quest\q20025002.arc,q20025002.arc,5,Dikka,QUEST_TEXT_TYPE_PURPOSE
+8,q20025002_00_1152,邪悪の根源である敵を討伐する,Defeat the enemy that is the source of evil,ui\00_message\quest_info\q20025002_00.gmd,\quest\q20025002.arc,q20025002.arc,8,Dikka,QUEST_TEXT_TYPE_PURPOSE
+4,q20025002_00_1159,＜第三のアーク＞で邪悪な気配の源を探る,Investigate the source of the evil presence in the [Third Ark].,ui\00_message\quest_info\q20025002_00.gmd,\quest\q20025002.arc,q20025002.arc,4,Zuhl,QUEST_TEXT_TYPE_PURPOSE
+7,q20025002_00_1160,＜メルゴダ護政区＞でさらなる邪悪な気配の源を探る,Investigate the source of further evil aura in the [Mergoda Security District].,ui\00_message\quest_info\q20025002_00.gmd,\quest\q20025002.arc,q20025002.arc,7,Dikka,QUEST_TEXT_TYPE_PURPOSE
+0,q20025003_00_88,潜みし略奪者,The Lurking Marauders,ui\00_message\quest_info\q20025003_00.gmd,\quest\q20025003.arc,q20025003.arc,0,,QUEST_TEXT_TYPE_NAME
+1,q20025003_00_88,遭遇した敵を討伐する,Defeat encountered foe(s),ui\00_message\quest_info\q20025003_00.gmd,\quest\q20025003.arc,q20025003.arc,1,,QUEST_TEXT_TYPE_ORDER
 2,q20025003_00_88,"先日から<NAME AREA>で
 怪しい影がうごめくのを見たと言う噂が広まっている","Rumors have been spreading lately that shadows 
 are moving suspiciously in <NAME AREA>.",ui\00_message\quest_info\q20025003_00.gmd,\quest\q20025003.arc,q20025003.arc,2,,QUEST_TEXT_TYPE_FIND_INFO
@@ -1177,4 +1177,4 @@ If not, you should definitely try it! The
 soothing quality of the water is superb, but
 you can also enjoy relaxing conversations
 with the locals. It's a great way to heal
-both body and mind from battle.",ui\00_message\quest_info\q20040001_00.gmd,\quest\q20040001.arc,q20040001.arc,3,Roy
+both body and mind from battle.",ui\00_message\quest_info\q20040001_00.gmd,\quest\q20040001.arc,q20040001.arc,3,Roy,QUEST_TEXT_TYPE_FIND_INFO_DETAIL
