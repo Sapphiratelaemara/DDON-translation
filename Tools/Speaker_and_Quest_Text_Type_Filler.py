@@ -431,7 +431,8 @@ def process_csv(path, mapping, speaker_map, csv_dir, out_dir, dry_run, review_wr
             changed = True
 
     if changed and not dry_run:
-        os.makedirs(out_dir, exist_ok=True)
+        if out_dir is not None:
+            os.makedirs(out_dir, exist_ok=True)
         script_dir = os.path.abspath(os.path.dirname(__file__))
         backup_dir = os.path.join(script_dir, 'backups')
         os.makedirs(backup_dir, exist_ok=True)

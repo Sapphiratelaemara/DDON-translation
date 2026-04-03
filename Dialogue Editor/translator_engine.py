@@ -1,7 +1,8 @@
 import re
 
 # Punctuation after which a manual line break is considered intentional and preserved.
-_BREAK_PUNCT = r'[.!?;:,\—\…\"\'」』\)\]]'
+# Also includes > so lines ending with a tag are never merged forward.
+_BREAK_PUNCT = r'[.!?;:,\—\"\'」』\)\]>]'
 
 class TranslationEngine:
     def __init__(self, tag_map=None):
@@ -17,23 +18,31 @@ class TranslationEngine:
         return len(clean_text)
 
     def strip_erroneous_breaks(self, text):
-        """Remove line breaks NOT directly preceded by punctuation.
-        Trailing spaces before the break are consumed. Intentional breaks
-        (after . ! ? ; : , — … quotes/brackets) are preserved."""
+        """Remove line breaks NOT directly preceded by punctuation or a closing tag,
+        and not directly followed by an opening tag.
+        Intentional breaks are preserved; erroneous ones are merged."""
         lines = text.split('\n')
         if len(lines) <= 1:
             return text
         i = 0
         while i < len(lines) - 1:
             stripped = lines[i].rstrip()
+            # Preserve if this line ends with a closing tag >
+            if stripped.endswith('>'):
+                i += 1
+                continue
+            # Preserve if the next line starts with an opening tag <
+            next_stripped = lines[i + 1].lstrip()
+            if next_stripped.startswith('<'):
+                i += 1
+                continue
             bare = re.sub(r'<[^>]*>', '', stripped).rstrip()
             if bare and re.search(_BREAK_PUNCT + r'$', bare):
                 lines[i] = stripped          # intentional — keep break, just trim trailing space
                 i += 1
             else:
                 # Erroneous — merge into next line
-                next_line = lines[i + 1].lstrip()
-                lines[i + 1] = stripped + (' ' if stripped and next_line else '') + next_line
+                lines[i + 1] = stripped + (' ' if stripped and next_stripped else '') + next_stripped
                 lines.pop(i)                 # remove current line (don't advance i)
         return '\n'.join(lines)
 
@@ -47,22 +56,42 @@ class TranslationEngine:
         # Step 2: wrap each intentional segment independently
         segments = cleaned.split('\n')
         result_lines = []
+        segment_ends = set()
         for seg in segments:
-            result_lines.extend(self._wrap_segment(seg.strip(), limit))
+            seg = seg.strip()
+            if not seg:
+                continue
+            # If this segment is already within the limit, don't re-wrap it
+            if self.get_simulated_len(seg) <= limit:
+                result_lines.append(seg)
+            else:
+                result_lines.extend(self._wrap_segment(seg, limit))
+            segment_ends.add(len(result_lines) - 1)
 
-        # Step 3: stub balancing
-        result_lines = self._balance_stubs(result_lines, limit)
+        # Step 3: stub balancing — but never across segment boundaries
+        result_lines = self._balance_stubs(result_lines, limit, segment_ends)
 
         return "\n".join(result_lines)
+
+    def _tokenise(self, text):
+        """Split text into word-level tokens where complete <tags> are always atomic.
+        Spaces inside angle brackets are never treated as split points."""
+        parts = re.split(r'(<[^>]+>)', text)   # alternates: text, tag, text, tag, ...
+        tokens = []
+        for part in parts:
+            if part.startswith('<') and part.endswith('>'):
+                tokens.append(part)             # whole tag — never split
+            elif part:
+                tokens.extend(re.split(r'(\s+)', part))   # normal text — split on whitespace
+        return tokens
 
     def _wrap_segment(self, text, limit):
         """Wrap a single flat string into lines within limit."""
         if not text:
             return []
-        words = re.split(r'(\s+)', text)
         lines = []
         current_line = ""
-        for word in words:
+        for word in self._tokenise(text):
             test_line = current_line + word
             if self.get_simulated_len(test_line) <= limit:
                 current_line = test_line
@@ -76,28 +105,46 @@ class TranslationEngine:
             lines.append(current_line.rstrip())
         return lines
 
-    def _balance_stubs(self, lines, limit, stub_ratio=0.40):
-        """If the last line is a stub (< stub_ratio * limit), try pulling the
-        last word from the previous line onto it."""
+    def _balance_stubs(self, lines, limit, segment_ends=None, stub_ratio=0.40):
+        """Eliminate stub lines by pulling words from the preceding line.
+        Never crosses segment boundaries (intentional breaks from the source text).
+        segment_ends: set of line indices that are the last line of their segment."""
         if len(lines) < 2:
             return lines
+        if segment_ends is None:
+            segment_ends = {len(lines) - 1}
         lines = list(lines)
-        last_len = self.get_simulated_len(lines[-1])
-        if last_len >= limit * stub_ratio:
-            return lines
-        tokens = re.split(r'(\s+)', lines[-2])
-        word_tokens = [(idx, t) for idx, t in enumerate(tokens) if t.strip()]
-        if not word_tokens:
-            return lines
-        last_word_idx, last_word = word_tokens[-1]
-        candidate_prev = ''.join(tokens[:last_word_idx]).rstrip()
-        candidate_last = last_word.lstrip() + (' ' if lines[-1].strip() else '') + lines[-1]
-        if (candidate_prev and
-                self.get_simulated_len(candidate_prev) >= 1 and
-                self.get_simulated_len(candidate_last) <= limit):
-            lines[-2] = candidate_prev
-            lines[-1] = candidate_last.lstrip()
-        return lines
+        changed = True
+        max_passes = len(lines)
+        passes = 0
+        while changed and passes < max_passes:
+            changed = False
+            passes += 1
+            for i in range(len(lines) - 1, 0, -1):
+                # Don't pull across a segment boundary —
+                # if line i-1 is the last line of its segment, skip
+                if (i - 1) in segment_ends:
+                    continue
+                line_len = self.get_simulated_len(lines[i])
+                if line_len >= limit * stub_ratio:
+                    continue
+                visible = [t for t in self._tokenise(lines[i]) if t.strip()]
+                if not visible:
+                    continue
+                prev_tokens = self._tokenise(lines[i - 1])
+                word_tokens = [(idx, t) for idx, t in enumerate(prev_tokens) if t.strip()]
+                if not word_tokens:
+                    continue
+                last_word_idx, last_word = word_tokens[-1]
+                candidate_prev = ''.join(prev_tokens[:last_word_idx]).rstrip()
+                candidate_curr = last_word.lstrip() + (' ' if lines[i].strip() else '') + lines[i]
+                if (candidate_prev and
+                        self.get_simulated_len(candidate_prev) >= 1 and
+                        self.get_simulated_len(candidate_curr) <= limit):
+                    lines[i - 1] = candidate_prev
+                    lines[i]     = candidate_curr.lstrip()
+                    changed = True
+        return [l for l in lines if l]
 
     def apply_in_universe(self, text, replacements):
         """Apply modern->archaic replacements (whole-word, case-insensitive)."""

@@ -374,7 +374,7 @@ class ReviewEditor(tk.Toplevel):
         tk.Button(btns, text="✓  Apply", command=self.save_item,
                   bg=self.colors["apply_bg"], fg="white",
                   width=18, relief="flat", font=("Arial", 10, "bold")).pack(side="left", padx=4)
-        tk.Button(btns, text="―― → …", command=lambda: self.replace_dashes("…"),
+        tk.Button(btns, text="―― → ...", command=lambda: self.replace_dashes("..."),
                   bg=self.colors["btn_bg"], fg=self.colors["fg"],
                   width=10, relief="flat").pack(side="left", padx=4)
         tk.Button(btns, text="―― → —", command=lambda: self.replace_dashes("—"),
@@ -581,8 +581,8 @@ class ReviewEditor(tk.Toplevel):
                         continue
                     seen.add(d)
                     self.lore_list.insert(tk.END, f"  Found: \"{d}\"\n", "dash_found")
-                    self.lore_list.insert(tk.END, "  Suggest: \"…\" (trailing off) or \"—\" (break)\n", "dash_suggest")
-                    for label, replacement in [("Insert …", "…"), ("Insert —", "—")]:
+                    self.lore_list.insert(tk.END, "  Suggest: \"...\" (trailing off) or \"—\" (break)\n", "dash_suggest")
+                    for label, replacement in [("Insert ...", "..."), ("Insert —", "—")]:
                         self.lore_list.insert(tk.END, f"  [{label}]", f"dash_btn_{label}")
                         self.lore_list.tag_config(f"dash_btn_{label}", foreground="#6fb3ff", underline=True)
                         self.lore_list.tag_bind(f"dash_btn_{label}", "<Button-1>",
@@ -730,9 +730,9 @@ class ReviewEditor(tk.Toplevel):
         –– (en dash U+2013), and any mixed combinations of two or more."""
         current = self.txt.get(1.0, tk.END)
         fixed = re.sub(r'[-–—―]{2,}', replacement, current)
-        # If replacing with ellipsis, ensure a space before the next word/digit
-        if replacement == "…":
-            fixed = re.sub(r'…(\w)', r'… \1', fixed)
+        # If replacing with ellipsis (...), ensure a space before the next word/digit
+        if replacement == "...":
+            fixed = re.sub(r'\.\.\.(\w)', r'... \1', fixed)
         if fixed != current:
             self.txt.delete(1.0, tk.END)
             self.txt.insert(tk.END, fixed.rstrip("\n"))
