@@ -2,6 +2,21 @@ import sys
 sys.dont_write_bytecode = True
 
 import csv, os, threading, re, tkinter as tk
+import io as _io
+
+def _read_csv(path):
+    """Read a CSV file, sniffing the delimiter but always using doublequote=True.
+    The csv.Sniffer misdetects doublequote=False on files containing \"\"quoted\"\" fields,
+    which collapses multiple columns into one. Forcing doublequote=True is always safe
+    for game-exported CSVs."""
+    with open(path, 'r', encoding='utf-8-sig', newline='') as f:
+        raw = f.read()
+    try:
+        dialect = csv.Sniffer().sniff(raw[:4096])
+        dialect.doublequote = True
+    except csv.Error:
+        dialect = csv.excel
+    return raw, dialect, list(csv.reader(_io.StringIO(raw), dialect))
 from tkinter import messagebox, filedialog, ttk, simpledialog, scrolledtext
 from datetime import datetime
 from collections import defaultdict
@@ -269,40 +284,22 @@ class ReviewEditor(tk.Toplevel):
         self.speaker_note_entry.bind("<FocusOut>", lambda e: self.save_archetype())
         self.speaker_note_entry.bind("<Return>",   lambda e: self.save_archetype())
 
-        # Entry type combobox — populated from configured type keys
-        spk_lbl("Type:").pack(side="left", padx=(14, 2))
-        et_keys = [""] + sorted(self.parent.cm.config.get("entry_type_rules", {}).keys())
-        self.entry_type_combo = ttk.Combobox(spk_frame, textvariable=self.entry_type_var,
-                                             values=et_keys, width=24)
-        self.entry_type_combo.pack(side="left", padx=(0, 4))
-        self.entry_type_combo.bind("<<ComboboxSelected>>", self._on_entry_type_changed)
-        self.entry_type_combo.bind("<Return>",              self._on_entry_type_changed)
-        self.entry_type_combo.bind("<FocusOut>",            self._on_entry_type_changed)
-
-        # Restrictions badge — shown when the selected type has rules
-        self.entry_type_badge = tk.Label(spk_frame, text="",
-                                         fg="white", bg="#2980b9",
-                                         font=("Arial", 8, "bold"), padx=5, pady=1)
-        self.entry_type_badge.pack(side="left", padx=(2, 0))
-
-        # Restriction summary text — e.g. "no auto-wrap  ·  no trailing .,
-        self.et_rules_lbl = tk.Label(spk_frame, text="",
-                                     fg=self.colors["label_fg"], bg=self.colors["bg"],
-                                     font=("Arial", 8, "italic"))
-        self.et_rules_lbl.pack(side="left", padx=(4, 0))
-
-        # ── Entry type row ── (separate row below speaker bar)
+        # ── Entry type row ── (below speaker bar)
         et_frame = tk.Frame(self, bg=self.colors["bg"], padx=16, pady=2)
         et_frame.pack(fill="x")
         tk.Label(et_frame, text="Entry Type:", fg=self.colors["label_fg"],
                  bg=self.colors["bg"], font=("Arial", 9)).pack(side="left")
         known_types = [""] + sorted(self.parent.cm.config.get("entry_type_rules", {}).keys())
-        self.entry_type_var = tk.StringVar()
         self.entry_type_combo = ttk.Combobox(et_frame, textvariable=self.entry_type_var,
                                              values=known_types, width=36)
         self.entry_type_combo.pack(side="left", padx=(4, 6))
         self.entry_type_combo.bind("<<ComboboxSelected>>", self._on_entry_type_changed)
-        self.entry_type_combo.bind("<Return>", self._on_entry_type_changed)
+        self.entry_type_combo.bind("<Return>",  self._on_entry_type_changed)
+        self.entry_type_combo.bind("<FocusOut>", self._on_entry_type_changed)
+        self.entry_type_badge = tk.Label(et_frame, text="",
+                                         fg="white", bg="#2980b9",
+                                         font=("Arial", 8, "bold"), padx=5, pady=1)
+        self.entry_type_badge.pack(side="left", padx=(2, 4))
         tk.Button(et_frame, text="Save Type", command=self.save_entry_type,
                   bg=self.colors["btn_bg"], fg=self.colors["fg"],
                   font=("Arial", 8), relief="flat", padx=6).pack(side="left")
@@ -314,39 +311,11 @@ class ReviewEditor(tk.Toplevel):
         main = tk.Frame(self, bg=self.colors["bg"])
         main.pack(fill="both", expand=True, padx=14, pady=4)
 
-        # Left: editor + JP source
-        left_f = tk.Frame(main, bg=self.colors["bg"])
-        left_f.pack(side="left", fill="y")
-
-        tk.Label(left_f, text="English", fg=self.colors["label_fg"],
-                 bg=self.colors["bg"], font=("Arial", 8, "bold")).pack(anchor="w")
-        self.txt = tk.Text(left_f, height=15, width=62, font=("Consolas", 12),
-                           bg=self.colors["text_bg"], fg=self.colors["fg"],
-                           insertbackground=self.colors["insert_color"],
-                           bd=0, padx=6, pady=4,
-                           relief="flat", selectbackground=self.colors["accent"],
-                           selectforeground="white")
-        self.txt.pack(fill="y", expand=True)
-        self.txt.bind("<KeyRelease>", self.update_counters)
-        self.txt.bind("<<Paste>>", lambda e: self.after(0, self.update_counters))
-
-        tk.Label(left_f, text="Japanese Source", fg=self.colors["label_fg"],
-                 bg=self.colors["bg"], font=("Arial", 8, "bold")).pack(anchor="w", pady=(8, 0))
-        self.jp_txt = tk.Text(left_f, height=10, width=62, font=("MS Gothic", 12),
-                              bg=self.colors["jp_bg"], fg=self.colors["fg"],
-                              insertbackground=self.colors["insert_color"],
-                              state="disabled", bd=0, padx=6, pady=4, relief="flat")
-        self.jp_txt.pack(fill="y", expand=True)
-
-        # Char counter strip
-        self.cnt_lbl = tk.Text(main, font=("Consolas", 10), width=4,
-                               bg=self.colors["bg"], fg=self.colors["counter_fg"],
-                               state="disabled", bd=0, highlightthickness=0)
-        self.cnt_lbl.pack(side="left", fill="y", pady=4, padx=(2, 4))
-
-        # Sidebar
-        side = tk.Frame(main, bg=self.colors["sidebar_bg"])
-        side.pack(side="right", fill="both", expand=True)
+        # Sidebar packs first (right) so it gets its preferred width;
+        # counter strip packs second (right); left_f fills the remaining space.
+        side = tk.Frame(main, bg=self.colors["sidebar_bg"], width=220)
+        side.pack(side="right", fill="both")
+        side.pack_propagate(False)   # hold minimum width even when content is short
         tk.Label(side, text="References", fg=self.colors["label_fg"],
                  bg=self.colors["sidebar_bg"], font=("Arial", 8, "bold")).pack(anchor="w", padx=6, pady=(4, 0))
         self.lore_list = tk.Text(side, bg=self.colors["text_bg"], fg=self.colors["fg"],
@@ -361,6 +330,40 @@ class ReviewEditor(tk.Toplevel):
                                       wrap="word", state="disabled", height=7,
                                       padx=6, pady=4)
         self.archetype_hint.pack(fill="x")
+
+        # Char counter strip — fixed width, packs right of left_f
+        self.cnt_lbl = tk.Text(main, font=("Consolas", 10), width=4,
+                               bg=self.colors["bg"], fg=self.colors["counter_fg"],
+                               state="disabled", bd=0, highlightthickness=0)
+        self.cnt_lbl.pack(side="right", fill="y", pady=4, padx=(2, 4))
+
+        # Left: editor + JP source — expands to fill all remaining space
+        left_f = tk.Frame(main, bg=self.colors["bg"])
+        left_f.pack(side="left", fill="both", expand=True)
+
+        tk.Label(left_f, text="English", fg=self.colors["label_fg"],
+                 bg=self.colors["bg"], font=("Arial", 8, "bold")).pack(anchor="w")
+        self.txt = tk.Text(left_f, height=15, font=("Consolas", 12),
+                           bg=self.colors["text_bg"], fg=self.colors["fg"],
+                           insertbackground=self.colors["insert_color"],
+                           bd=0, padx=6, pady=4, wrap="none",
+                           relief="flat", selectbackground=self.colors["accent"],
+                           selectforeground="white")
+        # Horizontal scrollbar for long unwrapped lines
+        txt_xscroll = tk.Scrollbar(left_f, orient="horizontal", command=self.txt.xview)
+        self.txt.configure(xscrollcommand=txt_xscroll.set)
+        self.txt.pack(fill="both", expand=True)
+        txt_xscroll.pack(fill="x")
+        self.txt.bind("<KeyRelease>", self.update_counters)
+        self.txt.bind("<<Paste>>", lambda e: self.after(0, self.update_counters))
+
+        tk.Label(left_f, text="Japanese Source", fg=self.colors["label_fg"],
+                 bg=self.colors["bg"], font=("Arial", 8, "bold")).pack(anchor="w", pady=(8, 0))
+        self.jp_txt = tk.Text(left_f, height=10, font=("MS Gothic", 12),
+                              bg=self.colors["jp_bg"], fg=self.colors["fg"],
+                              insertbackground=self.colors["insert_color"],
+                              state="disabled", bd=0, padx=6, pady=4, relief="flat")
+        self.jp_txt.pack(fill="both", expand=True)
 
         # ── Button bar ──
         btns = tk.Frame(self, bg=self.colors["bg"], pady=10)
@@ -399,14 +402,7 @@ class ReviewEditor(tk.Toplevel):
         
         first_inst = self.queues[self.current_category][txt][0]
         try:
-            with open(first_inst['path'], 'r', encoding='utf-8-sig', newline='') as f:
-                raw = f.read()
-            try:
-                dialect = csv.Sniffer().sniff(raw[:4096])
-            except csv.Error:
-                dialect = csv.excel
-            import io
-            rows = list(csv.reader(io.StringIO(raw), dialect))
+            _, _, rows = _read_csv(first_inst['path'])
             row_data = rows[first_inst['row_idx']]
             jp_source = row_data[2] if len(row_data) > 2 else ""
             self.speaker_name = row_data[8].strip() if len(row_data) > 8 else ""
@@ -667,17 +663,9 @@ class ReviewEditor(tk.Toplevel):
         instances = self.queues[self.current_category].get(txt, [])
         for inst in instances:
             try:
-                with open(inst['path'], 'r', encoding='utf-8-sig', newline='') as f:
-                    raw = f.read()
-                try:
-                    dialect = csv.Sniffer().sniff(raw[:4096])
-                except csv.Error:
-                    dialect = csv.excel
-                import io
-                rows = list(csv.reader(io.StringIO(raw), dialect))
+                raw, dialect, rows = _read_csv(inst['path'])
                 r_idx = inst['row_idx']
                 if r_idx < len(rows):
-                    # Extend row if needed so col 9 exists
                     while len(rows[r_idx]) <= 9:
                         rows[r_idx].append("")
                     rows[r_idx][9] = new_type
@@ -1103,17 +1091,7 @@ class CSVProcessorApp:
             output_rows = []
 
             try:
-                with open(f_path, 'r', encoding='utf-8-sig', newline='') as f:
-                    raw = f.read()
-
-                # Detect dialect from the first 4KB so we write back identically
-                try:
-                    dialect = csv.Sniffer().sniff(raw[:4096])
-                except csv.Error:
-                    dialect = csv.excel   # safe fallback
-
-                import io
-                current_file_data = list(csv.reader(io.StringIO(raw), dialect))
+                raw, dialect, current_file_data = _read_csv(f_path)
 
                 for r_idx, row in enumerate(current_file_data):
                     # 1. Structural preservation
@@ -1324,14 +1302,7 @@ class CSVProcessorApp:
 
         for inst in instances:
             try:
-                with open(inst['path'], 'r', encoding='utf-8-sig', newline='') as f:
-                    raw = f.read()
-                try:
-                    dialect = csv.Sniffer().sniff(raw[:4096])
-                except csv.Error:
-                    dialect = csv.excel
-                import io
-                rows = list(csv.reader(io.StringIO(raw), dialect))
+                raw, dialect, rows = _read_csv(inst['path'])
                 if inst['row_idx'] < len(rows):
                     rows[inst['row_idx']][3] = new_text
                     with open(inst['path'], 'w', encoding='utf-8-sig', newline='') as f:
