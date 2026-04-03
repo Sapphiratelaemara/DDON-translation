@@ -33,6 +33,17 @@ BRACKET_MAP = {
 
 TARGET_CHARS = set(BRACKET_MAP.keys())
 
+# Keywords that disable spacing normalization
+SKIP_SPACING_KEYWORDS = [
+    "uGUIEntryBoard",
+    "named_param",
+    "uGUIPopFilter",
+    "ana_om_warp",
+    "EDIT_MSG_DIALOG_SAVE_",
+    "QUEST_MSG_UI_REWARD_TRADE_",
+    "OS_index_loginskip"
+]
+
 
 def normalize_brackets(text):
     return "".join(BRACKET_MAP.get(ch, ch) for ch in text)
@@ -41,6 +52,9 @@ def normalize_brackets(text):
 def fix_text(text):
     if text is None:
         return text
+
+    # Skip spacing normalization if special keywords appear
+    skip_spacing = any(key in text for key in SKIP_SPACING_KEYWORDS)
 
     # --- 0. Extract only the COL tags, not their contents ---
     col_tags = []
@@ -54,55 +68,73 @@ def fix_text(text):
     # --- 1. Normalize bracket-like symbols ---
     text = normalize_brackets(text)
 
-    # --- 1.5 Normalize full-width colon and enforce space after colon (only before letters) ---
-    text = text.replace('：', ':')
+    # --- 1.5 Normalize full-width colon ---
+    # Japanese colon should become ": " ONLY if followed by a letter or "<"
+    text = text.replace('：<', ': <')
+    text = re.sub(r'：(?!<)', ':', text)
+
+    # ASCII colon rule: add space only before letters, NOT before "<"
     text = re.sub(r':(?=[A-Za-z])', ': ', text)
 
     # --- 2. Remove spaces directly inside brackets ---
     text = re.sub(r'\[\s+', '[', text)
     text = re.sub(r'\s+\]', ']', text)
 
-    # --- 3. Move punctuation outside brackets ---
-    text = re.sub(r'\[([^\[\]]+?)([.,!?;:])\]', r'[\1]\2', text)
+    # --- 3. Move punctuation outside brackets (Rule B, ellipsis preserved) ---
+    text = re.sub(r'\[([^\[\]]+?)[ ]*([.!?;:])(?!\.)\]', r'[\1]\2', text)
 
-    # --- 4. Insert missing space BEFORE '[' unless preceded by COL placeholder ---
-    text = re.sub(
-        r'(?<!__COLTAG_\d__)(?<=\w)\[',
-        r' [',
-        text
-    )
+    # --- 4 & 5. Spacing rules (SKIPPED if skip_spacing=True) ---
+    if not skip_spacing:
+        # Insert missing space BEFORE '[' unless preceded by COL placeholder
+        text = re.sub(
+            r'(?<!__COLTAG_\d__)(?<=\w)\[',
+            r' [',
+            text
+        )
 
-    # --- 5. Insert missing space AFTER ']' unless followed by punctuation/space/COL ---
-    out = []
-    i = 0
-    while i < len(text):
-        ch = text[i]
-        out.append(ch)
+        # Insert missing space AFTER ']' unless followed by punctuation/space/COL
+        out = []
+        i = 0
+        while i < len(text):
+            ch = text[i]
+            out.append(ch)
 
-        if ch == ']':
-            if i + 1 < len(text):
-                nxt = text[i+1]
-                if nxt not in (' ', '\n', '\r', '\t', '.', ',', '!', '?', ':', ';'):
-                    if not text.startswith("__COLTAG_", i+1):
-                        out.append(' ')
-        i += 1
+            if ch == ']':
+                if i + 1 < len(text):
+                    nxt = text[i+1]
+                    if nxt not in (' ', '\n', '\r', '\t', '.', ',', '!', '?', ':', ';'):
+                        if not text.startswith("__COLTAG_", i+1):
+                            out.append(' ')
+            i += 1
 
-    text = ''.join(out)
+        text = ''.join(out)
 
     # --- 6. Restore COL tags ---
     for idx, tag in enumerate(col_tags):
         text = text.replace(f"__COLTAG_{idx}__", tag)
 
-    # --- 7. Fix spacing around COL tags ---
+    # --- 7. COL spacing rules (also SKIPPED if skip_spacing=True) ---
+    if not skip_spacing:
+        # Insert space before <COL only if preceded by a word character
+        text = re.sub(r'(?<=\w)(<COL[^>]*>)', r' \1', text)
 
-    # Insert space before <COL only if preceded by a word character
-    text = re.sub(r'(?<=\w)(<COL[^>]*>)', r' \1', text)
+        # Remove space between <COL ...> and [
+        text = re.sub(r'(<COL[^>]*>)\s+\[', r'\1[', text)
 
-    # Insert space after </COL> only if followed by a word character
-    text = re.sub(r'(</COL>)(?=\w)', r'\1 ', text)
+        # Remove space before </COL>
+        text = re.sub(r'\s+(</COL>)', r'\1', text)
 
-    # Collapse accidental double spaces
-    text = re.sub(r' {2,}', ' ', text)
+        # Remove space between ] and </COL>
+        text = re.sub(r'\]\s+(</COL>)', r']\1', text)
+
+        # Insert space after </COL> only if followed by a word character
+        text = re.sub(r'(</COL>)(?=\w)', r'\1 ', text)
+
+        # Collapse accidental double spaces
+        text = re.sub(r' {2,}', ' ', text)
+
+    # --- 8. Move punctuation outside COL blocks (ellipsis preserved) ---
+    text = re.sub(r'(</COL>)[ ]*([.!?;:])(?!\.)', r'\1\2', text)
 
     return text
 
