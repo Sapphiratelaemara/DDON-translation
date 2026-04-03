@@ -208,7 +208,7 @@ no longer progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc
 ""<NAME QUEST>"" differs.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,207,
 43,syslog_quest_clear,<NAME QUEST>をクリアしました,<NAME QUEST> has been completed.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,43,
 224,syslog_quest_decide_deliver,＜<NAME QUEST>＞の納品目標を達成しました,"""<NAME QUEST>"" delivery objective achieved.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,224,
-54,syslog_quest_dialog,<NAME QUEST>：≪汎用アナウンス用テキスト≫,<NAME QUEST>：≪General announcement text≫,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54,
+54,syslog_quest_dialog,<NAME QUEST>：≪汎用アナウンス用テキスト≫,<NAME QUEST>: ≪General announcement text≫,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54,
 51,syslog_quest_discontinue,進行不可能になったクエストがあります,This quest is not able to progress.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,51,
 42,syslog_quest_discover_party,<NAME TARGET>が<NAME QUEST>を発見しました,"<NAME TARGET> has discovered 
 <NAME QUEST>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,42,
@@ -254,7 +254,7 @@ quest, please cancel the current Content.",ui\00_message\ui\system_log.gmd,\ui\g
 60,syslog_quest_stopedquest_enable,進行不能が解除されたクエストがあります,"There are quests that have been released from
 being unable to progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,60,
 204,syslog_quest_undiscover_reward,＜<NAME QUEST>＞の未公開報酬を獲得しました,"Earned the hidden reward for ""<NAME QUEST>"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,204,
-53,syslog_quest_update,<NAME QUEST>：≪小目的用テキスト≫,<NAME QUEST>：≪Text for Sub-objective≫,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53,
+53,syslog_quest_update,<NAME QUEST>：≪小目的用テキスト≫,<NAME QUEST>: ≪Text for Sub-objective≫,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53,
 209,syslog_quest_wait_order,パーティーリーダーの＜<NAME QUEST>＞が受注待ちになりました,"The party leader's quest ""<NAME QUEST>"" has
 orders waiting.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,209,
 237,syslog_quiq_mach_purpose,"冒険目的＜<NAME ETC>＞
@@ -508,7 +508,7 @@ launcher screen.",ui\00_message\ui\system_network_win.gmd,\ui\gui_cmn.arc,gui_cm
 6,time_event_msg_05,無制限,Indefinite,ui\00_message\ui\time_event.gmd,\ui\uGUITimeEvent.arc,uGUITimeEvent.arc,6,
 7,time_event_msg_06,開始まで,Starts in,ui\00_message\ui\time_event.gmd,\ui\uGUITimeEvent.arc,uGUITimeEvent.arc,7,
 8,time_event_msg_07,終了しました,Ended,ui\00_message\ui\time_event.gmd,\ui\uGUITimeEvent.arc,uGUITimeEvent.arc,8,
-2,titile_version,Version：,Version：,ui\00_message\ui\title_menu_win.gmd,\ui\uGUITitle.arc,uGUITitle.arc,2,
+2,titile_version,Version：,Version: ,ui\00_message\ui\title_menu_win.gmd,\ui\uGUITitle.arc,uGUITitle.arc,2,
 1,title_alert,,,ui\00_message\ui\title_menu_win.gmd,\ui\uGUITitle.arc,uGUITitle.arc,1,
 3,title_alert_index,注意,Attention,ui\00_message\ui\title_menu_win.gmd,\ui\uGUITitle.arc,uGUITitle.arc,3,
 0,title_copyright,"#CAPCOM CO., LTD. 2015 ALL RIGHTS RESERVED.","#CAPCOM CO., LTD. 2015 ALL RIGHTS RESERVED.",ui\00_message\ui\title_menu_win.gmd,\ui\uGUITitle.arc,uGUITitle.arc,0,

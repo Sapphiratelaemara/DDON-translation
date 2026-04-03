@@ -49,12 +49,12 @@ def normalize_brackets(text):
     return "".join(BRACKET_MAP.get(ch, ch) for ch in text)
 
 
-def fix_text(text):
+def fix_text(text, skip_override=False):
     if text is None:
         return text
 
-    # Skip spacing normalization if special keywords appear
-    skip_spacing = any(key in text for key in SKIP_SPACING_KEYWORDS)
+    # Skip spacing normalization if special keywords appear OR row override
+    skip_spacing = skip_override or any(key in text for key in SKIP_SPACING_KEYWORDS)
 
     # --- 0. Extract only the COL tags, not their contents ---
     col_tags = []
@@ -69,30 +69,35 @@ def fix_text(text):
     text = normalize_brackets(text)
 
     # --- 1.5 Normalize full-width colon ---
-    # Japanese colon should become ": " ONLY if followed by a letter or "<"
     text = text.replace('：<', ': <')
     text = re.sub(r'：(?!<)', ':', text)
 
-    # ASCII colon rule: add space only before letters, NOT before "<"
+    # ASCII colon rules:
+    # 1) Add space before letters
     text = re.sub(r':(?=[A-Za-z])', ': ', text)
+
+    # 2) Add space before digits UNLESS it's a time like 20:00
+    text = re.sub(r':(?=\d(?!\d:))', ': ', text)
 
     # --- 2. Remove spaces directly inside brackets ---
     text = re.sub(r'\[\s+', '[', text)
     text = re.sub(r'\s+\]', ']', text)
 
-    # --- 3. Move punctuation outside brackets (Rule B, ellipsis preserved) ---
-    text = re.sub(r'\[([^\[\]]+?)[ ]*([.!?;:])(?!\.)\]', r'[\1]\2', text)
+    # --- 3. Rule B: move punctuation outside brackets EXCEPT ellipsis ---
+    text = re.sub(
+        r'\[([^\[\]]+?)(?<!\.\.)([.!?;:])(?!\.)\]',
+        r'[\1]\2',
+        text
+    )
 
     # --- 4 & 5. Spacing rules (SKIPPED if skip_spacing=True) ---
     if not skip_spacing:
-        # Insert missing space BEFORE '[' unless preceded by COL placeholder
         text = re.sub(
             r'(?<!__COLTAG_\d__)(?<=\w)\[',
             r' [',
             text
         )
 
-        # Insert missing space AFTER ']' unless followed by punctuation/space/COL
         out = []
         i = 0
         while i < len(text):
@@ -115,23 +120,14 @@ def fix_text(text):
 
     # --- 7. COL spacing rules (also SKIPPED if skip_spacing=True) ---
     if not skip_spacing:
-        # Insert space before <COL only if preceded by a word character
         text = re.sub(r'(?<=\w)(<COL[^>]*>)', r' \1', text)
-
-        # Remove space between <COL ...> and [
         text = re.sub(r'(<COL[^>]*>)\s+\[', r'\1[', text)
-
-        # Remove space before </COL>
         text = re.sub(r'\s+(</COL>)', r'\1', text)
-
-        # Remove space between ] and </COL>
         text = re.sub(r'\]\s+(</COL>)', r']\1', text)
-
-        # Insert space after </COL> only if followed by a word character
         text = re.sub(r'(</COL>)(?=\w)', r'\1 ', text)
 
-        # Collapse accidental double spaces
-        text = re.sub(r' {2,}', ' ', text)
+        # Collapse multiple spaces only when followed by non-space
+        text = re.sub(r' {2,}(?=\S)', ' ', text)
 
     # --- 8. Move punctuation outside COL blocks (ellipsis preserved) ---
     text = re.sub(r'(</COL>)[ ]*([.!?;:])(?!\.)', r'\1\2', text)
@@ -264,14 +260,14 @@ def process_english_csv(path):
     with open(path, 'r', encoding='utf-8', newline='') as f:
         reader = csv.reader(f)
         for row in reader:
+
+            # Row-level skip logic
+            row_text = ",".join(row)
+            skip_row = any(key in row_text for key in SKIP_SPACING_KEYWORDS)
+
             if len(row) > ENGLISH_COLUMN:
                 cell = row[ENGLISH_COLUMN]
 
-                # Trigger if:
-                # - full-width bracket-like chars
-                # - full-width colon
-                # - ASCII colon
-                # - ASCII brackets
                 if (
                     any(c in cell for c in TARGET_CHARS)
                     or '：' in cell
@@ -279,7 +275,7 @@ def process_english_csv(path):
                     or '[' in cell
                     or ']' in cell
                 ):
-                    fixed = fix_text(cell)
+                    fixed = fix_text(cell, skip_override=skip_row)
                     if fixed != cell:
                         row[ENGLISH_COLUMN] = fixed
                         changed = True
