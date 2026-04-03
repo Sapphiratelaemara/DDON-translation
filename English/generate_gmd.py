@@ -33,8 +33,6 @@ BRACKET_MAP = {
 
 TARGET_CHARS = set(BRACKET_MAP.keys())
 
-COL_TAG_PATTERN = re.compile(r'</?COL[^>]*>')
-
 
 def normalize_brackets(text):
     return "".join(BRACKET_MAP.get(ch, ch) for ch in text)
@@ -44,17 +42,21 @@ def fix_text(text):
     if text is None:
         return text
 
-    # --- 0. Extract COL regions so they are protected ---
-    col_regions = []
+    # --- 0. Extract only the COL tags, not their contents ---
+    col_tags = []
 
-    def col_replacer(match):
-        col_regions.append(match.group(0))
-        return f"__COL_BLOCK_{len(col_regions)-1}__"
+    def col_tag_replacer(match):
+        col_tags.append(match.group(0))
+        return f"__COLTAG_{len(col_tags)-1}__"
 
-    text = re.sub(r'<COL[^>]*>.*?</COL>', col_replacer, text, flags=re.DOTALL)
+    text = re.sub(r'</?COL[^>]*>', col_tag_replacer, text)
 
     # --- 1. Normalize bracket-like symbols ---
     text = normalize_brackets(text)
+
+    # --- 1.5 Normalize full-width colon and enforce space after colon (only before letters) ---
+    text = text.replace('：', ':')
+    text = re.sub(r':(?=[A-Za-z])', ': ', text)
 
     # --- 2. Remove spaces directly inside brackets ---
     text = re.sub(r'\[\s+', '[', text)
@@ -65,7 +67,7 @@ def fix_text(text):
 
     # --- 4. Insert missing space BEFORE '[' unless preceded by COL placeholder ---
     text = re.sub(
-        r'(?<!__COL_BLOCK_\d__)(?<=\w)\[',
+        r'(?<!__COLTAG_\d__)(?<=\w)\[',
         r' [',
         text
     )
@@ -81,15 +83,26 @@ def fix_text(text):
             if i + 1 < len(text):
                 nxt = text[i+1]
                 if nxt not in (' ', '\n', '\r', '\t', '.', ',', '!', '?', ':', ';'):
-                    if not text.startswith("__COL_BLOCK_", i+1):
+                    if not text.startswith("__COLTAG_", i+1):
                         out.append(' ')
         i += 1
 
     text = ''.join(out)
 
-    # --- 6. Restore COL regions ---
-    for idx, block in enumerate(col_regions):
-        text = text.replace(f"__COL_BLOCK_{idx}__", block)
+    # --- 6. Restore COL tags ---
+    for idx, tag in enumerate(col_tags):
+        text = text.replace(f"__COLTAG_{idx}__", tag)
+
+    # --- 7. Fix spacing around COL tags ---
+
+    # Insert space before <COL only if preceded by a word character
+    text = re.sub(r'(?<=\w)(<COL[^>]*>)', r' \1', text)
+
+    # Insert space after </COL> only if followed by a word character
+    text = re.sub(r'(</COL>)(?=\w)', r'\1 ', text)
+
+    # Collapse accidental double spaces
+    text = re.sub(r' {2,}', ' ', text)
 
     return text
 
@@ -222,7 +235,18 @@ def process_english_csv(path):
             if len(row) > ENGLISH_COLUMN:
                 cell = row[ENGLISH_COLUMN]
 
-                if any(c in cell for c in TARGET_CHARS):
+                # Trigger if:
+                # - full-width bracket-like chars
+                # - full-width colon
+                # - ASCII colon
+                # - ASCII brackets
+                if (
+                    any(c in cell for c in TARGET_CHARS)
+                    or '：' in cell
+                    or ':' in cell
+                    or '[' in cell
+                    or ']' in cell
+                ):
                     fixed = fix_text(cell)
                     if fixed != cell:
                         row[ENGLISH_COLUMN] = fixed
@@ -258,12 +282,10 @@ def main():
     splits_folder = english_folder / "splits"
 
     if not args.ci:
-        # Local run: validate English only, generate gmd.csv
         for folder in [fully_translated, splits_folder]:
             if folder.exists():
                 validate_folder(folder)
 
-        # Apply bracket/punctuation fixes ONLY inside English folder
         walk_and_process_english(english_folder)
 
         modify_specific_entry()
@@ -272,7 +294,6 @@ def main():
         print("\nLocal English validation + generation complete.")
         return
 
-    # CI mode
     changed_files = get_changed_files()
     if not changed_files:
         print("No CSV changes detected.")
