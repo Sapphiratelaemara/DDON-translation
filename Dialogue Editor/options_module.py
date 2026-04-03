@@ -35,7 +35,7 @@ class OptionsMenu:
         w = self.scroll_frame
         
         # --- SECTION 1: Tag Length Mapping ---
-        tag_frame = tk.LabelFrame(self.win, text=" Tag Length Mapping ", padx=10, pady=10)
+        tag_frame = tk.LabelFrame(w, text=" Tag Length Mapping ", padx=10, pady=10)
         tag_frame.pack(fill="x", padx=15, pady=5)
         
         self.tag_lb = tk.Listbox(tag_frame, height=5)
@@ -48,7 +48,7 @@ class OptionsMenu:
         tk.Button(t_btns, text="Delete", width=10, command=self.delete_tag).pack(pady=2)
 
         # --- SECTION 2: Line Limit Presets ---
-        lim_frame = tk.LabelFrame(self.win, text=" Line Limit Presets (characters) ", padx=10, pady=10)
+        lim_frame = tk.LabelFrame(w, text=" Line Limit Presets (characters) ", padx=10, pady=10)
         lim_frame.pack(fill="x", padx=15, pady=5)
         
         self.lim_lb = tk.Listbox(lim_frame, height=5)
@@ -61,7 +61,7 @@ class OptionsMenu:
         tk.Button(l_btns, text="Delete", width=10, command=self.delete_limit).pack(pady=2)
 
         # --- SECTION 3: Wall of Text Presets ---
-        wall_frame = tk.LabelFrame(self.win, text=" Wall of Text Presets (max lines) ", padx=10, pady=10)
+        wall_frame = tk.LabelFrame(w, text=" Wall of Text Presets (max lines) ", padx=10, pady=10)
         wall_frame.pack(fill="x", padx=15, pady=5)
 
         self.wall_lb = tk.Listbox(wall_frame, height=4)
@@ -74,7 +74,7 @@ class OptionsMenu:
         tk.Button(w_btns, text="Delete", width=10, command=self.delete_wall_preset).pack(pady=2)
 
         # --- SECTION 4: External References ---
-        ref_frame = tk.LabelFrame(self.win, text=" External Reference Paths ", padx=10, pady=10)
+        ref_frame = tk.LabelFrame(w, text=" External Reference Paths ", padx=10, pady=10)
         ref_frame.pack(fill="x", padx=15, pady=5)
 
         # Bible Path
@@ -114,25 +114,58 @@ class OptionsMenu:
     def refresh_tags(self):
         self.tag_lb.delete(0, tk.END)
         for k, v in self.cm.config.get("tag_map", {}).items():
-            self.tag_lb.insert(tk.END, f"{k} : {v}")
+            display = self.cm.config.get("tag_display", {}).get(k, "")
+            if display:
+                self.tag_lb.insert(tk.END, f"{k}  ({display})  → {v} chars")
+            else:
+                self.tag_lb.insert(tk.END, f"{k} : {v}")
 
     def edit_tag(self):
-        res = simpledialog.askstring("Tag Map", "Format: TagName:Length (e.g. HERO:8)")
-        if res and ":" in res:
-            try:
-                name, val = res.split(":")
-                if "tag_map" not in self.cm.config: self.cm.config["tag_map"] = {}
-                self.cm.config["tag_map"][name.strip()] = int(val.strip())
-                self.refresh_tags()
-            except ValueError: messagebox.showerror("Error", "Length must be a number.")
+        res = simpledialog.askstring(
+            "Tag Map",
+            "Format:  TagName : Display Text\n"
+            "e.g.  PLAYER_NAME : Arisen\n\n"
+            "The character length will be measured automatically\n"
+            "from the display text. You can also enter\n"
+            "TagName : number  to set a manual length."
+        )
+        if not res or ":" not in res:
+            return
+        parts = res.split(":", 1)
+        tag_name = parts[0].strip()
+        value    = parts[1].strip()
+        if not tag_name:
+            return
+        # If the value is a plain integer, store it directly (manual override)
+        try:
+            length = int(value)
+            display_text = ""
+        except ValueError:
+            # Measure character length of the display text
+            display_text = value
+            length = len(display_text)
+        if "tag_map" not in self.cm.config:
+            self.cm.config["tag_map"] = {}
+        if "tag_display" not in self.cm.config:
+            self.cm.config["tag_display"] = {}
+        self.cm.config["tag_map"][tag_name] = length
+        if display_text:
+            self.cm.config["tag_display"][tag_name] = display_text
+        elif tag_name in self.cm.config.get("tag_display", {}):
+            del self.cm.config["tag_display"][tag_name]
+        self.refresh_tags()
 
     def delete_tag(self):
         sel = self.tag_lb.curselection()
         if sel:
-            key = self.tag_lb.get(sel[0]).split(" : ")[0]
-            if "tag_map" in self.cm.config:
+            # Key is the first token before space or colon
+            raw = self.tag_lb.get(sel[0])
+            key = raw.split(" ")[0].split(":")[0].strip()
+            if "tag_map" in self.cm.config and key in self.cm.config["tag_map"]:
                 del self.cm.config["tag_map"][key]
-                self.refresh_tags()
+            if "tag_display" in self.cm.config and key in self.cm.config["tag_display"]:
+                del self.cm.config["tag_display"][key]
+            self.refresh_tags()
 
     # --- LIMIT LOGIC ---
     def refresh_limits(self):
@@ -349,6 +382,8 @@ class OptionsMenu:
             self.cm.config["presets"] = {"Standard": 50}
         if "wall_presets" not in self.cm.config:
             self.cm.config["wall_presets"] = {"Standard": 7}
+        if "tag_display" not in self.cm.config:
+            self.cm.config["tag_display"] = {}
         self.cm.save_all()
         messagebox.showinfo("Success", "Configuration saved!")
         self.win.destroy()

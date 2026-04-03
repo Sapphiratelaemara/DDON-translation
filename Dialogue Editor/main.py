@@ -1,3 +1,6 @@
+import sys
+sys.dont_write_bytecode = True
+
 import csv, os, threading, re, tkinter as tk
 from tkinter import messagebox, filedialog, ttk, simpledialog, scrolledtext
 from datetime import datetime
