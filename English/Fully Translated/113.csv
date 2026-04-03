@@ -1,4 +1,4 @@
-0,,"覚者さんじゃないですか！
+﻿0,,"覚者さんじゃないですか！
 城内の散策ですか？","You are an Arisen, aren't you?
 Enjoying a stroll around the castle?",ui\00_message\npc\base\n3119.gmd,\npc\n3119.arc,n3119.arc,0,Tanel
 0,,"ずっと落ち込んでたんです
@@ -450,18 +450,18 @@ Please feel free to rest.",ui\00_message\npc\base\n3201.gmd,\npc\n3201.arc,n3201
 0,,"《弱化の治療》か――
 治療には物資を使わねばならない
 <VAL PRICE_WEAK>あれば
-準備できるが、それでもいいのか？","""Treat Weakness?""
+準備できるが、それでもいいのか？","""Weakness Treatment?""
 Alas, the procedure requires resources.
 If <VAL PRICE_WEAK> is available we can prepare,
 but is that acceptable?",ui\00_message\npc\base\n3201.gmd,\npc\n3201.arc,n3201.arc,7,Lucas
 0,,はい,Yes,ui\00_message\npc\base\n3201.gmd,\npc\n3201.arc,n3201.arc,8,Lucas
 0,,いいえ,No,ui\00_message\npc\base\n3201.gmd,\npc\n3201.arc,n3201.arc,9,Lucas
 0,,"《弱化の治療》は必要ないな
-ここへ来るまでに治ったんだろう","There is no need to ""Treat Weakness.""
+ここへ来るまでに治ったんだろう","There is no need to ""Weakness Treatment.""
 You must have recovered before coming here.",ui\00_message\npc\base\n3201.gmd,\npc\n3201.arc,n3201.arc,10,Lucas
 0,,"――シッ
 外は魔物だらけだ
-少し声を落としてくれ","Shh, there be demons out there.
+少し声を落としてくれ","Shh, there be monsters out there.
 Lower your voice a little.",ui\00_message\npc\base\n3201.gmd,\npc\n3201.arc,n3201.arc,11,Lucas
 0,,"王宮が――メガドが魔軍の手に堕ちた時――
 一刻も早く周辺領の諸侯たちに伝えなければと
@@ -513,7 +513,7 @@ your guy.",ui\00_message\npc\base\n3250.gmd,\npc\n3250.arc,n3250.arc,0,Axel
 0,,"おっと、勘違いするなよ
 一応俺も癒しの術は使えるんだ
 これでもプリーストの端くれだからな","Oops, I should clarify.
-I can also use healing magic, you know.
+I can also use healing magick, you know.
 After all, I'm still a priest, in a way.",ui\00_message\npc\base\n3250.gmd,\npc\n3250.arc,n3250.arc,1,Axel
 0,,"だけど、メガドまで帰ってきたんなら
 ごちゃごちゃやるより
@@ -1236,9 +1236,9 @@ Feel free to change it!",ui\00_message\npc\base\n3270.gmd,\npc\n3270.arc,n3270.a
 今なら特別に<COL b92828><UNTN TK></COL> <VAL PRICE_PARLOR_TK>でも大丈夫！
 声やポーンの喋り方なんかはオマケするから
 気軽に変えてみてねぇ","Alright, alright! For styling, you can pay with
-<COL b92828><UNTN GS></COL> <VAL PRICE_PARLOR_GP>.
+<VAL PRICE_PARLOR_GP> <COL b92828><UNTN GS></COL>.
 And for a limited time only, you can also get it 
-for <COL b92828><UNTN TK></COL> <VAL PRICE_PARLOR_TK>!
+for <COL b92828><VAL PRICE_PARLOR_TK> <UNTN TK></COL>!
 We'll even throw in voice and Pawn dialogue
 changes as a bonus, so feel free to customize to
 your heart's content!",ui\00_message\npc\base\n3270.gmd,\npc\n3270.arc,n3270.arc,7,Selin
@@ -1254,17 +1254,17 @@ a ritual to contract a pawn.",ui\00_message\npc\base\n3270.gmd,\npc\n3270.arc,n3
 let me style them someday, ok?",ui\00_message\npc\base\n3270.gmd,\npc\n3270.arc,n3270.arc,9,Selin
 0,,"わかるわ！　いいわよねぇ、燃えるわよねぇ
 <COL b92828><UNTN GS></COL> <VAL PRICE_REBORN_GP>ポッキリで
-とびきりステキになるようにお手伝いしちゃう！","Alright! It's great, isn't it?
-It's so exciting!
-Let me help you become absolutely fabulous, it's
-only <COL b92828><UNTN GS></COL><VAL PRICE_REBORN_GP>!",ui\00_message\npc\base\n3270.gmd,\npc\n3270.arc,n3270.arc,10,Selin
+とびきりステキになるようにお手伝いしちゃう！","Alright! It's great, is it not?
+So exciting!
+Let me help ye become absolutely fabulous, it's
+only <COL b92828><VAL PRICE_REBORN_GP> <UNTN GS></COL>!",ui\00_message\npc\base\n3270.gmd,\npc\n3270.arc,n3270.arc,10,Selin
 0,,"わかるわ！　いいわよねぇ、燃えるわよねぇ
 いつもは<COL b92828><UNTN GS></COL> <VAL PRICE_REBORN_GP>もらってるんだけど
 今だけ特別に<COL b92828><UNTN TK></COL> <VAL PRICE_REBORN_TK>でも大丈夫よ
-とびきりステキになるようにお手伝いしちゃう！","Alright! Great, right? It's burning up in here!
-I usually take <COL b92828><UNTN GS></COL> <VAL PRICE_REBORN_GP>,
-but for now, it's also okay to use <COL b92828><UNTN TK></COL> <VAL PRICE_REBORN_TK> as a special offer.
-I'll help you become absolutely fabulous!",ui\00_message\npc\base\n3270.gmd,\npc\n3270.arc,n3270.arc,11,Selin
+とびきりステキになるようにお手伝いしちゃう！","I totally get it! It’s so exciting, isn’t it?
+Usually, I’d ask for <COL b92828><VAL PRICE_REBORN_GP> <UNTN GS></COL>,
+but just this once, <COL b92828><VAL PRICE_REBORN_TK> <UNTN TK></COL> is fine too.
+I’ll help ye look absolutely stunning!",ui\00_message\npc\base\n3270.gmd,\npc\n3270.arc,n3270.arc,11,Selin
 0,,"あはは、<COL b92828>男性か女性専用のアイテム</COL>を装備したままだと
 転生したところで合う服が無くなっちゃう！
 専用品ははずしてから来てねぇ","Haha, if you leave your <COL b92828>male or

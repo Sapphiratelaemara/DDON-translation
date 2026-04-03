@@ -1,3 +1,3 @@
 @echo OFF
-python generate_gmd.py "Fully Translated" splits
+python generate_gmd.py
 echo Press any key to continue... & pause >nul

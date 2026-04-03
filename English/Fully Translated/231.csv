@@ -127,12 +127,12 @@ from your last location.",ui\00_message\tutorial_guide\steps\tutorial_guide_step
 戦闘中に試してみてください
 なお導入クエスト「覚悟と兆し」でセット
 されているカスタムスキルは
-このクエスト限定の一時的なものとなります","Depending on the job, the available custom 
-skills may vary. 
-Please try them out during combat.
-Please note that the custom skills set during
+このクエスト限定の一時的なものとなります","Depending on the vocation,
+the available custom skills may vary. 
+Try them out in combat.
+Please note that any custom skills used during
 the introductory quest <COL ffdc78>Resolutions and Omens</COL>
-are temporary and exclusive to that quest.",ui\00_message\tutorial_guide\steps\tutorial_guide_step159.gmd,\tguide\tutorial_guide_159.arc,tutorial_guide_159.arc,1,
+will need to be unlocked.",ui\00_message\tutorial_guide\steps\tutorial_guide_step159.gmd,\tguide\tutorial_guide_159.arc,tutorial_guide_159.arc,1,
 1,TUTORIAL_STEP_94,"＜押さえつけ＞
 小型の敵がのけぞったりダウンした時に
 行うことで、敵を長時間拘束できます
@@ -181,9 +181,9 @@ to distant Portcrystals.",ui\00_message\tutorial_guide\steps\tutorial_guide_step
 より万全の状態に整えてください","Traveling is always dangerous, with enemy
 attacks, falling from heights, etc.
 Always have a way to recover your health.
-Priests and other recovery magic is the main
-means of recovery, but<COL ffdc78>recovery magic
-can only recover up to ""Healable Limit"" (white
+Priests and other recovery magick is the main
+means of recovery, but<COL ffdc78>recovery magick
+can only recover up to ""Recovery Limit"" (white
 gauge) of the reduced health.</COL>
 Please make sure you are in good shape!",ui\00_message\tutorial_guide\steps\tutorial_guide_step164.gmd,\tguide\tutorial_guide_164.arc,tutorial_guide_164.arc,0,
 0,TUTORIAL_STEP_161,"この世界レスタニアの状況は
@@ -264,16 +264,16 @@ and Elixirs, is a formidable tank that can inflict
 status ailments and attract enemy attention,
 creating advantageous conditions for the party.
 Compared to the Shield Sage, whose focus lies in
-guarding and magic attributes, the Alchemist
+guarding and magick attributes, the Alchemist
 excels in mobility and status ailments.",ui\00_message\tutorial_guide\steps\tutorial_guide_step170.gmd,\tguide\tutorial_guide_170.arc,tutorial_guide_170.arc,0,
 0,TUTORIAL_STEP_168,"ファイターは盾による防御を反撃の
 起点として使うことができます
 　敵の攻撃に合わせて【<KC WEAPON_SUB>】盾弾き
 他にも、仲間を打ち上げる連携技も可能です
 　
-　【<KC CATAPULT>】連係投げ","Fighters can use shields as a starting point for
-counterattacks to defend against enemy attacks.
-Deflect attacks from enemies with <KC WEAPON_SUB>.
+　【<KC CATAPULT>】連係投げ","Fighters can use blocking as 
+a starting point for counterattacks.
+Deflect attacks by enemies with <KC WEAPON_SUB>.
 They can also use combination techniques to
 launch their allies into the air.
 Perform a linking throw by pressing <KC CATAPULT>.",ui\00_message\tutorial_guide\steps\tutorial_guide_step172.gmd,\tguide\tutorial_guide_172.arc,tutorial_guide_172.arc,0,
@@ -332,7 +332,7 @@ formation to allies).",ui\00_message\tutorial_guide\steps\tutorial_guide_step178
 <PADM>　【<KC ATTACK2>】＋【左スティック】<KEYM>　【<KC ATTACK2>】＋【<ICON MOUSE>移動で選択】</KEYM>
 　　　　　　エレメントチェンジ（属性切替）","The enemy's attacks received with the Greatshield
 can be converted into attack power and stored in
-the Force Gauge for use in magic attribute attacks
+the Force Gauge for use in magick attribute attacks
 or enchantments. Use attribute techniques for both
 offensive and support purposes.
 <Force Attribute Selection>
@@ -410,7 +410,7 @@ Please be careful.",ui\00_message\tutorial_guide\steps\tutorial_guide_step155.gm
 多くの竜族を討伐しましょう","<COL ffdc78>The Crucible of Demons</COL> is an
 Extreme Mission where you form a party of up to 8
 people and board a western attack ship to
-infiltrate the Dragon's Nest, an island of demons.
+infiltrate the Dragon's Nest, an island of monsters.
 Explore the Dragon's Nest within the time limit
 and work together with your comrades, dividing
 roles and cooperating to defeat as many Dragonkin
@@ -420,7 +420,7 @@ as possible.",ui\00_message\tutorial_guide\steps\tutorial_guide_step156.gmd,\tgu
 この魔物を倒すと制限時間が延長されるので
 見逃さないようにしましょう","In the Dragon's Nest, occasionally, there are
 <COL ffdc78>Time Bonus</COL> enemies that appear.
-Defeating these demons will extend the time
+Defeating these monsters will extend the time
 limit, so be sure not to overlook them.",ui\00_message\tutorial_guide\steps\tutorial_guide_step156.gmd,\tguide\tutorial_guide_156.arc,tutorial_guide_156.arc,1,
 1,TUTORIAL_STEP_287,"《ジョブ修練》に取り組む上で、いくつか
 覚えておくべきことがあります
@@ -448,7 +448,7 @@ receive penalties, known as <COL ffdc78>
 ""debilitations""</COL>, due to special
 attacks from enemies or the effects of the
 terrain.
-In such cases, please use healing magic, items
+In such cases, please use healing magick, items
 with debilitation treatment effects, or stay at an
 inn to resolve the debilitation.",ui\00_message\tutorial_guide\steps\tutorial_guide_step164.gmd,\tguide\tutorial_guide_164.arc,tutorial_guide_164.arc,1,
 1,TUTORIAL_STEP_307,"<COL ffdc78>よく使う拠点は《マイ拠点》に登録しましょう</COL>
@@ -730,8 +730,8 @@ attacks.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step208.gmd,\t
 こそ最大の勝機です。一気にたたみかけましょう","To deplete the enraged <COL ffdc78>Enemy Stamina 
 Gauge</COL>, there are two methods:
 [Method 1] Hold on tight and <COL ffdc78>Shake</COL> it.
-[Method 2] Aim for the hidden weakness. 
-And attack <COL ffdc78>Secret Core</COL>.
+[Method 2] Aim for hidden weaknesses 
+and attack their <COL ffdc78>Secret Core</COL>.
 When the large enemy is exhausted and 
 collapses, seize this prime opening to 
 unleash your strongest assault.",ui\00_message\tutorial_guide\steps\tutorial_guide_step208.gmd,\tguide\tutorial_guide_208.arc,tutorial_guide_208.arc,1,
@@ -743,7 +743,7 @@ unleash your strongest assault.",ui\00_message\tutorial_guide\steps\tutorial_gui
 　①黄色：《振り払いアクション合図》
 　　　　...【<KC TOUCH>押しっぱなし】で耐える
 　②赤色：《バーストアクション合図》
-　　　　...【<KC JUMP>】離れる","Additional Note 1
+　　　　...【<KC JUMP>】離れる","Additional Note 1:
 However, enemies resist when you attempt 
 to <COL ffdc78>Shake</COL> them. 
 If a special icon appears below their gauge, 
@@ -798,7 +798,7 @@ high into the sky.
 　スペリングに対応する魔法詠唱中【<KC CHANGE_MODE>】で
 　スペリング入力切替、<PADM>【右スティック】<KEYM>　【<ICON MOUSE>移動】</KEYM>
 　でスペリングコマンド入力","Sorcerers can enhance the power of their spells
-by drawing magic circles called ""Chanting."" Master
+by drawing magick circles called ""Chanting."" Master
 the use of Chanting and become a more skilled
 practitioner.
 While chanting a spell that allows for it, use
@@ -814,7 +814,7 @@ Translation:",ui\00_message\tutorial_guide\steps\tutorial_guide_step212.gmd,\tgu
 　　　　　　助真の魔眼（複数味方ロックオン）<KEYM>　【<KC HOLD_BOW>】助真の構え（支援矢構え）
 　【<KC HOLD_BOW>】＋【<ICON MOUSE>移動】助真の魔眼（複数味方ロックオン）</KEYM>
 　　構えながら【<KC SHOOT>】助真の矢
-　【<KC CHANGE_ARROW>】癒しの装（自分を回復）","The magic arrows of the Element Archer not only
+　【<KC CHANGE_ARROW>】癒しの装（自分を回復）","The magick arrows of the Element Archer not only
 allow for attacks, but also enable healing and
 support for oneself and allies.
 <Basic Controls/Support>
@@ -843,7 +843,7 @@ accumulate ""Revenge Gauge"".
 By accumulating the Revenge Gauge, the
 destructive power of the <KC ATTACK2> ""Savage
 Lash"" skill will greatly increase.
-【<KC AVOID>】Brace for Magic Resistance (Increase
+【<KC AVOID>】Brace for Magick Resistance (Increase
 Revenge Gauge).
 You can also forcefully launch allies into the
 air with the <KC CATAPULT>Linking Throw skill.",ui\00_message\tutorial_guide\steps\tutorial_guide_step216.gmd,\tguide\tutorial_guide_216.arc,tutorial_guide_216.arc,0,
@@ -1019,7 +1019,7 @@ go along!",ui\00_message\tutorial_guide\steps\tutorial_guide_step174.gmd,\tguide
 より効果的です</COL>","Additional Note 2
 The hidden weak point a, <COL ffdc78>Secret Core</COL>
 can be detected and activated by using 
-the Priest's <COL ffdc78>Heal Aura</COL> or similar means.
+the Priest's <COL ffdc78>Heal Aura</COL> or equivalent skills.
 Focus your attacks on the glowing area.
 <COL ffdc78>The color of the glow represents 
 the attribute, and attacks corresponding 
@@ -1045,8 +1045,8 @@ Announcement"".</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step227
 【<KC UI_GAME_MENU>】ゲームメニューで【<KC UI_X>】
 を押し、投票画面を呼び出して投票してください","<COL ffdc78>Whether to withdraw or not depends on
 the votes of the party members. If you receive a
-withdrawal proposal, please press 【<KC UI_GAME_MENU>
-】 in the game menu and vote on the
+withdrawal proposal, please press 【<KC UI_GAME_MENU>】 
+in the game menu and vote on the
 voting screen.</COL>",ui\00_message\tutorial_guide\steps\tutorial_guide_step227.gmd,\tguide\tutorial_guide_227.arc,tutorial_guide_227.arc,1,
 2,TUTORIAL_STEP_362,"なお、投票は一定時間で締め切られるため
 ご注意ください
@@ -1423,7 +1423,7 @@ allowing for grade upgrades with fewer attempts.",ui\00_message\tutorial_guide\s
 　　アイテム生産、装備強化、クレスト装着
 　　などの必要Ｇが少なくなる","<COL ffdc78>Creating High-Quality Equipment</COL>
 Refining materials used in the production of
-equipment make it easier to achieve great success.
+equipment make it easier to achieve Great Success.
 <COL ffdc78>Increased Consumable Production</COL>
 When creating consumable items, the production
 quantity will be higher than usual.
@@ -1446,7 +1446,7 @@ You will enter a weakened state called
 The ""Weakened"" state will be resolved after a
 certain amount of time, but if you wish to receive
 treatment, <COL ffdc78>visit the Inn and undergo
-""Treat Weakness""</COL>.
+""Weakness Treatment""</COL>.
 Moreover, even if you are in a weakened state,
 using a ""Golden Gemstone"" to revive will still
 apply the ""Strengthened"" state.",ui\00_message\tutorial_guide\steps\tutorial_guide_step247.gmd,\tguide\tutorial_guide_247.arc,tutorial_guide_247.arc,0,

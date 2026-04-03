@@ -680,9 +680,9 @@ the Pawn Expedition Corps.",ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPopBuff
 【すべて受け取る】を押してください","Cannot receive items individually
 Please select ""Take All""",ui\00_message\ui\pick_res.gmd,\ui\uGUIPick01.arc,uGUIPick01.arc,10,
 13,pick_item_err_002,"必要アイテム（<NAME ITEM>×<VAL>）を
-アイテムバッグに所持していないため、受け取れません","You cannot receive items because
-you do not carry enough items in the bag
-(<NAME ITEM>×<VAL>)",ui\00_message\ui\pick_res.gmd,\ui\uGUIPick01.arc,uGUIPick01.arc,13,
+アイテムバッグに所持していないため、受け取れません","You cannot receive this item because
+do not have the required item in your inventory.
+Needs (<NAME ITEM>×<VAL>)",ui\00_message\ui\pick_res.gmd,\ui\uGUIPick01.arc,uGUIPick01.arc,13,
 5,pick_item_get,受け取る,Take,ui\00_message\ui\pick_res.gmd,\ui\uGUIPick01.arc,uGUIPick01.arc,5,
 6,pick_item_limit,所持数が上限に達しました,You cannot hold more of this item.,ui\00_message\ui\pick_res.gmd,\ui\uGUIPick01.arc,uGUIPick01.arc,6,
 8,pick_item_limit_max,アイテムバッグがいっぱいのため、受け取ることができません,Your item bag is full.,ui\00_message\ui\pick_res.gmd,\ui\uGUIPick01.arc,uGUIPick01.arc,8,
