@@ -66,6 +66,7 @@ class ConfigManager:
                         "entry_type_rules": {},
                         "replace_rules": [],
                         "substitution_rules": [],
+                        "preview_font": {},
                     }
                     for key, default in keys_defaults.items():
                         if key not in data:

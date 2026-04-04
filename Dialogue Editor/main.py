@@ -1,30 +1,22 @@
 import sys
 sys.dont_write_bytecode = True
 
-import csv, os, threading, re, tkinter as tk
+import csv
 import io as _io
+import os
+import re
+import threading
+import tkinter as tk
+from collections import Counter, defaultdict
+from datetime import datetime
+from tkinter import filedialog, messagebox, scrolledtext, simpledialog, ttk
+
 try:
-    from PIL import Image, ImageTk, ImageDraw, ImageFont
+    from PIL import Image, ImageDraw, ImageFont, ImageTk
     _PIL_OK = True
 except ImportError:
     _PIL_OK = False
 
-def _read_csv(path):
-    """Read a CSV file, sniffing the delimiter but always using doublequote=True.
-    The csv.Sniffer misdetects doublequote=False on files containing \"\"quoted\"\" fields,
-    which collapses multiple columns into one. Forcing doublequote=True is always safe
-    for game-exported CSVs."""
-    with open(path, 'r', encoding='utf-8-sig', newline='') as f:
-        raw = f.read()
-    try:
-        dialect = csv.Sniffer().sniff(raw[:4096])
-        dialect.doublequote = True
-    except csv.Error:
-        dialect = csv.excel
-    return raw, dialect, list(csv.reader(_io.StringIO(raw), dialect))
-from tkinter import messagebox, filedialog, ttk, simpledialog, scrolledtext
-from datetime import datetime
-from collections import defaultdict
 
 # CRITICAL IMPORTS
 try:
@@ -36,6 +28,31 @@ except ImportError as e:
     print(f"CRITICAL ERROR: Missing module file! {e}")
     input("Press Enter to close...")
     exit()
+# -------------------------
+# CSV helper functions
+# -------------------------
+
+def _get_csv_files(folders):
+    csvs = []
+    for folder in folders:
+        if not os.path.isdir(folder):
+            continue
+        for fn in os.listdir(folder):
+            if fn.lower().endswith(".csv"):
+                csvs.append(os.path.join(folder, fn))
+    return csvs
+
+
+def _read_csv(path):
+    """Read a CSV file, sniffing the delimiter but always using doublequote=True."""
+    with open(path, 'r', encoding='utf-8-sig', newline='') as f:
+        raw = f.read()
+    try:
+        dialect = csv.Sniffer().sniff(raw[:4096])
+        dialect.doublequote = True
+    except csv.Error:
+        dialect = csv.excel
+    return raw, dialect, list(csv.reader(_io.StringIO(raw), dialect))
 
 class SearchWindow(tk.Toplevel):
     def __init__(self, parent, cm, app):
@@ -509,26 +526,56 @@ class ReviewEditor(tk.Toplevel):
                            bg=self.colors["bg"], fg=self.colors["fg"],
                            selectcolor=self.colors["bg"], activebackground=self.colors["bg"],
                            font=("Arial", 9),
-                           command=self.update_preview).pack(side="left", padx=4)
+                           command=lambda: [self._sync_preview_font_controls(), self.update_preview()]).pack(side="left", padx=4)
+
+        tk.Label(prev_hdr, text="  Font:", bg=self.colors["bg"], fg=self.colors["label_fg"],
+                 font=("Arial", 9)).pack(side="left")
+        self._prev_font_sz_var = tk.StringVar()
+        self._prev_font_sz_spin = tk.Spinbox(
+            prev_hdr, from_=6, to=48, width=3,
+            textvariable=self._prev_font_sz_var,
+            command=self._on_preview_font_changed,
+            bg=self.colors["text_bg"], fg=self.colors["fg"],
+            relief="flat", font=("Arial", 9))
+        self._prev_font_sz_spin.pack(side="left", padx=(2, 8))
+        self._prev_font_sz_spin.bind("<Return>",   lambda e: self._on_preview_font_changed())
+        self._prev_font_sz_spin.bind("<FocusOut>", lambda e: self._on_preview_font_changed())
+
+        tk.Label(prev_hdr, text="Spacing:", bg=self.colors["bg"], fg=self.colors["label_fg"],
+                 font=("Arial", 9)).pack(side="left")
+        self._prev_spacing_var = tk.StringVar()
+        self._prev_spacing_spin = tk.Spinbox(
+            prev_hdr, from_=0, to=30, width=3,
+            textvariable=self._prev_spacing_var,
+            command=self._on_preview_font_changed,
+            bg=self.colors["text_bg"], fg=self.colors["fg"],
+            relief="flat", font=("Arial", 9))
+        self._prev_spacing_spin.pack(side="left", padx=(2, 0))
+        self._prev_spacing_spin.bind("<Return>",   lambda e: self._on_preview_font_changed())
+        self._prev_spacing_spin.bind("<FocusOut>", lambda e: self._on_preview_font_changed())
 
         # Cropped box regions from the shared 504x359 transparent source canvas:
         #   choice   content bbox: (246,17,481,151)  => 235 x 134 px
         #   dialogue content bbox: (27,171,480,333)  => 453 x 162 px
+        _pf = self.parent.cm.config.get("preview_font", {})
         _BOX_META = {
             "dialogue": {
-                "crop":    (27, 171, 480, 333),
-                "pad":     20,
-                "fg":      "#2f2b2b",
-                "font_sz": 16,
+                "crop":         (27, 171, 480, 333),
+                "pad":          20,
+                "fg":           "#2f2b2b",
+                "font_sz":      _pf.get("dialogue", {}).get("font_sz",      18),
+                "line_spacing": _pf.get("dialogue", {}).get("line_spacing",  1),
             },
             "choice": {
-                "crop":    (246, 17, 481, 151),
-                "pad":     10,
-                "fg":      "#ffffff",
-                "font_sz": 12,
+                "crop":         (246, 17, 481, 151),
+                "pad":          10,
+                "fg":           "#ffffff",
+                "font_sz":      _pf.get("choice", {}).get("font_sz",      12),
+                "line_spacing": _pf.get("choice", {}).get("line_spacing",  1),
             },
         }
         self._box_meta = _BOX_META
+        self._sync_preview_font_controls()
         _SCALE = 1.0   # 1:1 — needed so 11 lines fit in the 122px inner area at font 9
         self._prev_scale = _SCALE
         _DLG_W = 480 - 27   # 453
@@ -547,41 +594,80 @@ class ReviewEditor(tk.Toplevel):
         self._preview_font_objs = {}   # {key: ImageFont}
         
         _asset_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
+        # Game font — look in assets/ first, then alongside the script
+        _font_candidates = [
+            os.path.join(_asset_dir, "DDONfont.otf"),
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "DDONfont.otf"),
+        ]
+        _font_path = next((p for p in _font_candidates if os.path.exists(p)), None)
+
         if _PIL_OK:
             _src_files = {"dialogue": "dialogue_box.png", "choice": "choice_box.png"}
-            _font_file = "fonnts.com-Redonda_Condensed_Medium.otf"
-            _font_path = os.path.join(_asset_dir, _font_file)
-            
-            _bg_rgb = None
+
+            # Box colour palettes for procedural fallback
+            _box_style = {
+                "dialogue": {
+                    "bg":     (242, 238, 220),
+                    "border": (180, 160, 100),
+                },
+                "choice": {
+                    "bg":     (30, 25, 45),
+                    "border": (120, 100, 200),
+                },
+            }
+
             for key, meta in _BOX_META.items():
-                path = os.path.join(_asset_dir, _src_files[key])
-                if not os.path.exists(path):
-                    continue
-                
-                # Load and crop
-                raw = Image.open(path).convert("RGBA")
-                cropped = raw.crop(meta["crop"])
-                
-                # Composite transparent areas over the app background for the base layer
-                if _bg_rgb is None:
-                    rgb_vals = self.winfo_rgb(self.colors["bg"])
-                    _bg_rgb  = tuple(c >> 8 for c in rgb_vals) + (255,)
-                
-                bg_layer = Image.new("RGBA", cropped.size, _bg_rgb)
-                bg_layer.paste(cropped, mask=cropped.split()[3])
-                final_base = bg_layer.convert("RGB")
-                
+                crop = meta["crop"]
+                box_w = crop[2] - crop[0]
+                box_h = crop[3] - crop[1]
+
+                # --- Load font and measure actual line height ---
+                fnt = None
+                if _font_path:
+                    try:
+                        fnt = ImageFont.truetype(_font_path, meta["font_sz"])
+                        self._preview_font_objs[key] = fnt
+                    except Exception:
+                        pass
+
+                # --- Compute line height (required for preview) ---
+                if fnt:
+                    # Measure actual glyph height instead of ascent/descent
+                    bbox = fnt.getbbox("あ")  # representative glyph
+                    glyph_h = bbox[3] - bbox[1]
+
+                    # Now you can tighten spacing properly
+                    meta["line_h"] = glyph_h + meta.get("line_spacing", 1)
+                else:
+                    meta["line_h"] = meta["font_sz"] + 3
+
+
+                # --- Try to load PNG asset; fall back to procedural box ---
+                png_path = os.path.join(_asset_dir, _src_files[key])
+                if os.path.exists(png_path):
+                    try:
+                        raw = Image.open(png_path).convert("RGBA")
+                        cropped = raw.crop(meta["crop"])
+                        rgb_vals = self.winfo_rgb(self.colors["bg"])
+                        bg_rgb = tuple(c >> 8 for c in rgb_vals) + (255,)
+                        bg_layer = Image.new("RGBA", cropped.size, bg_rgb)
+                        bg_layer.paste(cropped, mask=cropped.split()[3])
+                        final_base = bg_layer.convert("RGB")
+                    except Exception:
+                        final_base = None
+                else:
+                    final_base = None
+
+                if final_base is None:
+                    # Procedural box: styled panel matching the game's UI tone
+                    style = _box_style[key]
+                    final_base = Image.new("RGB", (box_w, box_h), style["bg"])
+                    d = ImageDraw.Draw(final_base)
+                    d.rectangle([0, 0, box_w-1, box_h-1], outline=style["border"], width=2)
+                    d.rectangle([3, 3, box_w-4, box_h-4], outline=style["border"], width=1)
+
                 self._preview_base_images[key] = final_base
                 self._preview_images[key] = ImageTk.PhotoImage(final_base)
-                
-                # Load font if available
-                if os.path.exists(_font_path):
-                    try:
-                        self._preview_font_objs[key] = ImageFont.truetype(_font_path, meta["font_sz"])
-                    except:
-                        pass
-                
-                # Store dimensions
                 meta["img_w"] = final_base.width
                 meta["img_h"] = final_base.height
 
@@ -615,6 +701,78 @@ class ReviewEditor(tk.Toplevel):
                        bg=self.colors["bg"], fg=self.colors["label_fg"], selectcolor=self.colors["bg"],
                        activebackground=self.colors["bg"], font=("Arial", 9, "bold")).pack(side="right", padx=10)
     
+    def update_preview(self, e=None):
+        # --- fnt MUST be defined before you use it ---
+        box_key = self._preview_box_var.get()
+        meta    = self._box_meta.get(box_key)
+        base_img = self._preview_base_images.get(box_key)
+
+        fnt = self._preview_font_objs.get(box_key)
+        if fnt is None:
+            print("NO FONT FOR BOX:", box_key)
+            return
+
+        vis_text = self.txt.get(1.0, tk.END).strip("\n")
+        vis_text = re.sub(r'<[^>]+>', '', vis_text)
+        lines = vis_text.splitlines()
+
+        img_w = meta.get("img_w", self._prev_W)
+        img_h = meta.get("img_h", self._prev_H)
+        c = self.preview_canvas
+        c.config(width=img_w, height=img_h)
+
+        if not base_img or not _PIL_OK:
+            c.delete("all")
+            fill = "#2b2d2f" if box_key == "choice" else "#f2efdd"
+            c.create_rectangle(0, 0, img_w, img_h, fill=fill, outline="")
+            return
+
+        render_img = base_img.copy()
+        draw = ImageDraw.Draw(render_img)
+
+        pad      = meta["pad"]
+        text_col = meta["fg"]
+        tx, ty   = pad, pad
+        tw, th   = img_w - 2 * pad, img_h - 2 * pad
+
+        COMPRESS = 0.90
+
+        # --- wrap using compressed width ---
+        wrapped = []
+        for line in lines:
+            buf = ""
+            for word in line.split():
+                test = buf + (" " if buf else "") + word
+                if fnt.getlength(test) * COMPRESS > tw:
+                    wrapped.append(buf)
+                    buf = word
+                else:
+                    buf = test
+            if buf:
+                wrapped.append(buf)
+
+        visible_lines = wrapped[:6]
+
+        line_h = meta["line_h"]
+        LEFT_PAD = 15
+
+        # --- render lines directly ---
+        for i, line in enumerate(visible_lines):
+            y = ty + i * line_h
+            draw.text((tx + LEFT_PAD, y), line, font=fnt, fill=text_col)
+
+        if len(wrapped) > 6:
+            draw.text(
+                (tx + LEFT_PAD, ty + 6 * line_h - 12),
+                f"▼ +{len(wrapped) - 6} lines clipped",
+                fill="#ff4444"
+            )
+
+        self._current_preview_tk = ImageTk.PhotoImage(render_img)
+        c.delete("all")
+        c.create_image(0, 0, anchor="nw", image=self._current_preview_tk)
+
+
     def load_item(self):
         if self.current_idx >= len(self.current_texts):
             # Try to switch to the next non-empty category automatically
@@ -872,60 +1030,6 @@ class ReviewEditor(tk.Toplevel):
         self.update_preview()
         self.update_counters()
 
-    def update_preview(self, e=None):
-        vis_text = self.txt.get(1.0, tk.END).strip("\n")
-        vis_text = re.sub(r'<[^>]+>', '', vis_text)
-        lines = vis_text.splitlines()
-
-        box_key = self._preview_box_var.get()
-        meta    = self._box_meta[box_key]
-        base_img = self._preview_base_images.get(box_key)
-        fnt      = self._preview_font_objs.get(box_key)
-
-        img_w = meta.get("img_w", self._prev_W)
-        img_h = meta.get("img_h", self._prev_H)
-        c = self.preview_canvas
-        c.config(width=img_w, height=img_h)
-
-        if not base_img or not _PIL_OK:
-            c.delete("all")
-            fill = "#2b2d2f" if box_key == "choice" else "#f2efdd"
-            c.create_rectangle(0, 0, img_w, img_h, fill=fill, outline="")
-            return
-
-        # Render onto a fresh copy of the base image
-        render_img = base_img.copy()
-        draw = ImageDraw.Draw(render_img)
-        
-        pad       = meta["pad"]
-        text_col  = meta["fg"]
-        font_size = meta["font_sz"]
-        
-        tx, ty = pad, pad
-        tw, th = img_w - 2 * pad, img_h - 2 * pad
-        
-        # Calibration: 11 lines into 122px = 11px/line.
-        line_h = 11 if box_key == "dialogue" else font_size + 2
-
-        for i, line in enumerate(lines):
-            y = ty + i * line_h
-            if y + line_h > ty + th:
-                draw.text((tx, ty + th - 12), f"▼ +{len(lines) - i} lines clipped", fill="#ff4444")
-                break
-            
-            sim_len = self.engine.get_simulated_len(line)
-            over = sim_len > self.effective_limit
-            col  = "#ff4444" if over else text_col
-            
-            if fnt:
-                draw.text((tx + 2, y), line, font=fnt, fill=col)
-            else:
-                draw.text((tx + 2, y), line, fill=col)
-
-        self._current_preview_tk = ImageTk.PhotoImage(render_img)
-        c.delete("all")
-        c.create_image(0, 0, anchor="nw", image=self._current_preview_tk)
-
     def _refresh_et_display(self):
         """Update the entry type badge and rules summary from self.entry_type."""
         et_rules = self.parent.cm.config.get("entry_type_rules", {}).get(self.entry_type, {})
@@ -1028,6 +1132,62 @@ class ReviewEditor(tk.Toplevel):
             self.txt.insert(tk.END, wrapped)
             self.update_counters()
             self.update_preview()
+
+    def _sync_preview_font_controls(self):
+        """Update font-size and spacing spinboxes to reflect the currently selected box."""
+        if not hasattr(self, '_prev_font_sz_var'):
+            return
+        box_key = self._preview_box_var.get()
+        meta = self._box_meta.get(box_key, {})
+        self._prev_font_sz_var.set(str(meta.get("font_sz", 12)))
+        self._prev_spacing_var.set(str(meta.get("line_spacing", 1)))
+
+    def _on_preview_font_changed(self, *args):
+        """Save font size and line spacing for the current preview box, rebuild font, refresh preview."""
+        box_key = self._preview_box_var.get()
+        meta = self._box_meta.get(box_key)
+        if meta is None:
+            return
+        try:
+            new_sz = max(6, min(48, int(self._prev_font_sz_var.get())))
+            new_sp = max(0, min(30, int(self._prev_spacing_var.get())))
+        except (ValueError, tk.TclError):
+            return
+        meta["font_sz"] = new_sz
+        meta["line_spacing"] = new_sp
+        self._rebuild_preview_font(box_key)
+        pf = self.parent.cm.config.setdefault("preview_font", {})
+        pf.setdefault(box_key, {})["font_sz"] = new_sz
+        pf.setdefault(box_key, {})["line_spacing"] = new_sp
+        self.parent.cm.save_all()
+        self.update_preview()
+
+    def _rebuild_preview_font(self, box_key):
+        """Recreate the PIL font object for box_key and recompute line_h from current meta."""
+        if not _PIL_OK:
+            return
+        meta = self._box_meta.get(box_key)
+        if meta is None:
+            return
+        _asset_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
+        _font_candidates = [
+            os.path.join(_asset_dir, "DDONfont.otf"),
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "DDONfont.otf"),
+        ]
+        _font_path = next((p for p in _font_candidates if os.path.exists(p)), None)
+        fnt = None
+        if _font_path:
+            try:
+                fnt = ImageFont.truetype(_font_path, meta["font_sz"])
+            except Exception:
+                pass
+        if fnt:
+            self._preview_font_objs[box_key] = fnt
+            bbox = fnt.getbbox("あ")
+            glyph_h = bbox[3] - bbox[1]
+            meta["line_h"] = glyph_h + meta.get("line_spacing", 1)
+        else:
+            meta["line_h"] = meta["font_sz"] + 3
 
     def replace_dashes(self, replacement):
         """Replace double-dash patterns with replacement.
@@ -1143,7 +1303,6 @@ class ReviewEditor(tk.Toplevel):
         jp_tags = extract_non_col_tags(self.jp_source)
         en_tags = extract_non_col_tags(new_val)
         # Check as a multiset — same tag appearing N times in JP must appear N times in EN
-        from collections import Counter
         jp_counts, en_counts = Counter(jp_tags), Counter(en_tags)
         missing = list((jp_counts - en_counts).elements())
         extra   = list((en_counts - jp_counts).elements())
@@ -1203,11 +1362,6 @@ class CSVProcessorApp:
 
     def setup_ui(self):
         self.root.configure(bg=self.colors["bg"])
-        
-        # ── Title ──
-        lbl_title = tk.Label(self.root, text="DDON Dialogue Processor", font=("Arial", 16, "bold"),
-                             bg=self.colors["bg"], fg=self.colors["accent"])
-        lbl_title.pack(pady=10)
 
         # ── Dashboard row ──
         dashboard_frame = tk.Frame(self.root, bg=self.colors["bg"])
@@ -1224,8 +1378,6 @@ class CSVProcessorApp:
         self.lbl_progress = tk.Label(dashboard_frame, text="Translated: ---%", bg=self.colors["bg"], fg=self.colors["fg"])
         self.lbl_progress.pack(side="left", padx=10)
 
-        # ── Controls ──
-        self.root.title("DDON CSV Batch Processor")
         self.root.minsize(750, 600)
 
         # ── Title bar ──
@@ -1556,7 +1708,7 @@ class CSVProcessorApp:
                         csv.writer(f, dialect).writerows(output_rows)
 
                 row_fixes = sum(1 for r in output_rows if r != current_file_data[output_rows.index(r)]) if file_modded else 0
-                queued = sum(1 for t in [self.tag_q, self.wall_q, self.dash_q]
+                queued = sum(1 for t in [self.tag_q, self.wall_q, self.dash_q] 
                              for v in t.values() if any(inst['path'] == f_path for inst in v))
                 if file_modded or queued:
                     log(f"{'[FIXED]' if file_modded else '[QUEUED]'} {os.path.basename(f_path)}"
@@ -1657,6 +1809,16 @@ class CSVProcessorApp:
     def open_search(self):
         SearchWindow(self.root, self.cm, self)
         
+    def _get_csv_files(folders):
+        csvs = []
+        for folder in folders:
+            if not os.path.isdir(folder):
+                continue
+            for fn in os.listdir(folder):
+                if fn.lower().endswith(".csv"):
+                    csvs.append(os.path.join(folder, fn))
+        return csvs
+    
     def calculate_progress(self):
         csv_files = _get_csv_files(self.cm.config.get("folders", []))
         if not csv_files:
@@ -1706,9 +1868,6 @@ class CSVProcessorApp:
         for t in self.cm.config.get("triggers", []): self.t_list.insert(tk.END, t)
         self.preset_menu.config(values=self.preset_names)
         self.wall_preset_menu.config(values=self.wall_preset_names)
-        # Refresh preset dropdown so newly added/removed presets appear immediately
-        self.preset_names = list(self.cm.config.get("presets", {"Standard": 50}).keys())
-        self.preset_menu.configure(values=self.preset_names)
         if self.preset_var.get() not in self.preset_names and self.preset_names:
             self.preset_var.set(self.preset_names[0])
 
@@ -1732,3 +1891,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = CSVProcessorApp(root)
     root.mainloop()
+
