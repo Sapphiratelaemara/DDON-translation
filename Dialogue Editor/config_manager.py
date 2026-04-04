@@ -2,10 +2,13 @@ import json
 import os
 
 class ConfigManager:
-    def __init__(self, config_file="formatter_config.json"):
-        self.config_file = config_file
+    def __init__(self, config_file="formatter_config.json", memory_file="memory.json"):
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        self.config_file = os.path.join(base_dir, config_file)
+        self.memory_file = os.path.join(base_dir, memory_file)
+        self.memory = {} # Initialize empty so save_memory doesn't crash during migration
         self.config = self.load_all()
-        self.memory = self.config.get("memory", {})
+        self.memory = self.load_memory()
         # Seed archetypes from defaults if not already in config
         self._seed_archetypes()
 
@@ -19,6 +22,29 @@ class ConfigManager:
                 }
             except ImportError:
                 self.config["archetypes"] = {}
+
+    def load_memory(self):
+        mem = {}
+        # Migrate from config if present
+        if "memory" in self.config:
+            mem = self.config.pop("memory")
+            self.memory = mem # ensure it exists for save_all -> save_memory
+            self.save_all() # save config without memory immediately
+            
+        if os.path.exists(self.memory_file):
+            try:
+                with open(self.memory_file, 'r', encoding='utf-8') as f:
+                    mem.update(json.load(f))
+            except (json.JSONDecodeError, IOError):
+                pass
+        return mem
+
+    def save_memory(self):
+        try:
+            with open(self.memory_file, 'w', encoding='utf-8') as f:
+                json.dump(self.memory, f, indent=4)
+        except IOError as e:
+            print(f"Error saving memory: {e}")
 
     def load_all(self):
         if os.path.exists(self.config_file):
@@ -34,7 +60,6 @@ class ConfigManager:
                         "triggers": [],
                         "speaker_archetypes": {},
                         "speaker_notes": {},
-                        "memory": {},
                         "bible_path": "",
                         "glossary_path": "",
                         "archetypes": {},
@@ -58,7 +83,6 @@ class ConfigManager:
             "triggers": [],
             "bible_path": "",
             "glossary_path": "",
-            "memory": {},
             "speaker_archetypes": {},
             "speaker_notes": {},
             "archetypes": {},
@@ -67,13 +91,12 @@ class ConfigManager:
         }
 
     def save_all(self):
-        # Sync memory into config before saving
-        self.config["memory"] = self.memory
         try:
             with open(self.config_file, 'w', encoding='utf-8') as f:
                 json.dump(self.config, f, indent=4)
         except IOError as e:
             print(f"Error saving config: {e}")
+        self.save_memory()
 
     # Alias
     def save_config(self):

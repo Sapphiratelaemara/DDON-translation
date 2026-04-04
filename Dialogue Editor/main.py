@@ -3,6 +3,11 @@ sys.dont_write_bytecode = True
 
 import csv, os, threading, re, tkinter as tk
 import io as _io
+try:
+    from PIL import Image, ImageTk, ImageDraw, ImageFont
+    _PIL_OK = True
+except ImportError:
+    _PIL_OK = False
 
 def _read_csv(path):
     """Read a CSV file, sniffing the delimiter but always using doublequote=True.
@@ -31,6 +36,105 @@ except ImportError as e:
     print(f"CRITICAL ERROR: Missing module file! {e}")
     input("Press Enter to close...")
     exit()
+
+class SearchWindow(tk.Toplevel):
+    def __init__(self, parent, cm, app):
+        super().__init__(parent)
+        self.title("Global Database Search")
+        self.geometry("900x500")
+        self.cm = cm
+        self.app = app
+        
+        self.configure(bg="#f5f6fa" if not app.dark_mode else "#1a1a2e")
+        fg = "#2c2c3e" if not app.dark_mode else "#e0e0e0"
+        
+        top = tk.Frame(self, bg=self["bg"])
+        top.pack(fill="x", padx=10, pady=10)
+        
+        tk.Label(top, text="Search Term:", bg=self["bg"], fg=fg).pack(side="left")
+        self.entry = tk.Entry(top, width=40)
+        self.entry.pack(side="left", padx=5)
+        self.entry.bind("<Return>", lambda e: self.do_search())
+        
+        self.lang_var = tk.StringVar(value="Both")
+        ttk.Combobox(top, textvariable=self.lang_var, values=["Both", "English", "Japanese"], state="readonly", width=12).pack(side="left", padx=5)
+        
+        tk.Button(top, text="Search Splits", command=self.do_search).pack(side="left", padx=10)
+        
+        self.lbl_status = tk.Label(top, text="", bg=self["bg"], fg=fg)
+        self.lbl_status.pack(side="left")
+        
+        cols = ("file", "row", "jp", "en")
+        self.tree = ttk.Treeview(self, columns=cols, show="headings", selectmode="browse")
+        self.tree.heading("file", text="File")
+        self.tree.heading("row", text="Line")
+        self.tree.heading("jp", text="Japanese")
+        self.tree.heading("en", text="English")
+        self.tree.column("file", width=150)
+        self.tree.column("row", width=50)
+        self.tree.column("jp", width=350)
+        self.tree.column("en", width=350)
+        self.tree.pack(fill="both", expand=True, padx=10, pady=10)
+        
+        self.tree.bind("<Double-1>", self.on_double_click)
+        self.results_data = []
+
+    def do_search(self):
+        query = self.entry.get().strip().lower()
+        if not query: return
+            
+        csv_files = _get_csv_files(self.cm.config.get("folders", []))
+        if not csv_files:
+            messagebox.showinfo("Error", "No folders loaded in Options!")
+            return
+            
+        self.tree.delete(*self.tree.get_children())
+        self.results_data.clear()
+        self.lbl_status.config(text="Searching...")
+        self.update_idletasks()
+        
+        mode = self.lang_var.get()
+        count = 0
+        
+        for file in csv_files:
+            try:
+                _, _, rows = _read_csv(file)
+                for i, row in enumerate(rows):
+                    if i == 0 or len(row) < 6: continue
+                    en = row[3]
+                    jp = row[5]
+                    
+                    match = False
+                    if mode in ["Both", "English"] and query in en.lower(): match = True
+                    if mode in ["Both", "Japanese"] and query in jp.lower(): match = True
+                    
+                    if match:
+                        display_name = os.path.basename(file)
+                        idx = count
+                        self.results_data.append({"path": file, "row_idx": i, "en": en, "jp": jp})
+                        self.tree.insert("", "end", iid=str(idx), values=(display_name, i+1, jp.replace('\n', ' '), en.replace('\n', ' ')))
+                        count += 1
+            except Exception: pass
+            
+        self.lbl_status.config(text=f"Found {count} results. Double-click to edit.")
+
+    def on_double_click(self, e):
+        sel = self.tree.selection()
+        if not sel: return
+        data = self.results_data[int(sel[0])]
+        
+        pseudo_queue = {
+            "Search Result": {
+                data["en"]: [{
+                    "path": data["path"],
+                    "row_idx": data["row_idx"],
+                    "tag_reason": "search_result"
+                }]
+            }
+        }
+        
+        ReviewEditor(self.app, pseudo_queue, self.app.engine, self.cm, self.app.lore_engine, callback=self.app.propagate_fix).open_window()
+
 
 class ReviewEditor(tk.Toplevel):
     def __init__(self, parent, tag_queue, wall_queue, dash_queue, anach_queue, limit, wall_limit, tag_map, callback):
@@ -78,10 +182,20 @@ class ReviewEditor(tk.Toplevel):
         from lore_engine import IN_UNIVERSE_VOCAB
         self.lore_engine.prefetch_definitions(list(IN_UNIVERSE_VOCAB.keys()))
 
-        # Single tooltip instance — bound once, reads self.anach_ranges dynamically
         self._bind_tooltip()
-        # Tab inserts suggestion at cursor
         self.txt.bind("<Tab>", self._tab_insert_suggestion)
+        
+        self.bind("<Control-Return>", lambda e: self.save_item())
+        self.bind("<Control-Right>", lambda e: self.next_item())
+        self.bind("<Control-r>", lambda e: self.rewrap_text())
+        self.bind("<Control-d>", lambda e: self.replace_dashes("—"))
+        self.bind("<Control-D>", lambda e: self.replace_dashes("..."))
+
+        self.protocol("WM_DELETE_WINDOW", self.on_close)
+
+    def on_close(self):
+        self.parent.flush_csv_writes()
+        self.destroy()
 
     def _build_suggestion_text(self, word):
         """Return tooltip text: archaic alternatives + cached definition.
@@ -222,6 +336,24 @@ class ReviewEditor(tk.Toplevel):
                 "apply_bg":     "#20bf6b",
             }
 
+    def make_context_menu(self, widget):
+        menu = tk.Menu(widget, tearoff=0)
+        menu.add_command(label="Cut", command=lambda: widget.event_generate("<<Cut>>"))
+        menu.add_command(label="Copy", command=lambda: widget.event_generate("<<Copy>>"))
+        menu.add_command(label="Paste", command=lambda: widget.event_generate("<<Paste>>"))
+        menu.add_separator()
+        def select_all():
+            if isinstance(widget, tk.Text):
+                widget.tag_add("sel", "1.0", "end")
+            else:
+                widget.select_range(0, tk.END)
+            return "break"
+        menu.add_command(label="Select All", command=select_all)
+        
+        def show_menu(e):
+            menu.tk_popup(e.x_root, e.y_root)
+        widget.bind("<Button-3>", show_menu)
+
     def setup_ui(self):
         self.configure(bg=self.colors["bg"])
 
@@ -281,6 +413,7 @@ class ReviewEditor(tk.Toplevel):
                                            insertbackground=self.colors["fg"], relief="flat",
                                            state="disabled")
         self.speaker_note_entry.pack(side="left")
+        self.make_context_menu(self.speaker_note_entry)
         self.speaker_note_entry.bind("<FocusOut>", lambda e: self.save_archetype())
         self.speaker_note_entry.bind("<Return>",   lambda e: self.save_archetype())
 
@@ -331,38 +464,134 @@ class ReviewEditor(tk.Toplevel):
                                       padx=6, pady=4)
         self.archetype_hint.pack(fill="x")
 
-        # Char counter strip — fixed width, packs right of left_f
-        self.cnt_lbl = tk.Text(main, font=("Consolas", 10), width=4,
-                               bg=self.colors["bg"], fg=self.colors["counter_fg"],
-                               state="disabled", bd=0, highlightthickness=0)
-        self.cnt_lbl.pack(side="right", fill="y", pady=4, padx=(2, 4))
-
         # Left: editor + JP source — expands to fill all remaining space
         left_f = tk.Frame(main, bg=self.colors["bg"])
         left_f.pack(side="left", fill="both", expand=True)
 
         tk.Label(left_f, text="English", fg=self.colors["label_fg"],
                  bg=self.colors["bg"], font=("Arial", 8, "bold")).pack(anchor="w")
-        self.txt = tk.Text(left_f, height=15, font=("Consolas", 12),
+
+        en_outer = tk.Frame(left_f, bg=self.colors["bg"])
+        en_outer.pack(fill="both", expand=True)
+
+        self.cnt_lbl = tk.Text(en_outer, font=("Consolas", 12), width=4,
+                               bg=self.colors["bg"], fg=self.colors["counter_fg"],
+                               state="disabled", bd=0, highlightthickness=0,
+                               padx=0, pady=4)  # pady=4 matches self.txt's internal pady
+        self.cnt_lbl.pack(side="right", fill="y", padx=(2, 0))
+
+        en_inner = tk.Frame(en_outer, bg=self.colors["bg"])
+        en_inner.pack(side="left", fill="both", expand=True)
+
+        self.txt = tk.Text(en_inner, height=8, font=("Consolas", 12),
                            bg=self.colors["text_bg"], fg=self.colors["fg"],
                            insertbackground=self.colors["insert_color"],
                            bd=0, padx=6, pady=4, wrap="none",
                            relief="flat", selectbackground=self.colors["accent"],
-                           selectforeground="white")
-        # Horizontal scrollbar for long unwrapped lines
-        txt_xscroll = tk.Scrollbar(left_f, orient="horizontal", command=self.txt.xview)
+                           selectforeground="white", undo=True)
+        self.make_context_menu(self.txt)
+        txt_xscroll = tk.Scrollbar(en_inner, orient="horizontal", command=self.txt.xview)
         self.txt.configure(xscrollcommand=txt_xscroll.set)
         self.txt.pack(fill="both", expand=True)
         txt_xscroll.pack(fill="x")
-        self.txt.bind("<KeyRelease>", self.update_counters)
-        self.txt.bind("<<Paste>>", lambda e: self.after(0, self.update_counters))
+        self.txt.bind("<KeyRelease>", lambda e: [self.update_counters(e), self.update_preview(e)])
+        self.txt.bind("<<Paste>>", lambda e: self.after(0, lambda: [self.update_counters(), self.update_preview()]))
+
+        # ── Visual Preview Canvas ──
+        prev_hdr = tk.Frame(left_f, bg=self.colors["bg"])
+        prev_hdr.pack(fill="x", pady=(5, 0))
+        tk.Label(prev_hdr, text="In-Game Preview:", bg=self.colors["bg"],
+                 fg=self.colors["label_fg"]).pack(side="left")
+        # Manual box-type toggle
+        self._preview_box_var = tk.StringVar(value="dialogue")
+        for val, lbl in (("dialogue", "Dialogue"), ("choice", "Choice")):
+            tk.Radiobutton(prev_hdr, text=lbl, value=val, variable=self._preview_box_var,
+                           bg=self.colors["bg"], fg=self.colors["fg"],
+                           selectcolor=self.colors["bg"], activebackground=self.colors["bg"],
+                           font=("Arial", 9),
+                           command=self.update_preview).pack(side="left", padx=4)
+
+        # Cropped box regions from the shared 504x359 transparent source canvas:
+        #   choice   content bbox: (246,17,481,151)  => 235 x 134 px
+        #   dialogue content bbox: (27,171,480,333)  => 453 x 162 px
+        _BOX_META = {
+            "dialogue": {
+                "crop":    (27, 171, 480, 333),
+                "pad":     20,
+                "fg":      "#2f2b2b",
+                "font_sz": 16,
+            },
+            "choice": {
+                "crop":    (246, 17, 481, 151),
+                "pad":     10,
+                "fg":      "#ffffff",
+                "font_sz": 12,
+            },
+        }
+        self._box_meta = _BOX_META
+        _SCALE = 1.0   # 1:1 — needed so 11 lines fit in the 122px inner area at font 9
+        self._prev_scale = _SCALE
+        _DLG_W = 480 - 27   # 453
+        _DLG_H = 333 - 171  # 162
+        self._prev_W = int(_DLG_W * _SCALE)
+        self._prev_H = int(_DLG_H * _SCALE)
+
+        self.preview_canvas = tk.Canvas(left_f,
+                                        width=self._prev_W, height=self._prev_H,
+                                        bg=self.colors["bg"], highlightthickness=0)
+        self.preview_canvas.pack(anchor="w", pady=2)
+
+        # Pre-load: crop each box, cache as both PhotoImage (for UI) and PIL Image (for rendering)
+        self._preview_images = {}      # {key: PhotoImage}
+        self._preview_base_images = {} # {key: PIL.Image}
+        self._preview_font_objs = {}   # {key: ImageFont}
+        
+        _asset_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
+        if _PIL_OK:
+            _src_files = {"dialogue": "dialogue_box.png", "choice": "choice_box.png"}
+            _font_file = "fonnts.com-Redonda_Condensed_Medium.otf"
+            _font_path = os.path.join(_asset_dir, _font_file)
+            
+            _bg_rgb = None
+            for key, meta in _BOX_META.items():
+                path = os.path.join(_asset_dir, _src_files[key])
+                if not os.path.exists(path):
+                    continue
+                
+                # Load and crop
+                raw = Image.open(path).convert("RGBA")
+                cropped = raw.crop(meta["crop"])
+                
+                # Composite transparent areas over the app background for the base layer
+                if _bg_rgb is None:
+                    rgb_vals = self.winfo_rgb(self.colors["bg"])
+                    _bg_rgb  = tuple(c >> 8 for c in rgb_vals) + (255,)
+                
+                bg_layer = Image.new("RGBA", cropped.size, _bg_rgb)
+                bg_layer.paste(cropped, mask=cropped.split()[3])
+                final_base = bg_layer.convert("RGB")
+                
+                self._preview_base_images[key] = final_base
+                self._preview_images[key] = ImageTk.PhotoImage(final_base)
+                
+                # Load font if available
+                if os.path.exists(_font_path):
+                    try:
+                        self._preview_font_objs[key] = ImageFont.truetype(_font_path, meta["font_sz"])
+                    except:
+                        pass
+                
+                # Store dimensions
+                meta["img_w"] = final_base.width
+                meta["img_h"] = final_base.height
 
         tk.Label(left_f, text="Japanese Source", fg=self.colors["label_fg"],
                  bg=self.colors["bg"], font=("Arial", 8, "bold")).pack(anchor="w", pady=(8, 0))
-        self.jp_txt = tk.Text(left_f, height=10, font=("MS Gothic", 12),
+        self.jp_txt = tk.Text(left_f, height=4, font=("Meiryo", 11),
                               bg=self.colors["jp_bg"], fg=self.colors["fg"],
                               insertbackground=self.colors["insert_color"],
                               state="disabled", bd=0, padx=6, pady=4, relief="flat")
+        self.make_context_menu(self.jp_txt)
         self.jp_txt.pack(fill="both", expand=True)
 
         # ── Button bar ──
@@ -380,6 +609,11 @@ class ReviewEditor(tk.Toplevel):
         tk.Button(btns, text="―― → —", command=lambda: self.replace_dashes("—"),
                   bg=self.colors["btn_bg"], fg=self.colors["fg"],
                   width=10, relief="flat").pack(side="left", padx=4)
+                  
+        self.override_var = tk.BooleanVar(value=False)
+        tk.Checkbutton(btns, text="Force Save (Ignore Limits)", variable=self.override_var,
+                       bg=self.colors["bg"], fg=self.colors["label_fg"], selectcolor=self.colors["bg"],
+                       activebackground=self.colors["bg"], font=("Arial", 9, "bold")).pack(side="right", padx=10)
     
     def load_item(self):
         if self.current_idx >= len(self.current_texts):
@@ -393,13 +627,18 @@ class ReviewEditor(tk.Toplevel):
                     break
             else:
                 # All categories exhausted — close the window
-                self.destroy()
+                self.on_close()
                 return
         txt = self.current_texts[self.current_idx]
+        self.override_var.set(False)
         self.info_lbl.config(text=f"REVIEWING: {self.current_idx+1}/{len(self.current_texts)}")
         self.txt.delete(1.0, tk.END)
         self.txt.insert(tk.END, txt)
-        
+        # Clear undo stack after loading new text so you can't undo into a blank box
+        self.txt.edit_reset()
+        # Set focus
+        self.txt.focus_set()
+
         first_inst = self.queues[self.current_category][txt][0]
         try:
             _, _, rows = _read_csv(first_inst['path'])
@@ -628,7 +867,64 @@ class ReviewEditor(tk.Toplevel):
 
         self.lore_list.config(state="disabled")
         self.jp_txt.config(state="disabled")
+
+        # Initial trigger
+        self.update_preview()
         self.update_counters()
+
+    def update_preview(self, e=None):
+        vis_text = self.txt.get(1.0, tk.END).strip("\n")
+        vis_text = re.sub(r'<[^>]+>', '', vis_text)
+        lines = vis_text.splitlines()
+
+        box_key = self._preview_box_var.get()
+        meta    = self._box_meta[box_key]
+        base_img = self._preview_base_images.get(box_key)
+        fnt      = self._preview_font_objs.get(box_key)
+
+        img_w = meta.get("img_w", self._prev_W)
+        img_h = meta.get("img_h", self._prev_H)
+        c = self.preview_canvas
+        c.config(width=img_w, height=img_h)
+
+        if not base_img or not _PIL_OK:
+            c.delete("all")
+            fill = "#2b2d2f" if box_key == "choice" else "#f2efdd"
+            c.create_rectangle(0, 0, img_w, img_h, fill=fill, outline="")
+            return
+
+        # Render onto a fresh copy of the base image
+        render_img = base_img.copy()
+        draw = ImageDraw.Draw(render_img)
+        
+        pad       = meta["pad"]
+        text_col  = meta["fg"]
+        font_size = meta["font_sz"]
+        
+        tx, ty = pad, pad
+        tw, th = img_w - 2 * pad, img_h - 2 * pad
+        
+        # Calibration: 11 lines into 122px = 11px/line.
+        line_h = 11 if box_key == "dialogue" else font_size + 2
+
+        for i, line in enumerate(lines):
+            y = ty + i * line_h
+            if y + line_h > ty + th:
+                draw.text((tx, ty + th - 12), f"▼ +{len(lines) - i} lines clipped", fill="#ff4444")
+                break
+            
+            sim_len = self.engine.get_simulated_len(line)
+            over = sim_len > self.effective_limit
+            col  = "#ff4444" if over else text_col
+            
+            if fnt:
+                draw.text((tx + 2, y), line, font=fnt, fill=col)
+            else:
+                draw.text((tx + 2, y), line, fill=col)
+
+        self._current_preview_tk = ImageTk.PhotoImage(render_img)
+        c.delete("all")
+        c.create_image(0, 0, anchor="nw", image=self._current_preview_tk)
 
     def _refresh_et_display(self):
         """Update the entry type badge and rules summary from self.entry_type."""
@@ -724,23 +1020,34 @@ class ReviewEditor(tk.Toplevel):
         self.parent.cm.save_all()
         self.update_archetype_hint()
 
+    def rewrap_text(self):
+        current_text = self.txt.get(1.0, tk.END).strip()
+        wrapped = self.engine.master_tag_wrap(current_text, self.effective_limit)
+        if wrapped != current_text:
+            self.txt.delete(1.0, tk.END)
+            self.txt.insert(tk.END, wrapped)
+            self.update_counters()
+            self.update_preview()
+
     def replace_dashes(self, replacement):
         """Replace double-dash patterns with replacement.
         Covers: -- (hyphens), —— (em dash U+2014), ―― (horiz bar U+2015),
         –– (en dash U+2013), and any mixed combinations of two or more."""
-        current = self.txt.get(1.0, tk.END)
-        fixed = re.sub(r'[-–—―]{2,}', replacement, current)
+        current_text = self.txt.get(1.0, tk.END)
+        fixed = re.sub(r'[-–—―]{2,}', replacement, current_text)
         # If replacing with ellipsis (...), ensure a space before the next word/digit
         if replacement == "...":
             fixed = re.sub(r'\.\.\.(\w)', r'... \1', fixed)
-        if fixed != current:
+        if fixed != current_text:
             self.txt.delete(1.0, tk.END)
-            self.txt.insert(tk.END, fixed.rstrip("\n"))
+            self.txt.insert(tk.END, fixed)
             self.update_counters()
+            self.update_preview()
 
     def quick_insert(self, text):
         self.txt.insert(tk.INSERT, text)
         self.update_counters()
+        self.update_preview()
 
     def _apply_tag_to_text(self, search_term, tag_name):
         start = "1.0"
@@ -812,16 +1119,17 @@ class ReviewEditor(tk.Toplevel):
             return
 
         # --- Blocker 1: Line length ---
-        overlong = [i + 1 for i, l in enumerate(lines) if self.engine.get_simulated_len(l) > self.effective_limit]
-        if overlong:
-            ln_str = ", ".join(str(n) for n in overlong)
-            messagebox.showerror("Line Too Long",
-                f"Line{'s' if len(overlong) > 1 else ''} {ln_str} exceed{'s' if len(overlong) == 1 else ''} "
-                f"the {self.effective_limit}-char limit. Fix before saving.", parent=self)
-            return
+        if not self.override_var.get():
+            overlong = [i + 1 for i, l in enumerate(lines) if self.engine.get_simulated_len(l) > self.effective_limit]
+            if overlong:
+                ln_str = ", ".join(str(n) for n in overlong)
+                messagebox.showerror("Line Too Long",
+                    f"Line{'s' if len(overlong) > 1 else ''} {ln_str} exceed{'s' if len(overlong) == 1 else ''} "
+                    f"the {self.effective_limit}-char limit. Fix before saving.", parent=self)
+                return
 
         # --- Blocker 2: Line limit (too many lines) ---
-        if len(lines) >= self.wall_limit:
+        if not self.override_var.get() and len(lines) >= self.wall_limit:
             messagebox.showerror("Too Many Lines",
                 f"Text has {len(lines)} lines — line limit is {self.wall_limit - 1}. "
                 f"Split or shorten before saving.", parent=self)
@@ -886,6 +1194,8 @@ class CSVProcessorApp:
         self.wall_preset_var = tk.StringVar(value=saved_wall if saved_wall in self.wall_preset_names else (self.wall_preset_names[0] if self.wall_preset_names else "Standard"))
         self.prev_var = tk.BooleanVar(value=True)
         self.in_universe_var = tk.BooleanVar(value=self.cm.config.get("in_universe", False))
+        self.status_var = tk.StringVar(value="Ready.")
+        self.prog_var = tk.DoubleVar(value=0.0)
         self.tag_q, self.wall_q, self.dash_q, self.anach_q = defaultdict(list), defaultdict(list), defaultdict(list), defaultdict(list)
         self.engine = TranslationEngine(self.cm.config.get("tag_map", {}))
         self.apply_theme_colors()
@@ -893,6 +1203,28 @@ class CSVProcessorApp:
 
     def setup_ui(self):
         self.root.configure(bg=self.colors["bg"])
+        
+        # ── Title ──
+        lbl_title = tk.Label(self.root, text="DDON Dialogue Processor", font=("Arial", 16, "bold"),
+                             bg=self.colors["bg"], fg=self.colors["accent"])
+        lbl_title.pack(pady=10)
+
+        # ── Dashboard row ──
+        dashboard_frame = tk.Frame(self.root, bg=self.colors["bg"])
+        dashboard_frame.pack(fill="x", padx=10, pady=5)
+        
+        self.btn_search = tk.Button(dashboard_frame, text="Search Database (🔍)", command=self.open_search,
+                                    bg=self.colors["btn_bg"], fg=self.colors["fg"], relief="flat", padx=10)
+        self.btn_search.pack(side="left", padx=5)
+        
+        self.btn_analytics = tk.Button(dashboard_frame, text="Calculate Progress", command=self.calculate_progress,
+                                       bg=self.colors["btn_bg"], fg=self.colors["fg"], relief="flat", padx=10)
+        self.btn_analytics.pack(side="left", padx=5)
+        
+        self.lbl_progress = tk.Label(dashboard_frame, text="Translated: ---%", bg=self.colors["bg"], fg=self.colors["fg"])
+        self.lbl_progress.pack(side="left", padx=10)
+
+        # ── Controls ──
         self.root.title("DDON CSV Batch Processor")
         self.root.minsize(750, 600)
 
@@ -1294,21 +1626,71 @@ class CSVProcessorApp:
     def propagate_fix(self, instances, new_text, orig_text):
         # Always update the in-memory fix dictionary
         self.cm.memory[orig_text] = new_text
-        self.cm.save_all()
 
         # Respect Preview Mode — don't write to disk if user is just reviewing
         if self.prev_var.get():
             return
 
+        if not hasattr(self, 'pending_csv_writes'):
+            self.pending_csv_writes = {}
+
         for inst in instances:
+            self.pending_csv_writes.setdefault(inst['path'], []).append((inst['row_idx'], new_text))
+
+    def flush_csv_writes(self):
+        self.cm.save_memory()
+        if not hasattr(self, 'pending_csv_writes') or not self.pending_csv_writes:
+            return
+            
+        for path, writes in self.pending_csv_writes.items():
             try:
-                raw, dialect, rows = _read_csv(inst['path'])
-                if inst['row_idx'] < len(rows):
-                    rows[inst['row_idx']][3] = new_text
-                    with open(inst['path'], 'w', encoding='utf-8-sig', newline='') as f:
-                        csv.writer(f, dialect).writerows(rows)
+                raw, dialect, rows = _read_csv(path)
+                for r_idx, new_text in writes:
+                    if r_idx < len(rows):
+                        rows[r_idx][3] = new_text
+                with open(path, 'w', encoding='utf-8-sig', newline='') as f:
+                    csv.writer(f, dialect).writerows(rows)
             except Exception as e:
-                print(f"Error updating CSV: {e}")
+                print(f"Error flushing CSV {path}: {e}")
+        self.pending_csv_writes.clear()
+
+    def open_search(self):
+        SearchWindow(self.root, self.cm, self)
+        
+    def calculate_progress(self):
+        csv_files = _get_csv_files(self.cm.config.get("folders", []))
+        if not csv_files:
+            messagebox.showinfo("Analytics", "No folders added. Go to Options to add folders.")
+            return
+            
+        self.lbl_progress.config(text="Calculating...")
+        self.root.update_idletasks()
+        
+        total_lines = 0
+        translated = 0
+        
+        for file in csv_files:
+            try:
+                _, _, rows = _read_csv(file)
+                for i, row in enumerate(rows):
+                    if i == 0 or len(row) < 6:
+                        continue
+                    en_text = row[3].strip()
+                    jp_text = row[5].strip()
+                    if not jp_text: 
+                        continue
+                    total_lines += 1
+                    if en_text and en_text != jp_text:
+                        translated += 1
+            except Exception:
+                pass
+                
+        if total_lines == 0: 
+            self.lbl_progress.config(text="No valid dialogue lines found.")
+            return
+            
+        pct = (translated / total_lines) * 100
+        self.lbl_progress.config(text=f"Translated: {translated:,}/{total_lines:,} ({pct:.1f}%)")
 
     def open_options(self):
         opt_win = OptionsMenu(self.root, self.cm).open_window()

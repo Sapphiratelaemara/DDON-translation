@@ -106,9 +106,51 @@ class OptionsMenu:
         tk.Button(a_btns, text="Delete", width=10, command=self.delete_archetype).pack(pady=2)
         tk.Button(a_btns, text="Reset\nDefaults", width=10, command=self.reset_archetypes).pack(pady=2)
 
+        # --- SECTION 6: Regex Sandbox ---
+        regex_frame = tk.LabelFrame(w, text=" Regex Playground ", padx=10, pady=10)
+        regex_frame.pack(fill="x", padx=15, pady=5)
+        
+        tk.Label(regex_frame, text="Regex Pattern:").grid(row=0, column=0, sticky="w")
+        self.reg_pattern = tk.Entry(regex_frame, width=30)
+        self.reg_pattern.grid(row=0, column=1, sticky="w", padx=5)
+        
+        tk.Label(regex_frame, text="Replacement:").grid(row=0, column=2, sticky="w")
+        self.reg_repl = tk.Entry(regex_frame, width=20)
+        self.reg_repl.grid(row=0, column=3, sticky="w", padx=5)
+        
+        tk.Label(regex_frame, text="Test Input:").grid(row=1, column=0, sticky="nw", pady=5)
+        self.reg_in = tk.Text(regex_frame, height=2, width=50)
+        self.reg_in.grid(row=1, column=1, columnspan=3, sticky="w", pady=5)
+        
+        tk.Label(regex_frame, text="Result:").grid(row=2, column=0, sticky="nw")
+        self.reg_out = tk.Text(regex_frame, height=2, width=50, state="disabled", bg="#e8e8e8")
+        self.reg_out.grid(row=2, column=1, columnspan=3, sticky="w")
+        
+        for widget in (self.reg_pattern, self.reg_repl):
+            widget.bind("<KeyRelease>", self._run_sandbox)
+        self.reg_in.bind("<KeyRelease>", self._run_sandbox)
+
         tk.Button(w, text="SAVE ALL CHANGES", bg="#d1ecf1", height=2, command=self.save_and_close).pack(pady=20)
         
         return self.win # CRITICAL: Allows main.py to wait for this window
+
+    def _run_sandbox(self, e=None):
+        import re
+        pattern = self.reg_pattern.get()
+        repl = self.reg_repl.get()
+        text_in = self.reg_in.get("1.0", tk.END).strip("\n")
+        
+        self.reg_out.config(state="normal")
+        self.reg_out.delete("1.0", tk.END)
+        if not pattern:
+            self.reg_out.insert("1.0", text_in)
+        else:
+            try:
+                res = re.sub(pattern, repl, text_in)
+                self.reg_out.insert("1.0", res)
+            except Exception as ex:
+                self.reg_out.insert("1.0", f"Error: {ex}")
+        self.reg_out.config(state="disabled")
 
     # --- TAG LOGIC ---
     def refresh_tags(self):
