@@ -1,6 +1,7 @@
 import os
 import tkinter as tk
 from tkinter import messagebox, ttk
+from collections import defaultdict
 from file_utils import _get_csv_files, _read_csv
 
 class SearchWindow(tk.Toplevel):
@@ -88,21 +89,30 @@ class SearchWindow(tk.Toplevel):
         sel = self.tree.selection()
         if not sel: return
         data = self.results_data[int(sel[0])]
-        
-        pseudo_queue = {
-            "Search Result": {
-                data["en"]: [{
-                    "path": data["path"],
-                    "row_idx": data["row_idx"],
-                    "tag_reason": "search_result"
-                }]
-            }
-        }
-        
-        # Local import to avoid circular dependency until ReviewEditor is moved
-        try:
-            from main import ReviewEditor
-        except ImportError:
-            from review_editor import ReviewEditor # In case it's already moved later? No, this is fine for now.
 
-        ReviewEditor(self.app, pseudo_queue, self.app.engine, self.cm, self.app.lore_engine, callback=self.app.propagate_fix).open_window()
+        # Build a tag_queue with the single result; other queues are empty.
+        tag_queue = defaultdict(list)
+        tag_queue[data["en"]].append({
+            "path":        data["path"],
+            "row_idx":     data["row_idx"],
+            "tag_reason":  "search_result",
+            "unknown_tags": [],
+        })
+
+        presets      = self.cm.config.get("presets",      {"Standard": 50})
+        wall_presets = self.cm.config.get("wall_presets", {"Standard": 7})
+        limit        = list(presets.values())[0]
+        wall_limit   = list(wall_presets.values())[0]
+
+        from main import ReviewEditor
+        ReviewEditor(
+            self.app,
+            tag_queue,
+            defaultdict(list),   # wall_queue
+            defaultdict(list),   # dash_queue
+            defaultdict(list),   # anach_queue
+            limit,
+            wall_limit,
+            self.cm.config.get("tag_map", {}),
+            self.app.propagate_fix,
+        )
