@@ -3165,5 +3165,43 @@
         }
     ],
     "substitution_rules": [],
-    "preview_font": {}
+    "preview_font": {
+        "dialogue": {
+            "font_sz": 18,
+            "line_spacing": 1
+        }
+    },
+    "deepl_target_lang": "EN-US",
+    "openrouter_models": [
+        "arcee-ai/trinity-large-preview:free",
+        "arcee-ai/trinity-mini:free",
+        "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
+        "google/gemma-3-12b-it:free",
+        "google/gemma-3-27b-it:free",
+        "google/gemma-3-4b-it:free",
+        "google/gemma-3n-e2b-it:free",
+        "google/gemma-3n-e4b-it:free",
+        "google/lyria-3-clip-preview",
+        "google/lyria-3-pro-preview",
+        "liquid/lfm-2.5-1.2b-instruct:free",
+        "liquid/lfm-2.5-1.2b-thinking:free",
+        "meta-llama/llama-3.2-3b-instruct:free",
+        "meta-llama/llama-3.3-70b-instruct:free",
+        "minimax/minimax-m2.5:free",
+        "nousresearch/hermes-3-llama-3.1-405b:free",
+        "nvidia/nemotron-3-nano-30b-a3b:free",
+        "nvidia/nemotron-3-super-120b-a12b:free",
+        "nvidia/nemotron-nano-12b-v2-vl:free",
+        "nvidia/nemotron-nano-9b-v2:free",
+        "openai/gpt-oss-120b:free",
+        "openai/gpt-oss-20b:free",
+        "openrouter/auto",
+        "openrouter/free",
+        "qwen/qwen3-coder:free",
+        "qwen/qwen3-next-80b-a3b-instruct:free",
+        "qwen/qwen3.6-plus:free",
+        "stepfun/step-3.5-flash:free",
+        "z-ai/glm-4.5-air:free"
+    ],
+    "selected_openrouter_model": "openrouter/auto"
 }
