@@ -124,118 +124,110 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
     def _setup_ui(self):
         self.configure(bg=self.colors["bg"])
 
-        # Title bar
-        title_bar = tk.Frame(self, bg=self.colors["accent"], pady=6)
-        title_bar.pack(fill="x")
-        tk.Label(title_bar, text=f"Translating: {os.path.basename(self.csv_path)}",
+        # ── Button bar (packed first so it anchors to bottom before body expands) ──
+        btns = tk.Frame(self, bg=self.colors["bg"], pady=8)
+        btns.pack(side="bottom", fill="x", padx=14)
+        tk.Button(btns, text="← Prev", command=self._prev_item,
+                  bg=self.colors["btn_bg"], fg=self.colors["fg"],
+                  width=8, relief="flat").pack(side="left", padx=4)
+        tk.Button(btns, text="Skip →", command=self._next_item,
+                  bg=self.colors["btn_bg"], fg=self.colors["fg"],
+                  width=10, relief="flat").pack(side="left", padx=4)
+        tk.Button(btns, text="✓  Save", command=self._save_item,
+                  bg=self.colors["apply_bg"], fg="white",
+                  width=18, relief="flat", font=("Arial", 10, "bold")).pack(side="left", padx=4)
+        tk.Button(btns, text="―― → ...", command=lambda: self._replace_dashes("..."),
+                  bg=self.colors["btn_bg"], fg=self.colors["fg"],
+                  width=10, relief="flat").pack(side="left", padx=4)
+        tk.Button(btns, text="―― → —", command=lambda: self._replace_dashes("—"),
+                  bg=self.colors["btn_bg"], fg=self.colors["fg"],
+                  width=10, relief="flat").pack(side="left", padx=4)
+        self.override_var = tk.BooleanVar(value=False)
+        tk.Checkbutton(btns, text="Force Save (Ignore Limits)", variable=self.override_var,
+                       bg=self.colors["bg"], fg=self.colors["label_fg"],
+                       selectcolor=self.colors["bg"],
+                       activebackground=self.colors["bg"],
+                       font=("Arial", 9, "bold")).pack(side="right", padx=10)
+
+        # ── Top control bar ──
+        ctrl = tk.Frame(self, bg=self.colors["accent"], pady=6)
+        ctrl.pack(fill="x")
+        tk.Label(ctrl, text=f"Translating: {os.path.basename(self.csv_path)}",
                  bg=self.colors["accent"], fg="white",
                  font=("Arial", 11, "bold")).pack(side="left", padx=12)
-        self.count_lbl = tk.Label(title_bar, text="",
-                                   bg=self.colors["accent"], fg="white", font=("Arial", 9))
+        self.count_lbl = tk.Label(ctrl, text="",
+                                  bg=self.colors["accent"], fg="white", font=("Arial", 9))
         self.count_lbl.pack(side="left", padx=8)
-        tk.Checkbutton(title_bar, text="In-Universe Language", variable=self.in_universe_var,
-                       bg=self.colors["accent"], fg="white", selectcolor=self.colors["accent"],
+        tk.Checkbutton(ctrl, text="In-Universe Language", variable=self.in_universe_var,
+                       bg=self.colors["accent"], fg="white",
+                       selectcolor=self.colors["accent"],
                        activebackground=self.colors["accent"],
                        command=self._update_counters).pack(side="right", padx=10)
 
-        # Body: left list + right editor + right-side sidebar
-        body = tk.Frame(self, bg=self.colors["bg"])
-        body.pack(fill="both", expand=True)
-
-        # ── Sidebar ──
-        side = tk.Frame(body, bg=self.colors["sidebar_bg"], width=320)
-        side.pack(side="right", fill="both")
-        side.pack_propagate(False)
-
-        # Toggle bar at the top
-        side_ctrl = tk.Frame(side, bg=self.colors["sidebar_bg"], pady=2)
-        side_ctrl.pack(fill="x")
-        
-        tk.Button(side_ctrl, text="Context", command=lambda: self.toggle_pane("ctx"),
-                  bg=self.colors["btn_bg"], fg=self.colors["fg"], font=("Arial", 8, "bold"),
-                  relief="flat", padx=10).pack(side="left", padx=5)
-        
-        tk.Button(side_ctrl, text="AI Assistant", command=lambda: self.toggle_pane("ai"),
-                  bg=self.colors["btn_bg"], fg=self.colors["fg"], font=("Arial", 8, "bold"),
-                  relief="flat", padx=10).pack(side="left")
-
-        self.side_pane = tk.PanedWindow(side, orient="vertical", bg=self.colors["sidebar_bg"],
-                                         sashwidth=4, bd=0)
-        self.side_pane.pack(fill="both", expand=True)
-
-        # --- Pane 1: Context ---
-        self.pane_ctx = tk.Frame(self.side_pane, bg=self.colors["sidebar_bg"])
-        self.side_pane.add(self.pane_ctx, height=250)
-
-        tk.Label(self.pane_ctx, text="Adjacent Context", fg=self.colors["label_fg"],
-                 bg=self.colors["sidebar_bg"], font=("Arial", 8, "bold")).pack(anchor="w", padx=6, pady=(4, 0))
-        
-        self.adj_prev_txt = tk.Text(self.pane_ctx, height=4, font=("Consolas", 9),
-                                    bg=self.colors["sidebar_bg"], fg=self.colors["fg"],
-                                    state="disabled", bd=0, padx=6, pady=4, relief="flat", wrap="word")
-        self.adj_prev_txt.pack(fill="x")
-        
-        tk.Frame(self.pane_ctx, bg=self.colors["label_fg"], height=1).pack(fill="x", pady=4)
-        
-        self.adj_next_txt = tk.Text(self.pane_ctx, height=4, font=("Consolas", 9),
-                                    bg=self.colors["sidebar_bg"], fg=self.colors["fg"],
-                                    state="disabled", bd=0, padx=6, pady=4, relief="flat", wrap="word")
-        self.adj_next_txt.pack(fill="x")
-
-        # --- Pane 2: AI Assistant ---
-        self.pane_ai = tk.Frame(self.side_pane, bg=self.colors["sidebar_bg"])
-        self.side_pane.add(self.pane_ai)
-
-        ai_hdr = tk.Frame(self.pane_ai, bg=self.colors["sidebar_bg"])
-        ai_hdr.pack(fill="x", padx=6, pady=(4, 0))
-        tk.Label(ai_hdr, text="AI Assistant", fg=self.colors["label_fg"],
-                 bg=self.colors["sidebar_bg"], font=("Arial", 8, "bold")).pack(side="left")
-
-        chat_ctrl = tk.Frame(self.pane_ai, bg=self.colors["sidebar_bg"])
-        chat_ctrl.pack(fill="x", padx=5, pady=5)
-        
-        self.chat_model_var = tk.StringVar(value=self.cm.config.get("selected_openrouter_model", "openrouter/auto"))
-        models = self.cm.config.get("openrouter_models", ["openrouter/auto"])
-        self.chat_model_combo = ttk.Combobox(chat_ctrl, textvariable=self.chat_model_var, values=models, state="readonly", width=18)
-        self.chat_model_combo.pack(side="left", fill="x", expand=True)
-        self.chat_model_combo.bind("<<ComboboxSelected>>", self._save_selected_model)
-        
-        tk.Button(chat_ctrl, text="↻", command=self.refresh_model_list,
+        # ── Speaker / Archetype bar ──
+        spk_frame = tk.Frame(self, bg=self.colors["bg"], padx=16, pady=3)
+        spk_frame.pack(fill="x")
+        def spk_lbl(text):
+            return tk.Label(spk_frame, text=text, fg=self.colors["label_fg"],
+                            bg=self.colors["bg"], font=("Arial", 9))
+        spk_lbl("Speaker:").pack(side="left")
+        self.speaker_lbl = tk.Label(spk_frame, text="—",
+                                    fg=self.colors["counter_fg"], bg=self.colors["bg"],
+                                    font=("Arial", 9, "bold"))
+        self.speaker_lbl.pack(side="left", padx=(4, 14))
+        spk_lbl("Archetype:").pack(side="left")
+        arch_opts = self.lore_engine.get_archetype_options()
+        arch_labels = ["(none)"] + [o[1] for o in arch_opts]
+        self.archetype_keys = [None] + [o[0] for o in arch_opts]
+        self.archetype_var = tk.StringVar(value="(none)")
+        self.archetype_combo = ttk.Combobox(spk_frame, textvariable=self.archetype_var,
+                                            values=arch_labels, state="disabled", width=28)
+        self.archetype_combo.pack(side="left", padx=(4, 6))
+        self.archetype_combo.bind("<<ComboboxSelected>>", self.on_archetype_selected)
+        tk.Button(spk_frame, text="Save", command=self.save_archetype,
                   bg=self.colors["btn_bg"], fg=self.colors["fg"],
-                  font=("Arial", 8), relief="flat", padx=4).pack(side="right", padx=(4, 0))
+                  font=("Arial", 8), relief="flat", padx=6).pack(side="left")
+        spk_lbl("Note:").pack(side="left", padx=(14, 2))
+        self.speaker_note_var = tk.StringVar()
+        self.speaker_note_entry = tk.Entry(spk_frame, textvariable=self.speaker_note_var,
+                                           width=26, font=("Arial", 9),
+                                           bg=self.colors["text_bg"], fg=self.colors["fg"],
+                                           insertbackground=self.colors["fg"], relief="flat",
+                                           state="disabled")
+        self.speaker_note_entry.pack(side="left")
+        self.make_context_menu(self.speaker_note_entry)
+        self.speaker_note_entry.bind("<FocusOut>", lambda e: self.save_archetype())
+        self.speaker_note_entry.bind("<Return>",   lambda e: self.save_archetype())
 
-        self.chat_history = tk.Text(self.pane_ai, bg=self.colors["text_bg"], fg=self.colors["fg"],
-                                    bd=0, highlightthickness=0, font=("Arial", 9),
-                                    wrap="word", state="disabled", padx=6, pady=4)
-        self.chat_history.pack(fill="both", expand=True)
+        # ── Entry type row ──
+        et_frame = tk.Frame(self, bg=self.colors["bg"], padx=16, pady=2)
+        et_frame.pack(fill="x")
+        tk.Label(et_frame, text="Entry Type:", fg=self.colors["label_fg"],
+                 bg=self.colors["bg"], font=("Arial", 9)).pack(side="left")
+        known_types = [""] + sorted(self.cm.config.get("entry_type_rules", {}).keys())
+        self.entry_type_combo = ttk.Combobox(et_frame, textvariable=self.entry_type_var,
+                                             values=known_types, width=36)
+        self.entry_type_combo.pack(side="left", padx=(4, 6))
+        for ev in ("<<ComboboxSelected>>", "<Return>", "<FocusOut>"):
+            self.entry_type_combo.bind(ev, self._on_entry_type_changed)
+        self.entry_type_badge = tk.Label(et_frame, text="", fg="white", bg="#2980b9",
+                                         font=("Arial", 8, "bold"), padx=5, pady=1)
+        self.entry_type_badge.pack(side="left", padx=(2, 4))
+        tk.Button(et_frame, text="Save Type", command=self.save_entry_type,
+                  bg=self.colors["btn_bg"], fg=self.colors["fg"],
+                  font=("Arial", 8), relief="flat", padx=6).pack(side="left")
+        self.et_rules_lbl = tk.Label(et_frame, text="", fg=self.colors["label_fg"],
+                                     bg=self.colors["bg"], font=("Arial", 8, "italic"))
+        self.et_rules_lbl.pack(side="left", padx=(10, 0))
 
-        chat_input_f = tk.Frame(self.pane_ai, bg=self.colors["sidebar_bg"])
-        chat_input_f.pack(fill="x", padx=5, pady=5)
+        # ── Body: row list (left) + main editor area ──
+        body = tk.Frame(self, bg=self.colors["bg"])
+        body.pack(fill="both", expand=True, padx=0, pady=0)
 
-        self.chat_input = tk.Text(chat_input_f, height=3, font=("Arial", 9),
-                                  bg=self.colors["text_bg"], fg=self.colors["fg"],
-                                  insertbackground=self.colors["fg"], undo=True)
-        self.chat_input.pack(fill="x", pady=(0, 5))
-        self.chat_input.bind("<Return>", self._chat_on_return)
-
-        chat_btns = tk.Frame(chat_input_f, bg=self.colors["sidebar_bg"])
-        chat_btns.pack(fill="x")
-        
-        self.btn_chat_send = tk.Button(chat_btns, text="Send", command=self.send_ai_chat,
-                                       bg=self.colors["accent"], fg="white", relief="flat")
-        self.btn_chat_send.pack(side="right")
-        
-        tk.Button(chat_btns, text="+ Context", command=self.add_chat_context,
-                  bg=self.colors["btn_bg"], fg=self.colors["fg"], relief="flat").pack(side="left")
-        
-        tk.Button(chat_btns, text="Clear", command=self.clear_chat,
-                  bg=self.colors["btn_bg"], fg=self.colors["fg"], relief="flat").pack(side="left", padx=5)
-
-        # ── Left: row list ──
+        # Row list — unique to this window, packs far left
         list_frame = tk.Frame(body, bg=self.colors["sidebar_bg"], width=300)
         list_frame.pack(side="left", fill="y")
         list_frame.pack_propagate(False)
-
         list_hdr = tk.Frame(list_frame, bg=self.colors["sidebar_bg"])
         list_hdr.pack(fill="x", padx=6, pady=4)
         tk.Checkbutton(list_hdr, text="Show translated", variable=self.show_translated_var,
@@ -243,7 +235,6 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
                        selectcolor=self.colors["sidebar_bg"],
                        activebackground=self.colors["sidebar_bg"],
                        command=self._on_filter_changed).pack(side="left")
-
         list_scroll = tk.Scrollbar(list_frame, orient="vertical")
         list_scroll.pack(side="right", fill="y")
         self.row_listbox = tk.Listbox(
@@ -256,84 +247,148 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
         list_scroll.config(command=self.row_listbox.yview)
         self.row_listbox.bind("<<ListboxSelect>>", self._on_list_select)
 
-        # ── Right: editor ──
-        right = tk.Frame(body, bg=self.colors["bg"])
-        right.pack(side="left", fill="both", expand=True, padx=8, pady=4)
+        # Main area — mirrors ReviewEditor layout exactly from here
+        main = tk.Frame(body, bg=self.colors["bg"])
+        main.pack(side="left", fill="both", expand=True, padx=0)
 
-        # Speaker bar
-        spk_frame = tk.Frame(right, bg=self.colors["bg"])
-        spk_frame.pack(fill="x", pady=(2, 0))
-        tk.Label(spk_frame, text="Speaker:", fg=self.colors["label_fg"],
-                 bg=self.colors["bg"], font=("Arial", 9)).pack(side="left")
-        self.speaker_lbl = tk.Label(spk_frame, text="—",
-                                    fg=self.colors["counter_fg"], bg=self.colors["bg"],
-                                    font=("Arial", 9, "bold"))
-        self.speaker_lbl.pack(side="left", padx=(4, 14))
-        tk.Label(spk_frame, text="Archetype:", fg=self.colors["label_fg"],
-                 bg=self.colors["bg"], font=("Arial", 9)).pack(side="left")
-        arch_opts = self.lore_engine.get_archetype_options()
-        arch_labels = ["(none)"] + [o[1] for o in arch_opts]
-        self.archetype_keys = [None] + [o[0] for o in arch_opts]
-        self.archetype_var = tk.StringVar(value="(none)")
-        self.archetype_combo = ttk.Combobox(spk_frame, textvariable=self.archetype_var,
-                                            values=arch_labels, state="disabled", width=26)
-        self.archetype_combo.pack(side="left", padx=(4, 6))
-        tk.Button(spk_frame, text="Save", command=self._save_archetype,
+        # Sidebar (right) packs before left_f so it gets its preferred width
+        side = tk.Frame(main, bg=self.colors["sidebar_bg"], width=400)
+        side.pack(side="right", fill="both")
+        side.pack_propagate(False)
+
+        side_ctrl = tk.Frame(side, bg=self.colors["sidebar_bg"], pady=2)
+        side_ctrl.pack(fill="x")
+        tk.Button(side_ctrl, text="Context", command=lambda: self.toggle_pane("ctx"),
+                  bg=self.colors["btn_bg"], fg=self.colors["fg"], font=("Arial", 8, "bold"),
+                  relief="flat", padx=10).pack(side="left", padx=5)
+        tk.Button(side_ctrl, text="AI Assistant", command=lambda: self.toggle_pane("ai"),
+                  bg=self.colors["btn_bg"], fg=self.colors["fg"], font=("Arial", 8, "bold"),
+                  relief="flat", padx=10).pack(side="left")
+
+        self.side_pane = tk.PanedWindow(side, orient="vertical", bg=self.colors["sidebar_bg"],
+                                        sashwidth=4, bd=0)
+        self.side_pane.pack(fill="both", expand=True)
+
+        # Pane 1: References + Archetype Notes (matches ReviewEditor)
+        self.pane_ctx = tk.Frame(self.side_pane, bg=self.colors["sidebar_bg"])
+        self.side_pane.add(self.pane_ctx, height=300)
+
+        tk.Label(self.pane_ctx, text="References", fg=self.colors["label_fg"],
+                 bg=self.colors["sidebar_bg"], font=("Arial", 8, "bold")).pack(anchor="w", padx=6, pady=(4, 0))
+        lore_f = tk.Frame(self.pane_ctx, bg=self.colors["text_bg"])
+        lore_f.pack(fill="both", expand=True)
+        lore_scroll = tk.Scrollbar(lore_f)
+        lore_scroll.pack(side="right", fill="y")
+        self.lore_list = tk.Text(lore_f, bg=self.colors["text_bg"], fg=self.colors["fg"],
+                                 bd=0, highlightthickness=0, font=("Arial", 10),
+                                 wrap="word", state="disabled", padx=6, pady=4,
+                                 yscrollcommand=lore_scroll.set)
+        self.lore_list.pack(side="left", fill="both", expand=True)
+        lore_scroll.config(command=self.lore_list.yview)
+
+        tk.Frame(self.pane_ctx, bg=self.colors["label_fg"], height=1).pack(fill="x", pady=2)
+        tk.Label(self.pane_ctx, text="Archetype Notes", fg=self.colors["label_fg"],
+                 bg=self.colors["sidebar_bg"], font=("Arial", 8, "bold")).pack(anchor="w", padx=6)
+        self.archetype_hint = tk.Text(self.pane_ctx, bg=self.colors["text_bg"], fg=self.colors["fg"],
+                                      bd=0, highlightthickness=0, font=("Arial", 9),
+                                      wrap="word", state="disabled", height=6, padx=6, pady=4)
+        self.archetype_hint.pack(fill="x")
+
+        # Pane 2: AI Assistant
+        self.pane_ai = tk.Frame(self.side_pane, bg=self.colors["sidebar_bg"])
+        self.side_pane.add(self.pane_ai)
+
+        ai_hdr = tk.Frame(self.pane_ai, bg=self.colors["sidebar_bg"])
+        ai_hdr.pack(fill="x", padx=6, pady=(4, 0))
+        tk.Label(ai_hdr, text="AI Assistant", fg=self.colors["label_fg"],
+                 bg=self.colors["sidebar_bg"], font=("Arial", 8, "bold")).pack(side="left")
+
+        chat_ctrl = tk.Frame(self.pane_ai, bg=self.colors["sidebar_bg"])
+        chat_ctrl.pack(fill="x", padx=5, pady=5)
+        self.chat_model_var = tk.StringVar(value=self.cm.config.get("selected_openrouter_model", "openrouter/auto"))
+        models = self.cm.config.get("openrouter_models", ["openrouter/auto"])
+        self.chat_model_combo = ttk.Combobox(chat_ctrl, textvariable=self.chat_model_var,
+                                             values=models, state="readonly", width=18)
+        self.chat_model_combo.pack(side="left", fill="x", expand=True)
+        self.chat_model_combo.bind("<<ComboboxSelected>>", self._save_selected_model)
+        tk.Button(chat_ctrl, text="↻", command=self.refresh_model_list,
                   bg=self.colors["btn_bg"], fg=self.colors["fg"],
-                  font=("Arial", 8), relief="flat", padx=6).pack(side="left")
+                  font=("Arial", 8), relief="flat", padx=4).pack(side="right", padx=(4, 0))
 
-        # Entry type row
-        et_frame = tk.Frame(right, bg=self.colors["bg"])
-        et_frame.pack(fill="x", pady=(2, 0))
-        tk.Label(et_frame, text="Entry Type:", fg=self.colors["label_fg"],
-                 bg=self.colors["bg"], font=("Arial", 9)).pack(side="left")
-        known_types = [""] + sorted(self.cm.config.get("entry_type_rules", {}).keys())
-        self.entry_type_combo = ttk.Combobox(et_frame, textvariable=self.entry_type_var,
-                                             values=known_types, width=30)
-        self.entry_type_combo.pack(side="left", padx=(4, 6))
-        for ev in ("<<ComboboxSelected>>", "<Return>", "<FocusOut>"):
-            self.entry_type_combo.bind(ev, self._on_entry_type_changed)
-        self.entry_type_badge = tk.Label(et_frame, text="", fg="white", bg="#2980b9",
-                                         font=("Arial", 8, "bold"), padx=5, pady=1)
-        self.entry_type_badge.pack(side="left", padx=(2, 4))
-        self.et_rules_lbl = tk.Label(et_frame, text="", fg=self.colors["label_fg"],
-                                     bg=self.colors["bg"], font=("Arial", 8, "italic"))
-        self.et_rules_lbl.pack(side="left", padx=(6, 0))
+        chat_scroll = tk.Scrollbar(self.pane_ai)
+        chat_scroll.pack(side="right", fill="y")
+        self.chat_history = tk.Text(self.pane_ai, bg=self.colors["text_bg"], fg=self.colors["fg"],
+                                    bd=0, highlightthickness=0, font=("Arial", 9),
+                                    wrap="word", state="disabled", padx=6, pady=4,
+                                    yscrollcommand=chat_scroll.set)
+        self.chat_history.pack(fill="both", expand=True)
+        chat_scroll.config(command=self.chat_history.yview)
 
-        # EN editor
-        tk.Label(right, text="English", fg=self.colors["label_fg"],
-                 bg=self.colors["bg"], font=("Arial", 8, "bold")).pack(anchor="w", pady=(4, 0))
-        en_outer = tk.Frame(right, bg=self.colors["bg"])
+        chat_input_f = tk.Frame(self.pane_ai, bg=self.colors["sidebar_bg"])
+        chat_input_f.pack(fill="x", padx=5, pady=5)
+        self.chat_input = tk.Text(chat_input_f, height=3, font=("Arial", 9),
+                                  bg=self.colors["text_bg"], fg=self.colors["fg"],
+                                  insertbackground=self.colors["fg"], undo=True)
+        self.chat_input.pack(fill="x", pady=(0, 5))
+        self.chat_input.bind("<Return>", self._chat_on_return)
+        chat_btns = tk.Frame(chat_input_f, bg=self.colors["sidebar_bg"])
+        chat_btns.pack(fill="x")
+        self.btn_chat_send = tk.Button(chat_btns, text="Send", command=self.send_ai_chat,
+                                       bg=self.colors["accent"], fg="white", relief="flat")
+        self.btn_chat_send.pack(side="right")
+        tk.Button(chat_btns, text="+ Context", command=self.add_chat_context,
+                  bg=self.colors["btn_bg"], fg=self.colors["fg"], relief="flat").pack(side="left")
+        tk.Button(chat_btns, text="Clear", command=self.clear_chat,
+                  bg=self.colors["btn_bg"], fg=self.colors["fg"], relief="flat").pack(side="left", padx=5)
+
+        # Left editor area — fills remaining space, same order as ReviewEditor
+        left_f = tk.Frame(main, bg=self.colors["bg"])
+        left_f.pack(side="left", fill="both", expand=True, padx=14, pady=4)
+
+        tk.Label(left_f, text="English", fg=self.colors["label_fg"],
+                 bg=self.colors["bg"], font=("Arial", 8, "bold")).pack(anchor="w")
+
+        en_outer = tk.Frame(left_f, bg=self.colors["bg"])
         en_outer.pack(fill="x")
-        self._txt_yscroll_wid = tk.Scrollbar(en_outer, orient="vertical")
-        self._txt_yscroll_wid.pack(side="right", fill="y")
         self.cnt_lbl = tk.Text(en_outer, font=("Consolas", 12), width=4, height=6,
                                bg=self.colors["bg"], fg=self.colors["counter_fg"],
                                state="disabled", bd=0, highlightthickness=0, padx=0, pady=4)
         self.cnt_lbl.pack(side="right", fill="y", padx=(2, 0))
         en_inner = tk.Frame(en_outer, bg=self.colors["bg"])
         en_inner.pack(side="left", fill="x")
-        txt_xscroll = tk.Scrollbar(en_inner, orient="horizontal")
-        txt_xscroll.pack(side="bottom", fill="x")
+        txt_yscroll = tk.Scrollbar(en_inner, orient="vertical")
+        txt_yscroll.pack(side="right", fill="y")
         self.txt = tk.Text(en_inner, height=6, font=("Consolas", 12),
                            bg=self.colors["text_bg"], fg=self.colors["fg"],
                            insertbackground=self.colors["insert_color"],
                            bd=0, padx=6, pady=4, wrap="none",
                            relief="flat", selectbackground=self.colors["accent"],
                            selectforeground="white", undo=True,
-                           yscrollcommand=self._sync_txt_scroll,
-                           xscrollcommand=txt_xscroll.set)
+                           yscrollcommand=self._sync_txt_scroll)
+        self.make_context_menu(self.txt)
+        txt_xscroll = tk.Scrollbar(en_inner, orient="horizontal", command=self.txt.xview)
+        self.txt.configure(xscrollcommand=txt_xscroll.set)
         self.txt.pack(fill="x")
-        txt_xscroll.config(command=self.txt.xview)
-        self._txt_yscroll_wid.config(command=self.txt.yview)
-        self.txt.bind("<KeyRelease>",
-                      lambda e: [self._update_counters(), self._update_preview()])
-        self.txt.bind("<<Paste>>",
-                      lambda e: self.after(0, lambda: [self._update_counters(), self._update_preview()]))
+        txt_xscroll.pack(fill="x")
+        txt_yscroll.config(command=self.txt.yview)
+        self._txt_yscroll = txt_yscroll
+        self.txt.bind("<KeyRelease>", lambda e: [self._update_counters(e), self._update_preview(e)])
+        self.txt.bind("<<Paste>>", lambda e: self.after(0, lambda: [self._update_counters(), self._update_preview()]))
 
-        # Preview
-        prev_hdr = tk.Frame(right, bg=self.colors["bg"])
-        prev_hdr.pack(fill="x", pady=(4, 0))
+        # DeepL suggestion box — same position as ReviewEditor (before preview)
+        tk.Label(left_f, text="DeepL Suggestion (Click to paste)", fg=self.colors["label_fg"],
+                 bg=self.colors["bg"], font=("Arial", 8, "italic")).pack(anchor="w", pady=(4, 0))
+        self.deepl_box = tk.Text(left_f, height=2, font=("Consolas", 10),
+                                 bg=self.colors["sidebar_bg"], fg=self.colors["fg"],
+                                 bd=0, padx=6, pady=4, relief="flat", wrap="word", cursor="hand2")
+        self.deepl_box.pack(fill="x", pady=(0, 5))
+        self.deepl_box.insert(tk.END, "Ready.")
+        self.deepl_box.config(state="disabled")
+        self.deepl_box.bind("<Button-1>", self.click_deepl_suggestion)
+
+        # Preview header + canvas
+        prev_hdr = tk.Frame(left_f, bg=self.colors["bg"])
+        prev_hdr.pack(fill="x", pady=(5, 0))
         tk.Label(prev_hdr, text="In-Game Preview:", bg=self.colors["bg"],
                  fg=self.colors["label_fg"]).pack(side="left")
         self._preview_box_var = tk.StringVar(value="dialogue")
@@ -342,42 +397,59 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
                            bg=self.colors["bg"], fg=self.colors["fg"],
                            selectcolor=self.colors["bg"], activebackground=self.colors["bg"],
                            font=("Arial", 9),
-                           command=self._update_preview).pack(side="left", padx=4)
-        tk.Label(prev_hdr, text="  Font:", bg=self.colors["bg"],
-                 fg=self.colors["label_fg"], font=("Arial", 9)).pack(side="left")
+                           command=lambda: [self._sync_preview_font_controls(), self._update_preview()]).pack(side="left", padx=4)
+        tk.Label(prev_hdr, text="  Font:", bg=self.colors["bg"], fg=self.colors["label_fg"],
+                 font=("Arial", 9)).pack(side="left")
         self._prev_font_sz_var = tk.StringVar()
-        tk.Spinbox(prev_hdr, from_=6, to=48, width=3, textvariable=self._prev_font_sz_var,
-                   bg=self.colors["text_bg"], fg=self.colors["fg"],
-                   relief="flat", font=("Arial", 9)).pack(side="left", padx=(2, 8))
-        tk.Label(prev_hdr, text="Spacing:", bg=self.colors["bg"],
-                 fg=self.colors["label_fg"], font=("Arial", 9)).pack(side="left")
+        self._prev_font_sz_spin = tk.Spinbox(
+            prev_hdr, from_=6, to=48, width=3, textvariable=self._prev_font_sz_var,
+            command=self._on_preview_font_changed,
+            bg=self.colors["text_bg"], fg=self.colors["fg"], relief="flat", font=("Arial", 9))
+        self._prev_font_sz_spin.pack(side="left", padx=(2, 8))
+        self._prev_font_sz_spin.bind("<Return>",   lambda e: self._on_preview_font_changed())
+        self._prev_font_sz_spin.bind("<FocusOut>", lambda e: self._on_preview_font_changed())
+        tk.Label(prev_hdr, text="Spacing:", bg=self.colors["bg"], fg=self.colors["label_fg"],
+                 font=("Arial", 9)).pack(side="left")
         self._prev_spacing_var = tk.StringVar()
-        tk.Spinbox(prev_hdr, from_=0, to=30, width=3, textvariable=self._prev_spacing_var,
-                   bg=self.colors["text_bg"], fg=self.colors["fg"],
-                   relief="flat", font=("Arial", 9)).pack(side="left", padx=(2, 0))
+        self._prev_spacing_spin = tk.Spinbox(
+            prev_hdr, from_=0, to=30, width=3, textvariable=self._prev_spacing_var,
+            command=self._on_preview_font_changed,
+            bg=self.colors["text_bg"], fg=self.colors["fg"], relief="flat", font=("Arial", 9))
+        self._prev_spacing_spin.pack(side="left", padx=(2, 0))
+        self._prev_spacing_spin.bind("<Return>",   lambda e: self._on_preview_font_changed())
+        self._prev_spacing_spin.bind("<FocusOut>", lambda e: self._on_preview_font_changed())
 
-        # Box meta (mirrors ReviewEditor)
         _pf = self.cm.config.get("preview_font", {})
-        self._box_meta = {
+        _BOX_META = {
             "dialogue": {
-                "crop": (27, 171, 480, 333), "pad": 20, "fg": "#2f2b2b",
+                "crop":         (27, 171, 480, 333),
+                "pad":          20,
+                "fg":           "#2f2b2b",
                 "font_sz":      _pf.get("dialogue", {}).get("font_sz",      18),
                 "line_spacing": _pf.get("dialogue", {}).get("line_spacing",  1),
             },
             "choice": {
-                "crop": (246, 17, 481, 151), "pad": 10, "fg": "#ffffff",
+                "crop":         (246, 17, 481, 151),
+                "pad":          10,
+                "fg":           "#ffffff",
                 "font_sz":      _pf.get("choice", {}).get("font_sz",      12),
                 "line_spacing": _pf.get("choice", {}).get("line_spacing",  1),
             },
         }
-        self._preview_images = {}
-        self._preview_base_images = {}
-        self._preview_font_objs = {}
-        _DLG_W, _DLG_H = 453, 162
-        self.preview_canvas = tk.Canvas(right, width=_DLG_W, height=_DLG_H,
+        self._box_meta = _BOX_META
+        self._sync_preview_font_controls()
+        _DLG_W = 480 - 27
+        _DLG_H = 333 - 171
+        self._prev_W = _DLG_W
+        self._prev_H = _DLG_H
+
+        self.preview_canvas = tk.Canvas(left_f, width=_DLG_W, height=_DLG_H,
                                         bg=self.colors["bg"], highlightthickness=0)
         self.preview_canvas.pack(anchor="w", pady=2)
-        self._prev_W, self._prev_H = _DLG_W, _DLG_H
+
+        self._preview_images      = {}
+        self._preview_base_images = {}
+        self._preview_font_objs   = {}
 
         _asset_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
         _font_path = next((p for p in [
@@ -389,7 +461,8 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
             "choice":   {"bg": (30, 25, 45),    "border": (120, 100, 200)},
         }
         if _PIL_OK:
-            for key, meta in self._box_meta.items():
+            _src_files = {"dialogue": "dialogue_box.png", "choice": "choice_box.png"}
+            for key, meta in _BOX_META.items():
                 crop = meta["crop"]
                 box_w, box_h = crop[2] - crop[0], crop[3] - crop[1]
                 fnt = None
@@ -404,7 +477,7 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
                     meta["line_h"] = (bbox[3] - bbox[1]) + meta.get("line_spacing", 1)
                 else:
                     meta["line_h"] = meta["font_sz"] + 3
-                png_path = os.path.join(_asset_dir, f"{key}_box.png")
+                png_path = os.path.join(_asset_dir, _src_files[key])
                 final_base = None
                 if os.path.exists(png_path):
                     try:
@@ -424,67 +497,32 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
                     d.rectangle([0, 0, box_w-1, box_h-1], outline=style["border"], width=2)
                     d.rectangle([3, 3, box_w-4, box_h-4], outline=style["border"], width=1)
                 self._preview_base_images[key] = final_base
-                self._preview_images[key] = ImageTk.PhotoImage(final_base)
+                self._preview_images[key]      = ImageTk.PhotoImage(final_base)
                 meta["img_w"] = final_base.width
                 meta["img_h"] = final_base.height
 
-        # JP source
-        jp_hdr = tk.Frame(right, bg=self.colors["bg"])
-        jp_hdr.pack(fill="x", pady=(6, 0))
-        tk.Label(jp_hdr, text="Japanese Source", fg=self.colors["label_fg"],
-                 bg=self.colors["bg"], font=("Arial", 8, "bold")).pack(side="left")
-        self.deepl_btn = tk.Button(jp_hdr, text="Translate (DeepL)", command=self.translate_with_deepl,
-                                   bg=self.colors["btn_bg"], fg=self.colors["fg"],
-                                   font=("Arial", 8), relief="flat", padx=8)
-        self.deepl_btn.pack(side="right")
-        self.jp_txt = tk.Text(right, height=3, font=("Meiryo", 11),
+        # Japanese Source
+        tk.Label(left_f, text="Japanese Source", fg=self.colors["label_fg"],
+                 bg=self.colors["bg"], font=("Arial", 8, "bold")).pack(anchor="w", pady=(8, 0))
+        self.jp_txt = tk.Text(left_f, height=4, font=("Meiryo", 11),
                               bg=self.colors["jp_bg"], fg=self.colors["fg"],
                               insertbackground=self.colors["insert_color"],
                               state="disabled", bd=0, padx=6, pady=4, relief="flat")
-        self.jp_txt.pack(fill="x")
+        self.make_context_menu(self.jp_txt)
+        self.jp_txt.pack(fill="both", expand=True)
 
-        tk.Label(right, text="DeepL Suggestion (Click to paste)",
-                 fg=self.colors["label_fg"], bg=self.colors["bg"],
-                 font=("Arial", 8, "italic")).pack(anchor="w", pady=(4, 0))
-        self.deepl_box = tk.Text(right, height=2, font=("Consolas", 10),
-                                 bg=self.colors["sidebar_bg"], fg=self.colors["fg"],
-                                 bd=0, padx=6, pady=4, relief="flat", wrap="word",
-                                 cursor="hand2")
-        self.deepl_box.pack(fill="x", pady=(0, 5))
-        self.deepl_box.insert(tk.END, "Ready.")
-        self.deepl_box.config(state="disabled")
-        self.deepl_box.bind("<Button-1>", self.click_deepl_suggestion)
-
-        # Button bar
-        btns = tk.Frame(self, bg=self.colors["bg"], pady=8)
-        btns.pack(side="bottom", fill="x", padx=12)
-        tk.Button(btns, text="← Prev", command=self._prev_item,
-                  bg=self.colors["btn_bg"], fg=self.colors["fg"],
-                  width=8, relief="flat").pack(side="left", padx=4)
-        tk.Button(btns, text="Skip →", command=self._next_item,
-                  bg=self.colors["btn_bg"], fg=self.colors["fg"],
-                  width=8, relief="flat").pack(side="left", padx=4)
-        tk.Button(btns, text="✓  Save", command=self._save_item,
-                  bg=self.colors["apply_bg"], fg="white",
-                  width=14, relief="flat",
-                  font=("Arial", 10, "bold")).pack(side="left", padx=4)
-        tk.Button(btns, text="―― → ...", command=lambda: self._replace_dashes("..."),
-                  bg=self.colors["btn_bg"], fg=self.colors["fg"],
-                  width=10, relief="flat").pack(side="left", padx=4)
-        tk.Button(btns, text="―― → —", command=lambda: self._replace_dashes("—"),
-                  bg=self.colors["btn_bg"], fg=self.colors["fg"],
-                  width=10, relief="flat").pack(side="left", padx=4)
-        self.override_var = tk.BooleanVar(value=False)
-        tk.Checkbutton(btns, text="Force Save (Ignore Limits)", variable=self.override_var,
-                       bg=self.colors["bg"], fg=self.colors["label_fg"],
-                       selectcolor=self.colors["bg"],
-                       font=("Arial", 9, "bold")).pack(side="right", padx=10)
-
-        # Sync font spinboxes with stored values
-        box_key = self._preview_box_var.get()
-        meta = self._box_meta.get(box_key, {})
-        self._prev_font_sz_var.set(str(meta.get("font_sz", 12)))
-        self._prev_spacing_var.set(str(meta.get("line_spacing", 1)))
+        # Adjacent context (in left panel, same as ReviewEditor)
+        tk.Frame(left_f, bg=self.colors["label_fg"], height=1).pack(fill="x", pady=(4, 0))
+        tk.Label(left_f, text="Context", fg=self.colors["label_fg"],
+                 bg=self.colors["bg"], font=("Arial", 8, "bold")).pack(anchor="w")
+        self.adj_prev_txt = tk.Text(left_f, height=2, font=("Consolas", 9),
+                                    bg=self.colors["sidebar_bg"], fg=self.colors["fg"],
+                                    state="disabled", bd=0, padx=4, pady=2, relief="flat", wrap="word")
+        self.adj_prev_txt.pack(fill="x", pady=(0, 1))
+        self.adj_next_txt = tk.Text(left_f, height=2, font=("Consolas", 9),
+                                    bg=self.colors["sidebar_bg"], fg=self.colors["fg"],
+                                    state="disabled", bd=0, padx=4, pady=2, relief="flat", wrap="word")
+        self.adj_next_txt.pack(fill="x")
 
     # ── list management ───────────────────────────────────────────────────
     def _populate_list(self):
@@ -554,28 +592,105 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
         self.jp_txt.insert(tk.END, jp)
         self.jp_txt.config(state="disabled")
 
+        # Speaker / archetype bar
         if self.speaker_name:
             self.speaker_lbl.config(text=self.speaker_name, fg=self.colors["counter_fg"])
             self.archetype_combo.config(state="readonly")
+            self.speaker_note_entry.config(state="normal")
             saved_key = self.cm.config.get("speaker_archetypes", {}).get(self.speaker_name)
             if saved_key:
                 self.archetype_var.set(self.lore_engine.get_archetype_label(saved_key))
             else:
                 self.archetype_var.set("(none)")
+            saved_note = self.cm.config.get("speaker_notes", {}).get(self.speaker_name, "")
+            self.speaker_note_var.set(saved_note)
         else:
             self.speaker_lbl.config(text="—", fg=self.colors["label_fg"])
             self.archetype_combo.config(state="disabled")
+            self.speaker_note_entry.config(state="disabled")
             self.archetype_var.set("(none)")
+            self.speaker_note_var.set("")
+        self.update_archetype_hint()
 
+        # Entry type
+        et_keys = [""] + sorted(self.cm.config.get("entry_type_rules", {}).keys())
+        self.entry_type_combo.config(values=et_keys)
         self.entry_type_var.set(self.entry_type)
         et_rules = self.cm.config.get("entry_type_rules", {}).get(self.entry_type, {})
         self.effective_limit = et_rules.get("char_limit") or self.limit
         self._refresh_et_display()
+
+        # Lore references panel
+        self.lore_list.config(state="normal")
+        self.lore_list.delete(1.0, tk.END)
+        if jp:
+            matches = self.lore_engine.scan_text(jp)
+            tag_display = self.cm.config.get("tag_display", {})
+            for jp_term, en_term in matches:
+                self.lore_list.insert(tk.END, f"• {jp_term}:  ", f"lore_label_{hash(jp_term)}")
+                en_tag = f"lore_en_{hash(jp_term)}"
+                self.lore_list.insert(tk.END, en_term, en_tag)
+                self.lore_list.tag_config(en_tag, foreground="#6fb3ff", underline=True)
+                self.lore_list.tag_bind(en_tag, "<Button-1>",
+                                        lambda e, w=en_term: self.quick_insert(w))
+                self.lore_list.insert(tk.END, "\n")
+                jtag = f"lore_{hash(jp_term)}"
+                self.jp_txt.config(state="normal")
+                self.jp_txt.tag_config(jtag, foreground="#6fb3ff", underline=True)
+                self.jp_txt.tag_bind(jtag, "<Button-1>", lambda e, w=en_term: self.quick_insert(w))
+                self._apply_tag_to_text(jp_term, jtag)
+                self.jp_txt.config(state="disabled")
+            if tag_display:
+                shown = set()
+                for tag_key, display_text in tag_display.items():
+                    if f"<{tag_key}>" in jp and tag_key not in shown:
+                        shown.add(tag_key)
+                        self.lore_list.insert(tk.END, f"  <{tag_key}>  =  \"{display_text}\"\n", "tag_disp")
+                self.lore_list.tag_config("tag_disp", foreground="#aaaaaa",
+                                          font=("Arial", 9, "italic"))
+        self.lore_list.config(state="disabled")
+
+        # JP hover tooltip — shows EN translation on lore-highlighted terms
+        self._jp_tip_map = {}
+        if jp:
+            for jp_term, en_term in self.lore_engine.scan_text(jp):
+                pos = "1.0"
+                self.jp_txt.config(state="normal")
+                while True:
+                    pos = self.jp_txt.search(jp_term, pos, stopindex=tk.END)
+                    if not pos:
+                        break
+                    end_pos = f"{pos}+{len(jp_term)}c"
+                    self._jp_tip_map[(pos, end_pos)] = en_term
+                    pos = end_pos
+                self.jp_txt.config(state="disabled")
+
+        def _jp_motion(event):
+            idx = self.jp_txt.index(f"@{event.x},{event.y}")
+            for (s, e_), en_text in self._jp_tip_map.items():
+                if self.jp_txt.compare(s, "<=", idx) and self.jp_txt.compare(idx, "<", e_):
+                    self._tip_label.config(text=f"→  {en_text}")
+                    self._tip_label.place(
+                        x=event.x_root - self.winfo_rootx() + 20,
+                        y=event.y_root - self.winfo_rooty() + 10)
+                    self._tip_label.lift()
+                    self._tip_visible = True
+                    return
+            if self._tip_visible:
+                self._tip_label.place_forget()
+                self._tip_visible = False
+
+        def _jp_leave(event):
+            if self._tip_visible:
+                self._tip_label.place_forget()
+                self._tip_visible = False
+
+        self.jp_txt.bind("<Motion>", _jp_motion)
+        self.jp_txt.bind("<Leave>",  _jp_leave)
+
         self._update_adjacent()
         self._update_counters()
         self._update_preview()
-        
-        # Auto-translation on load
         self.translate_with_deepl()
 
     def _clear_editor(self):
@@ -629,8 +744,50 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
         self._refresh_et_display()
         self._update_counters()
 
+    # ── context menu ─────────────────────────────────────────────────────
+    def make_context_menu(self, widget):
+        menu = tk.Menu(widget, tearoff=0)
+        menu.add_command(label="Cut",   command=lambda: widget.event_generate("<<Cut>>"))
+        menu.add_command(label="Copy",  command=lambda: widget.event_generate("<<Copy>>"))
+        menu.add_command(label="Paste", command=lambda: widget.event_generate("<<Paste>>"))
+        menu.add_separator()
+        def select_all():
+            if isinstance(widget, tk.Text):
+                widget.tag_add("sel", "1.0", "end")
+            else:
+                widget.select_range(0, tk.END)
+            return "break"
+        menu.add_command(label="Select All", command=select_all)
+        widget.bind("<Button-3>", lambda e: menu.tk_popup(e.x_root, e.y_root))
+
     # ── archetype ─────────────────────────────────────────────────────────
-    def _save_archetype(self):
+    def on_archetype_selected(self, e=None):
+        self.update_archetype_hint()
+
+    def update_archetype_hint(self):
+        self.archetype_hint.config(state="normal")
+        self.archetype_hint.delete(1.0, tk.END)
+        label = self.archetype_var.get()
+        if label == "(none)" or not self.speaker_name:
+            self.archetype_hint.insert(tk.END, "No archetype assigned.")
+        else:
+            vals = list(self.archetype_combo["values"])
+            idx  = vals.index(label) if label in vals else -1
+            key  = self.archetype_keys[idx] if idx >= 0 else None
+            if key and key in self.lore_engine.archetypes:
+                a = self.lore_engine.archetypes[key]
+                self.archetype_hint.insert(tk.END, f"[{key}] {a['name']}\n", "header")
+                self.archetype_hint.insert(tk.END, a.get("notes", "—"))
+                self.archetype_hint.tag_config("header", font=("Arial", 9, "bold"),
+                                               foreground=self.colors["counter_fg"])
+        note_text = self.cm.config.get("speaker_notes", {}).get(self.speaker_name, "") if self.speaker_name else ""
+        if note_text:
+            self.archetype_hint.insert(tk.END, f"\n\n📝 {note_text}", "note_tag")
+            self.archetype_hint.tag_config("note_tag", foreground=self.colors["fg"],
+                                           font=("Arial", 9, "italic"))
+        self.archetype_hint.config(state="disabled")
+
+    def save_archetype(self):
         if not self.speaker_name:
             return
         label = self.archetype_var.get()
@@ -643,11 +800,106 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
             key  = self.archetype_keys[idx] if idx >= 0 else None
             if key:
                 archs[self.speaker_name] = key
+        note_text = self.speaker_note_var.get().strip()
+        if note_text:
+            self.cm.config.setdefault("speaker_notes", {})[self.speaker_name] = note_text
+        else:
+            self.cm.config.setdefault("speaker_notes", {}).pop(self.speaker_name, None)
         self.cm.save_all()
+        self.update_archetype_hint()
+
+    # ── entry type ────────────────────────────────────────────────────────
+    def save_entry_type(self):
+        """Write current entry_type back to col 9 in the CSV."""
+        new_type = self.entry_type_var.get().strip()
+        self.entry_type = new_type
+        self._refresh_et_display()
+        r_idx = self._current_row_idx
+        if r_idx < 0:
+            return
+        try:
+            row = self.all_rows[r_idx]
+            while len(row) <= 9:
+                row.append("")
+            row[9] = new_type
+            with open(self.csv_path, "w", encoding="utf-8-sig", newline="") as fh:
+                import csv as _csv
+                _csv.writer(fh, self.dialect).writerows(self.all_rows)
+        except Exception as e:
+            from tkinter import messagebox
+            messagebox.showerror("Save Error", str(e), parent=self)
+
+    # ── preview font controls ─────────────────────────────────────────────
+    def _sync_preview_font_controls(self):
+        if not hasattr(self, "_prev_font_sz_var"):
+            return
+        box_key = self._preview_box_var.get()
+        meta = self._box_meta.get(box_key, {})
+        self._prev_font_sz_var.set(str(meta.get("font_sz", 12)))
+        self._prev_spacing_var.set(str(meta.get("line_spacing", 1)))
+
+    def _on_preview_font_changed(self, *args):
+        box_key = self._preview_box_var.get()
+        meta = self._box_meta.get(box_key)
+        if meta is None:
+            return
+        try:
+            new_sz = max(6,  min(48, int(self._prev_font_sz_var.get())))
+            new_sp = max(0, min(30, int(self._prev_spacing_var.get())))
+        except (ValueError, tk.TclError):
+            return
+        meta["font_sz"]      = new_sz
+        meta["line_spacing"] = new_sp
+        self._rebuild_preview_font(box_key)
+        pf = self.cm.config.setdefault("preview_font", {})
+        pf.setdefault(box_key, {})["font_sz"]      = new_sz
+        pf.setdefault(box_key, {})["line_spacing"]  = new_sp
+        self.cm.save_all()
+        self._update_preview()
+
+    def _rebuild_preview_font(self, box_key):
+        if not _PIL_OK:
+            return
+        meta = self._box_meta.get(box_key)
+        if meta is None:
+            return
+        _asset_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
+        _font_path = next((p for p in [
+            os.path.join(_asset_dir, "DDONfont.otf"),
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "DDONfont.otf"),
+        ] if os.path.exists(p)), None)
+        fnt = None
+        if _font_path:
+            try:
+                fnt = ImageFont.truetype(_font_path, meta["font_sz"])
+            except Exception:
+                pass
+        if fnt:
+            self._preview_font_objs[box_key] = fnt
+            bbox = fnt.getbbox("あ")
+            meta["line_h"] = (bbox[3] - bbox[1]) + meta.get("line_spacing", 1)
+        else:
+            meta["line_h"] = meta["font_sz"] + 3
+
+    # ── lore helpers ──────────────────────────────────────────────────────
+    def quick_insert(self, text):
+        self.txt.insert(tk.INSERT, text)
+        self._update_counters()
+        self._update_preview()
+
+    def _apply_tag_to_text(self, search_term, tag_name):
+        start = "1.0"
+        while True:
+            start = self.jp_txt.search(search_term, start, stopindex=tk.END)
+            if not start:
+                break
+            end = f"{start}+{len(search_term)}c"
+            self.jp_txt.tag_add(tag_name, start, end)
+            start = end
 
     # ── counters / preview ────────────────────────────────────────────────
     def _sync_txt_scroll(self, *args):
-        self._txt_yscroll_wid.set(*args)
+        self._txt_yscroll.set(*args)
         first, _ = self.txt.yview()
         self.cnt_lbl.yview_moveto(first)
 
