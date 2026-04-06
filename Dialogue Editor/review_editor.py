@@ -19,9 +19,10 @@ from translator_engine import TranslationEngine
 from lore_engine import LoreEngine
 from api_handler import DeepLClient, OpenRouterClient
 from file_utils import _read_csv
+from editor_mixin import SharedEditorMixin
 
 
-class ReviewEditor(tk.Toplevel):
+class ReviewEditor(SharedEditorMixin, tk.Toplevel):
     def __init__(self, parent, tag_queue, wall_queue, dash_queue, anach_queue, limit, wall_limit, tag_map, callback):
         super().__init__(parent.root) 
         self.parent = parent 
@@ -82,114 +83,10 @@ class ReviewEditor(tk.Toplevel):
         self.parent.flush_csv_writes()
         self.destroy()
 
-    def _build_suggestion_text(self, word):
-        """Return tooltip text: archaic alternatives + cached definition.
-        Checks 'modern→archaic' context override first, then falls back to archaic definition."""
-        from lore_engine import IN_UNIVERSE_VOCAB
-        word_lower = word.lower()
-        options = []
-        if word_lower in IN_UNIVERSE_VOCAB:
-            val = IN_UNIVERSE_VOCAB[word_lower]
-            if val:
-                options.append(val)
-        if not options:
-            return f"⚠ \"{word}\" — no direct replacement (flag only)"
-        opts_str = "  /  ".join(options)
-        tip = f"⚠ \"{word}\"  →  {opts_str}   (Tab to insert)"
-        # Check context-specific override first (e.g. "are→art"), then generic archaic definition
-        for archaic in options:
-            override_key = f"{word_lower}→{archaic.lower()}"
-            defn = self.lore_engine.get_definition(override_key)
-            if not defn:
-                defn = self.lore_engine.get_definition(archaic.lower())
-            if defn:
-                tip += f"\n{defn}"
-                break
-        return tip
-
-    def _bind_tooltip(self):
-        """Bind tooltip to the txt widget. Safe to call multiple times (e.g. after dark mode toggle)."""
-        # (Re)create the tooltip label — destroy old one if present
-        if hasattr(self, '_tip_label') and self._tip_label.winfo_exists():
-            self._tip_label.destroy()
-        self._tip_label = tk.Label(
-            self, text="", bg="#ffffe0", fg="black",
-            relief="solid", borderwidth=1, font=("Arial", 9),
-            wraplength=400, justify="left"
-        )
-        self._tip_visible = False
-        self._hovered_range = None
-
-        def on_motion(event):
-            idx = self.txt.index(f"@{event.x},{event.y}")
-            for entry in self.anach_ranges:
-                start, end, word, _ = entry
-                if self.txt.compare(start, "<=", idx) and self.txt.compare(idx, "<", end):
-                    tip = self._build_suggestion_text(word)
-                    self._tip_label.config(text=tip)
-                    rx = event.x_root - self.winfo_rootx() + 20
-                    ry = event.y_root - self.winfo_rooty() + 10
-                    self._tip_label.place(x=rx, y=ry)
-                    self._tip_label.lift()
-                    self._tip_visible = True
-                    self._hovered_range = entry
-                    return
-            if self._tip_visible:
-                self._tip_label.place_forget()
-                self._tip_visible = False
-            self._hovered_range = None
-
-        def on_leave(event):
-            if self._tip_visible:
-                self._tip_label.place_forget()
-                self._tip_visible = False
-            self._hovered_range = None
-
-        self.txt.bind("<Motion>", on_motion)
-        self.txt.bind("<Leave>",  on_leave)
-
-    def _tab_insert_suggestion(self, event):
-        """On Tab: replace the hovered word (if tooltip is showing) or the word
-        under the text cursor. Hover takes priority so mouse workflow feels natural."""
-        # Prefer the hovered word — so hovering + Tab works without moving the cursor
-        if self._hovered_range:
-            start, end, word, suggestions = self._hovered_range
-        else:
-            # Fall back to cursor position
-            idx = self.txt.index(tk.INSERT)
-            match = next(
-                ((s, e, w, sg) for s, e, w, sg in self.anach_ranges
-                 if self.txt.compare(s, "<=", idx) and self.txt.compare(idx, "<=", e)),
-                None
-            )
-            if not match:
-                return None   # not on a highlight — allow normal Tab
-            start, end, word, suggestions = match
-
-        if not suggestions:
-            return "break"
-
-        replacement = suggestions[0][0]
-        matched = self.txt.get(start, end)
-        first_alpha_orig = next((c for c in matched if c.isalpha()), None)
-        first_alpha_idx  = next((i for i, c in enumerate(replacement) if c.isalpha()), None)
-        if first_alpha_orig and first_alpha_orig.isupper() and first_alpha_idx is not None:
-            replacement = (replacement[:first_alpha_idx]
-                           + replacement[first_alpha_idx].upper()
-                           + replacement[first_alpha_idx+1:])
-        self.txt.delete(start, end)
-        self.txt.insert(start, replacement)
-        # Explicitly clear the tag on the replaced span — the indices shift after insert,
-        # so recalculate end based on replacement length before update_counters re-scans
-        new_end = f"{start}+{len(replacement)}c"
-        self.txt.tag_remove("anachronism", start, new_end)
-        # Hide tooltip
-        if self._tip_visible:
-            self._tip_label.place_forget()
-            self._tip_visible = False
-        self._hovered_range = None
-        self._update_counters()
-        return "break"
+    @property
+    def cm(self):
+        """Uniform access to ConfigManager — matches CSVTranslationWindow.cm."""
+        return self.parent.cm
 
     def apply_theme_colors(self):
         if self.dark_mode:
@@ -690,77 +587,6 @@ class ReviewEditor(tk.Toplevel):
         tk.Checkbutton(btns, text="Force Save (Ignore Limits)", variable=self.override_var,
                        bg=self.colors["bg"], fg=self.colors["label_fg"], selectcolor=self.colors["bg"],
                        activebackground=self.colors["bg"], font=("Arial", 9, "bold")).pack(side="right", padx=10)
-    
-    def _update_preview(self, e=None):
-        # --- fnt MUST be defined before you use it ---
-        box_key = self._preview_box_var.get()
-        meta    = self._box_meta.get(box_key)
-        base_img = self._preview_base_images.get(box_key)
-
-        fnt = self._preview_font_objs.get(box_key)
-        if fnt is None:
-            print("NO FONT FOR BOX:", box_key)
-            return
-
-        vis_text = self.txt.get(1.0, tk.END).strip("\n")
-        vis_text = re.sub(r'<[^>]+>', '', vis_text)
-        lines = vis_text.splitlines()
-
-        img_w = meta.get("img_w", self._prev_W)
-        img_h = meta.get("img_h", self._prev_H)
-        c = self.preview_canvas
-        c.config(width=img_w, height=img_h)
-
-        if not base_img or not _PIL_OK:
-            c.delete("all")
-            fill = "#2b2d2f" if box_key == "choice" else "#f2efdd"
-            c.create_rectangle(0, 0, img_w, img_h, fill=fill, outline="")
-            return
-
-        render_img = base_img.copy()
-        draw = ImageDraw.Draw(render_img)
-
-        pad      = meta["pad"]
-        text_col = meta["fg"]
-        tx, ty   = pad, pad
-        tw, th   = img_w - 2 * pad, img_h - 2 * pad
-
-        COMPRESS = 0.90
-
-        # --- wrap using compressed width ---
-        wrapped = []
-        for line in lines:
-            buf = ""
-            for word in line.split():
-                test = buf + (" " if buf else "") + word
-                if fnt.getlength(test) * COMPRESS > tw:
-                    wrapped.append(buf)
-                    buf = word
-                else:
-                    buf = test
-            if buf:
-                wrapped.append(buf)
-
-        visible_lines = wrapped[:6]
-
-        line_h = meta["line_h"]
-        LEFT_PAD = 15
-
-        # --- render lines directly ---
-        for i, line in enumerate(visible_lines):
-            y = ty + i * line_h
-            draw.text((tx + LEFT_PAD, y), line, font=fnt, fill=text_col)
-
-        if len(wrapped) > 6:
-            draw.text(
-                (tx + LEFT_PAD, ty + 6 * line_h - 12),
-                f"▼ +{len(wrapped) - 6} lines clipped",
-                fill="#ff4444"
-            )
-
-        self._current_preview_tk = ImageTk.PhotoImage(render_img)
-        c.delete("all")
-        c.create_image(0, 0, anchor="nw", image=self._current_preview_tk)
 
 
     def load_item(self):
@@ -1384,18 +1210,6 @@ class ReviewEditor(tk.Toplevel):
             else:
                 self.side_pane.add(self.pane_ai)
 
-    def click_deepl_suggestion(self, event=None):
-        """Paste the DeepL suggestion into the main editor."""
-        suggestion = self.deepl_box.get(1.0, tk.END).strip()
-        if suggestion and suggestion != "Translating..." and not suggestion.startswith("ERROR"):
-            current = self.txt.get(1.0, tk.END).strip()
-            if current and not messagebox.askyesno("Overwrite", "Overwrite current English text with DeepL suggestion?", parent=self):
-                return
-            self.txt.delete(1.0, tk.END)
-            self.txt.insert(tk.END, suggestion)
-            self._update_counters()
-            self._update_preview()
-
     def change_category(self, e): 
         self.current_category = self.cat_combo.get()
         self.current_texts = list(self.queues[self.current_category].keys())
@@ -1404,145 +1218,8 @@ class ReviewEditor(tk.Toplevel):
 
     # --- API INTEGRATIONS ---
 
-    def translate_with_deepl(self):
-        source_text = self.jp_txt.get(1.0, tk.END).strip()
-        if not source_text or self._is_translating: return
-
-        # Check Cache first
-        cached = self.parent.cm.get_cached("deepl", source_text)
-        if cached:
-            self.deepl_box.config(state="normal")
-            self.deepl_box.delete(1.0, tk.END)
-            self.deepl_box.insert(tk.END, cached)
-            self.deepl_box.config(state="disabled")
-            return
-
-        key = self.parent.cm.get_key("deepl_api_key")
-        if not key: return # Silently skip if no key, user can set it in options
-
-        self._is_translating = True
-        self.deepl_box.config(state="normal")
-        self.deepl_box.delete(1.0, tk.END)
-        self.deepl_box.insert(tk.END, "Translating...")
-        self.deepl_box.config(state="disabled")
-        
-        def worker():
-            client = DeepLClient(key)
-            target_lang = self.parent.cm.config.get("deepl_target_lang", "EN-US")
-            res = client.translate(source_text, target_lang=target_lang)
-            
-            def finalize():
-                self.deepl_box.config(state="normal")
-                self.deepl_box.delete(1.0, tk.END)
-                if "text" in res:
-                    self.deepl_box.insert(tk.END, res["text"])
-                    self.parent.cm.set_cached("deepl", source_text, res["text"])
-                else:
-                    self.deepl_box.insert(tk.END, f"ERROR: {res.get('error')}")
-                self.deepl_box.config(state="disabled")
-                self._is_translating = False
-
-            self.after(0, finalize)
-
-        threading.Thread(target=worker, daemon=True).start()
-
-    def _save_selected_model(self, e=None):
-        model = self.chat_model_var.get()
-        self.parent.cm.config["selected_openrouter_model"] = model
-        self.parent.cm.save_all()
-
-    def clear_chat(self):
-        self.chat_history.config(state="normal")
-        self.chat_history.delete(1.0, tk.END)
-        self.chat_history.config(state="disabled")
-
-    def add_chat_context(self):
-        jp = self.jp_txt.get(1.0, tk.END).strip()
-        en = self.txt.get(1.0, tk.END).strip()
-        context = f"\n[Context]\nJP: {jp}\nEN: {en}\n"
-        self.chat_input.insert(tk.END, context)
-        self.chat_input.see(tk.END)
-
-    def _chat_on_return(self, e):
-        if not e.state & 0x1: # No Shift held
-            self.send_ai_chat()
-            return "break"
-
     def _is_chatting_setter(self, value):
         self._is_chatting = value
         btn_state = "disabled" if value else "normal"
         self.btn_chat_send.config(state=btn_state)
-
-    def refresh_model_list(self):
-        """Reload the model list from config (updated in Options)."""
-        models = self.parent.cm.config.get("openrouter_models", ["openrouter/auto"])
-        self.chat_model_combo.config(values=models)
-        # Verify current selection still exists
-        current = self.chat_model_var.get()
-        if current not in models:
-            self.chat_model_var.set("openrouter/auto")
-        messagebox.showinfo("AI Assistant", "Model list reloaded from configuration.")
-
-    def send_ai_chat(self):
-        if self._is_chatting: return
-        key = self.parent.cm.get_key("openrouter_api_key")
-        if not key:
-            messagebox.showwarning("OpenRouter", "No OpenRouter API key found in Options.")
-            return
-
-        user_msg = self.chat_input.get(1.0, tk.END).strip()
-        if not user_msg: return
-
-        model = self.chat_model_var.get()
-        
-        # Check Cache (keyed by model + prompt)
-        cache_key = f"{model}::{user_msg}"
-        cached = self.parent.cm.get_cached("openrouter", cache_key)
-        if cached:
-            self.chat_history.config(state="normal")
-            self.chat_history.insert(tk.END, f"\nYOU: {user_msg}\n", "user") # Still show user msg
-            self.chat_history.tag_config("user", foreground=self.colors["counter_fg"], font=("Arial", 9, "bold"))
-            self.chat_history.insert(tk.END, f"\nAI: {cached}\n", "ai")
-            self.chat_history.tag_config("ai", foreground=self.colors["fg"])
-            self.chat_history.see(tk.END)
-            self.chat_history.config(state="disabled")
-            self.chat_input.delete(1.0, tk.END)
-            return
-
-        # UI Update (Not in cache)
-        self._is_chatting = True
-        self.btn_chat_send.config(state="disabled", text="...")
-        self.chat_history.config(state="normal")
-        self.chat_history.insert(tk.END, f"\nYOU: {user_msg}\n", "user")
-        self.chat_history.tag_config("user", foreground=self.colors["counter_fg"], font=("Arial", 9, "bold"))
-        self.chat_history.see(tk.END)
-        self.chat_history.config(state="disabled")
-        self.chat_input.delete(1.0, tk.END)
-        def worker():
-            client = OpenRouterClient(key)
-            # Simple system prompt for DDON localization
-            messages = [
-                {"role": "system", "content": "You are a DDON localization assistant. Help the user translate or refine dialogue while respecting the game's medieval fantasy tone and character archetypes."},
-                {"role": "user", "content": user_msg}
-            ]
-            res = client.chat(messages, model=model)
-            
-            def finalize():
-                self.chat_history.config(state="normal")
-                if "text" in res:
-                    self.chat_history.insert(tk.END, f"\nAI: {res['text']}\n", "ai")
-                    self.chat_history.tag_config("ai", foreground=self.colors["fg"])
-                    self.parent.cm.set_cached("openrouter", cache_key, res["text"])
-                else:
-                    self.chat_history.insert(tk.END, f"\nERROR: {res.get('error')}\n", "error")
-                    self.chat_history.tag_config("error", foreground="#ff4444")
-                
-                self.chat_history.see(tk.END)
-                self.chat_history.config(state="disabled")
-                self._is_chatting = False
-                self.btn_chat_send.config(state="normal", text="Send")
-
-            self.after(0, finalize)
-
-        threading.Thread(target=worker, daemon=True).start()
 

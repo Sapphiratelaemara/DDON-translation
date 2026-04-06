@@ -24,7 +24,7 @@ class LoreEngine:
             "癒活": "Restoration",
             "守護": "Protection",
             "柔化": "Weaken",
-            "集視": "Attention",
+            "集視": "Attraction",
             "無恐": "Fearless",
             "集中": "Concentration",
             "蘇生": "Resurrection"

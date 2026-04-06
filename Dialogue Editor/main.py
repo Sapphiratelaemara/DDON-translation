@@ -20,7 +20,6 @@ except ImportError:
 try:
     from config_manager import ConfigManager
     from translator_engine import TranslationEngine
-    from lore_engine import LoreEngine
     from options_module import OptionsMenu
     from api_handler import DeepLClient, OpenRouterClient
     from file_utils import _get_csv_files, _read_csv
@@ -171,266 +170,62 @@ class CSVProcessorApp:
         self.progress = ttk.Progressbar(bottom, length=700)
         self.progress.pack(fill="x")
 
-    def run_batch(self):
-        selected_preset = self.preset_var.get()
-        limit = self.cm.config.get("presets", {}).get(selected_preset, 50)
+    def start_thread(self):
+        from batch_runner import BatchSettings, run_batch
+
+        selected_preset      = self.preset_var.get()
         selected_wall_preset = self.wall_preset_var.get()
-        wall_limit = self.cm.config.get("wall_presets", {}).get(selected_wall_preset, 7)
-        self.cm.config["wall_preset"] = selected_wall_preset
-        self.cm.config["in_universe"] = self.in_universe_var.get()
-        triggers = self.cm.config.get("triggers", [])
-        do_in_universe = self.in_universe_var.get()
+        limit      = self.cm.config.get("presets",      {}).get(selected_preset,      50)
+        wall_limit = self.cm.config.get("wall_presets", {}).get(selected_wall_preset,  7)
+
+        # Persist UI state to config before the thread starts
+        self.cm.config["wall_preset"]   = selected_wall_preset
+        self.cm.config["in_universe"]   = self.in_universe_var.get()
         self.cm.save_all()
 
-        # Build replacement table once (only if needed)
-        lore_engine = LoreEngine(self.cm.config.get("archetypes"))
-        lore_engine.load_data(
-            self.cm.config.get("bible_path", ""),
-            self.cm.config.get("glossary_path", "")
+        settings = BatchSettings(
+            limit            = limit,
+            wall_limit       = wall_limit,
+            triggers         = self.cm.config.get("triggers",         []),
+            do_in_universe   = self.in_universe_var.get(),
+            folders          = self.cm.config.get("folders",          []),
+            tag_map          = self.cm.config.get("tag_map",          {}),
+            entry_type_rules = self.cm.config.get("entry_type_rules", {}),
+            replace_rules    = self.cm.config.get("replace_rules",    []),
+            preview_mode     = self.prev_var.get(),
         )
-        in_universe_replacements = lore_engine.get_in_universe_replacements() if do_in_universe else {}
 
-        self.tag_q.clear()
-        self.wall_q.clear()
-        self.dash_q.clear()
+        # Clear queues and log before starting
+        self.tag_q.clear(); self.wall_q.clear()
+        self.dash_q.clear(); self.anach_q.clear()
+        self.log_box.delete(1.0, tk.END)
+        self.btn_run.config(state="disabled")
 
-        # Dash pattern: two or more hyphens, OR two or more em-dashes
-        _DASH_RE = re.compile(r'[-–—―]{2,}')
+        queues = {
+            "tag":   self.tag_q,
+            "wall":  self.wall_q,
+            "dash":  self.dash_q,
+            "anach": self.anach_q,
+        }
 
-        all_files = []
-        for folder in self.cm.config.get("folders", []):
-            if os.path.exists(folder):
-                all_files.extend([os.path.join(r, n) for r, d, fs in os.walk(folder) for n in fs if n.endswith('.csv')])
-
-        if not all_files:
-            self.root.after(0, self.finish_batch, limit, wall_limit)
-            return
-
-        def log(msg):
+        # UI-thread callbacks — route through root.after so they're thread-safe
+        def log_fn(msg):
             self.root.after(0, lambda m=msg: (
                 self.log_box.insert(tk.END, m + "\n"),
-                self.log_box.see(tk.END)
+                self.log_box.see(tk.END),
             ))
 
-        auto_fixed = 0
-        reviewed   = 0
-
-        # --- Hoist these outside the row loop for performance ---
-        from collections import Counter
-        known_tags = set(self.cm.config.get("tag_map", {}).keys())
-        entry_type_rules = self.cm.config.get("entry_type_rules", {})
-
-        # Pre-compile find & replace rules — skip disabled ones
-        _compiled_rules = []
-        for rule in self.cm.config.get("replace_rules", []):
-            if not rule.get("enabled", True):
-                continue
-            find = rule.get("find", "")
-            if not find:
-                continue
-            flags = 0 if rule.get("match_case") else re.IGNORECASE
-            if rule.get("whole_word"):
-                pattern = r'\b' + re.escape(find) + r'\b'
-            else:
-                pattern = re.escape(find)
-            _compiled_rules.append({
-                "pattern":             re.compile(pattern, flags),
-                "replace":             rule.get("replace", ""),
-                "include_speakers":    set(rule.get("include_speakers", [])),
-                "exclude_speakers":    set(rule.get("exclude_speakers", [])),
-                "include_entry_types": set(rule.get("include_entry_types", [])),
-                "exclude_entry_types": set(rule.get("exclude_entry_types", [])),
-            })
-
-        def apply_replace_rules(text, speaker, entry_type):
-            for rule in _compiled_rules:
-                if rule["include_speakers"]    and speaker    not in rule["include_speakers"]:    continue
-                if rule["exclude_speakers"]    and speaker    in  rule["exclude_speakers"]:       continue
-                if rule["include_entry_types"] and entry_type not in rule["include_entry_types"]: continue
-                if rule["exclude_entry_types"] and entry_type in  rule["exclude_entry_types"]:   continue
-                text = rule["pattern"].sub(rule["replace"], text)
-            return text
-
-        _COL_NAME_RE = re.compile(r'(?i)<(?:COL(?: [A-F0-9]+)?|/COL)>|\[NAME\]')
-        _TAG_RE      = re.compile(r'<([^>]+)>')
-
-        def strip_known_tags(text):
-            t = _COL_NAME_RE.sub('', text)
-            def _strip(m):
-                return '' if m.group(1).strip() in known_tags else m.group(0)
-            return _TAG_RE.sub(_strip, t)
-
-        def non_col_tags(text):
-            return [t for t in _TAG_RE.findall(text)
-                    if not t.upper().startswith('COL') and t.upper() != '/COL'
-                    and t.strip() not in known_tags]
-
-        for i, f_path in enumerate(all_files):
-            pct = ((i + 1) / len(all_files)) * 100
+        def progress_fn(pct):
             self.root.after(0, lambda v=pct: self.progress.configure(value=v))
-            file_modded = False
-            output_rows = []
 
-            try:
-                raw, dialect, current_file_data = _read_csv(f_path)
+        def done_fn(lim, wlim):
+            self.root.after(0, self.finish_batch, lim, wlim)
 
-                for r_idx, row in enumerate(current_file_data):
-                    # 1. Structural preservation
-                    if len(row) <= 3:
-                        output_rows.append(row)
-                        continue
-
-                    # 2. Trigger check
-                    if triggers and not any(tr in "|".join(row) for tr in triggers):
-                        output_rows.append(row)
-                        continue
-
-                    orig_text = row[3]
-                    proposed_text = orig_text
-                    needs_review = False
-                    queue_type = None
-                    wall_wrapped_text = ""
-
-                    # Read entry type from col 9 (zero-indexed) and look up rules
-                    entry_type = row[9].strip() if len(row) > 9 else ""
-                    speaker    = row[8].strip() if len(row) > 8 else ""
-                    et_rules = entry_type_rules.get(entry_type, {})
-                    no_linebreak = et_rules.get("no_linebreak", False)
-                    # Per-type char limit overrides the global preset when set
-                    effective_limit = et_rules.get("char_limit") or limit
-
-                    # 2b. Dash scan — skip if this text is already queued for mandatory review
-                    if _DASH_RE.search(orig_text) and orig_text not in self.tag_q and orig_text not in self.wall_q:
-                        self.dash_q[orig_text].append({'path': f_path, 'row_idx': r_idx, 'entry_type': entry_type})
-
-                    # 2c. Anachronism scan — likewise skip if already in mandatory queues
-                    anach_hits = lore_engine.scan_anachronisms(orig_text)
-                    if anach_hits and orig_text not in self.tag_q and orig_text not in self.wall_q:
-                        self.anach_q[orig_text].append({'path': f_path, 'row_idx': r_idx, 'hits': anach_hits, 'entry_type': entry_type})
-
-                    # 3. Memory Branch
-                    if orig_text in self.cm.memory:
-                        learned = self.cm.memory[orig_text]
-                        lines = learned.split('\n')
-                        max_w = max((self.engine.get_simulated_len(l) for l in lines), default=0)
-                        if max_w > effective_limit:
-                            needs_review = True
-                            queue_type = 'tag'
-                            tag_reason = 'memory_overflow'
-                            unknown_tags_found = []
-                        else:
-                            proposed_text = learned
-
-                    # 4. Auto-Processing Branch
-                    else:
-                        jp_source = row[2] if len(row) > 2 else ""
-
-                        # Strip COL, [NAME], and any registered tag_map tag before complexity check
-                        clean_txt = strip_known_tags(orig_text)
-                        is_complex = '<' in clean_txt
-
-                        # --- Auto Tag Fix ---
-                        if jp_source and is_complex:
-                            jp_tags = non_col_tags(jp_source)
-                            en_tags = non_col_tags(orig_text)
-                            if Counter(jp_tags) != Counter(en_tags):
-                                stripped = re.sub(r'<(?![Cc][Oo][Ll])[^>]+>', '', orig_text).strip()
-                                if jp_tags:
-                                    total_len = max(len(stripped), 1)
-                                    repaired = stripped
-                                    offset = 0
-                                    for k, tag in enumerate(jp_tags):
-                                        insert_pos = int((k + 1) / (len(jp_tags) + 1) * total_len) + offset
-                                        insert_pos = min(insert_pos, len(repaired))
-                                        repaired = repaired[:insert_pos] + f"<{tag}>" + repaired[insert_pos:]
-                                        offset += len(f"<{tag}>")
-                                    proposed_text = repaired
-                                    orig_text = repaired
-                                    is_complex = bool(non_col_tags(repaired))
-
-                        # --- In-Universe replacements —
-                        text_for_wrap = orig_text
-                        if do_in_universe:
-                            text_for_wrap = self.engine.apply_in_universe(orig_text, in_universe_replacements)
-
-                        # --- Scoped find & replace rules ---
-                        if _compiled_rules:
-                            text_for_wrap = apply_replace_rules(text_for_wrap, speaker, entry_type)
-
-                        # --- Auto-Processing Branch variables ---
-                        tag_reason = ''
-                        unknown_tags_found = []
-
-                        # Respect no_linebreak — don't wrap if entry type forbids it
-                        if no_linebreak:
-                            wrapped = text_for_wrap
-                        else:
-                            wrapped = self.engine.master_tag_wrap(text_for_wrap, effective_limit)
-                        wrap_lines = wrapped.split('\n')
-                        wrap_max_w = max((self.engine.get_simulated_len(l) for l in wrap_lines), default=0)
-
-                        if wrap_max_w > effective_limit:
-                            needs_review = True
-                            queue_type = 'tag'
-                            # If there are unmapped tags, they're likely why wrapping failed
-                            unknown_tags_found = non_col_tags(wrapped)
-                            tag_reason = 'overflow_after_wrap' if not unknown_tags_found else 'unmapped_tags_overflow'
-                        elif not no_linebreak and len(wrap_lines) >= wall_limit:
-                            needs_review = True
-                            queue_type = 'linelimit'
-                            wall_wrapped_text = wrapped
-                        elif wrapped != row[3]:
-                            proposed_text = wrapped
-
-                    # 5. Application
-                    if needs_review:
-                        if queue_type == 'tag':
-                            self.tag_q[orig_text].append({
-                                'path': f_path, 'row_idx': r_idx, 'entry_type': entry_type,
-                                'tag_reason': tag_reason,
-                                'unknown_tags': unknown_tags_found,
-                            })
-                        elif queue_type == 'linelimit':
-                            self.wall_q[orig_text].append({'path': f_path, 'row_idx': r_idx, 'wrapped': wall_wrapped_text, 'entry_type': entry_type})
-                    else:
-                        if row[3] != proposed_text:
-                            row[3] = proposed_text
-                            file_modded = True
-
-                    output_rows.append(row)
-
-                # 6. Safety Write
-                if file_modded and not self.prev_var.get() and len(output_rows) == len(current_file_data):
-                    with open(f_path, 'w', encoding='utf-8-sig', newline='') as f:
-                        csv.writer(f, dialect).writerows(output_rows)
-
-                row_fixes = sum(1 for r in output_rows if r != current_file_data[output_rows.index(r)]) if file_modded else 0
-                queued = sum(1 for t in [self.tag_q, self.wall_q, self.dash_q] 
-                             for v in t.values() if any(inst['path'] == f_path for inst in v))
-                if file_modded or queued:
-                    log(f"{'[FIXED]' if file_modded else '[QUEUED]'} {os.path.basename(f_path)}"
-                        + (f" — {queued} item(s) queued for review" if queued else ""))
-                if file_modded:
-                    auto_fixed += 1
-                if queued:
-                    reviewed += 1
-
-            except Exception as e:
-                self.root.after(0, lambda p=f_path, err=e: (
-                    self.log_box.insert(tk.END, f"CRITICAL ERROR {os.path.basename(p)}: {err}\n"),
-                    self.log_box.see(tk.END)
-                ))
-                continue
-
-        log(f"─── Scan complete — {auto_fixed} file(s) auto-fixed, "
-            f"{sum(len(v) for v in self.tag_q.values()) + sum(len(v) for v in self.wall_q.values()) + sum(len(v) for v in self.dash_q.values()) + sum(len(v) for v in self.anach_q.values())} item(s) queued for review ───")
-        self.root.after(0, self.finish_batch, limit, wall_limit)
-
-    def start_thread(self):
-        self.btn_run.config(state="disabled")
-        self.tag_q.clear(); self.wall_q.clear(); self.dash_q.clear(); self.anach_q.clear()
-        self.log_box.delete(1.0, tk.END)
-        threading.Thread(target=self.run_batch, daemon=True).start()
+        threading.Thread(
+            target=run_batch,
+            args=(settings, self.cm, self.engine, queues, log_fn, progress_fn, done_fn),
+            daemon=True,
+        ).start()
 
     def finish_batch(self, limit, wall_limit):
         self.btn_run.config(state="normal")
