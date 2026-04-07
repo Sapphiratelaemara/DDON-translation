@@ -315,21 +315,13 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
                   bg=self.colors["btn_bg"], fg=self.colors["fg"],
                   font=("Arial", 8), relief="flat", padx=4).pack(side="right", padx=(4, 0))
 
-        chat_scroll = tk.Scrollbar(self.pane_ai)
-        chat_scroll.pack(side="right", fill="y")
-        self.chat_history = tk.Text(self.pane_ai, bg=self.colors["text_bg"], fg=self.colors["fg"],
-                                    bd=0, highlightthickness=0, font=("Arial", 9),
-                                    wrap="word", state="disabled", padx=6, pady=4,
-                                    yscrollcommand=chat_scroll.set)
-        self.chat_history.pack(fill="both", expand=True)
-        chat_scroll.config(command=self.chat_history.yview)
-
+        # Input area — pack BOTTOM first so chat_history fills the remaining space above it
         chat_input_f = tk.Frame(self.pane_ai, bg=self.colors["sidebar_bg"])
-        chat_input_f.pack(fill="x", padx=5, pady=5)
+        chat_input_f.pack(side="bottom", fill="x", padx=5, pady=5)
         self.chat_input = tk.Text(chat_input_f, height=3, font=("Arial", 9),
                                   bg=self.colors["text_bg"], fg=self.colors["fg"],
                                   insertbackground=self.colors["fg"], undo=True)
-        self.chat_input.pack(fill="x", pady=(0, 5))
+        self.chat_input.pack(fill="x", pady=(0, 3))
         self.chat_input.bind("<Return>", self._chat_on_return)
         chat_btns = tk.Frame(chat_input_f, bg=self.colors["sidebar_bg"])
         chat_btns.pack(fill="x")
@@ -340,6 +332,16 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
                   bg=self.colors["btn_bg"], fg=self.colors["fg"], relief="flat").pack(side="left")
         tk.Button(chat_btns, text="Clear", command=self.clear_chat,
                   bg=self.colors["btn_bg"], fg=self.colors["fg"], relief="flat").pack(side="left", padx=5)
+
+        # Chat history — fills all remaining space in the pane above the input
+        chat_scroll = tk.Scrollbar(self.pane_ai)
+        chat_scroll.pack(side="right", fill="y")
+        self.chat_history = tk.Text(self.pane_ai, bg=self.colors["text_bg"], fg=self.colors["fg"],
+                                    bd=0, highlightthickness=0, font=("Arial", 9),
+                                    wrap="word", state="disabled", padx=6, pady=4,
+                                    yscrollcommand=chat_scroll.set)
+        self.chat_history.pack(fill="both", expand=True)
+        chat_scroll.config(command=self.chat_history.yview)
 
         # Left editor area — fills remaining space, same order as ReviewEditor
         left_f = tk.Frame(main, bg=self.colors["bg"])

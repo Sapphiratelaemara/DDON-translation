@@ -795,6 +795,9 @@ class SharedEditorMixin:
         self.chat_history.insert(tk.END, f"\nYOU: {user_msg}\n", "user")
         self.chat_history.tag_config("user", foreground=self.colors["counter_fg"],
                                      font=("Arial", 9, "bold"))
+        self.chat_history.insert(tk.END, "\n⏳ Generating...\n", "generating")
+        self.chat_history.tag_config("generating", foreground=self.colors["label_fg"],
+                                     font=("Arial", 9, "italic"))
         self.chat_history.see(tk.END)
         self.chat_history.config(state="disabled")
         self.chat_input.delete(1.0, tk.END)
@@ -814,6 +817,10 @@ class SharedEditorMixin:
 
             def finalize():
                 self.chat_history.config(state="normal")
+                # Remove the Generating... placeholder
+                ranges = self.chat_history.tag_ranges("generating")
+                if ranges:
+                    self.chat_history.delete(ranges[0], ranges[-1])
                 if "text" in res:
                     self.chat_history.insert(tk.END, f"\nAI: {res['text']}\n", "ai")
                     self.chat_history.tag_config("ai", foreground=self.colors["fg"])
