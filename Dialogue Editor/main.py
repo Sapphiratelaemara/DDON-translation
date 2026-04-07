@@ -320,7 +320,7 @@ class CSVProcessorApp:
                     if i == 0 or len(row) < 6:
                         continue
                     en_text = row[3].strip()
-                    jp_text = row[5].strip()
+                    jp_text = row[2].strip()
                     if not jp_text: 
                         continue
                     total_lines += 1
