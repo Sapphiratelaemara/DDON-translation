@@ -795,7 +795,7 @@ class SharedEditorMixin:
         self.chat_history.insert(tk.END, f"\nYOU: {user_msg}\n", "user")
         self.chat_history.tag_config("user", foreground=self.colors["counter_fg"],
                                      font=("Arial", 9, "bold"))
-        self.chat_history.insert(tk.END, "\n⏳ Generating...\n", "generating")
+        self.chat_history.insert(tk.END, "\n⏳ Generating…\n", "generating")
         self.chat_history.tag_config("generating", foreground=self.colors["label_fg"],
                                      font=("Arial", 9, "italic"))
         self.chat_history.see(tk.END)
@@ -803,21 +803,43 @@ class SharedEditorMixin:
         self.chat_input.delete(1.0, tk.END)
 
         def worker():
-            from api_handler import OpenRouterClient
-            client   = OpenRouterClient(key)
-            messages = [
-                {"role": "system", "content": (
+            try:
+                from api_handler import OpenRouterClient
+                client = OpenRouterClient(key)
+                
+                # 1. Grab the current Japanese source text from the editor
+                current_jp = getattr(self, 'jp_source', "")
+                
+                # 2. Base System Prompt
+                sys_prompt = (
                     "You are a DDON localization assistant. Help the user translate or "
                     "refine dialogue while respecting the game's medieval fantasy tone "
                     "and character archetypes."
-                )},
-                {"role": "user", "content": user_msg},
-            ]
-            res = client.chat(messages, model=model)
+                )
+                
+                # 3. Scan the Japanese text using your existing engine and inject terms
+                if current_jp and hasattr(self, 'lore_engine'):
+                    # scan_text returns a list of tuples: [("剛化", "Harden"), ...]
+                    relevant_terms = self.lore_engine.scan_text(current_jp)
+                    print(f"DEBUG: Found terms for AI: {relevant_terms}")
+                    
+                    if relevant_terms:
+                        sys_prompt += "\n\nMANDATORY GLOSSARY TERMS FOR THIS LINE:\n"
+                        for jp, en in relevant_terms:
+                            sys_prompt += f"- {jp} MUST be translated as '{en}'\n"
 
+                messages = [
+                    {"role": "system", "content": sys_prompt},
+                    {"role": "user", "content": user_msg},
+                ]
+                
+                res = client.chat(messages, model=model)
+            except Exception as e:
+                print(f"DEBUG THREAD CRASH: {e}")
+                
             def finalize():
                 self.chat_history.config(state="normal")
-                # Remove the Generating... placeholder
+                # Remove the ⏳ Generating… placeholder
                 ranges = self.chat_history.tag_ranges("generating")
                 if ranges:
                     self.chat_history.delete(ranges[0], ranges[-1])
@@ -836,3 +858,65 @@ class SharedEditorMixin:
             self.after(0, finalize)
 
         threading.Thread(target=worker, daemon=True).start()
+
+    # ------------------------------------------------------------------
+    # Chat extras: right-click edit/resend + quick prompts
+    # ------------------------------------------------------------------
+
+    def _bind_chat_extras(self):
+        """Attach a right-click context menu to chat_history.
+        Called from setup_ui after chat_history is created."""
+        ctx_menu = tk.Menu(self.chat_history, tearoff=0)
+        ctx_menu.add_command(label="Copy selection to input",
+                             command=self._chat_copy_to_input)
+        ctx_menu.add_command(label="Resend last user message",
+                             command=self._chat_resend_last)
+
+        def _show_ctx(e):
+            try:
+                ctx_menu.tk_popup(e.x_root, e.y_root)
+            finally:
+                ctx_menu.grab_release()
+
+        self.chat_history.bind("<Button-3>", _show_ctx)
+
+    def _quick_prompt(self, template):
+        """Fill chat_input with a pre-built prompt substituting {jp} and {en}."""
+        jp = self.jp_txt.get(1.0, tk.END).strip()
+        en = self.txt.get(1.0, tk.END).strip()
+        msg = template.format(jp=jp, en=en)
+        self.chat_input.delete(1.0, tk.END)
+        self.chat_input.insert(tk.END, msg)
+        self.chat_input.focus_set()
+
+    def _chat_copy_to_input(self):
+        """Copy the selected chat_history text into chat_input for editing/resending."""
+        try:
+            sel = self.chat_history.get(tk.SEL_FIRST, tk.SEL_LAST).strip()
+            for prefix in ("YOU: ", "AI: "):
+                if sel.startswith(prefix):
+                    sel = sel[len(prefix):]
+                    break
+            if sel:
+                self.chat_input.delete(1.0, tk.END)
+                self.chat_input.insert(tk.END, sel)
+                self.chat_input.focus_set()
+        except tk.TclError:
+            pass  # nothing selected
+
+    def _chat_resend_last(self):
+        """Pull the most recent YOU: message back into chat_input for editing/resending."""
+        content = self.chat_history.get("1.0", tk.END)
+        idx = content.rfind("\nYOU: ")
+        if idx == -1:
+            return
+        msg = content[idx + 6:].strip()
+        # Truncate at the next message boundary so we don't grab multiple turns
+        for marker in ("\nYOU: ", "\nAI: ", "\n⏳"):
+            m = msg.find(marker)
+            if m != -1:
+                msg = msg[:m].strip()
+        if msg:
+            self.chat_input.delete(1.0, tk.END)
+            self.chat_input.insert(tk.END, msg)
+            self.chat_input.focus_set()

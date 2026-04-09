@@ -158,14 +158,156 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
         self.count_lbl = tk.Label(ctrl, text="",
                                   bg=self.colors["accent"], fg="white", font=("Arial", 9))
         self.count_lbl.pack(side="left", padx=8)
+        # In-Universe left of centre, toggles right
         tk.Checkbutton(ctrl, text="In-Universe Language", variable=self.in_universe_var,
                        bg=self.colors["accent"], fg="white",
                        selectcolor=self.colors["accent"],
                        activebackground=self.colors["accent"],
-                       command=self._update_counters).pack(side="right", padx=10)
+                       command=self._update_counters).pack(side="left", padx=(10, 0))
+        tk.Frame(ctrl, bg="white", width=1, height=20).pack(side="right", padx=6, fill="y")
+        tk.Button(ctrl, text="AI Assistant", command=lambda: self.toggle_pane("ai"),
+                  bg=self.colors["btn_bg"], fg=self.colors["fg"], font=("Arial", 8, "bold"),
+                  relief="flat", padx=8).pack(side="right", padx=2)
+        tk.Button(ctrl, text="Context", command=lambda: self.toggle_pane("ctx"),
+                  bg=self.colors["btn_bg"], fg=self.colors["fg"], font=("Arial", 8, "bold"),
+                  relief="flat", padx=8).pack(side="right", padx=2)
+
+        # ── Body: row list (left) + main editor area ──
+        body = tk.Frame(self, bg=self.colors["bg"])
+        body.pack(fill="both", expand=True, padx=0, pady=0)
+
+        # Row list — unique to this window, packs far left
+        list_frame = tk.Frame(body, bg=self.colors["sidebar_bg"], width=300)
+        list_frame.pack(side="left", fill="y")
+        list_frame.pack_propagate(False)
+        list_hdr = tk.Frame(list_frame, bg=self.colors["sidebar_bg"])
+        list_hdr.pack(fill="x", padx=6, pady=4)
+        tk.Checkbutton(list_hdr, text="Show translated", variable=self.show_translated_var,
+                       bg=self.colors["sidebar_bg"], fg=self.colors["fg"],
+                       selectcolor=self.colors["sidebar_bg"],
+                       activebackground=self.colors["sidebar_bg"],
+                       command=self._on_filter_changed).pack(side="left")
+        list_scroll = tk.Scrollbar(list_frame, orient="vertical")
+        list_scroll.pack(side="right", fill="y")
+        self.row_listbox = tk.Listbox(
+            list_frame, yscrollcommand=list_scroll.set,
+            bg=self.colors["untranslated_bg"], fg=self.colors["untranslated_fg"],
+            selectbackground=self.colors["active_bg"],
+            selectforeground=self.colors["active_fg"],
+            font=("Consolas", 9), bd=0, highlightthickness=0, activestyle="none")
+        self.row_listbox.pack(fill="both", expand=True)
+        list_scroll.config(command=self.row_listbox.yview)
+        self.row_listbox.bind("<<ListboxSelect>>", self._on_list_select)
+
+        # Sidebar — pack RIGHT on body before editor so it gets full height
+        side = tk.Frame(body, bg=self.colors["sidebar_bg"], width=400)
+        side.pack(side="right", fill="both")
+        side.pack_propagate(False)
+
+        self.side_pane = tk.PanedWindow(side, orient="vertical", bg=self.colors["sidebar_bg"],
+                                        sashwidth=4, bd=0)
+        self.side_pane.pack(fill="both", expand=True)
+
+        # Pane 1: References + Archetype Notes
+        self.pane_ctx = tk.Frame(self.side_pane, bg=self.colors["sidebar_bg"])
+        self.side_pane.add(self.pane_ctx, height=300)
+
+        tk.Label(self.pane_ctx, text="References", fg=self.colors["label_fg"],
+                 bg=self.colors["sidebar_bg"], font=("Arial", 8, "bold")).pack(anchor="w", padx=6, pady=(4, 0))
+        lore_f = tk.Frame(self.pane_ctx, bg=self.colors["text_bg"])
+        lore_f.pack(fill="both", expand=True)
+        lore_scroll = tk.Scrollbar(lore_f)
+        lore_scroll.pack(side="right", fill="y")
+        self.lore_list = tk.Text(lore_f, bg=self.colors["text_bg"], fg=self.colors["fg"],
+                                 bd=0, highlightthickness=0, font=("Arial", 10),
+                                 wrap="word", state="disabled", padx=6, pady=4,
+                                 yscrollcommand=lore_scroll.set)
+        self.lore_list.pack(side="left", fill="both", expand=True)
+        lore_scroll.config(command=self.lore_list.yview)
+
+        tk.Frame(self.pane_ctx, bg=self.colors["label_fg"], height=1).pack(fill="x", pady=2)
+        tk.Label(self.pane_ctx, text="Archetype Notes", fg=self.colors["label_fg"],
+                 bg=self.colors["sidebar_bg"], font=("Arial", 8, "bold")).pack(anchor="w", padx=6)
+        self.archetype_hint = tk.Text(self.pane_ctx, bg=self.colors["text_bg"], fg=self.colors["fg"],
+                                      bd=0, highlightthickness=0, font=("Arial", 9),
+                                      wrap="word", state="disabled", height=6, padx=6, pady=4)
+        self.archetype_hint.pack(fill="x")
+
+        # Pane 2: AI Assistant — grid so input is always visible
+        self.pane_ai = tk.Frame(self.side_pane, bg=self.colors["sidebar_bg"])
+        self.side_pane.add(self.pane_ai)
+        self.pane_ai.grid_rowconfigure(0, weight=0)
+        self.pane_ai.grid_rowconfigure(1, weight=0)
+        self.pane_ai.grid_rowconfigure(2, weight=1)
+        self.pane_ai.grid_rowconfigure(3, weight=0)
+        self.pane_ai.grid_columnconfigure(0, weight=1)
+
+        ai_top = tk.Frame(self.pane_ai, bg=self.colors["sidebar_bg"])
+        ai_top.grid(row=0, column=0, sticky="ew", padx=5, pady=(4, 2))
+        tk.Label(ai_top, text="AI Assistant", fg=self.colors["label_fg"],
+                 bg=self.colors["sidebar_bg"], font=("Arial", 8, "bold")).pack(side="left")
+        self.chat_model_var = tk.StringVar(value=self.cm.config.get("selected_openrouter_model", "openrouter/auto"))
+        models = self.cm.config.get("openrouter_models", ["openrouter/auto"])
+        tk.Button(ai_top, text="↻", command=self.refresh_model_list,
+                  bg=self.colors["btn_bg"], fg=self.colors["fg"],
+                  font=("Arial", 8), relief="flat", padx=4).pack(side="right")
+        self.chat_model_combo = ttk.Combobox(ai_top, textvariable=self.chat_model_var,
+                                             values=models, state="readonly", width=32)
+        self.chat_model_combo.pack(side="right", padx=(0, 4), fill="x", expand=True)
+        self.chat_model_combo.bind("<<ComboboxSelected>>", self._save_selected_model)
+
+        qf = tk.Frame(self.pane_ai, bg=self.colors["sidebar_bg"])
+        qf.grid(row=1, column=0, sticky="ew", padx=5, pady=(0, 2))
+        for lbl, tmpl in [
+            ("Translate ↓", "Translate this dialogue from Japanese:\n{jp}"),
+            ("Rephrase ↓",  "Rephrase in period-appropriate archaic English:\n{en}"),
+            ("Archaize ↓",  "Rewrite using more archaic vocabulary (keep meaning):\n{en}"),
+            ("Check ↓",     "Check this translation for accuracy and style:\nJP: {jp}\nEN: {en}"),
+        ]:
+            tk.Button(qf, text=lbl, font=("Arial", 7), relief="flat",
+                      bg=self.colors["btn_bg"], fg=self.colors["fg"],
+                      command=lambda t=tmpl: self._quick_prompt(t),
+                      padx=3, pady=1).pack(side="left", padx=(0, 2))
+
+        hist_frame = tk.Frame(self.pane_ai, bg=self.colors["text_bg"])
+        hist_frame.grid(row=2, column=0, sticky="nsew")
+        chat_scroll = tk.Scrollbar(hist_frame)
+        chat_scroll.pack(side="right", fill="y")
+        self.chat_history = tk.Text(hist_frame, bg=self.colors["text_bg"], fg=self.colors["fg"],
+                                    bd=0, highlightthickness=0, font=("Arial", 9),
+                                    wrap="word", state="disabled", padx=6, pady=4,
+                                    yscrollcommand=chat_scroll.set)
+        self.chat_history.pack(side="left", fill="both", expand=True)
+        chat_scroll.config(command=self.chat_history.yview)
+
+        chat_input_f = tk.Frame(self.pane_ai, bg=self.colors["sidebar_bg"])
+        chat_input_f.grid(row=3, column=0, sticky="ew", padx=5, pady=5)
+        self.chat_input = tk.Text(chat_input_f, height=3, font=("Arial", 9),
+                                  bg=self.colors["text_bg"], fg=self.colors["fg"],
+                                  insertbackground=self.colors["fg"], undo=True)
+        self.chat_input.pack(fill="x", pady=(0, 3))
+        self.chat_input.bind("<Return>", self._chat_on_return)
+        chat_btns = tk.Frame(chat_input_f, bg=self.colors["sidebar_bg"])
+        chat_btns.pack(fill="x")
+        self.btn_chat_send = tk.Button(chat_btns, text="Send", command=self.send_ai_chat,
+                                       bg=self.colors["accent"], fg="white", relief="flat")
+        self.btn_chat_send.pack(side="right")
+        tk.Button(chat_btns, text="+ Context", command=self.add_chat_context,
+                  bg=self.colors["btn_bg"], fg=self.colors["fg"], relief="flat").pack(side="left")
+        tk.Button(chat_btns, text="Clear", command=self.clear_chat,
+                  bg=self.colors["btn_bg"], fg=self.colors["fg"], relief="flat").pack(side="left", padx=5)
+        self._bind_chat_extras()
+
+        # Editor — fills remaining space between list and sidebar
+        main = tk.Frame(body, bg=self.colors["bg"])
+        main.pack(side="left", fill="both", expand=True, padx=0)
+
+        # Left editor area — fills remaining space, same order as ReviewEditor
+        left_f = tk.Frame(main, bg=self.colors["bg"])
+        left_f.pack(side="left", fill="both", expand=True, padx=14, pady=4)
 
         # ── Speaker / Archetype bar ──
-        spk_frame = tk.Frame(self, bg=self.colors["bg"], padx=16, pady=3)
+        spk_frame = tk.Frame(left_f, bg=self.colors["bg"], pady=3)
         spk_frame.pack(fill="x")
         def spk_lbl(text):
             return tk.Label(spk_frame, text=text, fg=self.colors["label_fg"],
@@ -200,7 +342,7 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
         self.speaker_note_entry.bind("<Return>",   lambda e: self.save_archetype())
 
         # ── Entry type row ──
-        et_frame = tk.Frame(self, bg=self.colors["bg"], padx=16, pady=2)
+        et_frame = tk.Frame(left_f, bg=self.colors["bg"], pady=2)
         et_frame.pack(fill="x")
         tk.Label(et_frame, text="Entry Type:", fg=self.colors["label_fg"],
                  bg=self.colors["bg"], font=("Arial", 9)).pack(side="left")
@@ -219,133 +361,6 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
         self.et_rules_lbl = tk.Label(et_frame, text="", fg=self.colors["label_fg"],
                                      bg=self.colors["bg"], font=("Arial", 8, "italic"))
         self.et_rules_lbl.pack(side="left", padx=(10, 0))
-
-        # ── Body: row list (left) + main editor area ──
-        body = tk.Frame(self, bg=self.colors["bg"])
-        body.pack(fill="both", expand=True, padx=0, pady=0)
-
-        # Row list — unique to this window, packs far left
-        list_frame = tk.Frame(body, bg=self.colors["sidebar_bg"], width=300)
-        list_frame.pack(side="left", fill="y")
-        list_frame.pack_propagate(False)
-        list_hdr = tk.Frame(list_frame, bg=self.colors["sidebar_bg"])
-        list_hdr.pack(fill="x", padx=6, pady=4)
-        tk.Checkbutton(list_hdr, text="Show translated", variable=self.show_translated_var,
-                       bg=self.colors["sidebar_bg"], fg=self.colors["fg"],
-                       selectcolor=self.colors["sidebar_bg"],
-                       activebackground=self.colors["sidebar_bg"],
-                       command=self._on_filter_changed).pack(side="left")
-        list_scroll = tk.Scrollbar(list_frame, orient="vertical")
-        list_scroll.pack(side="right", fill="y")
-        self.row_listbox = tk.Listbox(
-            list_frame, yscrollcommand=list_scroll.set,
-            bg=self.colors["untranslated_bg"], fg=self.colors["untranslated_fg"],
-            selectbackground=self.colors["active_bg"],
-            selectforeground=self.colors["active_fg"],
-            font=("Consolas", 9), bd=0, highlightthickness=0, activestyle="none")
-        self.row_listbox.pack(fill="both", expand=True)
-        list_scroll.config(command=self.row_listbox.yview)
-        self.row_listbox.bind("<<ListboxSelect>>", self._on_list_select)
-
-        # Main area — mirrors ReviewEditor layout exactly from here
-        main = tk.Frame(body, bg=self.colors["bg"])
-        main.pack(side="left", fill="both", expand=True, padx=0)
-
-        # Sidebar (right) packs before left_f so it gets its preferred width
-        side = tk.Frame(main, bg=self.colors["sidebar_bg"], width=400)
-        side.pack(side="right", fill="both")
-        side.pack_propagate(False)
-
-        side_ctrl = tk.Frame(side, bg=self.colors["sidebar_bg"], pady=2)
-        side_ctrl.pack(fill="x")
-        tk.Button(side_ctrl, text="Context", command=lambda: self.toggle_pane("ctx"),
-                  bg=self.colors["btn_bg"], fg=self.colors["fg"], font=("Arial", 8, "bold"),
-                  relief="flat", padx=10).pack(side="left", padx=5)
-        tk.Button(side_ctrl, text="AI Assistant", command=lambda: self.toggle_pane("ai"),
-                  bg=self.colors["btn_bg"], fg=self.colors["fg"], font=("Arial", 8, "bold"),
-                  relief="flat", padx=10).pack(side="left")
-
-        self.side_pane = tk.PanedWindow(side, orient="vertical", bg=self.colors["sidebar_bg"],
-                                        sashwidth=4, bd=0)
-        self.side_pane.pack(fill="both", expand=True)
-
-        # Pane 1: References + Archetype Notes (matches ReviewEditor)
-        self.pane_ctx = tk.Frame(self.side_pane, bg=self.colors["sidebar_bg"])
-        self.side_pane.add(self.pane_ctx, height=300)
-
-        tk.Label(self.pane_ctx, text="References", fg=self.colors["label_fg"],
-                 bg=self.colors["sidebar_bg"], font=("Arial", 8, "bold")).pack(anchor="w", padx=6, pady=(4, 0))
-        lore_f = tk.Frame(self.pane_ctx, bg=self.colors["text_bg"])
-        lore_f.pack(fill="both", expand=True)
-        lore_scroll = tk.Scrollbar(lore_f)
-        lore_scroll.pack(side="right", fill="y")
-        self.lore_list = tk.Text(lore_f, bg=self.colors["text_bg"], fg=self.colors["fg"],
-                                 bd=0, highlightthickness=0, font=("Arial", 10),
-                                 wrap="word", state="disabled", padx=6, pady=4,
-                                 yscrollcommand=lore_scroll.set)
-        self.lore_list.pack(side="left", fill="both", expand=True)
-        lore_scroll.config(command=self.lore_list.yview)
-
-        tk.Frame(self.pane_ctx, bg=self.colors["label_fg"], height=1).pack(fill="x", pady=2)
-        tk.Label(self.pane_ctx, text="Archetype Notes", fg=self.colors["label_fg"],
-                 bg=self.colors["sidebar_bg"], font=("Arial", 8, "bold")).pack(anchor="w", padx=6)
-        self.archetype_hint = tk.Text(self.pane_ctx, bg=self.colors["text_bg"], fg=self.colors["fg"],
-                                      bd=0, highlightthickness=0, font=("Arial", 9),
-                                      wrap="word", state="disabled", height=6, padx=6, pady=4)
-        self.archetype_hint.pack(fill="x")
-
-        # Pane 2: AI Assistant
-        self.pane_ai = tk.Frame(self.side_pane, bg=self.colors["sidebar_bg"])
-        self.side_pane.add(self.pane_ai)
-
-        ai_hdr = tk.Frame(self.pane_ai, bg=self.colors["sidebar_bg"])
-        ai_hdr.pack(fill="x", padx=6, pady=(4, 0))
-        tk.Label(ai_hdr, text="AI Assistant", fg=self.colors["label_fg"],
-                 bg=self.colors["sidebar_bg"], font=("Arial", 8, "bold")).pack(side="left")
-
-        chat_ctrl = tk.Frame(self.pane_ai, bg=self.colors["sidebar_bg"])
-        chat_ctrl.pack(fill="x", padx=5, pady=5)
-        self.chat_model_var = tk.StringVar(value=self.cm.config.get("selected_openrouter_model", "openrouter/auto"))
-        models = self.cm.config.get("openrouter_models", ["openrouter/auto"])
-        self.chat_model_combo = ttk.Combobox(chat_ctrl, textvariable=self.chat_model_var,
-                                             values=models, state="readonly", width=18)
-        self.chat_model_combo.pack(side="left", fill="x", expand=True)
-        self.chat_model_combo.bind("<<ComboboxSelected>>", self._save_selected_model)
-        tk.Button(chat_ctrl, text="↻", command=self.refresh_model_list,
-                  bg=self.colors["btn_bg"], fg=self.colors["fg"],
-                  font=("Arial", 8), relief="flat", padx=4).pack(side="right", padx=(4, 0))
-
-        # Input area — pack BOTTOM first so chat_history fills the remaining space above it
-        chat_input_f = tk.Frame(self.pane_ai, bg=self.colors["sidebar_bg"])
-        chat_input_f.pack(side="bottom", fill="x", padx=5, pady=5)
-        self.chat_input = tk.Text(chat_input_f, height=3, font=("Arial", 9),
-                                  bg=self.colors["text_bg"], fg=self.colors["fg"],
-                                  insertbackground=self.colors["fg"], undo=True)
-        self.chat_input.pack(fill="x", pady=(0, 3))
-        self.chat_input.bind("<Return>", self._chat_on_return)
-        chat_btns = tk.Frame(chat_input_f, bg=self.colors["sidebar_bg"])
-        chat_btns.pack(fill="x")
-        self.btn_chat_send = tk.Button(chat_btns, text="Send", command=self.send_ai_chat,
-                                       bg=self.colors["accent"], fg="white", relief="flat")
-        self.btn_chat_send.pack(side="right")
-        tk.Button(chat_btns, text="+ Context", command=self.add_chat_context,
-                  bg=self.colors["btn_bg"], fg=self.colors["fg"], relief="flat").pack(side="left")
-        tk.Button(chat_btns, text="Clear", command=self.clear_chat,
-                  bg=self.colors["btn_bg"], fg=self.colors["fg"], relief="flat").pack(side="left", padx=5)
-
-        # Chat history — fills all remaining space in the pane above the input
-        chat_scroll = tk.Scrollbar(self.pane_ai)
-        chat_scroll.pack(side="right", fill="y")
-        self.chat_history = tk.Text(self.pane_ai, bg=self.colors["text_bg"], fg=self.colors["fg"],
-                                    bd=0, highlightthickness=0, font=("Arial", 9),
-                                    wrap="word", state="disabled", padx=6, pady=4,
-                                    yscrollcommand=chat_scroll.set)
-        self.chat_history.pack(fill="both", expand=True)
-        chat_scroll.config(command=self.chat_history.yview)
-
-        # Left editor area — fills remaining space, same order as ReviewEditor
-        left_f = tk.Frame(main, bg=self.colors["bg"])
-        left_f.pack(side="left", fill="both", expand=True, padx=14, pady=4)
 
         tk.Label(left_f, text="English", fg=self.colors["label_fg"],
                  bg=self.colors["bg"], font=("Arial", 8, "bold")).pack(anchor="w")
