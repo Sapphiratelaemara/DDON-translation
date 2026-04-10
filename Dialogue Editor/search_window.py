@@ -54,6 +54,9 @@ class SearchWindow(tk.Toplevel):
         tk.Button(top, text="Search", command=self.do_search,
                   bg=accent, fg="white", relief="flat", padx=8).pack(side="left", padx=4)
 
+        tk.Button(top, text="Open all in Translator", command=self.open_all_in_translator,
+                  bg=accent, fg="white", relief="flat", padx=8).pack(side="left", padx=4)
+
         self.lbl_status = tk.Label(top, text="", bg=bg, fg=fg, font=("Arial", 9))
         self.lbl_status.pack(side="left", padx=8)
 
@@ -180,6 +183,40 @@ class SearchWindow(tk.Toplevel):
         self.lbl_status.config(text=f"{count} {noun}. Double-click to edit.")
 
     # ── Open in editor ────────────────────────────────────────────────────
+
+    def open_all_in_translator(self):
+        """Build a virtual_rows list from current results and open in CSVTranslationWindow."""
+        if not self.results_data:
+            messagebox.showinfo("No results", "Run a search first.", parent=self)
+            return
+
+        # Cache file reads so we don't re-read the same CSV multiple times
+        file_cache = {}
+        virtual_rows = []
+        for rd in self.results_data:
+            path    = rd["path"]
+            row_idx = rd["row_idx"]
+            if path not in file_cache:
+                try:
+                    _, dialect, rows = _read_csv(path)
+                    file_cache[path] = (dialect, rows)
+                except Exception:
+                    continue
+            _dialect, rows = file_cache[path]
+            if row_idx >= len(rows):
+                continue
+            virtual_rows.append({
+                "path":    path,
+                "row_idx": row_idx,
+                "row":     rows[row_idx],   # live reference — mutations write through
+            })
+
+        if not virtual_rows:
+            messagebox.showinfo("No results", "No valid rows to open.", parent=self)
+            return
+
+        from translation_window import CSVTranslationWindow
+        CSVTranslationWindow(self.app, virtual_rows=virtual_rows)
 
     def on_double_click(self, _=None):
         sel = self.tree.selection()
