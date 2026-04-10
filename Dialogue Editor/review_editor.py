@@ -178,10 +178,8 @@ class ReviewEditor(SharedEditorMixin, tk.Toplevel):
         self._is_translating = False
         self._is_chatting = False
 
-        # ── Sidebar — packed immediately after the top bar so it fills the
-        #    full remaining height. The header rows below it are in `main`.
         side = tk.Frame(self, bg=self.colors["sidebar_bg"], width=400)
-        side.pack(side="right", fill="both")
+        side.pack(side="right", fill="both", expand=True)
         side.pack_propagate(False)
 
         self.side_pane = tk.PanedWindow(side, orient="vertical", bg=self.colors["sidebar_bg"],
@@ -299,13 +297,13 @@ class ReviewEditor(SharedEditorMixin, tk.Toplevel):
                        selectcolor=self.colors["bg"], activebackground=self.colors["bg"],
                        font=("Arial", 9, "bold")).pack(side="right", padx=10)
 
-        # Main content — fills remaining space left of the sidebar
+        # Main content — fixed width (sidebar takes the extra horizontal space)
         main = tk.Frame(self, bg=self.colors["bg"])
-        main.pack(fill="both", expand=True, padx=14, pady=4)
+        main.pack(fill="y", padx=14, pady=4)
 
         # Left: all left-column content including the header rows
         left_f = tk.Frame(main, bg=self.colors["bg"])
-        left_f.pack(fill="both", expand=True)
+        left_f.pack(fill="both")
 
         # ── Info label ──
         self.info_lbl = tk.Label(left_f, text="",
@@ -377,14 +375,14 @@ class ReviewEditor(SharedEditorMixin, tk.Toplevel):
         en_outer = tk.Frame(left_f, bg=self.colors["bg"])
         en_outer.pack(fill="x")   # fixed height — do NOT expand
 
-        self.cnt_lbl = tk.Text(en_outer, font=("Consolas", 12), width=4, height=6,
+        en_inner = tk.Frame(en_outer, bg=self.colors["bg"])
+        en_inner.pack(fill="x", expand=True)
+
+        self.cnt_lbl = tk.Text(en_inner, font=("Consolas", 12), width=4, height=6,
                                bg=self.colors["bg"], fg=self.colors["counter_fg"],
                                state="disabled", bd=0, highlightthickness=0,
                                padx=0, pady=4)  # pady=4 matches self.txt's internal pady
         self.cnt_lbl.pack(side="right", fill="y", padx=(2, 0))
-
-        en_inner = tk.Frame(en_outer, bg=self.colors["bg"])
-        en_inner.pack(side="left", fill="x")
 
         txt_yscroll = tk.Scrollbar(en_inner, orient="vertical")
         txt_yscroll.pack(side="right", fill="y")

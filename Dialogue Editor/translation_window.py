@@ -199,9 +199,8 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
         list_scroll.config(command=self.row_listbox.yview)
         self.row_listbox.bind("<<ListboxSelect>>", self._on_list_select)
 
-        # Sidebar — pack RIGHT on body before editor so it gets full height
         side = tk.Frame(body, bg=self.colors["sidebar_bg"], width=400)
-        side.pack(side="right", fill="both")
+        side.pack(side="right", fill="both", expand=True)
         side.pack_propagate(False)
 
         self.side_pane = tk.PanedWindow(side, orient="vertical", bg=self.colors["sidebar_bg"],
@@ -298,13 +297,13 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
                   bg=self.colors["btn_bg"], fg=self.colors["fg"], relief="flat").pack(side="left", padx=5)
         self._bind_chat_extras()
 
-        # Editor — fills remaining space between list and sidebar
+        # Editor — fixed width; sidebar takes the extra horizontal space
         main = tk.Frame(body, bg=self.colors["bg"])
-        main.pack(side="left", fill="both", expand=True, padx=0)
+        main.pack(side="left", fill="y", padx=0)
 
-        # Left editor area — fills remaining space, same order as ReviewEditor
+        # Left editor area
         left_f = tk.Frame(main, bg=self.colors["bg"])
-        left_f.pack(side="left", fill="both", expand=True, padx=14, pady=4)
+        left_f.pack(fill="both", padx=14, pady=4)
 
         # ── Speaker / Archetype bar ──
         spk_frame = tk.Frame(left_f, bg=self.colors["bg"], pady=3)
@@ -367,12 +366,12 @@ class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel):
 
         en_outer = tk.Frame(left_f, bg=self.colors["bg"])
         en_outer.pack(fill="x")
-        self.cnt_lbl = tk.Text(en_outer, font=("Consolas", 12), width=4, height=6,
+        en_inner = tk.Frame(en_outer, bg=self.colors["bg"])
+        en_inner.pack(fill="x", expand=True)
+        self.cnt_lbl = tk.Text(en_inner, font=("Consolas", 12), width=4, height=6,
                                bg=self.colors["bg"], fg=self.colors["counter_fg"],
                                state="disabled", bd=0, highlightthickness=0, padx=0, pady=4)
         self.cnt_lbl.pack(side="right", fill="y", padx=(2, 0))
-        en_inner = tk.Frame(en_outer, bg=self.colors["bg"])
-        en_inner.pack(side="left", fill="x")
         txt_yscroll = tk.Scrollbar(en_inner, orient="vertical")
         txt_yscroll.pack(side="right", fill="y")
         self.txt = tk.Text(en_inner, height=6, font=("Consolas", 12),
