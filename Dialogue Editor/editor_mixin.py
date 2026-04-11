@@ -1,18 +1,20 @@
 """
 editor_mixin.py — SharedEditorMixin
 
-Methods shared verbatim (or near-verbatim) between ReviewEditor and
-CSVTranslationWindow.  Neither class is a sub-class of the other; the mixin
+Methods shared between ReviewEditor and CSVTranslationWindow (and any future
+unified editor).  Neither class is a sub-class of the other; the mixin
 provides the shared behaviour through multiple inheritance:
 
     class ReviewEditor(SharedEditorMixin, tk.Toplevel): ...
     class CSVTranslationWindow(SharedEditorMixin, tk.Toplevel): ...
 
 CONTRACT — the following attributes MUST exist on `self` before any mixin
-method is called.  They are set by the concrete class's __init__ / _setup_ui:
+method is called.  They are set by the concrete class's __init__ / setup_ui:
 
     Widget references
         self.txt                — main English Text editor
+        self.jp_txt             — Japanese source Text widget
+        self.cnt_lbl            — line-length counter Text widget
         self.deepl_box          — DeepL suggestion Text widget
         self.chat_history       — AI chat history Text widget
         self.chat_input         — AI chat input Text widget
@@ -21,11 +23,29 @@ method is called.  They are set by the concrete class's __init__ / _setup_ui:
         self.btn_chat_send      — Button (disabled while chatting)
         self.preview_canvas     — Canvas for in-game preview
         self._preview_box_var   — StringVar ("dialogue" | "choice")
+        self.speaker_lbl        — Label showing current speaker name
+        self.archetype_combo    — Combobox for archetype selection
+        self.archetype_var      — StringVar for archetype combo
+        self.archetype_keys     — list of archetype keys matching combo values
+        self.archetype_hint     — Text widget showing archetype notes
+        self.speaker_note_var   — StringVar for speaker note entry
+        self.speaker_note_entry — Entry widget for speaker note
+        self.entry_type_badge   — Label showing entry type badge
+        self.et_rules_lbl       — Label showing entry type rules summary
+        self.entry_type_var     — StringVar for entry type combo
+        self.lore_list          — Text widget for lore references sidebar
+        self._txt_yscroll       — Scrollbar synced to self.txt
 
     State
         self.cm                 — ConfigManager instance
                                   (ReviewEditor exposes this via a @property)
+        self.engine             — TranslationEngine instance
         self.lore_engine        — LoreEngine instance
+        self.entry_type         — str, current entry type value
+        self.speaker_name       — str, current speaker name
+        self.limit              — int, base char limit
+        self.effective_limit    — int, per-item char limit (may differ from limit)
+        self.in_universe_var    — BooleanVar for in-universe toggle
         self.anach_ranges       — list[(start, end, word, suggestions)]
         self._box_meta          — dict of box layout metadata
         self._preview_base_images — dict[str, PIL.Image]
@@ -37,9 +57,7 @@ method is called.  They are set by the concrete class's __init__ / _setup_ui:
         self._is_chatting       — bool busy-flag
         self._prev_W, _prev_H   — fallback canvas dimensions
         self.colors             — dict of themed colour strings
-
-    Methods provided by the concrete class
-        self._update_counters() — refresh line-length counter strip
+                                  (populated by _apply_colors())
 """
 
 import re
@@ -58,6 +76,282 @@ except ImportError:
 
 
 class SharedEditorMixin:
+
+    # ------------------------------------------------------------------
+    # Theme colours
+    # ------------------------------------------------------------------
+
+    def _apply_colors(self):
+        """Populate self.colors from self.dark_mode.
+
+        Contains the full superset of keys used by both ReviewEditor and
+        CSVTranslationWindow so either class can call this without carrying
+        its own copy.
+        """
+        if self.dark_mode:
+            self.colors = {
+                "bg":               "#1a1a2e",
+                "fg":               "#e0e0e0",
+                "text_bg":          "#16213e",
+                "jp_bg":            "#0f1923",
+                "sidebar_bg":       "#1e1e35",
+                "btn_bg":           "#0f3460",
+                "label_fg":         "#8888aa",
+                "counter_fg":       "#4ec9b0",
+                "insert_color":     "#ffffff",
+                "accent":           "#e94560",
+                "apply_bg":         "#03dac6",
+                "translated_bg":    "#0d1f0d",
+                "translated_fg":    "#558855",
+                # translation-window list colours
+                "untranslated_bg":  "#16213e",
+                "untranslated_fg":  "#e0e0e0",
+                "active_bg":        "#e94560",
+                "active_fg":        "#ffffff",
+            }
+        else:
+            self.colors = {
+                "bg":               "#f5f6fa",
+                "fg":               "#2c2c3e",
+                "text_bg":          "#ffffff",
+                "jp_bg":            "#f0f4f8",
+                "sidebar_bg":       "#eef0f7",
+                "btn_bg":           "#dfe4ea",
+                "label_fg":         "#7f8c8d",
+                "counter_fg":       "#2980b9",
+                "insert_color":     "#000000",
+                "accent":           "#3867d6",
+                "apply_bg":         "#20bf6b",
+                "translated_bg":    "#f0fff0",
+                "translated_fg":    "#2d7a2d",
+                # translation-window list colours
+                "untranslated_bg":  "#ffffff",
+                "untranslated_fg":  "#2c2c3e",
+                "active_bg":        "#3867d6",
+                "active_fg":        "#ffffff",
+            }
+
+    # ------------------------------------------------------------------
+    # Context menu
+    # ------------------------------------------------------------------
+
+    def make_context_menu(self, widget):
+        menu = tk.Menu(widget, tearoff=0)
+        menu.add_command(label="Cut",   command=lambda: widget.event_generate("<<Cut>>"))
+        menu.add_command(label="Copy",  command=lambda: widget.event_generate("<<Copy>>"))
+        menu.add_command(label="Paste", command=lambda: widget.event_generate("<<Paste>>"))
+        menu.add_separator()
+        def select_all():
+            if isinstance(widget, tk.Text):
+                widget.tag_add("sel", "1.0", "end")
+            else:
+                widget.select_range(0, tk.END)
+            return "break"
+        menu.add_command(label="Select All", command=select_all)
+        widget.bind("<Button-3>", lambda e: menu.tk_popup(e.x_root, e.y_root))
+
+    # ------------------------------------------------------------------
+    # Sidebar pane toggle
+    # ------------------------------------------------------------------
+
+    def toggle_pane(self, name):
+        """Toggle visibility of a sidebar pane."""
+        if name == "ctx":
+            if self.pane_ctx.winfo_ismapped():
+                self.side_pane.forget(self.pane_ctx)
+            else:
+                self.side_pane.add(self.pane_ctx, before=self.pane_ai, height=300)
+        elif name == "ai":
+            if self.pane_ai.winfo_ismapped():
+                self.side_pane.forget(self.pane_ai)
+            else:
+                self.side_pane.add(self.pane_ai)
+
+    # ------------------------------------------------------------------
+    # Scroll sync
+    # ------------------------------------------------------------------
+
+    def _sync_txt_scroll(self, *args):
+        self._txt_yscroll.set(*args)
+        first, _ = self.txt.yview()
+        self.cnt_lbl.yview_moveto(first)
+
+    # ------------------------------------------------------------------
+    # Line-length counter + anachronism highlight
+    # ------------------------------------------------------------------
+
+    def _update_counters(self, e=None):
+        content = self.txt.get("1.0", tk.END).splitlines()
+        self.cnt_lbl.config(state="normal")
+        self.cnt_lbl.delete("1.0", tk.END)
+        for i, line in enumerate(content):
+            sim = self.engine.get_simulated_len(line)
+            tag = f"over_{i}"
+            self.cnt_lbl.insert(tk.END, f"{sim:3}\n", tag)
+            color = "#ff5555" if sim > self.effective_limit else self.colors["counter_fg"]
+            self.cnt_lbl.tag_config(tag, foreground=color)
+        self.cnt_lbl.config(state="disabled")
+
+        self.txt.tag_remove("anachronism", "1.0", tk.END)
+        self.anach_ranges = []
+
+        if self.in_universe_var.get():
+            from lore_engine import IN_UNIVERSE_VOCAB
+            full_text = self.txt.get("1.0", tk.END)
+            hits = self.lore_engine.scan_anachronisms(full_text)
+
+            for found, _ in hits:
+                word_lower = found.lower()
+                suggestions = []
+                if word_lower in IN_UNIVERSE_VOCAB and IN_UNIVERSE_VOCAB[word_lower]:
+                    suggestions.append((IN_UNIVERSE_VOCAB[word_lower], "primary"))
+
+                pos = "1.0"
+                while True:
+                    pos = self.txt.search(found, pos, stopindex=tk.END, nocase=True)
+                    if not pos:
+                        break
+                    end = f"{pos}+{len(found)}c"
+                    char_before = self.txt.get(f"{pos}-1c", pos)
+                    char_after  = self.txt.get(end, f"{end}+1c")
+                    is_word_start = not char_before or not char_before.isalnum() and char_before != "'"
+                    is_word_end   = not char_after  or not char_after.isalnum()  and char_after  != "'"
+                    if is_word_start and is_word_end:
+                        self.txt.tag_add("anachronism", pos, end)
+                        self.anach_ranges.append((pos, end, found, suggestions))
+                    pos = end
+
+            self.txt.tag_config("anachronism", foreground="#ff8800", underline=True)
+
+    # ------------------------------------------------------------------
+    # Text editing helpers
+    # ------------------------------------------------------------------
+
+    def _apply_tag_to_text(self, search_term, tag_name):
+        start = "1.0"
+        while True:
+            start = self.jp_txt.search(search_term, start, stopindex=tk.END)
+            if not start:
+                break
+            end = f"{start}+{len(search_term)}c"
+            self.jp_txt.tag_add(tag_name, start, end)
+            start = end
+
+    def quick_insert(self, text):
+        self.txt.insert(tk.INSERT, text)
+        self._update_counters()
+        self._update_preview()
+
+    def rewrap_text(self):
+        text = self.txt.get(1.0, tk.END).strip()
+        wrapped = self.engine.master_tag_wrap(text, self.effective_limit)
+        if wrapped != text:
+            self.txt.delete(1.0, tk.END)
+            self.txt.insert(tk.END, wrapped)
+            self._update_counters()
+            self._update_preview()
+
+    def replace_dashes(self, replacement):
+        """Replace double-dash patterns with replacement.
+        Covers: -- (hyphens), —— (em dash U+2014), ―― (horiz bar U+2015),
+        –– (en dash U+2013), and any mixed combinations of two or more."""
+        current_text = self.txt.get(1.0, tk.END)
+        fixed = re.sub(r'[-–—―]{2,}', replacement, current_text)
+        if replacement == "...":
+            fixed = re.sub(r'\.\.\.(\w)', r'... \1', fixed)
+        if fixed != current_text:
+            self.txt.delete(1.0, tk.END)
+            self.txt.insert(tk.END, fixed)
+            self._update_counters()
+            self._update_preview()
+
+    # ------------------------------------------------------------------
+    # Entry type display
+    # ------------------------------------------------------------------
+
+    def _refresh_et_display(self):
+        """Update the entry type badge and rules summary from self.entry_type."""
+        et_rules = self.cm.config.get("entry_type_rules", {}).get(self.entry_type, {})
+        if self.entry_type:
+            disp_label = et_rules.get("label", self.entry_type)
+            flags = []
+            if et_rules.get("no_linebreak"):      flags.append("no auto-wrap")
+            if et_rules.get("char_limit"):        flags.append(f"{et_rules['char_limit']} chars")
+            if et_rules.get("no_trailing_punct"): flags.append("no trailing " + "/".join(et_rules["no_trailing_punct"]))
+            badge_bg = "#c0392b" if flags else ("#2980b9" if et_rules else "#7f8c8d")
+            self.entry_type_badge.config(text=f"  {disp_label}  ", bg=badge_bg)
+            self.et_rules_lbl.config(text="  ·  ".join(flags))
+        else:
+            self.entry_type_badge.config(text="", bg=self.colors["bg"])
+            self.et_rules_lbl.config(text="")
+
+    def _on_entry_type_changed(self, event=None):
+        """Called when the entry type combobox value changes."""
+        self.entry_type = self.entry_type_var.get().strip()
+        et_rules = self.cm.config.get("entry_type_rules", {}).get(self.entry_type, {})
+        self.effective_limit = et_rules.get("char_limit") or self.limit
+        self._refresh_et_display()
+        self._update_counters()
+
+    # ------------------------------------------------------------------
+    # Archetype
+    # ------------------------------------------------------------------
+
+    def on_archetype_selected(self, e=None):
+        self.update_archetype_hint()
+
+    def update_archetype_hint(self):
+        self.archetype_hint.config(state="normal")
+        self.archetype_hint.delete(1.0, tk.END)
+        label = self.archetype_var.get()
+        if label == "(none)" or not self.speaker_name:
+            self.archetype_hint.insert(tk.END, "No archetype assigned.")
+        else:
+            vals = list(self.archetype_combo["values"])
+            idx  = vals.index(label) if label in vals else -1
+            key  = self.archetype_keys[idx] if idx >= 0 else None
+            if key and key in self.lore_engine.archetypes:
+                a = self.lore_engine.archetypes[key]
+                self.archetype_hint.insert(tk.END, f"[{key}] {a['name']}\n", "header")
+                self.archetype_hint.insert(tk.END, a.get("notes", "—"))
+                self.archetype_hint.tag_config("header", font=("Arial", 9, "bold"),
+                                               foreground=self.colors["counter_fg"])
+        note_text = self.cm.config.get("speaker_notes", {}).get(self.speaker_name, "") \
+                    if self.speaker_name else ""
+        if note_text:
+            self.archetype_hint.insert(tk.END, f"\n\n📝 {note_text}", "note_tag")
+            self.archetype_hint.tag_config("note_tag", foreground=self.colors["fg"],
+                                           font=("Arial", 9, "italic"))
+        self.archetype_hint.config(state="disabled")
+
+    def save_archetype(self):
+        if not self.speaker_name:
+            return
+        label = self.archetype_var.get()
+        archs = self.cm.config.setdefault("speaker_archetypes", {})
+        if label == "(none)":
+            archs.pop(self.speaker_name, None)
+        else:
+            vals = list(self.archetype_combo["values"])
+            idx  = vals.index(label) if label in vals else -1
+            key  = self.archetype_keys[idx] if idx >= 0 else None
+            if key:
+                archs[self.speaker_name] = key
+        note_text = self.speaker_note_var.get().strip()
+        if note_text:
+            self.cm.config.setdefault("speaker_notes", {})[self.speaker_name] = note_text
+        else:
+            self.cm.config.setdefault("speaker_notes", {}).pop(self.speaker_name, None)
+        self.cm.save_all()
+        self.update_archetype_hint()
+
+    # ------------------------------------------------------------------
+    # API busy flag
+    # ------------------------------------------------------------------
+
+    def _is_chatting_setter(self, value):
+        self._is_chatting = value
+        self.btn_chat_send.config(state="disabled" if value else "normal")
 
     # ------------------------------------------------------------------
     # Anachronism tooltip
@@ -180,28 +474,24 @@ class SharedEditorMixin:
 
         # 1. Get text and strip tags
         vis_text = re.sub(r"<[^>]+>", "", self.txt.get(1.0, tk.END).strip("\n"))
-        
-        # 2. To STOP auto-wrapping, we treat the text as a simple list of lines.
-        # It will now ONLY wrap if you physically press Enter in the text box.
+
+        # 2. Treat the text as a simple list of lines — only wrap on explicit Enter.
         wrapped = vis_text.splitlines()
 
         img_w    = meta.get("img_w", self._prev_W)
         img_h    = meta.get("img_h", self._prev_H)
         self.preview_canvas.config(width=img_w, height=img_h)
-        
+
         render   = base_img.copy()
         draw     = ImageDraw.Draw(render)
-        
+
         pad      = meta["pad"]
         fg       = meta["fg"]
         text_x   = meta.get("text_x") if meta.get("text_x") is not None else pad + 15
         text_y   = meta.get("text_y") if meta.get("text_y") is not None else pad
-        
+
         line_h = meta["line_h"]
 
-        # 3. Draw the lines. 
-        # Since we removed the 'for word in line.split()' loop, Python 
-        # will no longer calculate widths or force text to the next line.
         for i, line in enumerate(wrapped[:6]):
             draw.text((text_x, text_y + i * line_h), line, font=fnt, fill=fg)
 
@@ -211,7 +501,7 @@ class SharedEditorMixin:
                 f"▼ +{len(wrapped) - 6} lines clipped",
                 fill="#ff4444",
             )
-            
+
         self._current_preview_tk = ImageTk.PhotoImage(render)
         self.preview_canvas.delete("all")
         self.preview_canvas.create_image(0, 0, anchor="nw", image=self._current_preview_tk)
@@ -401,7 +691,6 @@ class SharedEditorMixin:
         if meta is None:
             return
 
-        # Font
         _asset_dir = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "assets")
         _font_path = next((p for p in [
             _os.path.join(_asset_dir, "DDONfont.otf"),
@@ -420,7 +709,6 @@ class SharedEditorMixin:
         else:
             meta["line_h"] = meta["font_sz"] + 3
 
-        # Crop image
         crop = meta["crop"]
         box_w, box_h = crop[2] - crop[0], crop[3] - crop[1]
         if box_w <= 0 or box_h <= 0:
@@ -430,7 +718,6 @@ class SharedEditorMixin:
             "dialogue": {"bg": (242, 238, 220), "border": (180, 160, 100)},
             "choice":   {"bg": (30, 25, 45),    "border": (120, 100, 200)},
         }
-        # Try PNG name derived from key first, then "dialogue_box.png" as fallback
         src_candidates = [
             _os.path.join(_asset_dir, f"{box_key}_box.png"),
             _os.path.join(_asset_dir, "dialogue_box.png"),
@@ -473,7 +760,6 @@ class SharedEditorMixin:
         meta    = self._box_meta.get(box_key, {})
         self._prev_font_sz_var.set(str(meta.get("font_sz", 12)))
         self._prev_spacing_var.set(str(meta.get("line_spacing", 1)))
-        # Calibration spinboxes (may not exist yet during init)
         if hasattr(self, "_crop_vars"):
             crop = meta.get("crop", (0, 0, 100, 50))
             for var, val in zip(self._crop_vars, crop):
@@ -533,7 +819,6 @@ class SharedEditorMixin:
             self._calib_frame.pack_forget()
             self._calib_btn.config(text="⚙ Calibrate")
         else:
-            # Insert immediately after the canvas's parent frame (prev_hdr)
             self._calib_frame.pack(fill="x", pady=(1, 0),
                                    before=self.preview_canvas)
             self._calib_btn.config(text="⚙ Hide")
@@ -553,7 +838,7 @@ class SharedEditorMixin:
         except (ValueError, tk.TclError):
             return
         if vals[2] <= vals[0] or vals[3] <= vals[1]:
-            return   # degenerate crop — ignore
+            return
         meta["crop"] = vals
         self._reload_box_image(box_key)
         self._save_preview_config(box_key)
@@ -572,7 +857,7 @@ class SharedEditorMixin:
         new_fg = self._text_fg_var.get().strip()
         if new_fg:
             try:
-                self.winfo_rgb(new_fg)   # validate colour string
+                self.winfo_rgb(new_fg)
                 meta["fg"] = new_fg
             except tk.TclError:
                 pass
@@ -594,38 +879,27 @@ class SharedEditorMixin:
         self.cm.save_all()
 
     def _add_preview_box_type(self):
-        # 1. Ask for the name of the new entry type
         name = tk_simpledialog.askstring("Add Preview Type",
                                          "Enter a name for the new box type\n"
                                          "(e.g. 'notice', 'tooltip'):",
                                          parent=self)
         if not name:
             return
-        
         name = name.strip().lower().replace(" ", "_")
         if name in self._box_meta:
             messagebox.showwarning("Duplicate", f"Box type '{name}' already exists.", parent=self)
             return
-
-        # 2. Ask the user to select the source image from their computer
         file_path = filedialog.askopenfilename(
             title=f"Select PNG image for '{name}'",
             filetypes=[("PNG images", "*.png")],
-            parent=self
-        )
+            parent=self)
         if not file_path:
             return
-
-        # 3. Define the destination in the project assets folder
         asset_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
         os.makedirs(asset_dir, exist_ok=True)
         dest_path = os.path.join(asset_dir, f"{name}_box.png")
-
         try:
-            # 4. Copy and rename the file so the editor can find it later
             shutil.copy2(file_path, dest_path)
-
-            # 5. Clone current box settings as a starting point
             current = dict(self._box_meta.get(self._preview_box_var.get(), {
                 "crop": (0, 0, 200, 60), "pad": 10, "fg": "#000000", "font_sz": 14, "line_spacing": 1
             }))
@@ -633,18 +907,12 @@ class SharedEditorMixin:
             current.pop("img_h", None)
             current.pop("line_h", None)
             self._box_meta[name] = current
-            
-            # 6. Refresh UI components
             self._preview_type_combo.config(values=list(self._box_meta.keys()))
             self._preview_box_var.set(name)
-            
-            # 7. Process the new image immediately
             self._reload_box_image(name)
             self._sync_preview_font_controls()
             self._save_preview_config(name)
-            
             messagebox.showinfo("Success", f"Added '{name}' and saved image to assets.", parent=self)
-
         except Exception as e:
             messagebox.showerror("Error", f"Failed to add new type: {e}", parent=self)
 
@@ -685,7 +953,7 @@ class SharedEditorMixin:
 
         key = self.cm.get_key("deepl_api_key")
         if not key:
-            return   # silently skip — user can set key in Options
+            return
 
         self._is_translating = True
         self.deepl_box.config(state="normal")
@@ -806,23 +1074,18 @@ class SharedEditorMixin:
             try:
                 from api_handler import OpenRouterClient
                 client = OpenRouterClient(key)
-                
-                # 1. Grab the current Japanese source text from the editor
-                current_jp = getattr(self, 'jp_source', "")
-                
-                # 2. Base System Prompt
+
+                current_jp = getattr(self, "jp_source", "")
+
                 sys_prompt = (
                     "You are a DDON localization assistant. Help the user translate or "
                     "refine dialogue while respecting the game's medieval fantasy tone "
                     "and character archetypes."
                 )
-                
-                # 3. Scan the Japanese text using your existing engine and inject terms
-                if current_jp and hasattr(self, 'lore_engine'):
-                    # scan_text returns a list of tuples: [("剛化", "Harden"), ...]
+
+                if current_jp and hasattr(self, "lore_engine"):
                     relevant_terms = self.lore_engine.scan_text(current_jp)
                     print(f"DEBUG: Found terms for AI: {relevant_terms}")
-                    
                     if relevant_terms:
                         sys_prompt += "\n\nMANDATORY GLOSSARY TERMS FOR THIS LINE:\n"
                         for jp, en in relevant_terms:
@@ -830,16 +1093,15 @@ class SharedEditorMixin:
 
                 messages = [
                     {"role": "system", "content": sys_prompt},
-                    {"role": "user", "content": user_msg},
+                    {"role": "user",   "content": user_msg},
                 ]
-                
+
                 res = client.chat(messages, model=model)
             except Exception as e:
                 print(f"DEBUG THREAD CRASH: {e}")
-                
+
             def finalize():
                 self.chat_history.config(state="normal")
-                # Remove the ⏳ Generating… placeholder
                 ranges = self.chat_history.tag_ranges("generating")
                 if ranges:
                     self.chat_history.delete(ranges[0], ranges[-1])
@@ -864,8 +1126,7 @@ class SharedEditorMixin:
     # ------------------------------------------------------------------
 
     def _bind_chat_extras(self):
-        """Attach a right-click context menu to chat_history.
-        Called from setup_ui after chat_history is created."""
+        """Attach a right-click context menu to chat_history."""
         ctx_menu = tk.Menu(self.chat_history, tearoff=0)
         ctx_menu.add_command(label="Copy selection to input",
                              command=self._chat_copy_to_input)
@@ -902,7 +1163,7 @@ class SharedEditorMixin:
                 self.chat_input.insert(tk.END, sel)
                 self.chat_input.focus_set()
         except tk.TclError:
-            pass  # nothing selected
+            pass
 
     def _chat_resend_last(self):
         """Pull the most recent YOU: message back into chat_input for editing/resending."""
@@ -911,7 +1172,6 @@ class SharedEditorMixin:
         if idx == -1:
             return
         msg = content[idx + 6:].strip()
-        # Truncate at the next message boundary so we don't grab multiple turns
         for marker in ("\nYOU: ", "\nAI: ", "\n⏳"):
             m = msg.find(marker)
             if m != -1:
