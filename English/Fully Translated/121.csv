@@ -1,4 +1,4 @@
-0,,カデル,Cadell,ui\00_message\npc\npc_name.gmd,\npc\npc_common.arc,npc_common.arc,643,
+﻿0,,カデル,Cadell,ui\00_message\npc\npc_name.gmd,\npc\npc_common.arc,npc_common.arc,643,
 0,,ガラダの護衛戦士,Gearóid's Escort Guard,ui\00_message\npc\npc_name.gmd,\npc\npc_common.arc,npc_common.arc,644,
 0,,ガラダの護衛戦士,Gearóid's Escort Guard,ui\00_message\npc\npc_name.gmd,\npc\npc_common.arc,npc_common.arc,645,
 0,,ノーラ,Nora,ui\00_message\npc\npc_name.gmd,\npc\npc_common.arc,npc_common.arc,646,
@@ -589,8 +589,7 @@ of the target vocation.",ui\00_message\orb_devote\orb_gain_param_info.gmd,\ui\uG
 29,ORB_GAIN_PARAM_INFO_30,ジョブ専用アイテムバッグ枠の拡張,Increase number of job bag slots.,ui\00_message\orb_devote\orb_gain_param_info.gmd,\ui\uGUIJobOrbTree.arc,uGUIJobOrbTree.arc,29,
 0,PACKAGE_QUEST_1,王家を救いし料理番,Save the Royal Family Cook,ui\00_message\package_quest\package_quest.gmd,\game_common.arc,game_common.arc,0,
 1,PACKAGE_QUEST_2,奪還を指揮せし異才者,Rescue the Genius Commander,ui\00_message\package_quest\package_quest.gmd,\game_common.arc,game_common.arc,1,
-2,PACKAGE_QUEST_3,暗部を暴きし暗躍者,"Expose the Dark Side to the One
-Operating behind the Scenes",ui\00_message\package_quest\package_quest.gmd,\game_common.arc,game_common.arc,2,
+2,PACKAGE_QUEST_3,暗部を暴きし暗躍者,Unmasker of Dark Deeds,ui\00_message\package_quest\package_quest.gmd,\game_common.arc,game_common.arc,2,,
 0,PACKAGE_QUEST_INFO_1,"ティネス砦の奪還に成功した解放軍
 しかし――
 魔軍の占領によって大食堂は瓦礫の山と化し
@@ -603,9 +602,11 @@ Operating behind the Scenes",ui\00_message\package_quest\package_quest.gmd,\game
 Fort Thines. However, due to the occupation
 by the Demon Army, the Dining Hall had turned
 into a pile of rubble, losing all function.
+
 With food running out, the cook Carrie
 stood alone in the desolate dining hall,
 on the brink of despair.
+
 Will there be any way to save her
 in such a situation?",ui\00_message\package_quest\package_quest_info1.gmd,\quest\pqi_01.arc,pqi_01.arc,0,
 0,,ティネス砦の料理番,Fort Thines' Chef,ui\00_message\package_quest\package_quest_info1.gmd,\quest\pqi_01.arc,pqi_01.arc,1,
@@ -621,28 +622,28 @@ in such a situation?",ui\00_message\package_quest\package_quest_info1.gmd,\quest
 天才参謀官""ソネル""
 展望城奪還に尽力した覚者は
 彼と共に""不可能な奪還任務""に挑むこととなる
-","The Liberation Army succeeded
-in retaking Lookout Castle.
+","The Liberation Army succeeded in 
+retaking Lookout Castle.
 However, the remnants of the Demon Army
 escaped into the outer defense zone of the castle
 and continue to hold their ground.
-It was believed that the Liberation Army
-could not possibly reclaim the castle
+
+It's believed that the Liberation Army
+could not possibly hold the castle,
 as they could not allocate sufficient forces
-for its defense. However, there is one person
-who can break through such a situation.
+for its defense. There is, however, one person
+who can break through such a situation;
 A genius staff officer named Sonel,
-who is a member of the Liberation Army.
+a member of the Liberation Army.
+
 The Arisen who played a significant role
 in the recapture of Lookout Castle will join him
-in the ""impossible recapture mission.""
-",ui\00_message\package_quest\package_quest_info2.gmd,\quest\pqi_02.arc,pqi_02.arc,0,
+on this ""impossible mission"".",ui\00_message\package_quest\package_quest_info2.gmd,\quest\pqi_02.arc,pqi_02.arc,0,
 0,,"解放軍の天才参謀官
 作戦の立案だけでなく
-自らもソーサラーとして戦う","Genius Staff Officer of the 
-Liberation Army. Not only does he 
-plan operations, he also 
-fights as a Sorcerer himself.",ui\00_message\package_quest\package_quest_info2.gmd,\quest\pqi_02.arc,pqi_02.arc,1,
+自らもソーサラーとして戦う","Genius Staff Officer of the Liberation Army. Not
+only does he plan operations, he also fights
+as a Sorcerer himself.",ui\00_message\package_quest\package_quest_info2.gmd,\quest\pqi_02.arc,pqi_02.arc,1,
 0,PACKAGE_QUEST_INFO_3,"王都メガドの奪還に成功した解放軍
 しかし――
 メガドの市民は、支配者の圧政に怯え
@@ -651,20 +652,24 @@ fights as a Sorcerer himself.",ui\00_message\package_quest\package_quest_info2.g
 密かに反旗を翻したレジスタンスと
 そのリーダーである暗躍者""メフィス""
 覚者は、メガドの人々の真の平穏を奪還するため
-彼らと共に隠された闇へと挑むこととなる――","Royal Capital Megado successfully recaptured by
-the Liberation Army.
-However, the citizens of Megado live in fear of
-the tyrannical rule of their oppressors,
+彼らと共に隠された闇へと挑むこととなる――","Royal Capital Megado has been successfully 
+recaptured by the Liberation Army.
+
+However, the citizens of Megado still live in fear
+of the tyrannical rule of their oppressors,
 and an unsettling atmosphere lingers in the city.
-In secret opposition to the absolute ruler, a
+
+In secret opposition to this ruler, a
 resistance group has risen, led by a manipulative
-figure known as Mephis.
+figure known as ""Mephis"".""
+
 To reclaim true peace for the people of Megado,
 the Arisen join forces with them, and together,
-they venture into the hidden darkness.",ui\00_message\package_quest\package_quest_info3.gmd,\quest\pqi_03.arc,pqi_03.arc,0,
+they venture into the depths of darkness.",ui\00_message\package_quest\package_quest_info3.gmd,\quest\pqi_03.arc,pqi_03.arc,0,
 0,,"メガドの闇を知る
-謎多き暗躍者","Knowing the darkness of Megado,
-A mysterious and influential figure",ui\00_message\package_quest\package_quest_info3.gmd,\quest\pqi_03.arc,pqi_03.arc,1,
+謎多き暗躍者","A mysterious and influential
+figure who knows of the 
+darkness lurking within Megado.",ui\00_message\package_quest\package_quest_info3.gmd,\quest\pqi_03.arc,pqi_03.arc,1,
 0,PACKAGE_QUEST_SEQUENCE_3,ピレモスへ食料運搬,Piremoth Food Transport,ui\00_message\package_quest\package_quest_sequence_01.gmd,\quest\package_quest\seq_name_01.arc,seq_name_01.arc,0,
 1,PACKAGE_QUEST_SEQUENCE_4,盗賊団のアジトへ食料運搬,Bandit Group Hideout Food Transport,ui\00_message\package_quest\package_quest_sequence_01.gmd,\quest\package_quest\seq_name_01.arc,seq_name_01.arc,1,
 2,PACKAGE_QUEST_SEQUENCE_5,"""幻の食材""を追って――","Chasing the ""Phantom Foodstuff""...",ui\00_message\package_quest\package_quest_sequence_01.gmd,\quest\package_quest\seq_name_01.arc,seq_name_01.arc,2,

@@ -128,6 +128,13 @@ class ConfigManager:
             print(f"Error saving memory: {e}")
 
     def load_all(self):
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        project_root = os.path.dirname(base_dir)
+        terms_dir = os.path.join(project_root, "Terms and references directory")
+        default_bible = os.path.normpath(os.path.join(terms_dir, "DDON_BIBLE_V2.txt")).replace("\\", "/")
+        default_glossary = os.path.normpath(os.path.join(terms_dir, "glossary.csv")).replace("\\", "/")
+        default_assets = os.path.normpath(os.path.join(base_dir, "assets")).replace("\\", "/")
+
         if os.path.exists(self.config_file):
             try:
                 with open(self.config_file, 'r', encoding='utf-8') as f:
@@ -151,8 +158,9 @@ class ConfigManager:
                         "triggers": [],
                         "speaker_archetypes": {},
                         "speaker_notes": {},
-                        "bible_path": "",
-                        "glossary_path": "",
+                        "bible_path": default_bible,
+                        "glossary_path": default_glossary,
+                        "assets_path": default_assets,
                         "archetypes": {},
                         "entry_type_rules": {},
                         "replace_rules": [],
@@ -165,6 +173,17 @@ class ConfigManager:
                     for key, default in keys_defaults.items():
                         if key not in data:
                             data[key] = default
+                        elif key in ["bible_path", "glossary_path", "assets_path"]:
+                            # Always resolve to absolute, or overwrite with default if invalid
+                            val = data[key]
+                            if val:
+                                if not os.path.isabs(val):
+                                    val = os.path.normpath(os.path.join(base_dir, val)).replace("\\", "/")
+                                    data[key] = val
+                                if not os.path.exists(val):
+                                    data[key] = default
+                            else:
+                                data[key] = default
                     return data
             except (json.JSONDecodeError, IOError):
                 print("Config file corrupted, creating new one.")
@@ -176,8 +195,9 @@ class ConfigManager:
             "wall_presets": {"Standard": 7},
             "folders": [],
             "triggers": [],
-            "bible_path": "",
-            "glossary_path": "",
+            "bible_path": default_bible,
+            "glossary_path": default_glossary,
+            "assets_path": default_assets,
             "speaker_archetypes": {},
             "speaker_notes": {},
             "archetypes": {},

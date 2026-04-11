@@ -215,8 +215,8 @@ class SearchWindow(tk.Toplevel):
             messagebox.showinfo("No results", "No valid rows to open.", parent=self)
             return
 
-        from translation_window import CSVTranslationWindow
-        CSVTranslationWindow(self.app, virtual_rows=virtual_rows)
+        from editor_window import EditorWindow
+        EditorWindow(self.app, mode="translate", virtual_rows=virtual_rows)
 
     def on_double_click(self, _=None):
         sel = self.tree.selection()
@@ -235,15 +235,16 @@ class SearchWindow(tk.Toplevel):
         presets      = self.cm.config.get("presets",      {"Standard": 50})
         wall_presets = self.cm.config.get("wall_presets", {"Standard": 7})
 
-        from main import ReviewEditor
-        ReviewEditor(
+        from editor_window import EditorWindow
+        EditorWindow(
             self.app,
-            tag_queue,
-            defaultdict(list),
-            defaultdict(list),
-            defaultdict(list),
-            list(presets.values())[0],
-            list(wall_presets.values())[0],
-            self.cm.config.get("tag_map", {}),
-            self.app.propagate_fix,
+            mode="review",
+            tag_queue=tag_queue,
+            wall_queue=defaultdict(list),
+            dash_queue=defaultdict(list),
+            anach_queue=defaultdict(list),
+            limit=list(presets.values())[0],
+            wall_limit=list(wall_presets.values())[0],
+            tag_map=self.cm.config.get("tag_map", {}),
+            callback=self.app.propagate_fix,
         )

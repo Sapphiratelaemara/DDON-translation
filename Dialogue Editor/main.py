@@ -23,8 +23,7 @@ try:
     from options_module import OptionsMenu
     from api_handler import DeepLClient, OpenRouterClient
     from file_utils import _get_csv_files, _read_csv
-    from review_editor import ReviewEditor
-    from translation_window import CSVTranslationWindow
+    from editor_window import EditorWindow
     from search_window import SearchWindow
 except ImportError as e:
     print(f"CRITICAL ERROR: Missing module file! {e}")
@@ -230,8 +229,11 @@ class CSVProcessorApp:
     def finish_batch(self, limit, wall_limit):
         self.btn_run.config(state="normal")
         if self.tag_q or self.wall_q or self.dash_q or self.anach_q:
-            ReviewEditor(self, self.tag_q, self.wall_q, self.dash_q, self.anach_q,
-                         limit, wall_limit, self.cm.config.get("tag_map", {}), self.propagate_fix)
+            EditorWindow(self, mode="review", 
+                         tag_queue=self.tag_q, wall_queue=self.wall_q, 
+                         dash_queue=self.dash_q, anach_queue=self.anach_q,
+                         limit=limit, wall_limit=wall_limit, 
+                         tag_map=self.cm.config.get("tag_map", {}), callback=self.propagate_fix)
         else:
             messagebox.showinfo("Done", "No issues found!")
 
@@ -337,7 +339,7 @@ class CSVProcessorApp:
         self.lbl_progress.config(text=f"Translated: {translated:,}/{total_lines:,} ({pct:.1f}%)")
 
     def open_translation_mode(self):
-        CSVTranslationWindow(self)
+        EditorWindow(self, mode="translate")
 
     def open_options(self):
         opt_win = OptionsMenu(self.root, self.cm).open_window()

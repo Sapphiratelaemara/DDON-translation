@@ -691,7 +691,7 @@ class SharedEditorMixin:
         if meta is None:
             return
 
-        _asset_dir = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "assets")
+        _asset_dir = self.cm.config.get("assets_path") or _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "assets")
         _font_path = next((p for p in [
             _os.path.join(_asset_dir, "DDONfont.otf"),
             _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "DDONfont.otf"),
@@ -727,7 +727,8 @@ class SharedEditorMixin:
             if not _os.path.exists(png_path):
                 continue
             try:
-                raw = Image.open(png_path).convert("RGBA")
+                with Image.open(png_path) as _img:
+                    raw = _img.convert("RGBA")
                 cropped = raw.crop(meta["crop"])
                 rgb_vals = self.winfo_rgb(self.colors["bg"])
                 bg_rgb = tuple(c >> 8 for c in rgb_vals) + (255,)
@@ -794,7 +795,7 @@ class SharedEditorMixin:
         meta = self._box_meta.get(box_key)
         if meta is None:
             return
-        _asset_dir = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "assets")
+        _asset_dir = self.cm.config.get("assets_path") or _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "assets")
         _font_path = next((p for p in [
             _os.path.join(_asset_dir, "DDONfont.otf"),
             _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "DDONfont.otf"),
@@ -895,7 +896,7 @@ class SharedEditorMixin:
             parent=self)
         if not file_path:
             return
-        asset_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
+        asset_dir = self.cm.config.get("assets_path") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
         os.makedirs(asset_dir, exist_ok=True)
         dest_path = os.path.join(asset_dir, f"{name}_box.png")
         try:
@@ -1078,10 +1079,38 @@ class SharedEditorMixin:
                 current_jp = getattr(self, "jp_source", "")
 
                 sys_prompt = (
-                    "You are a DDON localization assistant. Help the user translate or "
-                    "refine dialogue while respecting the game's medieval fantasy tone "
-                    "and character archetypes."
+                    "You are a Dragon's Dogma Online (DDON) localization assistant. "
+                    "You must strictly adhere to the 'Dragon's Dogma' localization style. "
+                    "This style uses Early Modern English, archaic vocabulary (e.g., 'tis, naught, aught, pray, afore, mayhap, forsooth, arise, pawn), "
+                    "Do not go overboard on the archaic language, it should sound natural in English."
+                    "and a formal medieval fantasy tone. NEVER use modern slang, colloquialisms, or modern contractions (e.g., avoid 'okay', 'gonna', 'don't', 'can't'). "
+                    "CRITICAL RULES: Do NOT use any Japanese honorifics (e.g. -san, -sama, -dono). Use precise, proper English punctuation. "
+                    "Do NOT insert any blank lines or newlines in your response. "
+                    "Translate Japanese dashes as either an ellipsis (...) or a regular em dash (—), when appropriate for the context. "
+                    "Help the user translate or refine dialogue while respecting these rules and the character archetypes."
+                    "Do not add unecessary quotation marks."
+                    "Stay close to the original meaning, but rephrase it to sound more natural in English."
+                    "Things within < and > are tags & should be preserved as-is."
                 )
+
+                if hasattr(self, "archetype_var") and getattr(self, "speaker_name", None):
+                    speaker_arch = self.archetype_var.get()
+                    if speaker_arch and speaker_arch != "(none)":
+                        vals = list(self.archetype_combo["values"])
+                        idx = vals.index(speaker_arch) if speaker_arch in vals else -1
+                        arch_key = self.archetype_keys[idx] if idx >= 0 else None
+                        if arch_key and hasattr(self, "lore_engine") and arch_key in self.lore_engine.archetypes:
+                            arch_data = self.lore_engine.archetypes[arch_key]
+                            sys_prompt += f"\n\nCHARACTER ARCHETYPE FOR {self.speaker_name}:\n{arch_data.get('notes', '')}"
+
+                if hasattr(self, "lore_engine"):
+                    # Inject archaic suggestions for any modern words detected in the drafted English
+                    anach_hits = self.lore_engine.scan_anachronisms(user_msg)
+                    if anach_hits:
+                        sys_prompt += "\n\nSUGGESTED ARCHAIC ALTERNATIVES (use these instead of modern words if appropriate):\n"
+                        for word, suggestion in anach_hits:
+                            if suggestion:
+                                sys_prompt += f"- Instead of '{word}', consider '{suggestion}'\n"
 
                 if current_jp and hasattr(self, "lore_engine"):
                     relevant_terms = self.lore_engine.scan_text(current_jp)
@@ -1099,6 +1128,7 @@ class SharedEditorMixin:
                 res = client.chat(messages, model=model)
             except Exception as e:
                 print(f"DEBUG THREAD CRASH: {e}")
+                res = {"error": str(e)}
 
             def finalize():
                 self.chat_history.config(state="normal")
@@ -1106,9 +1136,10 @@ class SharedEditorMixin:
                 if ranges:
                     self.chat_history.delete(ranges[0], ranges[-1])
                 if "text" in res:
-                    self.chat_history.insert(tk.END, f"\nAI: {res['text']}\n", "ai")
+                    clean_text = res["text"].replace("\r", "")
+                    self.chat_history.insert(tk.END, f"\nAI: {clean_text}\n", "ai")
                     self.chat_history.tag_config("ai", foreground=self.colors["fg"])
-                    self.cm.set_cached("openrouter", cache_key, res["text"])
+                    self.cm.set_cached("openrouter", cache_key, clean_text)
                 else:
                     self.chat_history.insert(tk.END, f"\nERROR: {res.get('error')}\n", "error")
                     self.chat_history.tag_config("error", foreground="#ff4444")
@@ -1130,10 +1161,13 @@ class SharedEditorMixin:
         ctx_menu = tk.Menu(self.chat_history, tearoff=0)
         ctx_menu.add_command(label="Copy selection to input",
                              command=self._chat_copy_to_input)
+        ctx_menu.add_command(label="Send block to English box",
+                             command=self._chat_send_to_english)
         ctx_menu.add_command(label="Resend last user message",
                              command=self._chat_resend_last)
 
         def _show_ctx(e):
+            self._chat_click_idx = self.chat_history.index(f"@{e.x},{e.y}")
             try:
                 ctx_menu.tk_popup(e.x_root, e.y_root)
             finally:
@@ -1149,6 +1183,7 @@ class SharedEditorMixin:
         self.chat_input.delete(1.0, tk.END)
         self.chat_input.insert(tk.END, msg)
         self.chat_input.focus_set()
+        self.send_ai_chat()
 
     def _chat_copy_to_input(self):
         """Copy the selected chat_history text into chat_input for editing/resending."""
@@ -1164,6 +1199,36 @@ class SharedEditorMixin:
                 self.chat_input.focus_set()
         except tk.TclError:
             pass
+
+    def _chat_send_to_english(self):
+        """Copy the selected chat_history text into the main English text box."""
+        sel = ""
+        try:
+            sel = self.chat_history.get(tk.SEL_FIRST, tk.SEL_LAST).strip()
+        except tk.TclError:
+            pass
+
+        if not sel and hasattr(self, "_chat_click_idx"):
+            click_idx = self._chat_click_idx
+            ranges = self.chat_history.tag_ranges("ai")
+            for i in range(0, len(ranges), 2):
+                start = ranges[i]
+                end = ranges[i+1]
+                if self.chat_history.compare(start, "<=", click_idx) and self.chat_history.compare(click_idx, "<=", end):
+                    sel = self.chat_history.get(start, end).strip()
+                    break
+
+        if sel:
+            for prefix in ("YOU: ", "AI: "):
+                if sel.startswith(prefix):
+                    sel = sel[len(prefix):].strip()
+                    break
+            
+            sel = sel.replace("\r", "")
+            self.txt.delete(1.0, tk.END)
+            self.txt.insert(tk.END, sel)
+            self._update_counters()
+            self._update_preview()
 
     def _chat_resend_last(self):
         """Pull the most recent YOU: message back into chat_input for editing/resending."""

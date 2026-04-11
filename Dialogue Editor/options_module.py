@@ -91,6 +91,13 @@ class OptionsMenu:
         self.gloss_ent.grid(row=1, column=1, pady=5)
         tk.Button(ref_frame, text="...", command=lambda: self.pick_file("glossary_path", self.gloss_ent)).grid(row=1, column=2)
 
+        # Assets Folder Path
+        tk.Label(ref_frame, text="Assets Folder:").grid(row=2, column=0, sticky="w")
+        self.assets_ent = tk.Entry(ref_frame, width=50)
+        self.assets_ent.insert(0, self.cm.config.get("assets_path", ""))
+        self.assets_ent.grid(row=2, column=1, pady=5)
+        tk.Button(ref_frame, text="...", command=lambda: self.pick_directory("assets_path", self.assets_ent)).grid(row=2, column=2)
+
         # --- SECTION 5: Archetypes ---
         arch_frame = tk.LabelFrame(w, text=" Archetypes ", padx=10, pady=10)
         arch_frame.pack(fill="x", padx=15, pady=5)
@@ -448,6 +455,13 @@ class OptionsMenu:
             # Update the internal config
             self.cm.config[key] = path
 
+    def pick_directory(self, key, entry_widget):
+        path = filedialog.askdirectory()
+        if path:
+            entry_widget.delete(0, tk.END)
+            entry_widget.insert(0, path)
+            self.cm.config[key] = path
+
     def test_deepl(self):
         key = self.deepl_key_ent.get().strip()
         if not key:
@@ -506,6 +520,7 @@ class OptionsMenu:
     def save_and_close(self):
         self.cm.config["bible_path"] = self.bible_ent.get()
         self.cm.config["glossary_path"] = self.gloss_ent.get()
+        self.cm.config["assets_path"] = self.assets_ent.get()
         self.cm.set_key("deepl_api_key", self.deepl_key_ent.get().strip())
         self.cm.config["deepl_target_lang"] = self.deepl_lang_ent.get().strip() or "EN-US"
         self.cm.set_key("openrouter_api_key", self.or_key_ent.get().strip())

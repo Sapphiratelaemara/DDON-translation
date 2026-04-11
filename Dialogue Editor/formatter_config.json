@@ -1,11 +1,9 @@
 {
     "folders": [
-        "D:/DDON-translation/English/Fully Translated",
-        "D:/DDON-translation/English/splits"
+        "C:/DDON-translation/English/Fully Translated",
+        "C:/DDON-translation/English/splits"
     ],
-    "triggers": [
-        "ui\\00_message\\npc\\base\\n1616"
-    ],
+    "triggers": [],
     "tag_map": {
         "PLAYER_NAME": 21,
         "PAWN_NAME": 12,
@@ -1498,10 +1496,11 @@
         "Dialogue Box": 50,
         "Chatbox": 43,
         "RimWarp": 40,
-        "Quest Info": 40
+        "Quest Info": 40,
+        "Substory": 31
     },
-    "bible_path": "D:/DDON-translation/Terms and references directory/DDON_BIBLE_V2.txt",
-    "glossary_path": "D:/DDON-translation/Terms and references directory/glossary.csv",
+    "bible_path": "C:/DDON-translation/Terms and references directory/DDON_BIBLE_V2.txt",
+    "glossary_path": "C:/DDON-translation/Terms and references directory/glossary.csv",
     "dark_mode": false,
     "wall_presets": {
         "Dialogue Box": 12,
@@ -1525,7 +1524,7 @@
         "Razanailt": "Male",
         "Shalom": "Bathhouse NPC?"
     },
-    "wall_preset": "Dialogue Box",
+    "wall_preset": "Unlimited",
     "in_universe": false,
     "tag_display": {
         "UNTN GS": "Golden Gemstones",
@@ -3334,12 +3333,24 @@
             "text_x": 73,
             "text_y": 20,
             "fg": "#ffffff"
+        },
+        "substory": {
+            "font_sz": 18,
+            "line_spacing": 1,
+            "crop": [
+                2,
+                256,
+                416,
+                451
+            ],
+            "text_x": 26,
+            "text_y": 30,
+            "fg": "#2f2b2b"
         }
     },
     "deepl_target_lang": "EN-US",
     "openrouter_models": [
         "arcee-ai/trinity-large-preview:free",
-        "arcee-ai/trinity-mini:free",
         "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
         "google/gemma-3-12b-it:free",
         "google/gemma-3-27b-it:free",
@@ -3368,5 +3379,6 @@
         "qwen/qwen3-next-80b-a3b-instruct:free",
         "z-ai/glm-4.5-air:free"
     ],
-    "selected_openrouter_model": "arcee-ai/trinity-mini:free"
+    "selected_openrouter_model": "arcee-ai/trinity-large-preview:free",
+    "assets_path": "c:/DDON-translation/Dialogue Editor/assets"
 }
