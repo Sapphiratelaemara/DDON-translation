@@ -45,8 +45,19 @@ class LoreEngine:
 
                     reader = csv.reader(f, dialect=dialect)
                     for row in reader:
-                        if len(row) >= 2 and row[0].strip():
-                            self.lore_map[row[0].strip()] = row[1].strip()
+                        if len(row) >= 1 and row[0].strip():
+                            jp = row[0].strip()
+                            en = row[1].strip() if len(row) >= 2 else ""
+                            # Column 5 (Description [ja]) often contains additional suggestions
+                            desc = row[5].strip() if len(row) >= 6 else ""
+                            
+                            parts = []
+                            if en: parts.append(en)
+                            if desc and desc != en: parts.append(desc)
+                            
+                            if parts:
+                                # Join with a distinct separator for internal use
+                                self.lore_map[jp] = " | ".join(parts)
             except Exception as e:
                 print(f"Lore Engine Error on {path}: {e}")
 

@@ -19,6 +19,7 @@ from translator_engine import TranslationEngine
 from lore_engine import LoreEngine
 from file_utils import _read_csv
 from editor_mixin import SharedEditorMixin
+from gloss_engine import GlossEngine, GLOSS_AVAILABLE
 
 
 class EditorWindow(SharedEditorMixin, tk.Toplevel):
@@ -123,6 +124,10 @@ class EditorWindow(SharedEditorMixin, tk.Toplevel):
         self._tip_visible   = False
         self._tip_label     = tk.Label(self)
 
+        # Gloss engine — shares the lore map so project terms take priority
+        self._gloss_engine  = GlossEngine(self.lore_engine.lore_map)
+        self._gloss_job_id  = 0   # incremented on each new load to cancel stale callbacks
+
         self._is_translating = False
         self._is_chatting    = False
 
@@ -181,6 +186,16 @@ class EditorWindow(SharedEditorMixin, tk.Toplevel):
     # ------------------------------------------------------------------
     # UI build
     # ------------------------------------------------------------------
+
+    def reload_glossary(self):
+        """Refresh glossary data from disk and update dependent engines."""
+        self.lore_engine.load_data(
+            self.cm.config.get("bible_path",    ""),
+            self.cm.config.get("glossary_path", ""))
+        self._gloss_engine.update_lore_map(self.lore_engine.lore_map)
+        # Re-populate current item to reflect changes in current view
+        if hasattr(self, "jp_source") and self.jp_source:
+            self._populate_editor(self.jp_source)
 
     def _setup_ui(self):
         self.configure(bg=self.colors["bg"])
@@ -524,7 +539,30 @@ class EditorWindow(SharedEditorMixin, tk.Toplevel):
         self.make_context_menu(self.jp_txt)
         self.jp_txt.pack(fill="both", expand=True)
 
-        # ── Adjacent context ──
+        # ── Gloss panel ──
+        gloss_hdr = tk.Frame(left_f, bg=self.colors["bg"])
+        gloss_hdr.pack(fill="x", pady=(6, 0))
+        tk.Label(gloss_hdr, text="Gloss", fg=self.colors["label_fg"],
+                 bg=self.colors["bg"], font=("Arial", 8, "bold")).pack(side="left")
+        self._gloss_status_lbl = tk.Label(
+            gloss_hdr, text="" if GLOSS_AVAILABLE else "⚠ janome/jamdict not installed",
+            fg=self.colors["label_fg"], bg=self.colors["bg"], font=("Arial", 8, "italic"))
+        self._gloss_status_lbl.pack(side="left", padx=6)
+
+        gloss_outer = tk.Frame(left_f, bg=self.colors["jp_bg"],
+                               highlightthickness=1,
+                               highlightbackground=self.colors["sidebar_bg"])
+        gloss_outer.pack(fill="x", pady=(0, 4))
+        gloss_scroll = tk.Scrollbar(gloss_outer, orient="horizontal")
+        gloss_scroll.pack(side="bottom", fill="x")
+        self.gloss_txt = tk.Text(
+            gloss_outer, height=3, font=("Consolas", 9),
+            bg=self.colors["jp_bg"], fg=self.colors["fg"],
+            bd=0, padx=6, pady=4, relief="flat",
+            wrap="none", state="disabled", cursor="arrow",
+            xscrollcommand=gloss_scroll.set)
+        gloss_scroll.config(command=self.gloss_txt.xview)
+        self.gloss_txt.pack(fill="x")
         tk.Frame(left_f, bg=self.colors["label_fg"], height=1).pack(fill="x", pady=(4, 0))
         tk.Label(left_f, text="Context", fg=self.colors["label_fg"],
                  bg=self.colors["bg"], font=("Arial", 8, "bold")).pack(anchor="w")
@@ -776,15 +814,29 @@ class EditorWindow(SharedEditorMixin, tk.Toplevel):
             tag_display = self.cm.config.get("tag_display", {})
             for jp, en in matches:
                 self.lore_list.insert(tk.END, f"• {jp}:  ", f"lore_label_{hash(jp)}")
-                en_tag = f"lore_en_{hash(jp)}"
-                self.lore_list.insert(tk.END, en, en_tag)
-                self.lore_list.tag_config(en_tag, foreground="#6fb3ff", underline=True)
-                self.lore_list.tag_bind(en_tag, "<Button-1>",
-                                        lambda e, w=en: self.quick_insert(w))
+                
+                # Split multi-suggestion strings (comma, semicolon, pipe, newline, slash)
+                suggestions = re.split(r'\s*[,;\|\n/]\s*', en)
+                suggestions = [s.strip() for s in suggestions if s.strip()]
+                # Filter out headers like "less common:"
+                suggestions = [s for s in suggestions if not re.match(r'^(less|lesser|lesson)\s+common:?$', s, re.I)]
+                
+                for i, sug in enumerate(suggestions):
+                    en_tag = f"lore_en_{hash(jp)}_{i}"
+                    self.lore_list.insert(tk.END, sug, en_tag)
+                    self.lore_list.tag_config(en_tag, foreground="#6fb3ff", underline=True)
+                    self.lore_list.tag_bind(en_tag, "<Button-1>",
+                                            lambda e, w=sug: self.quick_insert(w))
+                    if i < len(suggestions) - 1:
+                        self.lore_list.insert(tk.END, " | ")
+                
                 self.lore_list.insert(tk.END, "\n")
+                
+                # Clicking the highlighted Japanese word in the source box inserts the first suggestion
+                j_insert = suggestions[0] if suggestions else en
                 jtag = f"lore_{hash(jp)}"
                 self.jp_txt.tag_config(jtag, foreground="#6fb3ff", underline=True)
-                self.jp_txt.tag_bind(jtag, "<Button-1>", lambda e, w=en: self.quick_insert(w))
+                self.jp_txt.tag_bind(jtag, "<Button-1>", lambda e, w=j_insert: self.quick_insert(w))
                 self._apply_tag_to_text(jp, jtag)
             if tag_display:
                 shown = set()
@@ -833,6 +885,112 @@ class EditorWindow(SharedEditorMixin, tk.Toplevel):
 
         self.jp_txt.bind("<Motion>", _jp_motion)
         self.jp_txt.bind("<Leave>",  _jp_leave)
+
+        # Kick off async gloss for the new JP source
+        self._load_gloss(jp_source)
+
+    # ==================================================================
+    # Gloss panel
+    # ==================================================================
+
+    # Tag colours for POS categories (light/dark aware via fallback)
+    _GLOSS_POS_FG = {
+        "noun":    "#6fb3ff",
+        "verb":    "#7ddb8a",
+        "adj":     "#f0b429",
+        "adv":     "#e88aff",
+        "interj":  "#ff8a80",
+        "other":   "#cccccc",
+    }
+
+    def _load_gloss(self, jp_text: str) -> None:
+        """Start an async gloss lookup and schedule _render_gloss on completion."""
+        # Clear + show spinner
+        self.gloss_txt.config(state="normal")
+        self.gloss_txt.delete(1.0, tk.END)
+        if GLOSS_AVAILABLE and jp_text and jp_text.strip():
+            self.gloss_txt.insert(tk.END, "  analysing…")
+            self._gloss_status_lbl.config(text="")
+        self.gloss_txt.config(state="disabled")
+
+        if not GLOSS_AVAILABLE or not jp_text or not jp_text.strip():
+            return
+
+        # Bump job counter so a stale thread's callback becomes a no-op
+        self._gloss_job_id += 1
+        job_id = self._gloss_job_id
+
+        def _callback(tokens):
+            # Schedule render on the Tk thread; discard if a newer job superseded this one
+            self.after(0, lambda: self._render_gloss(tokens, job_id))
+
+        self._gloss_engine.gloss_async(jp_text, _callback)
+
+    def _render_gloss(self, tokens, job_id: int) -> None:
+        """Populate gloss_txt with clickable, colour-coded morpheme spans."""
+        if job_id != self._gloss_job_id:
+            return  # superseded by a newer load
+
+        self.gloss_txt.config(state="normal")
+        self.gloss_txt.delete(1.0, tk.END)
+
+        # Remove any previously registered gloss click/hover bindings
+        stale_tags = [t for t in self.gloss_txt.tag_names() if t.startswith("_gt_")]
+        for tag in stale_tags:
+            self.gloss_txt.tag_delete(tag)
+
+        # Tooltip label (reuse window-level _tip_label)
+        tip = self._tip_label
+
+        for i, tok in enumerate(tokens):
+            surface = tok.surface
+            cands   = tok.candidates
+
+            if not cands or not surface.strip():
+                # Non-glossable spacer — render as plain dim text
+                plain_tag = f"_gt_plain_{i}"
+                self.gloss_txt.insert(tk.END, surface, plain_tag)
+                self.gloss_txt.tag_config(plain_tag,
+                                          foreground=self.colors["label_fg"])
+                continue
+
+            # Colour by POS; lore terms get a distinct tint
+            base_fg = "#e8c56a" if tok.is_lore else \
+                      self._GLOSS_POS_FG.get(tok.pos, self._GLOSS_POS_FG["other"])
+
+            tag_name = f"_gt_{i}"
+            insert_str = f"{surface}[{cands[0]}]"
+            if len(cands) > 1:
+                insert_str += f"  "   # breathing room between tokens
+
+            self.gloss_txt.insert(tk.END, insert_str, tag_name)
+            self.gloss_txt.tag_config(tag_name, foreground=base_fg,
+                                       underline=(len(cands) > 1))
+
+            # Click → paste first candidate into English box
+            def _on_click(e, c=cands[0]):
+                self.txt.insert(tk.INSERT, c)
+            self.gloss_txt.tag_bind(tag_name, "<Button-1>", _on_click)
+
+            # Hover → show all candidates in tooltip
+            all_cands_str = "  /  ".join(cands)
+
+            def _on_enter(e, s=all_cands_str, is_lore=tok.is_lore):
+                label = f"{'★ lore  ' if is_lore else ''}{s}"
+                tip.config(text=label,
+                           bg="#2d2d2d", fg="white",
+                           font=("Arial", 9), bd=1, relief="solid", padx=4, pady=2)
+                tip.place(x=e.x_root - self.winfo_rootx() + 16,
+                          y=e.y_root - self.winfo_rooty() + 14)
+                tip.lift()
+
+            def _on_leave(e):
+                tip.place_forget()
+
+            self.gloss_txt.tag_bind(tag_name, "<Enter>", _on_enter)
+            self.gloss_txt.tag_bind(tag_name, "<Leave>", _on_leave)
+
+        self.gloss_txt.config(state="disabled")
 
     # ==================================================================
     # Review-mode sidebar content

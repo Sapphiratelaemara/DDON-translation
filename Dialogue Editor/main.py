@@ -48,6 +48,7 @@ class CSVProcessorApp:
         self.prog_var = tk.DoubleVar(value=0.0)
         self.tag_q, self.wall_q, self.dash_q, self.anach_q = defaultdict(list), defaultdict(list), defaultdict(list), defaultdict(list)
         self.engine = TranslationEngine(self.cm.config.get("tag_map", {}))
+        self.active_editors = []   # Track open EditorWindow instances
         self.apply_theme_colors()
         self.setup_ui()
 
@@ -229,11 +230,12 @@ class CSVProcessorApp:
     def finish_batch(self, limit, wall_limit):
         self.btn_run.config(state="normal")
         if self.tag_q or self.wall_q or self.dash_q or self.anach_q:
-            EditorWindow(self, mode="review", 
+            win = EditorWindow(self, mode="review", 
                          tag_queue=self.tag_q, wall_queue=self.wall_q, 
                          dash_queue=self.dash_q, anach_queue=self.anach_q,
                          limit=limit, wall_limit=wall_limit, 
                          tag_map=self.cm.config.get("tag_map", {}), callback=self.propagate_fix)
+            self.active_editors.append(win)
         else:
             messagebox.showinfo("Done", "No issues found!")
 
@@ -339,7 +341,8 @@ class CSVProcessorApp:
         self.lbl_progress.config(text=f"Translated: {translated:,}/{total_lines:,} ({pct:.1f}%)")
 
     def open_translation_mode(self):
-        EditorWindow(self, mode="translate")
+        win = EditorWindow(self, mode="translate")
+        self.active_editors.append(win)
 
     def open_options(self):
         opt_win = OptionsMenu(self.root, self.cm).open_window()
@@ -357,6 +360,14 @@ class CSVProcessorApp:
         self.wall_preset_menu.config(values=self.wall_preset_names)
         if self.preset_var.get() not in self.preset_names and self.preset_names:
             self.preset_var.set(self.preset_names[0])
+        
+        # Notify active editor windows to reload their glossary maps
+        self.active_editors = [w for w in self.active_editors if w.winfo_exists()]
+        for w in self.active_editors:
+            try:
+                w.reload_glossary()
+            except Exception:
+                pass
 
     def add_folder(self):
         f = filedialog.askdirectory()
