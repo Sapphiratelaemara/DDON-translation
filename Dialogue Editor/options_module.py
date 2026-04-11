@@ -106,9 +106,82 @@ class OptionsMenu:
         tk.Button(a_btns, text="Delete", width=10, command=self.delete_archetype).pack(pady=2)
         tk.Button(a_btns, text="Reset\nDefaults", width=10, command=self.reset_archetypes).pack(pady=2)
 
+        # --- SECTION 6: Regex Sandbox ---
+        regex_frame = tk.LabelFrame(w, text=" Regex Playground ", padx=10, pady=10)
+        regex_frame.pack(fill="x", padx=15, pady=5)
+        
+        tk.Label(regex_frame, text="Regex Pattern:").grid(row=0, column=0, sticky="w")
+        self.reg_pattern = tk.Entry(regex_frame, width=30)
+        self.reg_pattern.grid(row=0, column=1, sticky="w", padx=5)
+        
+        tk.Label(regex_frame, text="Replacement:").grid(row=0, column=2, sticky="w")
+        self.reg_repl = tk.Entry(regex_frame, width=20)
+        self.reg_repl.grid(row=0, column=3, sticky="w", padx=5)
+        
+        tk.Label(regex_frame, text="Test Input:").grid(row=1, column=0, sticky="nw", pady=5)
+        self.reg_in = tk.Text(regex_frame, height=2, width=50)
+        self.reg_in.grid(row=1, column=1, columnspan=3, sticky="w", pady=5)
+        
+        tk.Label(regex_frame, text="Result:").grid(row=2, column=0, sticky="nw")
+        self.reg_out = tk.Text(regex_frame, height=2, width=50, state="disabled", bg="#e8e8e8")
+        self.reg_out.grid(row=2, column=1, columnspan=3, sticky="w")
+        
+        for widget in (self.reg_pattern, self.reg_repl):
+            widget.bind("<KeyRelease>", self._run_sandbox)
+        self.reg_in.bind("<KeyRelease>", self._run_sandbox)
+
+        # --- SECTION 7: API Settings ---
+        api_frame = tk.LabelFrame(w, text=" API Settings (DeepL & OpenRouter) ", padx=10, pady=10)
+        api_frame.pack(fill="x", padx=15, pady=5)
+
+        # DeepL Key
+        tk.Label(api_frame, text="DeepL API Key:").grid(row=0, column=0, sticky="w")
+        self.deepl_key_ent = tk.Entry(api_frame, width=40, show="*")
+        self.deepl_key_ent.insert(0, self.cm.get_key("deepl_api_key"))
+        self.deepl_key_ent.grid(row=0, column=1, sticky="w", padx=5)
+        tk.Button(api_frame, text="Test", command=self.test_deepl).grid(row=0, column=2, padx=2)
+
+        # DeepL Target Lang
+        tk.Label(api_frame, text="Target Lang:").grid(row=1, column=0, sticky="w")
+        self.deepl_lang_ent = tk.Entry(api_frame, width=10)
+        self.deepl_lang_ent.insert(0, self.cm.config.get("deepl_target_lang", "EN-US"))
+        self.deepl_lang_ent.grid(row=1, column=1, sticky="w", padx=5, pady=5)
+        tk.Label(api_frame, text="(e.g. EN-US, PT-BR)", font=("Arial", 8, "italic")).grid(row=1, column=2, sticky="w")
+
+        # OpenRouter Key
+        tk.Label(api_frame, text="OpenRouter Key:").grid(row=2, column=0, sticky="w")
+        self.or_key_ent = tk.Entry(api_frame, width=40, show="*")
+        self.or_key_ent.insert(0, self.cm.get_key("openrouter_api_key"))
+        self.or_key_ent.grid(row=2, column=1, sticky="w", padx=5)
+        tk.Button(api_frame, text="Test", command=self.test_openrouter).grid(row=2, column=2, padx=2)
+
+        # OpenRouter Models Row
+        tk.Label(api_frame, text="AI Models:").grid(row=3, column=0, sticky="w")
+        self.show_paid_var = tk.BooleanVar(value=False)
+        tk.Checkbutton(api_frame, text="Show Paid", variable=self.show_paid_var).grid(row=3, column=1, sticky="w")
+        tk.Button(api_frame, text="Refresh Models List", command=self.refresh_openrouter_models).grid(row=3, column=1, sticky="e", padx=(0, 32))
+
         tk.Button(w, text="SAVE ALL CHANGES", bg="#d1ecf1", height=2, command=self.save_and_close).pack(pady=20)
         
         return self.win # CRITICAL: Allows main.py to wait for this window
+
+    def _run_sandbox(self, e=None):
+        import re
+        pattern = self.reg_pattern.get()
+        repl = self.reg_repl.get()
+        text_in = self.reg_in.get("1.0", tk.END).strip("\n")
+        
+        self.reg_out.config(state="normal")
+        self.reg_out.delete("1.0", tk.END)
+        if not pattern:
+            self.reg_out.insert("1.0", text_in)
+        else:
+            try:
+                res = re.sub(pattern, repl, text_in)
+                self.reg_out.insert("1.0", res)
+            except Exception as ex:
+                self.reg_out.insert("1.0", f"Error: {ex}")
+        self.reg_out.config(state="disabled")
 
     # --- TAG LOGIC ---
     def refresh_tags(self):
@@ -375,9 +448,68 @@ class OptionsMenu:
             # Update the internal config
             self.cm.config[key] = path
 
+    def test_deepl(self):
+        key = self.deepl_key_ent.get().strip()
+        if not key:
+            messagebox.showwarning("Warning", "Enter a DeepL key first.")
+            return
+        from api_handler import DeepLClient
+        client = DeepLClient(key)
+        res = client.translate("テスト")
+        if "text" in res:
+            messagebox.showinfo("Success", f"Connection OK!\nResult: {res['text']}")
+        else:
+            messagebox.showerror("Error", f"Failed: {res['error']}")
+
+    def test_openrouter(self):
+        key = self.or_key_ent.get().strip()
+        if not key:
+            messagebox.showwarning("Warning", "Enter an OpenRouter key first.")
+            return
+        from api_handler import OpenRouterClient
+        client = OpenRouterClient(key)
+        res = client.chat([{"role": "user", "content": "Respond with 'Connected'"}])
+        if "text" in res:
+            messagebox.showinfo("Success", f"Connection OK!\nResult: {res['text']}")
+        else:
+            messagebox.showerror("Error", f"Failed: {res['error']}")
+
+    def refresh_openrouter_models(self):
+        key = self.or_key_ent.get().strip()
+        if not key:
+            messagebox.showwarning("Warning", "Enter an OpenRouter key to fetch current models.")
+            return
+            
+        from api_handler import OpenRouterClient
+        client = OpenRouterClient(key)
+        
+        # Show busy state
+        orig_title = self.win.title()
+        self.win.title("Fetching Models... Please wait...")
+        self.win.config(cursor="watch")
+        self.win.update()
+        
+        try:
+            free_only = not self.show_paid_var.get()
+            models = client.fetch_models(free_only=free_only)
+            if models:
+                self.cm.config["openrouter_models"] = models
+                messagebox.showinfo("Success", f"Updated! Found {len(models)} models.")
+            else:
+                messagebox.showerror("Error", "No models found.")
+        except Exception as e:
+            messagebox.showerror("Error", f"Fetch failed: {e}")
+        finally:
+            self.win.title(orig_title)
+            self.win.config(cursor="")
+
     def save_and_close(self):
         self.cm.config["bible_path"] = self.bible_ent.get()
         self.cm.config["glossary_path"] = self.gloss_ent.get()
+        self.cm.set_key("deepl_api_key", self.deepl_key_ent.get().strip())
+        self.cm.config["deepl_target_lang"] = self.deepl_lang_ent.get().strip() or "EN-US"
+        self.cm.set_key("openrouter_api_key", self.or_key_ent.get().strip())
+        
         if "presets" not in self.cm.config:
             self.cm.config["presets"] = {"Standard": 50}
         if "wall_presets" not in self.cm.config:

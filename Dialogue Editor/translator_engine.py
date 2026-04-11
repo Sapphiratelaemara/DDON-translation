@@ -1,8 +1,9 @@
 import re
 
 # Punctuation after which a manual line break is considered intentional and preserved.
-# Also includes > so lines ending with a tag are never merged forward.
-_BREAK_PUNCT = r'[.!?;:,\—\"\'」』\)\]>]'
+# Only terminal/sentence-ending punctuation — commas, colons, dashes are mid-sentence
+# and should NOT prevent merging with the following line.
+_BREAK_PUNCT = r'[.!?]'
 
 class TranslationEngine:
     def __init__(self, tag_map=None):
