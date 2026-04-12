@@ -617,7 +617,8 @@ class EditorWindow(SharedEditorMixin, tk.Toplevel):
                 self._on_close()
                 return
 
-        txt = self.current_texts[self.current_idx].replace("\r", "")
+        orig_txt = self.current_texts[self.current_idx]
+        txt = orig_txt.replace("\r", "")
         self.override_var.set(False)
         self.info_lbl.config(text=f"REVIEWING: {self.current_idx+1}/{len(self.current_texts)}")
         self.txt.delete(1.0, tk.END)
@@ -625,7 +626,7 @@ class EditorWindow(SharedEditorMixin, tk.Toplevel):
         self.txt.edit_reset()
         self.txt.focus_set()
 
-        first_inst = self.queues[self.current_category][txt][0]
+        first_inst = self.queues[self.current_category][orig_txt][0]
         try:
             _, _, rows = _read_csv(first_inst['path'])
             row_data          = rows[first_inst['row_idx']]
@@ -644,7 +645,7 @@ class EditorWindow(SharedEditorMixin, tk.Toplevel):
         self._populate_editor(jp_source, txt)
 
         # Review-specific sidebar content
-        self._populate_review_sidebar(txt)
+        self._populate_review_sidebar(orig_txt)
 
         self.lore_list.config(state="disabled")
         self.jp_txt.config(state="disabled")
