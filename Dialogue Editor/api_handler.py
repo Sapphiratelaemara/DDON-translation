@@ -67,14 +67,18 @@ class OpenRouterClient:
         try:
             response = requests.post(self.url, headers=headers, json=payload, timeout=30)
             if response.status_code == 401:
-                return {"error": "Invalid OpenRouter API key (401 Unauthorized)."}
+                return {"error": "Invalid OpenRouter API key (401 Unauthorized). Please check your API key in Settings."}
+            if response.status_code == 403:
+                return {"error": "OpenRouter API key forbidden (403). The API key may be invalid, expired, or lack permissions. Please check your API key in Settings."}
             if response.status_code == 404:
                 try:
                     err_json = response.json()
                     msg = err_json.get("error", {}).get("message", "Not Found")
-                    return {"error": f"OpenRouter Error: {msg} (404)"}
+                    return {"error": f"OpenRouter Error: {msg} (404). Check model ID: {model}"}
                 except:
                     return {"error": f"OpenRouter Error: Endpoint not found (404). Check model ID: {model}"}
+            if response.status_code == 429:
+                return {"error": "OpenRouter rate limit exceeded (429). Please wait a moment and try again."}
             response.raise_for_status()
             result = response.json()
             if "choices" in result:

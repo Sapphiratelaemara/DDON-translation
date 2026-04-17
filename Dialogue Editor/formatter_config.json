@@ -1,11 +1,12 @@
 {
     "folders": [
-        "C:/DDON-translation/English/Fully Translated",
-        "C:/DDON-translation/English/splits"
+        "C:/DDON-translation/English/splits",
+        "C:\\DDON-translation\\English\\Fully Translated"
     ],
-    "triggers": [],
+    "triggers": [
+        "TUTORIAL_STEP"
+    ],
     "tag_map": {
-        "PLAYER_NAME": 21,
         "PAWN_NAME": 12,
         "VAL PRICE_INN": 4,
         "VAL PRICE_WEAK": 4,
@@ -1497,25 +1498,29 @@
         "Chatbox": 43,
         "RimWarp": 40,
         "Quest Info": 40,
-        "Substory": 31
+        "Substory": 31,
+        "Pop-up": 46,
+        "Tutorials": 48
     },
     "bible_path": "C:/DDON-translation/Terms and references directory/DDON_BIBLE_V2.txt",
     "glossary_path": "C:/DDON-translation/Terms and references directory/glossary.csv",
     "dark_mode": false,
     "wall_presets": {
-        "Dialogue Box": 12,
+        "Dialogue Box": 6,
         "Unlimited": 999,
-        "Tutorial Box": 11
+        "Tutorial Box": 11,
+        "Pop-up": 5
     },
     "speaker_archetypes": {
         "Joseph": "G",
-        "The White Dragon": "G",
+        "The White Dragon": "A2",
         "Morris": "C",
-        "Barton": "A"
+        "Barton": "A",
+        "Gurdolin": "B"
     },
     "speaker_notes": {
         "Joseph": "Head Priest of WDT, Historian",
-        "The White Dragon": "Extremely archaic tone",
+        "The White Dragon": "Extremely archaic tone (thou, thee, dost and so on)",
         "Mephis": "Male, interrogator",
         "Morris": "Beauty Salon Employee(owner?)",
         "Barton": "WDT Innkeep",
@@ -1524,7 +1529,7 @@
         "Razanailt": "Male",
         "Shalom": "Bathhouse NPC?"
     },
-    "wall_preset": "Unlimited",
+    "wall_preset": "Tutorial Box",
     "in_universe": false,
     "tag_display": {
         "UNTN GS": "Golden Gemstones",
@@ -2940,8 +2945,7 @@
                 "ordinary townsfolk",
                 "young adult commoner"
             ],
-            "notes": "Warm, direct sincerity. Believes things can improve.\nFull sentences, gentle hedging. Not naive, but not cynical.\nRegister: 'tis, aught, pray, afore \u2014 used naturally.\nHedging: \"I imagine...\", \"Mayhap...\", \"I should think...\"",
-            "pawn_map": "Ordinary"
+            "notes": "Warm, direct sincerity. Believes things can improve. Not naive, but not cynical.\nFull sentences, gentle hedging. Speaks plainly but with care.\nRegister: 'tis, aught, pray, afore \u2014 used naturally, not performed.\nHedging: \"I imagine...\", \"Mayhap...\", \"I should think...\", \"I daresay...\"\nExample: \"I imagine you'll be off again soon. Gone to trample evil underfoot and put fell beasts to the sword and whatnot.\"\nExample: \"But it will take time yet afore life in Cassardis is as it was before. Fear still grips the village...\"\nExample: \"I've a wife and son. They should get word of this afore all else.\""
         },
         "A2": {
             "name": "Wise Elder",
@@ -2952,8 +2956,7 @@
                 "grandmother",
                 "sage"
             ],
-            "notes": "Measured, philosophical, slow to speak but worth hearing.\nLong sentences with subordinate clauses. Reflective pauses.\nRegister: 'twas, ere, forsooth, methinks, in sooth.\nOften references the past: \"In my day...\", \"I have seen...\"",
-            "pawn_map": "Ordinary (elder variant)"
+            "notes": "Measured, philosophical, slow to speak but worth hearing.\nLong sentences with subordinate clauses. Reflective pauses. Earns weight through restraint.\nRegister: 'twas, ere, methinks, in sooth, forsooth \u2014 richer archaic palette than A1.\nOften references the past or the long view: \"I have seen...\", \"Long have I...\", \"In my time...\"\nNever rushes. Statements feel like conclusions drawn from decades.\nExample: \"Call it what you will, such is the office I have served, just as those before me and you beyond, unto eternity.\"\nExample: \"Too often, man is driven to acquire power beyond his control, and in so doing, delivers himself unto ruin.\""
         },
         "A3": {
             "name": "Grief-stricken / Burdened",
@@ -2963,8 +2966,7 @@
                 "widow",
                 "someone who lost everything"
             ],
-            "notes": "Warm underneath, but weighed down. Sentences trail or break.\nDoes not wallow \u2014 dignified grief, not self-pity.\nRegister: mix of formal and plain. Occasional archaic slippage.\nPauses mid-thought. \"I know not how to...\" \"Would that I...\"",
-            "pawn_map": "Shy (grief variant)"
+            "notes": "Warm underneath, but weighed down. Dignified grief, not self-pity \u2014 does not wallow.\nSentences trail or break mid-thought. \"I fear...\" as a sentence opener is characteristic.\nRegister: mix of plain and lightly archaic. Slips into formality when composing themselves.\nKey phrases: \"I fear...\", \"I know not how to...\", \"Would that I...\", \"Pray, forgive...\", \"It pains me...\"\nExample: \"I fear we know precious little of your condition...\"\nExample: \"I'm...sorry. Forgive my words. I see they offer no use, save add to your burden.\"\nExample: \"Fear of the dragon, fear of my husband... In truth, I know not which frightens me more.\""
         },
         "A4": {
             "name": "Warm but Weary",
@@ -2974,8 +2976,7 @@
                 "overworked parent",
                 "town guard who cares"
             ],
-            "notes": "Genuinely kind, but tired. Short sentences from exhaustion, not bluntness.\nStill uses full courtesies, just slightly clipped.\nRegister: 'tis, aye, aught \u2014 functional, not flowery.\n\"Come in, then.\" \"Rest awhile.\" \"I'll see to it, aye.\"",
-            "pawn_map": "Ordinary (tired variant)"
+            "notes": "Genuinely kind, but tired. Short sentences from exhaustion, not bluntness.\nStill uses full courtesies, just slightly clipped. Warmth comes through despite fatigue.\nRegister: 'tis, aye, aught \u2014 functional, not flowery.\nTends toward short declaratives with a warm close: \"Come in, then.\" \"Rest awhile.\" \"I'll see to it, aye.\"\nExample: \"Best we rested here.\"\nExample: \"Shall we rest afore pressing on?\""
         },
         "B": {
             "name": "Rough / Blunt",
@@ -2987,8 +2988,7 @@
                 "labourer",
                 "mercenary"
             ],
-            "notes": "Short clauses, punchy, direct. No hedging. Earthy vocabulary.\nRegister: \"cos\" (cousin) casual address, \"o'\" for \"of\".\nRhetorical questions. Light on archaic vocabulary.",
-            "pawn_map": "Peppy (battle cries), antagonists"
+            "notes": "Short clauses, punchy, direct. No hedging, no sentiment. Earthy vocabulary.\nThe single strongest marker is \"eh?\" \u2014 used to punctuate almost any statement.\nOther markers: \"Hoy!\", \"Hah!\", \"Bah.\", \"Aye\", \"Right,\", \"the lot of them\", \"o'\" for \"of\", \"cos\" for casual address.\nLight on archaic vocabulary \u2014 these characters speak plainly, not formally.\nRhetorical questions, mild contempt, no-nonsense observations.\nExample: \"We lost some o' the menfolk... Good men, all.\"\nExample: \"Still, let's have no more brave folly from you, eh?\"\nExample: \"Aye, that's the one. Now I need the other, cos.\""
         },
         "C1": {
             "name": "Upbeat Merchant / Trader",
@@ -2999,8 +2999,7 @@
                 "guild clerk",
                 "travelling vendor"
             ],
-            "notes": "Warm but businesslike. Transactions drive the tone.\nShort sentences. Often ends with questions or invitations.\nRegister: \"ser\" casual respectful, \"mind\" mild emphasis, \"daresay\".\n\"Have a look.\" \"I daresay you'll find this reasonable.\"",
-            "pawn_map": "Peppy (home/social lines)"
+            "notes": "Warm but businesslike. Transactions drive the tone \u2014 always moving toward the next thing.\nShort sentences. Often ends on a question or invitation to act.\nRegister: \"ser\" as casual respectful address, \"mind\" as mild emphasis, \"daresay\", \"I'd wager\".\nExample: \"Have a look.\"\nExample: \"I daresay you'll find this reasonable.\"\nExample: \"Right, there we are. Fare well!\""
         },
         "C2": {
             "name": "Gossipy / Chatty Townsfolk",
@@ -3011,8 +3010,7 @@
                 "fishwife",
                 "dockhand"
             ],
-            "notes": "Can't help sharing more than asked. Warm and nosy.\nRun-on sentences, topic changes, rhetorical questions to themselves.\nRegister: colloquial, light archaic. \"o'\" for \"of\", \"cos\".\n\"Did you hear about...?\" \"Not that it's my business, but...\"",
-            "pawn_map": "Peppy (chatty NPC variant)"
+            "notes": "Can't help sharing more than asked. Warm and nosy. Information flows freely.\nRun-on sentences, topic changes mid-thought, rhetorical qualifications to soften the gossip.\nStrongest markers: \"I hear tell...\", \"Way I heard it...\", \"They say...\", \"Not that..., mind.\"\nSelf-corrections and hedges: \"Not that I blame them, mind.\", \"Not that it's my business, but...\"\nRegister: colloquial, light archaic. \"o'\" for \"of\", \"cos\", \"aught on\" (something going on).\nExample: \"I hear tell you've already made a name for yourself at the encampment.\"\nExample: \"Way I heard it, the guards in Gran Soren spend more time sleeping in their cups than protecting the realm.\"\nExample: \"You're keeping busy, eh? I hear there's aught on with the well?\""
         },
         "C3": {
             "name": "Eager / Excitable",
@@ -3022,8 +3020,7 @@
                 "fan of the Arisen",
                 "enthusiastic civilian"
             ],
-            "notes": "Enthusiastic, slightly breathless. Admires strength or adventure.\nShort sentences, exclamations, occasional stumble over words.\nRegister: light archaic. Not formally trained in speech.\n\"Truly?!\" \"I knew it!\" \"Will you really...?\"",
-            "pawn_map": "Peppy (excited variant) / Shy crossover"
+            "notes": "Enthusiastic, slightly breathless. Admires strength or adventure openly.\nWhere D stumbles backward out of fear, C3 stumbles forward out of excitement \u2014 the energy is outward, propulsive.\nShort sentences, exclamations, can trip over words or restart mid-sentence in a rush.\nRegister: light archaic at best \u2014 these characters haven't learned formal speech.\nExample: \"Truly?!\"\nExample: \"I knew it!\"\nExample: \"I heard the news! They say you're to set off on a fantastic journey.\"\nExample: \"I hear you've become, what was it... A... Arisen!\""
         },
         "D": {
             "name": "Timid / Young / Shy",
@@ -3034,8 +3031,7 @@
                 "servant",
                 "very young apprentice"
             ],
-            "notes": "Incomplete sentences, trailing off, self-doubt, qualifications.\nRegister: frequent \"...\", \"I know not\", \"pray, forgive me\".\nSelf-deprecating but not broken.",
-            "pawn_map": "Shy pawn directly"
+            "notes": "Incomplete sentences, trailing off, self-doubt, apologies, qualifications.\nWhere C3 stumbles forward out of excitement, D shrinks back \u2014 energy is inward, contracting.\nFrequent \"...\", mid-sentence breaks, self-corrections. Apology before the statement, not after.\nKey phrases: \"I know not...\", \"Pray, forgive me...\", \"I...I fear...\", \"It pains me to...\"\nSelf-deprecating but not broken \u2014 there is still agency underneath the timidity.\nExample: \"Forgive me. I cannot remember where I lost it...\"\nExample: \"I dearly wish I could tell you its meaning, but I fear I am yet early in my studies...\"\nExample: \"It pains me to be a burden...\""
         },
         "E": {
             "name": "Formal / Military",
@@ -3047,8 +3043,7 @@
                 "noble retainer",
                 "ser"
             ],
-            "notes": "Clipped, duty-focused, no-nonsense. Older honorifics.\nRegister: \"ser\" and \"Arisen\" as address, \"to say naught of\",\n\"ill\" as qualifier. Short declarative sentences.",
-            "pawn_map": "Peppy (battle declarations, quest lines)"
+            "notes": "Clipped, duty-focused, no-nonsense. Addresses by rank or title.\nShort declarative sentences. Efficient \u2014 says what's needed, nothing more.\nRegister: \"ser\" and \"Arisen\" as address, \"to say naught of\", \"ill\" as qualifier (\"ill-suited\", \"ill-advised\").\n\"Naught\" preferred over \"nothing\". Avoids hedging and personal opinion.\nContractions appear in terse constructions but never in flowing or chatty speech.\nExample: \"I bear no grudge against you, Arisen, but you shall die by my hand just the same.\"\nExample: \"I have my own expectations for you, ser. I pray you will live up to them in your endeavors henceforth.\""
         },
         "E2": {
             "name": "Noble / Aristocratic",
@@ -3060,8 +3055,7 @@
                 "noble",
                 "courtier"
             ],
-            "notes": "Formal, measured, accustomed to being obeyed. Not always cruel \u2014 may be benevolent.\nLong periodic sentences. Never contractions. Condescension can be polite.\nRegister: full archaic register, 'tis, naught, wherefore, henceforth.\n\"You will see to it forthwith.\" \"I trust this requires no further explanation.\"",
-            "pawn_map": "Quest-giver nobles, antagonist lords"
+            "notes": "Formal, measured, accustomed to being obeyed. Not always cruel \u2014 may be gracious or benevolent.\nLong periodic sentences. Condescension can be entirely polite.\nContractions appear naturally in subordinate clauses and possession (\"I've heard\", \"I'd thought\", \"milady's\"),\nbut formal declarations avoid them: never \"it's fine\" \u2014 instead \"'tis no matter\"; never \"you'll see to it\" \u2014 instead \"you will see to it\".\nRegister: fullest archaic register \u2014 'tis, naught, wherefore, henceforth, unto, milady, His Grace.\nExample: \"I trust this requires no further explanation.\"\nExample: \"Such caprice can ill defend this camp, to say naught of all Gransys. 'Tis a sorry thing.\"\nExample: \"I have my own expectations for you, ser. I pray you will live up to them in your endeavors henceforth.\""
         },
         "F": {
             "name": "Wisecracking / Irreverent",
@@ -3072,8 +3066,7 @@
                 "veteran adventurer",
                 "barkeep"
             ],
-            "notes": "Colloquial, self-aware humor, mild sarcasm.\nArchaic vocabulary used lightly.\nRegister: \"cousin\"/\"cos\" casual address, \"s'pose\", \"naught\", rhetorical asides.",
-            "pawn_map": "Peppy (taunting lines)"
+            "notes": "Colloquial, self-aware humor, mild sarcasm. Archaic vocabulary used lightly and knowingly.\nAsides, rhetorical questions aimed at no one in particular. The humor is witty, not contemptuous.\nRegister: \"cos\" casual address, \"naught but\", \"s'pose\", \"eh?\", dry observations.\nWill use archaic words for comic effect or exaggeration, but doesn't live there.\nExample: \"The great Arisen, is it? To be brutally honest, I've no idea what that's even supposed to mean.\"\nExample: \"Not that any of our fates are sealed just yet, mind.\"\nExample: \"Whate'er it was, one of them took summat from the other. He's the more obvious mark.\""
         },
         "G": {
             "name": "Devout / Clerical",
@@ -3085,8 +3078,7 @@
                 "temple keeper",
                 "acolyte"
             ],
-            "notes": "Calm, measured, reverent. Speaks with quiet authority.\nOften invokes faith, fate, or divine will.\nRegister: 'mayhap', 'blessing', 'grace', 'divine', 'sin', 'fate'.\nAvoids slang. Rarely emotional; composed and solemn.\nPhrasing often feels sermonic or reflective.",
-            "pawn_map": "Shy / Calm support roles"
+            "notes": "Calm, measured, reverent. Speaks with quiet authority \u2014 never rushed, never flustered.\nThe Maker is the primary divine reference: \"By the Maker\", \"Maker be good\", \"the Maker's grace\".\nOften invokes fate, faith, or divine will as explanation or comfort.\nRegister: 'mayhap', 'pray', 'blessing', 'soul', 'faith', 'grace'. Sermonic rhythm.\nAvoids slang entirely. Rarely shows strong emotion; composed even under pressure.\nContractions rare in formal speech; more natural in private or personal moments.\nExample: \"By the Maker... Will evil never leave us at peace?\"\nExample: \"I dearly wish I could tell you its meaning, but I fear I am yet early in my studies as a priest.\"\nExample: \"Pray, spare me, Arisen, that I may live to see the flame.\""
         },
         "H": {
             "name": "Menacing / Threatening",
@@ -3097,8 +3089,7 @@
                 "dangerous antagonist",
                 "enforcer"
             ],
-            "notes": "Controlled, cold. Power comes from restraint, not shouting.\nShort declaratives. Implied violence. Polite on the surface, cruel underneath.\nRegister: formal archaic for high-status villains; blunt for lower ones.\n\"I would choose my next words with care.\" \"See that it does not happen again.\"",
-            "pawn_map": "Antagonist / boss NPC"
+            "notes": "Controlled, cold. Power comes from restraint, not volume. Never shouts.\nShort declaratives with implied consequences. Polite on the surface, cruel underneath.\nHigh-status villains use the full formal register \u2014 the politeness makes the threat more unnerving.\nLower-status enforcers can be blunter (closer to B) but still measured, never frantic.\nHigh-status: contractions avoided in threats. Low-status: contractions natural.\nExample: \"I would choose my next words with care.\"\nExample: \"See that it does not happen again.\"\nExample: \"I bear no grudge against you, Arisen, but you shall die by my hand just the same.\""
         },
         "I": {
             "name": "Scholarly / Pedantic",
@@ -3110,8 +3101,18 @@
                 "physician",
                 "alchemist"
             ],
-            "notes": "Verbose, precise, enjoys the sound of his own expertise.\nLong sentences with qualifications, parentheticals, corrections.\nRegister: full archaic, technical vocabulary, Latin-flavoured.\n\"Strictly speaking...\" \"One must distinguish between...\" \"As I have noted previously...\"",
-            "pawn_map": "Learned NPC, quest exposition"
+            "notes": "Verbose, precise, enjoys the sound of his own expertise. Qualifies everything.\nLong sentences with parentheticals, corrections, and self-citation. Formal speech is their natural mode.\nRegister: full archaic, technical vocabulary. Latin-flavoured constructions where appropriate.\nSelf-referential: \"As I have noted...\", \"Strictly speaking...\", \"One must distinguish between...\"\nContractions rare \u2014 they tend to speak in complete, deliberate constructions.\nExample: \"And so the dragon is sent into the world to guide the Arisen, and refine them. To temper their wills into aught capable of sustaining the world.\"\nExample: \"For I have seen it... A cipher, void of meaning unto itself, but of vital importance.\"\nExample: \"The pawns exist astride the rift. They speak of a multitude of worlds, each infinite unto itself.\""
+        },
+        "J": {
+            "name": "Mysterious / Otherworldly",
+            "professions": [
+                "dragon",
+                "the Seneschal",
+                "ancient entity",
+                "immortal",
+                "something no longer entirely human"
+            ],
+            "notes": "Speaks from outside mortal time and concern. Not threatening \u2014 simply vast. Detached, not cold.\nStatements are absolute, cosmic, unhurried. No questions, no hedging, no appeals for understanding.\nShort sentences that carry enormous weight. Long sentences that unspool like inevitability.\nSpoken truth is offered, not argued \u2014 there is no sense that they need you to agree.\nRegister: fullest archaic, but used with total naturalness \u2014 not performed. \"Unto\", \"naught\", \"aught\", \"ere\".\nAvoids all contractions. Never informal. Never emotional in a human sense.\nExample: \"Naught lasts forever, yet all persists unto eternity.\"\nExample: \"They yearn for some other, better place.\"\nExample: \"For it is fear which rarefies and distills the soul unto its rightful, lofty character.\"\nExample: \"And so the dragon is sent into the world to guide the Arisen, and refine them. To temper their wills into aught capable of sustaining the world.\"\nExample: \"The pawns exist astride the rift. They speak of a multitude of worlds, each infinite unto itself.\""
         }
     },
     "entry_type_rules": {
@@ -3150,19 +3151,14 @@
             "char_limit": 999
         }
     },
-    "replace_rules": [
-        {
-            "find": "<Basic Operations>",
-            "replace": "[Basic Operations]",
-            "whole_word": true,
-            "match_case": false,
-            "enabled": true,
-            "include_speakers": [],
-            "exclude_speakers": [],
-            "include_entry_types": [],
-            "exclude_entry_types": []
-        }
-    ],
+    "replace_rules": [],
+    "ai_system_prompt": "You are a Dragon's Dogma Online (DDON) localization assistant. You must strictly adhere to the 'Dragon's Dogma' localization style. This style uses Early Modern English & archaic vocabulary (e.g., 'tis, naught, aught, pray, afore, mayhap, forsooth, arise) and a formal medieval fantasy tone. Do not go overboard on the archaic language, it should sound natural in English. NEVER use modern slang, colloquialisms, or too many modern contractions (e.g., avoid 'okay', 'gonna', 'don't', 'can't'). CRITICAL RULES: Do NOT use any Japanese honorifics (e.g. -san, -sama, -dono). Use precise, proper English punctuation. Do NOT insert any blank lines or newlines in your response. Translate Japanese dashes as either an ellipsis (...) or a regular em dash (\u2014), when appropriate for the context. Help the user translate or refine dialogue while respecting these rules and the character archetypes. Do not add unnecessary quotation marks. Stay close to the original meaning, but rephrase it to sound more natural in English. Things within < and > are tags & should be preserved as-is.",
+    "ai_button_prompts": {
+        "translate": "Translate: {text}",
+        "rephrase": "Rephrase this: {text}",
+        "archaize": "Make this more archaic: {text}",
+        "check": "Check this for errors: {text}"
+    },
     "substitution_rules": [],
     "preview_font": {
         "dialogue": {
@@ -3198,7 +3194,7 @@
                 0,
                 0,
                 480,
-                335
+                152
             ],
             "text_x": 25,
             "text_y": 10,
@@ -3210,7 +3206,7 @@
             "crop": [
                 0,
                 0,
-                480,
+                511,
                 335
             ],
             "text_x": 20,
@@ -3312,9 +3308,9 @@
             "font_sz": 12,
             "line_spacing": 1,
             "crop": [
-                0,
-                0,
-                261,
+                3,
+                -1,
+                340,
                 187
             ],
             "text_x": 28,
@@ -3346,6 +3342,19 @@
             "text_x": 26,
             "text_y": 30,
             "fg": "#2f2b2b"
+        },
+        "Pop-up": {
+            "font_sz": 19,
+            "line_spacing": 1,
+            "crop": [
+                0,
+                0,
+                424,
+                158
+            ],
+            "text_x": 15,
+            "text_y": 32,
+            "fg": "#ffffff"
         }
     },
     "deepl_target_lang": "EN-US",
@@ -3365,6 +3374,7 @@
         "liquid/lfm-2.5-1.2b-thinking:free",
         "meta-llama/llama-3.2-3b-instruct:free",
         "meta-llama/llama-3.3-70b-instruct:free",
+        "meta-llama/llama-guard-4-12b:free",
         "minimax/minimax-m2.5:free",
         "nousresearch/hermes-3-llama-3.1-405b:free",
         "nvidia/nemotron-3-nano-30b-a3b:free",
@@ -3374,11 +3384,22 @@
         "openai/gpt-oss-120b:free",
         "openai/gpt-oss-20b:free",
         "openrouter/auto",
+        "openrouter/elephant-alpha",
         "openrouter/free",
         "qwen/qwen3-coder:free",
         "qwen/qwen3-next-80b-a3b-instruct:free",
         "z-ai/glm-4.5-air:free"
     ],
     "selected_openrouter_model": "arcee-ai/trinity-large-preview:free",
-    "assets_path": "c:/DDON-translation/Dialogue Editor/assets"
+    "assets_path": "c:/DDON-translation/Dialogue Editor/assets",
+    "preview_mode": true,
+    "last_stats": {
+        "total": 111855,
+        "translated": 94678,
+        "percent": 84.6
+    },
+    "show_paid_models": false,
+    "selected_preset": "Tutorials",
+    "custom_dark_theme": {},
+    "custom_light_theme": {}
 }

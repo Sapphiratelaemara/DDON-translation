@@ -52,26 +52,38 @@ from typing import Callable, List, NamedTuple, Optional, Dict
 # Must be set BEFORE importing jamdict so it picks up the correct DB path.
 # ---------------------------------------------------------------------------
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
-_LOCAL_JAMDICT_HOME = os.path.join(_THIS_DIR, "deps", "jamdict_data")
+# Look for jamdict data in parent project directory
+_PARENT_DIR = os.path.dirname(_THIS_DIR)
+_LOCAL_JAMDICT_HOME = os.path.join(_PARENT_DIR, "deps", "jamdict_data")
 if os.path.isdir(_LOCAL_JAMDICT_HOME):
     os.environ.setdefault("JAMDICT_HOME", _LOCAL_JAMDICT_HOME)
+    print(f"[GlossEngine] Using local jamdict data: {_LOCAL_JAMDICT_HOME}")
 
 # ---------------------------------------------------------------------------
 # Availability guard — soft-fail if deps are missing
 # ---------------------------------------------------------------------------
+_janome_import_error = None
+_jamdict_import_error = None
+
 try:
     from janome.tokenizer import Tokenizer as _JanomeTokenizer
     _janome_ok = True
-except ImportError:
+except ImportError as e:
     _janome_ok = False
+    _janome_import_error = str(e)
+    print(f"[GlossEngine] Janome import failed: {e}")
 
 try:
     from jamdict import Jamdict as _Jamdict
     _jamdict_ok = True
-except ImportError:
+except ImportError as e:
     _jamdict_ok = False
+    _jamdict_import_error = str(e)
+    print(f"[GlossEngine] Jamdict import failed: {e}")
 
 GLOSS_AVAILABLE: bool = _janome_ok and _jamdict_ok
+if not GLOSS_AVAILABLE:
+    print(f"[GlossEngine] GLOSS_AVAILABLE=False (janome_ok={_janome_ok}, jamdict_ok={_jamdict_ok})")
 
 # ---------------------------------------------------------------------------
 # POS mapping  (Janome returns comma-separated feature strings in JP)
@@ -254,6 +266,19 @@ class GlossEngine:
                 # Only the token at the START of the lore span emits the lore GlossToken
                 if t_start == s_start:
                     span_text = text[s_start:s_end]
+                    # Only set is_lore=True if the token surface exactly matches the lore key
+                    # Find which key created this span
+                    is_exact_match = False
+                    matched_key = None
+                    for key in sorted(self.lore_map.keys(), key=len, reverse=True):
+                        if text.find(key, s_start) == s_start and len(key) == len(span_text):
+                            is_exact_match = True
+                            matched_key = key
+                            break
+                    
+                    if matched_key and span_text != matched_key:
+                        print(f"[GlossEngine] span_text='{span_text}' matched_key='{matched_key}' is_exact={is_exact_match}")
+                    
                     raw_pos = tok.part_of_speech.split(",")[0]
                     pos     = _POS_MAP.get(raw_pos, "other")
                     
@@ -261,7 +286,7 @@ class GlossEngine:
                     cands = LORE_SPLIT_PATTERN.split(s_trans)
                     cands = [c.strip() for c in cands if c.strip() and not _LORE_SKIP_HEADERS.match(c.strip())]
                     
-                    tokens.append(GlossToken(span_text, span_text, pos, cands, True))
+                    tokens.append(GlossToken(span_text, span_text, pos, cands, is_exact_match))
                 # Skip standard processing for all tokens within the span
                 continue
 
@@ -275,8 +300,28 @@ class GlossEngine:
                 tokens.append(GlossToken(surface, base, pos, [], False))
                 continue
 
-            candidates = self._lookup(base) or self._lookup(surface)
-            tokens.append(GlossToken(surface, base, pos, candidates, False))
+            # Check lore_map first for this token, prioritize lore candidates
+            lore_cands = []
+            is_lore = False
+            if self.lore_map:
+                # Only check surface form for exact match - base form match doesn't count for star
+                lore_match = self.lore_map.get(surface)
+                if lore_match:
+                    lore_cands = LORE_SPLIT_PATTERN.split(lore_match)
+                    lore_cands = [c.strip() for c in lore_cands if c.strip() and not _LORE_SKIP_HEADERS.match(c.strip())]
+                    is_lore = True
+                # Still use base form for dictionary lookup, but don't set is_lore
+                base_match = self.lore_map.get(base)
+                if base_match and not lore_match:
+                    lore_cands = LORE_SPLIT_PATTERN.split(base_match)
+                    lore_cands = [c.strip() for c in lore_cands if c.strip() and not _LORE_SKIP_HEADERS.match(c.strip())]
+            
+            # Get dictionary candidates
+            dict_cands = self._lookup(base) or self._lookup(surface)
+            
+            # Combine: lore candidates first, then dictionary candidates
+            candidates = lore_cands + [c for c in dict_cands if c not in lore_cands]
+            tokens.append(GlossToken(surface, base, pos, candidates, is_lore))
 
         return tokens
 

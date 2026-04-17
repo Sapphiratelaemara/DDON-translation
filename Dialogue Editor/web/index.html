@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDON Translation Suite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="/eel.js"></script>
+    <script>
+        function showShortcutsTooltip() {
+            const btn = document.getElementById('btn-shortcuts');
+            const tooltip = document.getElementById('shortcuts-tooltip');
+            if (btn && tooltip) {
+                const rect = btn.getBoundingClientRect();
+                tooltip.style.display = 'block';
+                tooltip.style.top = (rect.bottom + 10) + 'px';
+                let left = rect.left + rect.width / 2 - tooltip.offsetWidth / 2;
+                const windowWidth = window.innerWidth;
+                if (left + tooltip.offsetWidth > windowWidth - 10) {
+                    left = windowWidth - tooltip.offsetWidth - 10;
+                }
+                if (left < 10) {
+                    left = 10;
+                }
+                tooltip.style.left = left + 'px';
+            }
+        }
+        function hideShortcutsTooltip() {
+            const tooltip = document.getElementById('shortcuts-tooltip');
+            if (tooltip) {
+                tooltip.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Persistent Top Navigation -->
+        <nav class="tab-bar">
+            <div class="logo-area">
+                <div class="accent-dot"></div>
+                <span class="logo">Dialogue Editor</span>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="dashboard">DASHBOARD</button>
+                <button class="tab-btn" data-tab="reviewer">REVIEW_EDITOR</button>
+                <button class="tab-btn" data-tab="search">DATABASE_SEARCH</button>
+            </div>
+
+            <div class="panel-toggles">
+                <button class="panel-toggle" id="btn-toggle-refs" title="Toggle References Panel">
+                    <span class="panel-toggle-icon material-symbols-outlined">menu_book</span>
+                    <span class="panel-toggle-label">CONTEXT</span>
+                </button>
+                <button class="panel-toggle" id="btn-toggle-ai" title="Toggle AI Assistant Panel">
+                    <span class="panel-toggle-icon material-symbols-outlined">smart_toy</span>
+                    <span class="panel-toggle-label">AI_ASSISTANT</span>
+                </button>
+            </div>
+
+            <div class="utility-controls">
+                <button class="panel-toggle" id="btn-settings" title="Open Settings">
+                    <span class="panel-toggle-icon material-symbols-outlined">settings</span>
+                </button>
+                <button class="theme-toggle" id="btn-theme-toggle" title="Toggle Dark Mode">
+                    <span class="theme-icon material-symbols-outlined">dark_mode</span>
+                </button>
+            </div>
+            <div class="utility-controls-bottom">
+                <button class="panel-toggle" id="btn-shortcuts" title="Keyboard Shortcuts" onmouseenter="showShortcutsTooltip()" onmouseleave="hideShortcutsTooltip()">
+                    <span class="panel-toggle-icon material-symbols-outlined">keyboard</span>
+                </button>
+            </div>
+            <div id="shortcuts-tooltip" style="position: fixed; display: none; background: #1a1a2e; color: #fff; padding: 15px; border-radius: 8px; border: 1px solid #4a4a6a; z-index: 10000; min-width: 250px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); white-space: pre-line; font-size: 13px;">Ctrl+Enter: Apply fix
+Ctrl+ArrowRight: Next item
+Ctrl+ArrowLeft: Previous item
+Ctrl+R: Rewrap text
+Ctrl+D: Em-dash
+Ctrl+Shift+D: Ellipsis</div>
+        </nav>
+
+        <!-- Tab Content Containers -->
+        <div class="tab-viewport">
+
+            <!-- Tab 1: Dashboard -->
+            <section id="tab-dashboard" class="tab-content active">
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <label>LOADED_FOLDERS</label>
+                        <div class="value" id="stat-folders">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <label>TOTAL_CSV_FILES</label>
+                        <div class="value" id="stat-files">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <label>TOTAL_LINES</label>
+                        <div class="value" id="stat-total-lines">--</div>
+                    </div>
+                    <div class="stat-card">
+                        <label>COMPLETION</label>
+                        <div class="value" id="stat-percent">0%</div>
+                        <button class="btn-secondary sm" id="btn-calc-progress"
+                            style="margin-top: 10px; width: 100%;">CALCULATE</button>
+                    </div>
+                    <div class="stat-card">
+                        <label>SCAN_PROGRESS</label>
+                        <div class="progress-wrapper">
+                            <div class="progress-bar" id="main-progress" style="width: 0%"></div>
+                            <span class="progress-val" id="progress-text">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-controls"
+                    style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 20px;">
+                    <div class="toggle-group">
+                        <label class="switch">
+                            <input type="checkbox" id="dash-in-universe" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <span>IN_UNIVERSE_LANGUAGE</span>
+                    </div>
+                    <div class="toggle-group">
+                        <label class="switch">
+                            <input type="checkbox" id="dash-preview-mode">
+                            <span class="slider"></span>
+                        </label>
+                        <span>PREVIEW_MODE_(DONT_WRITE_CSV)</span>
+                    </div>
+
+                    <div style="display: flex; gap: 15px; margin-left: auto;">
+                        <div class="field-group"
+                            style="display: flex; flex-direction: row; align-items: center; gap: 10px;">
+                            <label
+                                style="margin:0; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--tab-inactive);">CHAR_PRESET:</label>
+                            <select id="dash-preset-char" class="settings-select" style="min-width: 120px;"></select>
+                        </div>
+                        <div class="field-group"
+                            style="display: flex; flex-direction: row; align-items: center; gap: 10px;">
+                            <label
+                                style="margin:0; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--tab-inactive);">WALL_PRESET:</label>
+                            <select id="dash-preset-wall" class="settings-select" style="min-width: 120px;"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-center-grid">
+                </div>
+
+                <!-- Legacy Parity: Side-by-Side Folders & Triggers -->
+                <div class="control-center-grid">
+                    <div class="control-box">
+                        <label>WATCHED_FOLDERS</label>
+                        <div class="list-editor">
+                            <ul id="dash-folder-list" class="settings-list"></ul>
+                            <div class="list-actions">
+                                <button class="btn-secondary sm" id="btn-dash-add-folder">+ ADD</button>
+                                <button class="btn-secondary sm" id="btn-dash-rem-folder">− REMOVE</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-box">
+                        <label>ENTRY_KEYS</label>
+                        <div class="list-editor">
+                            <ul id="dash-trigger-list" class="settings-list"></ul>
+                            <div class="list-actions">
+                                <button class="btn-secondary sm" id="btn-dash-add-trigger">+ ADD</button>
+                                <button class="btn-secondary sm" id="btn-dash-rem-trigger">− REMOVE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-row" style="display: flex; gap: 15px; margin-top: 30px;">
+                    <button class="btn-primary large" id="btn-start-scan"
+                        style="flex: 2; padding: 20px; font-size: 1.1rem;"> EXECUTE BATCH SCAN</button>
+                    <button class="btn-secondary large" id="btn-translate-csv"
+                        style="flex: 1; padding: 20px; font-size: 1rem; border: 1px solid var(--accent-color); color: var(--accent-color);"> TRANSLATE CSV</button>
+                </div>
+
+                <!-- Progress Display Label (missing from old version) -->
+                <div class="progress-display" style="margin-top: 15px; text-align: center;">
+                    <span id="progress-label" style="font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--fg);">Translated: --%</span>
+                </div>
+
+                <div class="log-container">
+                    <label>SCAN_LOG</label>
+                    <div class="log-box" id="main-log">
+                        [SYSTEM] Initializing Dialogue Editor Suite...
+                        [SYSTEM] Connected to Python backend.
+                        [SYSTEM] Assets mapped to /assets/
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 2: Reviewer (Kinetic Logic Design System v4.0) -->
+            <section id="tab-reviewer" class="tab-content">
+                <div class="kl-editor-layout" id="reviewer-container">
+                    
+                    <!-- Left Sidebar: Strings List -->
+                    <aside class="kl-sidebar-left" id="row-sidebar">
+                        <div class="kl-sidebar-header">
+                            <h3 class="kl-sidebar-title">Strings List</h3>
+                            <span class="kl-icon-btn" id="btn-filter-rows">filter_list</span>
+                        </div>
+                        <div class="kl-sidebar-filter">
+                            <select id="category-select" class="kl-select">
+                                <option value="">Select category...</option>
+                            </select>
+                        </div>
+                        <div class="kl-sidebar-filter">
+                            <label class="kl-checkbox-label">
+                                <input type="checkbox" id="show-translated-rows">
+                                <span>Show translated</span>
+                            </label>
+                        </div>
+                        <ul class="kl-row-list" id="row-list-ul"></ul>
+                    </aside>
+
+                    <!-- Main Workspace -->
+                    <main class="kl-main-workspace">
+                        <div class="kl-workspace-scroll">
+                            <div class="kl-content-column">
+                                
+                                <!-- Combined Header + English Source Block -->
+                                <div class="kl-editor-block">
+                                    <!-- Metadata Bar -->
+                                    <div class="kl-metadata-bar">
+                                        <div class="kl-metadata-row">
+                                            <div class="kl-field-group">
+                                                <label class="kl-field-label">Speaker:</label>
+                                                <span class="kl-value" id="speaker-value">—</span>
+                                            </div>
+                                            <div class="kl-field-group">
+                                                <label class="kl-field-label">Archetype:</label>
+                                                <select class="kl-select" id="archetype-select">
+                                                    <option>(none)</option>
+                                                </select>
+                                            </div>
+                                            <button class="kl-btn-accent" id="btn-save-meta">Save</button>
+                                            <div class="kl-field-group kl-flex-1">
+                                                <label class="kl-field-label">Note:</label>
+                                                <input type="text" class="kl-input" id="speaker-note" placeholder="...">
+                                            </div>
+                                        </div>
+                                        <div class="kl-metadata-row">
+                                            <div class="kl-field-group">
+                                                <label class="kl-field-label">Entry Type:</label>
+                                                <select class="kl-select kl-wide" id="entry-type-select">
+                                                    <option>Dialogue</option>
+                                                </select>
+                                            </div>
+                                            <button class="kl-btn-accent" id="btn-save-type">Save Type</button>
+                                            <div class="kl-field-group">
+                                                <label class="kl-checkbox-label">
+                                                    <input type="checkbox" id="reviewer-in-universe" checked>
+                                                    <span>In-Universe Language</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Translation Area -->
+                                    <div class="kl-english-area">
+                                        <div class="kl-area-header">
+                                            <label class="kl-area-title">Translation</label>
+                                            <div class="kl-limit-presets">
+                                                <label class="kl-limit-label">Character Lim.</label>
+                                                <select class="kl-select kl-limit-select" id="char-limit-preset">
+                                                    <option value="50">50</option>
+                                                    <option value="100">100</option>
+                                                    <option value="150">150</option>
+                                                    <option value="200">200</option>
+                                                </select>
+                                                <label class="kl-limit-label">Line Lim.</label>
+                                                <select class="kl-select kl-limit-select" id="line-limit-preset">
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                </select>
+                                            </div>
+                                            <span class="kl-char-count" id="char-count">0 / 50</span>
+                                        </div>
+                                        <div class="kl-editor-wrapper">
+                                            <div class="kl-textarea" id="en-editor" contenteditable="true" spellcheck="false" data-placeholder="Enter translation..."></div>
+                                            <div class="kl-tooltip" id="anach-tooltip"></div>
+                                            <div class="kl-line-counters" id="line-counters">
+                                                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- DeepL Suggestion - moved up, no header -->
+                                <textarea class="kl-textarea kl-suggestion" id="deepl-text" placeholder="DeepL suggestion..."></textarea>
+
+                                <!-- In-Game Preview -->
+                                <div class="kl-preview-block">
+                                    <div class="kl-preview-toolbar">
+                                        <div class="kl-preview-group">
+                                            <span class="kl-toolbar-label">Preview:</span>
+                                            <select class="kl-select kl-small" id="preview-box-type">
+                                                <option value="dialogue">Dialogue</option>
+                                                <option value="choice">Choice</option>
+                                                <option value="questlog">Quest Log</option>
+                                            </select>
+                                            <button class="kl-btn-tiny" id="btn-add-preview-type">+</button>
+                                            <button class="kl-btn-tiny" id="btn-remove-preview-type">-</button>
+                                        </div>
+                                        <div class="kl-divider"></div>
+                                        <div class="kl-preview-group">
+                                            <span class="kl-toolbar-label">Size:</span>
+                                            <input type="number" class="kl-num-input" id="preview-font-size" min="6" max="48" value="12">
+                                        </div>
+                                        <div class="kl-preview-group">
+                                            <span class="kl-toolbar-label">Spacing:</span>
+                                            <input type="number" class="kl-num-input" id="preview-spacing" min="0" max="30" value="0">
+                                        </div>
+                                        <button class="kl-btn-calibrate" id="btn-preview-calibrate">
+                                            <span class="kl-icon">settings_input_component</span> CALIB
+                                        </button>
+                                    </div>
+                                    <div class="kl-preview-calibration" id="preview-calibration" style="display: none;">
+                                        <div class="kl-cal-row">
+                                            <label>Crop:</label>
+                                            <div class="kl-num-group">
+                                                <button class="kl-btn-square" onclick="adjustNum('crop-x1', -1)">-</button>
+                                                <input type="number" id="crop-x1" value="0">
+                                                <button class="kl-btn-square" onclick="adjustNum('crop-x1', 1)">+</button>
+                                            </div>
+                                            <div class="kl-num-group">
+                                                <button class="kl-btn-square" onclick="adjustNum('crop-y1', -1)">-</button>
+                                                <input type="number" id="crop-y1" value="0">
+                                                <button class="kl-btn-square" onclick="adjustNum('crop-y1', 1)">+</button>
+                                            </div>
+                                            <div class="kl-num-group">
+                                                <button class="kl-btn-square" onclick="adjustNum('crop-x2', -1)">-</button>
+                                                <input type="number" id="crop-x2" value="200">
+                                                <button class="kl-btn-square" onclick="adjustNum('crop-x2', 1)">+</button>
+                                            </div>
+                                            <div class="kl-num-group">
+                                                <button class="kl-btn-square" onclick="adjustNum('crop-y2', -1)">-</button>
+                                                <input type="number" id="crop-y2" value="60">
+                                                <button class="kl-btn-square" onclick="adjustNum('crop-y2', 1)">+</button>
+                                            </div>
+                                            <button class="kl-btn-tiny" id="btn-apply-crop">Apply</button>
+                                        </div>
+                                        <div class="kl-cal-row">
+                                            <label>Text:</label>
+                                            <div class="kl-num-group">
+                                                <button class="kl-btn-square" onclick="adjustNum('text-x', -1)">-</button>
+                                                <input type="number" id="text-x" value="0">
+                                                <button class="kl-btn-square" onclick="adjustNum('text-x', 1)">+</button>
+                                            </div>
+                                            <div class="kl-num-group">
+                                                <button class="kl-btn-square" onclick="adjustNum('text-y', -1)">-</button>
+                                                <input type="number" id="text-y" value="0">
+                                                <button class="kl-btn-square" onclick="adjustNum('text-y', 1)">+</button>
+                                            </div>
+                                            <button class="kl-btn-tiny" id="btn-apply-text">Apply</button>
+                                        </div>
+                                        <div class="kl-cal-row">
+                                            <label>Color:</label>
+                                            <input type="color" id="text-color" value="#ffffff">
+                                            <button class="kl-btn-tiny" id="btn-apply-color">Apply</button>
+                                        </div>
+                                    </div>
+                                    <div class="kl-preview-container" id="preview-container"></div>
+                                </div>
+
+                                <!-- Japanese Source Reference -->
+                                <div class="kl-jp-block">
+                                    <label class="kl-area-title">SOURCE</label>
+                                    <div class="kl-jp-content" id="jp-source"></div>
+                                </div>
+
+                                <!-- Gloss Section -->
+                                <div class="kl-gloss-block">
+                                    <label class="kl-area-title">Gloss</label>
+                                    <div class="kl-gloss-content" id="gloss-box"></div>
+                                </div>
+
+                                <!-- Context Flow -->
+                                <div class="kl-context-block">
+                                    <div class="kl-context-header">
+                                        <span class="kl-icon">arrow_drop_down</span>
+                                        <span class="kl-context-label">Context_Flow</span>
+                                    </div>
+                                    <div class="kl-context-content">
+                                        <div class="kl-ctx-row" id="ctx-prev"><span class="kl-ctx-arrow">▲</span>—</div>
+                                        <div class="kl-ctx-row" id="ctx-next"><span class="kl-ctx-arrow">▼</span>—</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Footer -->
+                        <footer class="kl-footer">
+                            <div class="kl-footer-actions">
+                                <button class="kl-btn-secondary" id="btn-prev">Skip</button>
+                                <button class="kl-btn-primary" id="btn-apply">
+                                    <span class="kl-icon">check</span> Apply
+                                </button>
+                            </div>
+                            <div class="kl-footer-status" id="review-status">QUEUE: 0 / 0</div>
+                            <div class="kl-footer-options">
+                                <label class="kl-checkbox-label">
+                                    <input type="checkbox" id="force-save-toggle">
+                                    <span>Force_Save</span>
+                                </label>
+                            </div>
+                        </footer>
+                    </main>
+
+                    <!-- Right Panel: References, Archetype Notes, AI Assistant -->
+                    <aside class="kl-sidebar-right">
+                        <!-- References Section -->
+                        <div class="kl-panel">
+                            <h3 class="kl-panel-title">References</h3>
+                            <div class="kl-panel-content" id="lore-box">No references found.</div>
+                        </div>
+
+                        <!-- Archetype Notes Section -->
+                        <div class="kl-panel">
+                            <h3 class="kl-panel-title">Archetype_Notes</h3>
+                            <div class="kl-panel-content" id="archetype-notes"></div>
+                            <div class="kl-note-italic" id="sidebar-speaker-note"></div>
+                        </div>
+
+                        <!-- AI Assistant Section -->
+                        <div class="kl-panel kl-flex-1">
+                            <div class="kl-ai-header">
+                                <div class="kl-ai-indicator"></div>
+                                <h3 class="kl-panel-title">AI_ASSISTANT</h3>
+                                <select class="kl-select kl-ai-model" id="ai-model-select">
+                                    <option>arcee-ai/trinity-large-preview</option>
+                                </select>
+                            </div>
+                            <div class="kl-ai-actions">
+                                <button class="kl-ai-btn" id="btn-ai-translate">Translate</button>
+                                <button class="kl-ai-btn" id="btn-ai-rephrase">Rephrase</button>
+                                <button class="kl-ai-btn" id="btn-ai-archaize">Archaize</button>
+                                <button class="kl-ai-btn" id="btn-ai-check">Check</button>
+                            </div>
+                            <div class="kl-chat-area" id="chat-history"></div>
+                            <div class="kl-chat-input-area">
+                                <div class="kl-chat-actions">
+                                    <button class="kl-chat-action" id="btn-add-context">
+                                        <span class="kl-icon">add</span> Add_Context
+                                    </button>
+                                    <button class="kl-chat-action kl-clear" id="btn-clear-chat">Clear</button>
+                                </div>
+                                <div class="kl-chat-input-wrap">
+                                    <textarea class="kl-chat-input" id="chat-input" placeholder="EXECUTE_COMMAND..."></textarea>
+                                    <button class="kl-btn-send" id="btn-chat-send">
+                                        <span class="kl-icon">send</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+            <!-- Tab 3: Search -->
+            <section id="tab-search" class="tab-content">
+                <div class="search-container">
+                    <header class="view-header">
+                        <h1>DATABASE_SEARCH</h1>
+                        <div class="search-bar">
+                            <input type="text" id="db-search-input" placeholder="Search the entire project database...">
+                            <select id="db-search-field" onchange="if(this.value==='custom'){const idx=(window.state&&window.state.search)?window.state.search.customFieldIndex:'';openInputModal('Custom Field Index','Enter column number (0-based):',idx||'',function(val){if(!window.state)window.state={};if(!window.state.search)window.state.search={};window.state.search.customFieldIndex=val;const opt=document.querySelector('#db-search-field option[value=custom]');if(opt&&val)opt.textContent='FIELD_INDEX ('+val+')';else if(opt)opt.textContent='FIELD_INDEX';});}">
+                                <option value="all">ALL_FIELDS</option>
+                                <option value="3">TRANSLATION</option>
+                                <option value="2">SOURCE</option>
+                                <option value="8">SPEAKER_(COL_8)</option>
+                                <option value="9">ENTRY_TYPE_(COL_9)</option>
+                                <option value="custom">FIELD_INDEX</option>
+                            </select>
+                            <button class="btn-primary" id="btn-db-search">SEARCH</button>
+                        </div>
+                    </header>
+
+                    <div class="results-area">
+                        <div class="search-bulk-actions" style="margin-bottom: 10px; display: none;" id="search-bulk-box">
+                            <button class="btn-primary" id="btn-search-open-all">OPEN ALL IN TRANSLATOR</button>
+                        </div>
+                        <table class="search-results">
+                            <thead>
+                                <tr>
+                                    <th>FILE</th>
+                                    <th>ROW</th>
+                                    <th>FIELD</th>
+                                    <th>MATCHED_VAL</th>
+                                    <th>EN_(COL_3)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="search-results-body">
+                                <!-- Results populate here -->
+                            </tbody>
+                        </table>
+                        <div id="search-status" class="search-status">Found 0 results.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 4: Settings -->
+            <section id="tab-settings" class="tab-content">
+                <div class="settings-container">
+                    <header class="settings-header">
+                        <h1>SYSTEM_SETTINGS</h1>
+                        <p>Configure internal engines, API keys, and game path mappings.</p>
+                    </header>
+
+                    <div class="settings-layout">
+                        <!-- Sidebar for Settings Categories -->
+                        <aside class="settings-nav">
+                            <button class="settings-nav-btn active" data-section="api">API_KEYS</button>
+                            <button class="settings-nav-btn" data-section="paths">PATH_MAPPINGS</button>
+                            <button class="settings-nav-btn" data-section="tags">TAG_MAPPINGS</button>
+                            <button class="settings-nav-btn" data-section="presets">LIMIT_PRESETS</button>
+                            <button class="settings-nav-btn" data-section="rules">REPLACE_RULES</button>
+                            <button class="settings-nav-btn" data-section="archetypes">ARCHETYPES</button>
+                            <button class="settings-nav-btn" data-section="ai">AI_PROMPTS</button>
+                            <button class="settings-nav-btn" data-section="regex">REGEX_SANDBOX</button>
+                            <button class="settings-nav-btn" data-section="colors">THEME_COLORS</button>
+                        </aside>
+
+                        <!-- Settings Content -->
+                        <div class="settings-content">
+
+                            <!-- Section: API Keys -->
+                            <div class="settings-section active" id="section-api">
+                                <div class="field-group">
+                                    <label>DeepL API Key</label>
+                                    <div class="input-with-action">
+                                        <input type="password" id="opt-deepl-key" placeholder="Enter DeepL Auth Key">
+                                        <button class="btn-secondary" id="btn-test-deepl">TEST</button>
+                                    </div>
+                                    <div class="flex-row" style="margin-top: 10px;">
+                                        <label style="width: auto;">Target Lang:</label>
+                                        <input type="text" id="opt-deepl-lang" placeholder="e.g. EN-US"
+                                            style="width: 100px;">
+                                    </div>
+                                </div>
+
+                                <div class="field-group">
+                                    <label>OpenRouter API Key</label>
+                                    <div class="input-with-action">
+                                        <input type="password" id="opt-or-key" placeholder="Enter OpenRouter Key">
+                                        <button class="btn-secondary" id="btn-test-or">TEST</button>
+                                    </div>
+                                    <div class="flex-row" style="margin-top: 10px;">
+                                        <div class="toggle-group sm">
+                                            <label class="switch sm">
+                                                <input type="checkbox" id="opt-show-paid">
+                                                <span class="slider sm"></span>
+                                            </label>
+                                            <span style="font-size: 0.65rem;">SHOW_PAID</span>
+                                        </div>
+                                        <button class="btn-secondary sm" id="btn-refresh-models">REFRESH MODELS</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section: Paths -->
+                            <div class="settings-section" id="section-paths">
+                                <div class="field-group">
+                                    <label>Bible Path (.txt / .log)</label>
+                                    <div class="input-with-action">
+                                        <input type="text" id="opt-path-bible" readonly placeholder="Click to select file...">
+                                        <button class="btn-secondary" id="btn-pick-bible">BROWSE</button>
+                                    </div>
+                                </div>
+                                <div class="field-group">
+                                    <label>Glossary Path (.csv)</label>
+                                    <div class="input-with-action">
+                                        <input type="text" id="opt-path-gloss" readonly placeholder="Click to select file...">
+                                        <button class="btn-secondary" id="btn-pick-gloss">BROWSE</button>
+                                    </div>
+                                </div>
+                                <div class="field-group">
+                                    <label>Assets Directory</label>
+                                    <div class="input-with-action">
+                                        <input type="text" id="opt-path-assets" readonly placeholder="Click to select directory...">
+                                        <button class="btn-secondary" id="btn-pick-assets">BROWSE</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section: Tag Mappings -->
+                            <div class="settings-section" id="section-tags">
+                                <label>Custom Tag Lengths</label>
+                                <input type="text" id="tag-search" placeholder="Search tags (e.g. STG, PLAYER)..."
+                                    style="margin-bottom: 20px;">
+                                <div class="list-editor" style="max-height: 400px; overflow-y: auto; border: 1px solid var(--border-color); border-radius: 4px; padding: 10px;">
+                                    <ul id="tag-list" class="settings-list"></ul>
+                                </div>
+                                <button class="btn-secondary" id="btn-add-tag" style="margin-top: 15px;">+ ADD
+                                    TAG</button>
+                                <button class="btn-secondary" id="btn-del-tag" style="margin-top: 8px;">− DELETE
+                                    SELECTED</button>
+                            </div>
+
+                            <div class="settings-section">
+                                <h4>TAG_MAPPINGS</h4>
+                                <div id="set-tag-list" class="settings-list"></div>
+                                <div class="add-controls">
+                                    <input type="text" id="new-tag-key" placeholder="A1">
+                                    <input type="text" id="new-tag-val" placeholder="Arisen">
+                                    <button onclick="addTagMapping()">ADD</button>
+                                </div>
+                            </div>
+
+                            <!-- Section: Presets -->
+                            <div class="settings-section" id="section-presets">
+                                <label>Character Limit Presets</label>
+                                <div class="list-editor">
+                                    <ul id="limit-list" class="settings-list"></ul>
+                                    <div class="list-btn-row">
+                                        <button class="btn-secondary" id="btn-add-limit">+ ADD</button>
+                                        <button class="btn-secondary" id="btn-edit-limit">EDIT</button>
+                                        <button class="btn-secondary" id="btn-del-limit">− REMOVE</button>
+                                    </div>
+                                </div>
+                                <label style="margin-top: 20px;">Wall of Text Limits (Max Lines)</label>
+                                <div class="list-editor">
+                                    <ul id="wall-list" class="settings-list"></ul>
+                                    <div class="list-btn-row">
+                                        <button class="btn-secondary" id="btn-add-wall">+ ADD</button>
+                                        <button class="btn-secondary" id="btn-edit-wall">EDIT</button>
+                                        <button class="btn-secondary" id="btn-del-wall">− REMOVE</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section: Replacement Rules -->
+                            <div class="settings-section" id="section-rules">
+                                <label>Batch Replacement Rules</label>
+                                <p class="help-text">Permanent find/replace rules applied during scan.</p>
+                                <div class="list-editor">
+                                    <ul id="rule-list" class="settings-list big"></ul>
+                                    <div class="list-btn-row">
+                                        <button class="btn-secondary" id="btn-add-rule">+ ADD RULE</button>
+                                        <button class="btn-secondary" id="btn-del-rule">− DELETE</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section: Archetypes -->
+                            <div class="settings-section" id="section-archetypes">
+                                <div class="flex-row">
+                                    <label>Character Archetypes</label>
+                                    <button class="btn-secondary" id="btn-reset-archetypes">RESET TO DEFAULTS</button>
+                                </div>
+                                <div class="archetype-grid" id="archetype-grid">
+                                    <!-- Dynamic rows -->
+                                </div>
+                                <button class="btn-primary" style="margin-top: 20px; width: 100%;"
+                                    id="btn-add-archetype">+ NEW ARCHETYPE</button>
+                            </div>
+
+                            <!-- Section: AI Prompts -->
+                            <div class="settings-section" id="section-ai">
+                                <label>AI System Prompt</label>
+                                <p class="help-text">System prompt used for AI chat interactions.</p>
+                                <div class="field-group">
+                                    <textarea id="opt-ai-system-prompt" style="height: 150px; font-family: 'JetBrains Mono'; font-size: 0.75rem;"></textarea>
+                                </div>
+                                <button class="btn-primary" id="btn-save-ai-system-prompt" style="margin-top: 10px;">SAVE SYSTEM PROMPT</button>
+
+                                <label style="margin-top: 30px;">AI Button Prompts</label>
+                                <p class="help-text">Prompts used for AI assistant buttons. Use {text} as placeholder for the text to process.</p>
+                                <div class="field-group">
+                                    <label>Translate</label>
+                                    <input type="text" id="opt-ai-prompt-translate">
+                                </div>
+                                <div class="field-group">
+                                    <label>Rephrase</label>
+                                    <input type="text" id="opt-ai-prompt-rephrase">
+                                </div>
+                                <div class="field-group">
+                                    <label>Archaize</label>
+                                    <input type="text" id="opt-ai-prompt-archaize">
+                                </div>
+                                <div class="field-group">
+                                    <label>Check</label>
+                                    <input type="text" id="opt-ai-prompt-check">
+                                </div>
+                                <button class="btn-primary" id="btn-save-ai-button-prompts" style="margin-top: 10px;">SAVE BUTTON PROMPTS</button>
+                            </div>
+
+                            <!-- Section: Regex Sandbox -->
+                            <div class="settings-section" id="section-regex">
+                                <div class="regex-sandbox">
+                                    <div class="field-group">
+                                        <label>Regex Pattern</label>
+                                        <input type="text" id="regex-pattern" placeholder="e.g. \.\.\.">
+                                    </div>
+                                    <div class="field-group">
+                                        <label>Replacement</label>
+                                        <input type="text" id="regex-replace" placeholder="e.g. —">
+                                    </div>
+                                    <div class="field-group">
+                                        <label>Test Input</label>
+                                        <textarea id="regex-input" style="height: 80px;"></textarea>
+                                    </div>
+                                    <div class="field-group">
+                                        <label>Result</label>
+                                        <div id="regex-output" class="jp-box"
+                                            style="font-family: 'JetBrains Mono'; min-height: 40px; padding: 10px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section: Theme Colors -->
+                            <div class="settings-section" id="section-colors">
+                                <div class="field-group">
+                                    <div class="theme-subtabs">
+                                        <button class="theme-subtab active" data-theme="dark">Dark Mode</button>
+                                        <button class="theme-subtab" data-theme="light">Light Mode</button>
+                                    </div>
+                                </div>
+                                <div class="field-group" id="theme-dark">
+                                    <label>Dark Mode Colors</label>
+                                    <div class="color-grid">
+                                        <div class="color-picker-item">
+                                            <label>Background</label>
+                                            <input type="color" id="color-dark-bg" value="#11131c">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Text Color</label>
+                                            <input type="color" id="color-dark-fg" value="#C3F5FF">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>List Background</label>
+                                            <input type="color" id="color-dark-list-bg" value="#1d1f29">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Button Background</label>
+                                            <input type="color" id="color-dark-btn-bg" value="#1d1f29">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Log Background</label>
+                                            <input type="color" id="color-dark-log-bg" value="#0c0e17">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Log Text</label>
+                                            <input type="color" id="color-dark-log-fg" value="#C3F5FF">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Label Text</label>
+                                            <input type="color" id="color-dark-label" value="#C3F5FF">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Button Text</label>
+                                            <input type="color" id="color-dark-button-text" value="#C3F5FF">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Accent</label>
+                                            <input type="color" id="color-dark-accent" value="#00C853">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Run Button</label>
+                                            <input type="color" id="color-dark-run-bg" value="#00C853">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Border</label>
+                                            <input type="color" id="color-dark-border" value="#C3F5FF">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Header Background</label>
+                                            <input type="color" id="color-dark-header-bg" value="#0c0e17">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Panel Background</label>
+                                            <input type="color" id="color-dark-panel-bg" value="#1d1f29">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Tab Inactive</label>
+                                            <input type="color" id="color-dark-tab-inactive" value="#C3F5FF">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Glow</label>
+                                            <input type="color" id="color-dark-glow" value="#00C853">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Lore Text</label>
+                                            <input type="color" id="color-dark-lore" value="#6fb3ff">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Lore Hover</label>
+                                            <input type="color" id="color-dark-lore-hover" value="#a8d4ff">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Anachronistic</label>
+                                            <input type="color" id="color-dark-anach" value="#ffd700">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Tooltip</label>
+                                            <input type="color" id="color-dark-tooltip" value="#ff8800">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field-group" id="theme-light" style="display: none;">
+                                    <label>Light Mode Colors</label>
+                                    <div class="color-grid">
+                                        <div class="color-picker-item">
+                                            <label>Background</label>
+                                            <input type="color" id="color-light-bg" value="#F8FAFC">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Text Color</label>
+                                            <input type="color" id="color-light-fg" value="#0F172A">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>List Background</label>
+                                            <input type="color" id="color-light-list-bg" value="#FFFFFF">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Button Background</label>
+                                            <input type="color" id="color-light-btn-bg" value="#E2E8F0">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Log Background</label>
+                                            <input type="color" id="color-light-log-bg" value="#1E293B">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Log Text</label>
+                                            <input type="color" id="color-light-log-fg" value="#F1F5F9">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Label Text</label>
+                                            <input type="color" id="color-light-label" value="#475569">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Button Text</label>
+                                            <input type="color" id="color-light-button-text" value="#1E293B">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Accent</label>
+                                            <input type="color" id="color-light-accent" value="#2563EB">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Run Button</label>
+                                            <input type="color" id="color-light-run-bg" value="#059669">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Border</label>
+                                            <input type="color" id="color-light-border" value="#CBD5E1">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Header Background</label>
+                                            <input type="color" id="color-light-header-bg" value="#FFFFFF">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Panel Background</label>
+                                            <input type="color" id="color-light-panel-bg" value="#F1F5F9">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Tab Inactive</label>
+                                            <input type="color" id="color-light-tab-inactive" value="#94A3B8">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Glow</label>
+                                            <input type="color" id="color-light-glow" value="#3B82F6">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Lore Text</label>
+                                            <input type="color" id="color-light-lore" value="#3b82f6">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Lore Hover</label>
+                                            <input type="color" id="color-light-lore-hover" value="#60a5fa">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Anachronistic</label>
+                                            <input type="color" id="color-light-anach" value="#d97706">
+                                        </div>
+                                        <div class="color-picker-item">
+                                            <label>Tooltip</label>
+                                            <input type="color" id="color-light-tooltip" value="#d97706">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field-group">
+                                    <button class="btn-secondary" id="btn-reset-colors">RESET TO DEFAULTS</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <div id="modal-rule" class="modal">
+        <div class="modal-content">
+                <h3>EDIT_REPLACEMENT_RULE</h3>
+            <div class="field-group">
+                <label>Find Pattern (RegEx)</label>
+                <input type="text" id="rule-find">
+            </div>
+            <div class="field-group">
+                <label>Replace With</label>
+                <input type="text" id="rule-replace">
+            </div>
+            <div class="flex-row" style="gap: 20px; margin-bottom: 20px;">
+                <div class="toggle-group sm">
+                    <label class="switch sm">
+                        <input type="checkbox" id="rule-case">
+                        <span class="slider sm"></span>
+                    </label>
+                    <span style="font-size: 0.65rem;">CASE_SENSITIVE</span>
+                </div>
+                <div class="toggle-group sm">
+                    <label class="switch sm">
+                        <input type="checkbox" id="rule-word">
+                        <span class="slider sm"></span>
+                    </label>
+                    <span style="font-size: 0.65rem;">WHOLE_WORD</span>
+                </div>
+            </div>
+            <div class="field-group">
+                <label>Filter by Speaker (e.g. A1, B)</label>
+                <input type="text" id="rule-speakers">
+            </div>
+            <div class="field-group">
+                <label>Filter by Entry Types (e.g. 101, 102)</label>
+                <input type="text" id="rule-types">
+            </div>
+            <div class="modal-actions" style="margin-top: 20px; display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn-secondary" id="btn-rule-cancel">CANCEL</button>
+                <button class="btn-primary" id="btn-rule-save">SAVE RULE</button>
+            </div>
+        </div>
+    </div>
+    <!-- Archetype Modal -->
+    <div id="modal-archetype" class="modal">
+        <div class="modal-content">
+            <h3>EDIT_ARCHETYPE</h3>
+            <div class="field-group">
+                <label>Key (e.g. A1, B, H)</label>
+                <input type="text" id="arch-key" style="width: 100px;">
+            </div>
+            <div class="field-group">
+                <label>Name</label>
+                <input type="text" id="arch-name">
+            </div>
+            <div class="field-group">
+                <label>Professions (comma-separated)</label>
+                <input type="text" id="arch-professions">
+            </div>
+            <div class="field-group">
+                <label>Pawn Map</label>
+                <input type="text" id="arch-pawn-map">
+            </div>
+            <div class="field-group">
+                <label>Notes / Register</label>
+                <textarea id="arch-notes" style="height: 120px;"></textarea>
+            </div>
+            <div class="modal-actions" style="margin-top: 20px; display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn-secondary" id="btn-arch-cancel">CANCEL</button>
+                <button class="btn-primary" id="btn-arch-save">SAVE ARCHETYPE</button>
+            </div>
+        </div>
+    </div>
+    <div id="modal-input" class="modal">
+        <div class="modal-content">
+            <h3 id="input-modal-title">INPUT</h3>
+            <p id="input-modal-message" style="margin-bottom: 15px; font-size: 0.75rem; opacity: 0.8;"></p>
+            <div class="field-group">
+                <input type="text" id="input-modal-field">
+            </div>
+            <div class="modal-actions" style="margin-top: 20px; display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn-secondary" id="btn-input-cancel">CANCEL</button>
+                <button class="btn-primary" id="btn-input-save">OK</button>
+            </div>
+        </div>
+    </div>
+    <div id="modal-confirm" class="modal">
+        <div class="modal-content">
+            <h3 id="confirm-modal-title">CONFIRM</h3>
+            <p id="confirm-modal-message" style="margin-bottom: 20px; font-size: 0.8rem;"></p>
+            <div class="modal-actions" style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn-secondary" id="btn-confirm-cancel">CANCEL</button>
+                <button class="btn-primary" id="btn-confirm-ok">OK</button>
+            </div>
+        </div>
+    </div>
+    <div id="modal-alert" class="modal">
+        <div class="modal-content">
+            <h3 id="alert-modal-title">ALERT</h3>
+            <p id="alert-modal-message" style="margin-bottom: 20px; font-size: 0.8rem;"></p>
+            <div class="modal-actions" style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn-primary" id="btn-alert-ok">OK</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
