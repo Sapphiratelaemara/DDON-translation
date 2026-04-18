@@ -12,6 +12,8 @@
     --label-color: var(--color-label, #C3F5FF);
     --button-text-color: var(--color-button_text, #C3F5FF);
     --accent-color: var(--color-accent, #00C853);
+    --accent-fill: var(--color-accent_fill, #00C853);
+    --accent-text: var(--color-accent_text, #000000);
     --header-bg: var(--color-header_bg, #0c0e17);
     --btn-bg: var(--color-btn_bg, #1d1f29);
     --panel-bg: var(--color-panel_bg, rgba(29, 31, 41, 0.6));
@@ -645,7 +647,7 @@ input:checked+.slider.sm:before {
     flex: 1;
     overflow-y: auto;
     list-style: none;
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--list-bg);
     border-radius: 0;
     margin-bottom: 10px;
     padding: 5px;
@@ -727,7 +729,7 @@ input:checked+.slider.sm:before {
 }
 
 .log-box {
-    background: #090a10;
+    background: var(--log-bg);
     border: 1px solid var(--border-color);
     padding: 20px;
     font-family: 'JetBrains Mono', monospace;
@@ -991,7 +993,7 @@ input:checked+.slider.sm:before {
 
 .kl-editor-wrapper {
     display: flex;
-    background: #090a10;
+    background: var(--panel-bg);
     border: 1px solid var(--border-color);
     border-radius: 0;
     position: relative;
@@ -1226,7 +1228,7 @@ input:checked+.slider.sm:before {
 }
 
 .context-box {
-    background: #090a10;
+    background: var(--panel-bg);
     padding: 15px;
     border-radius: 0;
     font-size: 0.85rem;
@@ -1344,12 +1346,12 @@ input:focus {
 }
 
 .mapping-item.selected {
-    background: rgba(0, 200, 83, 0.2);
+    background: rgba(var(--accent-color), 0.2);
     border: 1px solid var(--accent-color);
 }
 
 .settings-list li.selected {
-    background: rgba(0, 200, 83, 0.2);
+    background: rgba(var(--accent-color), 0.2);
     border: 1px solid var(--accent-color);
 }
 
@@ -1403,16 +1405,12 @@ input:focus {
 }
 
 .settings-list li {
-    background: #090a10;
+    background: var(--list-bg);
     padding: 12px 15px;
     border-radius: 0;
     border: 1px solid var(--border-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
 }
+
 
 .settings-list .actions {
     display: flex;

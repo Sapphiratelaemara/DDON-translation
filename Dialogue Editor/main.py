@@ -14,7 +14,6 @@ def check_dependencies():
     required = {
         'eel': 'eel>=0.16.0',
         'requests': 'requests>=2.31.0',
-        'jamdict': 'jamdict>=1.0.0'
     }
     
     missing = []
@@ -110,16 +109,17 @@ def _get_lore_engine():
                     print(f"[WARN] LoreEngine unavailable: {e}")
     return _lore_engine
 
-# Pre-initialize Jamdict to avoid first-call timeout
-print("[MAIN] Pre-initializing Jamdict...")
+# Pre-initialize Jamdict to avoid first-call timeout (optional dependency)
+print("[MAIN] Pre-initializing Jamdict (optional)...")
 try:
     ge = _get_gloss_engine()
     if ge:
         print("[MAIN] Jamdict pre-initialization successful")
     else:
-        print("[MAIN] Jamdict pre-initialization failed")
+        print("[MAIN] Jamdict unavailable - gloss feature disabled")
 except Exception as e:
     print(f"[MAIN] Jamdict pre-initialization error: {e}")
+    print("[MAIN] Continuing without gloss feature")
 
 # --- QUEUES ---
 review_queues = {
@@ -285,6 +285,8 @@ def get_theme_colors():
         "label":    "#C3F5FF",
         "button_text": "#C3F5FF",
         "accent":   "#00C853",
+        "accent_fill": "#00C853",
+        "accent_text": "#000000",
         "run_bg":   "#00C853",
         "border":   "rgba(195, 245, 255, 0.1)",
         "header_bg": "#0c0e17",
@@ -306,6 +308,8 @@ def get_theme_colors():
         "label":    "#475569",
         "button_text": "#1E293B",
         "accent":   "#2563EB",
+        "accent_fill": "#2563EB",
+        "accent_text": "#FFFFFF",
         "run_bg":   "#059669",
         "border":   "#CBD5E1",
         "header_bg": "#FFFFFF",
@@ -1861,9 +1865,18 @@ def perform_search(query, field_col=None):
 # START APP
 # =============================================================================
 print(f"Starting Dialogue Editor Suite from {WEB_DIR}...")
+import sys
 try:
-    eel.start('index.html', size=(1300, 900), mode='chrome')
+    # Try to use default browser (supports Chrome, Edge, Firefox, etc.)
+    eel.start('index.html', size=(1300, 900), mode='default')
 except (SystemExit, KeyboardInterrupt):
     pass
 except Exception as e:
     print(f"Error: {e}")
+    import traceback
+    traceback.print_exc()
+
+# Keep console open for debugging
+sys.stdout.flush()
+input("\nPress Enter to close...")
+

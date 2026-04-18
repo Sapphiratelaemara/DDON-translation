@@ -3049,6 +3049,8 @@ function initSettingsActions() {
         setVal('color-dark-label', darkTheme.label || '#C3F5FF');
         setVal('color-dark-button-text', darkTheme.button_text || '#C3F5FF');
         setVal('color-dark-accent', darkTheme.accent || '#00C853');
+        setVal('color-dark-accent-fill', darkTheme.accent_fill || '#00C853');
+        setVal('color-dark-accent-text', darkTheme.accent_text || '#000000');
         setVal('color-dark-run-bg', darkTheme.run_bg || '#00C853');
         setVal('color-dark-border', darkTheme.border || 'rgba(195, 245, 255, 0.1)');
         setVal('color-dark-header-bg', darkTheme.header_bg || '#0c0e17');
@@ -3070,6 +3072,8 @@ function initSettingsActions() {
         setVal('color-light-label', lightTheme.label || '#475569');
         setVal('color-light-button-text', lightTheme.button_text || '#1E293B');
         setVal('color-light-accent', lightTheme.accent || '#2563EB');
+        setVal('color-light-accent-fill', lightTheme.accent_fill || '#2563EB');
+        setVal('color-light-accent-text', lightTheme.accent_text || '#FFFFFF');
         setVal('color-light-run-bg', lightTheme.run_bg || '#059669');
         setVal('color-light-border', lightTheme.border || '#CBD5E1');
         setVal('color-light-header-bg', lightTheme.header_bg || '#FFFFFF');
@@ -3093,6 +3097,8 @@ function initSettingsActions() {
             label: document.getElementById('color-dark-label').value,
             button_text: document.getElementById('color-dark-button-text').value,
             accent: document.getElementById('color-dark-accent').value,
+            accent_fill: document.getElementById('color-dark-accent-fill').value,
+            accent_text: document.getElementById('color-dark-accent-text').value,
             run_bg: document.getElementById('color-dark-run-bg').value,
             border: document.getElementById('color-dark-border').value,
             header_bg: document.getElementById('color-dark-header-bg').value,
@@ -3115,6 +3121,8 @@ function initSettingsActions() {
             label: document.getElementById('color-light-label').value,
             button_text: document.getElementById('color-light-button-text').value,
             accent: document.getElementById('color-light-accent').value,
+            accent_fill: document.getElementById('color-light-accent-fill').value,
+            accent_text: document.getElementById('color-light-accent-text').value,
             run_bg: document.getElementById('color-light-run-bg').value,
             border: document.getElementById('color-light-border').value,
             header_bg: document.getElementById('color-light-header-bg').value,
