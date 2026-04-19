@@ -46,6 +46,7 @@ import eel
 import json
 import re
 import threading
+import time
 from collections import defaultdict
 from datetime import datetime
 
@@ -132,6 +133,58 @@ review_items       = []
 current_review_idx = 0
 batch_scan_complete = False
 
+# --- QUEUE PERSISTENCE ---
+QUEUE_CACHE_FILE = "review_queues_cache.json"
+ITEMS_CACHE_FILE = "review_items_cache.json"
+
+def _save_review_queues():
+    """Save review queues to disk for persistence across restarts."""
+    try:
+        serializable = {}
+        for key, queue_data in review_queues.items():
+            serializable[key] = dict(queue_data)
+        with open(QUEUE_CACHE_FILE, 'w', encoding='utf-8') as f:
+            json.dump(serializable, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"[_save_review_queues] Error: {e}")
+
+def _load_review_queues():
+    """Load review queues from disk if they exist."""
+    global review_queues
+    try:
+        if os.path.exists(QUEUE_CACHE_FILE):
+            with open(QUEUE_CACHE_FILE, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            for key, queue_data in data.items():
+                review_queues[key] = defaultdict(list, queue_data)
+            print(f"[_load_review_queues] Loaded queues with {sum(len(q) for q in review_queues.values())} items")
+    except Exception as e:
+        print(f"[_load_review_queues] Error: {e}")
+
+def _save_review_items():
+    """Save review_items (manual translation queue) to disk for persistence."""
+    global review_items
+    try:
+        with open(ITEMS_CACHE_FILE, 'w', encoding='utf-8') as f:
+            json.dump(review_items, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"[_save_review_items] Error: {e}")
+
+def _load_review_items():
+    """Load review_items from disk if they exist."""
+    global review_items
+    try:
+        if os.path.exists(ITEMS_CACHE_FILE):
+            with open(ITEMS_CACHE_FILE, 'r', encoding='utf-8') as f:
+                review_items = json.load(f)
+            print(f"[_load_review_items] Loaded {len(review_items)} items")
+    except Exception as e:
+        print(f"[_load_review_items] Error: {e}")
+
+# Load queues at startup
+_load_review_queues()
+_load_review_items()
+
 
 # --- CSV WRITE MANAGEMENT ---
 pending_csv_writes = {}
@@ -140,6 +193,10 @@ pending_csv_writes = {}
 _csv_cache = {}
 _csv_cache_lock = threading.Lock()
 _recently_written_files = {}  # Track files written by app for cache invalidation
+
+# --- GLOSS CACHE (must be defined early for _get_gloss_engine) ---
+_gloss_cache = {}
+_gloss_cache_lock = threading.Lock()
 
 def mark_file_written(file_path):
     """Mark a file as recently written by the app (to avoid cache invalidation)."""
@@ -193,6 +250,8 @@ active_editors = []
 # --- ROUTING ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 WEB_DIR  = os.path.join(BASE_DIR, 'web')
+
+# Initialize Eel early so decorators work
 eel.init(WEB_DIR)
 
 @eel.btl.route('/assets/<path:path>')
@@ -297,29 +356,171 @@ def get_theme_colors():
         "lore_hover": "#a8d4ff",
         "anach":    "#ffd700",
         "tooltip":  "#ff8800",
+        "mask_015": "rgba(0, 0, 0, 0.15)",
+        "mask_025": "rgba(0, 0, 0, 0.25)",
+        "mask_03":  "rgba(0, 0, 0, 0.3)",
+        "mask_05":  "rgba(0, 0, 0, 0.5)",
+        "mask_08":  "rgba(0, 0, 0, 0.8)",
+        # Theme color channels
+        "theme_backgrounds_color": "245, 247, 248",
+        "theme_primaries_color": "67, 160, 71",
+        "theme_blacks": "0, 0, 0",
+        "theme_whites": "255, 255, 255",
+        "theme_grays": "38, 50, 56",
+        "theme_typeface_color": "38, 50, 56",
+        "theme_cards_color": "38, 50, 56",
+        # Theme colors
+        "theme_level_1_bg": "#f5f7f8",
+        "theme_level_2_bg": "#ffffff",
+        "theme_level_3_bg": "#ffffff",
+        "theme_primary": "#43a047",
+        "theme_link_hover": "#5bbb60",
+        "theme_border_color": "rgba(38, 50, 56, 0.1)",
+        "theme_dark_border_color": "rgba(0, 0, 0, 0.12)",
+        "theme_shimmer": "#eceff1",
+        "theme_icons_color": "rgba(38, 50, 56, 1)",
+        "theme_primary_green_50": "#e8f5e9",
+        "theme_primary_green_100": "#c8e6c9",
+        "theme_primary_blue_600": "#1e88e5",
+        "theme_primary_blue_gray": "#eceff1",
+        "theme_dark": "rgba(38, 50, 56, 1)",
+        "theme_gray_005": "rgba(38, 50, 56, 0.05)",
+        "theme_gray_01": "rgba(38, 50, 56, 0.1)",
+        "theme_gray_02": "rgba(38, 50, 56, 0.2)",
+        "theme_gray_03": "rgba(38, 50, 56, 0.3)",
+        "theme_white_005": "rgba(255, 255, 255, 0.05)",
+        "theme_white_012": "rgba(255, 255, 255, 0.12)",
+        "theme_white": "rgba(255, 255, 255, 1)",
+        "theme_black": "rgba(0, 0, 0, 1)",
+        "theme_danger": "#dc5242",
+        "theme_danger_hover_color": "#e4796d",
+        "theme_danger_bg": "rgba(220, 82, 66, 0.5)",
+        "theme_danger_bg_level_1": "rgba(220, 82, 66, 0.1)",
+        "theme_danger_bg_level_2": "rgba(220, 82, 66, 0.2)",
+        "theme_info": "#1e88e5",
+        "theme_info_bg": "rgba(30, 136, 229, 0.1)",
+        "theme_info_link": "#166dba",
+        "theme_warning": "#c79d1c",
+        "theme_warning_bg": "rgba(199, 157, 28, 0.2)",
+        "theme_warning_link": "#9a7a16",
+        "theme_success": "#6dae02",
+        "theme_success_bg": "rgba(109, 174, 2, 0.1)",
+        "theme_success_link": "#4d7c01",
+        "theme_btn_hover_bg": "rgba(38, 50, 56, 0.05)",
+        "theme_btn_active_bg": "rgba(38, 50, 56, 0.1)",
+        "theme_btn_disabled_bg": "rgba(38, 50, 56, 0.05)",
+        "theme_primary_btn_hover_bg": "#4caf50",
+        "theme_primary_btn_active_bg": "#388e3c",
+        "theme_danger_btn_bg": "#c63625",
+        "theme_danger_btn_hover_bg": "#dc5242",
+        "theme_danger_btn_border": "#9b2a1d",
+        "theme_warning_btn_bg": "#c79d1c",
+        "theme_warning_btn_hover_bg": "#e1b42b",
+        "theme_warning_btn_border": "#c79d1c",
+        "theme_warning_btn_hover_border": "#e1b42b",
+        "theme_tab_active_bg": "rgba(67, 160, 71, 0.2)",
+        "theme_tab_active_color": "#347c37",
+        "theme_tag_color": "#787459",
+        "theme_tag_color_hover": "#4C482E",
+        "theme_tag_bg": "#FAF6D8",
+        "theme_tag_bg_hover": "#F8F0C0",
+        "theme_special_light_color": "#770000",
+        "theme_special_light_bg": "#F0F0FF",
+        "theme_find_replace_highlight_bg": "#F5D87D",
     }
     default_light = {
-        "bg":       "#F8FAFC",
-        "fg":       "#0F172A",
-        "list_bg":  "#FFFFFF",
-        "btn_bg":   "#E2E8F0",
-        "log_bg":   "#1E293B",
-        "log_fg":   "#F1F5F9",
+        "bg":       "#ffffff",
+        "fg":       "#000000",
+        "list_bg":  "#eaf0f7",
+        "btn_bg":   "#ebe6ff",
+        "log_bg":   "#dbffd9",
+        "log_fg":   "#2d2d2d",
         "label":    "#475569",
-        "button_text": "#1E293B",
-        "accent":   "#2563EB",
-        "accent_fill": "#2563EB",
-        "accent_text": "#FFFFFF",
-        "run_bg":   "#059669",
-        "border":   "#CBD5E1",
-        "header_bg": "#FFFFFF",
-        "panel_bg": "#F1F5F9",
-        "tab_inactive": "#94A3B8",
-        "glow":     "#3B82F6",
+        "button_text": "#1e293b",
+        "accent":   "#9ab8f5",
+        "accent_fill": "#9ab8f5",
+        "accent_text": "#000000",
+        "run_bg":   "#0cf000",
+        "border":   "#000000",
+        "header_bg": "#ffffff",
+        "panel_bg": "#eaf0f7",
+        "tab_inactive": "#657b9a",
+        "glow":     "#3b82f6",
         "lore":     "#3b82f6",
-        "lore_hover": "#60a5fa",
-        "anach":    "#d97706",
-        "tooltip":  "#d97706",
+        "lore_hover": "#79b4fb",
+        "anach":    "#fb634d",
+        "tooltip":  "#fcf34b",
+        "mask_015": "rgba(0, 0, 0, 0.08)",
+        "mask_025": "rgba(0, 0, 0, 0.12)",
+        "mask_03":  "rgba(0, 0, 0, 0.15)",
+        "mask_05":  "rgba(0, 0, 0, 0.2)",
+        "mask_08":  "rgba(0, 0, 0, 0.3)",
+        # Theme color channels
+        "theme_backgrounds_color": "245, 247, 248",
+        "theme_primaries_color": "67, 160, 71",
+        "theme_blacks": "0, 0, 0",
+        "theme_whites": "255, 255, 255",
+        "theme_grays": "38, 50, 56",
+        "theme_typeface_color": "38, 50, 56",
+        "theme_cards_color": "38, 50, 56",
+        # Theme colors
+        "theme_level_1_bg": "#f5f7f8",
+        "theme_level_2_bg": "#ffffff",
+        "theme_level_3_bg": "#ffffff",
+        "theme_primary": "#43a047",
+        "theme_link_hover": "#5bbb60",
+        "theme_border_color": "rgba(38, 50, 56, 0.1)",
+        "theme_dark_border_color": "rgba(0, 0, 0, 0.12)",
+        "theme_shimmer": "#eceff1",
+        "theme_icons_color": "rgba(38, 50, 56, 1)",
+        "theme_primary_green_50": "#e8f5e9",
+        "theme_primary_green_100": "#c8e6c9",
+        "theme_primary_blue_600": "#1e88e5",
+        "theme_primary_blue_gray": "#eceff1",
+        "theme_dark": "rgba(38, 50, 56, 1)",
+        "theme_gray_005": "rgba(38, 50, 56, 0.05)",
+        "theme_gray_01": "rgba(38, 50, 56, 0.1)",
+        "theme_gray_02": "rgba(38, 50, 56, 0.2)",
+        "theme_gray_03": "rgba(38, 50, 56, 0.3)",
+        "theme_white_005": "rgba(255, 255, 255, 0.05)",
+        "theme_white_012": "rgba(255, 255, 255, 0.12)",
+        "theme_white": "rgba(255, 255, 255, 1)",
+        "theme_black": "rgba(0, 0, 0, 1)",
+        "theme_danger": "#dc5242",
+        "theme_danger_hover_color": "#e4796d",
+        "theme_danger_bg": "rgba(220, 82, 66, 0.5)",
+        "theme_danger_bg_level_1": "rgba(220, 82, 66, 0.1)",
+        "theme_danger_bg_level_2": "rgba(220, 82, 66, 0.2)",
+        "theme_info": "#1e88e5",
+        "theme_info_bg": "rgba(30, 136, 229, 0.1)",
+        "theme_info_link": "#166dba",
+        "theme_warning": "#c79d1c",
+        "theme_warning_bg": "rgba(199, 157, 28, 0.2)",
+        "theme_warning_link": "#9a7a16",
+        "theme_success": "#6dae02",
+        "theme_success_bg": "rgba(109, 174, 2, 0.1)",
+        "theme_success_link": "#4d7c01",
+        "theme_btn_hover_bg": "rgba(38, 50, 56, 0.05)",
+        "theme_btn_active_bg": "rgba(38, 50, 56, 0.1)",
+        "theme_btn_disabled_bg": "rgba(38, 50, 56, 0.05)",
+        "theme_primary_btn_hover_bg": "#4caf50",
+        "theme_primary_btn_active_bg": "#388e3c",
+        "theme_danger_btn_bg": "#c63625",
+        "theme_danger_btn_hover_bg": "#dc5242",
+        "theme_danger_btn_border": "#9b2a1d",
+        "theme_warning_btn_bg": "#c79d1c",
+        "theme_warning_btn_hover_bg": "#e1b42b",
+        "theme_warning_btn_border": "#c79d1c",
+        "theme_warning_btn_hover_border": "#e1b42b",
+        "theme_tab_active_bg": "rgba(67, 160, 71, 0.2)",
+        "theme_tab_active_color": "#347c37",
+        "theme_tag_color": "#787459",
+        "theme_tag_color_hover": "#4C482E",
+        "theme_tag_bg": "#FAF6D8",
+        "theme_tag_bg_hover": "#F8F0C0",
+        "theme_special_light_color": "#770000",
+        "theme_special_light_bg": "#F0F0FF",
+        "theme_find_replace_highlight_bg": "#F5D87D",
     }
     
     if dark_mode:
@@ -694,41 +895,6 @@ def get_entry_types_list():
     rules = cm.config.get("entry_type_rules", {})
     return [{"key": k, "name": k} for k in sorted(rules.keys())]
 
-@eel.expose
-def save_entry_type_to_csv(item_id, entry_type):
-    """Save entry type to the corresponding CSV row."""
-    # Find the item in review_items
-    item = None
-    for ri in review_items:
-        if str(ri.get("id")) == str(item_id):
-            item = ri
-            break
-    if not item:
-        return {"error": "Item not found"}
-    
-    # Update the item
-    item["category"] = entry_type
-    
-    # Write to CSV
-    try:
-        path = item.get("path")
-        row_idx = item.get("row")
-        if path and row_idx is not None:
-            raw, dialect, rows = _read_csv(path)
-            if 0 <= row_idx < len(rows):
-                # Ensure row has enough columns
-                while len(rows[row_idx]) < 10:
-                    rows[row_idx].append("")
-                rows[row_idx][9] = entry_type
-                # Write back
-                import csv
-                with open(path, 'w', newline='', encoding='utf-8-sig') as f:
-                    writer = csv.writer(f, dialect=dialect or csv.excel)
-                    writer.writerows(rows)
-        return {"ok": True}
-    except Exception as e:
-        return {"error": str(e)}
-
 # =============================================================================
 # API HELPERS
 # =============================================================================
@@ -1047,9 +1213,7 @@ def generate_preview_image(profile_name, text):
     except Exception as e:
         return {"error": f"Failed to generate preview: {str(e)}"}
 
-# --- GLOSS CACHE ---
-_gloss_cache = {}
-_gloss_cache_lock = threading.Lock()
+# --- GLOSSING / WORD LOOKUP ---
 
 # --- LORE CONTEXT CACHE ---
 _lore_context_cache = {}
@@ -1236,15 +1400,16 @@ def get_lore_context(jp_text):
     
     thread = threading.Thread(target=_run_lore_context)
     thread.start()
-    thread.join(timeout=15.0)  # Wait up to 15 seconds for the thread to complete
+    thread.join(timeout=30.0)  # Wait up to 30 seconds for the thread to complete
     
     if error_container[0]:
+        print(f"[get_lore_context] Error: {error_container[0]}")
         return []
-    if result_container[0]:
+    if result_container[0] is not None:
         return result_container[0]
     
-    # If thread didn't complete in time, return empty result
-    print(f"[get_lore_context] Timeout waiting for lore context result")
+    # If thread didn't complete in time, return empty result but log it
+    print(f"[get_lore_context] Timeout after 30s - returning empty result")
     return []
 
 @eel.expose
@@ -1305,29 +1470,45 @@ def prefetch_definitions(words):
 @eel.expose
 def get_adjacent_context(path, row_idx):
     """Returns prev/next rows (0-based row_idx into the CSV rows list)."""
+    print(f"[get_adjacent_context] Called with path={path}, row_idx={row_idx}")
     if not path or row_idx is None:
+        print(f"[get_adjacent_context] Returning empty: path={path}, row_idx={row_idx}")
         return {}
     try:
         _, _, rows = _read_csv_cached(path)
-        idx    = int(row_idx)
-        result = {}
-        # Only 001.csv has a header row, others don't
+        print(f"[get_adjacent_context] Read {len(rows)} rows from CSV")
+        
+        # Check if CSV has header row (only 001.csv has header)
         has_header = "001.csv" in os.path.basename(path)
-        if idx - 1 >= (1 if has_header else 0):
-            prev = rows[idx - 1]
+        print(f"[get_adjacent_context] has_header={has_header}")
+        
+        # Adjust row index if there's a header
+        data_row_idx = row_idx
+        if has_header:
+            data_row_idx = row_idx + 1
+            print(f"[get_adjacent_context] Adjusted data_row_idx from {row_idx} to {data_row_idx}")
+        
+        result = {}
+        if data_row_idx > 0:
+            prev = rows[data_row_idx - 1]
             result["prev"] = {
                 "jp": (prev[2] if len(prev) > 2 else "").replace("\r", ""),
                 "en": (prev[3] if len(prev) > 3 else "").replace("\r", ""),
             }
-        if idx + 1 < len(rows):
-            nxt = rows[idx + 1]
+            print(f"[get_adjacent_context] Found prev row at index {data_row_idx - 1}")
+        if data_row_idx < len(rows) - 1:
+            nxt = rows[data_row_idx + 1]
             result["next"] = {
                 "jp": (nxt[2] if len(nxt) > 2 else "").replace("\r", ""),
                 "en": (nxt[3] if len(nxt) > 3 else "").replace("\r", ""),
             }
+            print(f"[get_adjacent_context] Found next row at index {data_row_idx + 1}")
+        print(f"[get_adjacent_context] Returning result: {result}")
         return result
     except Exception as e:
         print(f"[get_adjacent_context] Error: {e}")
+        import traceback
+        traceback.print_exc()
         return {}
 
 @eel.expose
@@ -1388,7 +1569,9 @@ def start_batch_scan(preset_name="Standard", wall_preset_name="Standard"):
         global review_items, batch_scan_complete
         # Set completion flag for polling
         batch_scan_complete = True
-        print(f"[done_cb] Scan complete, set batch_scan_complete=True")
+        # Save queues to disk for persistence
+        _save_review_queues()
+        print(f"[done_cb] Scan complete, saved {sum(len(q) for q in review_queues.values())} items")
 
     threading.Thread(
         target=run_batch,
@@ -1744,6 +1927,7 @@ def load_csv_for_translation(filepath=None):
                 "path": filepath,
                 "row": i  # i is the actual row index in the CSV file
             })
+        _save_review_items()
         return len(review_items)
     except Exception as e:
         return {"error": str(e)}
@@ -1776,7 +1960,8 @@ def get_prefetch_cache(category, idx):
             return {
                 'lore_context': cached.get('lore_context'),
                 'anachronisms': cached.get('anachronisms'),
-                'adjacent_context': cached.get('adjacent_context')
+                'adjacent_context': cached.get('adjacent_context'),
+                'deepl_suggestion': cached.get('deepl_suggestion')
             }
         return None
     except Exception as e:
@@ -1815,6 +2000,7 @@ def clear_queue():
     """Clear the current review queue."""
     global review_items
     review_items = []
+    _save_review_items()
     return True
 
 @eel.expose
@@ -1823,6 +2009,7 @@ def bulk_inject(items):
     for item in reversed(items):
         item["id"] = f"SEARCH_{item['row']}"
         review_items.insert(current_review_idx, item)
+    _save_review_items()
     return True
 
 @eel.expose
@@ -1862,21 +2049,196 @@ def perform_search(query, field_col=None):
     return results
 
 # =============================================================================
+# DIAGNOSTICS — Feature Status
+# =============================================================================
+
+@eel.expose
+def get_feature_status():
+    """Return status of optional features (gloss, DeepL, lore context, etc)."""
+    status = {
+        "gloss": False,
+        "gloss_error": None,
+        "deepl": False,
+        "deepl_error": None,
+        "deepl_key_configured": False,
+        "lore_context": False,
+        "lore_context_error": None,
+        "glossary_path": cm.config.get("glossary_path", ""),
+        "bible_path": cm.config.get("bible_path", ""),
+    }
+    
+    # Check GlossEngine (Jamdict)
+    try:
+        ge = _get_gloss_engine()
+        status["gloss"] = ge is not None
+        if not ge:
+            status["gloss_error"] = "GlossEngine not initialized (Jamdict may not be installed)"
+    except Exception as e:
+        status["gloss"] = False
+        status["gloss_error"] = str(e)
+    
+    # Check DeepL
+    try:
+        deepl_key = cm.get_key("deepl_api_key")
+        if deepl_key:
+            status["deepl_key_configured"] = True
+            try:
+                # Test with a simple request
+                result = DeepLClient(deepl_key).translate("テスト", target_lang="EN-US")
+                status["deepl"] = "text" in result or "error" not in result
+                if "error" in result:
+                    status["deepl_error"] = result.get("error")
+            except Exception as e:
+                status["deepl_error"] = f"DeepL API error: {str(e)}"
+        else:
+            status["deepl_error"] = "No DeepL API key configured"
+    except Exception as e:
+        status["deepl_error"] = f"Error checking DeepL: {str(e)}"
+    
+    # Check LoreEngine (for lore_context)
+    try:
+        le = _get_lore_engine()
+        status["lore_context"] = le is not None
+        if not le:
+            status["lore_context_error"] = "LoreEngine not initialized"
+        elif not le.lore_map:
+            status["lore_context_error"] = "LoreEngine has no lore_map data"
+    except Exception as e:
+        status["lore_context"] = False
+        status["lore_context_error"] = str(e)
+    
+    return status
+
+# =============================================================================
+# SHUTDOWN / CLEANUP
+# =============================================================================
+
+def is_port_available(port):
+    """Check if a port is available for binding."""
+    import socket
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(1)
+        result = sock.connect_ex(('127.0.0.1', port))
+        sock.close()
+        return result != 0  # Return True if port is NOT in use
+    except:
+        return True
+
+def find_available_port(start_port=8000, max_attempts=10):
+    """Find an available port starting from start_port."""
+    for port in range(start_port, start_port + max_attempts):
+        if is_port_available(port):
+            print(f"[STARTUP] Found available port: {port}")
+            return port
+    print(f"[ERROR] No available ports found in range {start_port}-{start_port + max_attempts}")
+    return None
+
+@eel.expose
+def shutdown_app():
+    """Gracefully shutdown the application."""
+    print("[SHUTDOWN] App shutdown requested by frontend")
+    try:
+        # Trigger frontend to close
+        eel.close()
+    except:
+        pass
+    # Force exit after a short delay
+    def do_exit():
+        time.sleep(0.5)
+        os._exit(0)
+    t = threading.Thread(target=do_exit, daemon=True)
+    t.start()
+    return {"ok": True}
+
+# =============================================================================
 # START APP
 # =============================================================================
-print(f"Starting Dialogue Editor Suite from {WEB_DIR}...")
-import sys
-try:
-    # Try to use default browser (supports Chrome, Edge, Firefox, etc.)
-    eel.start('index.html', size=(1300, 900), mode='default')
-except (SystemExit, KeyboardInterrupt):
-    pass
-except Exception as e:
-    print(f"Error: {e}")
-    import traceback
-    traceback.print_exc()
 
-# Keep console open for debugging
-sys.stdout.flush()
-input("\nPress Enter to close...")
+def main():
+    print(f"[STARTUP] Starting Dialogue Editor Suite from {WEB_DIR}...")
+    print(f"[STARTUP] Web directory: {WEB_DIR}")
+    
+    # Verify web directory exists
+    if not os.path.isdir(WEB_DIR):
+        print(f"[ERROR] Web directory not found: {WEB_DIR}")
+        return False
+    
+    # Check for index.html
+    index_path = os.path.join(WEB_DIR, 'index.html')
+    if not os.path.isfile(index_path):
+        print(f"[ERROR] index.html not found: {index_path}")
+        return False
+    
+    print("[STARTUP] Web files verified")
+    
+    # Initialize Eel
+    try:
+        print("[STARTUP] Initializing Eel...")
+        eel.init(WEB_DIR)
+        print("[STARTUP] Eel initialized successfully")
+    except Exception as e:
+        print(f"[ERROR] Failed to initialize Eel: {e}")
+        return False
+    
+    # Print feature status for debugging
+    print("[STARTUP] Checking optional features...")
+    status = get_feature_status()
+    print(f"[STARTUP] Gloss (Jamdict): {status['gloss']}" + (f" - {status['gloss_error']}" if status['gloss_error'] else ""))
+    print(f"[STARTUP] DeepL: {status['deepl']}" + (f" - {status['deepl_error']}" if status['deepl_error'] else ""))
+    print(f"[STARTUP] Lore Context: {status['lore_context']}" + (f" - {status['lore_context_error']}" if status['lore_context_error'] else ""))
+    print(f"[STARTUP] Glossary path: {status['glossary_path']}")
+    print(f"[STARTUP] Bible path: {status['bible_path']}")
+    
+    # Find available port
+    port = find_available_port(8000, 10)
+    if port is None:
+        print("[ERROR] Could not find available port")
+        return False
+    
+    # Eel startup with multiple mode attempts
+    startup_successful = False
+    modes = ['chrome', 'chrome-app', 'edge', 'default']
+    
+    for mode in modes:
+        try:
+            print(f"[STARTUP] Attempting to start with mode: {mode} on port {port}")
+            eel.start('index.html', size=(1300, 900), mode=mode, port=port)
+            startup_successful = True
+            print(f"[STARTUP] Mode '{mode}' started successfully")
+            break
+        except Exception as e:
+            print(f"[STARTUP] Mode '{mode}' failed: {type(e).__name__}: {e}")
+            # On Windows, chrome modes might fail but that's OK, we have fallbacks
+            if mode in ['chrome', 'chrome-app']:
+                continue
+            # Try next mode
+            continue
+    
+    if not startup_successful:
+        print("[ERROR] Failed to start Eel with any mode")
+        return False
+    
+    return True
+
+if __name__ == '__main__':
+    try:
+        print("[MAIN] Initializing application...")
+        success = main()
+        if not success:
+            print("[MAIN] Application failed to start")
+            sys.exit(1)
+    except (SystemExit, KeyboardInterrupt):
+        print("[MAIN] Application interrupted by user")
+        sys.exit(0)
+    except Exception as e:
+        print(f"[MAIN] Unexpected error: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+    finally:
+        print("[MAIN] Application cleanup completed")
+        sys.stdout.flush()
+
+
 

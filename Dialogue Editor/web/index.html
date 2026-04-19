@@ -48,7 +48,7 @@
 
             <div class="tabs">
                 <button class="tab-btn active" data-tab="dashboard">DASHBOARD</button>
-                <button class="tab-btn" data-tab="reviewer">REVIEW_EDITOR</button>
+                <button class="tab-btn" data-tab="editor">REVIEW_EDITOR</button>
                 <button class="tab-btn" data-tab="search">DATABASE_SEARCH</button>
             </div>
 
@@ -199,9 +199,9 @@ Ctrl+Shift+D: Ellipsis</div>
                 </div>
             </section>
 
-            <!-- Tab 2: Reviewer (Kinetic Logic Design System v4.0) -->
-            <section id="tab-reviewer" class="tab-content">
-                <div class="kl-editor-layout" id="reviewer-container">
+            <!-- Tab 2: Review Editor (Kinetic Logic Design System v4.0) -->
+            <section id="tab-editor" class="tab-content">
+                <div class="kl-editor-layout" id="editor-container">
                     
                     <!-- Left Sidebar: Strings List -->
                     <aside class="kl-sidebar-left" id="row-sidebar">
@@ -214,11 +214,35 @@ Ctrl+Shift+D: Ellipsis</div>
                                 <option value="">Select category...</option>
                             </select>
                         </div>
-                        <div class="kl-sidebar-filter">
-                            <label class="kl-checkbox-label">
-                                <input type="checkbox" id="show-translated-rows">
-                                <span>Show translated</span>
-                            </label>
+                        <div class="kl-sidebar-filter" id="filter-dropdown" style="display: none;">
+                            <div class="filter-menu">
+                                <div class="filter-option">
+                                    <label>Show:</label>
+                                    <select id="show-filter" class="kl-select">
+                                        <option value="all">Show All</option>
+                                        <option value="untranslated-first">All, Untranslated First</option>
+                                        <option value="untranslated">Untranslated</option>
+                                    </select>
+                                </div>
+                                <div class="filter-divider"></div>
+                                <div class="filter-option">
+                                    <label>Speaker:</label>
+                                    <select id="filter-speaker" class="kl-select">
+                                        <option value="">All speakers</option>
+                                    </select>
+                                </div>
+                                <div class="filter-option">
+                                    <label>Entry Type:</label>
+                                    <select id="filter-entry-type" class="kl-select">
+                                        <option value="">All types</option>
+                                    </select>
+                                </div>
+                                <div class="filter-divider"></div>
+                                <div class="filter-actions">
+                                    <button class="kl-btn" id="btn-clear-filters">Clear Filters</button>
+                                    <button class="kl-btn-accent" id="btn-apply-filters">Apply</button>
+                                </div>
+                            </div>
                         </div>
                         <ul class="kl-row-list" id="row-list-ul"></ul>
                     </aside>
@@ -256,10 +280,9 @@ Ctrl+Shift+D: Ellipsis</div>
                                                     <option>Dialogue</option>
                                                 </select>
                                             </div>
-                                            <button class="kl-btn-accent" id="btn-save-type">Save Type</button>
                                             <div class="kl-field-group">
                                                 <label class="kl-checkbox-label">
-                                                    <input type="checkbox" id="reviewer-in-universe" checked>
+                                                    <input type="checkbox" id="editor-in-universe" checked>
                                                     <span>In-Universe Language</span>
                                                 </label>
                                             </div>
@@ -490,7 +513,7 @@ Ctrl+Shift+D: Ellipsis</div>
 
                     <div class="results-area">
                         <div class="search-bulk-actions" style="margin-bottom: 10px; display: none;" id="search-bulk-box">
-                            <button class="btn-primary" id="btn-search-open-all">OPEN ALL IN TRANSLATOR</button>
+                            <button class="btn-primary" id="btn-search-open-all">OPEN ALL IN REVIEW_EDITOR</button>
                         </div>
                         <table class="search-results">
                             <thead>
@@ -823,27 +846,27 @@ Ctrl+Shift+D: Ellipsis</div>
                                     <div class="color-grid">
                                         <div class="color-picker-item">
                                             <label>Background</label>
-                                            <input type="color" id="color-light-bg" value="#F8FAFC">
+                                            <input type="color" id="color-light-bg" value="#ffffff">
                                         </div>
                                         <div class="color-picker-item">
-                                            <label>Text Color</label>
-                                            <input type="color" id="color-light-fg" value="#0F172A">
+                                            <label>Foreground</label>
+                                            <input type="color" id="color-light-fg" value="#000000">
                                         </div>
                                         <div class="color-picker-item">
                                             <label>List Background</label>
-                                            <input type="color" id="color-light-list-bg" value="#FFFFFF">
+                                            <input type="color" id="color-light-list-bg" value="#eaf0f7">
                                         </div>
                                         <div class="color-picker-item">
                                             <label>Button Background</label>
-                                            <input type="color" id="color-light-btn-bg" value="#E2E8F0">
+                                            <input type="color" id="color-light-btn-bg" value="#ebe6ff">
                                         </div>
                                         <div class="color-picker-item">
                                             <label>Log Background</label>
-                                            <input type="color" id="color-light-log-bg" value="#1E293B">
+                                            <input type="color" id="color-light-log-bg" value="#dbffd9">
                                         </div>
                                         <div class="color-picker-item">
-                                            <label>Log Text</label>
-                                            <input type="color" id="color-light-log-fg" value="#F1F5F9">
+                                            <label>Log Foreground</label>
+                                            <input type="color" id="color-light-log-fg" value="#2d2d2d">
                                         </div>
                                         <div class="color-picker-item">
                                             <label>Label Text</label>
@@ -851,59 +874,59 @@ Ctrl+Shift+D: Ellipsis</div>
                                         </div>
                                         <div class="color-picker-item">
                                             <label>Button Text</label>
-                                            <input type="color" id="color-light-button-text" value="#1E293B">
+                                            <input type="color" id="color-light-button-text" value="#1e293b">
                                         </div>
                                         <div class="color-picker-item">
                                             <label>Accent</label>
-                                            <input type="color" id="color-light-accent" value="#2563EB">
+                                            <input type="color" id="color-light-accent" value="#9ab8f5">
                                         </div>
                                         <div class="color-picker-item">
                                             <label>Accent Fill</label>
-                                            <input type="color" id="color-light-accent-fill" value="#2563EB">
+                                            <input type="color" id="color-light-accent-fill" value="#9ab8f5">
                                         </div>
                                         <div class="color-picker-item">
                                             <label>Accent Text</label>
-                                            <input type="color" id="color-light-accent-text" value="#FFFFFF">
+                                            <input type="color" id="color-light-accent-text" value="#000000">
                                         </div>
                                         <div class="color-picker-item">
                                             <label>Run Button</label>
-                                            <input type="color" id="color-light-run-bg" value="#059669">
+                                            <input type="color" id="color-light-run-bg" value="#0cf000">
                                         </div>
                                         <div class="color-picker-item">
                                             <label>Border</label>
-                                            <input type="color" id="color-light-border" value="#CBD5E1">
+                                            <input type="color" id="color-light-border" value="#000000">
                                         </div>
                                         <div class="color-picker-item">
                                             <label>Header Background</label>
-                                            <input type="color" id="color-light-header-bg" value="#FFFFFF">
+                                            <input type="color" id="color-light-header-bg" value="#ffffff">
                                         </div>
                                         <div class="color-picker-item">
                                             <label>Panel Background</label>
-                                            <input type="color" id="color-light-panel-bg" value="#F1F5F9">
+                                            <input type="color" id="color-light-panel-bg" value="#eaf0f7">
                                         </div>
                                         <div class="color-picker-item">
                                             <label>Tab Inactive</label>
-                                            <input type="color" id="color-light-tab-inactive" value="#94A3B8">
+                                            <input type="color" id="color-light-tab-inactive" value="#657b9a">
                                         </div>
                                         <div class="color-picker-item">
                                             <label>Glow</label>
-                                            <input type="color" id="color-light-glow" value="#3B82F6">
+                                            <input type="color" id="color-light-glow" value="#3b82f6">
                                         </div>
                                         <div class="color-picker-item">
-                                            <label>Lore Text</label>
+                                            <label>Lore Color</label>
                                             <input type="color" id="color-light-lore" value="#3b82f6">
                                         </div>
                                         <div class="color-picker-item">
                                             <label>Lore Hover</label>
-                                            <input type="color" id="color-light-lore-hover" value="#60a5fa">
+                                            <input type="color" id="color-light-lore-hover" value="#79b4fb">
                                         </div>
                                         <div class="color-picker-item">
-                                            <label>Anachronistic</label>
-                                            <input type="color" id="color-light-anach" value="#d97706">
+                                            <label>Anach Color</label>
+                                            <input type="color" id="color-light-anach" value="#fb634d">
                                         </div>
                                         <div class="color-picker-item">
-                                            <label>Tooltip</label>
-                                            <input type="color" id="color-light-tooltip" value="#d97706">
+                                            <label>Tooltip Color</label>
+                                            <input type="color" id="color-light-tooltip" value="#fcf34b">
                                         </div>
                                     </div>
                                 </div>

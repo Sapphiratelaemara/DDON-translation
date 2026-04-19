@@ -225,6 +225,7 @@ class LoreEngine:
 
     @classmethod
     def _save_def_cache(cls, cache):
+        """Save definitions as strings only - no examples in this file."""
         try:
             # Load existing file to preserve structure
             if os.path.exists(cls.DEFINITIONS_FILE):
@@ -234,16 +235,24 @@ class LoreEngine:
                 existing_data = {}
             
             # Merge new cache entries into the appropriate sections
-            # Words that exist in dd1_definitions stay there
-            # New words or words from other_definitions go to other_definitions
             dd1_defs = existing_data.get("dd1_definitions", {})
             other_defs = existing_data.get("other_definitions", {})
             
             for word, definition in cache.items():
-                if word in dd1_defs:
-                    dd1_defs[word] = definition
+                # Extract just the definition string if it's a tuple/list
+                if isinstance(definition, (list, tuple)) and len(definition) > 0:
+                    defn_str = definition[0] if definition[0] else ""
+                elif isinstance(definition, str):
+                    defn_str = definition
                 else:
-                    other_defs[word] = definition
+                    defn_str = str(definition)
+                
+                # Only save if we have a non-empty definition
+                if defn_str:
+                    if word in dd1_defs:
+                        dd1_defs[word] = defn_str
+                    else:
+                        other_defs[word] = defn_str
             
             # Preserve structure with comments
             new_data = {
@@ -319,7 +328,6 @@ class LoreEngine:
                             if callback:
                                 callback(word, defn)
                         threading.Thread(target=_fetch, daemon=True).start()
-                    return None
             return cached
         if callback:
             def _fetch():
@@ -330,40 +338,13 @@ class LoreEngine:
                 if callback:
                     callback(word, defn)
             threading.Thread(target=_fetch, daemon=True).start()
-        return None
 
     @classmethod
     def _fetch_definition(cls, word):
-        """Fetch short definition and example from Free Dictionary API. Returns tuple (definition, example) or ("", "")."""
-        # Check local examples first (DDON dialogue takes priority)
+        """Fetch definition from local examples only. No external API calls."""
+        # Check local examples only (DDON dialogue takes priority)
         examples = cls._load_examples()
         local_example = examples.get(word, "")
-
-        try:
-            url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{urllib.request.quote(word)}"
-            req = urllib.request.Request(url, headers={'User-Agent': 'DDON-tool/1.0'})
-            with urllib.request.urlopen(req, timeout=4) as resp:
-                data = json.loads(resp.read().decode())
-                # Walk to first short definition and example
-                for entry in data:
-                    for meaning in entry.get('meanings', []):
-                        for defn in meaning.get('definitions', []):
-                            d = defn.get('definition', '').strip()
-                            ex = defn.get('example', '').strip()
-                            if d:
-                                # Truncate definition to ~80 chars
-                                d_trunc = d if len(d) <= 80 else d[:77] + '...'
-                                # Use local example if available (priority over API)
-                                if local_example:
-                                    ex = local_example
-                                elif ex:
-                                    # Clean example (remove quotes, truncate to ~100 chars)
-                                    ex = ex.replace('"', '').replace("'", "")
-                                    ex = ex if len(ex) <= 100 else ex[:97] + '...'
-                                return (d_trunc, ex)
-        except Exception:
-            pass
-        # If API fails entirely, use local example if available
         if local_example:
             return ("", local_example)
         return ("", "")

@@ -34,7 +34,7 @@ function loadState() {
 }
 
 function saveState() {
-    const showFilter = document.getElementById('show-filter')?.value || 'all';
+    const showTranslated = document.getElementById('show-translated-rows')?.checked || false;
     const toSave = {
         currentTab: state.currentTab,
         reviewer: {
@@ -42,7 +42,7 @@ function saveState() {
             mode: state.reviewer.mode,
             lastFolder: state.reviewer.lastFolder,
             // Don't save fullQueue - it should always be fetched from backend to avoid stale data
-            showFilter: showFilter,
+            showTranslated: showTranslated,
         },
         search: state.search,
     };
@@ -115,16 +115,10 @@ window.onload = async () => {
         await loadDashboard();
         await loadSettings();
         
-        // Load saved queue structure to populate category dropdown
-        const queueStructure = await eel.get_queue_structure()();
-        state.reviewer.queueStructure = queueStructure;
-        populateCategorySelector(queueStructure);
-        console.log('[INIT] Loaded queue structure:', queueStructure);
-        
-        // Restore show filter dropdown
-        const showFilterSelect = document.getElementById('show-filter');
-        if (showFilterSelect && state.reviewer.showFilter) {
-            showFilterSelect.value = state.reviewer.showFilter;
+        // Restore show translated toggle
+        const showTranslatedToggle = document.getElementById('show-translated-rows');
+        if (showTranslatedToggle && state.reviewer.showTranslated !== undefined) {
+            showTranslatedToggle.checked = state.reviewer.showTranslated;
         }
         // Restore search results if they exist
         if (state.search.results && state.search.results.length > 0) {
@@ -230,14 +224,14 @@ async function pollBatchScanCompletion() {
             state.reviewer.currentCategory = firstCategory || null;
             // Populate category selector
             populateCategorySelector(queueStructure);
-            // Show modal to switch to Editor
+            // Show modal to switch to Review Editor
             if (firstCategory) {
                 const itemCount = queueStructure[firstCategory].count;
                 console.log('[pollBatchScanCompletion] Found', itemCount, 'items in category:', firstCategory);
-                openConfirmModal('SCAN COMPLETE', `Found ${itemCount} items. Switch to Editor?`, (confirmed) => {
+                openConfirmModal('SCAN COMPLETE', `Found ${itemCount} items. Switch to Review Editor?`, (confirmed) => {
                     if (confirmed) {
                         state.reviewer.mode = 'review';
-                        switchTab('editor');
+                        switchTab('reviewer');
                     }
                 });
             } else {
@@ -326,9 +320,7 @@ async function switchCategory(categoryDisplayName) {
 function applyTheme(colors) {
     const root = document.documentElement;
     Object.entries(colors).forEach(([key, value]) => {
-        if (value !== undefined && value !== null) {
-            root.style.setProperty(`--color-${key}`, value);
-        }
+        root.style.setProperty(`--color-${key}`, value);
     });
 }
 
@@ -357,16 +349,19 @@ function switchTab(tabId) {
     state.currentTab = tabId;
     saveState();
     
-    // Show/hide panel toggles - only in editor
+    // Show/hide panel toggles - only in reviewer
     const panelToggles = document.querySelector('.panel-toggles');
     if (panelToggles) {
-        panelToggles.classList.toggle('hidden', tabId !== 'editor');
+        panelToggles.classList.toggle('hidden', tabId !== 'reviewer');
     }
     
-    if (tabId === 'editor') {
-        // Only clear gloss cache (prefetch cache persists across tab switches)
-        eel.clear_gloss_cache()().then(() => {
-            console.log('[switchTab] Gloss cache cleared');
+    if (tabId === 'reviewer') {
+        // Clear both caches to prevent stale cache hits when switching to reviewer tab
+        Promise.all([
+            eel.clear_prefetch_cache()(),
+            eel.clear_gloss_cache()
+        ]).then(() => {
+            console.log('[switchTab] Caches cleared');
             
             // Refresh limits from backend to ensure current preset values
             Promise.all([
@@ -406,11 +401,12 @@ function switchTab(tabId) {
                     eel.get_all_items_in_queue()().then(items => {
                         console.log('[switchTab] Got all items, count:', items.length);
                         state.reviewer.fullQueue = items || [];
-                        state.reviewer.currentIdx = 0;
-                        state.reviewer.currentItem = null;  // Reset to force reload
+                        if (state.reviewer.currentIdx >= state.reviewer.fullQueue.length) {
+                            state.reviewer.currentIdx = 0;
+                        }
                         renderRowSidebar();
-                        if (state.reviewer.fullQueue.length > 0) {
-                            loadItemAtIdx(0);
+                        if (!state.reviewer.currentItem && state.reviewer.fullQueue.length > 0) {
+                            loadItemAtIdx(state.reviewer.currentIdx);
                         }
                     });
                 }
@@ -461,7 +457,7 @@ function initDashboardActions() {
             state.reviewer.currentItem = null;
             state.reviewer.currentIdx = 0;
             saveState();
-            switchTab('editor');
+            switchTab('reviewer');
         } else if (res === 0) {
             openAlertModal('INFO', 'No translatable lines found in selected CSV.');
         }
@@ -611,7 +607,7 @@ function initDashboardActions() {
         const el = document.getElementById(id);
         if (el) el.onchange = async () => { await eel.save_config_field(key, el.checked)(); };
     };
-    setupToggle('editor-in-universe', 'in_universe');
+    setupToggle('dash-in-universe', 'in_universe');
     setupToggle('dash-preview-mode', 'preview_mode');
 }
 
@@ -622,7 +618,7 @@ async function loadDashboard() {
         document.getElementById('stat-folders').innerText = (data.folders || []).length;
         document.getElementById('stat-files').innerText = data.file_count || 0;
 
-        const iu = document.getElementById('editor-in-universe');
+        const iu = document.getElementById('dash-in-universe');
         if (iu) iu.checked = !!data.in_universe;
         const pm = document.getElementById('dash-preview-mode');
         if (pm) pm.checked = !!data.preview_mode;
@@ -807,20 +803,10 @@ async function loadItemAtIdxInternal(idx) {
         // Clear editor before setting new text to prevent stale data
         const enEditor = document.getElementById('en-editor');
         const jpEditor = document.getElementById('jp-editor');
-        
-        // Suppress input events while loading new item text
-        if (enEditor && enEditor._setSkipInputHandling) enEditor._setSkipInputHandling(true);
-        if (jpEditor && jpEditor._setSkipInputHandling) jpEditor._setSkipInputHandling(true);
-        
         if (enEditor) enEditor.innerText = '';
         if (jpEditor) jpEditor.innerText = '';
         
         if (enEditor) enEditor.innerText = (item.en || '').replace(/★/g, '');
-        
-        // Re-enable input events after loading
-        if (enEditor && enEditor._setSkipInputHandling) enEditor._setSkipInputHandling(false);
-        if (jpEditor && jpEditor._setSkipInputHandling) jpEditor._setSkipInputHandling(false);
-        
         document.getElementById('review-status').innerText = `QUEUE: ${idx + 1} / ${items.length}`;
         
         // Use cached lore context if available, otherwise fetch it
@@ -831,7 +817,7 @@ async function loadItemAtIdxInternal(idx) {
         }
 
         updateReviewerCounters();
-        syncLineCounters();
+        await syncLineCounters();
         renderRowSidebar();
 
         // Ensure preview profiles are loaded before first preview render
@@ -862,6 +848,15 @@ async function loadItemAtIdxInternal(idx) {
 function initReviewerActions() {
     const bind = (id, ev, fn) => { const el = document.getElementById(id); if (el) el[ev] = fn; };
 
+    // Category selector
+    const categorySelect = document.getElementById('category-select');
+    if (categorySelect) {
+        categorySelect.onchange = async () => {
+            console.log('[categorySelect.onchange] Selected category:', categorySelect.value);
+            await switchCategory(categorySelect.value);
+        };
+    }
+
     // Sidebar tabs
     document.querySelectorAll('.side-tab').forEach(tab => {
         tab.onclick = () => {
@@ -871,71 +866,43 @@ function initReviewerActions() {
         };
     });
 
-    bind('btn-apply',       'onclick',  applyFix);
-    bind('btn-skip',        'onclick',  nextItem);
-    bind('btn-prev',        'onclick',  prevItem);
-    bind('btn-rewrap',      'onclick',  rewrapEditor);
-    bind('btn-dash-em',     'onclick',  () => replaceDashes('—'));
-    bind('btn-dash-triple', 'onclick',  () => replaceDashes('...'));
-    bind('show-filter', 'onchange', renderRowSidebar);
-    bind('filter-speaker', 'onchange', renderRowSidebar);
-    bind('filter-entry-type', 'onchange', renderRowSidebar);
-    bind('btn-clear-filters', 'onclick', clearFilters);
-    bind('btn-apply-filters', 'onclick', () => {
-        renderRowSidebar();
-        document.getElementById('filter-dropdown').style.display = 'none';
-    });
-
-    // In-universe toggle
-    const setupToggle = (id, key) => {
-        const el = document.getElementById(id);
-        if (el) el.onchange = async () => { await eel.save_config_field(key, el.checked)(); };
-    };
-    setupToggle('reviewer-in-universe', 'in_universe');
+    bind('btn-apply', 'onclick', applyFix);
+    bind('btn-prev', 'onclick', nextItem);
+    bind('btn-rewrap', 'onclick', rewrapEditor);
+    bind('btn-dash-em', 'onclick', () => replaceDashes('—'));
+    bind('btn-dash-triple', 'onclick', () => replaceDashes('...'));
+    bind('show-translated-rows', 'onchange', () => { renderRowSidebar(); saveState(); });
 
     const ed = document.getElementById('en-editor');
     if (ed) {
         let skipCursorRestore = false;
-        let skipInputHandling = false;  // Flag to skip input event during undo/redo
         
         ed.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
-                skipCursorRestore = true;
                 const selection = window.getSelection();
                 if (selection.rangeCount > 0) {
                     const range = selection.getRangeAt(0);
                     const br = document.createElement('br');
                     range.deleteContents();
                     range.insertNode(br);
-                    // Don't add space after BR - innerText will handle line breaks correctly
-                    // Position cursor right after the BR by finding or creating a text node
-                    const textAfter = br.nextSibling;
-                    if (textAfter && textAfter.nodeType === Node.TEXT_NODE) {
-                        range.setStart(textAfter, 0);
-                    } else {
-                        // Create empty text node to position cursor on new line
-                        const emptyNode = document.createTextNode('');
-                        br.parentNode.insertBefore(emptyNode, br.nextSibling);
-                        range.setStart(emptyNode, 0);
-                    }
-                    range.collapse(true);
+                    // Create a text node with a space after br to ensure cursor can be placed
+                    const textNode = document.createTextNode(' ');
+                    br.parentNode.insertBefore(textNode, br.nextSibling);
+                    range.setStart(textNode, 1);
+                    range.setEnd(textNode, 1);
                     selection.removeAllRanges();
                     selection.addRange(range);
                     // Trigger input event to update highlights
                     ed.dispatchEvent(new Event('input', { bubbles: true }));
-                    skipCursorRestore = false;
                 }
             }
         });
-
+        
         ed.addEventListener('input', async () => { 
-            // Skip input handling during undo/redo
-            if (skipInputHandling) return;
-            
             saveUndoState();
             updateReviewerCounters(); 
-            syncLineCounters();
+            await syncLineCounters();
             // Re-scan for anachronisms as user types
             const jpText = document.getElementById('jp-source')?.innerText || '';
             populateLoreContext(jpText, ed.innerText, state.reviewer.currentIdx);
@@ -952,10 +919,8 @@ function initReviewerActions() {
         ed.addEventListener('click', handleEditorClick);
         ed.addEventListener('paste', handlePaste);
         
-        // Store the skip flags on the element for other functions to access
+        // Store the skip flag on the element for renderHighlights to access
         ed._skipCursorRestore = () => skipCursorRestore;
-        ed._skipInputHandling = () => skipInputHandling;
-        ed._setSkipInputHandling = (val) => { skipInputHandling = val; };
     }
     
     // Initialize speaker, archetype, and entry type controls
@@ -963,43 +928,264 @@ function initReviewerActions() {
     
     // Initialize preset dropdowns
     loadLimitPresets();
+}
 
-    // Filter button toggle
-    const filterRowsBtn = document.getElementById('btn-filter-rows');
-    if (filterRowsBtn) {
-        filterRowsBtn.onclick = () => {
-            const dropdown = document.getElementById('filter-dropdown');
-            if (dropdown) {
-                dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+function handleEditorClick(e) {
+    if (e.target.classList.contains('anach-highlight')) {
+        const word = e.target.getAttribute('data-word');
+        const suggestion = e.target.getAttribute('data-suggestion');
+        if (word && suggestion) {
+            replaceAnachronism(word, suggestion);
+            hideTooltip();
+        }
+    }
+}
+
+function handlePaste(e) {
+    e.preventDefault();
+    saveUndoState();
+    const text = (e.clipboardData || window.clipboardData).getData('text/plain');
+    if (!text) return;
+    
+    const selection = window.getSelection();
+    if (selection.rangeCount > 0) {
+        const range = selection.getRangeAt(0);
+        range.deleteContents();
+        range.insertNode(document.createTextNode(text));
+        range.collapse(false);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    }
+    
+    updateReviewerCounters();
+    syncLineCounters();
+}
+
+function hideTooltip() {
+    const tooltip = document.getElementById('anach-tooltip');
+    if (tooltip) {
+        tooltip.style.display = 'none';
+    }
+    hoveredAnachronism = null;
+}
+
+function showAnachronismModal(word, suggestion, defn, example, is_ddon = false) {
+    // Create modal if it doesn't exist
+    let modal = document.getElementById('anach-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'anach-modal';
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        `;
+        document.body.appendChild(modal);
+        
+        // Add click outside to close
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
+    
+    // Create modal content
+    const content = document.createElement('div');
+    content.style.cssText = `
+        background: var(--bg-color, #1e1e1e);
+        border: 1px solid var(--accent-color, #4a9eff);
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 500px;
+        max-height: 80vh;
+        overflow-y: auto;
+        color: var(--text-color, #e0e0e0);
+        font-family: 'Inter', sans-serif;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+    `;
+    
+    const ddonText = is_ddon ? ' <span style="color: #e8c56a;">★ Used in DD1</span>' : '';
+    let html = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h3 style="margin: 0; font-size: 16px; color: var(--accent-color, #4a9eff);">
+                <span style="text-decoration: line-through; opacity: 0.7;">${escHtml(word)}</span> → ${escHtml(suggestion)}${ddonText}
+            </h3>
+            <button onclick="document.getElementById('anach-modal').style.display='none'" 
+                    style="background: none; border: none; color: var(--text-color, #e0e0e0); font-size: 20px; cursor: pointer;">&times;</button>
+        </div>
+    `;
+    
+    if (defn) {
+        html += `
+            <div style="margin-bottom: 12px;">
+                <strong style="color: var(--accent-color, #4a9eff);">Definition:</strong>
+                <p style="margin: 5px 0 0 0; line-height: 1.5;">${escHtml(defn)}</p>
+            </div>
+        `;
+    }
+    
+    if (example) {
+        // Convert **text** to <strong>text</strong> for bolding
+        const formattedExample = escHtml(example).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        html += `
+            <div>
+                <strong style="color: var(--accent-color, #4a9eff);">Example:</strong>
+                <p style="margin: 5px 0 0 0; line-height: 1.5; font-style: italic;">"${formattedExample}"</p>
+            </div>
+        `;
+    }
+    
+    content.innerHTML = html;
+    modal.innerHTML = '';
+    modal.appendChild(content);
+    modal.style.display = 'flex';
+}
+
+async function loadLimitPresets() {
+    try {
+        const presets = await eel.get_all_presets()();
+        const charSelect = document.getElementById('char-limit-preset');
+        const lineSelect = document.getElementById('line-limit-preset');
+        
+        if (charSelect && presets.char_presets) {
+            charSelect.innerHTML = '';
+            Object.entries(presets.char_presets).forEach(([name, value]) => {
+                const opt = document.createElement('option');
+                opt.value = value;
+                opt.text = name;
+                charSelect.appendChild(opt);
+            });
+            // Select current preset
+            const selectedValue = presets.char_presets[presets.selected_char];
+            if (selectedValue) charSelect.value = selectedValue;
+            
+            // Handle change
+            charSelect.onchange = async () => {
+                await eel.save_config_field('selected_preset', charSelect.options[charSelect.selectedIndex].text)();
+                state.standardLimit = parseInt(charSelect.value);
+                updateReviewerCounters();
+            };
+        }
+        
+        if (lineSelect && presets.line_presets) {
+            lineSelect.innerHTML = '';
+            Object.entries(presets.line_presets).forEach(([name, value]) => {
+                const opt = document.createElement('option');
+                opt.value = value;
+                opt.text = name;
+                lineSelect.appendChild(opt);
+            });
+            // Select current preset
+            const selectedValue = presets.line_presets[presets.selected_line];
+            if (selectedValue) lineSelect.value = selectedValue;
+            
+            // Handle change
+            lineSelect.onchange = async () => {
+                await eel.save_config_field('wall_preset', lineSelect.options[lineSelect.selectedIndex].text)();
+                state.maxLines = parseInt(lineSelect.value);
+                updateReviewerCounters();
+            };
+        }
+    } catch (e) { console.error('[loadLimitPresets]', e); }
+}
+
+// Speaker, Archetype, Entry Type controls
+async function initMetadataControls() {
+    // Load dropdown options
+    await loadArchetypes();
+    await loadEntryTypes();
+    
+    // Archetype dropdown - update notes panel on change
+    const archetypeSelect = document.getElementById('archetype-select');
+    if (archetypeSelect) {
+        archetypeSelect.onchange = async () => {
+            const archetypeKey = archetypeSelect.value;
+            const notesPanel = document.getElementById('archetype-notes');
+            if (notesPanel) {
+                const notes = await eel.get_archetype_notes(archetypeKey)();
+                notesPanel.innerText = notes || '(no notes)';
             }
         };
     }
-
-    // Category selector
-    const categorySelect = document.getElementById('category-select');
-    if (categorySelect) {
-        categorySelect.onchange = async () => {
-            console.log('[categorySelect.onchange] Selected category:', categorySelect.value);
-            await switchCategory(categorySelect.value);
-        };
-    }
-
-    // Archetype save button
-    const saveMetaBtn = document.getElementById('btn-save-meta');
-    if (saveMetaBtn) {
-        saveMetaBtn.onclick = async () => {
-            const archSelect = document.getElementById('archetype-select');
-            const noteInput = document.getElementById('speaker-note');
-            const speakerValue = document.getElementById('speaker-value');
-            if (speakerValue && archSelect && noteInput) {
-                const speaker = speakerValue.innerText;
-                const archetype = archSelect.value;
-                const note = noteInput.value;
+    
+    // Speaker save button
+    const btnSaveMeta = document.getElementById('btn-save-meta');
+    if (btnSaveMeta) {
+        btnSaveMeta.onclick = async () => {
+            const speaker = state.reviewer.currentItem?.speaker || '';
+            const archetype = document.getElementById('archetype-select')?.value || '';
+            const note = document.getElementById('speaker-note')?.value || '';
+            
+            if (speaker) {
                 await eel.save_speaker_archetype(speaker, archetype, note)();
-                console.log('[btn-save-meta] Saved archetype:', archetype, 'for speaker:', speaker);
+                // Update sidebar note
+                const sidebarNote = document.getElementById('sidebar-speaker-note');
+                if (sidebarNote) sidebarNote.innerText = note || '';
+                btnSaveMeta.innerText = 'Saved!';
+                setTimeout(() => btnSaveMeta.innerText = 'Save', 500);
             }
         };
     }
+    
+    // Entry type save button
+    const btnSaveType = document.getElementById('btn-save-type');
+    if (btnSaveType) {
+        btnSaveType.onclick = async () => {
+            const entryType = document.getElementById('entry-type-select')?.value || '';
+            const item = state.reviewer.currentItem;
+            if (item && entryType) {
+                const result = await eel.save_entry_type_to_csv(item.id, entryType)();
+                if (result.ok) {
+                    btnSaveType.innerText = 'Saved!';
+                    setTimeout(() => btnSaveType.innerText = 'Save Type', 500);
+                } else {
+                    openAlertModal('ERROR', 'Error saving entry type: ' + (result.error || 'Unknown'));
+                }
+            }
+        };
+    }
+}
+
+async function loadArchetypes() {
+    try {
+        const archetypes = await eel.get_archetypes_list()();
+        const select = document.getElementById('archetype-select');
+        if (select && archetypes) {
+            select.innerHTML = '';
+            archetypes.forEach(a => {
+                const opt = document.createElement('option');
+                opt.value = a.key;
+                opt.innerText = a.name;
+                select.appendChild(opt);
+            });
+        }
+    } catch (e) { console.error('[loadArchetypes]', e); }
+}
+
+async function loadEntryTypes() {
+    try {
+        const types = await eel.get_entry_types_list()();
+        const select = document.getElementById('entry-type-select');
+        if (select && types) {
+            select.innerHTML = '';
+            types.forEach(t => {
+                const opt = document.createElement('option');
+                opt.value = t.key;
+                opt.innerText = t.name;
+                select.appendChild(opt);
+            });
+        }
+    } catch (e) { console.error('[loadEntryTypes]', e); }
 }
 
 async function nextItem() {
@@ -1056,15 +1242,9 @@ async function rewrapEditor() {
     const limit = state.standardLimit;
     const rewrapped = await eel.rewrap_text(text, limit)();
     if (rewrapped !== undefined && rewrapped !== null) {
-        const ed = document.getElementById('en-editor');
-        if (ed) {
-            // Skip input event handling while updating after rewrap
-            if (ed._setSkipInputHandling) ed._setSkipInputHandling(true);
-            ed.innerText = rewrapped;
-            if (ed._setSkipInputHandling) ed._setSkipInputHandling(false);
-            updateReviewerCounters();
-            syncLineCounters();
-        }
+        document.getElementById('en-editor').innerText = rewrapped;
+        updateReviewerCounters();
+        await syncLineCounters();
     }
 }
 
@@ -1078,41 +1258,31 @@ async function replaceDashes(target) {
         ed.innerText = fixed;
     }
     updateReviewerCounters();
-    syncLineCounters();
+    await syncLineCounters();
 }
 
 // =============================================================================
 // REVIEWER — COUNTERS / PREVIEW
 // =============================================================================
-function syncLineCounters() {
+async function syncLineCounters() {
     const ed = document.getElementById('en-editor');
     const ctr = document.getElementById('line-counters');
     if (!ed || !ctr) return;
     
-    const virtualTags = ['<n>', '</n>', '<w>', '</w>', '<p>', '</p>', '<b>', '</b>', '<i>', '</i>'];
-    
+    // For contenteditable, count lines by splitting innerText by newlines
     const text = ed.innerText;
     const lines = text ? text.split('\n') : [];
     const limit = state.standardLimit || 50;
+    
+    // Only show counters for actual lines (dynamic spawning)
     ctr.innerHTML = '';
+    
     for (let i = 0; i < lines.length; i++) {
-        let lineText = lines[i] || '';
-        
-        // Remove virtual tags
-        for (const tag of virtualTags) {
-            lineText = lineText.replaceAll(tag, '');
-        }
-        lineText = lineText.replace(/\n/g, '').replace(/\r/g, '');
-        
-        // Count only non-whitespace characters (but report total including spaces)
-        const charCount = lineText.length;
-        const trimmedLength = lineText.trim().length;
-        
-        // Skip empty lines and lines with only whitespace
-        if (trimmedLength === 0) continue;
-        
         const s = document.createElement('span');
+        // Use backend to get simulated length with tag mapping
+        const charCount = await eel.get_simulated_len(lines[i] || '')();
         s.innerText = charCount;
+        // Color code based on configured limit
         if (charCount > limit) s.style.color = '#ff6b6b';
         else if (charCount > limit * 0.8) s.style.color = '#ffa502';
         else s.style.color = 'var(--accent-color)';
@@ -1132,8 +1302,7 @@ async function updateReviewerCounters() {
 
     const lines = ed.innerText.split('\n');
     const maxLines = state.maxLines || 5;
-    // Filter out empty lines from count (spaces count, so only filter truly empty lines)
-    const lineCount = lines.filter(line => line.length > 0).length;
+    const lineCount = lines.length;
     
     // Update header to show line count vs max lines
     const cc = document.getElementById('char-count');
@@ -1144,6 +1313,8 @@ async function updateReviewerCounters() {
 
     // Scan for anachronisms
     await scanAnachronisms(ed.innerText);
+
+    updatePreview(state.reviewer.currentIdx);
 }
 
 function updatePreview(loadIdx) {
@@ -1154,10 +1325,17 @@ function updatePreview(loadIdx) {
     const boxType = document.getElementById('preview-box-type')?.value || 'dialogue';
     const text = ed.innerText || '';
     
+    console.log(`[updatePreview] Starting for loadIdx=${loadIdx}, currentIdx=${state.reviewer.currentIdx}`);
+    const startTime = Date.now();
+    
     // Generate preview image
     eel.generate_preview_image(boxType, text)().then(result => {
+        const elapsed = Date.now() - startTime;
+        console.log(`[updatePreview] Completed for loadIdx=${loadIdx}, currentIdx=${state.reviewer.currentIdx}, elapsed=${elapsed}ms`);
+        
         // Only check index if loadIdx was provided (skip check for preview setting changes)
         if (loadIdx !== undefined && state.reviewer.currentIdx !== loadIdx) {
+            console.log(`[updatePreview] Skipped update because currentIdx=${state.reviewer.currentIdx} != loadIdx=${loadIdx}`);
             return;
         }
         
@@ -1198,49 +1376,28 @@ function updatePreview(loadIdx) {
 // ANACHRONISMS
 // =============================================================================
 let hoveredAnachronism = null; // Track anachronism under mouse
-let highlightGeneration = 0;   // Counter to prevent race conditions in async highlight rendering
 
 async function scanAnachronisms(text) {
     if (!text) {
         state.reviewer.anachRanges = [];
         hoveredAnachronism = null;
-        renderHighlights(text, highlightGeneration);
+        renderHighlights(text);
         return;
     }
-    
-    // Capture current generation to detect if this render is stale
-    const generation = ++highlightGeneration;
-    
     try {
         const hits = await eel.scan_anachronisms(text)();
-        // Only update if we're still rendering this generation
-        if (generation === highlightGeneration) {
-            state.reviewer.anachRanges = hits || [];
-            renderHighlights(text, generation);
-        }
+        state.reviewer.anachRanges = hits || [];
+        renderHighlights(text);
     } catch(e) {
         console.error('[scanAnachronisms]', e);
-        if (generation === highlightGeneration) {
-            state.reviewer.anachRanges = [];
-            renderHighlights(text, generation);
-        }
+        state.reviewer.anachRanges = [];
+        renderHighlights(text);
     }
 }
 
-function renderHighlights(text, generation) {
+function renderHighlights(text) {
     const ed = document.getElementById('en-editor');
     if (!ed) return;
-    
-    // Skip if this is a stale render (newer render is in progress)
-    if (generation !== undefined && generation !== highlightGeneration) {
-        return;
-    }
-    
-    // Also check if the text has changed since this render was started
-    const currentText = ed.innerText;
-    if (currentText !== text) {
-        return;
-    }
     
     // Check if we should skip cursor restoration (e.g., after Enter key)
     const shouldSkipRestore = ed._skipCursorRestore && ed._skipCursorRestore();
@@ -1250,12 +1407,8 @@ function renderHighlights(text, generation) {
     const range = selection.rangeCount > 0 ? selection.getRangeAt(0).cloneRange() : null;
     const cursorOffset = (shouldSkipRestore || !range) ? null : getCaretOffset(ed, range);
     
-    // Escape HTML tags to make them visible as text, but preserve newlines initially
+    // Escape HTML tags to make them visible as text
     let html = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    
-    // Convert newlines to BR tags BEFORE applying highlights
-    // This ensures empty lines are properly represented as <br> elements
-    html = html.replace(/\n/g, '<br>');
     
     // Apply anachronism highlights using position-based approach
     if (state.reviewer.anachRanges && state.reviewer.anachRanges.length > 0) {
@@ -1268,7 +1421,7 @@ function renderHighlights(text, generation) {
             const useWordBoundary = !word.includes(' ');
             const regex = new RegExp(useWordBoundary ? `\\b${escapedWord}\\b` : escapedWord, 'gi');
             
-            // Replace all occurrences, but skip those already inside span tags or br tags
+            // Replace all occurrences, but skip those already inside span tags
             let match;
             const regexObj = new RegExp(regex);
             let lastIndex = 0;
@@ -1278,7 +1431,7 @@ function renderHighlights(text, generation) {
                 // Add text before this match
                 newHtml += html.substring(lastIndex, match.index);
                 
-                // Check if we're inside a span tag or adjacent to a BR
+                // Check if we're inside a span tag
                 const before = html.substring(0, match.index);
                 const openSpanCount = (before.match(/<span/g) || []).length;
                 const closeSpanCount = (before.match(/<\/span>/g) || []).length;
@@ -1306,72 +1459,65 @@ function renderHighlights(text, generation) {
 }
 
 function getCaretOffset(element, range) {
-    if (!range || !range.endContainer) return null;
+    // Get the plain text content
+    const text = element.innerText || '';
     
-    // Manually count characters from start of element to cursor position
-    // using the same logic as restoreCursor() to ensure consistency
-    try {
-        let currentOffset = 0;
-        let found = false;
+    // Traverse the DOM to calculate the character offset
+    let offset = 0;
+    let found = false;
+    
+    function traverse(node) {
+        if (found) return;
         
-        function traverse(node) {
-            if (found) return;
-            
-            if (node.nodeType === Node.TEXT_NODE) {
-                if (node === range.endContainer) {
-                    // This is the target text node
-                    currentOffset += range.endOffset;
-                    found = true;
-                    console.log(`[getCaretOffset] Found in text node: ${currentOffset} (offset: ${range.endOffset})`);
-                    return;
-                }
-                currentOffset += node.length;
-            } else if (node.nodeType === Node.ELEMENT_NODE) {
-                // Handle BR elements as single character line breaks
-                if (node.nodeName === 'BR') {
-                    currentOffset += 1;
-                } else if (node.nodeName === 'SPAN' || node.nodeName === 'DIV') {
-                    // Traverse children
-                    for (let i = 0; i < node.childNodes.length && !found; i++) {
-                        traverse(node.childNodes[i]);
-                    }
-                } else {
-                    // Other elements - traverse children
-                    for (let i = 0; i < node.childNodes.length && !found; i++) {
-                        traverse(node.childNodes[i]);
-                    }
-                }
+        if (node === range.endContainer) {
+            offset += range.endOffset;
+            found = true;
+            return;
+        }
+        
+        if (node.nodeType === Node.TEXT_NODE) {
+            offset += node.length;
+        } else {
+            for (let i = 0; i < node.childNodes.length; i++) {
+                traverse(node.childNodes[i]);
+                if (found) return;
             }
         }
-        
-        traverse(element);
-        
-        if (found) {
-            console.log(`[getCaretOffset] Final offset: ${currentOffset}`);
-            return currentOffset;
-        }
-        
-        // Fallback: use the original range-based method if our traversal fails
-        console.log(`[getCaretOffset] Traversal failed, using fallback`);
+    }
+    
+    traverse(element);
+    
+    // If we didn't find the exact node, fall back to range.toString()
+    if (!found) {
         const preCaretRange = range.cloneRange();
         preCaretRange.selectNodeContents(element);
         preCaretRange.setEnd(range.endContainer, range.endOffset);
-        const offset = preCaretRange.toString().length;
-        console.log(`[getCaretOffset] Fallback offset: ${offset}`);
-        return offset;
-    } catch (e) {
-        console.error('[getCaretOffset] Error:', e);
-        return null;
+        offset = preCaretRange.toString().length;
     }
+    
+    // Check if cursor is at the end of the text
+    if (offset === 0 && text.length > 0) {
+        // Check if range is at the end of the element
+        if (range.endContainer === element && range.endOffset === element.childNodes.length) {
+            return text.length;
+        }
+        // Check if range is at the end of the last text node
+        if (range.endContainer.nodeType === Node.TEXT_NODE) {
+            const parent = range.endContainer.parentNode;
+            if (parent === element.lastChild || parent === element) {
+                const nodeLength = range.endContainer.length;
+                if (range.endOffset === nodeLength) {
+                    return text.length;
+                }
+            }
+        }
+    }
+    
+    return offset;
 }
 
 function restoreCursor(element, offset) {
     if (offset === null) return;
-    
-    const text = element.innerText || '';
-    const clampedOffset = Math.min(Math.max(0, offset), text.length);
-    
-    console.log(`[restoreCursor] Starting restoration - text length: ${text.length}, target offset: ${clampedOffset}/${offset}`);
     
     const range = document.createRange();
     const selection = window.getSelection();
@@ -1379,166 +1525,31 @@ function restoreCursor(element, offset) {
     let currentOffset = 0;
     let found = false;
     
-    // Traverse DOM nodes counting text content, handling BR tags as newlines
-    function traverse(node, depth = 0) {
+    function traverse(node) {
         if (found) return;
         
-        const indent = '  '.repeat(depth);
-        
         if (node.nodeType === Node.TEXT_NODE) {
             const nodeLength = node.length;
-            const nodeText = node.nodeValue;
-            console.log(`${indent}[Text Node] length: ${nodeLength}, text: "${nodeText}" current offset: ${currentOffset}`);
-            
-            if (currentOffset + nodeLength >= clampedOffset) {
-                // Found the node containing our target offset
-                const posInNode = clampedOffset - currentOffset;
-                console.log(`${indent}[Text Node] FOUND! Position in node: ${posInNode}/${nodeLength}`);
-                range.setStart(node, posInNode);
+            if (currentOffset + nodeLength >= offset) {
+                range.setStart(node, offset - currentOffset);
                 range.collapse(true);
                 found = true;
-                return;
-            }
-            currentOffset += nodeLength;
-        } else if (node.nodeType === Node.ELEMENT_NODE) {
-            // Handle BR elements as single character line breaks
-            if (node.nodeName === 'BR') {
-                console.log(`${indent}[BR] currentOffset: ${currentOffset}`);
-                currentOffset += 1; // BR counts as one character (equivalent to \n)
-                if (currentOffset >= clampedOffset && !found) {
-                    // Position cursor right before or after the BR
-                    console.log(`${indent}[BR] FOUND at boundary!`);
-                    if (currentOffset - 1 === clampedOffset) {
-                        // Cursor position is just before the BR - position after previous text node
-                        found = true;
-                        return;
-                    } else {
-                        // Cursor position is at or after the BR
-                        const next = node.nextSibling;
-                        if (next) {
-                            if (next.nodeType === Node.TEXT_NODE) {
-                                range.setStart(next, 0);
-                            } else {
-                                range.setStart(node, 0);
-                            }
-                        } else {
-                            range.setStart(node, 0);
-                        }
-                        range.collapse(true);
-                        found = true;
-                        return;
-                    }
-                }
-            } else if (node.nodeName === 'SPAN') {
-                console.log(`${indent}[SPAN] traversing children`);
-                // Process text content within span (the highlights)
-                for (let i = 0; i < node.childNodes.length && !found; i++) {
-                    traverse(node.childNodes[i], depth + 1);
-                }
-            } else {
-                console.log(`${indent}[${node.nodeName}] traversing children`);
-                // Other elements - traverse children
-                for (let i = 0; i < node.childNodes.length && !found; i++) {
-                    traverse(node.childNodes[i], depth + 1);
-                }
-            }
-        }
-    }
-    
-    traverse(element);
-    
-    // Only update selection if we found a valid position
-    if (found && range.startContainer) {
-        try {
-            selection.removeAllRanges();
-            selection.addRange(range);
-            console.log(`[restoreCursor] Selection set successfully`);
-        } catch (e) {
-            console.error('[restoreCursor] Failed to set range:', e);
-        }
-    } else if (currentOffset >= clampedOffset && text.length > 0) {
-        // Cursor at end - try to position at end of last child
-        console.log(`[restoreCursor] Using end-of-content fallback, current offset: ${currentOffset}`);
-        let lastNode = element.lastChild;
-        while (lastNode && lastNode.nodeType !== Node.TEXT_NODE) {
-            if (lastNode.nodeType !== Node.ELEMENT_NODE) break;
-            lastNode = lastNode.lastChild;
-        }
-        if (lastNode && lastNode.nodeType === Node.TEXT_NODE) {
-            range.setStart(lastNode, lastNode.length);
-            range.collapse(true);
-            selection.removeAllRanges();
-            selection.addRange(range);
-            console.log(`[restoreCursor] Cursor positioned at end`);
-        }
-    } else {
-        console.log(`[restoreCursor] WARNING: Could not find position ${clampedOffset}, traversal ended at ${currentOffset}`);
-    }
-}
-
-function restoreCursorAbsolute(element, offset) {
-    if (offset === null) return;
-    
-    const selection = window.getSelection();
-    const text = element.innerText || '';
-    const clampedOffset = Math.min(offset, text.length);
-    
-    // Use Selection API to position cursor by selecting from start to offset
-    // This works even if DOM structure changes because it uses text content
-    const range = document.createRange();
-    
-    // Find the text node that contains the offset
-    let currentOffset = 0;
-    let targetNode = null;
-    let targetOffset = 0;
-    
-    function traverse(node) {
-        if (targetNode) return;
-        
-        if (node.nodeType === Node.TEXT_NODE) {
-            const nodeLength = node.length;
-            if (currentOffset + nodeLength >= clampedOffset) {
-                targetNode = node;
-                targetOffset = clampedOffset - currentOffset;
             } else {
                 currentOffset += nodeLength;
             }
         } else {
             for (let i = 0; i < node.childNodes.length; i++) {
                 traverse(node.childNodes[i]);
-                if (targetNode) return;
+                if (found) return;
             }
         }
     }
     
     traverse(element);
     
-    if (targetNode) {
-        range.setStart(targetNode, targetOffset);
-        range.collapse(true);
+    if (found) {
         selection.removeAllRanges();
         selection.addRange(range);
-    } else {
-        // Fallback: set cursor at end of last text node
-        const textNodes = [];
-        function collectTextNodes(node) {
-            if (node.nodeType === Node.TEXT_NODE) {
-                textNodes.push(node);
-            } else {
-                for (let i = 0; i < node.childNodes.length; i++) {
-                    collectTextNodes(node.childNodes[i]);
-                }
-            }
-        }
-        collectTextNodes(element);
-        
-        if (textNodes.length > 0) {
-            const lastNode = textNodes[textNodes.length - 1];
-            range.setStart(lastNode, lastNode.length);
-            range.collapse(true);
-            selection.removeAllRanges();
-            selection.addRange(range);
-        }
     }
 }
 
@@ -1645,170 +1656,6 @@ function handleMouseMove(e) {
     }
 }
 
-function hideTooltip() {
-    const tooltip = document.getElementById('anach-tooltip');
-    if (tooltip) {
-        tooltip.style.display = 'none';
-    }
-    hoveredAnachronism = null;
-}
-
-function handleEditorClick(e) {
-    if (e.target.classList.contains('anach-highlight')) {
-        const word = e.target.getAttribute('data-word');
-        const suggestion = e.target.getAttribute('data-suggestion');
-        if (word && suggestion) {
-            replaceAnachronism(word, suggestion);
-            hideTooltip();
-        }
-    }
-}
-
-function handlePaste(e) {
-    e.preventDefault();
-    const text = (e.clipboardData || window.clipboardData).getData('text/plain');
-    if (!text) return;
-    
-    const selection = window.getSelection();
-    if (selection.rangeCount > 0) {
-        const range = selection.getRangeAt(0);
-        range.deleteContents();
-        range.insertNode(document.createTextNode(text));
-        range.collapse(false);
-        selection.removeAllRanges();
-        selection.addRange(range);
-    }
-    
-    updateReviewerCounters();
-    syncLineCounters();
-    scanAnachronisms(document.getElementById('en-editor').innerText);
-}
-
-function handleEditorClick(e) {
-    if (e.target.classList.contains('anach-highlight')) {
-        const word = e.target.getAttribute('data-word');
-        const suggestion = e.target.getAttribute('data-suggestion');
-        if (word && suggestion) {
-            replaceAnachronism(word, suggestion);
-            hideTooltip();
-        }
-    }
-}
-
-function hideTooltip() {
-    const tooltip = document.getElementById('anach-tooltip');
-    if (tooltip) {
-        tooltip.style.display = 'none';
-    }
-    hoveredAnachronism = null;
-}
-
-function initMetadataControls() {
-    // Initialize speaker, archetype, and entry type controls
-    console.log('[initMetadataControls] Initializing...');
-
-    // Populate archetype dropdown with archetypes from config
-    const archSelect = document.getElementById('archetype-select');
-    if (archSelect) {
-        eel.get_full_config()().then(config => {
-            if (config && config.archetypes) {
-                archSelect.innerHTML = '<option>(none)</option>';
-                Object.entries(config.archetypes).sort(([a], [b]) => a.localeCompare(b)).forEach(([key, data]) => {
-                    const opt = document.createElement('option');
-                    opt.value = key;
-                    opt.innerText = data.name || key;
-                    archSelect.appendChild(opt);
-                });
-                console.log('[initMetadataControls] Populated archetype dropdown');
-            }
-        });
-    }
-
-    // Populate entry type dropdown with entry types from review items
-    const entTypeSelect = document.getElementById('entry-type-select');
-    if (entTypeSelect) {
-        eel.get_all_items_in_queue()().then(items => {
-            if (items && items.length > 0) {
-                const entryTypes = new Set();
-                items.forEach(item => {
-                    if (item.entry_type) {
-                        entryTypes.add(item.entry_type);
-                    }
-                });
-                const sortedTypes = Array.from(entryTypes).sort();
-                if (sortedTypes.length > 0) {
-                    entTypeSelect.innerHTML = '';
-                    sortedTypes.forEach(type => {
-                        const opt = document.createElement('option');
-                        opt.value = type;
-                        opt.innerText = type;
-                        entTypeSelect.appendChild(opt);
-                    });
-                    console.log('[initMetadataControls] Populated entry type dropdown:', sortedTypes);
-                } else {
-                    entTypeSelect.innerHTML = '<option value="">(none)</option>';
-                    console.log('[initMetadataControls] No entry types found in items');
-                }
-            } else {
-                entTypeSelect.innerHTML = '<option value="">(none)</option>';
-                console.log('[initMetadataControls] No items in queue');
-            }
-        });
-    }
-
-    console.log('[initMetadataControls] Initialized');
-}
-
-async function loadLimitPresets() {
-    try {
-        const presets = await eel.get_all_presets()();
-        const charSelect = document.getElementById('char-limit-preset');
-        const lineSelect = document.getElementById('line-limit-preset');
-        
-        if (charSelect && presets.char_presets) {
-            charSelect.innerHTML = '';
-            Object.entries(presets.char_presets).forEach(([name, value]) => {
-                const opt = document.createElement('option');
-                opt.value = value;
-                opt.text = name;
-                charSelect.appendChild(opt);
-            });
-            // Select current preset
-            const selectedValue = presets.char_presets[presets.selected_char];
-            if (selectedValue) charSelect.value = selectedValue;
-            
-            // Handle change
-            charSelect.onchange = async () => {
-                await eel.save_config_field('selected_preset', charSelect.options[charSelect.selectedIndex].text)();
-                state.standardLimit = parseInt(charSelect.value);
-                updateReviewerCounters();
-            };
-        }
-        
-        if (lineSelect && presets.line_presets) {
-            lineSelect.innerHTML = '';
-            Object.entries(presets.line_presets).forEach(([name, value]) => {
-                const opt = document.createElement('option');
-                opt.value = value;
-                opt.text = name;
-                lineSelect.appendChild(opt);
-            });
-            // Select current preset
-            const selectedValue = presets.line_presets[presets.selected_line];
-            if (selectedValue) lineSelect.value = selectedValue;
-            
-            // Handle change
-            lineSelect.onchange = async () => {
-                await eel.save_config_field('wall_preset', lineSelect.options[lineSelect.selectedIndex].text)();
-                state.maxLines = parseInt(lineSelect.value);
-                updateReviewerCounters();
-            };
-        }
-    } catch (e) {
-        console.error('[loadLimitPresets] Error:', e);
-    }
-}
-
 function getCaretCoordinates(textarea, x, y) {
     // Approximate character position from coordinates
     const text = textarea.innerText;
@@ -1831,16 +1678,16 @@ function getCaretCoordinates(textarea, x, y) {
     return position;
 }
 
-async function replaceAnachronism(word, suggestion, position = null) {
+function replaceAnachronism(word, suggestion, position = null) {
     const ed = document.getElementById('en-editor');
     if (!ed) return;
     saveUndoState();
-
+    
     const text = ed.innerText;
-
+    
     // Strip star icon from text when searching (word may be followed by " ★")
     const textClean = text.replace(/ ★/g, '');
-
+    
     // Use provided position if available, otherwise find first occurrence
     let idx;
     if (position !== null && position >= 0) {
@@ -1849,7 +1696,7 @@ async function replaceAnachronism(word, suggestion, position = null) {
         idx = textClean.toLowerCase().indexOf(word.toLowerCase());
     }
     if (idx === -1) return;
-
+    
     const before = textClean.substring(0, idx);
     const after = textClean.substring(idx + word.length);
     const matched = textClean.substring(idx, idx + word.length);
@@ -1860,15 +1707,15 @@ async function replaceAnachronism(word, suggestion, position = null) {
     const firstAlphaIdx = suggestion.match(/[a-zA-Z]/)?.index;
 
     if (firstAlphaOrig && firstAlphaOrig[0] === firstAlphaOrig[0].toUpperCase() && firstAlphaIdx !== undefined) {
-        replacement = suggestion.substring(0, firstAlphaIdx) +
-                      suggestion[firstAlphaIdx].toUpperCase() +
+        replacement = suggestion.substring(0, firstAlphaIdx) + 
+                      suggestion[firstAlphaIdx].toUpperCase() + 
                       suggestion.substring(firstAlphaIdx + 1);
     }
 
     ed.innerText = before + replacement + after;
     updateReviewerCounters();
     syncLineCounters();
-
+    
     // Trigger async rescan without blocking UI
     // This runs in the background and will update highlights when complete
     scanAnachronisms(ed.innerText);
@@ -2103,23 +1950,11 @@ async function fetchDeepLSuggestion(text, loadIdx) {
     const el = document.getElementById('deepl-text');
     if (!el || !text) return;
     console.log(`[fetchDeepLSuggestion] Starting for loadIdx=${loadIdx}, currentIdx=${state.reviewer.currentIdx}`);
-    
-    // Check prefetch cache first
-    let res = null;
-    const category = state.reviewer.currentCategory || 'default';
-    const cached = await eel.get_prefetch_cache(category, loadIdx)();
-    
-    if (cached && cached.deepl_suggestion) {
-        console.log(`[fetchDeepLSuggestion] Using cached DeepL suggestion for idx=${loadIdx}`);
-        res = cached.deepl_suggestion;
-    } else {
-        // Fetch fresh if not cached
-        el.value = 'Consulting DeepL…';
-        const startTime = Date.now();
-        res = await eel.get_deepl_suggestion(text)();
-        const elapsed = Date.now() - startTime;
-        console.log(`[fetchDeepLSuggestion] Fetched fresh for idx=${loadIdx}, elapsed=${elapsed}ms`);
-    }
+    el.value = 'Consulting DeepL…';
+    const startTime = Date.now();
+    const res = await eel.get_deepl_suggestion(text)();
+    const elapsed = Date.now() - startTime;
+    console.log(`[fetchDeepLSuggestion] Completed for loadIdx=${loadIdx}, currentIdx=${state.reviewer.currentIdx}, elapsed=${elapsed}ms`);
     
     // Only update if we're still on the same item
     if (state.reviewer.currentIdx === loadIdx) {
@@ -2228,7 +2063,7 @@ async function populateGloss(jpText, loadIdx) {
                 if (ed && candidate) {
                     ed.innerText += candidate;
                     updateReviewerCounters();
-                    syncLineCounters();
+                    await syncLineCounters();
                 }
             };
         });
@@ -2291,7 +2126,7 @@ async function populateSourceWithLoreHighlightsFromCache(jpText, enText, loreMat
         
         box.innerHTML = html;
         
-        // Wire up click handlers to insert into editor
+        // Wire up click handlers
         box.querySelectorAll('.lore-source-span').forEach(span => {
             span.onclick = async () => {
                 const suggestion = span.getAttribute('data-suggestion');
@@ -2299,7 +2134,7 @@ async function populateSourceWithLoreHighlightsFromCache(jpText, enText, loreMat
                 if (ed && suggestion) {
                     ed.innerText += suggestion;
                     updateReviewerCounters();
-                    syncLineCounters();
+                    await syncLineCounters();
                     const jpText = document.getElementById('jp-source')?.innerText || '';
                     scanAnachronisms(ed.innerText);
                     const jpSource = document.getElementById('jp-source');
@@ -2313,6 +2148,7 @@ async function populateSourceWithLoreHighlightsFromCache(jpText, enText, loreMat
             span.onmouseover = (e) => {
                 const tooltip = document.getElementById('anach-tooltip');
                 const allSuggestions = span.getAttribute('data-all-suggestions');
+                const suggestion = span.getAttribute('data-suggestion');
                 if (tooltip && allSuggestions) {
                     let tooltipHtml = `<span class="tooltip-word">${span.innerText}</span> <span class="tooltip-arrow">→</span> ${allSuggestions}`;
                     tooltip.innerHTML = tooltipHtml;
@@ -2529,7 +2365,7 @@ async function populateSourceWithLoreHighlights(jpText, enText = '') {
                 if (ed && suggestion) {
                     ed.innerText += suggestion;
                     updateReviewerCounters();
-                    syncLineCounters();
+                    await syncLineCounters();
                     // Re-scan for anachronisms as user types
                     const jpText = document.getElementById('jp-source')?.innerText || '';
                     scanAnachronisms(ed.innerText);
@@ -2574,7 +2410,7 @@ async function populateSourceWithLoreHighlights(jpText, enText = '') {
                 if (ed && tag) {
                     ed.innerText += tag;
                     updateReviewerCounters();
-                    syncLineCounters();
+                    await syncLineCounters();
                     // Re-highlight source window to update tag colors
                     const jpSource = document.getElementById('jp-source');
                     if (jpSource && jpSource._originalJp) {
@@ -2593,23 +2429,20 @@ async function populateLoreContext(jpText, enText, loadIdx) {
     const box = document.getElementById('lore-box');
     if (!box) return;
     box.innerHTML = '<em style="opacity:0.5">Loading…</em>';
+    console.log(`[populateLoreContext] Starting for loadIdx=${loadIdx}, jpText="${jpText?.slice(0, 30)}..."`);
+    const startTime = Date.now();
     try {
-        // Check prefetch cache first
-        let matches = null;
-        const loreCategory = state.reviewer.currentCategory || 'default';
-        const loreCached = await eel.get_prefetch_cache(loreCategory, loadIdx)();
-        
-        if (loreCached && loreCached.lore_context) {
-            console.log(`[populateLoreContext] Using cached lore_context for idx=${loadIdx}`);
-            matches = loreCached.lore_context;
-        } else {
-            // Fetch fresh if not cached
-            matches = await eel.get_lore_context(jpText)();
-        }
+        // Get lore context and anachronisms in parallel
+        const [matches, anachHits] = await Promise.all([
+            eel.get_lore_context(jpText)(),
+            enText ? eel.scan_anachronisms(enText)() : []
+        ]);
+        const elapsed = Date.now() - startTime;
+        console.log(`[populateLoreContext] Completed for loadIdx=${loadIdx}, ${matches?.length || 0} lore matches, ${anachHits?.length || 0} anachronisms, elapsed=${elapsed}ms`);
         
         // Only update if we're still on the same item
         if (state.reviewer.currentIdx !== loadIdx) {
-            console.log(`[populateLoreContext] Skipped update - navigation occurred (${loadIdx} → ${state.reviewer.currentIdx})`);
+            console.log(`[populateLoreContext] Skipped update because currentIdx=${state.reviewer.currentIdx} != loadIdx=${loadIdx}`);
             return;
         }
         
@@ -2642,28 +2475,7 @@ async function populateLoreContext(jpText, enText, loadIdx) {
                 row.style.cssText = 'flex: 0 0 auto; font-size: 10px;';
                 if (m.is_lore) {
                     // Clickable lore terms — insert into editor on click
-                    // Quote-aware split: don't split on delimiters inside quotes
-                    const suggestions = [];
-                    let current = '';
-                    let inQuotes = false;
-                    for (let i = 0; i < m.en.length; i++) {
-                        const char = m.en[i];
-                        if (char === '"' && (i === 0 || m.en[i-1] !== '\\')) {
-                            inQuotes = !inQuotes;
-                            current += char;
-                        } else if (/[,\;|\n\/]/.test(char) && !inQuotes) {
-                            if (current.trim()) {
-                                suggestions.push(current.trim());
-                            }
-                            current = '';
-                        } else {
-                            current += char;
-                        }
-                    }
-                    if (current.trim()) {
-                        suggestions.push(current.trim());
-                    }
-                    
+                    const suggestions = m.en.split(/\s*[,;|\n\/]\s*/).filter(s => s.trim());
                     const jpSpan = document.createElement('span');
                     jpSpan.className = 'lore-jp';
                     jpSpan.innerText = m.jp + ':  ';
@@ -2683,7 +2495,7 @@ async function populateLoreContext(jpText, enText, loadIdx) {
                     // Add dragon emoji for Cecily
                     if (suggestions.some(s => s.toLowerCase() === 'cecily')) {
                         const dragonArt = document.createElement('img');
-                        dragonArt.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0iI2U4YzZhYSI+PHBhdGggZD0iTTEwLjUgMy41Yy0uNSAwLTEgLjUtMS0xIDAgMCAuNS41IDEgMSAxczEuNSAxIDEgMSAxLS41IDEtMS0xem0tNSAwdjFoMnYxaC0yem0zIDJ2MWgxdjFoLTF6bS00IDJ2MWgxdjFoLTF6bTcgMmMtMSAwLTIuNS0xLTIuNS0yLjUgMC0xLjUgMS41LTIuNSAyLjUtMi41czIuNSAxIDIuNSAyLjVjMCAxLjUtMS41IDIuNS0yLjUgMi41em0tOCAxYzAgMS41IDEuNSAyLjUgMi41IDIuNXMyLjUtMSAyLjUtMi41YzAtMS41LTEuNS0yLjUtMi41LTIuNXptMTEuNSAwYzAgMS41IDEuNSAyLjUgMi41IDIuNXMyLjUtMSAyLjUtMi41YzAtMS41LTEuNS0yLjUtMi41LTIuNXoiLz48L3N2Zz4=';
+                        dragonArt.src = 'data:image/webp;base64,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';
                         dragonArt.style.cssText = 'width: 16px; height: 16px; margin: 0 0 0 8px; vertical-align: middle;';
                         row.appendChild(dragonArt);
                     }
@@ -2698,18 +2510,17 @@ async function populateLoreContext(jpText, enText, loadIdx) {
         }
         
         // Show anachronisms at the bottom if any
-        const anachHits = state.reviewer.anachRanges || [];
         if (anachHits && anachHits.length > 0) {
             const anachHeader = document.createElement('div');
             anachHeader.className = 'lore-header';
             anachHeader.innerText = 'Possible Anachronisms:';
             anachHeader.style.cssText = 'font-size: 9px; font-weight: 700; color: var(--accent-color); margin-bottom: 6px; margin-top: 8px;';
             box.appendChild(anachHeader);
-
+            
             // Create flex container for anachronism hits
             const anachContainer = document.createElement('div');
             anachContainer.style.cssText = 'display: flex; flex-wrap: wrap; gap: 8px;';
-
+            
             anachHits.forEach(([word, suggestion, is_ddon]) => {
                 const row = document.createElement('div');
                 row.className = 'lore-row anach-row';
@@ -2783,24 +2594,20 @@ async function populateAdjacentContext(path, rowIdx, loadIdx) {
     const prevEl = document.getElementById('ctx-prev');
     const nextEl = document.getElementById('ctx-next');
     if (!prevEl && !nextEl) return;
-    console.log(`[populateAdjacentContext] Called with path=${path}, rowIdx=${rowIdx}, loadIdx=${loadIdx}`);
     try {
-        const adjCtx = await eel.get_adjacent_context(path, rowIdx)();
-        console.log(`[populateAdjacentContext] Received adjCtx:`, adjCtx);
-        console.log(`[populateAdjacentContext] adjCtx.prev:`, adjCtx?.prev);
-        console.log(`[populateAdjacentContext] adjCtx.next:`, adjCtx?.next);
+        const ctx = await eel.get_adjacent_context(path, rowIdx)();
         
         // Only update if we're still on the same item
         if (state.reviewer.currentIdx !== loadIdx) return;
         
         if (prevEl) {
-            prevEl.innerHTML = adjCtx && adjCtx.prev
-                ? `<span class="adj-arrow">▲</span><span class="adj-jp">${escHtml(adjCtx.prev.jp)}</span><br><span class="adj-en">${escHtml(adjCtx.prev.en)}</span>`
+            prevEl.innerHTML = ctx && ctx.prev
+                ? `<span class="adj-arrow">▲</span><span class="adj-jp">${escHtml(ctx.prev.jp)}</span><br><span class="adj-en">${escHtml(ctx.prev.en)}</span>`
                 : '<span class="adj-arrow">▲</span>—';
         }
         if (nextEl) {
-            nextEl.innerHTML = adjCtx && adjCtx.next
-                ? `<span class="adj-arrow">▼</span><span class="adj-jp">${escHtml(adjCtx.next.jp)}</span><br><span class="adj-en">${escHtml(adjCtx.next.en)}</span>`
+            nextEl.innerHTML = ctx && ctx.next
+                ? `<span class="adj-arrow">▼</span><span class="adj-jp">${escHtml(ctx.next.jp)}</span><br><span class="adj-en">${escHtml(ctx.next.en)}</span>`
                 : '<span class="adj-arrow">▼</span>—';
         }
     } catch (e) { console.error('[populateAdjacentContext]', e); }
@@ -2809,33 +2616,17 @@ async function populateAdjacentContext(path, rowIdx, loadIdx) {
 function insertIntoEditor(text) {
     const ed = document.getElementById('en-editor');
     if (!ed) return;
-    
-    // Focus the editor
-    ed.focus();
-    
-    // Get selection in the editor
     const selection = window.getSelection();
-    let range = selection.getRangeAt(0);
-    
-    // Check if selection is within the editor
-    if (!ed.contains(range.commonAncestorContainer)) {
-        // Selection is not in editor, insert at end
-        range = document.createRange();
-        range.selectNodeContents(ed);
-        range.collapse(false);
-        selection.removeAllRanges();
-        selection.addRange(range);
+    if (selection.rangeCount > 0) {
+        const range = selection.getRangeAt(0);
+        range.deleteContents();
+        range.insertNode(document.createTextNode(text));
+    } else {
+        ed.innerText += text;
     }
-    
-    // Insert text
-    range.deleteContents();
-    range.insertNode(document.createTextNode(text));
-    
-    // Move cursor after inserted text
-    range.setStartAfter(range.endContainer);
-    range.setEndAfter(range.endContainer);
-    selection.removeAllRanges();
-    selection.addRange(range);
+    ed.focus();
+    updateReviewerCounters();
+    syncLineCounters();
 }
 
 // =============================================================================
@@ -2855,44 +2646,13 @@ function renderRowSidebar() {
     if (!ul) return;
     ul.innerHTML = '';
     
-    const showFilter = document.getElementById('show-filter')?.value || 'all';
-    const speakerFilter = document.getElementById('filter-speaker')?.value;
-    const entryTypeFilter = document.getElementById('filter-entry-type')?.value;
-    
+    const showAll = document.getElementById('show-translated-rows')?.checked;
     if (!state.reviewer.fullQueue || !state.reviewer.fullQueue.length) {
         ul.innerHTML = '<li style="padding: 8px; color: var(--text-muted);">No items loaded</li>';
         return;
     }
-    
-    // Update filter dropdowns when queue changes
-    populateFilterDropdowns();
-    
-    // Filter items based on criteria
-    let itemsToShow = state.reviewer.fullQueue.map((item, idx) => ({ item, idx }));
-    
-    // Apply show filter
-    if (showFilter === 'untranslated') {
-        itemsToShow = itemsToShow.filter(({ item }) => !item.en);
-    } else if (showFilter === 'untranslated-first') {
-        // Sort: untranslated first, then translated
-        itemsToShow.sort((a, b) => {
-            const aUntranslated = !a.item.en;
-            const bUntranslated = !b.item.en;
-            if (aUntranslated && !bUntranslated) return -1;
-            if (!aUntranslated && bUntranslated) return 1;
-            return a.idx - b.idx; // Keep original order within groups
-        });
-    }
-    
-    // Apply speaker and entry type filters
-    if (speakerFilter) {
-        itemsToShow = itemsToShow.filter(({ item }) => item.speaker === speakerFilter);
-    }
-    if (entryTypeFilter) {
-        itemsToShow = itemsToShow.filter(({ item }) => item.entry_type === entryTypeFilter);
-    }
-    
-    itemsToShow.forEach(({ item, idx }) => {
+    state.reviewer.fullQueue.forEach((item, idx) => {
+        if (!showAll && item.en) return;
         const li = document.createElement('li');
         const rowNum = `<span class="row-num">[${String(idx + 1).padStart(3, '0')}]</span>`;
         const jpText = (item.jp || '').slice(0, 35);
@@ -2903,52 +2663,6 @@ function renderRowSidebar() {
         li.onclick = () => loadItemAtIdx(idx);
         ul.appendChild(li);
     });
-}
-
-function populateFilterDropdowns() {
-    // Populate speaker filter dropdown from current queue
-    const speakerSelect = document.getElementById('filter-speaker');
-    const entryTypeSelect = document.getElementById('filter-entry-type');
-    if (!speakerSelect || !entryTypeSelect || !state.reviewer.fullQueue) return;
-    
-    // Get unique speakers and entry types
-    const speakers = new Set();
-    const entryTypes = new Set();
-    state.reviewer.fullQueue.forEach(item => {
-        if (item.speaker) speakers.add(item.speaker);
-        if (item.entry_type) entryTypes.add(item.entry_type);
-    });
-    
-    // Save current selection
-    const currentSpeaker = speakerSelect.value;
-    const currentEntryType = entryTypeSelect.value;
-    
-    // Repopulate speakers
-    speakerSelect.innerHTML = '<option value="">All speakers</option>';
-    [...speakers].sort().forEach(speaker => {
-        const option = document.createElement('option');
-        option.value = speaker;
-        option.innerText = speaker;
-        speakerSelect.appendChild(option);
-    });
-    speakerSelect.value = currentSpeaker;
-    
-    // Repopulate entry types
-    entryTypeSelect.innerHTML = '<option value="">All types</option>';
-    [...entryTypes].sort().forEach(type => {
-        const option = document.createElement('option');
-        option.value = type;
-        option.innerText = type;
-        entryTypeSelect.appendChild(option);
-    });
-    entryTypeSelect.value = currentEntryType;
-}
-
-function clearFilters() {
-    document.getElementById('show-filter').value = 'all';
-    document.getElementById('filter-speaker').value = '';
-    document.getElementById('filter-entry-type').value = '';
-    renderRowSidebar();
 }
 
 // =============================================================================
@@ -3138,12 +2852,9 @@ function setupChatContextMenu() {
             } else if (item.action === 'paste') {
                 const ed = document.getElementById('en-editor');
                 if (ed) {
-                    saveUndoState();
-                    if (ed._setSkipInputHandling) ed._setSkipInputHandling(true);
                     ed.innerText = text;
-                    if (ed._setSkipInputHandling) ed._setSkipInputHandling(false);
                     updateReviewerCounters();
-                    syncLineCounters();
+                    await syncLineCounters();
                 }
             } else if (item.action === 'resend') {
                 const input = document.getElementById('chat-input');
@@ -3338,8 +3049,6 @@ function initSettingsActions() {
         setVal('color-dark-label', darkTheme.label || '#C3F5FF');
         setVal('color-dark-button-text', darkTheme.button_text || '#C3F5FF');
         setVal('color-dark-accent', darkTheme.accent || '#00C853');
-        setVal('color-dark-accent-fill', darkTheme.accent_fill || '#00C853');
-        setVal('color-dark-accent-text', darkTheme.accent_text || '#000000');
         setVal('color-dark-run-bg', darkTheme.run_bg || '#00C853');
         setVal('color-dark-border', darkTheme.border || 'rgba(195, 245, 255, 0.1)');
         setVal('color-dark-header-bg', darkTheme.header_bg || '#0c0e17');
@@ -3350,382 +3059,88 @@ function initSettingsActions() {
         setVal('color-dark-lore-hover', darkTheme.lore_hover || '#a8d4ff');
         setVal('color-dark-anach', darkTheme.anach || '#ffd700');
         setVal('color-dark-tooltip', darkTheme.tooltip || '#ff8800');
-        setVal('color-dark-mask-015', darkTheme.mask_015 || 'rgba(0, 0, 0, 0.15)');
-        setVal('color-dark-mask-025', darkTheme.mask_025 || 'rgba(0, 0, 0, 0.25)');
-        setVal('color-dark-mask-03', darkTheme.mask_03 || 'rgba(0, 0, 0, 0.3)');
-        setVal('color-dark-mask-05', darkTheme.mask_05 || 'rgba(0, 0, 0, 0.5)');
-        setVal('color-dark-mask-08', darkTheme.mask_08 || 'rgba(0, 0, 0, 0.8)');
-        
-        // Theme color channels
-        setVal('color-dark-theme-backgrounds-color', darkTheme.theme_backgrounds_color || '245, 247, 248');
-        setVal('color-dark-theme-primaries-color', darkTheme.theme_primaries_color || '67, 160, 71');
-        setVal('color-dark-theme-blacks', darkTheme.theme_blacks || '0, 0, 0');
-        setVal('color-dark-theme-whites', darkTheme.theme_whites || '255, 255, 255');
-        setVal('color-dark-theme-grays', darkTheme.theme_grays || '38, 50, 56');
-        setVal('color-dark-theme-typeface-color', darkTheme.theme_typeface_color || '38, 50, 56');
-        setVal('color-dark-theme-cards-color', darkTheme.theme_cards_color || '38, 50, 56');
-        
-        // Theme colors
-        setVal('color-dark-theme-level-1-bg', darkTheme.theme_level_1_bg || '#f5f7f8');
-        setVal('color-dark-theme-level-2-bg', darkTheme.theme_level_2_bg || '#ffffff');
-        setVal('color-dark-theme-level-3-bg', darkTheme.theme_level_3_bg || '#ffffff');
-        setVal('color-dark-theme-primary', darkTheme.theme_primary || '#43a047');
-        setVal('color-dark-theme-link-hover', darkTheme.theme_link_hover || '#5bbb60');
-        setVal('color-dark-theme-border-color', darkTheme.theme_border_color || 'rgba(38, 50, 56, 0.1)');
-        setVal('color-dark-theme-dark-border-color', darkTheme.theme_dark_border_color || 'rgba(0, 0, 0, 0.12)');
-        setVal('color-dark-theme-shimmer', darkTheme.theme_shimmer || '#eceff1');
-        setVal('color-dark-theme-icons-color', darkTheme.theme_icons_color || 'rgba(38, 50, 56, 1)');
-        setVal('color-dark-theme-primary-green-50', darkTheme.theme_primary_green_50 || '#e8f5e9');
-        setVal('color-dark-theme-primary-green-100', darkTheme.theme_primary_green_100 || '#c8e6c9');
-        setVal('color-dark-theme-primary-blue-600', darkTheme.theme_primary_blue_600 || '#1e88e5');
-        setVal('color-dark-theme-primary-blue-gray', darkTheme.theme_primary_blue_gray || '#eceff1');
-        setVal('color-dark-theme-dark', darkTheme.theme_dark || 'rgba(38, 50, 56, 1)');
-        setVal('color-dark-theme-gray-005', darkTheme.theme_gray_005 || 'rgba(38, 50, 56, 0.05)');
-        setVal('color-dark-theme-gray-01', darkTheme.theme_gray_01 || 'rgba(38, 50, 56, 0.1)');
-        setVal('color-dark-theme-gray-02', darkTheme.theme_gray_02 || 'rgba(38, 50, 56, 0.2)');
-        setVal('color-dark-theme-gray-03', darkTheme.theme_gray_03 || 'rgba(38, 50, 56, 0.3)');
-        setVal('color-dark-theme-white-005', darkTheme.theme_white_005 || 'rgba(255, 255, 255, 0.05)');
-        setVal('color-dark-theme-white-012', darkTheme.theme_white_012 || 'rgba(255, 255, 255, 0.12)');
-        setVal('color-dark-theme-white', darkTheme.theme_white || 'rgba(255, 255, 255, 1)');
-        setVal('color-dark-theme-black', darkTheme.theme_black || 'rgba(0, 0, 0, 1)');
-        setVal('color-dark-theme-danger', darkTheme.theme_danger || '#dc5242');
-        setVal('color-dark-theme-danger-hover-color', darkTheme.theme_danger_hover_color || '#e4796d');
-        setVal('color-dark-theme-danger-bg', darkTheme.theme_danger_bg || 'rgba(220, 82, 66, 0.5)');
-        setVal('color-dark-theme-danger-bg-level-1', darkTheme.theme_danger_bg_level_1 || 'rgba(220, 82, 66, 0.1)');
-        setVal('color-dark-theme-danger-bg-level-2', darkTheme.theme_danger_bg_level_2 || 'rgba(220, 82, 66, 0.2)');
-        setVal('color-dark-theme-info', darkTheme.theme_info || '#1e88e5');
-        setVal('color-dark-theme-info-bg', darkTheme.theme_info_bg || 'rgba(30, 136, 229, 0.1)');
-        setVal('color-dark-theme-info-link', darkTheme.theme_info_link || '#166dba');
-        setVal('color-dark-theme-warning', darkTheme.theme_warning || '#c79d1c');
-        setVal('color-dark-theme-warning-bg', darkTheme.theme_warning_bg || 'rgba(199, 157, 28, 0.2)');
-        setVal('color-dark-theme-warning-link', darkTheme.theme_warning_link || '#9a7a16');
-        setVal('color-dark-theme-success', darkTheme.theme_success || '#6dae02');
-        setVal('color-dark-theme-success-bg', darkTheme.theme_success_bg || 'rgba(109, 174, 2, 0.1)');
-        setVal('color-dark-theme-success-link', darkTheme.theme_success_link || '#4d7c01');
-        setVal('color-dark-theme-btn-hover-bg', darkTheme.theme_btn_hover_bg || 'rgba(38, 50, 56, 0.05)');
-        setVal('color-dark-theme-btn-active-bg', darkTheme.theme_btn_active_bg || 'rgba(38, 50, 56, 0.1)');
-        setVal('color-dark-theme-btn-disabled-bg', darkTheme.theme_btn_disabled_bg || 'rgba(38, 50, 56, 0.05)');
-        setVal('color-dark-theme-primary-btn-hover-bg', darkTheme.theme_primary_btn_hover_bg || '#4caf50');
-        setVal('color-dark-theme-primary-btn-active-bg', darkTheme.theme_primary_btn_active_bg || '#388e3c');
-        setVal('color-dark-theme-danger-btn-bg', darkTheme.theme_danger_btn_bg || '#c63625');
-        setVal('color-dark-theme-danger-btn-hover-bg', darkTheme.theme_danger_btn_hover_bg || '#dc5242');
-        setVal('color-dark-theme-danger-btn-border', darkTheme.theme_danger_btn_border || '#9b2a1d');
-        setVal('color-dark-theme-warning-btn-bg', darkTheme.theme_warning_btn_bg || '#c79d1c');
-        setVal('color-dark-theme-warning-btn-hover-bg', darkTheme.theme_warning_btn_hover_bg || '#e1b42b');
-        setVal('color-dark-theme-warning-btn-border', darkTheme.theme_warning_btn_border || '#c79d1c');
-        setVal('color-dark-theme-warning-btn-hover-border', darkTheme.theme_warning_btn_hover_border || '#e1b42b');
-        setVal('color-dark-theme-tab-active-bg', darkTheme.theme_tab_active_bg || 'rgba(67, 160, 71, 0.2)');
-        setVal('color-dark-theme-tab-active-color', darkTheme.theme_tab_active_color || '#347c37');
-        setVal('color-dark-theme-tag-color', darkTheme.theme_tag_color || '#787459');
-        setVal('color-dark-theme-tag-color-hover', darkTheme.theme_tag_color_hover || '#4C482E');
-        setVal('color-dark-theme-tag-bg', darkTheme.theme_tag_bg || '#FAF6D8');
-        setVal('color-dark-theme-tag-bg-hover', darkTheme.theme_tag_bg_hover || '#F8F0C0');
-        setVal('color-dark-theme-special-light-color', darkTheme.theme_special_light_color || '#770000');
-        setVal('color-dark-theme-special-light-bg', darkTheme.theme_special_light_bg || '#F0F0FF');
-        setVal('color-dark-theme-find-replace-highlight-bg', darkTheme.theme_find_replace_highlight_bg || '#F5D87D');
 
         // Load light theme colors
-        setVal('color-light-bg', lightTheme.bg || '#ffffff');
-        setVal('color-light-fg', lightTheme.fg || '#000000');
-        setVal('color-light-list-bg', lightTheme.list_bg || '#eaf0f7');
-        setVal('color-light-btn-bg', lightTheme.btn_bg || '#ebe6ff');
-        setVal('color-light-log-bg', lightTheme.log_bg || '#dbffd9');
-        setVal('color-light-log-fg', lightTheme.log_fg || '#2d2d2d');
+        setVal('color-light-bg', lightTheme.bg || '#F8FAFC');
+        setVal('color-light-fg', lightTheme.fg || '#0F172A');
+        setVal('color-light-list-bg', lightTheme.list_bg || '#FFFFFF');
+        setVal('color-light-btn-bg', lightTheme.btn_bg || '#E2E8F0');
+        setVal('color-light-log-bg', lightTheme.log_bg || '#1E293B');
+        setVal('color-light-log-fg', lightTheme.log_fg || '#F1F5F9');
         setVal('color-light-label', lightTheme.label || '#475569');
-        setVal('color-light-button-text', lightTheme.button_text || '#1e293b');
-        setVal('color-light-accent', lightTheme.accent || '#9ab8f5');
-        setVal('color-light-accent-fill', lightTheme.accent_fill || '#9ab8f5');
-        setVal('color-light-accent-text', lightTheme.accent_text || '#000000');
-        setVal('color-light-run-bg', lightTheme.run_bg || '#0cf000');
-        setVal('color-light-border', lightTheme.border || '#000000');
-        setVal('color-light-header-bg', lightTheme.header_bg || '#ffffff');
-        setVal('color-light-panel-bg', lightTheme.panel_bg || '#eaf0f7');
-        setVal('color-light-tab-inactive', lightTheme.tab_inactive || '#657b9a');
-        setVal('color-light-glow', lightTheme.glow || '#3b82f6');
+        setVal('color-light-button-text', lightTheme.button_text || '#1E293B');
+        setVal('color-light-accent', lightTheme.accent || '#2563EB');
+        setVal('color-light-run-bg', lightTheme.run_bg || '#059669');
+        setVal('color-light-border', lightTheme.border || '#CBD5E1');
+        setVal('color-light-header-bg', lightTheme.header_bg || '#FFFFFF');
+        setVal('color-light-panel-bg', lightTheme.panel_bg || '#F1F5F9');
+        setVal('color-light-tab-inactive', lightTheme.tab_inactive || '#94A3B8');
+        setVal('color-light-glow', lightTheme.glow || '#3B82F6');
         setVal('color-light-lore', lightTheme.lore || '#3b82f6');
-        setVal('color-light-lore-hover', lightTheme.lore_hover || '#79b4fb');
-        setVal('color-light-anach', lightTheme.anach || '#fb634d');
-        setVal('color-light-tooltip', lightTheme.tooltip || '#fcf34b');
-        setVal('color-light-mask-015', lightTheme.mask_015 || 'rgba(0, 0, 0, 0.08)');
-        setVal('color-light-mask-025', lightTheme.mask_025 || 'rgba(0, 0, 0, 0.12)');
-        setVal('color-light-mask-03', lightTheme.mask_03 || 'rgba(0, 0, 0, 0.15)');
-        setVal('color-light-mask-05', lightTheme.mask_05 || 'rgba(0, 0, 0, 0.2)');
-        setVal('color-light-mask-08', lightTheme.mask_08 || 'rgba(0, 0, 0, 0.3)');
-        
-        // Theme color channels
-        setVal('color-light-theme-backgrounds-color', lightTheme.theme_backgrounds_color || '245, 247, 248');
-        setVal('color-light-theme-primaries-color', lightTheme.theme_primaries_color || '67, 160, 71');
-        setVal('color-light-theme-blacks', lightTheme.theme_blacks || '0, 0, 0');
-        setVal('color-light-theme-whites', lightTheme.theme_whites || '255, 255, 255');
-        setVal('color-light-theme-grays', lightTheme.theme_grays || '38, 50, 56');
-        setVal('color-light-theme-typeface-color', lightTheme.theme_typeface_color || '38, 50, 56');
-        setVal('color-light-theme-cards-color', lightTheme.theme_cards_color || '38, 50, 56');
-        
-        // Theme colors
-        setVal('color-light-theme-level-1-bg', lightTheme.theme_level_1_bg || '#f5f7f8');
-        setVal('color-light-theme-level-2-bg', lightTheme.theme_level_2_bg || '#ffffff');
-        setVal('color-light-theme-level-3-bg', lightTheme.theme_level_3_bg || '#ffffff');
-        setVal('color-light-theme-primary', lightTheme.theme_primary || '#43a047');
-        setVal('color-light-theme-link-hover', lightTheme.theme_link_hover || '#5bbb60');
-        setVal('color-light-theme-border-color', lightTheme.theme_border_color || 'rgba(38, 50, 56, 0.1)');
-        setVal('color-light-theme-dark-border-color', lightTheme.theme_dark_border_color || 'rgba(0, 0, 0, 0.12)');
-        setVal('color-light-theme-shimmer', lightTheme.theme_shimmer || '#eceff1');
-        setVal('color-light-theme-icons-color', lightTheme.theme_icons_color || 'rgba(38, 50, 56, 1)');
-        setVal('color-light-theme-primary-green-50', lightTheme.theme_primary_green_50 || '#e8f5e9');
-        setVal('color-light-theme-primary-green-100', lightTheme.theme_primary_green_100 || '#c8e6c9');
-        setVal('color-light-theme-primary-blue-600', lightTheme.theme_primary_blue_600 || '#1e88e5');
-        setVal('color-light-theme-primary-blue-gray', lightTheme.theme_primary_blue_gray || '#eceff1');
-        setVal('color-light-theme-dark', lightTheme.theme_dark || 'rgba(38, 50, 56, 1)');
-        setVal('color-light-theme-gray-005', lightTheme.theme_gray_005 || 'rgba(38, 50, 56, 0.05)');
-        setVal('color-light-theme-gray-01', lightTheme.theme_gray_01 || 'rgba(38, 50, 56, 0.1)');
-        setVal('color-light-theme-gray-02', lightTheme.theme_gray_02 || 'rgba(38, 50, 56, 0.2)');
-        setVal('color-light-theme-gray-03', lightTheme.theme_gray_03 || 'rgba(38, 50, 56, 0.3)');
-        setVal('color-light-theme-white-005', lightTheme.theme_white_005 || 'rgba(255, 255, 255, 0.05)');
-        setVal('color-light-theme-white-012', lightTheme.theme_white_012 || 'rgba(255, 255, 255, 0.12)');
-        setVal('color-light-theme-white', lightTheme.theme_white || 'rgba(255, 255, 255, 1)');
-        setVal('color-light-theme-black', lightTheme.theme_black || 'rgba(0, 0, 0, 1)');
-        setVal('color-light-theme-danger', lightTheme.theme_danger || '#dc5242');
-        setVal('color-light-theme-danger-hover-color', lightTheme.theme_danger_hover_color || '#e4796d');
-        setVal('color-light-theme-danger-bg', lightTheme.theme_danger_bg || 'rgba(220, 82, 66, 0.5)');
-        setVal('color-light-theme-danger-bg-level-1', lightTheme.theme_danger_bg_level_1 || 'rgba(220, 82, 66, 0.1)');
-        setVal('color-light-theme-danger-bg-level-2', lightTheme.theme_danger_bg_level_2 || 'rgba(220, 82, 66, 0.2)');
-        setVal('color-light-theme-info', lightTheme.theme_info || '#1e88e5');
-        setVal('color-light-theme-info-bg', lightTheme.theme_info_bg || 'rgba(30, 136, 229, 0.1)');
-        setVal('color-light-theme-info-link', lightTheme.theme_info_link || '#166dba');
-        setVal('color-light-theme-warning', lightTheme.theme_warning || '#c79d1c');
-        setVal('color-light-theme-warning-bg', lightTheme.theme_warning_bg || 'rgba(199, 157, 28, 0.2)');
-        setVal('color-light-theme-warning-link', lightTheme.theme_warning_link || '#9a7a16');
-        setVal('color-light-theme-success', lightTheme.theme_success || '#6dae02');
-        setVal('color-light-theme-success-bg', lightTheme.theme_success_bg || 'rgba(109, 174, 2, 0.1)');
-        setVal('color-light-theme-success-link', lightTheme.theme_success_link || '#4d7c01');
-        setVal('color-light-theme-btn-hover-bg', lightTheme.theme_btn_hover_bg || 'rgba(38, 50, 56, 0.05)');
-        setVal('color-light-theme-btn-active-bg', lightTheme.theme_btn_active_bg || 'rgba(38, 50, 56, 0.1)');
-        setVal('color-light-theme-btn-disabled-bg', lightTheme.theme_btn_disabled_bg || 'rgba(38, 50, 56, 0.05)');
-        setVal('color-light-theme-primary-btn-hover-bg', lightTheme.theme_primary_btn_hover_bg || '#4caf50');
-        setVal('color-light-theme-primary-btn-active-bg', lightTheme.theme_primary_btn_active_bg || '#388e3c');
-        setVal('color-light-theme-danger-btn-bg', lightTheme.theme_danger_btn_bg || '#c63625');
-        setVal('color-light-theme-danger-btn-hover-bg', lightTheme.theme_danger_btn_hover_bg || '#dc5242');
-        setVal('color-light-theme-danger-btn-border', lightTheme.theme_danger_btn_border || '#9b2a1d');
-        setVal('color-light-theme-warning-btn-bg', lightTheme.theme_warning_btn_bg || '#c79d1c');
-        setVal('color-light-theme-warning-btn-hover-bg', lightTheme.theme_warning_btn_hover_bg || '#e1b42b');
-        setVal('color-light-theme-warning-btn-border', lightTheme.theme_warning_btn_border || '#c79d1c');
-        setVal('color-light-theme-warning-btn-hover-border', lightTheme.theme_warning_btn_hover_border || '#e1b42b');
-        setVal('color-light-theme-tab-active-bg', lightTheme.theme_tab_active_bg || 'rgba(67, 160, 71, 0.2)');
-        setVal('color-light-theme-tab-active-color', lightTheme.theme_tab_active_color || '#347c37');
-        setVal('color-light-theme-tag-color', lightTheme.theme_tag_color || '#787459');
-        setVal('color-light-theme-tag-color-hover', lightTheme.theme_tag_color_hover || '#4C482E');
-        setVal('color-light-theme-tag-bg', lightTheme.theme_tag_bg || '#FAF6D8');
-        setVal('color-light-theme-tag-bg-hover', lightTheme.theme_tag_bg_hover || '#F8F0C0');
-        setVal('color-light-theme-special-light-color', lightTheme.theme_special_light_color || '#770000');
-        setVal('color-light-theme-special-light-bg', lightTheme.theme_special_light_bg || '#F0F0FF');
-        setVal('color-light-theme-find-replace-highlight-bg', lightTheme.theme_find_replace_highlight_bg || '#F5D87D');
+        setVal('color-light-lore-hover', lightTheme.lore_hover || '#60a5fa');
+        setVal('color-light-anach', lightTheme.anach || '#d97706');
+        setVal('color-light-tooltip', lightTheme.tooltip || '#d97706');
     }
 
     async function saveColorSettings() {
         const darkTheme = {
-            bg: document.getElementById('color-dark-bg')?.value,
-            fg: document.getElementById('color-dark-fg')?.value,
-            list_bg: document.getElementById('color-dark-list-bg')?.value,
-            btn_bg: document.getElementById('color-dark-btn-bg')?.value,
-            log_bg: document.getElementById('color-dark-log-bg')?.value,
-            log_fg: document.getElementById('color-dark-log-fg')?.value,
-            label: document.getElementById('color-dark-label')?.value,
-            button_text: document.getElementById('color-dark-button-text')?.value,
-            accent: document.getElementById('color-dark-accent')?.value,
-            accent_fill: document.getElementById('color-dark-accent-fill')?.value,
-            accent_text: document.getElementById('color-dark-accent-text')?.value,
-            run_bg: document.getElementById('color-dark-run-bg')?.value,
-            border: document.getElementById('color-dark-border')?.value,
-            header_bg: document.getElementById('color-dark-header-bg')?.value,
-            panel_bg: document.getElementById('color-dark-panel-bg')?.value,
-            tab_inactive: document.getElementById('color-dark-tab-inactive')?.value,
-            glow: document.getElementById('color-dark-glow')?.value,
-            lore: document.getElementById('color-dark-lore')?.value,
-            lore_hover: document.getElementById('color-dark-lore-hover')?.value,
-            anach: document.getElementById('color-dark-anach')?.value,
-            tooltip: document.getElementById('color-dark-tooltip')?.value,
-            mask_015: document.getElementById('color-dark-mask-015')?.value,
-            mask_025: document.getElementById('color-dark-mask-025')?.value,
-            mask_03: document.getElementById('color-dark-mask-03')?.value,
-            mask_05: document.getElementById('color-dark-mask-05')?.value,
-            mask_08: document.getElementById('color-dark-mask-08')?.value,
-            // Theme color channels
-            theme_backgrounds_color: document.getElementById('color-dark-theme-backgrounds-color')?.value,
-            theme_primaries_color: document.getElementById('color-dark-theme-primaries-color')?.value,
-            theme_blacks: document.getElementById('color-dark-theme-blacks')?.value,
-            theme_whites: document.getElementById('color-dark-theme-whites')?.value,
-            theme_grays: document.getElementById('color-dark-theme-grays')?.value,
-            theme_typeface_color: document.getElementById('color-dark-theme-typeface-color')?.value,
-            theme_cards_color: document.getElementById('color-dark-theme-cards-color')?.value,
-            // Theme colors
-            theme_level_1_bg: document.getElementById('color-dark-theme-level-1-bg')?.value,
-            theme_level_2_bg: document.getElementById('color-dark-theme-level-2-bg')?.value,
-            theme_level_3_bg: document.getElementById('color-dark-theme-level-3-bg')?.value,
-            theme_primary: document.getElementById('color-dark-theme-primary')?.value,
-            theme_link_hover: document.getElementById('color-dark-theme-link-hover')?.value,
-            theme_border_color: document.getElementById('color-dark-theme-border-color')?.value,
-            theme_dark_border_color: document.getElementById('color-dark-theme-dark-border-color')?.value,
-            theme_shimmer: document.getElementById('color-dark-theme-shimmer')?.value,
-            theme_icons_color: document.getElementById('color-dark-theme-icons-color')?.value,
-            theme_primary_green_50: document.getElementById('color-dark-theme-primary-green-50')?.value,
-            theme_primary_green_100: document.getElementById('color-dark-theme-primary-green-100')?.value,
-            theme_primary_blue_600: document.getElementById('color-dark-theme-primary-blue-600')?.value,
-            theme_primary_blue_gray: document.getElementById('color-dark-theme-primary-blue-gray')?.value,
-            theme_dark: document.getElementById('color-dark-theme-dark')?.value,
-            theme_gray_005: document.getElementById('color-dark-theme-gray-005')?.value,
-            theme_gray_01: document.getElementById('color-dark-theme-gray-01')?.value,
-            theme_gray_02: document.getElementById('color-dark-theme-gray-02')?.value,
-            theme_gray_03: document.getElementById('color-dark-theme-gray-03')?.value,
-            theme_white_005: document.getElementById('color-dark-theme-white-005')?.value,
-            theme_white_012: document.getElementById('color-dark-theme-white-012')?.value,
-            theme_white: document.getElementById('color-dark-theme-white')?.value,
-            theme_black: document.getElementById('color-dark-theme-black')?.value,
-            theme_danger: document.getElementById('color-dark-theme-danger')?.value,
-            theme_danger_hover_color: document.getElementById('color-dark-theme-danger-hover-color')?.value,
-            theme_danger_bg: document.getElementById('color-dark-theme-danger-bg')?.value,
-            theme_danger_bg_level_1: document.getElementById('color-dark-theme-danger-bg-level-1')?.value,
-            theme_danger_bg_level_2: document.getElementById('color-dark-theme-danger-bg-level-2')?.value,
-            theme_info: document.getElementById('color-dark-theme-info')?.value,
-            theme_info_bg: document.getElementById('color-dark-theme-info-bg')?.value,
-            theme_info_link: document.getElementById('color-dark-theme-info-link')?.value,
-            theme_warning: document.getElementById('color-dark-theme-warning')?.value,
-            theme_warning_bg: document.getElementById('color-dark-theme-warning-bg')?.value,
-            theme_warning_link: document.getElementById('color-dark-theme-warning-link')?.value,
-            theme_success: document.getElementById('color-dark-theme-success')?.value,
-            theme_success_bg: document.getElementById('color-dark-theme-success-bg')?.value,
-            theme_success_link: document.getElementById('color-dark-theme-success-link')?.value,
-            theme_btn_hover_bg: document.getElementById('color-dark-theme-btn-hover-bg')?.value,
-            theme_btn_active_bg: document.getElementById('color-dark-theme-btn-active-bg')?.value,
-            theme_btn_disabled_bg: document.getElementById('color-dark-theme-btn-disabled-bg')?.value,
-            theme_primary_btn_hover_bg: document.getElementById('color-dark-theme-primary-btn-hover-bg')?.value,
-            theme_primary_btn_active_bg: document.getElementById('color-dark-theme-primary-btn-active-bg')?.value,
-            theme_danger_btn_bg: document.getElementById('color-dark-theme-danger-btn-bg')?.value,
-            theme_danger_btn_hover_bg: document.getElementById('color-dark-theme-danger-btn-hover-bg')?.value,
-            theme_danger_btn_border: document.getElementById('color-dark-theme-danger-btn-border')?.value,
-            theme_warning_btn_bg: document.getElementById('color-dark-theme-warning-btn-bg')?.value,
-            theme_warning_btn_hover_bg: document.getElementById('color-dark-theme-warning-btn-hover-bg')?.value,
-            theme_warning_btn_border: document.getElementById('color-dark-theme-warning-btn-border')?.value,
-            theme_warning_btn_hover_border: document.getElementById('color-dark-theme-warning-btn-hover-border')?.value,
-            theme_tab_active_bg: document.getElementById('color-dark-theme-tab-active-bg')?.value,
-            theme_tab_active_color: document.getElementById('color-dark-theme-tab-active-color')?.value,
-            theme_tag_color: document.getElementById('color-dark-theme-tag-color')?.value,
-            theme_tag_color_hover: document.getElementById('color-dark-theme-tag-color-hover')?.value,
-            theme_tag_bg: document.getElementById('color-dark-theme-tag-bg')?.value,
-            theme_tag_bg_hover: document.getElementById('color-dark-theme-tag-bg-hover')?.value,
-            theme_special_light_color: document.getElementById('color-dark-theme-special-light-color')?.value,
-            theme_special_light_bg: document.getElementById('color-dark-theme-special-light-bg')?.value,
-            theme_find_replace_highlight_bg: document.getElementById('color-dark-theme-find-replace-highlight-bg')?.value,
+            bg: document.getElementById('color-dark-bg').value,
+            fg: document.getElementById('color-dark-fg').value,
+            list_bg: document.getElementById('color-dark-list-bg').value,
+            btn_bg: document.getElementById('color-dark-btn-bg').value,
+            log_bg: document.getElementById('color-dark-log-bg').value,
+            log_fg: document.getElementById('color-dark-log-fg').value,
+            label: document.getElementById('color-dark-label').value,
+            button_text: document.getElementById('color-dark-button-text').value,
+            accent: document.getElementById('color-dark-accent').value,
+            run_bg: document.getElementById('color-dark-run-bg').value,
+            border: document.getElementById('color-dark-border').value,
+            header_bg: document.getElementById('color-dark-header-bg').value,
+            panel_bg: document.getElementById('color-dark-panel-bg').value,
+            tab_inactive: document.getElementById('color-dark-tab-inactive').value,
+            glow: document.getElementById('color-dark-glow').value,
+            lore: document.getElementById('color-dark-lore').value,
+            lore_hover: document.getElementById('color-dark-lore-hover').value,
+            anach: document.getElementById('color-dark-anach').value,
+            tooltip: document.getElementById('color-dark-tooltip').value,
         };
 
         const lightTheme = {
-            bg: document.getElementById('color-light-bg')?.value,
-            fg: document.getElementById('color-light-fg')?.value,
-            list_bg: document.getElementById('color-light-list-bg')?.value,
-            btn_bg: document.getElementById('color-light-btn-bg')?.value,
-            log_bg: document.getElementById('color-light-log-bg')?.value,
-            log_fg: document.getElementById('color-light-log-fg')?.value,
-            label: document.getElementById('color-light-label')?.value,
-            button_text: document.getElementById('color-light-button-text')?.value,
-            accent: document.getElementById('color-light-accent')?.value,
-            accent_fill: document.getElementById('color-light-accent-fill')?.value,
-            accent_text: document.getElementById('color-light-accent-text')?.value,
-            run_bg: document.getElementById('color-light-run-bg')?.value,
-            border: document.getElementById('color-light-border')?.value,
-            header_bg: document.getElementById('color-light-header-bg')?.value,
-            panel_bg: document.getElementById('color-light-panel-bg')?.value,
-            tab_inactive: document.getElementById('color-light-tab-inactive')?.value,
-            glow: document.getElementById('color-light-glow')?.value,
-            lore: document.getElementById('color-light-lore')?.value,
-            lore_hover: document.getElementById('color-light-lore-hover')?.value,
-            anach: document.getElementById('color-light-anach')?.value,
-            tooltip: document.getElementById('color-light-tooltip')?.value,
-            mask_015: document.getElementById('color-light-mask-015')?.value,
-            mask_025: document.getElementById('color-light-mask-025')?.value,
-            mask_03: document.getElementById('color-light-mask-03')?.value,
-            mask_05: document.getElementById('color-light-mask-05')?.value,
-            mask_08: document.getElementById('color-light-mask-08')?.value,
-            // Theme color channels
-            theme_backgrounds_color: document.getElementById('color-light-theme-backgrounds-color')?.value,
-            theme_primaries_color: document.getElementById('color-light-theme-primaries-color')?.value,
-            theme_blacks: document.getElementById('color-light-theme-blacks')?.value,
-            theme_whites: document.getElementById('color-light-theme-whites')?.value,
-            theme_grays: document.getElementById('color-light-theme-grays')?.value,
-            theme_typeface_color: document.getElementById('color-light-theme-typeface-color')?.value,
-            theme_cards_color: document.getElementById('color-light-theme-cards-color')?.value,
-            // Theme colors
-            theme_level_1_bg: document.getElementById('color-light-theme-level-1-bg')?.value,
-            theme_level_2_bg: document.getElementById('color-light-theme-level-2-bg')?.value,
-            theme_level_3_bg: document.getElementById('color-light-theme-level-3-bg')?.value,
-            theme_primary: document.getElementById('color-light-theme-primary')?.value,
-            theme_link_hover: document.getElementById('color-light-theme-link-hover')?.value,
-            theme_border_color: document.getElementById('color-light-theme-border-color')?.value,
-            theme_dark_border_color: document.getElementById('color-light-theme-dark-border-color')?.value,
-            theme_shimmer: document.getElementById('color-light-theme-shimmer')?.value,
-            theme_icons_color: document.getElementById('color-light-theme-icons-color')?.value,
-            theme_primary_green_50: document.getElementById('color-light-theme-primary-green-50')?.value,
-            theme_primary_green_100: document.getElementById('color-light-theme-primary-green-100')?.value,
-            theme_primary_blue_600: document.getElementById('color-light-theme-primary-blue-600')?.value,
-            theme_primary_blue_gray: document.getElementById('color-light-theme-primary-blue-gray')?.value,
-            theme_dark: document.getElementById('color-light-theme-dark')?.value,
-            theme_gray_005: document.getElementById('color-light-theme-gray-005')?.value,
-            theme_gray_01: document.getElementById('color-light-theme-gray-01')?.value,
-            theme_gray_02: document.getElementById('color-light-theme-gray-02')?.value,
-            theme_gray_03: document.getElementById('color-light-theme-gray-03')?.value,
-            theme_white_005: document.getElementById('color-light-theme-white-005')?.value,
-            theme_white_012: document.getElementById('color-light-theme-white-012')?.value,
-            theme_white: document.getElementById('color-light-theme-white')?.value,
-            theme_black: document.getElementById('color-light-theme-black')?.value,
-            theme_danger: document.getElementById('color-light-theme-danger')?.value,
-            theme_danger_hover_color: document.getElementById('color-light-theme-danger-hover-color')?.value,
-            theme_danger_bg: document.getElementById('color-light-theme-danger-bg')?.value,
-            theme_danger_bg_level_1: document.getElementById('color-light-theme-danger-bg-level-1')?.value,
-            theme_danger_bg_level_2: document.getElementById('color-light-theme-danger-bg-level-2')?.value,
-            theme_info: document.getElementById('color-light-theme-info')?.value,
-            theme_info_bg: document.getElementById('color-light-theme-info-bg')?.value,
-            theme_info_link: document.getElementById('color-light-theme-info-link')?.value,
-            theme_warning: document.getElementById('color-light-theme-warning')?.value,
-            theme_warning_bg: document.getElementById('color-light-theme-warning-bg')?.value,
-            theme_warning_link: document.getElementById('color-light-theme-warning-link')?.value,
-            theme_success: document.getElementById('color-light-theme-success')?.value,
-            theme_success_bg: document.getElementById('color-light-theme-success-bg')?.value,
-            theme_success_link: document.getElementById('color-light-theme-success-link')?.value,
-            theme_btn_hover_bg: document.getElementById('color-light-theme-btn-hover-bg')?.value,
-            theme_btn_active_bg: document.getElementById('color-light-theme-btn-active-bg')?.value,
-            theme_btn_disabled_bg: document.getElementById('color-light-theme-btn-disabled-bg')?.value,
-            theme_primary_btn_hover_bg: document.getElementById('color-light-theme-primary-btn-hover-bg')?.value,
-            theme_primary_btn_active_bg: document.getElementById('color-light-theme-primary-btn-active-bg')?.value,
-            theme_danger_btn_bg: document.getElementById('color-light-theme-danger-btn-bg')?.value,
-            theme_danger_btn_hover_bg: document.getElementById('color-light-theme-danger-btn-hover-bg')?.value,
-            theme_danger_btn_border: document.getElementById('color-light-theme-danger-btn-border')?.value,
-            theme_warning_btn_bg: document.getElementById('color-light-theme-warning-btn-bg')?.value,
-            theme_warning_btn_hover_bg: document.getElementById('color-light-theme-warning-btn-hover-bg')?.value,
-            theme_warning_btn_border: document.getElementById('color-light-theme-warning-btn-border')?.value,
-            theme_warning_btn_hover_border: document.getElementById('color-light-theme-warning-btn-hover-border')?.value,
-            theme_tab_active_bg: document.getElementById('color-light-theme-tab-active-bg')?.value,
-            theme_tab_active_color: document.getElementById('color-light-theme-tab-active-color')?.value,
-            theme_tag_color: document.getElementById('color-light-theme-tag-color')?.value,
-            theme_tag_color_hover: document.getElementById('color-light-theme-tag-color-hover')?.value,
-            theme_tag_bg: document.getElementById('color-light-theme-tag-bg')?.value,
-            theme_tag_bg_hover: document.getElementById('color-light-theme-tag-bg-hover')?.value,
-            theme_special_light_color: document.getElementById('color-light-theme-special-light-color')?.value,
-            theme_special_light_bg: document.getElementById('color-light-theme-special-light-bg')?.value,
-            theme_find_replace_highlight_bg: document.getElementById('color-light-theme-find-replace-highlight-bg')?.value,
+            bg: document.getElementById('color-light-bg').value,
+            fg: document.getElementById('color-light-fg').value,
+            list_bg: document.getElementById('color-light-list-bg').value,
+            btn_bg: document.getElementById('color-light-btn-bg').value,
+            log_bg: document.getElementById('color-light-log-bg').value,
+            log_fg: document.getElementById('color-light-log-fg').value,
+            label: document.getElementById('color-light-label').value,
+            button_text: document.getElementById('color-light-button-text').value,
+            accent: document.getElementById('color-light-accent').value,
+            run_bg: document.getElementById('color-light-run-bg').value,
+            border: document.getElementById('color-light-border').value,
+            header_bg: document.getElementById('color-light-header-bg').value,
+            panel_bg: document.getElementById('color-light-panel-bg').value,
+            tab_inactive: document.getElementById('color-light-tab-inactive').value,
+            glow: document.getElementById('color-light-glow').value,
+            lore: document.getElementById('color-light-lore').value,
+            lore_hover: document.getElementById('color-light-lore-hover').value,
+            anach: document.getElementById('color-light-anach').value,
+            tooltip: document.getElementById('color-light-tooltip').value,
         };
 
         await eel.save_config_field('custom_dark_theme', darkTheme)();
         await eel.save_config_field('custom_light_theme', lightTheme)();
         
-        // Apply the new colors immediately from the saved values
+        // Apply the new colors immediately
         const darkMode = state.settings.lastConfig?.dark_mode || false;
-        const currentTheme = darkMode ? darkTheme : lightTheme;
-        applyTheme(currentTheme);
-        updateThemeIcon(currentTheme);
+        const themeColors = await eel.get_theme_colors()();
+        applyTheme(themeColors);
+        updateThemeIcon(themeColors);
     }
 
     // Add change event listeners
     // Color picker change handlers
     document.querySelectorAll('input[type="color"]').forEach(input => {
-        input.addEventListener('input', saveColorSettings);
+        input.addEventListener('change', saveColorSettings);
     });
 
     // Theme subtab switching
@@ -3750,10 +3165,18 @@ function initSettingsActions() {
             await eel.save_config_field('custom_dark_theme', {})();
             await eel.save_config_field('custom_light_theme', {})();
             await loadSettings();
-            await loadColorSettings();
             const themeColors = await eel.get_theme_colors()();
             applyTheme(themeColors);
             updateThemeIcon(themeColors);
+        };
+    }
+
+    // Load colors when settings are loaded
+    const originalLoadSettings = window.loadSettings;
+    if (originalLoadSettings) {
+        window.loadSettings = async function(...args) {
+            await originalLoadSettings.apply(this, args);
+            await loadColorSettings();
         };
     }
 
@@ -4466,7 +3889,7 @@ function initSearchActions() {
         populateCategorySelector(queueStructure);
         // Re-fetch full queue from Python (bulk_inject updated it server-side)
         state.reviewer.fullQueue = await eel.get_all_items_in_queue()() || [];
-        switchTab('editor');
+        switchTab('reviewer');
     };
 
     // Field selector — wire search-on-enter on the select too
@@ -4522,7 +3945,7 @@ async function openSearchHitInReviewer(res) {
     // Set current category to Manual Translation for search results
     state.reviewer.currentCategory = "Manual Translation";
     state.reviewer.fullQueue = await eel.get_all_items_in_queue()() || [];
-    switchTab('editor');
+    switchTab('reviewer');
     loadItemAtIdx(0);
 }
 
@@ -4536,17 +3959,7 @@ const MAX_UNDO = 50;
 function saveUndoState() {
     const ed = document.getElementById('en-editor');
     if (!ed) return;
-    
-    // Save both text and cursor position
-    const selection = window.getSelection();
-    const range = selection.rangeCount > 0 ? selection.getRangeAt(0).cloneRange() : null;
-    const cursorOffset = range ? getCaretOffset(ed, range) : null;
-    
-    undoStack.push({
-        text: ed.innerText,
-        cursorOffset: cursorOffset
-    });
-    
+    undoStack.push(ed.innerText);
     if (undoStack.length > MAX_UNDO) undoStack.shift();
     redoStack.length = 0; // Clear redo stack on new action
 }
@@ -4555,104 +3968,31 @@ function undo() {
     if (undoStack.length === 0) return;
     const ed = document.getElementById('en-editor');
     if (!ed) return;
-    
-    // Save current state for redo (with cursor position)
-    const selection = window.getSelection();
-    const range = selection.rangeCount > 0 ? selection.getRangeAt(0).cloneRange() : null;
-    const cursorOffset = range ? getCaretOffset(ed, range) : null;
-    
-    console.log(`[undo] Current text length: ${ed.innerText.length}, cursor at: ${cursorOffset}`);
-    
-    redoStack.push({
-        text: ed.innerText,
-        cursorOffset: cursorOffset
-    });
-    
+    redoStack.push(ed.innerText);
     const previous = undoStack.pop();
-    console.log(`[undo] Restoring text length: ${previous.text.length}, cursor to: ${previous.cursorOffset}`);
-    console.log(`[undo] Current cursor pos before restore: ${getCaretOffset(ed, window.getSelection().rangeCount > 0 ? window.getSelection().getRangeAt(0) : null)}`);
-    
-    // Disable input event handling during restore
-    if (ed._setSkipInputHandling) ed._setSkipInputHandling(true);
-    
-    // Restore text (this would normally trigger input event)
-    ed.innerText = previous.text;
-    
-    // Restore cursor position - add small delay to ensure DOM is updated
-    setTimeout(() => {
-        try {
-            if (previous.cursorOffset !== null) {
-                console.log(`[undo] About to restore cursor to offset ${previous.cursorOffset}`);
-                restoreCursor(ed, previous.cursorOffset);
-                
-                // Get actual position after restore
-                const selection2 = window.getSelection();
-                const range2 = selection2.rangeCount > 0 ? selection2.getRangeAt(0).cloneRange() : null;
-                const finalCursorPos = range2 ? getCaretOffset(ed, range2) : null;
-                console.log(`[undo] Final cursor position after restore: ${finalCursorPos} (requested: ${previous.cursorOffset}, difference: ${finalCursorPos - previous.cursorOffset})`);
-            }
-        } finally {
-            // Re-enable input event handling (inside try-finally to ensure it happens)
-            if (ed._setSkipInputHandling) ed._setSkipInputHandling(false);
-            
-            // Manually update display (without triggering input handlers)
-            syncLineCounters();
-            updateReviewerCounters();
-        }
-    }, 0);
+    ed.innerText = previous;
+    updateReviewerCounters();
+    syncLineCounters();
+    const jpText = document.getElementById('jp-source')?.innerText || '';
+    populateLoreContext(jpText, ed.innerText, state.reviewer.currentIdx);
 }
 
 function redo() {
     if (redoStack.length === 0) return;
     const ed = document.getElementById('en-editor');
     if (!ed) return;
-    
-    // Save current state for undo (with cursor position)
-    const selection = window.getSelection();
-    const range = selection.rangeCount > 0 ? selection.getRangeAt(0).cloneRange() : null;
-    const cursorOffset = range ? getCaretOffset(ed, range) : null;
-    
-    undoStack.push({
-        text: ed.innerText,
-        cursorOffset: cursorOffset
-    });
-    
+    undoStack.push(ed.innerText);
     const next = redoStack.pop();
-    console.log(`[redo] Restoring text length: ${next.text.length}, cursor to: ${next.cursorOffset}`);
-    
-    // Disable input event handling during restore
-    if (ed._setSkipInputHandling) ed._setSkipInputHandling(true);
-    
-    // Restore text (this would normally trigger input event)
-    ed.innerText = next.text;
-    
-    // Restore cursor position - add small delay to ensure DOM is updated
-    setTimeout(() => {
-        try {
-            if (next.cursorOffset !== null) {
-                console.log(`[redo] About to restore cursor to offset ${next.cursorOffset}`);
-                restoreCursor(ed, next.cursorOffset);
-                
-                // Get actual position after restore
-                const selection2 = window.getSelection();
-                const range2 = selection2.rangeCount > 0 ? selection2.getRangeAt(0).cloneRange() : null;
-                const finalCursorPos = range2 ? getCaretOffset(ed, range2) : null;
-                console.log(`[redo] Final cursor position after restore: ${finalCursorPos} (requested: ${next.cursorOffset}, difference: ${finalCursorPos - next.cursorOffset})`);
-            }
-        } finally {
-            // Re-enable input event handling (inside try-finally to ensure it happens)
-            if (ed._setSkipInputHandling) ed._setSkipInputHandling(false);
-            
-            // Manually update display (without triggering input handlers)
-            syncLineCounters();
-            updateReviewerCounters();
-        }
-    }, 0);
+    ed.innerText = next;
+    updateReviewerCounters();
+    syncLineCounters();
+    const jpText = document.getElementById('jp-source')?.innerText || '';
+    populateLoreContext(jpText, ed.innerText, state.reviewer.currentIdx);
 }
 
 function initShortcuts() {
     window.addEventListener('keydown', e => {
-        if (state.currentTab !== 'editor') return;
+        if (state.currentTab !== 'reviewer') return;
         if (e.ctrlKey) {
             if (e.key === 'Enter') { e.preventDefault(); applyFix(); }
             if (e.key === 'ArrowRight') { e.preventDefault(); nextItem(); }

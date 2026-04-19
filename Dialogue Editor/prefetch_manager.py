@@ -8,6 +8,8 @@ Caches results for instant display when user switches entries.
 import threading
 import queue
 import time
+import json
+import os
 from typing import Dict, Any, Optional
 
 class PrefetchManager:
@@ -116,6 +118,7 @@ class PrefetchManager:
                 'lore_context': None,
                 'anachronisms': None,
                 'adjacent_context': None,
+                'deepl_suggestion': None,
                 'timestamp': time.time()
             }
             
@@ -136,6 +139,27 @@ class PrefetchManager:
             except Exception as e:
                 print(f"[PrefetchManager] Anachronisms error for idx {idx}: {e}")
             
+            # Get DeepL suggestion - call client directly (not through eel-exposed function)
+            try:
+                if item.get('jp'):
+                    from api_handler import DeepLClient
+                    from config_manager import ConfigManager
+                    cm = ConfigManager()
+                    key = cm.get_key("deepl_api_key")
+                    if key:
+                        target_lang = cm.config.get("deepl_target_lang", "EN-US")
+                        # Check cache first
+                        cached = cm.get_cached("deepl", item['jp'])
+                        if cached:
+                            results['deepl_suggestion'] = cached
+                        else:
+                            res = DeepLClient(key).translate(item['jp'], target_lang=target_lang)
+                            if "text" in res:
+                                cm.set_cached("deepl", item['jp'], res["text"])
+                                results['deepl_suggestion'] = res["text"]
+            except Exception as e:
+                print(f"[PrefetchManager] DeepL error for idx {idx}: {e}")
+            
             # Cache the results with category-aware key
             with self._lock:
                 cache_key = self._cache_key(category, idx)
@@ -149,11 +173,11 @@ class PrefetchManager:
     
     def enqueue(self, category: str, idx: int, item: Dict[str, Any]):
         """Add an item to the prefetch queue."""
-        # Skip if already cached and fresh (within 5 minutes)
+        # Skip if already cached and fresh (within 7 days to match disk cache expiration)
         with self._lock:
             cache_key = self._cache_key(category, idx)
             cached = self._cache.get(cache_key)
-            if cached and time.time() - cached['timestamp'] < 300:
+            if cached and time.time() - cached['timestamp'] < 604800:  # 7 days
                 return
         
         self._queue.put((category, idx, item))
