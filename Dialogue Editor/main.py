@@ -1478,15 +1478,8 @@ def get_adjacent_context(path, row_idx):
         _, _, rows = _read_csv_cached(path)
         print(f"[get_adjacent_context] Read {len(rows)} rows from CSV")
         
-        # Check if CSV has header row (only 001.csv has header)
-        has_header = "001.csv" in os.path.basename(path)
-        print(f"[get_adjacent_context] has_header={has_header}")
-        
-        # Adjust row index if there's a header
+        # Row index is used directly (no header row in source CSVs)
         data_row_idx = row_idx
-        if has_header:
-            data_row_idx = row_idx + 1
-            print(f"[get_adjacent_context] Adjusted data_row_idx from {row_idx} to {data_row_idx}")
         
         result = {}
         if data_row_idx > 0:
@@ -1900,12 +1893,7 @@ def load_csv_for_translation(filepath=None):
         review_items = []
         current_review_idx = 0
         
-        # Only 001.csv has a header row, others don't
-        has_header = "001.csv" in os.path.basename(filepath)
-        
         for i, row in enumerate(rows):
-            if has_header and i == 0:
-                continue
             if len(row) < 3: 
                 continue
             jp_text = row[2]
