@@ -3755,7 +3755,7 @@ async function loadSettings() {
         state.settings.lastConfig = config;
 
         // Set language selector value
-        const langSelector = document.getElementById('language-selector');
+        const langSelector = document.getElementById('settings-language-selector');
         if (langSelector && config.language) {
             langSelector.value = config.language;
         }

@@ -64,14 +64,14 @@ from translation_manager import translation_manager
 from github_sync import GitHubSync
 
 # Initialize core logic
-# Load language from user_settings if available, default to "en"
+# Load language from global user_settings if available, default to "en"
 import os
 import json
-user_settings_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "config", "en", "user_settings.json")
 initial_language = "en"
-if os.path.exists(user_settings_path):
+global_user_settings_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "user_settings.json")
+if os.path.exists(global_user_settings_path):
     try:
-        with open(user_settings_path, 'r', encoding='utf-8') as f:
+        with open(global_user_settings_path, 'r', encoding='utf-8') as f:
             user_settings = json.load(f)
             initial_language = user_settings.get("language", "en")
     except:
@@ -628,6 +628,18 @@ def switch_language(new_language):
     global cm, engine, _lore_engine
     success = cm.switch_language(new_language)
     if success:
+        # Save language to global user_settings
+        global_user_settings_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "user_settings.json")
+        try:
+            user_settings = {}
+            if os.path.exists(global_user_settings_path):
+                with open(global_user_settings_path, 'r', encoding='utf-8') as f:
+                    user_settings = json.load(f)
+            user_settings["language"] = new_language
+            with open(global_user_settings_path, 'w', encoding='utf-8') as f:
+                json.dump(user_settings, f, indent=4)
+        except Exception as e:
+            print(f"Error saving global user_settings: {e}")
         # Reload vocab for the new language
         reload_vocab()
         # Reinitialize engine with new config
