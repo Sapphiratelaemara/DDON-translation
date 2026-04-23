@@ -206,7 +206,7 @@ class LoreEngine:
     def _load_def_cache(cls):
         if os.path.exists(cls.DEFINITIONS_FILE):
             try:
-                with open(cls.DEFINITIONS_FILE, 'r', encoding='utf-8') as f:
+                with open(cls.DEFINITIONS_FILE, 'r', encoding='utf-8-sig') as f:
                     data = json.load(f)
                     # Handle new nested structure with dd1_definitions and other_definitions
                     if isinstance(data, dict) and "dd1_definitions" in data:
@@ -229,7 +229,7 @@ class LoreEngine:
         try:
             # Load existing file to preserve structure
             if os.path.exists(cls.DEFINITIONS_FILE):
-                with open(cls.DEFINITIONS_FILE, 'r', encoding='utf-8') as f:
+                with open(cls.DEFINITIONS_FILE, 'r', encoding='utf-8-sig') as f:
                     existing_data = json.load(f)
             else:
                 existing_data = {}
@@ -262,7 +262,7 @@ class LoreEngine:
                 "other_definitions": other_defs
             }
             
-            with open(cls.DEFINITIONS_FILE, 'w', encoding='utf-8') as f:
+            with open(cls.DEFINITIONS_FILE, 'w', encoding='utf-8-sig') as f:
                 json.dump(new_data, f, indent=2, ensure_ascii=False)
         except Exception as e:
             print(f"Definition cache save error: {e}")
@@ -272,7 +272,7 @@ class LoreEngine:
         """Load local examples database."""
         if os.path.exists(cls.EXAMPLES_FILE):
             try:
-                with open(cls.EXAMPLES_FILE, 'r', encoding='utf-8') as f:
+                with open(cls.EXAMPLES_FILE, 'r', encoding='utf-8-sig') as f:
                     data = json.load(f)
                     # Handle new nested structure with dd1_examples and other_examples
                     if isinstance(data, dict) and "dd1_examples" in data:

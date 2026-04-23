@@ -14,6 +14,7 @@ def check_dependencies():
     required = {
         'eel': 'eel>=0.16.0',
         'requests': 'requests>=2.31.0',
+        'msgpack': 'msgpack>=1.0.0',
     }
     
     missing = []
@@ -59,10 +60,21 @@ from api_handler import DeepLClient, OpenRouterClient
 from translator_engine import TranslationEngine
 from file_utils import _get_csv_files, _read_csv
 from batch_runner import run_batch, BatchSettings
+from translation_manager import translation_manager
+from github_sync import GitHubSync
 
 # Initialize core logic
 cm     = ConfigManager()
 engine = TranslationEngine(cm.config.get("tag_map", {}))
+github_sync = GitHubSync(cm)
+
+# Set up sync callback - request push to GitHub after local saves
+# Comments trigger urgent push (1 min), other changes wait (30 min)
+def sync_push_request(urgent: bool = False):
+    """Request a sync push - urgent for comments, normal for other changes."""
+    github_sync.request_push(urgent=urgent)
+
+translation_manager.set_sync_callback(sync_push_request)
 
 # Lazy-initialized lore engine
 _lore_engine      = None
@@ -71,6 +83,11 @@ _lore_engine_lock = threading.Lock()
 # Lazy-initialized gloss engine
 _gloss_engine      = None
 _gloss_engine_lock = threading.Lock()
+
+# Start GitHub auto-sync if enabled (30 min intervals)
+if github_sync.is_configured() and cm.config.get('sync_auto', False):
+    github_sync.start_auto_sync(translation_manager)
+    print("[main] GitHub auto-sync started (30min intervals)")
 
 def _get_gloss_engine():
     """Return a cached GlossEngine, rebuilding if needed."""
@@ -586,6 +603,7 @@ def get_full_config():
     data = cm.config.copy()
     data['deepl_api_key']      = cm.get_key("deepl_api_key")
     data['openrouter_api_key'] = cm.get_key("openrouter_api_key")
+    data['github_token']       = cm.get_key("github_token")
     for key in ["folders", "triggers", "replace_rules"]:
         if key not in data:
             data[key] = []
@@ -594,7 +612,7 @@ def get_full_config():
 @eel.expose
 def save_config_field(key, value):
     global _lore_engine
-    if key in ["deepl_api_key", "openrouter_api_key"]:
+    if key in ["deepl_api_key", "openrouter_api_key", "github_token"]:
         cm.set_key(key, value)
     else:
         cm.config[key] = value
@@ -1783,7 +1801,7 @@ def flush_csv_writes():
     return {"ok": True, "written": written_files}
 
 @eel.expose
-def apply_fix(item_id, new_text, force=False):
+def apply_fix(item_id, new_text, force=False, user="translator"):
     """Write corrected text to CSV. Returns {"ok": bool, "error": str|None}."""
     global review_items, pending_csv_writes, review_queues
 
@@ -1843,6 +1861,23 @@ def apply_fix(item_id, new_text, force=False):
 
     # Always update the in-memory fix dictionary
     cm.memory[item["jp"]] = new_text
+
+    # Track translation in translation manager
+    print(f"[apply_fix] Tracking translation for item {item_id}")
+    print(f"[apply_fix]   path: {item.get('path')}, row: {item.get('row')}")
+    print(f"[apply_fix]   TM entries before: {len(translation_manager.entries)}")
+    translation_manager.submit_translation(
+        entry_id=item_id,
+        source_text=item["jp"],
+        translated_text=new_text,
+        translator=user,
+        file_path=item.get("path"),
+        row_index=item.get("row"),
+        speaker=item.get("speaker"),
+        entry_type=item.get("entry_type")
+    )
+    print(f"[apply_fix]   TM entries after: {len(translation_manager.entries)}")
+    print(f"[apply_fix]   TM logs: {len(translation_manager.logs)}")
 
     # Respect Preview Mode - don't write to disk if user is just reviewing
     if cm.config.get("preview_mode", False):
@@ -1921,6 +1956,24 @@ def load_csv_for_translation(filepath=None):
         return {"error": str(e)}
 
 # =============================================================================
+# INITIALIZATION
+# =============================================================================
+
+# Clean up old approve/reject log entries and update usernames on startup
+try:
+    translation_manager.cleanup_old_approval_logs()
+    print("[INIT] Cleaned up old approve/reject log entries")
+except Exception as e:
+    print(f"[INIT] Error cleaning up old logs: {e}")
+
+try:
+    if 'sync_nickname' in cm.config:
+        translation_manager.update_all_log_usernames(cm.config['sync_nickname'])
+        print(f"[INIT] Updated log usernames to {cm.config['sync_nickname']}")
+except Exception as e:
+    print(f"[INIT] Error updating log usernames: {e}")
+
+# =============================================================================
 # PREFETCH MANAGER
 # =============================================================================
 from prefetch_manager import PrefetchManager
@@ -1978,6 +2031,213 @@ def clear_gloss_cache():
     except Exception as e:
         print(f"[clear_gloss_cache] Error: {e}")
         return False
+
+# =============================================================================
+# CROWDIN-STYLE TRANSLATION MANAGEMENT
+# =============================================================================
+
+@eel.expose
+def approve_translation(entry_id, approver="reviewer"):
+    """Approve a translation. Returns the updated entry."""
+    try:
+        entry = translation_manager.approve_translation(entry_id, approver)
+        if entry:
+            return {"ok": True, "entry": entry.to_dict()}
+        return {"ok": False, "error": "Entry not found"}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+@eel.expose
+def reject_translation(entry_id, reviewer="reviewer", reason=None):
+    """Reject a translation. Returns the updated entry."""
+    try:
+        entry = translation_manager.reject_translation(entry_id, reviewer, reason)
+        if entry:
+            return {"ok": True, "entry": entry.to_dict()}
+        return {"ok": False, "error": "Entry not found"}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+@eel.expose
+def get_translation_status(entry_id):
+    """Get status of a translation entry."""
+    try:
+        status = translation_manager.get_entry_status(entry_id)
+        entry = translation_manager.entries.get(entry_id)
+        if entry:
+            return {"ok": True, "status": status, "entry": entry.to_dict()}
+        return {"ok": False, "error": "Entry not found"}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+@eel.expose
+def add_translation_comment(entry_id, user, text, parent_id=None):
+    """Add a comment to a translation entry."""
+    try:
+        comment = translation_manager.add_comment(entry_id, user, text, parent_id)
+        return {"ok": True, "comment": comment.to_dict()}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+@eel.expose
+def get_translation_comments(entry_id):
+    """Get all comments for a translation entry."""
+    try:
+        comments = translation_manager.get_comments(entry_id)
+        return {"ok": True, "comments": [c.to_dict() for c in comments]}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+@eel.expose
+def vote_translation(entry_id, user, vote):
+    """Vote on a translation (+1 for upvote, -1 for downvote)."""
+    try:
+        vote_obj = translation_manager.vote_translation(entry_id, user, vote)
+        score = translation_manager.get_vote_score(entry_id)
+        return {"ok": True, "vote": vote_obj.to_dict(), "score": score}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+@eel.expose
+def save_translation_history(entry_id, jp_text, en_text, speaker=None, entry_type=None, translator=None, file_path=None, row_index=None):
+    """Save translation history without writing to CSV (for Save button)."""
+    try:
+        print(f"[save_translation_history] entry_id={entry_id}, translator={translator}, file_path={file_path}")
+        # Track in translation manager (saves history)
+        print(f"[save_translation_history] Calling submit_translation with translator={translator or user}")
+        translation_manager.submit_translation(
+            entry_id=entry_id,
+            source_text=jp_text,
+            translated_text=en_text,
+            translator=translator or user,
+            file_path=file_path,
+            row_index=row_index,
+            speaker=speaker,
+            entry_type=entry_type
+        )
+        print(f"[save_translation_history] submit_translation completed, logs count={len(translation_manager.logs)}")
+        return {"ok": True}
+    except Exception as e:
+        print(f"[save_translation_history] Error: {e}")
+        return {"ok": False, "error": str(e)}
+
+@eel.expose
+def get_translation_history(entry_id):
+    """Get translation history for an entry."""
+    try:
+        history = translation_manager.get_translation_history(entry_id)
+        status = translation_manager.get_entry_status(entry_id)
+        return {"ok": True, "history": [h.to_dict() for h in history], "status": status}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+@eel.expose
+def cleanup_old_approval_logs():
+    """Remove old approve/reject log entries from the database."""
+    try:
+        translation_manager.cleanup_old_approval_logs()
+        return {"ok": True}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+@eel.expose
+def update_all_log_usernames(new_username):
+    """Update all log entries to use the new username."""
+    try:
+        translation_manager.update_all_log_usernames(new_username)
+        return {"ok": True}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+@eel.expose
+def get_recent_translation_activity(limit=50):
+    """Get recent translation activity across all entries."""
+    try:
+        activity = translation_manager.get_recent_activity(limit)
+        return {"ok": True, "activity": [a.to_dict() for a in activity]}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+@eel.expose
+def get_translation_stats():
+    """Get overall translation statistics."""
+    try:
+        stats = translation_manager.get_stats()
+        return {"ok": True, "stats": stats}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+@eel.expose
+def get_entries_by_status(status):
+    """Get all entries with a specific status."""
+    try:
+        entries = translation_manager.get_entries_by_status(status)
+        return {"ok": True, "entries": [e.to_dict() for e in entries], "count": len(entries)}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+@eel.expose
+def get_unapproved_entries_with_comments():
+    """Get all unapproved entries with comment count."""
+    try:
+        entries = translation_manager.get_unapproved_entries_with_comments()
+        return {"ok": True, "entries": entries, "count": len(entries)}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+# =============================================================================
+# GITHUB SYNC
+# =============================================================================
+
+@eel.expose
+def sync_push():
+    """Manually push local translation data to GitHub."""
+    try:
+        # Check if configured
+        if not github_sync.is_configured():
+            return {"ok": False, "error": "GitHub sync not configured. Check repo and token in settings."}
+        
+        # Check if there's data to push
+        entry_count = len(translation_manager.entries)
+        log_count = len(translation_manager.logs)
+        comment_count = len(translation_manager.comments)
+        
+        if entry_count == 0:
+            return {"ok": False, "error": f"No entries to sync. Have you approved/rejected any translations?\nTM Status: {entry_count} entries, {log_count} logs, {comment_count} comments"}
+        
+        success = github_sync.sync_push(translation_manager)
+        return {
+            "ok": success, 
+            "message": f"Push {'successful' if success else 'failed'}. Synced {entry_count} entries, {log_count} logs, {comment_count} comments."
+        }
+    except Exception as e:
+        import traceback
+        return {"ok": False, "error": str(e), "traceback": traceback.format_exc()}
+
+@eel.expose
+def sync_pull():
+    """Manually pull translation data from GitHub and merge with local."""
+    try:
+        success = github_sync.sync_pull(translation_manager)
+        return {"ok": success, "message": "Pull successful" if success else "Pull failed"}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+@eel.expose
+def get_sync_status():
+    """Get current sync configuration status."""
+    try:
+        return {
+            "ok": True,
+            "configured": github_sync.is_configured(),
+            "repo": cm.config.get('github_repo', ''),
+            "nickname": cm.config.get('sync_nickname', ''),
+            "language": cm.config.get('sync_language', 'English'),
+            "auto_sync": cm.config.get('sync_auto', False),
+            "interval": cm.config.get('sync_interval', 30)
+        }
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
 
 # =============================================================================
 # SEARCH
@@ -2126,6 +2386,13 @@ def find_available_port(start_port=8000, max_attempts=10):
 def shutdown_app():
     """Gracefully shutdown the application."""
     print("[SHUTDOWN] App shutdown requested by frontend")
+    try:
+        # Flush any pending sync data
+        if github_sync.is_configured():
+            github_sync.flush_on_exit(translation_manager)
+    except Exception as e:
+        print(f"[SHUTDOWN] Sync flush failed: {e}")
+    
     try:
         # Trigger frontend to close
         eel.close()

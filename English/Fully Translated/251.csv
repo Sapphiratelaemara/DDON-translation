@@ -1,4 +1,4 @@
-17,status_none,なし,None,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,17,
+﻿17,status_none,なし,None,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,17,
 17,status_none,なし,None,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPopItemSelect.arc,uGUIPopItemSelect.arc,17,
 17,status_none,なし,None,ui\00_message\ui\equip_status_win.gmd,\ui\uGUIPresetEquip.arc,uGUIPresetEquip.arc,17,
 9,status_option_change_equipment,装備変更,Change Equipment,ui\00_message\ui\equip_status_win.gmd,\ui\uGUICharacter.arc,uGUICharacter.arc,9,
@@ -126,293 +126,293 @@
 3,exc_notice,変換しました,Converted,ui\00_message\ui\exchange_money.gmd,\ui\uGUIPopExchangeMoney.arc,uGUIPopExchangeMoney.arc,3,
 4,exc_rate,※変換レート：<VAL><VAL> = <VAL><VAL>,※ Conversion Rate: <VAL><VAL> = <VAL><VAL>,ui\00_message\ui\exchange_money.gmd,\ui\uGUIPopExchangeMoney.arc,uGUIPopExchangeMoney.arc,4,
 1,exc_title,<VAL>に変換,<VAL> Conversion,ui\00_message\ui\exchange_money.gmd,\ui\uGUIPopExchangeMoney.arc,uGUIPopExchangeMoney.arc,1,
-141,gacha_msg_ana_disable_reset,このロットはリセットできません,This lot cannot be reset.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,141,
+141,gacha_msg_ana_disable_reset,このロットはリセットできません,This lot cannot be reset.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,141,,Gacha System
 46,gacha_msg_ana_ng_box_full,アイテムポストの空きが不足しているため、トレジャーズロットをまわすことができません,"Cannot draw from the Treasure Lot because the
-Item Post is full.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,46,
+Item Post is full.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,46,,Gacha System
 47,gacha_msg_ana_ng_gs_lack,黄金石が不足しているため、トレジャーズロットをまわすことができません,"You don't have enough Golden Gemstones to draw
-from the Treasure Lot.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,47,
+from the Treasure Lot.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,47,,Gacha System
 103,gacha_msg_ana_ng_service_benefits,効能が切れているため、トレジャーズロットをまわすことができません,"Can't spin the Treasure Lot because the effect
-has worn off.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,103,
+has worn off.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,103,,Gacha System
 48,gacha_msg_ana_ng_ticket_lack,シルバーチケットが不足しているため、トレジャーズロットをまわすことができません,"You don't have enough Silver Tickets to draw from
-the Treasure Lot.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,48,
+the Treasure Lot.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,48,,Gacha System
 142,gacha_msg_ana_no_lot_reset,ロットがまわっていないので、リセットできません,"I can't reset it because the set has not been
-rotated.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,142,
+rotated.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,142,,Gacha System
 45,gacha_msg_ana_send_box,"いいものは出たかしら？
 獲得したアイテムはアイテムポストに送っておくね","Got something good?
-I'll send the item to your Item Post.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,45,
+I'll send the item to your Item Post.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,45,,Gacha System
 53,gacha_msg_annotation,"※提供確率は小数点第3位を四捨五入して表示しています
 　このため、合計が100%にならない場合もございます","* Reward probability is rounded off to the third
 decimal place.
 For this reason, the total probability may not be
-100%.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,53,
+100%.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,53,,Gacha System
 67,gacha_msg_annotation2,"提供割合は小数点第3位を四捨五入して表示しています
 このため、合計が100%にならない場合もございます","Possible percentage is rounded off to the third
 decimal place.
 For this reason, the total percentage possible
-may not be 100%.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,67,
-94,gacha_msg_annotation_box,排出率は均一です,The discharge rate is uniform.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,94,
-66,gacha_msg_box_state,ボックス状況,Box Status,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,66,
-22,gacha_msg_brief_gacha,ロット概要,Lot Overview,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,22,
-10,gacha_msg_buy_goldenstone,黄金石の購入,Buy Golden Gemstones,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,10,
+may not be 100%.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,67,,Gacha System
+94,gacha_msg_annotation_box,排出率は均一です,The discharge rate is uniform.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,94,,Gacha System
+66,gacha_msg_box_state,ボックス状況,Box Status,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,66,,Gacha System
+22,gacha_msg_brief_gacha,ロット概要,Lot Overview,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,22,,Gacha System
+10,gacha_msg_buy_goldenstone,黄金石の購入,Buy Golden Gemstones,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,10,,Gacha System
 44,gacha_msg_caution,ロットで獲得した商品はアイテムポストに送られます,"Items acquired in the lot will be sent via item
-post.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,44,
-17,gacha_msg_class_a,A級品,A Grade,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,17,
-18,gacha_msg_class_b,B級品,B Grade,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,18,
-19,gacha_msg_class_c,C級品,C Grade,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,19,
-20,gacha_msg_class_d,D級品,D Grade,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,20,
-16,gacha_msg_class_s,S級品,S Grade,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,16,
-23,gacha_msg_contents_view,内容一覧,Contents,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,23,
-24,gacha_msg_detail,詳細情報,Detailed Info,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,24,
+post.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,44,,Gacha System
+17,gacha_msg_class_a,A級品,A Grade,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,17,,Gacha System
+18,gacha_msg_class_b,B級品,B Grade,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,18,,Gacha System
+19,gacha_msg_class_c,C級品,C Grade,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,19,,Gacha System
+20,gacha_msg_class_d,D級品,D Grade,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,20,,Gacha System
+16,gacha_msg_class_s,S級品,S Grade,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,16,,Gacha System
+23,gacha_msg_contents_view,内容一覧,Contents,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,23,,Gacha System
+24,gacha_msg_detail,詳細情報,Detailed Info,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,24,,Gacha System
 51,gacha_msg_diable_gp_to_gacha,このトレジャーズロットでは黄金石は使用できません,"Golden Gemstones cannot be used for this Treasure
-Lot",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,51,
+Lot",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,51,,Gacha System
 52,gacha_msg_diable_ticket_to_gacha,このトレジャーズロットではシルバーチケットは使用できません,"Silver Tickets cannot be used for this Treasure
-Lot",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,52,
+Lot",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,52,,Gacha System
 81,gacha_msg_dialog_error_01,プレイ回数制限があります。これ以上はまわせません,"There is a play count limit. You cannot play
-again for now.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,81,
+again for now.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,81,,Gacha System
 82,gacha_msg_dialog_error_02,"ボックスロット内の残り数が<VAL>個です
 選択中のプレイタイプではまわせません","The remaining number in the box slot is <VAL>.
-You cannot spin in the selected play type.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,82,
-83,gacha_msg_dialog_error_03,シルバーチケットが足りません,You do not have enough Silver Tickets.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,83,
+You cannot spin in the selected play type.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,82,,Gacha System
+83,gacha_msg_dialog_error_03,シルバーチケットが足りません,You do not have enough Silver Tickets.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,83,,Gacha System
 84,gacha_msg_dialog_error_04,"アイテムが受け取れない可能性があります
 アイテムポストを十分に空けてください","There is a possibility you may not receive the
 item.
 Please make sure there is enough space in your
-Item Post.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,84,
+Item Post.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,84,,Gacha System
 93,gacha_msg_dialog_error_05,"回数制限のため、
 選択した支払い方法ではまわせません","Due to the limited number of times, the selected
-payment method cannot be used.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,93,
+payment method cannot be used.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,93,,Gacha System
 85,gacha_msg_dialog_gp_lack,"黄金石が不足しています
 選択中のロットをまわすには<COL ffdc78>黄金石<VAL>個</COL>が必要です
 (所持数：<VAL>)","You do not have enough Golden Gemstones.
 To spin the selected lot, you need <COL ffdc78>
 <VAL> Golden Gemstone(s)</COL>.
-(Currently owned: <VAL>)",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,85,
+(Currently owned: <VAL>)",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,85,,Gacha System
 87,gacha_msg_dialog_reset_conf,"ボックスをリセットします。よろしいですか？
 <COL AA1414>※一度リセットすると元に戻せません</COL>","Do you want to reset the box?
 <COL AA1414>*Once reset, it cannot be
-undone.</COL>",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,87,
-88,gacha_msg_dialog_reset_success,ボックスをリセットしました,Box reset.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,88,
-74,gacha_msg_dialog_select_playnum,プレイタイプを選んでください,Please select play type,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,74,
-92,gacha_msg_dialog_select_price,支払い方法を選んでください,Please select a payment method,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,92,
+undone.</COL>",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,87,,Gacha System
+88,gacha_msg_dialog_reset_success,ボックスをリセットしました,Box reset.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,88,,Gacha System
+74,gacha_msg_dialog_select_playnum,プレイタイプを選んでください,Please select play type,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,74,,Gacha System
+92,gacha_msg_dialog_select_price,支払い方法を選んでください,Please select a payment method,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,92,,Gacha System
 102,gacha_msg_dialog_service_benefits,"<COL ffdc78>サービス特典</COL>は＜<OPCS>＞の発動中に
 利用可能となります","<COL ffdc78>Service benefit</COL>will be
-available while <<OPCS>> is in effect",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,102,
+available while <<OPCS>> is in effect",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,102,,Gacha System
 75,gacha_msg_dialog_start_conf,"以下の内容でまわします。よろしいですか？
 ロット名　　：<VAL>
 プレイタイプ：<VAL>
 支払い方法　：<VAL>","Are you sure you want to draw this lot?
 Lot Name: <VAL>
 Play Type: <VAL>
-Payment Method: <VAL>",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,75,
-80,gacha_msg_dialog_start_conf_pay_free,無料,Free,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,80,
-78,gacha_msg_dialog_start_conf_pay_gp,黄金石%d個,%d Golden Gemstones,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,78,
-79,gacha_msg_dialog_start_conf_pay_ticket,シルバーチケット%d枚,%d Silver Tickets,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,79,
-76,gacha_msg_dialog_start_conf_play_num,%dプレイ,%d Plays,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,76,
-77,gacha_msg_dialog_start_conf_play_trial,お試しプレイ,Trial,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,77,
-49,gacha_msg_disable_gp,黄金石は使用できません,Golden Gemstones can't be used,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,49,
-50,gacha_msg_disable_ticket,チケットは使用できません,Tickets can't be used,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,50,
-4,gacha_msg_draw,まわす,Draw,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,4,
-59,gacha_msg_draw_free,無料でまわす,Use Free,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,59,
-57,gacha_msg_draw_gp,黄金石でまわす,Use GG,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,57,
-89,gacha_msg_draw_lot,ロットをまわす,Draw Lot,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,89,
-58,gacha_msg_draw_ticket,チケットでまわす,Use ST,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,58,
-63,gacha_msg_free,無料,Free,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,63,
-72,gacha_msg_getitem,獲得アイテム,Item earned,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,72,
-73,gacha_msg_getnum,獲得数,Num,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,73,
-0,gacha_msg_holding_goldenstone,所持黄金石,Golden Gemstone Total,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,0,
-1,gacha_msg_holding_ticket,所持シルバーチケット,Possessing Silver Tickets,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,1,
+Payment Method: <VAL>",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,75,,Gacha System
+80,gacha_msg_dialog_start_conf_pay_free,無料,Free,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,80,,Gacha System
+78,gacha_msg_dialog_start_conf_pay_gp,黄金石%d個,%d Golden Gemstones,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,78,,Gacha System
+79,gacha_msg_dialog_start_conf_pay_ticket,シルバーチケット%d枚,%d Silver Tickets,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,79,,Gacha System
+76,gacha_msg_dialog_start_conf_play_num,%dプレイ,%d Plays,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,76,,Gacha System
+77,gacha_msg_dialog_start_conf_play_trial,お試しプレイ,Trial,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,77,,Gacha System
+49,gacha_msg_disable_gp,黄金石は使用できません,Golden Gemstones can't be used,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,49,,Gacha System
+50,gacha_msg_disable_ticket,チケットは使用できません,Tickets can't be used,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,50,,Gacha System
+4,gacha_msg_draw,まわす,Draw,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,4,,Gacha System
+59,gacha_msg_draw_free,無料でまわす,Use Free,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,59,,Gacha System
+57,gacha_msg_draw_gp,黄金石でまわす,Use GG,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,57,,Gacha System
+89,gacha_msg_draw_lot,ロットをまわす,Draw Lot,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,89,,Gacha System
+58,gacha_msg_draw_ticket,チケットでまわす,Use ST,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,58,,Gacha System
+63,gacha_msg_free,無料,Free,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,63,,Gacha System
+72,gacha_msg_getitem,獲得アイテム,Item earned,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,72,,Gacha System
+73,gacha_msg_getnum,獲得数,Num,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,73,,Gacha System
+0,gacha_msg_holding_goldenstone,所持黄金石,Golden Gemstone Total,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,0,,Gacha System
+1,gacha_msg_holding_ticket,所持シルバーチケット,Possessing Silver Tickets,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,1,,Gacha System
 25,gacha_msg_isdraw_by_a_stone,"黄金石<VAL>個を消費して、
 ロットを1回まわします。よろしいですか？","Are you sure you want to consume <VAL> Golden
 Gemstone(s),
-and draw from the lot once?",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,25,
+and draw from the lot once?",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,25,,Gacha System
 27,gacha_msg_isdraw_by_a_ticket,"チケット<VAL>枚を消費して、
 ロットを1回まわします。よろしいですか？","Are you sure you want to consume <VAL> Silver
 Ticket(s),
-and draw from the lot once?",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,27,
+and draw from the lot once?",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,27,,Gacha System
 26,gacha_msg_isdraw_by_stones,"黄金石<VAL>個を消費して、
 ロットを<VAL>連続でまわします。よろしいですか？","Are you sure you want to consume <VAL> Golden
 Gemstone(s),
-and draw from the lot <VAL> times?",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,26,
+and draw from the lot <VAL> times?",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,26,,Gacha System
 28,gacha_msg_isdraw_by_tickets,"チケット<VAL>枚を消費して、
 ロットを<VAL>連続でまわします。よろしいですか？","Are you sure you want to consume <VAL> Silver
 Ticket(s),
-and draw from the lot <VAL> times?",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,28,
-12,gacha_msg_itemclass_a,A級品アイテム,A Grade Items,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,12,
-13,gacha_msg_itemclass_b,B級品アイテム,B Grade Items,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,13,
-14,gacha_msg_itemclass_c,C級品アイテム,C Grade Items,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,14,
-15,gacha_msg_itemclass_d,D級品アイテム,D Grade Items,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,15,
-64,gacha_msg_itemclass_name,級品アイテム,Grade items,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,64,
-11,gacha_msg_itemclass_s,S級品アイテム,S Grade Items,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,11,
-86,gacha_msg_jump_onlineshop,オンラインショップを開く,Open online shop,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,86,
-39,gacha_msg_load_fail,画像の読み込みに失敗しました,Failed to load the image.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,39,
-5,gacha_msg_multi_draw,まわす(<VAL>連続),Draw (<VAL> times),ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,5,
+and draw from the lot <VAL> times?",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,28,,Gacha System
+12,gacha_msg_itemclass_a,A級品アイテム,A Grade Items,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,12,,Gacha System
+13,gacha_msg_itemclass_b,B級品アイテム,B Grade Items,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,13,,Gacha System
+14,gacha_msg_itemclass_c,C級品アイテム,C Grade Items,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,14,,Gacha System
+15,gacha_msg_itemclass_d,D級品アイテム,D Grade Items,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,15,,Gacha System
+64,gacha_msg_itemclass_name,級品アイテム,Grade items,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,64,,Gacha System
+11,gacha_msg_itemclass_s,S級品アイテム,S Grade Items,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,11,,Gacha System
+86,gacha_msg_jump_onlineshop,オンラインショップを開く,Open online shop,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,86,,Gacha System
+39,gacha_msg_load_fail,画像の読み込みに失敗しました,Failed to load the image.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,39,,Gacha System
+5,gacha_msg_multi_draw,まわす(<VAL>連続),Draw (<VAL> times),ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,5,,Gacha System
 6,gacha_msg_no_stone_todaraw,黄金石が不足しています。ロットを1回まわすには、黄金石<VAL>個が必要です,"There is not enough Golden Gemstones. To draw
 from the lot once,
-<VAL> Golden Gemstones are required.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,6,
+<VAL> Golden Gemstones are required.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,6,,Gacha System
 7,gacha_msg_no_stone_tomultidraw,黄金石が不足しています。ロットを<VAL>連続でまわすには、黄金石<VAL>個が必要です,"There is not enough Golden Gemstones. To draw
 from the lot <VAL> times,
-<VAL> Golden Gemstones are required.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,7,
+<VAL> Golden Gemstones are required.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,7,,Gacha System
 8,gacha_msg_no_ticket_todaraw,チケットが不足しています。ロットを1回まわすには、チケット<VAL>枚が必要です,"There is not enough Silver Tickets. To draw from
 the lot once,
-<VAL> Silver Tickets are required.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,8,
+<VAL> Silver Tickets are required.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,8,,Gacha System
 9,gacha_msg_no_ticket_tomultidraw,チケットが不足しています。ロットを<VAL>連続でまわすには、チケット<VAL>枚が必要です,"There is not enough Silver Tickets. To draw from
 the lot <VAL> times,
-<VAL> Silver Tickets are required.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,9,
-95,gacha_msg_normal_price_limit,（あと<VAL>回利用可能）,(<VAL> left),ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,95,
-101,gacha_msg_not_available,ご利用になれません,Not available,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,101,
-33,gacha_msg_num,<VAL>,<VAL>,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,33,
-2,gacha_msg_num_goldenstone,<VAL>個,x<VAL>,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,2,
-3,gacha_msg_num_ticket,<VAL>枚,x<VAL>,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,3,
-69,gacha_msg_number_of_acquisition_per_times,1回あたりの獲得数,Per,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,69,
-29,gacha_msg_one_more_draw,もう一度まわす,Draw Again,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,29,
-34,gacha_msg_post,アイテムポスト,Item Post,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,34,
-38,gacha_msg_pray,<VAL>プレイ,<VAL> draws,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,38,
-65,gacha_msg_pray_limit,※プレイ回数制限,* Play Limit,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,65,
-62,gacha_msg_pray_select,<VAL>プレイ（以下からお選びいただけます）,<VAL> plays (you can choose the following),ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,62,
-61,gacha_msg_pray_trial,お試しプレイ,Trial,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,61,
-35,gacha_msg_preview_goldenstone,黄金石の確認,Check Golden Gemstones,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,35,
-30,gacha_msg_quit,終了,Exit,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,30,
-42,gacha_msg_rate,提供割合,Chances,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,42,
-43,gacha_msg_rate_num,<VAL>%,<VAL>%,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,43,
-70,gacha_msg_remaining,残り,Left,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,70,
-60,gacha_msg_reset,リセット,Reset,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,60,
-56,gacha_msg_result,獲得リザルト,Received Results,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,56,
+<VAL> Silver Tickets are required.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,9,,Gacha System
+95,gacha_msg_normal_price_limit,（あと<VAL>回利用可能）,(<VAL> left),ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,95,,Gacha System
+101,gacha_msg_not_available,ご利用になれません,Not available,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,101,,Gacha System
+33,gacha_msg_num,<VAL>,<VAL>,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,33,,Gacha System
+2,gacha_msg_num_goldenstone,<VAL>個,x<VAL>,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,2,,Gacha System
+3,gacha_msg_num_ticket,<VAL>枚,x<VAL>,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,3,,Gacha System
+69,gacha_msg_number_of_acquisition_per_times,1回あたりの獲得数,Per,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,69,,Gacha System
+29,gacha_msg_one_more_draw,もう一度まわす,Draw Again,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,29,,Gacha System
+34,gacha_msg_post,アイテムポスト,Item Post,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,34,,Gacha System
+38,gacha_msg_pray,<VAL>プレイ,<VAL> draws,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,38,,Gacha System
+65,gacha_msg_pray_limit,※プレイ回数制限,* Play Limit,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,65,,Gacha System
+62,gacha_msg_pray_select,<VAL>プレイ（以下からお選びいただけます）,<VAL> plays (you can choose the following),ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,62,,Gacha System
+61,gacha_msg_pray_trial,お試しプレイ,Trial,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,61,,Gacha System
+35,gacha_msg_preview_goldenstone,黄金石の確認,Check Golden Gemstones,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,35,,Gacha System
+30,gacha_msg_quit,終了,Exit,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,30,,Gacha System
+42,gacha_msg_rate,提供割合,Chances,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,42,,Gacha System
+43,gacha_msg_rate_num,<VAL>%,<VAL>%,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,43,,Gacha System
+70,gacha_msg_remaining,残り,Left,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,70,,Gacha System
+60,gacha_msg_reset,リセット,Reset,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,60,,Gacha System
+56,gacha_msg_result,獲得リザルト,Received Results,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,56,,Gacha System
 71,gacha_msg_result_ng,"直前にまわしたロットの獲得リザルトを表示します
 ロット内容は、内容一覧のページでご確認ください","Display the acquisition result of the previous
 lot.
 Please confirm the content of the lot on the
-contents list page.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,71,
-32,gacha_msg_sale_info,SALE!,SALE!,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,32,
-96,gacha_msg_service_benefits_free,サービス特典（無料）,Service Benefit (Free),ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,96,
-98,gacha_msg_service_benefits_gp,サービス特典（黄金石）,Service Benefit (GG),ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,98,
-100,gacha_msg_service_benefits_gp_dialog,サービス特典（黄金石）%d個,Service Benefit (GG) x%d,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,100,
-97,gacha_msg_service_benefits_ticket,サービス特典（チケット）,Service Benefit (Ticket),ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,97,
-99,gacha_msg_service_benefits_ticket_dialog,サービス特典（チケット）%d枚,Service Benefit (Ticket) x%d,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,99,
-90,gacha_msg_sp_price,特別価格（あと<VAL>回利用可能）,Special price (<VAL> times available),ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,90,
-91,gacha_msg_sp_price_end,ご利用ありがとうございました,Thank you for your use,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,91,
-68,gacha_msg_supplemental,補足,Extra,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,68,
-54,gacha_msg_title_box_e,Box Treasure Lot,Box Treasure Lot,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,54,
-55,gacha_msg_title_box_j,ボックストレジャーズロット,Box Treasure Lot,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,55,
-37,gacha_msg_title_e,Treasure Lot,Treasure Lot,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,37,
-36,gacha_msg_title_j,トレジャーズロット,Treasure Lot,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,36,
-31,gacha_msg_total_num,<VAL>/<VAL>,<VAL>/<VAL>,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,31,
-40,gacha_msg_use_stone,×<VAL>個使用,<VAL> pieces used,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,40,
-41,gacha_msg_use_ticket,×<VAL>枚使用,<VAL> tickets used,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,41,
-21,gacha_msg_view_web,ロットの詳細をブラウザで見る,View Lot Details in Browser,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,21,
-110,lde_msg_btn_01,報酬を受け取る,Receive Rewards,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,110,
-111,lde_msg_btn_02,納品する,Deliver,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,111,
-112,lde_msg_btn_03,ランキング詳細,Ranking Details,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,112,
+contents list page.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,71,,Gacha System
+32,gacha_msg_sale_info,SALE!,SALE!,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,32,,Gacha System
+96,gacha_msg_service_benefits_free,サービス特典（無料）,Service Benefit (Free),ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,96,,Gacha System
+98,gacha_msg_service_benefits_gp,サービス特典（黄金石）,Service Benefit (GG),ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,98,,Gacha System
+100,gacha_msg_service_benefits_gp_dialog,サービス特典（黄金石）%d個,Service Benefit (GG) x%d,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,100,,Gacha System
+97,gacha_msg_service_benefits_ticket,サービス特典（チケット）,Service Benefit (Ticket),ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,97,,Gacha System
+99,gacha_msg_service_benefits_ticket_dialog,サービス特典（チケット）%d枚,Service Benefit (Ticket) x%d,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,99,,Gacha System
+90,gacha_msg_sp_price,特別価格（あと<VAL>回利用可能）,Special price (<VAL> times available),ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,90,,Gacha System
+91,gacha_msg_sp_price_end,ご利用ありがとうございました,Thank you for your use,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,91,,Gacha System
+68,gacha_msg_supplemental,補足,Extra,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,68,,Gacha System
+54,gacha_msg_title_box_e,Box Treasure Lot,Box Treasure Lot,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,54,,Gacha System
+55,gacha_msg_title_box_j,ボックストレジャーズロット,Box Treasure Lot,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,55,,Gacha System
+37,gacha_msg_title_e,Treasure Lot,Treasure Lot,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,37,,Gacha System
+36,gacha_msg_title_j,トレジャーズロット,Treasure Lot,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,36,,Gacha System
+31,gacha_msg_total_num,<VAL>/<VAL>,<VAL>/<VAL>,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,31,,Gacha System
+40,gacha_msg_use_stone,×<VAL>個使用,<VAL> pieces used,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,40,,Gacha System
+41,gacha_msg_use_ticket,×<VAL>枚使用,<VAL> tickets used,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,41,,Gacha System
+21,gacha_msg_view_web,ロットの詳細をブラウザで見る,View Lot Details in Browser,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,21,,Gacha System
+110,lde_msg_btn_01,報酬を受け取る,Receive Rewards,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,110,,Gacha System
+111,lde_msg_btn_02,納品する,Deliver,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,111,,Gacha System
+112,lde_msg_btn_03,ランキング詳細,Ranking Details,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,112,,Gacha System
 134,lde_msg_err_001,"ゲームメニューからは納品できません
 キャメロン、もしくは対象NPCに納品してください","You cannot deliver from the Game Menu,
-please deliver to Cameron or the target NPC.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,134,
-135,lde_msg_err_002,納品期間を過ぎています,The delivery period has ended.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,135,
-136,lde_msg_err_003,対象NPCに直接納品してください,Please deliver directly to the target NPC.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,136,
+please deliver to Cameron or the target NPC.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,134,,Gacha System
+135,lde_msg_err_002,納品期間を過ぎています,The delivery period has ended.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,135,,Gacha System
+136,lde_msg_err_003,対象NPCに直接納品してください,Please deliver directly to the target NPC.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,136,,Gacha System
 137,lde_msg_err_004,"ゲームメニューからは受け取りできません
 キャメロン、もしくは対象NPCから受け取ることができます","You cannot receive from the Game Menu,
-please receive from Cameron or the target NPC.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,137,
-138,lde_msg_err_005,受取可能なアイテムがありません,There are no items available.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,138,
-106,lde_msg_tab_01,イベント概要,Event Summary,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,106,
-107,lde_msg_tab_02,納品対象,Delivery Targets,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,107,
-108,lde_msg_tab_03,報酬リスト,Reward List,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,108,
-109,lde_msg_tab_04,詳細情報,Detailed Info,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,109,
-113,lde_msg_text_001,開催スケジュール,Schedule,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,113,
-114,lde_msg_text_002,個人成績,Personal Record,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,114,
-115,lde_msg_text_003,全体成績,Total Record,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,115,
-116,lde_msg_text_004,納品期間,Delivery Period,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,116,
-117,lde_msg_text_005,報酬受け取り期間,Reward Receive Period,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,117,
-118,lde_msg_text_006,獲得ポイント,Acquired Points,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,118,
-119,lde_msg_text_007,ランキング,Ranking,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,119,
-120,lde_msg_text_008,対象アイテム,Target Item,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,120,
-121,lde_msg_text_009,獲得pt,Acquired pt,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,121,
-122,lde_msg_text_010,ボーダー報酬,Border Rewards,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,122,
-123,lde_msg_text_011,ランキング報酬,Ranking Reward,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,123,
-124,lde_msg_text_012,全体ボーダー報酬,All Border Rewards,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,124,
-125,lde_msg_text_013,達成,Achieved,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,125,
-126,lde_msg_text_014,未達成,Not Achieved,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,126,
-127,lde_msg_text_015,-,-,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,127,
-128,lde_msg_text_016,受取可能,Receivable,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,128,
-129,lde_msg_text_017,受取済,Received,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,129,
-130,lde_msg_text_018,集計中,Tallying,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,130,
-131,lde_msg_text_019,集計確定,Tallied,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,131,
+please receive from Cameron or the target NPC.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,137,,Gacha System
+138,lde_msg_err_005,受取可能なアイテムがありません,There are no items available.,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,138,,Gacha System
+106,lde_msg_tab_01,イベント概要,Event Summary,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,106,,Gacha System
+107,lde_msg_tab_02,納品対象,Delivery Targets,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,107,,Gacha System
+108,lde_msg_tab_03,報酬リスト,Reward List,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,108,,Gacha System
+109,lde_msg_tab_04,詳細情報,Detailed Info,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,109,,Gacha System
+113,lde_msg_text_001,開催スケジュール,Schedule,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,113,,Gacha System
+114,lde_msg_text_002,個人成績,Personal Record,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,114,,Gacha System
+115,lde_msg_text_003,全体成績,Total Record,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,115,,Gacha System
+116,lde_msg_text_004,納品期間,Delivery Period,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,116,,Gacha System
+117,lde_msg_text_005,報酬受け取り期間,Reward Receive Period,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,117,,Gacha System
+118,lde_msg_text_006,獲得ポイント,Acquired Points,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,118,,Gacha System
+119,lde_msg_text_007,ランキング,Ranking,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,119,,Gacha System
+120,lde_msg_text_008,対象アイテム,Target Item,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,120,,Gacha System
+121,lde_msg_text_009,獲得pt,Acquired pt,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,121,,Gacha System
+122,lde_msg_text_010,ボーダー報酬,Border Rewards,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,122,,Gacha System
+123,lde_msg_text_011,ランキング報酬,Ranking Reward,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,123,,Gacha System
+124,lde_msg_text_012,全体ボーダー報酬,All Border Rewards,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,124,,Gacha System
+125,lde_msg_text_013,達成,Achieved,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,125,,Gacha System
+126,lde_msg_text_014,未達成,Not Achieved,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,126,,Gacha System
+127,lde_msg_text_015,-,-,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,127,,Gacha System
+128,lde_msg_text_016,受取可能,Receivable,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,128,,Gacha System
+129,lde_msg_text_017,受取済,Received,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,129,,Gacha System
+130,lde_msg_text_018,集計中,Tallying,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,130,,Gacha System
+131,lde_msg_text_019,集計確定,Tallied,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,131,,Gacha System
 132,lde_msg_text_020,"報酬アイテムをすべて受け取ります
 受け取り先を選択してください","Please select a destination
-to receive all reward items.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,132,
-133,lde_msg_text_021,に受け取りました,Received,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,133,
-139,lde_msg_text_022,位,Rank,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,139,
-140,lde_msg_text_023,時点,as of now,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,140,
-104,lde_msg_title_e,Large Delivery Event,Large Delivery Event,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,104,
-105,lde_msg_title_j,大口納品イベント,Large Delivery Event,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,105,
-31,menu_achievement,アチーブメント,Achievement,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,31,
-61,menu_adv_guide,冒険ガイド,Adventure Guide,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,61,
-35,menu_area_infomation,エリアリスト,Area List,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,35,
-24,menu_arisen_card,覚者プロフィール,Arisen Profile,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,24,
-65,menu_board_select,確認する掲示板を選択してください,Please select the board you wish to check,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,65,
-53,menu_boxgacha,ボックストレジャーズロット,Box Treasure Lot,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53,
-50,menu_caplink,カプリンク,Caplink,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,50,
-11,menu_clan,クランステータス,Clan Status,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11,
-52,menu_clan_management,クラン管理,Clan Management,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,52,
-38,menu_code,イベントコード入力,Event Code Input,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,38,
-12,menu_community,コミュニティリスト,Community List,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12,
+to receive all reward items.",ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,132,,Gacha System
+133,lde_msg_text_021,に受け取りました,Received,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,133,,Gacha System
+139,lde_msg_text_022,位,Rank,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,139,,Gacha System
+140,lde_msg_text_023,時点,as of now,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,140,,Gacha System
+104,lde_msg_title_e,Large Delivery Event,Large Delivery Event,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,104,,Gacha System
+105,lde_msg_title_j,大口納品イベント,Large Delivery Event,ui\00_message\ui\gacha_res.gmd,\ui\uGUIBoxGachaInfo.arc,uGUIBoxGachaInfo.arc,105,,Gacha System
+31,menu_achievement,アチーブメント,Achievement,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,31,,Game Menu
+61,menu_adv_guide,冒険ガイド,Adventure Guide,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,61,,Game Menu
+35,menu_area_infomation,エリアリスト,Area List,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,35,,Game Menu
+24,menu_arisen_card,覚者プロフィール,Arisen Profile,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,24,,Game Menu
+65,menu_board_select,確認する掲示板を選択してください,Please select the board you wish to check,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,65,,Game Menu
+53,menu_boxgacha,ボックストレジャーズロット,Box Treasure Lot,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53,,Game Menu
+50,menu_caplink,カプリンク,Caplink,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,50,,Game Menu
+11,menu_clan,クランステータス,Clan Status,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11,,Game Menu
+52,menu_clan_management,クラン管理,Clan Management,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,52,,Game Menu
+38,menu_code,イベントコード入力,Event Code Input,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,38,,Game Menu
+12,menu_community,コミュニティリスト,Community List,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12,,Game Menu
 41,menu_confirm_go_launcher,"ログアウトしてランチャー画面に戻ります
-よろしいですか？",Are you sure you want to exit to the launcher?,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,41,
+よろしいですか？",Are you sure you want to exit to the launcher?,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,41,,Game Menu
 40,menu_confirm_go_title,"ゲームを中断してタイトル画面に戻ります
-よろしいですか？",Are you sure you want to exit to the title?,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,40,
+よろしいですか？",Are you sure you want to exit to the title?,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,40,,Game Menu
 42,menu_confirm_shutdown,"ログアウトしてゲームを終了します
-よろしいですか？",Are you sure you want to exit the game?,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,42,
-36,menu_deli_box,アイテムポスト,Item Post,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,36,
-27,menu_emote,エモート,Emotes,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,27,
-48,menu_entryboard,エントリーボード,Entryboard,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,48,
-2,menu_equip_status,ステータス・装備,Status / Equipment,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2,
-33,menu_exit_contents,コンテンツ中断,Exit Content,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,33,
-64,menu_exmboard_dialog,エントリーするEXMを選択してください,Please select the EM you wish to enter,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,64,
-63,menu_exmboard_select,EXM募集掲示板,EM recruitment board,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,63,
-26,menu_fixed_pattern,定型文,Phrases,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,26,
-46,menu_gacha,トレジャーズロット,Treasure Lot,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,46,
-14,menu_gp_charge,黄金石の確認,Check Golden Gemstones,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14,
-21,menu_gp_shop,オンラインショップ,Online Shop,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,21,
-20,menu_gp_status,オンラインステーション,Online Station,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,20,
-62,menu_infdelivery_event,大口納品イベント,Large Delivery Event,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,62,
-0,menu_item,アイテムバッグ,Item Bag,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0,
-1,menu_key_item,キーアイテム,Key Items,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1,
-18,menu_license,ライセンス,License,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18,
-8,menu_lobby,ロビー情報,Lobby Information,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8,
-39,menu_login_bonus,スタンプボーナス確認,Check Stamp Bonus,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,39,
-23,menu_ls,グループチャット,Group Chat,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,23,
-28,menu_mail,メール,Mail,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,28,
-16,menu_manual,プレイマニュアル,Play Manual,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16,
-7,menu_map,マップ,Map,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7,
-5,menu_master,ジョブ修練ログ,Job Training Log,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5,
-22,menu_matching_profile,プロフィール編集,Edit Profile,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,22,
-25,menu_my_fixed_pattern,マイ定型文,My Phrases,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,25,
-3,menu_newspaper,レスタニアニュース,Lestania News,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3,
-34,menu_option_chr,ゲーム設定,Game Config,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,34,
-15,menu_option_sys,デバイス設定,System Config,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15,
-10,menu_party,パーティー管理,Party Management,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10,
-57,menu_partyboard,募集掲示板,Recruitment Board,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,57,
+よろしいですか？",Are you sure you want to exit the game?,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,42,,Game Menu
+36,menu_deli_box,アイテムポスト,Item Post,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,36,,Game Menu
+27,menu_emote,エモート,Emotes,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,27,,Game Menu
+48,menu_entryboard,エントリーボード,Entryboard,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,48,,Game Menu
+2,menu_equip_status,ステータス・装備,Status / Equipment,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2,,Game Menu
+33,menu_exit_contents,コンテンツ中断,Exit Content,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,33,,Game Menu
+64,menu_exmboard_dialog,エントリーするEXMを選択してください,Please select the EM you wish to enter,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,64,,Game Menu
+63,menu_exmboard_select,EXM募集掲示板,EM recruitment board,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,63,,Game Menu
+26,menu_fixed_pattern,定型文,Phrases,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,26,,Game Menu
+46,menu_gacha,トレジャーズロット,Treasure Lot,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,46,,Game Menu
+14,menu_gp_charge,黄金石の確認,Check Golden Gemstones,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14,,Game Menu
+21,menu_gp_shop,オンラインショップ,Online Shop,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,21,,Game Menu
+20,menu_gp_status,オンラインステーション,Online Station,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,20,,Game Menu
+62,menu_infdelivery_event,大口納品イベント,Large Delivery Event,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,62,,Game Menu
+0,menu_item,アイテムバッグ,Item Bag,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0,,Game Menu
+1,menu_key_item,キーアイテム,Key Items,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1,,Game Menu
+18,menu_license,ライセンス,License,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18,,Game Menu
+8,menu_lobby,ロビー情報,Lobby Information,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8,,Game Menu
+39,menu_login_bonus,スタンプボーナス確認,Check Stamp Bonus,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,39,,Game Menu
+23,menu_ls,グループチャット,Group Chat,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,23,,Game Menu
+28,menu_mail,メール,Mail,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,28,,Game Menu
+16,menu_manual,プレイマニュアル,Play Manual,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16,,Game Menu
+7,menu_map,マップ,Map,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7,,Game Menu
+5,menu_master,ジョブ修練ログ,Job Training Log,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5,,Game Menu
+22,menu_matching_profile,プロフィール編集,Edit Profile,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,22,,Game Menu
+25,menu_my_fixed_pattern,マイ定型文,My Phrases,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,25,,Game Menu
+3,menu_newspaper,レスタニアニュース,Lestania News,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3,,Game Menu
+34,menu_option_chr,ゲーム設定,Game Config,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,34,,Game Menu
+15,menu_option_sys,デバイス設定,System Config,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15,,Game Menu
+10,menu_party,パーティー管理,Party Management,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10,,Game Menu
+57,menu_partyboard,募集掲示板,Recruitment Board,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,57,,Game Menu
 58,menu_partyboard_dialog,パーティー募集掲示板のカテゴリを選択してください,"Please select
-Party Recruitment Board category.",ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,58,
-66,menu_partyboard_select,パーティー募集掲示板,Party Recruitment Board,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,66,
-59,menu_partyboard_type01,パーティー募集掲示板を開く,Open Party Recruitment Board,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,59,
-29,menu_pawn,ポーン,Pawns,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,29,
-30,menu_pawn_command,ポーン命令,Pawn Order,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,30,
-13,menu_photo,フォトモード,Photo Mode,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13,
-37,menu_photo_album,フォトアルバム,Photo Albums,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,37,
-60,menu_pq_history,サブストーリーログ,Substory Log,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,60,
-51,menu_ps_items,,,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,51,
-55,menu_ps_store,,,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,55,
-56,menu_ps_store_buy,,,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,56,
-4,menu_quest,クエストログ,Quest Log,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4,
-49,menu_quick_party,クイックパーティー,Quick Party,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,49,
-45,menu_quit_select_go_launcher,ログアウトしてランチャーに戻る,Log out and return to launcher,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,45,
-44,menu_quit_select_go_title,タイトルに戻る,Return to title,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,44,
-43,menu_quit_select_shutdown,ログアウトしてゲームを終了する,Log out and exit game,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,43,
-9,menu_rim_transport,リム転移,Rift Teleport,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9,
-47,menu_serch_player,プレイヤー検索,Player Search,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,47,
-32,menu_server_change,ワールド変更,World Select,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,32,
-19,menu_shut_down,ゲーム中断,Exit Game,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,19,
-17,menu_support,サポート・報告,Support / Report,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17,
-54,menu_time_event,リワードミッション,Reward Mission,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54,
-6,menu_tutorial,チュートリアルガイド,Tutorial,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6,
+Party Recruitment Board category.",ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,58,,Game Menu
+66,menu_partyboard_select,パーティー募集掲示板,Party Recruitment Board,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,66,,Game Menu
+59,menu_partyboard_type01,パーティー募集掲示板を開く,Open Party Recruitment Board,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,59,,Game Menu
+29,menu_pawn,ポーン,Pawns,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,29,,Game Menu
+30,menu_pawn_command,ポーン命令,Pawn Order,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,30,,Game Menu
+13,menu_photo,フォトモード,Photo Mode,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13,,Game Menu
+37,menu_photo_album,フォトアルバム,Photo Albums,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,37,,Game Menu
+60,menu_pq_history,サブストーリーログ,Substory Log,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,60,,Game Menu
+51,menu_ps_items,,,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,51,,Game Menu
+55,menu_ps_store,,,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,55,,Game Menu
+56,menu_ps_store_buy,,,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,56,,Game Menu
+4,menu_quest,クエストログ,Quest Log,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4,,Game Menu
+49,menu_quick_party,クイックパーティー,Quick Party,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,49,,Game Menu
+45,menu_quit_select_go_launcher,ログアウトしてランチャーに戻る,Log out and return to launcher,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,45,,Game Menu
+44,menu_quit_select_go_title,タイトルに戻る,Return to title,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,44,,Game Menu
+43,menu_quit_select_shutdown,ログアウトしてゲームを終了する,Log out and exit game,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,43,,Game Menu
+9,menu_rim_transport,リム転移,Rift Teleport,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9,,Game Menu
+47,menu_serch_player,プレイヤー検索,Player Search,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,47,,Game Menu
+32,menu_server_change,ワールド変更,World Select,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,32,,Game Menu
+19,menu_shut_down,ゲーム中断,Exit Game,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,19,,Game Menu
+17,menu_support,サポート・報告,Support / Report,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17,,Game Menu
+54,menu_time_event,リワードミッション,Reward Mission,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54,,Game Menu
+6,menu_tutorial,チュートリアルガイド,Tutorial,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6,,Game Menu
 17,HANDOVER_MSG_ANNOUCE_00,送り先がいっぱいのため、受け取ることができません,"You cannot receive it because the destination is
 full",ui\00_message\ui\general_handover.gmd,\ui\uGUIGiveAndTake.arc,uGUIGiveAndTake.arc,17,
 19,HANDOVER_MSG_ANNOUCE_01,アイテムを受け取りました,You received an item,ui\00_message\ui\general_handover.gmd,\ui\uGUIGiveAndTake.arc,uGUIGiveAndTake.arc,19,
@@ -570,94 +570,94 @@ the Depths of the Rift, eyes open.",ui\00_message\ui\hud.gmd,\ui\gui_cmn.arc,gui
 33,hud_status_disconnect,回線切断中,Disconnected,ui\00_message\ui\hud.gmd,\ui\gui_cmn.arc,gui_cmn.arc,33,
 9,hud_status_event,イベント,Event,ui\00_message\ui\hud.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9,
 7,hud_status_standby,スタンバイOK,Standby OK,ui\00_message\ui\hud.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7,
-5,category_total,合計,Total,ui\00_message\ui\infinity_delivery.gmd,\infinity_delivery.arc,infinity_delivery.arc,5,
-1,event_total,イベント合計,Event Total,ui\00_message\ui\infinity_delivery.gmd,\infinity_delivery.arc,infinity_delivery.arc,1,
-3,hour_am,AM,AM,ui\00_message\ui\infinity_delivery.gmd,\infinity_delivery.arc,infinity_delivery.arc,3,
-2,hour_pm,PM,PM,ui\00_message\ui\infinity_delivery.gmd,\infinity_delivery.arc,infinity_delivery.arc,2,
-4,now_delivery_num,現在の自分のあげたチョコの数,Number of chocolate given,ui\00_message\ui\infinity_delivery.gmd,\infinity_delivery.arc,infinity_delivery.arc,4,
-0,update_time,（%s%d:%02d時点集計）,(Tallied at %s %d:%02d),ui\00_message\ui\infinity_delivery.gmd,\infinity_delivery.arc,infinity_delivery.arc,0,
-22,info_achieve,アチーブメントを獲得しました,You have earned an achievement,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,22,
-23,info_achieve_list,<NAME ACHIEVE>を獲得しました,<NAME ACHIEVE> has been earned,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,23,
-24,info_achieve_unlock,新たなアチーブメントが解放されました,A new achievement has been unlocked,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,24,
-25,info_achieve_unlock_list,新たなアチーブメントを解放しました,A new achievement has been unlocked,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,25,
-61,info_adv_guide_new_info,冒険ガイドに新たなクエストの紹介があります,There is a new quest listed in the Adventure Guide,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,61,
-43,info_bazzar_dealed,バザーに出品中の<NAME ITEM>が取引成立しました,<NAME ITEM> has sold on the bazaar.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,43,
-45,info_caplink_chat,カプリンク：新着チャットがあります,Caplink: There is a new chat,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,45,
-49,info_caplink_friend_consent,カプリンク：カプトモが増えました,Caplink: Capto has increased.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,49,
-55,info_caplink_friend_content_detail,カプリンク：%sとカプトモになりました,Caplink became friends with CaptoMo:%s,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,55,
-52,info_caplink_friend_modify,カプリンク：カプトモがプロフィールを変更しました,Caplink: CaptoMo changed the profile,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,52,
-47,info_caplink_friend_online,カプリンク：カプトモがオンラインになりました,Caplink: A friend has come online,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,47,
-54,info_caplink_friend_online_detail,カプリンク：%sがオンラインになりました,Caplink: %s is now online!,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54,
-48,info_caplink_friend_request,カプリンク：カプトモ申請が届いています,Caplink: A friend request has arrived,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,48,
-50,info_caplink_invite,カプリンク：ゲーム招待メッセージが届いています,Caplink: You have received a game invite message!,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,50,
+5,category_total,合計,Total,ui\00_message\ui\infinity_delivery.gmd,\infinity_delivery.arc,infinity_delivery.arc,5,,Infinite Delivery
+1,event_total,イベント合計,Event Total,ui\00_message\ui\infinity_delivery.gmd,\infinity_delivery.arc,infinity_delivery.arc,1,,Infinite Delivery
+3,hour_am,AM,AM,ui\00_message\ui\infinity_delivery.gmd,\infinity_delivery.arc,infinity_delivery.arc,3,,Infinite Delivery
+2,hour_pm,PM,PM,ui\00_message\ui\infinity_delivery.gmd,\infinity_delivery.arc,infinity_delivery.arc,2,,Infinite Delivery
+4,now_delivery_num,現在の自分のあげたチョコの数,Number of chocolate given,ui\00_message\ui\infinity_delivery.gmd,\infinity_delivery.arc,infinity_delivery.arc,4,,Infinite Delivery
+0,update_time,（%s%d:%02d時点集計）,(Tallied at %s %d:%02d),ui\00_message\ui\infinity_delivery.gmd,\infinity_delivery.arc,infinity_delivery.arc,0,,Infinite Delivery
+22,info_achieve,アチーブメントを獲得しました,You have earned an achievement,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,22,,Notifications
+23,info_achieve_list,<NAME ACHIEVE>を獲得しました,<NAME ACHIEVE> has been earned,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,23,,Notifications
+24,info_achieve_unlock,新たなアチーブメントが解放されました,A new achievement has been unlocked,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,24,,Notifications
+25,info_achieve_unlock_list,新たなアチーブメントを解放しました,A new achievement has been unlocked,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,25,,Notifications
+61,info_adv_guide_new_info,冒険ガイドに新たなクエストの紹介があります,There is a new quest listed in the Adventure Guide,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,61,,Notifications
+43,info_bazzar_dealed,バザーに出品中の<NAME ITEM>が取引成立しました,<NAME ITEM> has sold on the bazaar.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,43,,Notifications
+45,info_caplink_chat,カプリンク：新着チャットがあります,Caplink: There is a new chat,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,45,,Notifications
+49,info_caplink_friend_consent,カプリンク：カプトモが増えました,Caplink: Capto has increased.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,49,,Notifications
+55,info_caplink_friend_content_detail,カプリンク：%sとカプトモになりました,Caplink became friends with CaptoMo:%s,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,55,,Notifications
+52,info_caplink_friend_modify,カプリンク：カプトモがプロフィールを変更しました,Caplink: CaptoMo changed the profile,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,52,,Notifications
+47,info_caplink_friend_online,カプリンク：カプトモがオンラインになりました,Caplink: A friend has come online,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,47,,Notifications
+54,info_caplink_friend_online_detail,カプリンク：%sがオンラインになりました,Caplink: %s is now online!,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54,,Notifications
+48,info_caplink_friend_request,カプリンク：カプトモ申請が届いています,Caplink: A friend request has arrived,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,48,,Notifications
+50,info_caplink_invite,カプリンク：ゲーム招待メッセージが届いています,Caplink: You have received a game invite message!,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,50,,Notifications
 53,info_caplink_invite_detail,カプリンク：%sからゲーム招待メッセージが届いています,"You have received a game invite message from
-Caplink: %s",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53,
-46,info_caplink_maintenance,カプリンクが<VAL>からメンテナンスに入ります,Caplink will enter maintenance at <VAL>,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,46,
-51,info_caplink_message,カプリンク：メッセージが届いています,Caplink: Message received!,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,51,
+Caplink: %s",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53,,Notifications
+46,info_caplink_maintenance,カプリンクが<VAL>からメンテナンスに入ります,Caplink will enter maintenance at <VAL>,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,46,,Notifications
+51,info_caplink_message,カプリンク：メッセージが届いています,Caplink: Message received!,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,51,,Notifications
 40,info_clan_chg_leader,<NAME TARGET>がクランリーダーになりました,"<NAME TARGET> 
-is now a Clan Officer.",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,40,
+is now a Clan Officer.",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,40,,Notifications
 39,info_clan_chg_master,<NAME TARGET>がクランマスターになりました,"<NAME TARGET> 
-is now the Clan Master.",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,39,
-4,info_clan_invite,<NAME TARGET>からクランへの招待があります,<NAME TARGET> has been invited to the clan.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4,
+is now the Clan Master.",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,39,,Notifications
+4,info_clan_invite,<NAME TARGET>からクランへの招待があります,<NAME TARGET> has been invited to the clan.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,4,,Notifications
 58,info_clan_invite_direct,<NAME TARGET>からクランへの直接招待があります,"You have received a direct invitation to join
-<NAME TARGET>'s Clan.",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,58,
-5,info_clan_invite_list,クランから誘いがあります,There is a clan invitation,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5,
-59,info_clan_invite_list_direct,クランから直接招待があります,There is a clan invitation.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,59,
-38,info_clan_join,<NAME TARGET>がクランに加入しました,<NAME TARGET> has joined the clan.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,38,
-37,info_clan_join_other,<NAME TARGET>がクランに加入しました,<NAME TARGET> has joined the clan.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,37,
-8,info_clan_levelup,クランレベルが<VAL>になった！,The clan level has reached <VAL>!,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8,
-9,info_clan_levelup_list,クランの歴史が更新されました,The clan history has been updated,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9,
-6,info_clan_mission,<NAME CLANMISSION> を達成した！,<NAME CLANMISSION> was achieved!,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6,
-7,info_clan_mission_list,<NAME CLANMISSION> を達成した！,<NAME CLANMISSION> was achieved!,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7,
+<NAME TARGET>'s Clan.",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,58,,Notifications
+5,info_clan_invite_list,クランから誘いがあります,There is a clan invitation,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,5,,Notifications
+59,info_clan_invite_list_direct,クランから直接招待があります,There is a clan invitation.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,59,,Notifications
+38,info_clan_join,<NAME TARGET>がクランに加入しました,<NAME TARGET> has joined the clan.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,38,,Notifications
+37,info_clan_join_other,<NAME TARGET>がクランに加入しました,<NAME TARGET> has joined the clan.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,37,,Notifications
+8,info_clan_levelup,クランレベルが<VAL>になった！,The clan level has reached <VAL>!,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8,,Notifications
+9,info_clan_levelup_list,クランの歴史が更新されました,The clan history has been updated,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9,,Notifications
+6,info_clan_mission,<NAME CLANMISSION> を達成した！,<NAME CLANMISSION> was achieved!,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,6,,Notifications
+7,info_clan_mission_list,<NAME CLANMISSION> を達成した！,<NAME CLANMISSION> was achieved!,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7,,Notifications
 35,info_clan_req,<NAME TARGET>からクラン加入申請がありました,"<NAME TARGET> 
-has requested to join the clan.",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,35,
-36,info_clan_req_info,クランへの加入申請があります,There is an application to join the clan,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,36,
-26,info_craft_finish,クラフトが完成しました,Crafting has completed.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,26,
+has requested to join the clan.",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,35,,Notifications
+36,info_clan_req_info,クランへの加入申請があります,There is an application to join the clan,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,36,,Notifications
+26,info_craft_finish,クラフトが完成しました,Crafting has completed.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,26,,Notifications
 62,info_daily_mission_complete_info,リワードミッションで受け取れるアイテムがあります,"There are items that can be received in Reward
-Missions",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,62,
+Missions",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,62,,Notifications
 60,info_dlc_station_not_receive,DLC Stationに未受け取りのダウンロードコンテンツがあります,"There is uncollected downloadable content at DLC
-Station",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,60,
-31,info_entry_board_ready_wait_list,エントリーメンバーの準備完了を受付中,The entryboard is ready,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,31,
-33,info_entry_board_time_extension_list,エントリーボードの募集時間を延長できます,Entryboard recruitment time can be extended,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,33,
+Station",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,60,,Notifications
+31,info_entry_board_ready_wait_list,エントリーメンバーの準備完了を受付中,The entryboard is ready,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,31,,Notifications
+33,info_entry_board_time_extension_list,エントリーボードの募集時間を延長できます,Entryboard recruitment time can be extended,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,33,,Notifications
 56,info_entry_invitation,<NAME TARGET>からエントリーボードに招待されました,"Invited to the entry board by 
-<NAME TARGET>",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,56,
+<NAME TARGET>",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,56,,Notifications
 57,info_entry_invitation_list,<NAME TARGET>からエントリーボードへの招待があります,"You have been invited to the Entry Board by 
-<NAME TARGET>",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,57,
+<NAME TARGET>",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,57,,Notifications
 2,info_friend_req,<NAME TARGET> からフレンド申請があります,"<NAME TARGET> 
-has sent you a friend request",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2,
-3,info_friend_req_list,フレンド申請があります,There is a friend request,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3,
-16,info_full_member,エントリーメンバーが揃いました,Entry members is now full,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16,
-17,info_full_member_list,エントリーメンバーが揃いました,Entry members is now full,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17,
+has sent you a friend request",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,2,,Notifications
+3,info_friend_req_list,フレンド申請があります,There is a friend request,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,3,,Notifications
+16,info_full_member,エントリーメンバーが揃いました,Entry members is now full,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,16,,Notifications
+17,info_full_member_list,エントリーメンバーが揃いました,Entry members is now full,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17,,Notifications
 10,info_group_invite,<NAME TARGET> からグループチャットへの招待があります,"<NAME TARGET> 
-has invited you to a group chat",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10,
-11,info_group_invite_list,<NAME TARGET> からグループチャットへの招待があります,<NAME TARGET> has invited you to a group chat,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11,
-12,info_mail,新着メールが届きました,New mail has arrived,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12,
-13,info_mail_list,未読／未取得メールがあります,There is unread / unclaimed mail,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13,
-14,info_news,レスタニアニュースが更新されました,Lestania News has been updated,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14,
-15,info_news_list,レスタニアニュースが更新されました,Lestania News has been updated,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15,
-34,info_party_entry_accepted_list,リーダーがパーティー要請を受諾しました,The leader has accepted the party request,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,34,
+has invited you to a group chat",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,10,,Notifications
+11,info_group_invite_list,<NAME TARGET> からグループチャットへの招待があります,<NAME TARGET> has invited you to a group chat,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,11,,Notifications
+12,info_mail,新着メールが届きました,New mail has arrived,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,12,,Notifications
+13,info_mail_list,未読／未取得メールがあります,There is unread / unclaimed mail,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,13,,Notifications
+14,info_news,レスタニアニュースが更新されました,Lestania News has been updated,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,14,,Notifications
+15,info_news_list,レスタニアニュースが更新されました,Lestania News has been updated,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,15,,Notifications
+34,info_party_entry_accepted_list,リーダーがパーティー要請を受諾しました,The leader has accepted the party request,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,34,,Notifications
 0,info_party_invite,<NAME TARGET> からパーティーへの招待があります,"<NAME TARGET> 
-has invited you to join a party",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0,
+has invited you to join a party",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,0,,Notifications
 1,info_party_invite_list,<NAME TARGET> からパーティーへの招待があります,"<NAME TARGET> 
-has invited you to join a party",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1,
-44,info_party_invite_pop,パーティーへの招待があります,There are party invitations,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,44,
-28,info_propose_quit_contents,コンテンツ途中離脱の提案がありました,You have received a request to end the mission.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,28,
+has invited you to join a party",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,1,,Notifications
+44,info_party_invite_pop,パーティーへの招待があります,There are party invitations,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,44,,Notifications
+28,info_propose_quit_contents,コンテンツ途中離脱の提案がありました,You have received a request to end the mission.,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,28,,Notifications
 29,info_propose_quit_contents_list,コンテンツ途中離脱の提案が届いています,"A proposal to withdraw from the content has
-arrived",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,29,
+arrived",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,29,,Notifications
 42,info_pt_leader_leave,"リーダーが不在です
 白竜神殿かリムストーンのある拠点施設でリーダーを設定してください","The party leader is missing.
 Please set the party leader in an inn, at the
-White Dragon Temple, or at a Riftstone.",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,42,
-41,info_pt_leader_leave_list,リーダーが不在です,The party leader is missing,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,41,
+White Dragon Temple, or at a Riftstone.",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,42,,Notifications
+41,info_pt_leader_leave_list,リーダーが不在です,The party leader is missing,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,41,,Notifications
 27,info_quest_end,配信期間が終了したクエストを破棄しました,"A quest has been canceled because the
-delivery time period has ended",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,27,
+delivery time period has ended",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,27,,Notifications
 32,info_quest_end_list,配信期間が終了したクエストを破棄しました,"A quest has been canceled because the
-delivery time period has ended",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,32,
-30,info_quick_ready_wait_list,クイックパーティーの準備完了を受付中,The quick party is ready,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,30,
-18,info_tutorial,チュートリアル：<NAME TUTORIAL>,Tutorial: <NAME TUTORIAL>,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18,
-19,info_tutorial_list,チュートリアル：<NAME TUTORIAL>,Tutorial: <NAME TUTORIAL>,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,19,
-20,info_wait_quest,受注待ちのクエストがあります,There are quest orders waiting,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,20,
-21,info_wait_quest_list,受注待ちのクエストが<VAL>件あります,There are quest orders waiting for quest <VAL>,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,21,
+delivery time period has ended",ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,32,,Notifications
+30,info_quick_ready_wait_list,クイックパーティーの準備完了を受付中,The quick party is ready,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,30,,Notifications
+18,info_tutorial,チュートリアル：<NAME TUTORIAL>,Tutorial: <NAME TUTORIAL>,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,18,,Notifications
+19,info_tutorial_list,チュートリアル：<NAME TUTORIAL>,Tutorial: <NAME TUTORIAL>,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,19,,Notifications
+20,info_wait_quest,受注待ちのクエストがあります,There are quest orders waiting,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,20,,Notifications
+21,info_wait_quest_list,受注待ちのクエストが<VAL>件あります,There are quest orders waiting for quest <VAL>,ui\00_message\ui\infomation_res.gmd,\ui\gui_cmn.arc,gui_cmn.arc,21,,Notifications
 0,infowin_001,Information,Information,ui\00_message\ui\information_window.gmd,\ui\uGUIInformationWindow.arc,uGUIInformationWindow.arc,0,
 1,infowin_002,インフォメーション,Information,ui\00_message\ui\information_window.gmd,\ui\uGUIInformationWindow.arc,uGUIInformationWindow.arc,1,
 13,item_restore_announce_01,アイテムを復元しました,Item restored.,ui\00_message\ui\item_restore.gmd,\ui\uGUIItemReStore.arc,uGUIItemReStore.arc,13,

@@ -52,7 +52,7 @@
                 <button class="tab-btn" data-tab="search">DATABASE_SEARCH</button>
             </div>
 
-            <div class="panel-toggles">
+            <div class="panel-toggles hidden">
                 <button class="panel-toggle" id="btn-toggle-refs" title="Toggle References Panel">
                     <span class="panel-toggle-icon material-symbols-outlined">menu_book</span>
                     <span class="panel-toggle-label">CONTEXT</span>
@@ -60,6 +60,14 @@
                 <button class="panel-toggle" id="btn-toggle-ai" title="Toggle AI Assistant Panel">
                     <span class="panel-toggle-icon material-symbols-outlined">smart_toy</span>
                     <span class="panel-toggle-label">AI_ASSISTANT</span>
+                </button>
+                <button class="panel-toggle" id="btn-toggle-comments" title="Toggle Comments Panel">
+                    <span class="panel-toggle-icon material-symbols-outlined">chat_bubble</span>
+                    <span class="panel-toggle-label">COMMENTS</span>
+                </button>
+                <button class="panel-toggle" id="btn-toggle-history" title="Toggle History Panel">
+                    <span class="panel-toggle-icon material-symbols-outlined">history</span>
+                    <span class="panel-toggle-label">HISTORY</span>
                 </button>
             </div>
 
@@ -119,13 +127,6 @@ Ctrl+Shift+D: Ellipsis</div>
 
                 <div class="dashboard-controls"
                     style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 20px;">
-                    <div class="toggle-group">
-                        <label class="switch">
-                            <input type="checkbox" id="dash-in-universe" checked>
-                            <span class="slider"></span>
-                        </label>
-                        <span>IN_UNIVERSE_LANGUAGE</span>
-                    </div>
                     <div class="toggle-group">
                         <label class="switch">
                             <input type="checkbox" id="dash-preview-mode">
@@ -207,6 +208,7 @@ Ctrl+Shift+D: Ellipsis</div>
                     <aside class="kl-sidebar-left" id="row-sidebar">
                         <div class="kl-sidebar-header">
                             <h3 class="kl-sidebar-title">Strings List</h3>
+                            <span class="kl-queue-counter" id="sidebar-queue-count">0 / 0</span>
                             <span class="kl-icon-btn" id="btn-filter-rows">filter_list</span>
                         </div>
                         <div class="kl-sidebar-filter">
@@ -281,9 +283,13 @@ Ctrl+Shift+D: Ellipsis</div>
                                                 </select>
                                             </div>
                                             <div class="kl-field-group">
+                                                <label class="kl-field-label">Status:</label>
+                                                <span class="kl-status-badge" id="translation-status">Untranslated</span>
+                                            </div>
+                                            <div class="kl-field-group">
                                                 <label class="kl-checkbox-label">
                                                     <input type="checkbox" id="editor-in-universe" checked>
-                                                    <span>In-Universe Language</span>
+                                                    <span>In-Universe<br>Language</span>
                                                 </label>
                                             </div>
                                         </div>
@@ -428,37 +434,69 @@ Ctrl+Shift+D: Ellipsis</div>
                         <footer class="kl-footer">
                             <div class="kl-footer-actions">
                                 <button class="kl-btn-secondary" id="btn-prev">Skip</button>
+                                <button class="kl-btn-success" id="btn-approve">
+                                    <span class="kl-icon">thumb_up</span> Approve
+                                </button>
+                                <button class="kl-btn-danger" id="btn-reject">
+                                    <span class="kl-icon">thumb_down</span> Reject
+                                </button>
                                 <button class="kl-btn-primary" id="btn-apply">
-                                    <span class="kl-icon">check</span> Apply
+                                    <span class="kl-icon">save</span> Save
                                 </button>
                             </div>
-                            <div class="kl-footer-status" id="review-status">QUEUE: 0 / 0</div>
                             <div class="kl-footer-options">
                                 <label class="kl-checkbox-label">
                                     <input type="checkbox" id="force-save-toggle">
                                     <span>Force_Save</span>
                                 </label>
+                                <label class="kl-checkbox-label">
+                                    <input type="checkbox" id="auto-approve-toggle">
+                                    <span>Auto-Approve<br>on Save</span>
+                                </label>
                             </div>
                         </footer>
                     </main>
 
-                    <!-- Right Panel: References, Archetype Notes, AI Assistant -->
+                    <!-- Right Panel: References, Translation History, Archetype Notes, AI Assistant -->
                     <aside class="kl-sidebar-right">
                         <!-- References Section -->
-                        <div class="kl-panel">
+                        <div class="kl-panel" id="panel-references">
                             <h3 class="kl-panel-title">References</h3>
                             <div class="kl-panel-content" id="lore-box">No references found.</div>
                         </div>
 
                         <!-- Archetype Notes Section -->
-                        <div class="kl-panel">
+                        <div class="kl-panel" id="panel-archetype">
                             <h3 class="kl-panel-title">Archetype_Notes</h3>
                             <div class="kl-panel-content" id="archetype-notes"></div>
                             <div class="kl-note-italic" id="sidebar-speaker-note"></div>
                         </div>
 
+                        <!-- Translation History Section (Crowdin-style) -->
+                        <div class="kl-panel kl-flex-1" id="panel-history">
+                            <h3 class="kl-panel-title">Translation_History</h3>
+                            <div class="kl-panel-content" id="translation-history">
+                                <div class="kl-history-empty">No history available</div>
+                            </div>
+                        </div>
+
+                        <!-- Comments Section (Crowdin-style) -->
+                        <div class="kl-panel kl-flex-1" id="panel-comments">
+                            <h3 class="kl-panel-title">Comments</h3>
+                            <div class="kl-panel-content" id="translation-comments">
+                                <div class="kl-comments-list"></div>
+                                <div class="kl-comment-input-area">
+                                    <div class="kl-comment-input-wrapper">
+                                        <input type="text" class="kl-input kl-comment-input" id="comment-input" placeholder="Add a comment..." maxlength="5000">
+                                        <span class="kl-char-counter" id="comment-char-counter">0 / 5000</span>
+                                    </div>
+                                    <button class="kl-btn-accent" id="btn-add-comment">Post</button>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- AI Assistant Section -->
-                        <div class="kl-panel kl-flex-1">
+                        <div class="kl-panel kl-flex-1" id="panel-ai">
                             <div class="kl-ai-header">
                                 <div class="kl-ai-indicator"></div>
                                 <h3 class="kl-panel-title">AI_ASSISTANT</h3>
@@ -554,6 +592,7 @@ Ctrl+Shift+D: Ellipsis</div>
                             <button class="settings-nav-btn" data-section="ai">AI_PROMPTS</button>
                             <button class="settings-nav-btn" data-section="regex">REGEX_SANDBOX</button>
                             <button class="settings-nav-btn" data-section="colors">THEME_COLORS</button>
+                            <button class="settings-nav-btn" data-section="sync">SYNC</button>
                         </aside>
 
                         <!-- Settings Content -->
@@ -688,6 +727,66 @@ Ctrl+Shift+D: Ellipsis</div>
                                 </div>
                                 <button class="btn-primary" style="margin-top: 20px; width: 100%;"
                                     id="btn-add-archetype">+ NEW ARCHETYPE</button>
+                            </div>
+
+                            <!-- Section: Sync -->
+                            <div class="settings-section" id="section-sync">
+                                <div class="field-group">
+                                    <label>GitHub Repository URL</label>
+                                    <input type="text" id="opt-github-repo" placeholder="https://github.com/owner/repo">
+                                    <p class="help-text">The repository where translation data will be synced.</p>
+                                </div>
+                                
+                                <div class="field-group">
+                                    <label>GitHub Personal Access Token</label>
+                                    <input type="password" id="opt-github-token" placeholder="ghp_xxxxxxxxxxxx">
+                                    <p class="help-text">
+                                        Create a Fine-Grained Token at github.com/settings/tokens with <strong>Contents: Read & Write</strong> permission.<br>
+                                        Repo owner must add you as "Collaborator" (Settings → Manage access) first.
+                                    </p>
+                                </div>
+                                
+                                <div class="field-group">
+                                    <label>Nickname</label>
+                                    <input type="text" id="opt-sync-nickname" placeholder="Your name">
+                                    <p class="help-text">Your name for comments and history.</p>
+                                </div>
+                                
+                                <div class="field-group">
+                                    <label>Target Language</label>
+                                    <select id="opt-sync-language">
+                                        <option value="English">English</option>
+                                        <option value="Spanish">Spanish</option>
+                                        <option value="French">French</option>
+                                        <option value="German">German</option>
+                                        <option value="Italian">Italian</option>
+                                        <option value="Portuguese">Portuguese</option>
+                                        <option value="Russian">Russian</option>
+                                        <option value="Chinese">Chinese</option>
+                                        <option value="Japanese">Japanese</option>
+                                        <option value="Korean">Korean</option>
+                                    </select>
+                                    <p class="help-text">The language you're translating to.</p>
+                                </div>
+                                
+                                <div class="field-group">
+                                    <div class="flex-row">
+                                        <label class="switch">
+                                            <input type="checkbox" id="opt-sync-auto">
+                                            <span class="slider"></span>
+                                        </label>
+                                        <span>Auto-sync</span>
+                                    </div>
+                                    <p class="help-text">Automatically sync every 30 minutes (or 1 minute after comments).</p>
+                                </div>
+                                
+                                <div class="flex-row" style="margin-top: 20px; gap: 10px;">
+                                    <button class="btn-primary" id="btn-sync-push">PUSH TO GITHUB</button>
+                                    <button class="btn-secondary" id="btn-sync-pull">PULL FROM GITHUB</button>
+                                    <button class="btn-secondary" id="btn-sync-test">TEST CONNECTION</button>
+                                </div>
+                                
+                                <div id="sync-status-display" style="margin-top: 15px; padding: 10px; border: 1px solid var(--border-color); font-family: monospace; font-size: 12px;"></div>
                             </div>
 
                             <!-- Section: AI Prompts -->

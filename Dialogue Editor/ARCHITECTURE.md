@@ -19,80 +19,80 @@ The application follows a **client-server architecture** where:
 - **Eel framework** enables bidirectional communication between Python and JavaScript
 
 ```
-┌─────────────────────────────────────────────────────────────┐
+┌―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――┐
 │                    Web Frontend (Browser)                    │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
+│  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  │
 │  │ HTML UI  │  │   CSS    │  │   JS     │  │  Eel.js  │  │
-│  └──────────┘  └──────────┘  └──────────┘  └──────────┘  │
-└──────────────────────────┬──────────────────────────────────┘
+│  └――――――――――┘  └――――――――――┘  └――――――――――┘  └――――――――――┘  │
+└――――――――――――――――――――――――――┬――――――――――――――――――――――――――――――――――┘
                            │ Eel IPC
                            │ (WebSocket/HTTP)
-┌──────────────────────────┴──────────────────────────────────┐
+┌――――――――――――――――――――――――――┴――――――――――――――――――――――――――――――――――┐
 │                    Python Backend                            │
-│  ┌──────────────────────────────────────────────────────┐  │
+│  ┌――――――――――――――――――――――――――――――――――――――――――――――――――――――┐  │
 │  │              main.py (Entry Point)                    │  │
 │  │  - Eel initialization                                 │  │
 │  │  - Route definitions (@eel.expose)                   │  │
 │  │  - Global state management                           │  │
-│  └──────────────────────────────────────────────────────┘  │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
+│  └――――――――――――――――――――――――――――――――――――――――――――――――――――――┘  │
+│  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  │
 │  │ Config   │  │  API     │  │  Lore    │  │  Gloss   │  │
 │  │ Manager  │  │ Handler  │  │ Engine   │  │  Engine  │  │
-│  └──────────┘  └──────────┘  └──────────┘  └──────────┘  │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
+│  └――――――――――┘  └――――――――――┘  └――――――――――┘  └――――――――――┘  │
+│  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  │
 │  │ Trans    │  │  Batch   │  │  File    │  │  Search  │  │
 │  │ Engine   │  │  Runner  │  │  Utils   │  │  Window  │  │
-│  └──────────┘  └──────────┘  └──────────┘  └──────────┘  │
-└─────────────────────────────────────────────────────────────┘
+│  └――――――――――┘  └――――――――――┘  └――――――――――┘  └――――――――――┘  │
+└―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――┘
                            │
                            │ File I/O
                            ▼
-                    ┌──────────────┐
+                    ┌――――――――――――――┐
                     │  CSV Files   │
                     │  Glossary    │
                     │  Bible       │
                     │  Config JSON │
-                    └──────────────┘
+                    └――――――――――――――┘
 ```
 
 ## Directory Structure
 
 ```
 Dialogue Editor/
-├── main.py                 # Application entry point, Eel routes, global state
-├── config_manager.py       # Configuration management (JSON files)
-├── api_handler.py          # External API clients (DeepL, OpenRouter)
-├── translator_engine.py   # Text wrapping and translation processing
-├── lore_engine.py          # Lore/context system, archetypes, in-universe vocab
-├── gloss_engine.py        # Japanese morpheme glossing (Janome + Jamdict)
-├── lore_data.py           # Default archetypes, vocabulary, anachronism patterns
-├── file_utils.py          # CSV file reading utilities
-├── batch_runner.py        # Batch scanning logic (background thread)
-├── search_window.py       # Tkinter-based search window
-├── editor_window.py       # Tkinter-based editor window
-├── editor_mixin.py        # Editor functionality shared across windows
-├── options_module.py      # Settings/configuration UI
-├── prefetch_manager.py    # API result caching
-├── check_keys.py          # API key validation utility
-├── count_chars.py         # Character counting utility
-├── extract_items.py       # Item extraction utility
-├── formatter_config.json   # Main configuration file
-├── memory.json            # User preferences and memory
-├── keys.json              # API keys (separate for security)
-├── cache.json             # API response cache
-├── anach_definitions.json # Anachronism definitions
-├── archaic_examples.json  # Archaic word examples
-├── prefetch_cache.json    # Prefetch manager cache
-├── requirements.txt        # Python dependencies
-├── web/                   # Frontend web interface
-│   ├── index.html         # Main HTML structure
-│   ├── style.css          # Stylesheets
-│   ├── app.js             # Frontend JavaScript controller
-│   └── js/
-│       └── app.js         # Additional JavaScript (legacy/duplicate)
-├── assets/                # Static assets
-├── deps/                  # External dependencies (jamdict data)
-└── __pycache__/           # Python bytecode cache
+├―― main.py                 # Application entry point, Eel routes, global state
+├―― config_manager.py       # Configuration management (JSON files)
+├―― api_handler.py          # External API clients (DeepL, OpenRouter)
+├―― translator_engine.py   # Text wrapping and translation processing
+├―― lore_engine.py          # Lore/context system, archetypes, in-universe vocab
+├―― gloss_engine.py        # Japanese morpheme glossing (Janome + Jamdict)
+├―― lore_data.py           # Default archetypes, vocabulary, anachronism patterns
+├―― file_utils.py          # CSV file reading utilities
+├―― batch_runner.py        # Batch scanning logic (background thread)
+├―― search_window.py       # Tkinter-based search window
+├―― editor_window.py       # Tkinter-based editor window
+├―― editor_mixin.py        # Editor functionality shared across windows
+├―― options_module.py      # Settings/configuration UI
+├―― prefetch_manager.py    # API result caching
+├―― check_keys.py          # API key validation utility
+├―― count_chars.py         # Character counting utility
+├―― extract_items.py       # Item extraction utility
+├―― formatter_config.json   # Main configuration file
+├―― memory.json            # User preferences and memory
+├―― keys.json              # API keys (separate for security)
+├―― cache.json             # API response cache
+├―― anach_definitions.json # Anachronism definitions
+├―― archaic_examples.json  # Archaic word examples
+├―― prefetch_cache.json    # Prefetch manager cache
+├―― requirements.txt        # Python dependencies
+├―― web/                   # Frontend web interface
+│   ├―― index.html         # Main HTML structure
+│   ├―― style.css          # Stylesheets
+│   ├―― app.js             # Frontend JavaScript controller
+│   └―― js/
+│       └―― app.js         # Additional JavaScript (legacy/duplicate)
+├―― assets/                # Static assets
+├―― deps/                  # External dependencies (jamdict data)
+└―― __pycache__/           # Python bytecode cache
 ```
 
 ## Key Components
@@ -603,30 +603,30 @@ eel.run_batch(settings)(
 
 ```
 formatter_config.json (Main Config)
-├── folders: []              # Watched directories
-├── triggers: []             # Entry trigger strings
-├── tag_map: {}              # Tag → simulated length
-├── presets: {}              # Character limit presets
-├── wall_presets: {}         # Wall limit presets
-├── archetypes: {}           # Character archetypes
-├── entry_type_rules: {}     # Entry type → tag rules
-├── replace_rules: []        # Find/replace rules
-├── ai_system_prompt: ""     # AI system prompt
-├── ai_button_prompts: {}    # AI button prompts
-└── ...
+├―― folders: []              # Watched directories
+├―― triggers: []             # Entry trigger strings
+├―― tag_map: {}              # Tag → simulated length
+├―― presets: {}              # Character limit presets
+├―― wall_presets: {}         # Wall limit presets
+├―― archetypes: {}           # Character archetypes
+├―― entry_type_rules: {}     # Entry type → tag rules
+├―― replace_rules: []        # Find/replace rules
+├―― ai_system_prompt: ""     # AI system prompt
+├―― ai_button_prompts: {}    # AI button prompts
+└―― ...
 
 memory.json (User Memory)
-├── [source text]: [wrapped text]  # Learned fixes from manual edits
-├── [speaker]: [archetype]         # Archetype assignments
-└── ...
+├―― [source text]: [wrapped text]  # Learned fixes from manual edits
+├―― [speaker]: [archetype]         # Archetype assignments
+└―― ...
 
 keys.json (API Keys)
-├── deepl_api_key: ""
-└── openrouter_api_key: ""
+├―― deepl_api_key: ""
+└―― openrouter_api_key: ""
 
 cache.json (API Cache)
-├── translation_cache: {}
-└── ai_chat_cache: {}
+├―― translation_cache: {}
+└―― ai_chat_cache: {}
 ```
 
 ### Configuration Loading Order

@@ -361,8 +361,8 @@ def run_batch(
         for q in [tag_q, wall_q, dash_q, anach_q]
     )
     log_fn(
-        f"─── Scan complete — {auto_fixed} file(s) auto-fixed, "
-        f"{total_queued} item(s) queued for review ───"
+        f"――― Scan complete — {auto_fixed} file(s) auto-fixed, "
+        f"{total_queued} item(s) queued for review ―――"
     )
     
     # Delete checkpoint on successful completion

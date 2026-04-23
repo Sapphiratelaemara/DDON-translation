@@ -19,6 +19,7 @@ function loadState() {
             fullQueue: null,  // Will be fetched from backend when needed
             showTranslated: false,
             anachRanges: [],         // Track anachronism ranges for Tab replacement
+            reviewerMode: true,      // Crowdin-style reviewer mode - always enabled
         },
         search: {
             results: [],
@@ -34,7 +35,15 @@ function loadState() {
 }
 
 function saveState() {
-    const showFilter = document.getElementById('show-filter')?.value || 'all';
+    const showTranslated = document.getElementById('show-translated-rows')?.checked || false;
+    
+    // Save panel visibility states
+    const commentsPanel = document.getElementById('panel-comments');
+    const historyPanel = document.getElementById('panel-history');
+    const aiPanel = document.getElementById('panel-ai');
+    const refsPanel = document.getElementById('panel-references');
+    const archetypePanel = document.getElementById('panel-archetype');
+    
     const toSave = {
         currentTab: state.currentTab,
         reviewer: {
@@ -42,9 +51,17 @@ function saveState() {
             mode: state.reviewer.mode,
             lastFolder: state.reviewer.lastFolder,
             // Don't save fullQueue - it should always be fetched from backend to avoid stale data
-            showFilter: showFilter,
+            showTranslated: showTranslated
+            // reviewerMode is always true now
         },
-        search: state.search,
+        search: state.search || {},
+        panels: {
+            comments: commentsPanel ? !commentsPanel.classList.contains('collapsed') : true,
+            history: historyPanel ? !historyPanel.classList.contains('collapsed') : true,
+            ai: aiPanel ? !aiPanel.classList.contains('collapsed') : true,
+            references: refsPanel ? !refsPanel.classList.contains('collapsed') : true,
+            archetype: archetypePanel ? !archetypePanel.classList.contains('collapsed') : true
+        }
     };
     localStorage.setItem('dialogueEditorState', JSON.stringify(toSave));
 }
@@ -111,6 +128,8 @@ window.onload = async () => {
         initShortcuts();
         initPreviewActions();
         
+        // Reviewer mode is always enabled
+        
         // Load initial data
         await loadDashboard();
         await loadSettings();
@@ -135,6 +154,15 @@ window.onload = async () => {
                 statusEl.innerText = `Found ${n} result${n !== 1 ? 's' : ''} (restored).`;
             }
         }
+        // Restore tab first (before any other operations that might switch tabs)
+        console.log('[INIT] currentTab before restore:', state.currentTab);
+        if (state.currentTab && state.currentTab !== 'dashboard') {
+            console.log('[INIT] Restoring to tab:', state.currentTab);
+            switchTab(state.currentTab);
+        } else {
+            console.log('[INIT] No saved tab, switching to dashboard');
+            switchTab('dashboard');
+        }
         // Restore search results sent to editor if they exist
         if (state.search.sentToEditor && state.search.sentToEditor.length > 0) {
             await eel.clear_queue()();
@@ -146,11 +174,14 @@ window.onload = async () => {
             state.reviewer.fullQueue = await eel.get_all_items_in_queue()() || [];
             console.log(`[INIT] Restored ${items.length} search results to editor queue.`);
         }
-        if (state.currentTab && state.currentTab !== 'dashboard') {
-            switchTab(state.currentTab);
-        }
-        // Save state on exit
-        window.addEventListener('beforeunload', saveState);
+        // Save state and sync on exit
+        window.addEventListener('beforeunload', () => {
+            saveState();
+            // Trigger sync flush - fire-and-forget, browser may kill it
+            try {
+                eel.shutdown_app()();
+            } catch (e) {}
+        });
     } catch (e) {
         console.error('[INIT] Error:', e);
     }
@@ -253,13 +284,21 @@ function populateCategorySelector(queueStructure) {
     if (!select) return;
     select.innerHTML = '<option value="">Select category...</option>';
     console.log('[populateCategorySelector] Queue structure:', queueStructure);
-    // Always show Manual Translation first
+
+    // Add Unapproved Entries option first
+    const unapprovedOption = document.createElement('option');
+    unapprovedOption.value = "Unapproved Entries";
+    unapprovedOption.innerText = "Unapproved Entries";
+    select.appendChild(unapprovedOption);
+    console.log('[populateCategorySelector] Added Unapproved Entries option');
+
+    // Always show Manual Translation
     if (queueStructure["Manual Translation"]) {
-        const option = document.createElement('option');
-        option.value = "Manual Translation";
+        const manualOption = document.createElement('option');
+        manualOption.value = "Manual Translation";
         const count = queueStructure["Manual Translation"].count;
-        option.innerText = count > 0 ? `Manual Translation (${count})` : "Manual Translation";
-        select.appendChild(option);
+        manualOption.innerText = count > 0 ? `Manual Translation (${count})` : "Manual Translation";
+        select.appendChild(manualOption);
         console.log('[populateCategorySelector] Added Manual Translation option');
     }
     // Then show batch categories
@@ -280,56 +319,76 @@ function populateCategorySelector(queueStructure) {
     console.log('[populateCategorySelector] Final select value:', select.value);
 }
 
+// Separate flag for category switching to avoid conflict with load queue processing
+let isProcessingCategorySwitch = false;
+
 async function switchCategory(categoryDisplayName) {
     console.log('[switchCategory] Switching to category:', categoryDisplayName);
     if (!categoryDisplayName) return;
-    state.reviewer.currentCategory = categoryDisplayName;
-    
-    // Set mode to review to use the loaded fullQueue instead of fetching from backend
-    state.reviewer.mode = 'review';
-    
-    // Clear load queue to prevent stale data from previous category loads
-    loadQueue = [];
-    isProcessingQueue = false;
-    
-    // Wait a bit to ensure any pending load operations complete
-    await new Promise(resolve => setTimeout(resolve, 50));
-    
-    // Clear both caches to prevent stale cache hits when switching categories
-    await eel.clear_prefetch_cache()();
-    await eel.clear_gloss_cache()();
-    console.log('[switchCategory] Caches cleared');
-    
-    // Manual Translation uses get_all_items_in_queue, other categories use get_items_for_category
-    if (categoryDisplayName === "Manual Translation") {
-        console.log('[switchCategory] Loading manual translation items');
-        state.reviewer.fullQueue = await eel.get_all_items_in_queue()();
-        console.log('[switchCategory] Loaded manual translation items, count:', state.reviewer.fullQueue.length);
-    } else {
-        console.log('[switchCategory] Loading category items for:', categoryDisplayName);
-        state.reviewer.fullQueue = await eel.get_items_for_category(categoryDisplayName)();
-        console.log('[switchCategory] Loaded category items, count:', state.reviewer.fullQueue.length);
-        console.log('[switchCategory] First item in queue:', state.reviewer.fullQueue[0]);
-    }
-    
-    state.reviewer.currentIdx = 0;
-    state.reviewer.currentItem = null;
-    renderRowSidebar();
-    console.log('[switchCategory] About to load item at idx 0, queue length:', state.reviewer.fullQueue.length);
-    console.log('[switchCategory] Item at idx 0:', state.reviewer.fullQueue[0]);
-    await loadItemAtIdx(0);
-}
 
-// =============================================================================
-// THEME SYSTEM
-// =============================================================================
-function applyTheme(colors) {
-    const root = document.documentElement;
-    Object.entries(colors).forEach(([key, value]) => {
-        if (value !== undefined && value !== null) {
-            root.style.setProperty(`--color-${key}`, value);
+    // Prevent duplicate category switches
+    if (isProcessingCategorySwitch) {
+        console.log('[switchCategory] Category switch already in progress, skipping');
+        return;
+    }
+    isProcessingCategorySwitch = true;
+
+    try {
+        // Wait a bit to ensure any pending load operations complete
+        await new Promise(resolve => setTimeout(resolve, 50));
+
+        // Clear both caches to prevent stale cache hits when switching categories
+        await eel.clear_prefetch_cache()();
+        await eel.clear_gloss_cache()();
+        console.log('[switchCategory] Caches cleared');
+
+        // Handle different category types
+        if (categoryDisplayName === "Unapproved Entries") {
+            console.log('[switchCategory] Loading unapproved entries');
+            const res = await eel.get_unapproved_entries_with_comments()();
+            if (res && res.ok) {
+                // Convert to queue format with comment count
+                state.reviewer.fullQueue = res.entries.map((item, idx) => ({
+                    id: item.entry.id,
+                    speaker: item.entry.speaker || "Unknown",
+                    jp: item.entry.source_text,
+                    en: item.entry.translated_text,
+                    category: "UNAPPROVED",
+                    path: item.entry.file_path,
+                    row: item.entry.row_index,
+                    entry_type: item.entry.entry_type,
+                    comment_count: item.comment_count
+                }));
+                console.log('[switchCategory] Loaded unapproved entries, count:', state.reviewer.fullQueue.length);
+            } else {
+                console.error('[switchCategory] Failed to load unapproved entries:', res?.error);
+                state.reviewer.fullQueue = [];
+            }
+        } else if (categoryDisplayName === "Manual Translation") {
+            console.log('[switchCategory] Loading manual translation items');
+            state.reviewer.fullQueue = await eel.get_all_items_in_queue()();
+            console.log('[switchCategory] Loaded manual translation items, count:', state.reviewer.fullQueue.length);
+        } else {
+            console.log('[switchCategory] Loading category items for:', categoryDisplayName);
+            state.reviewer.fullQueue = await eel.get_items_for_category(categoryDisplayName)();
+            console.log('[switchCategory] Loaded category items, count:', state.reviewer.fullQueue.length);
+            console.log('[switchCategory] First item in queue:', state.reviewer.fullQueue[0]);
         }
-    });
+
+        state.reviewer.currentIdx = 0;
+        state.reviewer.currentItem = null;
+        renderRowSidebar();
+        console.log('[switchCategory] About to load item at idx 0, queue length:', state.reviewer.fullQueue.length);
+        if (state.reviewer.fullQueue.length > 0) {
+            console.log('[switchCategory] Item at idx 0:', state.reviewer.fullQueue[0]);
+            await loadItemAtIdx(0);
+        } else {
+            console.log('[switchCategory] Queue is empty, skipping item load');
+        }
+    } finally {
+        isProcessingCategorySwitch = false;
+        console.log('[switchCategory] Reset isProcessingCategorySwitch flag');
+    }
 }
 
 function updateThemeIcon(colors) {
@@ -337,6 +396,15 @@ function updateThemeIcon(colors) {
     if (icon) {
         const isDark = colors.bg === '#1a1a2e';
         icon.textContent = isDark ? 'light_mode' : 'dark_mode';
+    }
+}
+
+function applyTheme(colors) {
+    const root = document.documentElement;
+    for (const [key, value] of Object.entries(colors)) {
+        if (value !== undefined && value !== null) {
+            root.style.setProperty(`--color-${key}`, value);
+        }
     }
 }
 
@@ -497,7 +565,10 @@ function initDashboardActions() {
     const btnToggleRefs = document.getElementById('btn-toggle-refs');
     const btnToggleAi = document.getElementById('btn-toggle-ai');
     const sidebarRight = document.querySelector('.kl-sidebar-right');
-    const aiPanel = document.querySelector('.kl-panel.kl-flex-1'); // AI Assistant panel
+    const aiPanel = document.getElementById('panel-ai'); // AI Assistant panel
+    const commentsPanel = document.getElementById('panel-comments');
+    const historyPanel = document.getElementById('panel-history');
+    const nonAiPanels = sidebarRight?.querySelectorAll('#panel-references, #panel-archetype');
     const panelToggles = document.querySelector('.panel-toggles');
     const footer = document.querySelector('.kl-footer');
     
@@ -510,8 +581,11 @@ function initDashboardActions() {
         const anyContextVisible = Array.from(allPanels).some(p => p !== aiPanel && !p.classList.contains('collapsed'));
         // Check if AI panel is visible
         const aiVisible = !aiPanel?.classList.contains('collapsed');
+        // Check if Comments or History panels are visible
+        const commentsVisible = commentsPanel && !commentsPanel.classList.contains('collapsed');
+        const historyVisible = historyPanel && !historyPanel.classList.contains('collapsed');
         // Right sidebar collapsed if no panels visible
-        const rightCollapsed = !anyContextVisible && !aiVisible;
+        const rightCollapsed = !anyContextVisible && !aiVisible && !commentsVisible && !historyVisible;
         // Update footer
         footer?.classList.toggle('with-right-collapsed', rightCollapsed);
         // Update main workspace margin
@@ -520,13 +594,44 @@ function initDashboardActions() {
         sidebarRight.classList.toggle('collapsed', rightCollapsed);
     }
     
-    // Initialize: panels visible = buttons active
-    if (btnToggleRefs) btnToggleRefs.classList.add('active');
-    if (btnToggleAi) btnToggleAi.classList.add('active');
-    updateRightSidebarState();
+    // COMMENTS and HISTORY panel toggles - declare before use
+    const btnToggleComments = document.getElementById('btn-toggle-comments');
+    const btnToggleHistory = document.getElementById('btn-toggle-history');
     
-    // CONTEXT toggle = non-AI panels (References + Archetype Notes)
-    const nonAiPanels = sidebarRight?.querySelectorAll('.kl-panel:not(.kl-flex-1)');
+    // Initialize: restore panel visibility from saved state
+    const savedPanels = state.panels || {};
+    
+    // Restore References and Archetype panels (controlled by btnToggleRefs)
+    const refsCollapsed = savedPanels.references === false;
+    const archetypeCollapsed = savedPanels.archetype === false;
+    if (nonAiPanels) {
+        nonAiPanels.forEach(p => {
+            if (p.id === 'panel-references') p.classList.toggle('collapsed', refsCollapsed);
+            if (p.id === 'panel-archetype') p.classList.toggle('collapsed', archetypeCollapsed);
+        });
+    }
+    // Update btnToggleRefs active state based on any non-AI panel being visible
+    if (btnToggleRefs) {
+        const anyNonAiVisible = nonAiPanels && Array.from(nonAiPanels).some(p => !p.classList.contains('collapsed'));
+        btnToggleRefs.classList.toggle('active', anyNonAiVisible);
+    }
+    
+    // Restore AI panel
+    const aiCollapsed = savedPanels.ai === false;
+    if (aiPanel) aiPanel.classList.toggle('collapsed', aiCollapsed);
+    if (btnToggleAi) btnToggleAi.classList.toggle('active', !aiCollapsed);
+    
+    // Restore Comments panel
+    const commentsCollapsed = savedPanels.comments === false;
+    if (commentsPanel) commentsPanel.classList.toggle('collapsed', commentsCollapsed);
+    if (btnToggleComments) btnToggleComments.classList.toggle('active', !commentsCollapsed);
+    
+    // Restore History panel
+    const historyCollapsed = savedPanels.history === false;
+    if (historyPanel) historyPanel.classList.toggle('collapsed', historyCollapsed);
+    if (btnToggleHistory) btnToggleHistory.classList.toggle('active', !historyCollapsed);
+    
+    updateRightSidebarState();
     if (btnToggleRefs && nonAiPanels) {
         btnToggleRefs.onclick = () => {
             const anyVisible = Array.from(nonAiPanels).some(p => !p.classList.contains('collapsed'));
@@ -534,6 +639,7 @@ function initDashboardActions() {
             nonAiPanels.forEach(p => p.classList.toggle('collapsed', willCollapse));
             btnToggleRefs.classList.toggle('active', !willCollapse);
             updateRightSidebarState();
+            saveState();
         };
     }
     
@@ -543,17 +649,38 @@ function initDashboardActions() {
             const willCollapse = !aiPanel.classList.contains('collapsed');
             aiPanel.classList.toggle('collapsed', willCollapse);
             btnToggleAi.classList.toggle('active', !willCollapse);
-            // When AI is collapsed, give all context panels a specific class to expand
-            if (nonAiPanels) {
-                nonAiPanels.forEach(p => p.classList.toggle('kl-context-expanded', willCollapse));
-            }
             updateRightSidebarState();
+            saveState();
         };
     }
     
-    // Show/hide panel toggles based on tab
+    if (btnToggleComments) btnToggleComments.classList.add('active');
+    if (btnToggleHistory) btnToggleHistory.classList.add('active');
+    
+    if (btnToggleComments && commentsPanel) {
+        btnToggleComments.onclick = () => {
+            const willCollapse = !commentsPanel.classList.contains('collapsed');
+            commentsPanel.classList.toggle('collapsed', willCollapse);
+            btnToggleComments.classList.toggle('active', !willCollapse);
+            updateRightSidebarState();
+            saveState();
+        };
+    }
+    
+    if (btnToggleHistory && historyPanel) {
+        btnToggleHistory.onclick = () => {
+            const willCollapse = !historyPanel.classList.contains('collapsed');
+            historyPanel.classList.toggle('collapsed', willCollapse);
+            btnToggleHistory.classList.toggle('active', !willCollapse);
+            updateRightSidebarState();
+            saveState();
+        };
+    }
+    
+    // Show/hide panel toggles based on tab - ensure correct state for current tab
     if (panelToggles) {
-        panelToggles.classList.add('hidden');
+        const shouldShow = state.currentTab === 'editor';
+        panelToggles.classList.toggle('hidden', !shouldShow);
     }
 
     // Folder management with file dialog
@@ -679,18 +806,18 @@ function renderDashList(items, listId) {
 // =============================================================================
 // Request queue to process load requests sequentially
 let loadQueue = [];
-let isProcessingQueue = false;
+let isProcessingLoadQueue = false;
 
 async function processLoadQueue() {
-    if (isProcessingQueue || loadQueue.length === 0) {
+    if (isProcessingLoadQueue || loadQueue.length === 0) {
         return;
     }
-    
-    isProcessingQueue = true;
+
+    isProcessingLoadQueue = true;
     const { idx, resolve } = loadQueue.shift();
-    
+
     console.log(`[processLoadQueue] Processing load request for idx=${idx}, queue length=${loadQueue.length}, currentIdx=${state.reviewer.currentIdx}`);
-    
+
     try {
         await loadItemAtIdxInternal(idx);
         resolve();
@@ -698,9 +825,9 @@ async function processLoadQueue() {
         console.error('[processLoadQueue] Error:', e);
         resolve();
     }
-    
-    isProcessingQueue = false;
-    
+
+    isProcessingLoadQueue = false;
+
     // Process next request in queue
     if (loadQueue.length > 0) {
         processLoadQueue();
@@ -708,7 +835,7 @@ async function processLoadQueue() {
 }
 
 async function loadItemAtIdx(idx) {
-    console.log(`[loadItemAtIdx] Called with idx=${idx}, queue length=${loadQueue.length}, isProcessing=${isProcessingQueue}`);
+    console.log(`[loadItemAtIdx] Called with idx=${idx}, queue length=${loadQueue.length}, isProcessing=${isProcessingLoadQueue}`);
     return new Promise((resolve) => {
         loadQueue.push({ idx, resolve });
         console.log(`[loadItemAtIdx] Added to queue, new queue length=${loadQueue.length}`);
@@ -730,7 +857,8 @@ async function loadItemAtIdxInternal(idx) {
             console.log(`[loadItemAtIdxInternal] Review mode: items.length=${items?.length}, items=${!!items}`);
             if (!items || !items.length) {
                 console.log('[loadItemAtIdxInternal] Early return: queue empty');
-                document.getElementById('review-status').innerText = 'QUEUE: EMPTY';
+                const sidebarCounter = document.getElementById('sidebar-queue-count');
+                if (sidebarCounter) sidebarCounter.innerText = '0 / 0';
                 return;
             }
             idx = Math.max(0, Math.min(idx, items.length - 1));
@@ -747,7 +875,8 @@ async function loadItemAtIdxInternal(idx) {
 
             items = state.reviewer.fullQueue;
             if (!items.length) {
-                document.getElementById('review-status').innerText = 'QUEUE: EMPTY';
+                const sidebarCounter = document.getElementById('sidebar-queue-count');
+                if (sidebarCounter) sidebarCounter.innerText = '0 / 0';
                 return;
             }
             idx = Math.max(0, Math.min(idx, items.length - 1));
@@ -821,7 +950,11 @@ async function loadItemAtIdxInternal(idx) {
         if (enEditor && enEditor._setSkipInputHandling) enEditor._setSkipInputHandling(false);
         if (jpEditor && jpEditor._setSkipInputHandling) jpEditor._setSkipInputHandling(false);
         
-        document.getElementById('review-status').innerText = `QUEUE: ${idx + 1} / ${items.length}`;
+        // Ensure editor has focus so Enter key works immediately
+        if (enEditor) enEditor.focus();
+        
+        const sidebarCounter = document.getElementById('sidebar-queue-count');
+        if (sidebarCounter) sidebarCounter.innerText = `${idx + 1} / ${items.length}`;
         
         // Use cached lore context if available, otherwise fetch it
         if (cached && cached.lore_context) {
@@ -854,6 +987,13 @@ async function loadItemAtIdxInternal(idx) {
         
         // Trigger prefetching of next entries
         eel.start_prefetch(category, items, idx, 3)();
+
+        // Update Crowdin-style translation status and history
+        if (item.id) {
+            updateTranslationStatusBadge(item.id);
+            loadTranslationHistory(item.id);
+            loadTranslationComments(item.id);
+        }
     } catch (e) {
         console.error('[loadItemAtIdx] Error:', e);
     }
@@ -886,6 +1026,34 @@ function initReviewerActions() {
         document.getElementById('filter-dropdown').style.display = 'none';
     });
 
+    // Crowdin-style reviewer mode controls (always enabled)
+    bind('btn-approve', 'onclick', approveCurrentTranslation);
+    bind('btn-reject', 'onclick', rejectCurrentTranslation);
+    bind('btn-add-comment', 'onclick', addTranslationComment);
+
+    // Comment character counter
+    const commentInput = document.getElementById('comment-input');
+    const charCounter = document.getElementById('comment-char-counter');
+    if (commentInput && charCounter) {
+        const MAX_COMMENT_LEN = 5000;
+        const WARNING_THRESHOLD = 4000;
+        
+        function updateCharCounter() {
+            const len = commentInput.value.length;
+            charCounter.textContent = `${len} / ${MAX_COMMENT_LEN}`;
+            
+            charCounter.classList.remove('warning', 'error');
+            if (len >= MAX_COMMENT_LEN) {
+                charCounter.classList.add('error');
+            } else if (len >= WARNING_THRESHOLD) {
+                charCounter.classList.add('warning');
+            }
+        }
+        
+        commentInput.addEventListener('input', updateCharCounter);
+        commentInput.addEventListener('focus', updateCharCounter);
+    }
+
     // In-universe toggle
     const setupToggle = (id, key) => {
         const el = document.getElementById(id);
@@ -900,53 +1068,216 @@ function initReviewerActions() {
         
         ed.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
+                console.log(`[Enter key] pressed, target=${e.target?.id}, activeElement=${document.activeElement?.id}`);
+                
+                // CRITICAL: Set flag BEFORE any DOM changes so input event knows Enter was pressed
+                ed._justPressedEnter = true;
+                console.log(`[Enter key] _justPressedEnter flag set to true`);
+                
+                // Log DOM structure before Enter
+                let domDump = '';
+                for (let i = 0; i < ed.childNodes.length; i++) {
+                    const n = ed.childNodes[i];
+                    if (n.nodeType === Node.TEXT_NODE) domDump += `TEXT(${n.length}) `;
+                    else if (n.nodeName === 'BR') domDump += 'BR ';
+                    else domDump += `${n.nodeName} `;
+                }
+                console.log(`[Enter key] DOM before: ${domDump}`);
+                console.log(`[Enter key] innerText="${ed.innerText.substring(0,60)}"`);
                 e.preventDefault();
-                skipCursorRestore = true;
                 const selection = window.getSelection();
+                console.log(`[Enter key] rangeCount=${selection.rangeCount}, isCollapsed=${selection.isCollapsed}`);
                 if (selection.rangeCount > 0) {
+                    console.log(`[Enter key] Processing - range found`);
                     const range = selection.getRangeAt(0);
-                    const br = document.createElement('br');
-                    range.deleteContents();
-                    range.insertNode(br);
-                    // Don't add space after BR - innerText will handle line breaks correctly
-                    // Position cursor right after the BR by finding or creating a text node
-                    const textAfter = br.nextSibling;
-                    if (textAfter && textAfter.nodeType === Node.TEXT_NODE) {
-                        range.setStart(textAfter, 0);
+                    console.log(`[Enter key] Range: startContainer=${range.startContainer?.nodeName}, startOffset=${range.startOffset}, endContainer=${range.endContainer?.nodeName}, endOffset=${range.endOffset}`);
+                    
+                    // Get the text node and offset where cursor is
+                    const textNode = range.startContainer;
+                    const offset = range.startOffset;
+                    let br;
+                    
+                    // Insert BR at cursor position
+                    if (textNode.nodeType === Node.TEXT_NODE) {
+                        br = document.createElement('br');
+                        
+                        if (offset === textNode.length) {
+                            // Cursor at end of text node - insert BR and text node with zero-width space
+                            if (textNode.nextSibling) {
+                                textNode.parentNode.insertBefore(br, textNode.nextSibling);
+                            } else {
+                                textNode.parentNode.appendChild(br);
+                            }
+                            // Create text node with zero-width space (invisible, makes line navigable)
+                            const zwspNode = document.createTextNode('\u200B');
+                            if (br.nextSibling) {
+                                br.parentNode.insertBefore(zwspNode, br.nextSibling);
+                            } else {
+                                br.parentNode.appendChild(zwspNode);
+                            }
+                            // Position cursor in the zero-width space node
+                            range.setStart(zwspNode, 0);
+                            console.log(`[Enter key] BR and ZWSP text node inserted, cursor positioned`);
+                        } else {
+                            // Cursor in middle of text - split the node
+                            const afterText = textNode.textContent.substring(offset);
+                            textNode.textContent = textNode.textContent.substring(0, offset);
+                            const afterNode = document.createTextNode(afterText);
+                            textNode.parentNode.insertBefore(br, textNode.nextSibling);
+                            textNode.parentNode.insertBefore(afterNode, br.nextSibling);
+                        }
+                        
+                        // Position cursor after the BR - browser will handle creating text node if needed
+                        range.setStartAfter(br);
+                        console.log(`[Enter key] BR inserted, cursor positioned after BR`);
                     } else {
-                        // Create empty text node to position cursor on new line
-                        const emptyNode = document.createTextNode('');
-                        br.parentNode.insertBefore(emptyNode, br.nextSibling);
-                        range.setStart(emptyNode, 0);
+                        // Fallback for non-text containers
+                        br = document.createElement('br');
+                        range.deleteContents();
+                        range.insertNode(br);
+                        range.setStartAfter(br);
                     }
+                    console.log(`[Enter key] BR inserted, nextSibling=${br.nextSibling?.nodeName}, nodeType=${br.nextSibling?.nodeType}`);
+                    // Log actual text content of each node
+                    for (let i = 0; i < ed.childNodes.length; i++) {
+                        const n = ed.childNodes[i];
+                        if (n.nodeType === Node.TEXT_NODE) {
+                            console.log(`[Enter key] Node ${i}: TEXT(${n.length})="${n.textContent.replace(/\n/g, '\\n').substring(0,30)}"`);
+                        }
+                    }
+                    
+                    // Log DOM immediately after BR insertion
+                    let domDumpAfterBR = '';
+                    for (let i = 0; i < ed.childNodes.length; i++) {
+                        const n = ed.childNodes[i];
+                        if (n === br) domDumpAfterBR += `**NEW_BR** `;
+                        else if (n.nodeType === Node.TEXT_NODE) domDumpAfterBR += `TEXT(${n.length}) `;
+                        else if (n.nodeName === 'BR') domDumpAfterBR += 'BR ';
+                        else domDumpAfterBR += `${n.nodeName} `;
+                    }
+                    console.log(`[Enter key] DOM after BR insert: ${domDumpAfterBR}`);
+                    // Set the range without focus() which might interfere
                     range.collapse(true);
                     selection.removeAllRanges();
                     selection.addRange(range);
-                    // Trigger input event to update highlights
-                    ed.dispatchEvent(new Event('input', { bubbles: true }));
-                    skipCursorRestore = false;
+                    
+                    // Force reflow to ensure visual cursor update
+                    void ed.offsetHeight;
+                    
+                    console.log(`[Enter key] innerText RIGHT AFTER cursor set: "${ed.innerText.substring(0,80).replace(/\n/g, '\\n')}"`);
+                    
+                    // IMMEDIATE verification - get fresh selection right after setting it
+                    const freshSel = window.getSelection();
+                    const freshRange = freshSel.rangeCount > 0 ? freshSel.getRangeAt(0) : null;
+                    const freshNodeIndex = Array.from(ed.childNodes).indexOf(freshRange?.endContainer);
+                    console.log(`[Enter key] FRESH cursor check - nodeIndex=${freshNodeIndex}, endOffset=${freshRange?.endOffset}, text="${freshRange?.endContainer?.textContent?.substring(0,20)}"`);
+                    
+                    // Dump DOM for debugging
+                    let domAtCalc = '';
+                    for (let i = 0; i < ed.childNodes.length; i++) {
+                        const n = ed.childNodes[i];
+                        if (n.nodeType === Node.TEXT_NODE) domAtCalc += `TEXT(${n.length}) `;
+                        else if (n.nodeName === 'BR') domAtCalc += 'BR ';
+                        else domAtCalc += `${n.nodeName} `;
+                    }
+                    console.log(`[Enter key] DOM at calc time: ${domAtCalc}`);
+                    
+                    // Calculate what the offset SHOULD be right now
+                    let expectedOffset = 0;
+                    for (let i = 0; i < freshNodeIndex; i++) {
+                        const n = ed.childNodes[i];
+                        if (n.nodeType === Node.TEXT_NODE) expectedOffset += n.length;
+                        else if (n.nodeName === 'BR') expectedOffset += 1;
+                    }
+                    if (freshRange?.endContainer.nodeType === Node.TEXT_NODE) {
+                        expectedOffset += freshRange.endOffset;
+                    }
+                    console.log(`[Enter key] Expected cursor offset should be: ${expectedOffset}`);
+                    
+                    // Manually trigger what the input event would do
+                    saveUndoState('Enter-key');
+                    syncLineCounters();
+                    
+                    // Update line count display
+                    const cc = document.getElementById('char-count');
+                    if (cc && ed) {
+                        const lines = ed.innerText.split('\n');
+                        const maxLines = state.maxLines || 5;
+                        const lineCount = lines.length;
+                        cc.innerText = `${lineCount} / ${maxLines} lines`;
+                        cc.style.color = lineCount > maxLines ? '#ff4444' : 'var(--accent-color)';
+                    }
+                    
+                    // Schedule scan after a short delay so cursor position is preserved
+                    setTimeout(() => {
+                        scanAnachronisms(ed.innerText);
+                    }, 50);
+                    
+                    const finalLines = ed.innerText.split('\n');
+                    console.log(`[Enter key] DONE - ${finalLines.length} lines, line 0="${finalLines[0]?.substring(0,30)}", line 1="${finalLines[1]?.substring(0,30)}", line 2="${finalLines[2]?.substring(0,30)}"`);
+                } else {
+                    console.log(`[Enter key] SKIPPED - no range in selection`);
                 }
+                
+                // Log DOM structure after Enter
+                finalDom = '';
+                for (let i = 0; i < ed.childNodes.length; i++) {
+                    const n = ed.childNodes[i];
+                    if (n.nodeType === Node.TEXT_NODE) finalDom += `TEXT(${n.length}) `;
+                    else if (n.nodeName === 'BR') finalDom += 'BR ';
+                    else finalDom += `${n.nodeName} `;
+                }
+                console.log(`[Enter key] DOM after: ${finalDom}`);
             }
         });
 
         ed.addEventListener('input', async () => { 
+            console.log(`[input event] fired, _justPressedEnter=${ed._justPressedEnter}, skipInputHandling=${skipInputHandling}`);
             // Skip input handling during undo/redo
-            if (skipInputHandling) return;
+            if (skipInputHandling) {
+                console.log(`[input event] SKIPPED due to skipInputHandling`);
+                return;
+            }
             
-            saveUndoState();
-            updateReviewerCounters(); 
+            // If Enter was just pressed, handle it specially
+            if (ed._justPressedEnter) {
+                console.log(`[input event] Handling Enter press`);
+                ed._justPressedEnter = false;
+                saveUndoState('input-justPressedEnter');
+                syncLineCounters();
+                // Update line count display
+                const cc = document.getElementById('char-count');
+                if (cc && ed) {
+                    const lines = ed.innerText.split('\n');
+                    const maxLines = state.maxLines || 5;
+                    const lineCount = lines.length;
+                    cc.innerText = `${lineCount} / ${maxLines} lines`;
+                    cc.style.color = lineCount > maxLines ? '#ff4444' : 'var(--accent-color)';
+                }
+                // Schedule scan after a short delay so cursor position is preserved
+                setTimeout(() => {
+                    scanAnachronisms(ed.innerText);
+                }, 50);
+                return;
+            }
+            
+            saveUndoState('input-normal');
             syncLineCounters();
+            // Only update counters - NOT the scan which would reset cursor during rapid edits
+            const cc = document.getElementById('char-count');
+            if (cc && ed) {
+                const lines = ed.innerText.split('\n');
+                const maxLines = state.maxLines || 5;
+                const lineCount = lines.length;
+                cc.innerText = `${lineCount} / ${maxLines} lines`;
+                cc.style.color = lineCount > maxLines ? '#ff4444' : 'var(--accent-color)';
+            }
             // Re-scan for anachronisms as user types
             const jpText = document.getElementById('jp-source')?.innerText || '';
             populateLoreContext(jpText, ed.innerText, state.reviewer.currentIdx);
-            // Update source window tag colors dynamically
-            const jpSource = document.getElementById('jp-source');
-            if (jpSource && jpSource._originalJp) {
-                populateSourceWithLoreHighlights(jpSource._originalJp, ed.innerText);
-            }
+            // Don't update source window highlights on every keystroke - let scanAnachronisms handle that
         });
         ed.addEventListener('scroll', syncCounterScroll);
-        ed.addEventListener('keydown', handleTabKey);
         ed.addEventListener('mousemove', handleMouseMove);
         ed.addEventListener('mouseleave', hideTooltip);
         ed.addEventListener('click', handleEditorClick);
@@ -1031,28 +1362,61 @@ function prevItem() {
 async function applyFix() {
     const item = state.reviewer.currentItem;
     if (!item) return;
-    saveUndoState();
+    saveUndoState('applyFix');
     const text = document.getElementById('en-editor').innerText;
-    const force = document.getElementById('force-save-toggle').checked;
+    const speaker = document.getElementById('speaker-value')?.textContent || '';
+    const entryType = document.getElementById('entry-type-select')?.value || '';
 
-    const res = await eel.apply_fix(item.id, text, force)();
-    if (res && res.ok) {
-        const btn = document.getElementById('btn-apply');
-        const prev = btn.innerHTML;
-        btn.innerHTML = '✓ SAVED';
-        setTimeout(() => { btn.innerHTML = prev; nextItem(); }, 400);
-        // Update local copy so the sidebar shows the saved value
-        state.reviewer.fullQueue[state.reviewer.currentIdx].en = text;
-        renderRowSidebar();
-    } else {
-        const msg = (res && res.error) ? res.error : 'Save failed — unknown error.';
-        openAlertModal('ERROR', `[SAVE ERROR]\n${msg}`);
+    // Save to in-memory state only (not to CSV yet)
+    item.en = text;
+    // Update the item in the fullQueue as well
+    const queueItem = state.reviewer.fullQueue?.find(i => i.id === item.id);
+    if (queueItem) queueItem.en = text;
+
+    // Save to history (without writing to CSV)
+    const nickname = state.settings.lastConfig?.sync_nickname || 'reviewer';
+    console.log('[applyFix] Saving history with nickname:', nickname, 'item.path:', item.path, 'item.id:', item.id);
+    try {
+        const res = await eel.save_translation_history(item.id, item.jp, text, speaker, entryType, nickname, item.path, item.row)();
+        console.log('[applyFix] Save result:', res);
+    } catch (e) {
+        console.error('[applyFix] Save error:', e);
     }
+    // Reload history to show the new entry
+    console.log('[applyFix] Reloading history for item:', item.id);
+    await loadTranslationHistory(item.id);
+
+    const btn = document.getElementById('btn-apply');
+    const prev = btn.innerHTML;
+    btn.innerHTML = '✓ SAVED';
+
+    // Check if auto-approve is enabled
+    const autoApprove = document.getElementById('auto-approve-toggle')?.checked;
+    if (autoApprove) {
+        // Auto-approve will write to CSV
+        await approveCurrentTranslation();
+    }
+
+    // Check if in-universe language is enabled - if NOT enabled, skip anachronism highlighting
+    const inUniverseEnabled = document.getElementById('editor-in-universe')?.checked;
+    if (!inUniverseEnabled) {
+        console.log(`[renderHighlights] In-universe language disabled - skipping anachronism highlights`);
+        setTimeout(() => {
+            btn.innerHTML = prev;
+            nextItem();
+        }, 400);
+        return;
+    }
+
+    setTimeout(() => {
+        btn.innerHTML = prev;
+        nextItem();
+    }, 400);
 }
 
 async function rewrapEditor() {
     const text = document.getElementById('en-editor').innerText;
-    saveUndoState();
+    saveUndoState('rewrapEditor');
     const limit = state.standardLimit;
     const rewrapped = await eel.rewrap_text(text, limit)();
     if (rewrapped !== undefined && rewrapped !== null) {
@@ -1070,7 +1434,7 @@ async function rewrapEditor() {
 
 async function replaceDashes(target) {
     const ed = document.getElementById('en-editor');
-    saveUndoState();
+    saveUndoState('replaceDashes');
     const fixed = ed.innerText.replace(/[-\u2013\u2014\u2015]{2,}/g, target);
     if (target === '...') {
         ed.innerText = fixed.replace(/\.\.\.(\w)/g, '... $1');
@@ -1103,13 +1467,11 @@ function syncLineCounters() {
             lineText = lineText.replaceAll(tag, '');
         }
         lineText = lineText.replace(/\n/g, '').replace(/\r/g, '');
+        // Remove zero-width space used for cursor positioning
+        lineText = lineText.replace(/\u200B/g, '');
         
-        // Count only non-whitespace characters (but report total including spaces)
+        // Count characters (including spaces)
         const charCount = lineText.length;
-        const trimmedLength = lineText.trim().length;
-        
-        // Skip empty lines and lines with only whitespace
-        if (trimmedLength === 0) continue;
         
         const s = document.createElement('span');
         s.innerText = charCount;
@@ -1132,8 +1494,8 @@ async function updateReviewerCounters() {
 
     const lines = ed.innerText.split('\n');
     const maxLines = state.maxLines || 5;
-    // Filter out empty lines from count (spaces count, so only filter truly empty lines)
-    const lineCount = lines.filter(line => line.length > 0).length;
+    // Count all lines including empty ones
+    const lineCount = lines.length;
     
     // Update header to show line count vs max lines
     const cc = document.getElementById('char-count');
@@ -1199,6 +1561,10 @@ function updatePreview(loadIdx) {
 // =============================================================================
 let hoveredAnachronism = null; // Track anachronism under mouse
 let highlightGeneration = 0;   // Counter to prevent race conditions in async highlight rendering
+let isUserTyping = false;      // Track if user is actively typing right now
+
+let anachronismDebounceTimer = null;
+const ANACHRONISM_DEBOUNCE_MS = 300; // Wait 300ms after typing stops
 
 async function scanAnachronisms(text) {
     if (!text) {
@@ -1208,28 +1574,51 @@ async function scanAnachronisms(text) {
         return;
     }
     
-    // Capture current generation to detect if this render is stale
-    const generation = ++highlightGeneration;
-    
-    try {
-        const hits = await eel.scan_anachronisms(text)();
-        // Only update if we're still rendering this generation
-        if (generation === highlightGeneration) {
-            state.reviewer.anachRanges = hits || [];
-            renderHighlights(text, generation);
-        }
-    } catch(e) {
-        console.error('[scanAnachronisms]', e);
-        if (generation === highlightGeneration) {
-            state.reviewer.anachRanges = [];
-            renderHighlights(text, generation);
-        }
+    // Clear any pending debounce
+    if (anachronismDebounceTimer) {
+        clearTimeout(anachronismDebounceTimer);
     }
+    
+    // Mark that user is typing
+    isUserTyping = true;
+    
+    // Debounce the anachronism scan to prevent cursor flickering
+    anachronismDebounceTimer = setTimeout(async () => {
+        // Mark that we're done typing
+        isUserTyping = false;
+        
+        // Capture current generation to detect if this render is stale
+        const generation = ++highlightGeneration;
+        
+        try {
+            const hits = await eel.scan_anachronisms(text)();
+            // Only update if we're still rendering this generation and not typing anymore
+            if (generation === highlightGeneration && !isUserTyping) {
+                state.reviewer.anachRanges = hits || [];
+                renderHighlights(text, generation);
+            }
+        } catch(e) {
+            console.error('[scanAnachronisms]', e);
+            if (generation === highlightGeneration && !isUserTyping) {
+                state.reviewer.anachRanges = [];
+                renderHighlights(text, generation);
+            }
+        }
+    }, ANACHRONISM_DEBOUNCE_MS);
 }
 
 function renderHighlights(text, generation) {
+    // TEMPORARILY DISABLED to test Enter key functionality
+    // TODO: Re-enable after fixing cursor issues
+    return;
+    
     const ed = document.getElementById('en-editor');
     if (!ed) return;
+    
+    // Skip if user is currently typing - wait for next debounce cycle
+    if (isUserTyping) {
+        return;
+    }
     
     // Skip if this is a stale render (newer render is in progress)
     if (generation !== undefined && generation !== highlightGeneration) {
@@ -1249,6 +1638,9 @@ function renderHighlights(text, generation) {
     const selection = window.getSelection();
     const range = selection.rangeCount > 0 ? selection.getRangeAt(0).cloneRange() : null;
     const cursorOffset = (shouldSkipRestore || !range) ? null : getCaretOffset(ed, range);
+    
+    // DEBUG: Log cursor position
+    console.log(`[renderHighlights] text="${text.substring(0,20)}...", cursorOffset=${cursorOffset}, shouldSkip=${shouldSkipRestore}`);
     
     // Escape HTML tags to make them visible as text, but preserve newlines initially
     let html = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -1318,17 +1710,21 @@ function getCaretOffset(element, range) {
             if (found) return;
             
             if (node.nodeType === Node.TEXT_NODE) {
-                if (node === range.endContainer) {
+                const isTarget = node === range.endContainer;
+                const textPreview = node.nodeValue.substring(0, 30).replace(/\n/g, '\\n');
+                console.log(`[getCaretOffset] TEXT: len=${node.length}, current=${currentOffset}, target=${isTarget}, text="${textPreview}"`);
+                if (isTarget) {
                     // This is the target text node
                     currentOffset += range.endOffset;
                     found = true;
-                    console.log(`[getCaretOffset] Found in text node: ${currentOffset} (offset: ${range.endOffset})`);
+                    console.log(`[getCaretOffset] FOUND at final offset ${currentOffset}`);
                     return;
                 }
                 currentOffset += node.length;
             } else if (node.nodeType === Node.ELEMENT_NODE) {
                 // Handle BR elements as single character line breaks
                 if (node.nodeName === 'BR') {
+                    console.log(`[getCaretOffset] BR: current=${currentOffset} -> ${currentOffset + 1}`);
                     currentOffset += 1;
                 } else if (node.nodeName === 'SPAN' || node.nodeName === 'DIV') {
                     // Traverse children
@@ -1347,7 +1743,7 @@ function getCaretOffset(element, range) {
         traverse(element);
         
         if (found) {
-            console.log(`[getCaretOffset] Final offset: ${currentOffset}`);
+            console.log(`[getCaretOffset] Found at offset ${currentOffset}`);
             return currentOffset;
         }
         
@@ -1356,9 +1752,9 @@ function getCaretOffset(element, range) {
         const preCaretRange = range.cloneRange();
         preCaretRange.selectNodeContents(element);
         preCaretRange.setEnd(range.endContainer, range.endOffset);
-        const offset = preCaretRange.toString().length;
-        console.log(`[getCaretOffset] Fallback offset: ${offset}`);
-        return offset;
+        const fallbackOffset = preCaretRange.toString().length;
+        console.log(`[getCaretOffset] Fallback returned ${fallbackOffset}`);
+        return fallbackOffset;
     } catch (e) {
         console.error('[getCaretOffset] Error:', e);
         return null;
@@ -1371,7 +1767,7 @@ function restoreCursor(element, offset) {
     const text = element.innerText || '';
     const clampedOffset = Math.min(Math.max(0, offset), text.length);
     
-    console.log(`[restoreCursor] Starting restoration - text length: ${text.length}, target offset: ${clampedOffset}/${offset}`);
+    console.log(`[restoreCursor] requested=${offset}, clamped=${clampedOffset}, textLength=${text.length}, text="${text.substring(0,30)}"`);
     
     const range = document.createRange();
     const selection = window.getSelection();
@@ -1380,20 +1776,16 @@ function restoreCursor(element, offset) {
     let found = false;
     
     // Traverse DOM nodes counting text content, handling BR tags as newlines
-    function traverse(node, depth = 0) {
+    function traverse(node) {
         if (found) return;
-        
-        const indent = '  '.repeat(depth);
         
         if (node.nodeType === Node.TEXT_NODE) {
             const nodeLength = node.length;
-            const nodeText = node.nodeValue;
-            console.log(`${indent}[Text Node] length: ${nodeLength}, text: "${nodeText}" current offset: ${currentOffset}`);
             
             if (currentOffset + nodeLength >= clampedOffset) {
                 // Found the node containing our target offset
                 const posInNode = clampedOffset - currentOffset;
-                console.log(`${indent}[Text Node] FOUND! Position in node: ${posInNode}/${nodeLength}`);
+                console.log(`[restoreCursor] Found TEXT node at currentOffset=${currentOffset}, nodeLength=${nodeLength}, posInNode=${posInNode}, nodeText="${node.nodeValue.substring(0,20)}"`);
                 range.setStart(node, posInNode);
                 range.collapse(true);
                 found = true;
@@ -1403,11 +1795,9 @@ function restoreCursor(element, offset) {
         } else if (node.nodeType === Node.ELEMENT_NODE) {
             // Handle BR elements as single character line breaks
             if (node.nodeName === 'BR') {
-                console.log(`${indent}[BR] currentOffset: ${currentOffset}`);
                 currentOffset += 1; // BR counts as one character (equivalent to \n)
                 if (currentOffset >= clampedOffset && !found) {
                     // Position cursor right before or after the BR
-                    console.log(`${indent}[BR] FOUND at boundary!`);
                     if (currentOffset - 1 === clampedOffset) {
                         // Cursor position is just before the BR - position after previous text node
                         found = true;
@@ -1430,16 +1820,20 @@ function restoreCursor(element, offset) {
                     }
                 }
             } else if (node.nodeName === 'SPAN') {
-                console.log(`${indent}[SPAN] traversing children`);
                 // Process text content within span (the highlights)
+                console.log(`[restoreCursor] Entering SPAN, currentOffset=${currentOffset}`);
                 for (let i = 0; i < node.childNodes.length && !found; i++) {
-                    traverse(node.childNodes[i], depth + 1);
+                    traverse(node.childNodes[i]);
+                }
+                // If we found the position inside this span, stop here
+                if (found) {
+                    console.log(`[restoreCursor] Found inside SPAN`);
+                    return;
                 }
             } else {
-                console.log(`${indent}[${node.nodeName}] traversing children`);
                 // Other elements - traverse children
                 for (let i = 0; i < node.childNodes.length && !found; i++) {
-                    traverse(node.childNodes[i], depth + 1);
+                    traverse(node.childNodes[i]);
                 }
             }
         }
@@ -1452,13 +1846,12 @@ function restoreCursor(element, offset) {
         try {
             selection.removeAllRanges();
             selection.addRange(range);
-            console.log(`[restoreCursor] Selection set successfully`);
+            console.log(`[restoreCursor] SUCCESS - positioned at node offset ${range.startOffset}`);
         } catch (e) {
             console.error('[restoreCursor] Failed to set range:', e);
         }
     } else if (currentOffset >= clampedOffset && text.length > 0) {
         // Cursor at end - try to position at end of last child
-        console.log(`[restoreCursor] Using end-of-content fallback, current offset: ${currentOffset}`);
         let lastNode = element.lastChild;
         while (lastNode && lastNode.nodeType !== Node.TEXT_NODE) {
             if (lastNode.nodeType !== Node.ELEMENT_NODE) break;
@@ -1469,10 +1862,15 @@ function restoreCursor(element, offset) {
             range.collapse(true);
             selection.removeAllRanges();
             selection.addRange(range);
-            console.log(`[restoreCursor] Cursor positioned at end`);
+            console.log(`[restoreCursor] END fallback - positioned at end of text node`);
         }
-    } else {
-        console.log(`[restoreCursor] WARNING: Could not find position ${clampedOffset}, traversal ended at ${currentOffset}`);
+    }
+    
+    // Verify final cursor position
+    const finalSelection = window.getSelection();
+    if (finalSelection.rangeCount > 0) {
+        const finalRange = finalSelection.getRangeAt(0);
+        console.log(`[restoreCursor] FINAL - endContainer nodeType=${finalRange.endContainer.nodeType}, endOffset=${finalRange.endOffset}`);
     }
 }
 
@@ -1834,7 +2232,7 @@ function getCaretCoordinates(textarea, x, y) {
 async function replaceAnachronism(word, suggestion, position = null) {
     const ed = document.getElementById('en-editor');
     if (!ed) return;
-    saveUndoState();
+    saveUndoState('replaceAnachronism');
 
     const text = ed.innerText;
 
@@ -1870,25 +2268,6 @@ async function replaceAnachronism(word, suggestion, position = null) {
     syncLineCounters();
 
     // Trigger async rescan without blocking UI
-    // This runs in the background and will update highlights when complete
-    scanAnachronisms(ed.innerText);
-}
-
-function handleTabKey(e) {
-    if (e.key !== 'Tab') return;
-    
-    const ed = document.getElementById('en-editor');
-    if (!ed) return;
-    
-    // Prioritize hovered anachronism
-    if (hoveredAnachronism) {
-        const [word, suggestion, position] = hoveredAnachronism;
-        replaceAnachronism(word, suggestion, position);
-        e.preventDefault();
-        return;
-    }
-    
-    // For contenteditable, cursor position check is complex - skip for now
     // Tab key only works on hover for contenteditable approach
 }
 
@@ -2897,7 +3276,8 @@ function renderRowSidebar() {
         const rowNum = `<span class="row-num">[${String(idx + 1).padStart(3, '0')}]</span>`;
         const jpText = (item.jp || '').slice(0, 35);
         const enText = item.en ? `<span class="row-en">${item.en}</span>` : '';
-        li.innerHTML = `${rowNum}<div class="row-text"><span class="row-jp">${jpText}</span>${enText}</div>`;
+        const commentIndicator = item.comment_count > 0 ? `<span class="row-comment-indicator" title="${item.comment_count} comment${item.comment_count > 1 ? 's' : ''}">💬</span>` : '';
+        li.innerHTML = `${rowNum}<div class="row-text"><span class="row-jp">${jpText}</span>${enText}</div>${commentIndicator}`;
         if (item.en) li.classList.add('translated');
         if (state.reviewer.currentIdx === idx) li.classList.add('active');
         li.onclick = () => loadItemAtIdx(idx);
@@ -3138,7 +3518,7 @@ function setupChatContextMenu() {
             } else if (item.action === 'paste') {
                 const ed = document.getElementById('en-editor');
                 if (ed) {
-                    saveUndoState();
+                    saveUndoState('paste');
                     if (ed._setSkipInputHandling) ed._setSkipInputHandling(true);
                     ed.innerText = text;
                     if (ed._setSkipInputHandling) ed._setSkipInputHandling(false);
@@ -3223,6 +3603,16 @@ async function loadSettings() {
         setVal('opt-ai-prompt-rephrase', buttonPrompts.rephrase || 'Rephrase this: {text}');
         setVal('opt-ai-prompt-archaize', buttonPrompts.archaize || 'Make this more archaic: {text}');
         setVal('opt-ai-prompt-check', buttonPrompts.check || 'Check this for errors: {text}');
+
+        // GitHub Sync Settings
+        setVal('opt-github-repo', config.github_repo || '');
+        setVal('opt-github-token', config.github_token || '');
+        setVal('opt-sync-nickname', config.sync_nickname || '');
+        setVal('opt-sync-language', config.sync_language || 'English');
+        setCheck('opt-sync-auto', config.sync_auto || false);
+        
+        // Update sync status display
+        updateSyncStatusDisplay();
 
     } catch (e) { console.error('[loadSettings] Error:', e); }
 }
@@ -4030,6 +4420,56 @@ function initSettingsActions() {
         const el = document.getElementById(id);
         if (el) el.addEventListener('input', runSandbox);
     });
+    
+    // --- GitHub Sync ---
+    const btnSyncPush = document.getElementById('btn-sync-push');
+    if (btnSyncPush) btnSyncPush.onclick = async () => {
+        btnSyncPush.innerText = 'PUSHING...';
+        const res = await eel.sync_push()();
+        btnSyncPush.innerText = 'PUSH TO GITHUB';
+        openAlertModal(res.ok ? 'SUCCESS' : 'ERROR', res.message || res.error);
+        updateSyncStatusDisplay();
+    };
+    
+    const btnSyncPull = document.getElementById('btn-sync-pull');
+    if (btnSyncPull) btnSyncPull.onclick = async () => {
+        btnSyncPull.innerText = 'PULLING...';
+        const res = await eel.sync_pull()();
+        btnSyncPull.innerText = 'PULL FROM GITHUB';
+        openAlertModal(res.ok ? 'SUCCESS' : 'ERROR', res.message || res.error);
+        updateSyncStatusDisplay();
+    };
+    
+    const btnSyncTest = document.getElementById('btn-sync-test');
+    if (btnSyncTest) btnSyncTest.onclick = async () => {
+        const status = await eel.get_sync_status()();
+        openAlertModal(status.ok && status.configured ? 'CONFIGURED' : 'NOT CONFIGURED', 
+            `Repo: ${status.repo || 'N/A'}<br>Language: ${status.language}<br>Auto: ${status.auto_sync ? 'ON' : 'OFF'}`);
+    };
+    
+    // Sync settings auto-save on blur
+    const setupSyncBlur = (id, key) => {
+        const el = document.getElementById(id);
+        if (el) el.onblur = async () => { 
+            await eel.save_config_field(key, el.value.trim())();
+            updateSyncStatusDisplay();
+        };
+    };
+    setupSyncBlur('opt-github-repo', 'github_repo');
+    setupSyncBlur('opt-github-token', 'github_token');
+    setupSyncBlur('opt-sync-nickname', 'sync_nickname');
+    
+    const syncLanguage = document.getElementById('opt-sync-language');
+    if (syncLanguage) syncLanguage.onchange = async () => {
+        await eel.save_config_field('sync_language', syncLanguage.value)();
+        updateSyncStatusDisplay();
+    };
+    
+    const syncAuto = document.getElementById('opt-sync-auto');
+    if (syncAuto) syncAuto.onchange = async () => {
+        await eel.save_config_field('sync_auto', syncAuto.checked)();
+        updateSyncStatusDisplay();
+    };
 }
 
 // =============================================================================
@@ -4533,14 +4973,27 @@ const undoStack = [];
 const redoStack = [];
 const MAX_UNDO = 50;
 
-function saveUndoState() {
+function saveUndoState(caller = 'unknown') {
     const ed = document.getElementById('en-editor');
     if (!ed) return;
     
+    // Log DOM structure at time of save
+    let domDump = '';
+    for (let i = 0; i < ed.childNodes.length; i++) {
+        const n = ed.childNodes[i];
+        if (n.nodeType === Node.TEXT_NODE) domDump += `TEXT(${n.length}) `;
+        else if (n.nodeName === 'BR') domDump += 'BR ';
+        else domDump += `${n.nodeName} `;
+    }
+    console.log(`[saveUndoState] DOM: ${domDump}`);
+    
     // Save both text and cursor position
     const selection = window.getSelection();
-    const range = selection.rangeCount > 0 ? selection.getRangeAt(0).cloneRange() : null;
-    const cursorOffset = range ? getCaretOffset(ed, range) : null;
+    const range = selection.rangeCount > 0 ? selection.getRangeAt(0) : null;
+    const nodeIndex = range ? Array.from(ed.childNodes).indexOf(range.endContainer) : -1;
+    console.log(`[saveUndoState] caller=${caller}, nodeIndex=${nodeIndex}, endContainer=${range?.endContainer?.nodeName}, text="${range?.endContainer?.textContent?.substring(0,20)}"`);
+    const cursorOffset = range ? getCaretOffset(ed, range.cloneRange()) : null;
+    console.log(`[saveUndoState] calculated cursorOffset=${cursorOffset}`);
     
     undoStack.push({
         text: ed.innerText,
@@ -4570,7 +5023,6 @@ function undo() {
     
     const previous = undoStack.pop();
     console.log(`[undo] Restoring text length: ${previous.text.length}, cursor to: ${previous.cursorOffset}`);
-    console.log(`[undo] Current cursor pos before restore: ${getCaretOffset(ed, window.getSelection().rangeCount > 0 ? window.getSelection().getRangeAt(0) : null)}`);
     
     // Disable input event handling during restore
     if (ed._setSkipInputHandling) ed._setSkipInputHandling(true);
@@ -4589,15 +5041,29 @@ function undo() {
                 const selection2 = window.getSelection();
                 const range2 = selection2.rangeCount > 0 ? selection2.getRangeAt(0).cloneRange() : null;
                 const finalCursorPos = range2 ? getCaretOffset(ed, range2) : null;
-                console.log(`[undo] Final cursor position after restore: ${finalCursorPos} (requested: ${previous.cursorOffset}, difference: ${finalCursorPos - previous.cursorOffset})`);
+                console.log(`[undo] Final cursor position after restore: ${finalCursorPos} (requested: ${previous.cursorOffset})`);
             }
         } finally {
             // Re-enable input event handling (inside try-finally to ensure it happens)
             if (ed._setSkipInputHandling) ed._setSkipInputHandling(false);
             
-            // Manually update display (without triggering input handlers)
+            // Manually update display - but don't call updateReviewerCounters() as it triggers scan
             syncLineCounters();
-            updateReviewerCounters();
+            
+            // Update line count display only
+            const cc = document.getElementById('char-count');
+            if (cc) {
+                const lines = ed.innerText.split('\n');
+                const maxLines = state.maxLines || 5;
+                const lineCount = lines.length;
+                cc.innerText = `${lineCount} / ${maxLines} lines`;
+                cc.style.color = lineCount > maxLines ? '#ff4444' : 'var(--accent-color)';
+            }
+            
+            // Schedule anachronism scan a bit later so it doesn't interfere with cursor
+            setTimeout(() => {
+                scanAnachronisms(ed.innerText);
+            }, 50);
         }
     }, 0);
 }
@@ -4637,15 +5103,29 @@ function redo() {
                 const selection2 = window.getSelection();
                 const range2 = selection2.rangeCount > 0 ? selection2.getRangeAt(0).cloneRange() : null;
                 const finalCursorPos = range2 ? getCaretOffset(ed, range2) : null;
-                console.log(`[redo] Final cursor position after restore: ${finalCursorPos} (requested: ${next.cursorOffset}, difference: ${finalCursorPos - next.cursorOffset})`);
+                console.log(`[redo] Final cursor position after restore: ${finalCursorPos} (requested: ${next.cursorOffset})`);
             }
         } finally {
             // Re-enable input event handling (inside try-finally to ensure it happens)
             if (ed._setSkipInputHandling) ed._setSkipInputHandling(false);
             
-            // Manually update display (without triggering input handlers)
+            // Manually update display - but don't call updateReviewerCounters() as it triggers scan
             syncLineCounters();
-            updateReviewerCounters();
+            
+            // Update line count display only
+            const cc = document.getElementById('char-count');
+            if (cc) {
+                const lines = ed.innerText.split('\n');
+                const maxLines = state.maxLines || 5;
+                const lineCount = lines.length;
+                cc.innerText = `${lineCount} / ${maxLines} lines`;
+                cc.style.color = lineCount > maxLines ? '#ff4444' : 'var(--accent-color)';
+            }
+            
+            // Schedule anachronism scan a bit later so it doesn't interfere with cursor
+            setTimeout(() => {
+                scanAnachronisms(ed.innerText);
+            }, 50);
         }
     }, 0);
 }
@@ -4695,4 +5175,279 @@ function escHtml(s) {
         .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
 }
+
+async function updateSyncStatusDisplay() {
+    const display = document.getElementById('sync-status-display');
+    if (!display) return;
+    
+    try {
+        const status = await eel.get_sync_status()();
+        if (status.ok) {
+            const configured = status.configured ? 'YES' : 'NO';
+            const repo = status.repo || '(not set)';
+            const lang = status.language || 'English';
+            const auto = status.auto_sync ? 'ON' : 'OFF';
+            display.innerHTML = `Status: ${configured}<br>Repo: ${repo}<br>Language: ${lang}<br>Auto-sync: ${auto}`;
+        } else {
+            display.innerHTML = 'Error loading sync status';
+        }
+    } catch (e) {
+        display.innerHTML = 'Sync not available';
+    }
+}
 function escAttr(s) { return escHtml(s); }
+
+// =============================================================================
+// CROWDIN-STYLE TRANSLATION MANAGEMENT
+// =============================================================================
+
+function togglePanel(panelId) {
+    const panel = document.getElementById(panelId)?.closest('.kl-panel');
+    if (panel) {
+        const isHidden = panel.style.display === 'none';
+        panel.style.display = isHidden ? '' : 'none';
+        console.log(`[togglePanel] ${panelId}: ${isHidden ? 'shown' : 'hidden'}`);
+    }
+}
+
+async function updateTranslationStatusBadge(entryId) {
+    const badge = document.getElementById('translation-status');
+    if (!badge) return;
+    
+    try {
+        const res = await eel.get_translation_status(entryId)();
+        if (res && res.ok) {
+            const status = res.status || 'untranslated';
+            badge.innerText = status.charAt(0).toUpperCase() + status.slice(1);
+            badge.className = `kl-status-badge status-${status}`;
+        } else {
+            badge.innerText = 'Untranslated';
+            badge.className = 'kl-status-badge status-untranslated';
+        }
+    } catch (e) {
+        console.error('[updateTranslationStatusBadge] Error:', e);
+        badge.innerText = 'Untranslated';
+        badge.className = 'kl-status-badge status-untranslated';
+    }
+}
+
+async function approveCurrentTranslation() {
+    const item = state.reviewer.currentItem;
+    if (!item) {
+        openAlertModal('ERROR', 'No item selected to approve.');
+        return;
+    }
+
+    try {
+        // First save the translation to CSV
+        const text = document.getElementById('en-editor').innerText;
+        await eel.apply_fix(item.id, text, false)();
+
+        // Then approve it
+        const nickname = state.settings.lastConfig?.sync_nickname || 'reviewer';
+        const res = await eel.approve_translation(item.id, nickname)();
+        if (res && res.ok) {
+            await updateTranslationStatusBadge(item.id);
+            await loadTranslationHistory(item.id);
+            // Move to next item after approval
+            setTimeout(() => nextItem(), 400);
+        } else {
+            openAlertModal('ERROR', res?.error || 'Failed to approve translation.');
+        }
+    } catch (e) {
+        console.error('[approveCurrentTranslation] Error:', e);
+        openAlertModal('ERROR', 'Error approving translation.');
+    }
+}
+
+async function rejectCurrentTranslation() {
+    const item = state.reviewer.currentItem;
+    if (!item) {
+        openAlertModal('ERROR', 'No item selected to reject.');
+        return;
+    }
+    
+    try {
+        const res = await eel.reject_translation(item.id, 'reviewer', 'Translation needs improvement')();
+        if (res && res.ok) {
+            await updateTranslationStatusBadge(item.id);
+            await loadTranslationHistory(item.id);
+        } else {
+            openAlertModal('ERROR', res?.error || 'Failed to reject translation.');
+        }
+    } catch (e) {
+        console.error('[rejectCurrentTranslation] Error:', e);
+        openAlertModal('ERROR', 'Error rejecting translation.');
+    }
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+async function loadTranslationHistory(entryId) {
+    const historyContainer = document.getElementById('translation-history');
+    const historyPanel = document.getElementById('panel-history');
+    console.log('[loadTranslationHistory] entryId:', entryId, 'container:', !!historyContainer, 'panel collapsed:', historyPanel?.classList.contains('collapsed'));
+    if (!historyContainer) return;
+
+    try {
+        const res = await eel.get_translation_history(entryId)();
+        console.log('[loadTranslationHistory] response:', res);
+        if (res && res.ok && res.history && res.history.length > 0) {
+            // Show all history entries except comments and approve/reject (old log entries)
+            const filteredHistory = res.history.filter(h => h.action !== 'comment' && h.action !== 'approve' && h.action !== 'reject');
+            console.log('[loadTranslationHistory] Showing', filteredHistory.length, 'entries (excluding comments, approve, reject)');
+            if (filteredHistory.length > 0) {
+                // Use full history to check for approve/reject actions after each translate
+                const fullHistory = res.history || [];
+                console.log('[loadTranslationHistory] Full history length:', fullHistory.length);
+                console.log('[loadTranslationHistory] Full history actions:', JSON.stringify(fullHistory.map(h => ({ action: h.action, time: h.timestamp }))));
+
+                historyContainer.innerHTML = filteredHistory.map((h, idx) => {
+                    const actionLabel = h.action === 'translate' ? 'Edit' : h.action;
+                    // For translate entries, check if there was an approve/reject action after this entry with matching text
+                    let statusBadge = '';
+                    let displayUser = h.user;
+                    if (h.action === 'translate') {
+                        const entryTimestamp = new Date(h.timestamp).getTime();
+                        // Find the first approve/reject action after this translate entry with matching text
+                        const laterAction = fullHistory.find(log =>
+                            (log.action === 'approve' || log.action === 'reject') &&
+                            new Date(log.timestamp).getTime() > entryTimestamp &&
+                            log.new_value === h.new_value
+                        );
+                        console.log('[loadTranslationHistory] For entry at', new Date(h.timestamp).toLocaleString(), 'laterAction:', laterAction?.action);
+                        if (laterAction) {
+                            // Show approver's name instead of translator's name
+                            displayUser = laterAction.user;
+                            if (laterAction.action === 'approve') {
+                                statusBadge = `<span class="kl-history-status-inline status-approve">APPROVED</span>`;
+                            } else {
+                                statusBadge = `<span class="kl-history-status-inline status-reject">REJECTED</span>`;
+                            }
+                        } else {
+                            // No matching approve/reject after this entry, check if it's the latest
+                            const latestTranslate = filteredHistory.filter(e => e.action === 'translate').sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
+                            if (latestTranslate && new Date(latestTranslate.timestamp).getTime() === entryTimestamp) {
+                                // This is the latest entry, show current status
+                                if (res.status === 'approved') {
+                                    statusBadge = `<span class="kl-history-status-inline status-approve">APPROVED</span>`;
+                                } else if (res.status === 'rejected') {
+                                    statusBadge = `<span class="kl-history-status-inline status-reject">REJECTED</span>`;
+                                } else {
+                                    statusBadge = `<span class="kl-history-status-inline status-unapproved">UNAPPROVED</span>`;
+                                }
+                            }
+                        }
+                    }
+                    return `
+                    <div class="kl-history-item" data-history-idx="${idx}" data-text="${escapeHtml(h.new_value || '')}" style="cursor: pointer;">
+                        <div class="kl-history-header">
+                            <span class="kl-history-action action-${h.action}">${actionLabel}</span>
+                            ${statusBadge}
+                            <span class="kl-history-user">by ${displayUser}</span>
+                            <span class="kl-history-time">${new Date(h.timestamp).toLocaleString()}</span>
+                        </div>
+                        ${h.new_value ? `<div class="kl-history-text">${escapeHtml(h.new_value)}</div>` : ''}
+                    </div>
+                    `;
+                }).join('');
+
+                // Scroll to bottom to show most recent entries
+                historyContainer.scrollTop = historyContainer.scrollHeight;
+
+                // Add click handlers to history items
+                historyContainer.querySelectorAll('.kl-history-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const text = item.getAttribute('data-text');
+                        if (text) {
+                            const editor = document.getElementById('en-editor');
+                            if (editor) {
+                                editor.innerText = text;
+                                console.log('[loadTranslationHistory] Pasted history text into editor');
+                            }
+                        }
+                    });
+                });
+
+                // Auto-load latest history entry into editor when in unapproved entries queue
+                if (state.reviewer.currentCategory === 'Unapproved Entries') {
+                    const latestTranslateEntry = filteredHistory.filter(h => h.action === 'translate').sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
+                    if (latestTranslateEntry && latestTranslateEntry.new_value) {
+                        const editor = document.getElementById('en-editor');
+                        if (editor) {
+                            editor.innerText = latestTranslateEntry.new_value;
+                            console.log('[loadTranslationHistory] Auto-loaded latest history text into editor for unapproved entries queue');
+                        }
+                    }
+                }
+
+                console.log('[loadTranslationHistory] Updated innerHTML, content length:', historyContainer.innerHTML.length);
+            } else {
+                console.log('[loadTranslationHistory] No non-comment history found');
+                historyContainer.innerHTML = '<div class="kl-history-empty">No translation history available</div>';
+            }
+        } else {
+            console.log('[loadTranslationHistory] No history found');
+            historyContainer.innerHTML = '<div class="kl-history-empty">No history available</div>';
+        }
+    } catch (e) {
+        console.error('[loadTranslationHistory] Error:', e);
+        historyContainer.innerHTML = '<div class="kl-history-empty">Error loading history</div>';
+    }
+}
+
+async function addTranslationComment() {
+    const item = state.reviewer.currentItem;
+    if (!item) {
+        openAlertModal('ERROR', 'No item selected.');
+        return;
+    }
+    
+    const input = document.getElementById('comment-input');
+    if (!input || !input.value.trim()) return;
+    
+    try {
+        const nickname = state.settings.lastConfig?.sync_nickname || 'reviewer';
+        const res = await eel.add_translation_comment(item.id, nickname, input.value.trim())();
+        if (res && res.ok) {
+            input.value = '';
+            await loadTranslationComments(item.id);
+        } else {
+            openAlertModal('ERROR', res?.error || 'Failed to add comment.');
+        }
+    } catch (e) {
+        console.error('[addTranslationComment] Error:', e);
+        openAlertModal('ERROR', 'Error adding comment.');
+    }
+}
+
+async function loadTranslationComments(entryId) {
+    const commentsContainer = document.querySelector('#translation-comments .kl-comments-list');
+    if (!commentsContainer) return;
+    
+    try {
+        const res = await eel.get_translation_comments(entryId)();
+        if (res && res.ok && res.comments && res.comments.length > 0) {
+            commentsContainer.innerHTML = res.comments.map(c => `
+                <div class="kl-comment">
+                    <div class="kl-comment-header">
+                        <span class="kl-comment-user">${escHtml(c.user)}</span>
+                        <span class="kl-comment-time">${new Date(c.timestamp).toLocaleString()}</span>
+                    </div>
+                    <div class="kl-comment-text">${escHtml(c.text)}</div>
+                </div>
+            `).join('');
+        } else {
+            commentsContainer.innerHTML = '<div class="kl-history-empty">No comments</div>';
+        }
+    } catch (e) {
+        console.error('[loadTranslationComments] Error:', e);
+        commentsContainer.innerHTML = '<div class="kl-history-empty">Error loading comments</div>';
+    }
+}
+
+// Note: Event listeners for reviewer mode are initialized in initReviewerActions()

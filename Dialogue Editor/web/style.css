@@ -377,13 +377,16 @@ body {
     gap: 8px;
 }
 
-/* --- Panel Toggles - Positioned left of utility controls --- */
+/* --- Panel Toggles - Positioned left of utility controls, 2x2 grid --- */
 .panel-toggles {
     position: absolute;
-    top: 15px;
-    right: 65px;
-    display: flex;
-    gap: 8px;
+    top: 7px;
+    right: 145px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3px;
+    width: 130px;
 }
 
 /* --- Utility Controls (Gear + Theme) - Top Right --- */
@@ -458,17 +461,19 @@ body {
     right: 17px;
 }
 
-/* Panel Toggle Button Styling */
+/* Panel Toggle Button Styling - Compact for 2x2 grid */
 .panel-toggle {
     display: flex;
     align-items: center;
-    gap: 6px;
+    justify-content: center;
+    gap: 4px;
     background: transparent;
     border: none;
     color: var(--tab-inactive);
-    padding: 6px 12px;
+    padding: 4px 8px;
     cursor: pointer;
     transition: all 75ms linear;
+    font-size: 0.7rem;
 }
 
 /* Settings gear icon - minimal padding, theme-like hover */
@@ -498,9 +503,9 @@ body {
 
 .panel-toggle-label {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
 }
 
 .logo-area {
@@ -2005,7 +2010,7 @@ input:focus {
 .kl-sidebar-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 8px;
     padding: 8px 12px;
     border-bottom: 1px solid var(--border-color);
     background: var(--header-bg);
@@ -2018,6 +2023,16 @@ input:focus {
     letter-spacing: 0.15em;
     color: var(--tab-inactive);
     margin: 0;
+    margin-right: auto;
+}
+
+.kl-queue-counter {
+    font-size: 10px;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 .kl-icon-btn {
@@ -2091,6 +2106,8 @@ input:focus {
     font-weight: 700;
     text-transform: uppercase;
     color: var(--tab-inactive);
+    box-sizing: border-box;
+    height: 18px;
 }
 
 .kl-checkbox-label:hover {
@@ -2101,6 +2118,14 @@ input:focus {
     width: 14px;
     height: 14px;
     accent-color: var(--accent-color);
+    flex-shrink: 0;
+}
+
+.kl-checkbox-label span {
+    line-height: 14px;
+    flex-shrink: 0;
+    margin-top: -2px;
+    margin-left: -2px;
 }
 
 .kl-radio-label {
@@ -2333,7 +2358,12 @@ input:focus {
     align-items: center;
     justify-content: center;
     transition: filter 0.075s linear;
-    box-shadow: 0 0 10px var(--glow-color);
+    border-radius: 0;
+}
+
+.kl-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--fg-color);
 }
 
 .kl-btn-accent {
@@ -2341,12 +2371,15 @@ input:focus {
     color: #000;
     border: none;
     padding: 0 10px;
-    height: 20px;
+    height: 18px;
     font-size: 9px;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: filter 0.075s linear;
     box-shadow: 0 0 10px var(--glow-color);
     border-radius: 0;
@@ -2867,7 +2900,7 @@ font-weight: bold;
     align-items: center;
     justify-content: flex-start;
     gap: 20px;
-    padding: 0 16px;
+    padding: 0px 16px;
     z-index: 98; /* Below sidebar (99) */
 }
 
@@ -2902,6 +2935,7 @@ font-weight: bold;
 .kl-footer-actions {
     display: flex;
     gap: 1px;
+    margin-left: -12px;
 }
 
 
@@ -2948,8 +2982,9 @@ font-weight: bold;
 
 .kl-footer-options {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
 }
 
 .kl-footer-status {
@@ -3276,4 +3311,418 @@ font-weight: bold;
 
 .kl-btn-send .kl-icon {
     font-size: 16px;
+}
+
+/* =============================================================================
+   CROWDIN-STYLE TRANSLATION MANAGEMENT
+   ============================================================================= */
+
+/* Status Badge */
+.kl-status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--mask-03);
+    color: var(--tab-inactive);
+    border: 1px solid var(--border-color);
+}
+
+.kl-status-badge.status-untranslated {
+    background: rgba(195, 245, 255, 0.1);
+    color: var(--tab-inactive);
+    border-color: var(--tab-inactive);
+}
+
+.kl-status-badge.status-translated {
+    background: rgba(0, 200, 83, 0.15);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.kl-status-badge.status-approved {
+    background: rgba(0, 200, 83, 0.25);
+    color: #00ff66;
+    border-color: #00ff66;
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.3);
+}
+
+.kl-status-badge.status-rejected {
+    background: rgba(255, 68, 68, 0.15);
+    color: #ff4444;
+    border-color: #ff4444;
+}
+
+/* Approve/Reject Buttons */
+.kl-btn-success {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #00C853;
+    border: 1px solid #00C853;
+    color: #000;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.075s linear;
+    border-radius: 0;
+}
+
+.kl-btn-success:hover {
+    background: #00ff66;
+    border-color: #00ff66;
+    box-shadow: 0 0 12px rgba(0, 200, 83, 0.5);
+}
+
+.kl-btn-danger {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #ff4444;
+    border: 1px solid #ff4444;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.075s linear;
+    border-radius: 0;
+}
+
+.kl-btn-danger:hover {
+    background: #ff6666;
+    border-color: #ff6666;
+    box-shadow: 0 0 12px rgba(255, 68, 68, 0.4);
+}
+
+/* Translation History Panel */
+#panel-history .kl-panel-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.kl-history-empty {
+    padding: 20px;
+    text-align: center;
+    color: var(--tab-inactive);
+    font-size: 12px;
+    font-style: italic;
+}
+
+.kl-history-status {
+    padding: 8px 12px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+.kl-history-status.status-approved {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border: 1px solid #4caf50;
+}
+
+.kl-history-status.status-rejected {
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    border: 1px solid #f44336;
+}
+
+.kl-history-status.status-translated {
+    background: rgba(33, 150, 243, 0.2);
+    color: #2196f3;
+    border: 1px solid #2196f3;
+}
+
+.kl-history-status.status-untranslated {
+    background: rgba(158, 158, 158, 0.2);
+    color: #9e9e9e;
+    border: 1px solid #9e9e9e;
+}
+
+.kl-history-status-inline {
+    padding: 2px 6px;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    margin-left: 6px;
+}
+
+.kl-history-status-inline.status-approve {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border: 1px solid #4caf50;
+}
+
+.kl-history-status-inline.status-reject {
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    border: 1px solid #f44336;
+}
+
+.kl-history-status-inline.status-unapproved {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+    border: 1px solid #ffc107;
+}
+
+.kl-history-item {
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 12px;
+}
+
+.kl-history-item:last-child {
+    border-bottom: none;
+}
+
+.kl-history-action {
+    font-weight: 700;
+    color: var(--fg-color);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.kl-history-action.action-translate {
+    color: var(--accent-color);
+}
+
+.kl-history-action.action-approve {
+    color: #00ff66;
+}
+
+.kl-history-action.action-reject {
+    color: #ff4444;
+}
+
+.kl-history-user {
+    color: var(--text-muted);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.kl-history-time {
+    color: var(--text-muted);
+    font-size: 10px;
+    margin-top: 2px;
+}
+
+.kl-history-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.kl-history-header .kl-history-action {
+    margin-top: 0;
+}
+
+.kl-history-header .kl-history-user {
+    margin-top: 0;
+    flex: 1;
+}
+
+.kl-history-header .kl-history-time {
+    margin-top: 0;
+}
+
+.kl-history-text {
+    background: var(--bg-color);
+    border-left: 2px solid var(--accent-color);
+    padding: 8px 12px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--fg-color);
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: inherit;
+}
+
+/* Comments Section */
+#panel-comments .kl-panel-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.kl-comments-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 12px;
+}
+
+.kl-comment {
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 12px;
+}
+
+.kl-comment:last-child {
+    border-bottom: none;
+}
+
+.kl-comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.kl-comment-user {
+    font-weight: 700;
+    color: var(--fg-color);
+}
+
+.kl-comment-time {
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.kl-comment-text {
+    color: var(--body-color);
+    line-height: 1.5;
+}
+
+.kl-comment-input-area {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid var(--border-color);
+    background: var(--mask-03);
+    flex: 0 0 auto;
+}
+
+.kl-comment-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 4px;
+}
+
+.kl-comment-input {
+    font-size: 12px;
+    padding: 8px 12px;
+}
+
+.kl-char-counter {
+    font-size: 10px;
+    color: var(--fg-muted);
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.kl-char-counter.warning {
+    color: #ffaa00;
+}
+
+.kl-char-counter.error {
+    color: #ff4444;
+}
+
+/* Reviewer Mode Toggle */
+.kl-checkbox-label input[type="checkbox"] + span {
+    margin-left: 6px;
+}
+
+/* Status indicators in sidebar */
+.kl-row-list-item .status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.kl-row-list-item .status-indicator.untranslated {
+    background: var(--tab-inactive);
+}
+
+.kl-row-list-item .status-indicator.translated {
+    background: var(--accent-color);
+}
+
+.kl-row-list-item .status-indicator.approved {
+    background: #00ff66;
+    box-shadow: 0 0 6px rgba(0, 255, 102, 0.5);
+}
+
+.kl-row-list-item .status-indicator.rejected {
+    background: #ff4444;
+}
+
+.row-comment-indicator {
+    margin-left: 8px;
+    font-size: 12px;
+    opacity: 0.7;
+    transition: opacity 0.15s linear;
+}
+
+.row-comment-indicator:hover {
+    opacity: 1;
+}
+
+/* Voting buttons */
+.kl-vote-buttons {
+    display: flex;
+    gap: 4px;
+    margin-left: auto;
+}
+
+.kl-vote-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    background: var(--mask-03);
+    border: 1px solid var(--border-color);
+    color: var(--tab-inactive);
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.075s linear;
+}
+
+.kl-vote-btn:hover {
+    background: var(--mask-05);
+}
+
+.kl-vote-btn.voted-up {
+    background: rgba(0, 200, 83, 0.25);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.kl-vote-btn.voted-down {
+    background: rgba(255, 68, 68, 0.25);
+    color: #ff4444;
+    border-color: #ff4444;
+}
+
+.kl-vote-score {
+font-weight: 700;
+margin: 0 4px;
 }
