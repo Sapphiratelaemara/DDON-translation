@@ -414,6 +414,27 @@ body {
     color: var(--accent-color);
 }
 
+.language-selector {
+    background: var(--bg-secondary);
+    color: var(--fg-color);
+    border: 1px solid var(--border-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 75ms linear;
+}
+
+.language-selector:hover {
+    border-color: var(--accent-color);
+}
+
+.language-selector:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
 .theme-icon {
     font-family: 'Material Symbols Outlined', sans-serif;
     font-size: 18px;

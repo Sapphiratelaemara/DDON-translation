@@ -59,40 +59,43 @@ The application follows a **client-server architecture** where:
 
 ```
 Dialogue Editor/
-├―― main.py                 # Application entry point, Eel routes, global state
-├―― config_manager.py       # Configuration management (JSON files)
-├―― api_handler.py          # External API clients (DeepL, OpenRouter)
-├―― translator_engine.py   # Text wrapping and translation processing
-├―― lore_engine.py          # Lore/context system, archetypes, in-universe vocab
-├―― gloss_engine.py        # Japanese morpheme glossing (Janome + Jamdict)
-├―― lore_data.py           # Default archetypes, vocabulary, anachronism patterns
-├―― file_utils.py          # CSV file reading utilities
-├―― batch_runner.py        # Batch scanning logic (background thread)
-├―― search_window.py       # Tkinter-based search window
-├―― editor_window.py       # Tkinter-based editor window
-├―― editor_mixin.py        # Editor functionality shared across windows
-├―― options_module.py      # Settings/configuration UI
-├―― prefetch_manager.py    # API result caching
-├―― check_keys.py          # API key validation utility
-├―― count_chars.py         # Character counting utility
-├―― extract_items.py       # Item extraction utility
-├―― formatter_config.json   # Main configuration file
-├―― memory.json            # User preferences and memory
-├―― keys.json              # API keys (separate for security)
-├―― cache.json             # API response cache
-├―― anach_definitions.json # Anachronism definitions
-├―― archaic_examples.json  # Archaic word examples
-├―― prefetch_cache.json    # Prefetch manager cache
-├―― requirements.txt        # Python dependencies
-├―― web/                   # Frontend web interface
-│   ├―― index.html         # Main HTML structure
-│   ├―― style.css          # Stylesheets
-│   ├―― app.js             # Frontend JavaScript controller
-│   └―― js/
-│       └―― app.js         # Additional JavaScript (legacy/duplicate)
-├―― assets/                # Static assets
-├―― deps/                  # External dependencies (jamdict data)
-└―― __pycache__/           # Python bytecode cache
+├── main.py                 # Application entry point, Eel routes, global state
+├── config_manager.py       # Configuration management (JSON files)
+├── github_sync.py          # GitHub synchronization for per-language data
+├── api_handler.py          # External API clients (DeepL, OpenRouter)
+├── translator_engine.py   # Text wrapping and translation processing
+├── lore_engine.py          # Lore/context system, archetypes, in-universe vocab
+├── gloss_engine.py        # Japanese morpheme glossing (Janome + Jamdict)
+├── lore_data.py           # Default archetypes, vocabulary, anachronism patterns
+├── file_utils.py          # CSV file reading utilities
+├── batch_runner.py        # Batch scanning logic (background thread)
+├── translation_manager.py  # Translation data management
+├── prefetch_manager.py    # API result caching
+├── requirements.txt        # Python dependencies
+├── keys.json              # API keys (separate for security, global)
+├── config/                # Per-language configuration directory
+│   ├── en/                # English language configuration
+│   │   ├── formatter_config.json   # Main configuration (folders, triggers, tag maps, presets)
+│   │   ├── user_settings.json      # User preferences (sync settings, paths, theme, etc.)
+│   │   ├── memory.json             # Learned fixes (source text → wrapped text mappings, archetype assignments)
+│   │   ├── archetypes.json        # Character archetypes (synced to GitHub)
+│   │   ├── dd1_vocab.json         # DD1 vocabulary (synced to GitHub)
+│   │   ├── other_vocab.json       # Non-DD1 vocabulary (synced to GitHub)
+│   │   ├── anach_definitions.json # Anachronism definitions (synced to GitHub)
+│   │   ├── archaic_examples.json  # Archaic word examples (synced to GitHub)
+│   │   ├── prefetch_cache.json    # Prefetch manager cache (per-language, not synced)
+│   │   ├── cache.json             # API response cache (per-language, not synced)
+│   │   ├── review_queues_cache.json # Review queues (per-language, not synced)
+│   │   └── review_items_cache.json # Manual translation queue (per-language, not synced)
+│   ├── ar/                # Arabic language configuration (example)
+│   └── [lang]/            # Other language directories
+├── web/                   # Frontend web interface
+│   ├── index.html         # Main HTML structure
+│   ├── style.css          # Stylesheets
+│   └── app.js             # Frontend JavaScript controller
+├── assets/                # Static assets
+├── deps/                  # External dependencies (jamdict data)
+└── __pycache__/           # Python bytecode cache
 ```
 
 ## Key Components
@@ -215,30 +218,96 @@ Functions decorated with `@eel.expose` are callable from JavaScript:
 
 **Responsibilities:**
 - Load/save configuration from JSON files
-- Manage API keys (separate file for security)
-- Manage user memory/preferences
-- Manage API response cache
+- Manage language-specific configuration directories (config/<lang>/)
+- Manage API keys (separate file for security, global)
+- Manage user memory/preferences (per-language)
+- Manage API response cache (per-language)
 - Seed default archetypes from lore_data
 
-**Configuration Files:**
+**Configuration Files (Per-Language in config/<lang>/):**
 - `formatter_config.json` - Main configuration (folders, triggers, tag maps, presets)
+- `user_settings.json` - User preferences (sync settings, paths, theme, etc.)
 - `memory.json` - Learned fixes (source text → wrapped text mappings, archetype assignments)
-- `keys.json` - API keys (DeepL, OpenRouter)
-- `cache.json` - API response cache
+- `archetypes.json` - Character archetypes (synced to GitHub)
+- `dd1_vocab.json` - DD1 vocabulary (synced to GitHub)
+- `other_vocab.json` - Non-DD1 vocabulary (synced to GitHub)
+- `anach_definitions.json` - Anachronism definitions (synced to GitHub)
+- `archaic_examples.json` - Archaic word examples (synced to GitHub)
+- `prefetch_cache.json` - Prefetch manager cache (per-language, not synced)
+- `cache.json` - API response cache (per-language, not synced)
+- `review_queues_cache.json` - Review queues (per-language, not synced)
+- `review_items_cache.json` - Manual translation queue (per-language, not synced)
+
+**Global Files:**
+- `keys.json` - API keys (DeepL, OpenRouter) - stored in root directory
 
 **Key Methods:**
 ```python
-load_all()           # Load all configuration files
-save_config()        # Save main configuration
-load_memory()        # Load user memory
-save_memory()        # Save user memory
-get_key(service)     # Retrieve API key
-set_key(service, key) # Set API key
-load_cache()         # Load API cache
-save_cache()         # Save API cache
+switch_language(new_language)  # Switch to different language config
+load_all()                    # Load all configuration files
+save_config()                 # Save main configuration
+load_memory()                 # Load user memory
+save_memory()                 # Save user memory
+get_key(service)              # Retrieve API key
+set_key(service, key)         # Set API key
+load_cache()                  # Load API cache
+save_cache()                  # Save API cache
+load_archetypes()             # Load archetypes from file
+save_archetypes()             # Save archetypes to file
+load_vocab(file)             # Load vocabulary file
+save_vocab(file, data)        # Save vocabulary file
 ```
 
-### 3. API Handler (`api_handler.py`)
+### 3. GitHub Sync (`github_sync.py`)
+
+**Responsibilities:**
+- Synchronize per-language data with GitHub repository
+- Push/pull translation data (status, logs, comments) per entry file
+- Push/pull language-level files (archetypes, vocab, anach definitions, archaic examples)
+- Merge conflicts resolution (remote wins for logs/comments)
+- Auto-sync on schedule if enabled
+
+**Synced Files (Per-Language):**
+- `archetypes.json` - Character archetypes
+- `dd1_vocab.json` - DD1 vocabulary
+- `other_vocab.json` - Non-DD1 vocabulary
+- `anach_definitions.json` - Anachronism definitions
+- `archaic_examples.json` - Archaic word examples
+- Entry data: status, logs, comments per source file
+
+**NOT Synced (Local Only):**
+- `memory.json` - User's learned fixes
+- `user_settings.json` - User preferences (sync settings, paths, theme)
+- `prefetch_cache.json` - Performance cache
+- `cache.json` - API response cache
+- `review_queues_cache.json` - Review queues (per-language)
+- `review_items_cache.json` - Manual translation queue (per-language)
+- `keys.json` - API keys (global)
+
+**Key Methods:**
+```python
+sync_push(translation_manager)  # Push local data to GitHub
+sync_pull(translation_manager)  # Pull remote data from GitHub
+is_configured()                  # Check if sync is configured
+sync_auto_enabled()              # Check if auto-sync is enabled
+```
+
+**Sync Structure on GitHub:**
+```
+<repo>/
+└── <language>/
+    ├── archetypes.json
+    ├── dd1_vocab.json
+    ├── other_vocab.json
+    ├── anach_definitions.json
+    ├── archaic_examples.json
+    └── <sanitized_filename>/  # Per source file
+        ├── status.json        # Entry status data
+        ├── logs.json          # Translation logs
+        └── comments.json      # User comments
+```
+
+### 4. API Handler (`api_handler.py`)
 
 **Responsibilities:**
 - Abstract external API calls
@@ -601,41 +670,131 @@ eel.run_batch(settings)(
 
 ### Configuration Hierarchy
 
-```
+**Per-Language Configuration (config/<lang>/):**
+```json
 formatter_config.json (Main Config)
-├―― folders: []              # Watched directories
-├―― triggers: []             # Entry trigger strings
-├―― tag_map: {}              # Tag → simulated length
-├―― presets: {}              # Character limit presets
-├―― wall_presets: {}         # Wall limit presets
-├―― archetypes: {}           # Character archetypes
-├―― entry_type_rules: {}     # Entry type → tag rules
-├―― replace_rules: []        # Find/replace rules
-├―― ai_system_prompt: ""     # AI system prompt
-├―― ai_button_prompts: {}    # AI button prompts
-└―― ...
+├── folders: []              # Watched directories
+├── triggers: []             # Entry trigger strings
+├── tag_map: {}              # Tag → simulated length
+├── presets: {}              # Character limit presets
+├── wall_presets: {}         # Wall limit presets
+├── archetypes: {}           # Character archetypes (now separate file)
+├── entry_type_rules: {}     # Entry type → tag rules
+├── replace_rules: []        # Find/replace rules
+├── ai_system_prompt: ""     # AI system prompt
+├── ai_button_prompts: {}    # AI button prompts
+└── ...
+
+user_settings.json (User Preferences)
+├── github_repo: ""          # GitHub repository URL for sync
+├── github_token: ""         # GitHub personal access token
+├── sync_nickname: ""       # GitHub commit nickname
+├── sync_auto: false         # Auto-sync enabled
+├── bible_path: ""          # Bible CSV path (per-language)
+├── glossary_path: ""       # Glossary CSV path (per-language)
+├── assets_path: ""         # Assets directory path
+├── theme_mode: "dark"      # Theme preference
+├── dark_mode: true          # Dark mode enabled
+├── in_universe: true        # In-universe language enabled
+├── openrouter_models: []   # Available AI models
+├── selected_openrouter_model: "" # Selected AI model
+├── preview_mode: true       # Preview mode enabled
+├── show_paid_models: false # Show paid AI models
+├── selected_preset: ""     # Selected limit preset
+├── custom_dark_theme: {}   # Custom dark theme colors
+├── custom_light_theme: {}  # Custom light theme colors
+└── last_stats: {}          # Last calculated statistics
 
 memory.json (User Memory)
-├―― [source text]: [wrapped text]  # Learned fixes from manual edits
-├―― [speaker]: [archetype]         # Archetype assignments
-└―― ...
+├── [source text]: [wrapped text]  # Learned fixes from manual edits
+├── [speaker]: [archetype]         # Archetype assignments
+└── ...
 
+archetypes.json (Character Archetypes - Synced to GitHub)
+├── [key]: {
+│   ├── name: ""              # Display name
+│   ├── professions: []       # Associated professions
+│   └── notes: ""             # Translation guidelines
+│   }
+└── ...
+
+dd1_vocab.json (DD1 Vocabulary - Synced to GitHub)
+├── [modern_word]: [archaic_word]  # Modern → archaic word mappings
+└── ...
+
+other_vocab.json (Non-DD1 Vocabulary - Synced to GitHub)
+├── [modern_word]: [archaic_word]  # Modern → archaic word mappings
+└── ...
+
+anach_definitions.json (Anachronism Definitions - Synced to GitHub)
+├── dd1_definitions: {}      # DD1-sourced definitions
+└── other_definitions: {}    # Other-sourced definitions
+
+archaic_examples.json (Archaic Word Examples - Synced to GitHub)
+├── dd1_examples: {}         # DD1-sourced examples
+└── other_examples: {}       # Other-sourced examples
+
+prefetch_cache.json (Prefetch Cache - Local Only)
+├── [category::idx]: {
+│   ├── timestamp: 0          # Cache timestamp
+│   ├── lore_context: {}     # Lore context results
+│   ├── anachronisms: []     # Anachronism scan results
+│   └── ...
+│   }
+└── ...
+
+cache.json (API Cache - Local Only)
+├── translation_cache: {}     # DeepL translation cache
+└── ai_chat_cache: {}        # OpenRouter AI chat cache
+
+review_queues_cache.json (Review Queues - Local Only, Per-Language)
+├── tag: []                  # Tag-related issues queue
+├── wall: []                 # Wall limit violations queue
+├── dash: []                 # Dash issues queue
+└── anach: []                # Anachronisms queue
+
+review_items_cache.json (Manual Translation Queue - Local Only, Per-Language)
+└── []                       # Manual translation items
+
+**Global Configuration (root directory):**
+```json
 keys.json (API Keys)
-├―― deepl_api_key: ""
-└―― openrouter_api_key: ""
-
-cache.json (API Cache)
-├―― translation_cache: {}
-└―― ai_chat_cache: {}
+├── deepl_api_key: ""
+└── openrouter_api_key: ""
 ```
 
 ### Configuration Loading Order
 
-1. `formatter_config.json` loaded on startup
-2. Default archetypes seeded from `lore_data.py` if missing
-3. `memory.json` loaded for user preferences
-4. `keys.json` loaded for API keys
-5. `cache.json` loaded for API responses
+1. `keys.json` loaded on startup (global)
+2. `config/<language>/formatter_config.json` loaded on startup
+3. Default archetypes seeded from `lore_data.py` if missing
+4. `config/<language>/memory.json` loaded for user preferences
+5. `config/<language>/user_settings.json` loaded for user settings
+6. `config/<language>/cache.json` loaded for API responses
+7. Language-specific vocab files loaded (dd1_vocab.json, other_vocab.json)
+8. Language-specific lore files loaded (archetypes.json, anach_definitions.json, archaic_examples.json)
+
+### Language Switching
+
+When switching languages (e.g., from English to Arabic):
+1. `config_manager.switch_language(new_language)` is called
+2. Configuration directory changes to `config/<new_language>/`
+3. All language-specific files are reloaded:
+   - formatter_config.json
+   - memory.json
+   - user_settings.json
+   - archetypes.json
+   - dd1_vocab.json
+   - other_vocab.json
+   - anach_definitions.json
+   - archaic_examples.json
+   - prefetch_cache.json
+   - cache.json
+   - review_queues_cache.json
+   - review_items_cache.json
+4. Lore engine is invalidated (vocabulary changed)
+5. Frontend is notified to reload settings and refresh UI
+6. GitHub sync operations automatically use the new language folder
 
 ## External Dependencies
 

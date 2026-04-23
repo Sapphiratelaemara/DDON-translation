@@ -15,7 +15,7 @@ from typing import Dict, Any, Optional
 class PrefetchManager:
     """Manages background prefetching of editor entries."""
     
-    def __init__(self, lore_engine_getter=None, cache_file="prefetch_cache.json"):
+    def __init__(self, lore_engine_getter=None, cache_file=None):
         self._queue = queue.Queue()
         self._cache: Dict[str, Dict[str, Any]] = {}  # Use string keys for JSON serialization
         self._processing = False
@@ -25,8 +25,31 @@ class PrefetchManager:
         self._current_category = None
         self._lock = threading.Lock()
         self._lore_engine_getter = lore_engine_getter
+        # Default cache file path will be set in _get_cache_path()
         self._cache_file = cache_file
         self._load_cache_from_file()
+    
+    def _get_cache_path(self):
+        """Get the cache file path based on current language."""
+        if self._cache_file:
+            return self._cache_file
+        # Try to get the current language from config manager
+        try:
+            import os
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            # Check if config_manager exists and has language set
+            import sys
+            if 'main' in sys.modules:
+                cm = sys.modules['main'].cm if hasattr(sys.modules['main'], 'cm') else None
+                if cm and hasattr(cm, 'language'):
+                    config_dir = os.path.join(base_dir, "config", cm.language)
+                    return os.path.join(config_dir, "prefetch_cache.json")
+        except:
+            pass
+        # Fallback to root directory
+        import os
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        return os.path.join(base_dir, "prefetch_cache.json")
     
     def _cache_key(self, category: str, idx: int) -> str:
         """Convert category and index to a string key for JSON serialization."""
@@ -37,8 +60,7 @@ class PrefetchManager:
         try:
             import os
             import json
-            base_dir = os.path.dirname(os.path.abspath(__file__))
-            cache_path = os.path.join(base_dir, self._cache_file)
+            cache_path = self._get_cache_path()
             if os.path.exists(cache_path):
                 with open(cache_path, 'r', encoding='utf-8') as f:
                     cached_data = json.load(f)
@@ -56,8 +78,7 @@ class PrefetchManager:
             # Try to delete the corrupted file
             try:
                 import os
-                base_dir = os.path.dirname(os.path.abspath(__file__))
-                cache_path = os.path.join(base_dir, self._cache_file)
+                cache_path = self._get_cache_path()
                 if os.path.exists(cache_path):
                     os.remove(cache_path)
                     print(f"[PrefetchManager] Deleted corrupted cache file")
@@ -72,8 +93,11 @@ class PrefetchManager:
         try:
             import os
             import json
-            base_dir = os.path.dirname(os.path.abspath(__file__))
-            cache_path = os.path.join(base_dir, self._cache_file)
+            cache_path = self._get_cache_path()
+            # Ensure directory exists
+            cache_dir = os.path.dirname(cache_path)
+            if cache_dir and not os.path.exists(cache_dir):
+                os.makedirs(cache_dir, exist_ok=True)
             with open(cache_path, 'w', encoding='utf-8') as f:
                 json.dump(self._cache, f)
         except Exception as e:

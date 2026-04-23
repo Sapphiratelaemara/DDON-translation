@@ -33,7 +33,7 @@ class GitHubSync:
         
     def _get_headers(self) -> Dict[str, str]:
         """Get GitHub API headers with auth token."""
-        token = self.cm.get_key('github_token')
+        token = self.cm.user_settings.get('github_token', '')
         return {
             'Authorization': f'token {token}',
             'Accept': 'application/vnd.github.v3+json',
@@ -42,7 +42,7 @@ class GitHubSync:
     
     def _get_repo_info(self) -> tuple:
         """Extract owner and repo from config."""
-        repo_url = self.cm.config.get('github_repo', '')
+        repo_url = self.cm.user_settings.get('github_repo', '')
         if 'github.com' in repo_url:
             parts = repo_url.replace('.git', '').split('github.com/')[-1].split('/')
             if len(parts) >= 2:
@@ -55,7 +55,7 @@ class GitHubSync:
         file_id: 'status', 'logs', 'comments', or a specific filename
         entry_id: optional entry ID for per-file storage
         """
-        language = self.cm.config.get('sync_language', 'English')
+        language = self.cm.language
         
         if entry_id:
             # Per-file storage: sanitize filename from entry_id
@@ -83,8 +83,8 @@ class GitHubSync:
     
     def is_configured(self) -> bool:
         """Check if sync is properly configured."""
-        token = self.cm.config.get('github_token', '')
-        repo = self.cm.config.get('github_repo', '')
+        token = self.cm.user_settings.get('github_token', '')
+        repo = self.cm.user_settings.get('github_repo', '')
         return bool(token and repo)
     
     def _fetch_remote_file(self, file_path: str) -> Optional[Dict]:
@@ -115,15 +115,15 @@ class GitHubSync:
             print(f"[GitHubSync] Error fetching {file_path}: {e}")
             return None
     
-    def _upload_file(self, file_path: str, content: Any, sha: Optional[str] = None) -> bool:
-        """Upload/update a file on GitHub."""
+    def _upload_file(self, file_path: str, content: Any, sha: Optional[str] = None) -> dict:
+        """Upload/update a file on GitHub. Returns dict with success status and debug info."""
         url = self._get_api_url(file_path)
         if not url:
-            return False
+            return {"success": False, "error": "no URL"}
         
         try:
             message = f"Update {file_path} - {datetime.now().isoformat()}"
-            nickname = self.cm.config.get('sync_nickname', 'Anonymous')
+            nickname = self.cm.user_settings.get('sync_nickname', 'Anonymous')
             
             payload = {
                 'message': message,
@@ -138,14 +138,12 @@ class GitHubSync:
             
             resp = requests.put(url, headers=self._get_headers(), json=payload, timeout=30)
             if resp.status_code in [200, 201]:
-                print(f"[GitHubSync] Uploaded {file_path}")
-                return True
+                return {"success": True, "status_code": resp.status_code}
             else:
-                print(f"[GitHubSync] Failed to upload {file_path}: {resp.status_code}")
-                return False
+                return {"success": False, "error": f"HTTP {resp.status_code}", "response": resp.text}
         except Exception as e:
-            print(f"[GitHubSync] Error uploading {file_path}: {e}")
-            return False
+            import traceback
+            return {"success": False, "error": str(e), "traceback": traceback.format_exc()}
     
     def _should_push(self) -> bool:
         """Check if enough time has passed for a push."""
@@ -231,57 +229,109 @@ class GitHubSync:
         
         return files_data
     
-    def sync_push(self, translation_manager) -> bool:
-        """Push local data to remote (per-file structure). Returns True if successful."""
+    def sync_push(self, translation_manager) -> dict:
+        """Push local data to remote (per-file structure). Returns dict with success status and debug info."""
         if not self.is_configured():
-            print("[GitHubSync] Push aborted: not configured")
-            return False
-
-        # Validate data before pushing
-        if len(translation_manager.entries) == 0:
-            print("[GitHubSync] Push aborted: no entries to push")
-            return False
+            return {"success": False, "error": "not configured"}
 
         with self._lock:
             self._last_push = time.time()
             self._urgent_push = False
 
             try:
-                print(f"[GitHubSync] Starting push...")
-                print(f"[GitHubSync] TM entries: {len(translation_manager.entries)}")
-                print(f"[GitHubSync] TM logs: {len(translation_manager.logs)}")
-                print(f"[GitHubSync] TM comments: {len(translation_manager.comments)}")
-
-                files_data = self._get_entry_files(translation_manager)
-                print(f"[GitHubSync] Files to sync: {list(files_data.keys())}")
-
-                # Validate files_data before pushing
-                if not files_data:
-                    print("[GitHubSync] Push aborted: no file data to push")
-                    return False
-
                 results = []
+                debug_info = []
+                language = self.cm.language
+
+                # Push language-level files (archetypes, vocab)
+                # Push archetypes
+                archetypes_path = self._get_file_path('archetypes.json', None)
+                remote_archetypes = self._fetch_remote_file(archetypes_path)
+                archetypes_content = self.cm.archetypes
+                archetypes_result = self._upload_file(
+                    archetypes_path,
+                    archetypes_content,
+                    remote_archetypes['sha'] if remote_archetypes else None
+                )
+                results.append(archetypes_result.get("success", False))
+                debug_info.append({"file": "archetypes.json", "type": "archetypes", "result": archetypes_result})
+
+                # Push dd1_vocab
+                dd1_vocab_path = self._get_file_path('dd1_vocab.json', None)
+                remote_dd1_vocab = self._fetch_remote_file(dd1_vocab_path)
+                dd1_vocab_content = self.cm.dd1_vocab
+                dd1_vocab_result = self._upload_file(
+                    dd1_vocab_path,
+                    dd1_vocab_content,
+                    remote_dd1_vocab['sha'] if remote_dd1_vocab else None
+                )
+                results.append(dd1_vocab_result.get("success", False))
+                debug_info.append({"file": "dd1_vocab.json", "type": "vocab", "result": dd1_vocab_result})
+
+                # Push other_vocab
+                other_vocab_path = self._get_file_path('other_vocab.json', None)
+                remote_other_vocab = self._fetch_remote_file(other_vocab_path)
+                other_vocab_content = self.cm.other_vocab
+                other_vocab_result = self._upload_file(
+                    other_vocab_path,
+                    other_vocab_content,
+                    remote_other_vocab['sha'] if remote_other_vocab else None
+                )
+                results.append(other_vocab_result.get("success", False))
+                debug_info.append({"file": "other_vocab.json", "type": "vocab", "result": other_vocab_result})
+
+                # Push anach_definitions
+                import json
+                import os
+                anach_definitions_path = self._get_file_path('anach_definitions.json', None)
+                remote_anach_definitions = self._fetch_remote_file(anach_definitions_path)
+                base_dir = os.path.dirname(os.path.abspath(__file__))
+                config_dir = os.path.join(base_dir, "config", language)
+                anach_file = os.path.join(config_dir, "anach_definitions.json")
+                if os.path.exists(anach_file):
+                    with open(anach_file, 'r', encoding='utf-8-sig') as f:
+                        anach_definitions_content = json.load(f)
+                    anach_definitions_result = self._upload_file(
+                        anach_definitions_path,
+                        anach_definitions_content,
+                        remote_anach_definitions['sha'] if remote_anach_definitions else None
+                    )
+                    results.append(anach_definitions_result.get("success", False))
+                    debug_info.append({"file": "anach_definitions.json", "type": "definitions", "result": anach_definitions_result})
+
+                # Push archaic_examples
+                archaic_examples_path = self._get_file_path('archaic_examples.json', None)
+                remote_archaic_examples = self._fetch_remote_file(archaic_examples_path)
+                archaic_file = os.path.join(config_dir, "archaic_examples.json")
+                if os.path.exists(archaic_file):
+                    with open(archaic_file, 'r', encoding='utf-8-sig') as f:
+                        archaic_examples_content = json.load(f)
+                    archaic_examples_result = self._upload_file(
+                        archaic_examples_path,
+                        archaic_examples_content,
+                        remote_archaic_examples['sha'] if remote_archaic_examples else None
+                    )
+                    results.append(archaic_examples_result.get("success", False))
+                    debug_info.append({"file": "archaic_examples.json", "type": "examples", "result": archaic_examples_result})
+
+                # Push entry data (status, logs, comments)
+                files_data = self._get_entry_files(translation_manager)
 
                 for file_path, data in files_data.items():
-                    print(f"[GitHubSync] Processing file: {file_path}")
-                    print(f"[GitHubSync]   Entries: {len(data['entries'])}, Logs: {len(data['logs'])}, Comments: {len(data['comments'])}")
-                    
                     # Sanitize the file path for directory name
                     dir_name = self._sanitize_filename(file_path)
-                    print(f"[GitHubSync]   Dir name: {dir_name}")
                     
                     # Push status file for this entry file
                     status_content = {k: v.to_dict() for k, v in data['entries'].items()}
                     status_path = self._get_file_path('status', dir_name)
-                    print(f"[GitHubSync]   Pushing status to: {status_path}")
                     remote_status = self._fetch_remote_file(status_path)
                     status_result = self._upload_file(
                         status_path,
                         status_content,
                         remote_status['sha'] if remote_status else None
                     )
-                    print(f"[GitHubSync]   Status upload: {'OK' if status_result else 'FAILED'}")
-                    results.append(status_result)
+                    results.append(status_result.get("success", False))
+                    debug_info.append({"file": file_path, "type": "status", "result": status_result})
                     
                     # Push logs for this entry file
                     if data['logs']:
@@ -297,11 +347,13 @@ class GitHubSync:
                                     remote_logs['content'].append(log)
                             logs_content = remote_logs['content']
                         
-                        results.append(self._upload_file(
+                        logs_result = self._upload_file(
                             self._get_file_path('logs', dir_name),
                             logs_content,
                             remote_logs['sha'] if remote_logs else None
-                        ))
+                        )
+                        results.append(logs_result.get("success", False))
+                        debug_info.append({"file": file_path, "type": "logs", "result": logs_result})
                     
                     # Push comments for this entry file
                     if data['comments']:
@@ -320,19 +372,20 @@ class GitHubSync:
                                 remote_comments['content'][entry_id] = remote_list
                             comments_content = remote_comments['content']
                         
-                        results.append(self._upload_file(
+                        comments_result = self._upload_file(
                             self._get_file_path('comments', dir_name),
                             comments_content,
                             remote_comments['sha'] if remote_comments else None
-                        ))
+                        )
+                        results.append(comments_result.get("success", False))
+                        debug_info.append({"file": file_path, "type": "comments", "result": comments_result})
                 
                 success = all(results) if results else True
-                print(f"[GitHubSync] Push completed: {sum(results)}/{len(results)} files uploaded")
-                return success
+                return {"success": success, "debug": debug_info, "total": len(results), "successful": sum(results)}
                 
             except Exception as e:
-                print(f"[GitHubSync] Push failed: {e}")
-                return False
+                import traceback
+                return {"success": False, "error": str(e), "traceback": traceback.format_exc()}
     
     def _check_remote_timestamp(self, file_path: str) -> Optional[str]:
         """Check if remote file has been modified since we last synced."""
@@ -362,12 +415,60 @@ class GitHubSync:
             self._last_pull = time.time()
             
             try:
-                # First, get list of directories (files) in the language folder
-                language = self.cm.config.get('sync_language', 'English')
+                language = self.cm.language
                 owner, repo = self._get_repo_info()
                 if not owner or not repo:
                     return False
                 
+                # Pull language-level files (archetypes, vocab)
+                # Pull archetypes
+                archetypes_path = self._get_file_path('archetypes.json', None)
+                remote_archetypes = self._fetch_remote_file(archetypes_path)
+                if remote_archetypes and 'content' in remote_archetypes:
+                    self.cm.archetypes = remote_archetypes['content']
+                    self.cm.save_archetypes()
+                
+                # Pull dd1_vocab
+                dd1_vocab_path = self._get_file_path('dd1_vocab.json', None)
+                remote_dd1_vocab = self._fetch_remote_file(dd1_vocab_path)
+                if remote_dd1_vocab and 'content' in remote_dd1_vocab:
+                    self.cm.dd1_vocab = remote_dd1_vocab['content']
+                    self.cm.save_vocab(dd1_vocab_path, remote_dd1_vocab['content'])
+                
+                # Pull other_vocab
+                other_vocab_path = self._get_file_path('other_vocab.json', None)
+                remote_other_vocab = self._fetch_remote_file(other_vocab_path)
+                if remote_other_vocab and 'content' in remote_other_vocab:
+                    self.cm.other_vocab = remote_other_vocab['content']
+                    self.cm.save_vocab(other_vocab_path, remote_other_vocab['content'])
+                
+                # Pull anach_definitions
+                anach_definitions_path = self._get_file_path('anach_definitions.json', None)
+                remote_anach_definitions = self._fetch_remote_file(anach_definitions_path)
+                if remote_anach_definitions and 'content' in remote_anach_definitions:
+                    import json
+                    import os
+                    base_dir = os.path.dirname(os.path.abspath(__file__))
+                    config_dir = os.path.join(base_dir, "config", language)
+                    anach_file = os.path.join(config_dir, "anach_definitions.json")
+                    os.makedirs(config_dir, exist_ok=True)
+                    with open(anach_file, 'w', encoding='utf-8-sig') as f:
+                        json.dump(remote_anach_definitions['content'], f, indent=2, ensure_ascii=False)
+                
+                # Pull archaic_examples
+                archaic_examples_path = self._get_file_path('archaic_examples.json', None)
+                remote_archaic_examples = self._fetch_remote_file(archaic_examples_path)
+                if remote_archaic_examples and 'content' in remote_archaic_examples:
+                    import json
+                    import os
+                    base_dir = os.path.dirname(os.path.abspath(__file__))
+                    config_dir = os.path.join(base_dir, "config", language)
+                    archaic_file = os.path.join(config_dir, "archaic_examples.json")
+                    os.makedirs(config_dir, exist_ok=True)
+                    with open(archaic_file, 'w', encoding='utf-8-sig') as f:
+                        json.dump(remote_archaic_examples['content'], f, indent=2, ensure_ascii=False)
+                
+                # Pull entry data (status, logs, comments)
                 # List contents of language directory
                 url = f"https://api.github.com/repos/{owner}/{repo}/contents/{language}"
                 resp = requests.get(url, headers=self._get_headers(), timeout=30)

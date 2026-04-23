@@ -198,9 +198,41 @@ class LoreEngine:
         return unique
 
     # ---------------- Definition Cache ----------------
-    # Always resolve relative to this source file so it works regardless of working directory
-    DEFINITIONS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "anach_definitions.json")
-    EXAMPLES_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "archaic_examples.json")
+    # Resolve relative to config/<language>/ directory for per-language storage
+    @classmethod
+    def _get_definitions_file(cls):
+        """Get the path to the definitions file for the current language."""
+        try:
+            import sys
+            if 'main' in sys.modules:
+                cm = sys.modules['main'].cm if hasattr(sys.modules['main'], 'cm') else None
+                if cm and hasattr(cm, 'language'):
+                    base_dir = os.path.dirname(os.path.abspath(__file__))
+                    config_dir = os.path.join(base_dir, "config", cm.language)
+                    return os.path.join(config_dir, "anach_definitions.json")
+        except:
+            pass
+        # Fallback to root directory
+        return os.path.join(os.path.dirname(os.path.abspath(__file__)), "anach_definitions.json")
+    
+    @classmethod
+    def _get_examples_file(cls):
+        """Get the path to the examples file for the current language."""
+        try:
+            import sys
+            if 'main' in sys.modules:
+                cm = sys.modules['main'].cm if hasattr(sys.modules['main'], 'cm') else None
+                if cm and hasattr(cm, 'language'):
+                    base_dir = os.path.dirname(os.path.abspath(__file__))
+                    config_dir = os.path.join(base_dir, "config", cm.language)
+                    return os.path.join(config_dir, "archaic_examples.json")
+        except:
+            pass
+        # Fallback to root directory
+        return os.path.join(os.path.dirname(os.path.abspath(__file__)), "archaic_examples.json")
+    
+    DEFINITIONS_FILE = property(lambda cls: cls._get_definitions_file())
+    EXAMPLES_FILE = property(lambda cls: cls._get_examples_file())
 
     @classmethod
     def _load_def_cache(cls):

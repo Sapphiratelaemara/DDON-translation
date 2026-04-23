@@ -92,6 +92,52 @@ Ctrl+D: Em-dash
 Ctrl+Shift+D: Ellipsis</div>
         </nav>
 
+        <!-- Add Language Modal -->
+        <div id="add-language-modal" class="modal">
+            <div class="modal-content">
+                <h2 style="margin-bottom: 20px;">Add New Language</h2>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;">Select Language:</label>
+                    <select id="new-language-select" class="settings-select" style="width: 100%; padding: 8px;">
+                        <option value="">-- Select a language --</option>
+                        <option value="ja">Japanese</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="es">Spanish</option>
+                        <option value="it">Italian</option>
+                        <option value="pt">Portuguese</option>
+                        <option value="ru">Russian</option>
+                        <option value="ko">Korean</option>
+                        <option value="zh">Chinese</option>
+                        <option value="ar">Arabic</option>
+                        <option value="nl">Dutch</option>
+                        <option value="pl">Polish</option>
+                        <option value="tr">Turkish</option>
+                        <option value="cs">Czech</option>
+                        <option value="sv">Swedish</option>
+                        <option value="da">Danish</option>
+                        <option value="fi">Finnish</option>
+                        <option value="no">Norwegian</option>
+                        <option value="el">Greek</option>
+                        <option value="he">Hebrew</option>
+                        <option value="th">Thai</option>
+                        <option value="vi">Vietnamese</option>
+                        <option value="id">Indonesian</option>
+                        <option value="hi">Hindi</option>
+                        <option value="uk">Ukrainian</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;">Or enter custom code:</label>
+                    <input type="text" id="custom-language-code" class="kl-input" placeholder="e.g., xx" maxlength="2" style="width: 100%; padding: 8px;">
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                    <button class="btn-secondary" id="btn-cancel-add-language">Cancel</button>
+                    <button class="btn-primary" id="btn-confirm-add-language">Add Language</button>
+                </div>
+            </div>
+        </div>
+
         <!-- Tab Content Containers -->
         <div class="tab-viewport">
 
@@ -583,7 +629,8 @@ Ctrl+Shift+D: Ellipsis</div>
                     <div class="settings-layout">
                         <!-- Sidebar for Settings Categories -->
                         <aside class="settings-nav">
-                            <button class="settings-nav-btn active" data-section="api">API_KEYS</button>
+                            <button class="settings-nav-btn active" data-section="language">LANGUAGE</button>
+                            <button class="settings-nav-btn" data-section="api">API_KEYS</button>
                             <button class="settings-nav-btn" data-section="paths">PATH_MAPPINGS</button>
                             <button class="settings-nav-btn" data-section="tags">TAG_MAPPINGS</button>
                             <button class="settings-nav-btn" data-section="presets">LIMIT_PRESETS</button>
@@ -598,8 +645,22 @@ Ctrl+Shift+D: Ellipsis</div>
                         <!-- Settings Content -->
                         <div class="settings-content">
 
+                            <!-- Section: Language -->
+                            <div class="settings-section active" id="section-language">
+                                <div class="field-group">
+                                    <label>Current Language</label>
+                                    <select id="settings-language-selector" class="settings-select" style="width: 100%; padding: 8px;">
+                                        <option value="">Loading...</option>
+                                    </select>
+                                    <p class="help-text">Select the active language for translation work.</p>
+                                </div>
+                                <div class="field-group">
+                                    <button class="btn-primary" id="btn-settings-add-language">+ ADD NEW LANGUAGE</button>
+                                </div>
+                            </div>
+
                             <!-- Section: API Keys -->
-                            <div class="settings-section active" id="section-api">
+                            <div class="settings-section" id="section-api">
                                 <div class="field-group">
                                     <label>DeepL API Key</label>
                                     <div class="input-with-action">
@@ -753,23 +814,6 @@ Ctrl+Shift+D: Ellipsis</div>
                                 </div>
                                 
                                 <div class="field-group">
-                                    <label>Target Language</label>
-                                    <select id="opt-sync-language">
-                                        <option value="English">English</option>
-                                        <option value="Spanish">Spanish</option>
-                                        <option value="French">French</option>
-                                        <option value="German">German</option>
-                                        <option value="Italian">Italian</option>
-                                        <option value="Portuguese">Portuguese</option>
-                                        <option value="Russian">Russian</option>
-                                        <option value="Chinese">Chinese</option>
-                                        <option value="Japanese">Japanese</option>
-                                        <option value="Korean">Korean</option>
-                                    </select>
-                                    <p class="help-text">The language you're translating to.</p>
-                                </div>
-                                
-                                <div class="field-group">
                                     <div class="flex-row">
                                         <label class="switch">
                                             <input type="checkbox" id="opt-sync-auto">
@@ -781,7 +825,8 @@ Ctrl+Shift+D: Ellipsis</div>
                                 </div>
                                 
                                 <div class="flex-row" style="margin-top: 20px; gap: 10px;">
-                                    <button class="btn-primary" id="btn-sync-push">PUSH TO GITHUB</button>
+                                    <button class="btn-primary" id="btn-sync-save">SAVE SETTINGS</button>
+                                    <button class="btn-secondary" id="btn-sync-push">PUSH TO GITHUB</button>
                                     <button class="btn-secondary" id="btn-sync-pull">PULL FROM GITHUB</button>
                                     <button class="btn-secondary" id="btn-sync-test">TEST CONNECTION</button>
                                 </div>

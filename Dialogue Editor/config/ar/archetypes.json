@@ -1,0 +1,182 @@
+{
+  "archetypes": {
+    "A1": {
+      "name": "Sincere / Hopeful",
+      "professions": [
+        "villager",
+        "farmer",
+        "parent",
+        "ordinary townsfolk",
+        "young adult commoner"
+      ],
+      "notes": "Warm, direct sincerity. Believes things can improve. Not naive, but not cynical.\nFull sentences, gentle hedging. Speaks plainly but with care.\nRegister: 'tis, aught, pray, afore — used naturally, not performed.\nHedging: \"I imagine...\", \"Mayhap...\", \"I should think...\", \"I daresay...\"\nExample: \"I imagine you'll be off again soon. Gone to trample evil underfoot and put fell beasts to the sword and whatnot.\"\nExample: \"But it will take time yet afore life in Cassardis is as it was before. Fear still grips the village...\"\nExample: \"I've a wife and son. They should get word of this afore all else.\""
+    },
+    "A2": {
+      "name": "Wise Elder",
+      "professions": [
+        "village elder",
+        "retired soldier",
+        "old healer",
+        "grandmother",
+        "sage"
+      ],
+      "notes": "Measured, philosophical, slow to speak but worth hearing.\nLong sentences with subordinate clauses. Reflective pauses. Earns weight through restraint.\nRegister: 'twas, ere, methinks, in sooth, forsooth — richer archaic palette than A1.\nOften references the past or the long view: \"I have seen...\", \"Long have I...\", \"In my time...\"\nNever rushes. Statements feel like conclusions drawn from decades.\nExample: \"Call it what you will, such is the office I have served, just as those before me and you beyond, unto eternity.\"\nExample: \"Too often, man is driven to acquire power beyond his control, and in so doing, delivers himself unto ruin.\""
+    },
+    "A3": {
+      "name": "Grief-stricken / Burdened",
+      "professions": [
+        "bereaved parent",
+        "survivor",
+        "widow",
+        "someone who lost everything"
+      ],
+      "notes": "Warm underneath, but weighed down. Dignified grief, not self-pity — does not wallow.\nSentences trail or break mid-thought. \"I fear...\" as a sentence opener is characteristic.\nRegister: mix of plain and lightly archaic. Slips into formality when composing themselves.\nKey phrases: \"I fear...\", \"I know not how to...\", \"Would that I...\", \"Pray, forgive...\", \"It pains me...\"\nExample: \"I fear we know precious little of your condition...\"\nExample: \"I'm...sorry. Forgive my words. I see they offer no use, save add to your burden.\"\nExample: \"Fear of the dragon, fear of my husband... In truth, I know not which frightens me more.\""
+    },
+    "A4": {
+      "name": "Warm but Weary",
+      "professions": [
+        "innkeeper",
+        "healer",
+        "overworked parent",
+        "town guard who cares"
+      ],
+      "notes": "Genuinely kind, but tired. Short sentences from exhaustion, not bluntness.\nStill uses full courtesies, just slightly clipped. Warmth comes through despite fatigue.\nRegister: 'tis, aye, aught — functional, not flowery.\nTends toward short declaratives with a warm close: \"Come in, then.\" \"Rest awhile.\" \"I'll see to it, aye.\"\nExample: \"Best we rested here.\"\nExample: \"Shall we rest afore pressing on?\""
+    },
+    "B": {
+      "name": "Rough / Blunt",
+      "professions": [
+        "soldier",
+        "guard",
+        "bandit",
+        "antagonist",
+        "labourer",
+        "mercenary"
+      ],
+      "notes": "Short clauses, punchy, direct. No hedging, no sentiment. Earthy vocabulary.\nThe single strongest marker is \"eh?\" — used to punctuate almost any statement.\nOther markers: \"Hoy!\", \"Hah!\", \"Bah.\", \"Aye\", \"Right,\", \"the lot of them\", \"o'\" for \"of\", \"cos\" for casual address.\nLight on archaic vocabulary — these characters speak plainly, not formally.\nRhetorical questions, mild contempt, no-nonsense observations.\nExample: \"We lost some o' the menfolk... Good men, all.\"\nExample: \"Still, let's have no more brave folly from you, eh?\"\nExample: \"Aye, that's the one. Now I need the other, cos.\""
+    },
+    "C1": {
+      "name": "Upbeat Merchant / Trader",
+      "professions": [
+        "merchant",
+        "shopkeeper",
+        "ferryman",
+        "guild clerk",
+        "travelling vendor"
+      ],
+      "notes": "Warm but businesslike. Transactions drive the tone — always moving toward the next thing.\nShort sentences. Often ends on a question or invitation to act.\nRegister: \"ser\" as casual respectful address, \"mind\" as mild emphasis, \"daresay\", \"I'd wager\".\nExample: \"Have a look.\"\nExample: \"I daresay you'll find this reasonable.\"\nExample: \"Right, there we are. Fare well!\""
+    },
+    "C2": {
+      "name": "Gossipy / Chatty Townsfolk",
+      "professions": [
+        "market regular",
+        "neighbour",
+        "town busybody",
+        "fishwife",
+        "dockhand"
+      ],
+      "notes": "Can't help sharing more than asked. Warm and nosy. Information flows freely.\nRun-on sentences, topic changes mid-thought, rhetorical qualifications to soften the gossip.\nStrongest markers: \"I hear tell...\", \"Way I heard it...\", \"They say...\", \"Not that..., mind.\"\nSelf-corrections and hedges: \"Not that I blame them, mind.\", \"Not that it's my business, but...\"\nRegister: colloquial, light archaic. \"o'\" for \"of\", \"cos\", \"aught on\" (something going on).\nExample: \"I hear tell you've already made a name for yourself at the encampment.\"\nExample: \"Way I heard it, the guards in Gran Soren spend more time sleeping in their cups than protecting the realm.\"\nExample: \"You're keeping busy, eh? I hear there's aught on with the well?\""
+    },
+    "C3": {
+      "name": "Eager / Excitable",
+      "professions": [
+        "apprentice",
+        "young recruit",
+        "fan of the Arisen",
+        "enthusiastic civilian"
+      ],
+      "notes": "Enthusiastic, slightly breathless. Admires strength or adventure openly.\nWhere D stumbles backward out of fear, C3 stumbles forward out of excitement — the energy is outward, propulsive.\nShort sentences, exclamations, can trip over words or restart mid-sentence in a rush.\nRegister: light archaic at best — these characters haven't learned formal speech.\nExample: \"Truly?!\"\nExample: \"I knew it!\"\nExample: \"I heard the news! They say you're to set off on a fantastic journey.\"\nExample: \"I hear you've become, what was it... A... Arisen!\""
+    },
+    "D": {
+      "name": "Timid / Young / Shy",
+      "professions": [
+        "child",
+        "scared civilian",
+        "refugee",
+        "servant",
+        "very young apprentice"
+      ],
+      "notes": "Incomplete sentences, trailing off, self-doubt, apologies, qualifications.\nWhere C3 stumbles forward out of excitement, D shrinks back — energy is inward, contracting.\nFrequent \"...\", mid-sentence breaks, self-corrections. Apology before the statement, not after.\nKey phrases: \"I know not...\", \"Pray, forgive me...\", \"I...I fear...\", \"It pains me to...\"\nSelf-deprecating but not broken — there is still agency underneath the timidity.\nExample: \"Forgive me. I cannot remember where I lost it...\"\nExample: \"I dearly wish I could tell you its meaning, but I fear I am yet early in my studies...\"\nExample: \"It pains me to be a burden...\""
+    },
+    "E": {
+      "name": "Formal / Military",
+      "professions": [
+        "knight",
+        "captain",
+        "duke's guard",
+        "officer",
+        "noble retainer",
+        "ser"
+      ],
+      "notes": "Clipped, duty-focused, no-nonsense. Addresses by rank or title.\nShort declarative sentences. Efficient — says what's needed, nothing more.\nRegister: \"ser\" and \"Arisen\" as address, \"to say naught of\", \"ill\" as qualifier (\"ill-suited\", \"ill-advised\").\n\"Naught\" preferred over \"nothing\". Avoids hedging and personal opinion.\nContractions appear in terse constructions but never in flowing or chatty speech.\nExample: \"I bear no grudge against you, Arisen, but you shall die by my hand just the same.\"\nExample: \"I have my own expectations for you, ser. I pray you will live up to them in your endeavors henceforth.\""
+    },
+    "E2": {
+      "name": "Noble / Aristocratic",
+      "professions": [
+        "lord",
+        "lady",
+        "duke",
+        "count",
+        "noble",
+        "courtier"
+      ],
+      "notes": "Formal, measured, accustomed to being obeyed. Not always cruel — may be gracious or benevolent.\nLong periodic sentences. Condescension can be entirely polite.\nContractions appear naturally in subordinate clauses and possession (\"I've heard\", \"I'd thought\", \"milady's\"),\nbut formal declarations avoid them: never \"it's fine\" — instead \"'tis no matter\"; never \"you'll see to it\" — instead \"you will see to it\".\nRegister: fullest archaic register — 'tis, naught, wherefore, henceforth, unto, milady, His Grace.\nExample: \"I trust this requires no further explanation.\"\nExample: \"Such caprice can ill defend this camp, to say naught of all Gransys. 'Tis a sorry thing.\"\nExample: \"I have my own expectations for you, ser. I pray you will live up to them in your endeavors henceforth.\""
+    },
+    "F": {
+      "name": "Wisecracking / Irreverent",
+      "professions": [
+        "rogue",
+        "traveling bard",
+        "cynical merchant",
+        "veteran adventurer",
+        "barkeep"
+      ],
+      "notes": "Colloquial, self-aware humor, mild sarcasm. Archaic vocabulary used lightly and knowingly.\nAsides, rhetorical questions aimed at no one in particular. The humor is witty, not contemptuous.\nRegister: \"cos\" casual address, \"naught but\", \"s'pose\", \"eh?\", dry observations.\nWill use archaic words for comic effect or exaggeration, but doesn't live there.\nExample: \"The great Arisen, is it? To be brutally honest, I've no idea what that's even supposed to mean.\"\nExample: \"Not that any of our fates are sealed just yet, mind.\"\nExample: \"Whate'er it was, one of them took summat from the other. He's the more obvious mark.\""
+    },
+    "G": {
+      "name": "Devout / Clerical",
+      "professions": [
+        "priest",
+        "cleric",
+        "nun",
+        "bishop",
+        "temple keeper",
+        "acolyte"
+      ],
+      "notes": "Calm, measured, reverent. Speaks with quiet authority — never rushed, never flustered.\nThe Maker is the primary divine reference: \"By the Maker\", \"Maker be good\", \"the Maker's grace\".\nOften invokes fate, faith, or divine will as explanation or comfort.\nRegister: 'mayhap', 'pray', 'blessing', 'soul', 'faith', 'grace'. Sermonic rhythm.\nAvoids slang entirely. Rarely shows strong emotion; composed even under pressure.\nContractions rare in formal speech; more natural in private or personal moments.\nExample: \"By the Maker... Will evil never leave us at peace?\"\nExample: \"I dearly wish I could tell you its meaning, but I fear I am yet early in my studies as a priest.\"\nExample: \"Pray, spare me, Arisen, that I may live to see the flame.\""
+    },
+    "H": {
+      "name": "Menacing / Threatening",
+      "professions": [
+        "villain",
+        "crime lord",
+        "corrupt official",
+        "dangerous antagonist",
+        "enforcer"
+      ],
+      "notes": "Controlled, cold. Power comes from restraint, not volume. Never shouts.\nShort declaratives with implied consequences. Polite on the surface, cruel underneath.\nHigh-status villains use the full formal register — the politeness makes the threat more unnerving.\nLower-status enforcers can be blunter (closer to B) but still measured, never frantic.\nHigh-status: contractions avoided in threats. Low-status: contractions natural.\nExample: \"I would choose my next words with care.\"\nExample: \"See that it does not happen again.\"\nExample: \"I bear no grudge against you, Arisen, but you shall die by my hand just the same.\""
+    },
+    "I": {
+      "name": "Scholarly / Pedantic",
+      "professions": [
+        "scholar",
+        "scribe",
+        "court mage",
+        "archivist",
+        "physician",
+        "alchemist"
+      ],
+      "notes": "Verbose, precise, enjoys the sound of his own expertise. Qualifies everything.\nLong sentences with parentheticals, corrections, and self-citation. Formal speech is their natural mode.\nRegister: full archaic, technical vocabulary. Latin-flavoured constructions where appropriate.\nSelf-referential: \"As I have noted...\", \"Strictly speaking...\", \"One must distinguish between...\"\nContractions rare — they tend to speak in complete, deliberate constructions.\nExample: \"And so the dragon is sent into the world to guide the Arisen, and refine them. To temper their wills into aught capable of sustaining the world.\"\nExample: \"For I have seen it... A cipher, void of meaning unto itself, but of vital importance.\"\nExample: \"The pawns exist astride the rift. They speak of a multitude of worlds, each infinite unto itself.\""
+    },
+    "J": {
+      "name": "Mysterious / Otherworldly",
+      "professions": [
+        "dragon",
+        "the Seneschal",
+        "ancient entity",
+        "immortal",
+        "something no longer entirely human"
+      ],
+      "notes": "Speaks from outside mortal time and concern. Not threatening — simply vast. Detached, not cold.\nStatements are absolute, cosmic, unhurried. No questions, no hedging, no appeals for understanding.\nShort sentences that carry enormous weight. Long sentences that unspool like inevitability.\nSpoken truth is offered, not argued — there is no sense that they need you to agree.\nRegister: fullest archaic, but used with total naturalness — not performed. \"Unto\", \"naught\", \"aught\", \"ere\".\nAvoids all contractions. Never informal. Never emotional in a human sense.\nExample: \"Naught lasts forever, yet all persists unto eternity.\"\nExample: \"They yearn for some other, better place.\"\nExample: \"For it is fear which rarefies and distills the soul unto its rightful, lofty character.\"\nExample: \"And so the dragon is sent into the world to guide the Arisen, and refine them. To temper their wills into aught capable of sustaining the world.\"\nExample: \"The pawns exist astride the rift. They speak of a multitude of worlds, each infinite unto itself.\""
+    }
+  }
+}

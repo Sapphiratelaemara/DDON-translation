@@ -4,6 +4,57 @@
  */
 
 // =============================================================================
+// QUEUE PERSISTENCE (per-client via localStorage)
+// =============================================================================
+const QUEUE_STORAGE_KEY = 'review_queues';
+const ITEMS_STORAGE_KEY = 'review_items';
+
+function saveReviewQueuesToStorage(queues) {
+    try {
+        localStorage.setItem(QUEUE_STORAGE_KEY, JSON.stringify(queues));
+    } catch (e) {
+        console.error('[saveReviewQueuesToStorage] Error:', e);
+    }
+}
+
+function loadReviewQueuesFromStorage() {
+    try {
+        const data = localStorage.getItem(QUEUE_STORAGE_KEY);
+        if (data) {
+            return JSON.parse(data);
+        }
+    } catch (e) {
+        console.error('[loadReviewQueuesFromStorage] Error:', e);
+    }
+    return {
+        "tag": [],
+        "wall": [],
+        "dash": [],
+        "anach": []
+    };
+}
+
+function saveReviewItemsToStorage(items) {
+    try {
+        localStorage.setItem(ITEMS_STORAGE_KEY, JSON.stringify(items));
+    } catch (e) {
+        console.error('[saveReviewItemsToStorage] Error:', e);
+    }
+}
+
+function loadReviewItemsFromStorage() {
+    try {
+        const data = localStorage.getItem(ITEMS_STORAGE_KEY);
+        if (data) {
+            return JSON.parse(data);
+        }
+    } catch (e) {
+        console.error('[loadReviewItemsFromStorage] Error:', e);
+    }
+    return [];
+}
+
+// =============================================================================
 // STATE
 // =============================================================================
 let state = loadState();
@@ -560,6 +611,133 @@ function initDashboardActions() {
     // Settings button
     const btnSettings = document.getElementById('btn-settings');
     if (btnSettings) btnSettings.onclick = () => switchTab('settings');
+
+    // Settings language selector
+    const settingsLangSelector = document.getElementById('settings-language-selector');
+    const btnSettingsAddLanguage = document.getElementById('btn-settings-add-language');
+    
+    if (settingsLangSelector) {
+        // Populate available languages
+        const populateSettingsLanguageOptions = async () => {
+            try {
+                const languages = await eel.get_available_languages()();
+                const currentValue = settingsLangSelector.value;
+                settingsLangSelector.innerHTML = '';
+                languages.forEach(lang => {
+                    const opt = document.createElement('option');
+                    opt.value = lang;
+                    opt.textContent = lang.toUpperCase();
+                    settingsLangSelector.appendChild(opt);
+                });
+                // Set to current language
+                const config = await eel.get_full_config()();
+                if (config && config.language) {
+                    settingsLangSelector.value = config.language;
+                }
+            } catch (e) {
+                console.error('Failed to load languages:', e);
+            }
+        };
+        
+        populateSettingsLanguageOptions();
+        
+        settingsLangSelector.onchange = async () => {
+            const newLang = settingsLangSelector.value;
+            const success = await eel.switch_language(newLang)();
+            if (success) {
+                console.log(`Switched to language: ${newLang}`);
+                // Reload config and refresh UI
+                const config = await eel.get_full_config()();
+                console.log(`[switch_language] Config after switch:`, { language: config.language, github_repo: config.github_repo, sync_nickname: config.sync_nickname });
+                if (config) {
+                    state.settings.lastConfig = config;
+                    // Reinitialize components that depend on config
+                    await loadSettings();
+                    // Refresh the current view
+                    const activeTab = document.querySelector('.tab-btn.active');
+                    if (activeTab) {
+                        const tabName = activeTab.dataset.tab;
+                        if (tabName === 'editor') {
+                            // Refresh editor if active
+                            const currentRow = state.currentRow;
+                            if (currentRow !== null) {
+                                loadRow(currentRow);
+                            }
+                        }
+                    }
+                }
+            } else {
+                console.error('Failed to switch language');
+                // Revert selection
+                const config = await eel.get_full_config()();
+                settingsLangSelector.value = config?.language || 'en';
+            }
+        };
+    }
+    
+    // Add language button in settings
+    if (btnSettingsAddLanguage) {
+        const modal = document.getElementById('add-language-modal');
+        const btnCancel = document.getElementById('btn-cancel-add-language');
+        const btnConfirm = document.getElementById('btn-confirm-add-language');
+        const langSelect = document.getElementById('new-language-select');
+        const customCodeInput = document.getElementById('custom-language-code');
+        
+        btnSettingsAddLanguage.onclick = () => {
+            if (modal) modal.classList.add('active');
+            if (langSelect) langSelect.value = '';
+            if (customCodeInput) customCodeInput.value = '';
+        };
+        
+        if (btnCancel) {
+            btnCancel.onclick = () => {
+                if (modal) modal.classList.remove('active');
+            };
+        }
+        
+        if (btnConfirm) {
+            btnConfirm.onclick = async () => {
+                let langCode = '';
+                if (langSelect && langSelect.value) {
+                    langCode = langSelect.value;
+                } else if (customCodeInput && customCodeInput.value) {
+                    langCode = customCodeInput.value.toLowerCase();
+                }
+                
+                if (langCode) {
+                    const [success, message] = await eel.create_language(langCode)();
+                    if (success) {
+                        alert(message);
+                        if (modal) modal.classList.remove('active');
+                        // Refresh language list
+                        if (settingsLangSelector) {
+                            const populateSettingsLanguageOptions = async () => {
+                                try {
+                                    const languages = await eel.get_available_languages()();
+                                    settingsLangSelector.innerHTML = '';
+                                    languages.forEach(lang => {
+                                        const opt = document.createElement('option');
+                                        opt.value = lang;
+                                        opt.textContent = lang.toUpperCase();
+                                        settingsLangSelector.appendChild(opt);
+                                    });
+                                    // Select the newly created language
+                                    settingsLangSelector.value = langCode;
+                                } catch (e) {
+                                    console.error('Failed to load languages:', e);
+                                }
+                            };
+                            populateSettingsLanguageOptions();
+                        }
+                    } else {
+                        alert(`Error: ${message}`);
+                    }
+                } else {
+                    alert('Please select a language or enter a custom code');
+                }
+            };
+        }
+    }
 
     // Panel toggle functionality - only in reviewer
     const btnToggleRefs = document.getElementById('btn-toggle-refs');
@@ -3576,6 +3754,12 @@ async function loadSettings() {
         if (!config) return;
         state.settings.lastConfig = config;
 
+        // Set language selector value
+        const langSelector = document.getElementById('language-selector');
+        if (langSelector && config.language) {
+            langSelector.value = config.language;
+        }
+
         // 1. API Keys & Global Paths
         setVal('opt-deepl-key', config.deepl_api_key || '');
         setVal('opt-or-key', config.openrouter_api_key || '');
@@ -3608,7 +3792,6 @@ async function loadSettings() {
         setVal('opt-github-repo', config.github_repo || '');
         setVal('opt-github-token', config.github_token || '');
         setVal('opt-sync-nickname', config.sync_nickname || '');
-        setVal('opt-sync-language', config.sync_language || 'English');
         setCheck('opt-sync-auto', config.sync_auto || false);
         
         // Update sync status display
@@ -4426,6 +4609,7 @@ function initSettingsActions() {
     if (btnSyncPush) btnSyncPush.onclick = async () => {
         btnSyncPush.innerText = 'PUSHING...';
         const res = await eel.sync_push()();
+        console.log('[sync_push] Response:', res);
         btnSyncPush.innerText = 'PUSH TO GITHUB';
         openAlertModal(res.ok ? 'SUCCESS' : 'ERROR', res.message || res.error);
         updateSyncStatusDisplay();
@@ -4443,27 +4627,53 @@ function initSettingsActions() {
     const btnSyncTest = document.getElementById('btn-sync-test');
     if (btnSyncTest) btnSyncTest.onclick = async () => {
         const status = await eel.get_sync_status()();
-        openAlertModal(status.ok && status.configured ? 'CONFIGURED' : 'NOT CONFIGURED', 
-            `Repo: ${status.repo || 'N/A'}<br>Language: ${status.language}<br>Auto: ${status.auto_sync ? 'ON' : 'OFF'}`);
+        const message = `Repo: ${status.repo || 'N/A'}<br>Language: ${status.language}<br>Auto: ${status.auto_sync ? 'ON' : 'OFF'}`;
+        openAlertModal(status.ok && status.configured ? 'CONFIGURED' : 'NOT CONFIGURED', message, true);
     };
+    
+    const btnSyncSave = document.getElementById('btn-sync-save');
+    if (btnSyncSave) {
+        btnSyncSave.onclick = async () => {
+            console.log('[btnSyncSave] Clicked');
+            const repo = document.getElementById('opt-github-repo').value.trim();
+            const token = document.getElementById('opt-github-token').value.trim();
+            const nickname = document.getElementById('opt-sync-nickname').value.trim();
+            const auto = document.getElementById('opt-sync-auto').checked;
+            
+            console.log('[btnSyncSave] Saving:', { repo, token: token ? '***' : '', nickname, auto });
+            
+            try {
+                await eel.save_config_field('github_repo', repo)();
+                console.log('[btnSyncSave] Saved github_repo');
+                await eel.save_config_field('github_token', token)();
+                console.log('[btnSyncSave] Saved github_token');
+                await eel.save_config_field('sync_nickname', nickname)();
+                console.log('[btnSyncSave] Saved sync_nickname');
+                await eel.save_config_field('sync_auto', auto)();
+                console.log('[btnSyncSave] Saved sync_auto');
+                
+                updateSyncStatusDisplay();
+                openAlertModal('SAVED', 'GitHub sync settings have been saved.');
+            } catch (e) {
+                console.error('[btnSyncSave] Error:', e);
+                openAlertModal('ERROR', 'Failed to save settings: ' + e.message);
+            }
+        };
+    } else {
+        console.log('[btnSyncSave] Button not found');
+    }
     
     // Sync settings auto-save on blur
     const setupSyncBlur = (id, key) => {
         const el = document.getElementById(id);
-        if (el) el.onblur = async () => { 
-            await eel.save_config_field(key, el.value.trim())();
+        if (el) el.onblur = async () => {
+            await eel.save_config_field(key, el.value.trim());
             updateSyncStatusDisplay();
         };
     };
     setupSyncBlur('opt-github-repo', 'github_repo');
     setupSyncBlur('opt-github-token', 'github_token');
     setupSyncBlur('opt-sync-nickname', 'sync_nickname');
-    
-    const syncLanguage = document.getElementById('opt-sync-language');
-    if (syncLanguage) syncLanguage.onchange = async () => {
-        await eel.save_config_field('sync_language', syncLanguage.value)();
-        updateSyncStatusDisplay();
-    };
     
     const syncAuto = document.getElementById('opt-sync-auto');
     if (syncAuto) syncAuto.onchange = async () => {
@@ -4770,13 +4980,17 @@ document.getElementById('btn-confirm-ok')?.addEventListener('click', () => {
     document.getElementById('modal-confirm').classList.remove('active');
 });
 
-function openAlertModal(title, message) {
+function openAlertModal(title, message, isHtml = false) {
     const modal = document.getElementById('modal-alert');
     const titleEl = document.getElementById('alert-modal-title');
     const messageEl = document.getElementById('alert-modal-message');
     
     titleEl.innerText = title;
-    messageEl.innerText = message;
+    if (isHtml) {
+        messageEl.innerHTML = message;
+    } else {
+        messageEl.innerText = message;
+    }
     
     modal.classList.add('active');
 }

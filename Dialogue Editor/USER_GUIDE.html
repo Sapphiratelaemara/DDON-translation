@@ -125,11 +125,19 @@
         
         <h3>Configuration Files:</h3>
         <ul>
-            <li><code>keys.json</code> - API keys for DeepL and OpenRouter (auto-created if missing)</li>
-            <li><code>formatter_config.json</code> - Main application settings</li>
-            <li><code>memory.json</code> - Learned fixes and archetype assignments</li>
-            <li><code>cache.json</code> - API response cache (7-day TTL)</li>
-            <li><code>prefetch_cache.json</code> - Prefetch cache for performance (7-day TTL)</li>
+            <li><code>keys.json</code> - API keys for DeepL and OpenRouter (auto-created if missing, stored in root directory)</li>
+            <li><code>config/&lt;lang&gt;/formatter_config.json</code> - Main application settings (per-language)</li>
+            <li><code>config/&lt;lang&gt;/user_settings.json</code> - User preferences including sync settings, paths, theme (per-language)</li>
+            <li><code>config/&lt;lang&gt;/memory.json</code> - Learned fixes and archetype assignments (per-language)</li>
+            <li><code>config/&lt;lang&gt;/archetypes.json</code> - Character archetypes (synced to GitHub)</li>
+            <li><code>config/&lt;lang&gt;/dd1_vocab.json</code> - DD1 vocabulary (synced to GitHub)</li>
+            <li><code>config/&lt;lang&gt;/other_vocab.json</code> - Non-DD1 vocabulary (synced to GitHub)</li>
+            <li><code>config/&lt;lang&gt;/anach_definitions.json</code> - Anachronism definitions (synced to GitHub)</li>
+            <li><code>config/&lt;lang&gt;/archaic_examples.json</code> - Archaic word examples (synced to GitHub)</li>
+            <li><code>config/&lt;lang&gt;/cache.json</code> - API response cache (7-day TTL, per-language)</li>
+            <li><code>config/&lt;lang&gt;/prefetch_cache.json</code> - Prefetch cache for performance (7-day TTL, per-language)</li>
+            <li><code>config/&lt;lang&gt;/review_queues_cache.json</code> - Review queues (per-language, not synced)</li>
+            <li><code>config/&lt;lang&gt;/review_items_cache.json</code> - Manual translation queue (per-language, not synced)</li>
         </ul>
     </div>
 
@@ -146,12 +154,40 @@
         <ul>
             <li><strong>Source:</strong> Displays the original source text to be translated</li>
             <li><strong>Translation:</strong> Where you edit the translated text</li>
-            <li><strong>Right Sidebar:</strong> Toggle CONTEXT and AI_ASSISTANT panels using buttons in the header. Shows glossary suggestions, anachronism warnings, AI chat interface, and archetype notes</li>
+            <li><strong>Right Sidebar:</strong> Toggle CONTEXT, HISTORY, COMMENTS, and AI_ASSISTANT panels using buttons in the header. Shows glossary suggestions, anachronism warnings, translation history, reviewer comments, AI chat interface, and archetype notes</li>
             <li><strong>Gloss Window:</strong> Displays morpheme analysis and linguistic breakdown of source text with parts of speech and dictionary lookups</li>
             <li><strong>Context Flow:</strong> Shows previous and next dialogue lines for context</li>
             <li><strong>AI Assistant:</strong> AI-powered chat interface for translation and editing assistance with conversation history</li>
             <li><strong>Navigation Controls:</strong> Move between items in your queue</li>
-            <li><strong>Save Button:</strong> Save your changes to the CSV file</li>
+            <li><strong>Save Button:</strong> Save your changes to translation history (and optionally to CSV)</li>
+        </ul>
+        
+        <h3>Translation History</h3>
+        <p>The editor maintains a translation history for each dialogue entry, tracking all changes made by different reviewers.</p>
+        <ul>
+            <li><strong>History Panel:</strong> View all translation changes for the current entry, including who made the change (based on sync nickname), timestamp, and the translation text</li>
+            <li><strong>Save to History:</strong> Click the Save button or press Ctrl+Enter to save your translation to history (does not write to CSV until explicitly approved)</li>
+            <li><strong>History Persistence:</strong> Translation history is synced to GitHub for collaboration with other reviewers</li>
+        </ul>
+        
+        <h3>Comments Panel</h3>
+        <p>The Comments panel allows reviewers to communicate about specific translation entries.</p>
+        <ul>
+            <li><strong>Add Comment:</strong> Enter text in the comment input field and click the Add Comment button to post a comment (max 5000 characters, warning at 4000)</li>
+            <li><strong>View Comments:</strong> All comments for the current entry are displayed with the reviewer's name (sync nickname) and timestamp</li>
+            <li><strong>Communication:</strong> Use comments to discuss translation issues, suggest improvements, or coordinate with other reviewers</li>
+            <li><strong>Comment Persistence:</strong> Comments are synced to GitHub for collaboration with other reviewers</li>
+        </ul>
+        
+        <h3>Approve/Reject & Force Save</h3>
+        <p>The editor includes approval workflow features to manage translation quality and CSV writes.</p>
+        <ul>
+            <li><strong>Approve Button:</strong> Saves the current translation to the CSV file and marks it as approved. This writes the translation to disk and updates the entry status to "approved" in the translation history.</li>
+            <li><strong>Reject Button:</strong> Marks the current translation as rejected with a reason. The translation is not written to CSV. Useful for flagging translations that need improvement.</li>
+            <li><strong>Auto-Approve Toggle:</strong> When enabled, automatically approves the translation after saving to history. This combines the Save and Approve actions into one step, writing directly to CSV.</li>
+            <li><strong>FORCE_SAVE:</strong> When character limits are exceeded (lines too long), the system will block the save. Use FORCE_SAVE to override this check and save anyway (use with caution).</li>
+            <li><strong>Unapproved Entries Queue:</strong> View all entries that have been saved to history but not yet approved. This queue shows comment count for each entry.</li>
+            <li><strong>Status Badges:</strong> Each translation entry shows its current status: APPROVED, REJECTED, or UNAPPROVED based on approval history.</li>
         </ul>
         
         <div class="tip">
@@ -170,6 +206,8 @@
         
         <h3>Settings Sections:</h3>
         <ul>
+            <li><strong>Language:</strong> Select the current language to work with. Each language has its own configuration directory (config/&lt;lang&gt;/) with separate settings files. Switching languages loads the appropriate configuration for that language.</li>
+            <li><strong>GitHub Sync:</strong> Configure GitHub repository and token for syncing translation data, archetypes, vocabulary, and anachronism definitions. Set your sync nickname to identify your contributions. Enable auto-sync to automatically push/pull on save/load.</li>
             <li><strong>API Keys:</strong> Configure DeepL and OpenRouter API keys for translation services</li>
             <li><strong>Path Mappings:</strong> Configure paths to bible (.txt/.log), glossary (.csv), and assets directory</li>
             <li><strong>Tag Mappings:</strong> Define custom tag lengths for automatic line calculations and in-game preview</li>
@@ -199,10 +237,9 @@
             <li><strong>WATCHED_FOLDERS:</strong> Configure folders to scan for CSV files</li>
             <li><strong>ENTRY_KEYS:</strong> Set entry keys (e.g., TUTORIAL_STEP) to filter which entries to scan</li>
             <li><strong>EXECUTE BATCH SCAN:</strong> Scan configured folders and populate translation queue</li>
-            <li><strong>IN_UNIVERSE_LANGUAGE:</strong> Toggle in-universe language application</li>
             <li><strong>PREVIEW_MODE:</strong> Toggle preview mode (doesn't write to CSV)</li>
             <li><strong>CHAR_PRESET & WALL_PRESET:</strong> Select character and wall of text presets for automatic linebreaking</li>
-            <li><strong>TRANSLATE CSV:</strong> Translate entire CSV file</li>
+            <li><strong>TRANSLATE CSV:</strong> Load a CSV file into the translation queue for editing</li>
         </ul>
         
         <div class="tip">
@@ -250,6 +287,7 @@
         
         <h3>Anachronism Features:</h3>
         <ul>
+            <li><strong>In-Universe Toggle:</strong> Enable the in-universe language toggle in the editor to apply anachronism detection and highlighting. When disabled, anachronism features are skipped.</li>
             <li><strong>Highlighting:</strong> Anachronisms are highlighted in the text with a distinct style</li>
             <li><strong>Modal Details:</strong> Click on an anachronism in the sidebar to see details and suggested alternatives</li>
             <li><strong>Tab Key:</strong> Press Tab to swap a highlighted anachronism with a suggested alternative</li>
@@ -308,10 +346,10 @@
 
     <div class="section" id="shortcuts">
         <h2>Keyboard Shortcuts</h2>
-        <p>Use these keyboard shortcuts to work more efficiently (only active in the Reviewer/Editor tab):</p>
+        <p>Use these keyboard shortcuts to work more efficiently (only active in the Editor tab):</p>
         
         <ul>
-            <li><strong>Ctrl+Enter:</strong> Apply current fix suggestion</li>
+            <li><strong>Ctrl+Enter:</strong> Save translation to history</li>
             <li><strong>Ctrl+ArrowRight:</strong> Move to next item</li>
             <li><strong>Ctrl+ArrowLeft:</strong> Move to previous item</li>
             <li><strong>Ctrl+R:</strong> Rewrap editor text</li>
@@ -335,10 +373,11 @@
         <ul>
             <li><strong>CSV Files</strong>: Automatically reloaded when modified externally (by other contributors or manual text editing). Files written by the application itself are not invalidated to avoid false positives.</li>
             <li><strong>Glossary Files</strong> (bible.csv, glossary.csv): Gloss cache is automatically cleared when these files are modified, ensuring the gloss window displays current lore context.</li>
-            <li><strong>API Cache</strong> (cache.json): Automatically expires after 7 days to ensure fresh API responses.</li>
-            <li><strong>Prefetch Cache</strong> (prefetch_cache.json): Automatically expires after 7 days.</li>
+            <li><strong>API Cache</strong> (config/&lt;lang&gt;/cache.json): Automatically expires after 7 days to ensure fresh API responses. Stored per-language.</li>
+            <li><strong>Prefetch Cache</strong> (config/&lt;lang&gt;/prefetch_cache.json): Automatically expires after 7 days. Stored per-language.</li>
+            <li><strong>Queue Caches</strong> (config/&lt;lang&gt;/review_queues_cache.json, config/&lt;lang&gt;/review_items_cache.json): Review queues and manual translation queue. Stored per-language, not synced to GitHub.</li>
         </ul>
-        <p>If you experience persistent cache-related issues, you can manually clear caches by deleting the relevant cache files (<code>cache.json</code>, <code>prefetch_cache.json</code>) and restarting the application. Caches will be rebuilt automatically.</p>
+        <p>If you experience persistent cache-related issues, you can manually clear caches by deleting the relevant cache files (<code>config/&lt;lang&gt;/cache.json</code>, <code>config/&lt;lang&gt;/prefetch_cache.json</code>, <code>config/&lt;lang&gt;/review_queues_cache.json</code>, <code>config/&lt;lang&gt;/review_items_cache.json</code>) and restarting the application. Caches will be rebuilt automatically.</p>
     </div>
 
     <div class="section">

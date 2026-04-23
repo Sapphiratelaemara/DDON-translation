@@ -64,7 +64,23 @@ from translation_manager import translation_manager
 from github_sync import GitHubSync
 
 # Initialize core logic
-cm     = ConfigManager()
+# Load language from user_settings if available, default to "en"
+import os
+import json
+user_settings_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "config", "en", "user_settings.json")
+initial_language = "en"
+if os.path.exists(user_settings_path):
+    try:
+        with open(user_settings_path, 'r', encoding='utf-8') as f:
+            user_settings = json.load(f)
+            initial_language = user_settings.get("language", "en")
+    except:
+        pass
+
+from lore_data import set_config_manager, reload_vocab
+
+cm     = ConfigManager(language=initial_language)
+set_config_manager(cm)  # Set ConfigManager for lore_data to load language-specific vocab
 engine = TranslationEngine(cm.config.get("tag_map", {}))
 github_sync = GitHubSync(cm)
 
@@ -151,8 +167,12 @@ current_review_idx = 0
 batch_scan_complete = False
 
 # --- QUEUE PERSISTENCE ---
-QUEUE_CACHE_FILE = "review_queues_cache.json"
-ITEMS_CACHE_FILE = "review_items_cache.json"
+def _get_queue_cache_file(filename):
+    """Get the path to a queue cache file for the current language."""
+    import os
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    config_dir = os.path.join(base_dir, "config", cm.language)
+    return os.path.join(config_dir, filename)
 
 def _save_review_queues():
     """Save review queues to disk for persistence across restarts."""
@@ -160,7 +180,8 @@ def _save_review_queues():
         serializable = {}
         for key, queue_data in review_queues.items():
             serializable[key] = dict(queue_data)
-        with open(QUEUE_CACHE_FILE, 'w', encoding='utf-8') as f:
+        queue_file = _get_queue_cache_file("review_queues_cache.json")
+        with open(queue_file, 'w', encoding='utf-8') as f:
             json.dump(serializable, f, ensure_ascii=False, indent=2)
     except Exception as e:
         print(f"[_save_review_queues] Error: {e}")
@@ -169,8 +190,9 @@ def _load_review_queues():
     """Load review queues from disk if they exist."""
     global review_queues
     try:
-        if os.path.exists(QUEUE_CACHE_FILE):
-            with open(QUEUE_CACHE_FILE, 'r', encoding='utf-8') as f:
+        queue_file = _get_queue_cache_file("review_queues_cache.json")
+        if os.path.exists(queue_file):
+            with open(queue_file, 'r', encoding='utf-8') as f:
                 data = json.load(f)
             for key, queue_data in data.items():
                 review_queues[key] = defaultdict(list, queue_data)
@@ -182,7 +204,8 @@ def _save_review_items():
     """Save review_items (manual translation queue) to disk for persistence."""
     global review_items
     try:
-        with open(ITEMS_CACHE_FILE, 'w', encoding='utf-8') as f:
+        queue_file = _get_queue_cache_file("review_items_cache.json")
+        with open(queue_file, 'w', encoding='utf-8') as f:
             json.dump(review_items, f, ensure_ascii=False, indent=2)
     except Exception as e:
         print(f"[_save_review_items] Error: {e}")
@@ -191,8 +214,9 @@ def _load_review_items():
     """Load review_items from disk if they exist."""
     global review_items
     try:
-        if os.path.exists(ITEMS_CACHE_FILE):
-            with open(ITEMS_CACHE_FILE, 'r', encoding='utf-8') as f:
+        queue_file = _get_queue_cache_file("review_items_cache.json")
+        if os.path.exists(queue_file):
+            with open(queue_file, 'r', encoding='utf-8') as f:
                 review_items = json.load(f)
             print(f"[_load_review_items] Loaded {len(review_items)} items")
     except Exception as e:
@@ -599,11 +623,114 @@ def update_config_list(list_key, action, item=None, index=None):
     return cm.config[list_key]
 
 @eel.expose
+def switch_language(new_language):
+    """Switch to a different language and reload config."""
+    global cm, engine, _lore_engine
+    success = cm.switch_language(new_language)
+    if success:
+        # Reload vocab for the new language
+        reload_vocab()
+        # Reinitialize engine with new config
+        engine = TranslationEngine(cm.config.get("tag_map", {}))
+        # Invalidate lore cache
+        _lore_engine = None
+    return success
+
+@eel.expose
+def create_language(language_code):
+    """Create a new language directory with default config"""
+    import os
+    import shutil
+    import json
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    config_dir = os.path.join(base_dir, "config", language_code)
+    
+    if not language_code or not language_code.isalpha() or len(language_code) != 2:
+        return False, "Invalid language code (must be 2 letters)"
+    
+    if os.path.exists(config_dir):
+        return False, "Language already exists"
+    
+    try:
+        os.makedirs(config_dir, exist_ok=True)
+        # Copy formatter_config.json from en as a template
+        en_config = os.path.join(base_dir, "config", "en", "formatter_config.json")
+        if os.path.exists(en_config):
+            shutil.copy2(en_config, os.path.join(config_dir, "formatter_config.json"))
+        # Copy archetypes.json from config/en/ as a template
+        en_archetypes = os.path.join(base_dir, "config", "en", "archetypes.json")
+        if os.path.exists(en_archetypes):
+            shutil.copy2(en_archetypes, os.path.join(config_dir, "archetypes.json"))
+        # Copy vocab files from config/en/ as templates
+        en_dd1_vocab = os.path.join(base_dir, "config", "en", "dd1_vocab.json")
+        if os.path.exists(en_dd1_vocab):
+            shutil.copy2(en_dd1_vocab, os.path.join(config_dir, "dd1_vocab.json"))
+        en_other_vocab = os.path.join(base_dir, "config", "en", "other_vocab.json")
+        if os.path.exists(en_other_vocab):
+            shutil.copy2(en_other_vocab, os.path.join(config_dir, "other_vocab.json"))
+        
+        # Copy anach_definitions.json and archaic_examples.json from config/en/ as templates
+        en_anach_definitions = os.path.join(base_dir, "config", "en", "anach_definitions.json")
+        if os.path.exists(en_anach_definitions):
+            shutil.copy2(en_anach_definitions, os.path.join(config_dir, "anach_definitions.json"))
+        en_archaic_examples = os.path.join(base_dir, "config", "en", "archaic_examples.json")
+        if os.path.exists(en_archaic_examples):
+            shutil.copy2(en_archaic_examples, os.path.join(config_dir, "archaic_examples.json"))
+        
+        # Create minimal user_settings.json with only language-specific defaults
+        # Do NOT include sync settings (github_repo, github_token, sync_nickname, sync_auto)
+        # Do NOT include bible_path/glossary_path - these should be configured per-language by the user
+        user_settings = {
+            "folders": [],
+            "bible_path": "",
+            "glossary_path": "",
+            "assets_path": "c:/DDON-translation/Dialogue Editor/assets",
+            "theme_mode": "dark",
+            "dark_mode": True,
+            "in_universe": True,
+            "openrouter_models": [
+                "openrouter/auto",
+                "meta-llama/llama-3.3-70b-instruct:free",
+                "google/gemma-3-27b-it:free"
+            ],
+            "selected_openrouter_model": "openrouter/auto",
+            "preview_mode": True,
+            "show_paid_models": False,
+            "selected_preset": "Dialogue Box",
+            "custom_dark_theme": {},
+            "custom_light_theme": {},
+            "last_stats": {
+                "total": 0,
+                "translated": 0,
+                "percent": 0
+            },
+            # Sync settings intentionally omitted - must be configured per-language
+        }
+        with open(os.path.join(config_dir, "user_settings.json"), 'w', encoding='utf-8') as f:
+            json.dump(user_settings, f, indent=4)
+        
+        return True, f"Created language: {language_code}"
+    except Exception as e:
+        return False, str(e)
+
+@eel.expose
+def get_available_languages():
+    """Get list of available languages (directories in config/)"""
+    import os
+    config_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "config")
+    if not os.path.exists(config_dir):
+        return ["en"]
+    languages = [d for d in os.listdir(config_dir) if os.path.isdir(os.path.join(config_dir, d))]
+    return sorted(languages) if languages else ["en"]
+
+@eel.expose
 def get_full_config():
     data = cm.config.copy()
     data['deepl_api_key']      = cm.get_key("deepl_api_key")
     data['openrouter_api_key'] = cm.get_key("openrouter_api_key")
-    data['github_token']       = cm.get_key("github_token")
+    # Merge user-specific settings (includes github_token now)
+    data.update(cm.user_settings)
+    data['language'] = cm.language
     for key in ["folders", "triggers", "replace_rules"]:
         if key not in data:
             data[key] = []
@@ -612,13 +739,26 @@ def get_full_config():
 @eel.expose
 def save_config_field(key, value):
     global _lore_engine
-    if key in ["deepl_api_key", "openrouter_api_key", "github_token"]:
+    print(f"[DEBUG] save_config_field: key={key}, value={value[:50] if isinstance(value, str) else value}")
+    user_specific_keys = [
+        "folders", "bible_path", "glossary_path", "assets_path",
+        "theme_mode", "dark_mode", "in_universe", "openrouter_models",
+        "selected_openrouter_model", "preview_mode",
+        "show_paid_models", "selected_preset",
+        "custom_dark_theme", "custom_light_theme", "last_stats",
+        "github_repo", "github_token", "sync_nickname", "sync_auto"
+    ]
+    if key in ["deepl_api_key", "openrouter_api_key"]:
         cm.set_key(key, value)
+    elif key in user_specific_keys:
+        cm.user_settings[key] = value
+        print(f"[DEBUG] Calling save_user_settings() for key={key}")
+        cm.save_user_settings()  # Save to user_settings.json
+        if key in ("bible_path", "glossary_path"):
+            _lore_engine = None   # invalidate lore cache
     else:
         cm.config[key] = value
         cm.save_all()
-        if key in ("bible_path", "glossary_path"):
-            _lore_engine = None   # invalidate lore cache
         if key == "tag_map":
             engine.__init__(cm.config.get("tag_map", {}))
     return True
@@ -2205,10 +2345,20 @@ def sync_push():
         if entry_count == 0:
             return {"ok": False, "error": f"No entries to sync. Have you approved/rejected any translations?\nTM Status: {entry_count} entries, {log_count} logs, {comment_count} comments"}
         
-        success = github_sync.sync_push(translation_manager)
+        result = github_sync.sync_push(translation_manager)
         return {
-            "ok": success, 
-            "message": f"Push {'successful' if success else 'failed'}. Synced {entry_count} entries, {log_count} logs, {comment_count} comments."
+            "ok": result.get("success", False), 
+            "message": f"Push {'successful' if result.get('success') else 'failed'}. Synced {entry_count} entries, {log_count} logs, {comment_count} comments.",
+            "debug": {
+                "entry_count": entry_count, 
+                "log_count": log_count, 
+                "comment_count": comment_count, 
+                "sync_result": result.get("success", False),
+                "sync_debug": result.get("debug", []),
+                "sync_total": result.get("total", 0),
+                "sync_successful": result.get("successful", 0),
+                "sync_error": result.get("error")
+            }
         }
     except Exception as e:
         import traceback
@@ -2230,10 +2380,10 @@ def get_sync_status():
         return {
             "ok": True,
             "configured": github_sync.is_configured(),
-            "repo": cm.config.get('github_repo', ''),
-            "nickname": cm.config.get('sync_nickname', ''),
-            "language": cm.config.get('sync_language', 'English'),
-            "auto_sync": cm.config.get('sync_auto', False),
+            "repo": cm.user_settings.get('github_repo', ''),
+            "nickname": cm.user_settings.get('sync_nickname', ''),
+            "language": cm.language,
+            "auto_sync": cm.user_settings.get('sync_auto', False),
             "interval": cm.config.get('sync_interval', 30)
         }
     except Exception as e:
