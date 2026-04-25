@@ -700,7 +700,7 @@ body {
 .tab-viewport {
     flex: 1;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .tab-content {
@@ -1056,7 +1056,7 @@ input:checked+.slider.sm:before {
     flex: 1;
     background-color: var(--bg-color);
     overflow: hidden;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 60px - 44px + 30px);
 }
 
 /* Phase 2: Left Row Sidebar */
@@ -2123,7 +2123,7 @@ input:focus {
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 700;
     text-transform: uppercase;
     color: var(--tab-inactive);
@@ -2143,10 +2143,11 @@ input:focus {
 }
 
 .kl-checkbox-label span {
-    line-height: 14px;
+    line-height: 12px;
     flex-shrink: 0;
-    margin-top: -2px;
-    margin-left: -2px;
+    margin-top: 3px;
+    margin-left: -10px;
+    white-space: nowrap;
 }
 
 .kl-radio-label {
@@ -2209,7 +2210,7 @@ input:focus {
 
 /* --- Main Workspace - Fixed width, scrollbar at fixed position --- */
 .kl-main-workspace {
-    flex: 0 0 auto; /* Don't grow or shrink - fixed size */
+    flex: 0 0 auto; /* Don't grow - fixed size */
     display: flex;
     flex-direction: column;
     width: 580px; /* Fixed width */
@@ -2217,6 +2218,7 @@ input:focus {
     overflow-y: auto;
     position: relative;
     margin-left: 240px; /* Space for left sidebar */
+    height: calc(100vh - 60px);
 }
 
 .kl-main-workspace.no-left-sidebar {
@@ -2229,7 +2231,7 @@ input:focus {
 
 .kl-workspace-scroll {
     flex: 1;
-    padding: 0 16px 16px 0; /* No top/left padding - flush to edges */
+    padding: 0 16px 60px 0; /* Extra bottom padding for scroll buffer */
 }
 
 .kl-content-column {
@@ -2238,6 +2240,7 @@ input:focus {
     flex-direction: column;
     gap: 4px;
     margin-left: 0; /* Ensure flush left */
+    padding-bottom: 30px; /* Extra space for scrolling */
 }
 
 /* --- Editor Block (Metadata + English Source) --- */
@@ -2556,6 +2559,103 @@ input:focus {
     border: 1px solid var(--glow-color);
     box-shadow: 0 0 10px var(--glow-color);
     white-space: pre-wrap; /* Added for auto-wrap */
+}
+
+/* TM Suggestions Panel */
+.kl-tm-panel {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-top: 10px;
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.kl-tm-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: var(--panel-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.kl-tm-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.kl-tm-list {
+    max-height: 150px;
+    overflow-y: auto;
+    padding: 8px;
+}
+
+.kl-tm-item {
+    padding: 8px;
+    margin-bottom: 6px;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.kl-tm-item:hover {
+    border-color: var(--accent-color);
+    background: var(--panel-bg);
+}
+
+.kl-tm-item.match-perfect {
+    border-left: 3px solid #00ff00;
+}
+
+.kl-tm-item.match-high {
+    border-left: 3px solid #88ff00;
+}
+
+.kl-tm-item.match-medium {
+    border-left: 3px solid #ffff00;
+}
+
+.kl-tm-item.match-low {
+    border-left: 3px solid #ff8800;
+}
+
+.kl-tm-score {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--tab-inactive);
+    float: right;
+}
+
+.kl-tm-jp {
+    font-size: 0.75rem;
+    color: var(--tab-inactive);
+    margin-top: 4px;
+    word-wrap: break-word;
+}
+
+.kl-tm-text {
+    font-size: 0.85rem;
+    color: var(--fg-color);
+    margin-top: 2px;
+    word-wrap: break-word;
+}
+
+.kl-tm-context {
+    font-size: 0.7rem;
+    color: var(--tab-inactive);
+}
+
+.diff-highlight {
+    background-color: rgba(255, 215, 0, 0.3);
+    color: #ffd700;
+    font-weight: bold;
+    padding: 0 2px;
+    border-radius: 2px;
 }
 
 .anach-highlight {
@@ -3747,3 +3847,4 @@ font-weight: bold;
 font-weight: 700;
 margin: 0 4px;
 }
+

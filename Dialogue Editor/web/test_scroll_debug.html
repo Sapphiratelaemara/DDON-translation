@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { margin: 0; padding: 0; font-family: monospace; font-size: 12px; }
+        .debug-info { padding: 20px; background: #333; color: #fff; }
+        .debug-item { margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <div class="debug-info" id="debug"></div>
+    <script>
+        function measureElement(id) {
+            const el = document.getElementById(id);
+            if (!el) return null;
+            const rect = el.getBoundingClientRect();
+            const style = window.getComputedStyle(el);
+            return {
+                id: id,
+                offsetHeight: el.offsetHeight,
+                scrollHeight: el.scrollHeight,
+                clientHeight: el.clientHeight,
+                styleHeight: style.height,
+                styleMaxHeight: style.maxHeight,
+                styleOverflow: style.overflow,
+                styleOverflowY: style.overflowY,
+                rectTop: rect.top,
+                rectBottom: rect.bottom,
+                rectHeight: rect.height
+            };
+        }
+
+        function debugScroll() {
+            const elements = [
+                'tab-editor',
+                'editor-container',
+                'editor-main'
+            ];
+            
+            let html = '<h2>Scroll Debug Info</h2>';
+            elements.forEach(id => {
+                const info = measureElement(id);
+                if (info) {
+                    html += `<div class="debug-item"><strong>${id}:</strong><br>`;
+                    html += `  offsetHeight: ${info.offsetHeight}<br>`;
+                    html += `  scrollHeight: ${info.scrollHeight}<br>`;
+                    html += `  clientHeight: ${info.clientHeight}<br>`;
+                    html += `  style.height: ${info.styleHeight}<br>`;
+                    html += `  style.maxHeight: ${info.styleMaxHeight}<br>`;
+                    html += `  style.overflow: ${info.styleOverflow}<br>`;
+                    html += `  style.overflowY: ${info.styleOverflowY}<br>`;
+                    html += `  rect.top: ${info.rectTop}<br>`;
+                    html += `  rect.bottom: ${info.rectBottom}<br>`;
+                    html += `  rect.height: ${info.rectHeight}<br>`;
+                    html += `</div>`;
+                } else {
+                    html += `<div class="debug-item"><strong>${id}:</strong> NOT FOUND</div>`;
+                }
+            });
+            
+            document.getElementById('debug').innerHTML = html;
+        }
+
+        // Run on load
+        window.addEventListener('load', debugScroll);
+        // Also run after a delay to ensure layout is complete
+        setTimeout(debugScroll, 1000);
+    </script>
+</body>
+</html>

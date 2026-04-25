@@ -37,11 +37,15 @@ The application follows a **client-server architecture** where:
 │  └――――――――――――――――――――――――――――――――――――――――――――――――――――――┘  │
 │  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  │
 │  │ Config   │  │  API     │  │  Lore    │  │  Gloss   │  │
-│  │ Manager  │  │ Handler  │  │ Engine   │  │  Engine  │  │
+│  │ Manager  │  │  Handler  │  │  Engine   │  │  Engine  │  │
 │  └――――――――――┘  └――――――――――┘  └――――――――――┘  └――――――――――┘  │
 │  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  │
 │  │ Trans    │  │  Batch   │  │  File    │  │  Search  │  │
 │  │ Engine   │  │  Runner  │  │  Utils   │  │  Window  │  │
+│  └――――――――――┘  └――――――――――┘  └――――――――――┘  └――――――――――┘  │
+│  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  │
+│  │ Trans    │  │  Prefetch│  │  Trans   │  │  GitHub  │  │
+│  │ Memory   │  │  Manager │  │  Manager │  │  Sync    │  │
 │  └――――――――――┘  └――――――――――┘  └――――――――――┘  └――――――――――┘  │
 └―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――┘
                            │
@@ -67,6 +71,7 @@ Dialogue Editor/
 ├── lore_engine.py          # Lore/context system, archetypes, in-universe vocab
 ├── gloss_engine.py        # Japanese morpheme glossing (Janome + Jamdict)
 ├── lore_data.py           # Default archetypes, vocabulary, anachronism patterns
+├── translation_memory.py   # Translation memory management and fuzzy matching
 ├── file_utils.py          # CSV file reading utilities
 ├── batch_runner.py        # Batch scanning logic (background thread)
 ├── translation_manager.py  # Translation data management
@@ -78,6 +83,7 @@ Dialogue Editor/
 │   │   ├── formatter_config.json   # Main configuration (folders, triggers, tag maps, presets)
 │   │   ├── user_settings.json      # User preferences (sync settings, paths, theme, etc.)
 │   │   ├── memory.json             # Learned fixes (source text → wrapped text mappings, archetype assignments)
+│   │   ├── translation_memory.json # Translation memory entries (per-language, not synced)
 │   │   ├── archetypes.json        # Character archetypes (synced to GitHub)
 │   │   ├── dd1_vocab.json         # DD1 vocabulary (synced to GitHub)
 │   │   ├── other_vocab.json       # Non-DD1 vocabulary (synced to GitHub)
@@ -228,6 +234,7 @@ Functions decorated with `@eel.expose` are callable from JavaScript:
 - `formatter_config.json` - Main configuration (folders, triggers, tag maps, presets)
 - `user_settings.json` - User preferences (sync settings, paths, theme, etc.)
 - `memory.json` - Learned fixes (source text → wrapped text mappings, archetype assignments)
+- `translation_memory.json` - Translation memory entries (per-language, not synced)
 - `archetypes.json` - Character archetypes (synced to GitHub)
 - `dd1_vocab.json` - DD1 vocabulary (synced to GitHub)
 - `other_vocab.json` - Non-DD1 vocabulary (synced to GitHub)
@@ -277,6 +284,7 @@ save_vocab(file, data)        # Save vocabulary file
 
 **NOT Synced (Local Only):**
 - `memory.json` - User's learned fixes
+- `translation_memory.json` - Translation memory entries
 - `user_settings.json` - User preferences (sync settings, paths, theme)
 - `prefetch_cache.json` - Performance cache
 - `cache.json` - API response cache
@@ -404,7 +412,74 @@ GlossToken(
 )
 ```
 
-### 7. Batch Runner (`batch_runner.py`)
+### 7. Translation Memory (`translation_memory.py`)
+
+**Responsibilities:**
+- Manage translation memory entries (source → translation mappings)
+- Fuzzy matching for finding similar translations
+- Cross-language TM sharing
+- Auto-substitution based on TM matches
+- TM management (export, import, statistics)
+
+**Data Structure:**
+```python
+TM Entry:
+{
+    "id": str,                    # UUID
+    "source": str,                # Source text (Japanese)
+    "translation": str,           # Translation (English)
+    "context": dict,              # Context metadata
+    "quality": str,               # "approved" | "draft"
+    "timestamp": str,            # ISO format timestamp
+    "match_count": int,          # Usage statistics
+    "last_used": str | None      # Last used timestamp
+}
+```
+
+**Storage:**
+- Per-language JSON file: `config/<lang>/translation_memory.json`
+- Structure: `{"version": 2, "entries": [...], "stats": {...}}`
+- Large files (>1000 entries) saved without indentation to prevent corruption
+
+**Fuzzy Matching Algorithm:**
+The `FuzzyMatcher` class uses multiple similarity metrics:
+- **N-gram similarity** (Jaccard index on 3-grams) - character-level overlap
+- **Word order similarity** (difflib.SequenceMatcher) - sequence matching
+- **Levenshtein distance** - edit distance with lenient scoring
+- **Punctuation similarity** - ignores punctuation and Japanese particles
+- **Length similarity** - penalizes significant length differences
+- **Tag similarity** - tag-aware matching for HTML/XML and placeholder tags
+
+**Japanese Particle Handling:**
+Common particles (の, を, に, が, へ, と, で) are removed during normalization for more lenient matching.
+
+**Weights:**
+- Levenshtein: 25%
+- Word order: 30%
+- Punctuation: 20%
+- Length: 10%
+- N-gram: 10%
+- Tag: 5%
+
+**Key Methods:**
+```python
+add_entry(entry)              # Add new TM entry
+get_entry(entry_id)           # Retrieve entry by ID
+delete_entry(entry_id)        # Delete entry
+find_matches(query, entries, threshold)  # Find fuzzy matches
+calculate_similarity(s1, s2)  # Calculate overall similarity score
+export_tm(language)           # Export TM for specific language
+import_tm(data, language)     # Import TM for specific language
+get_statistics()              # Get TM statistics
+```
+
+**Cross-Language TM:**
+The `CrossLanguageTM` class enables sharing translation memories between languages:
+- Load TM from any language directory
+- Merge entries from multiple languages
+- Export merged TM to target language
+
+### 8. Batch Runner (`batch_runner.py`)
 
 **Responsibilities:**
 - Background batch scanning of CSV files
@@ -770,9 +845,10 @@ keys.json (API Keys)
 3. Default archetypes seeded from `lore_data.py` if missing
 4. `config/<language>/memory.json` loaded for user preferences
 5. `config/<language>/user_settings.json` loaded for user settings
-6. `config/<language>/cache.json` loaded for API responses
-7. Language-specific vocab files loaded (dd1_vocab.json, other_vocab.json)
-8. Language-specific lore files loaded (archetypes.json, anach_definitions.json, archaic_examples.json)
+6. `config/<language>/translation_memory.json` loaded for translation memory
+7. `config/<language>/cache.json` loaded for API responses
+8. Language-specific vocab files loaded (dd1_vocab.json, other_vocab.json)
+9. Language-specific lore files loaded (archetypes.json, anach_definitions.json, archaic_examples.json)
 
 ### Language Switching
 
@@ -783,6 +859,7 @@ When switching languages (e.g., from English to Arabic):
    - formatter_config.json
    - memory.json
    - user_settings.json
+   - translation_memory.json
    - archetypes.json
    - dd1_vocab.json
    - other_vocab.json
@@ -793,8 +870,9 @@ When switching languages (e.g., from English to Arabic):
    - review_queues_cache.json
    - review_items_cache.json
 4. Lore engine is invalidated (vocabulary changed)
-5. Frontend is notified to reload settings and refresh UI
-6. GitHub sync operations automatically use the new language folder
+5. Translation memory is reloaded for the new language
+6. Frontend is notified to reload settings and refresh UI
+7. GitHub sync operations automatically use the new language folder
 
 ## External Dependencies
 

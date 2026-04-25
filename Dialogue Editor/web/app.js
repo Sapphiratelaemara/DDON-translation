@@ -4,6 +4,42 @@
  */
 
 // =============================================================================
+// DEBUG LOGGING
+// =============================================================================
+const DEBUG_ENABLED = true;
+const DEBUG_LOG_KEY = 'ddon_debug_log';
+
+function debugLog(component, message, level = 'DEBUG') {
+    if (!DEBUG_ENABLED) return;
+    const timestamp = new Date().toISOString();
+    const logEntry = `[${timestamp}] [${component}] [${level}] ${message}`;
+    console.log(logEntry);
+
+    // Also store in localStorage for persistence
+    try {
+        const logs = JSON.parse(localStorage.getItem(DEBUG_LOG_KEY) || '[]');
+        logs.push(logEntry);
+        // Keep last 1000 log entries
+        if (logs.length > 1000) logs.shift();
+        localStorage.setItem(DEBUG_LOG_KEY, JSON.stringify(logs));
+    } catch (e) {
+        console.error('Failed to store debug log:', e);
+    }
+}
+
+function getDebugLogs() {
+    try {
+        return JSON.parse(localStorage.getItem(DEBUG_LOG_KEY) || '[]');
+    } catch (e) {
+        return [];
+    }
+}
+
+function clearDebugLogs() {
+    localStorage.removeItem(DEBUG_LOG_KEY);
+}
+
+// =============================================================================
 // QUEUE PERSISTENCE (per-client via localStorage)
 // =============================================================================
 const QUEUE_STORAGE_KEY = 'review_queues';
@@ -46,7 +82,14 @@ function loadReviewItemsFromStorage() {
     try {
         const data = localStorage.getItem(ITEMS_STORAGE_KEY);
         if (data) {
-            return JSON.parse(data);
+            const items = JSON.parse(data);
+            // Check if items have entry_type field - if not, clear cache to force regeneration
+            if (items.length > 0 && !items[0].hasOwnProperty('entry_type')) {
+                console.log('[loadReviewItemsFromStorage] Clearing old cache without entry_type field');
+                localStorage.removeItem(ITEMS_STORAGE_KEY);
+                return [];
+            }
+            return items;
         }
     } catch (e) {
         console.error('[loadReviewItemsFromStorage] Error:', e);
@@ -1021,8 +1064,34 @@ async function loadItemAtIdx(idx) {
     });
 }
 
-async function loadItemAtIdxInternal(idx) {
-    console.log(`[loadItemAtIdxInternal] START called with idx=${idx}, mode=${state.reviewer.mode}`);
+async function loadItemAtIdxInternal(idx, mode) {
+    console.log(`[loadItemAtIdxInternal] START called with idx=${idx}, mode=${mode}`);
+
+    // Debug scroll measurements
+    setTimeout(() => {
+        const tabEditor = document.getElementById('tab-editor');
+        const editorContainer = document.getElementById('editor-container');
+        const mainWorkspace = document.querySelector('.kl-main-workspace');
+        
+        if (tabEditor) {
+            const rect = tabEditor.getBoundingClientRect();
+            const style = window.getComputedStyle(tabEditor);
+            console.log(`[SCROLL DEBUG] tab-editor: offsetHeight=${tabEditor.offsetHeight}, scrollHeight=${tabEditor.scrollHeight}, clientHeight=${tabEditor.clientHeight}, style.height=${style.height}, style.overflow=${style.overflow}, style.overflowY=${style.overflowY}, rect.top=${rect.top}, rect.bottom=${rect.bottom}, rect.height=${rect.height}`);
+        }
+        
+        if (editorContainer) {
+            const rect = editorContainer.getBoundingClientRect();
+            const style = window.getComputedStyle(editorContainer);
+            console.log(`[SCROLL DEBUG] editor-container: offsetHeight=${editorContainer.offsetHeight}, scrollHeight=${editorContainer.scrollHeight}, clientHeight=${editorContainer.clientHeight}, style.height=${style.height}, style.overflow=${style.overflow}, style.overflowY=${style.overflowY}, rect.top=${rect.top}, rect.bottom=${rect.bottom}, rect.height=${rect.height}`);
+        }
+        
+        if (mainWorkspace) {
+            const rect = mainWorkspace.getBoundingClientRect();
+            const style = window.getComputedStyle(mainWorkspace);
+            console.log(`[SCROLL DEBUG] kl-main-workspace: offsetHeight=${mainWorkspace.offsetHeight}, scrollHeight=${mainWorkspace.scrollHeight}, clientHeight=${mainWorkspace.clientHeight}, style.height=${style.height}, style.overflow=${style.overflow}, style.overflowY=${style.overflowY}, rect.top=${rect.top}, rect.bottom=${rect.bottom}, rect.height=${rect.height}`);
+        }
+    }, 500);
+
     try {
         let item;
         let items;
@@ -1046,10 +1115,8 @@ async function loadItemAtIdxInternal(idx) {
             console.log(`[loadItemAtIdxInternal] Loading item at idx=${idx}, jp="${item.jp?.substring(0, 30)}..."`);
         } else {
             // Translate mode - fetch from backend
-            try {
-                items = await eel.get_all_items_in_queue()();
-                state.reviewer.fullQueue = items || [];
-            } catch (e) { console.error('[loadItemAtIdx] queue fetch', e); }
+            items = await eel.get_all_items_in_queue()();
+            state.reviewer.fullQueue = items || [];
 
             items = state.reviewer.fullQueue;
             if (!items.length) {
@@ -1084,8 +1151,10 @@ async function loadItemAtIdxInternal(idx) {
         const noteInput = document.getElementById('speaker-note');
         if (item.speaker) {
             // Fetch saved speaker config from backend
+            debugLog('App', `Fetching speaker config for: ${item.speaker}`);
             const speakerArchetype = await eel.get_speaker_archetype(item.speaker)();
             const speakerNote = await eel.get_speaker_note(item.speaker)();
+            debugLog('App', `Speaker archetype: ${speakerArchetype}, note: ${speakerNote}`);
             if (archetypeSelect) archetypeSelect.value = speakerArchetype || '';
             if (noteInput) noteInput.value = speakerNote || '';
             
@@ -1108,8 +1177,9 @@ async function loadItemAtIdxInternal(idx) {
         
         const entryTypeEl = document.getElementById('entry-type-parity');
         const entryTypeSelect = document.getElementById('entry-type-select');
-        if (entryTypeEl) entryTypeEl.innerText = item.category || '—';
-        if (entryTypeSelect) entryTypeSelect.value = item.category || 'Dialogue';
+        debugLog('App', `Setting entry type: ${item.entry_type}`);
+        if (entryTypeEl) entryTypeEl.innerText = item.entry_type || '—';
+        if (entryTypeSelect) entryTypeSelect.value = item.entry_type || 'Dialogue';
         
         // Clear editor before setting new text to prevent stale data
         const enEditor = document.getElementById('en-editor');
@@ -1159,12 +1229,13 @@ async function loadItemAtIdxInternal(idx) {
         
         // Other async enrichments - fire-and-forget with index-based cancellation
         fetchDeepLSuggestion(item.jp, loadIdx);
+        fetchTMSuggestions(item.jp, loadIdx);
         populateGloss(item.jp, loadIdx);
         populateAdjacentContext(item.path, item.row, loadIdx);
         updatePreview(loadIdx);
         
-        // Trigger prefetching of next entries
-        eel.start_prefetch(category, items, idx, 3)();
+        // Trigger prefetching of next 25 entries
+        eel.start_prefetch(category, items, idx, 25)();
 
         // Update Crowdin-style translation status and history
         if (item.id) {
@@ -1208,6 +1279,9 @@ function initReviewerActions() {
     bind('btn-approve', 'onclick', approveCurrentTranslation);
     bind('btn-reject', 'onclick', rejectCurrentTranslation);
     bind('btn-add-comment', 'onclick', addTranslationComment);
+    bind('btn-close-tm', 'onclick', () => {
+        document.getElementById('tm-suggestions-panel').style.display = 'none';
+    });
 
     // Comment character counter
     const commentInput = document.getElementById('comment-input');
@@ -1687,17 +1761,28 @@ async function updateReviewerCounters() {
 }
 
 function updatePreview(loadIdx) {
+    console.log(`[updatePreview] Called with loadIdx=${loadIdx}`);
     const ed = document.getElementById('en-editor');
     const container = document.getElementById('preview-container');
-    if (!ed || !container) return;
+    console.log(`[updatePreview] ed=${!!ed}, container=${!!container}`);
+    if (!ed || !container) {
+        console.log(`[updatePreview] Early return: missing elements`);
+        return;
+    }
     
     const boxType = document.getElementById('preview-box-type')?.value || 'dialogue';
     const text = ed.innerText || '';
+    console.log(`[updatePreview] boxType=${boxType}, text="${text.substring(0, 30)}..."`);
     
     // Generate preview image
     eel.generate_preview_image(boxType, text)().then(result => {
+        console.log(`[updatePreview] Got result:`, result);
+        if (result.error && result.debug) {
+            console.log(`[updatePreview] Debug info:`, result.debug);
+        }
         // Only check index if loadIdx was provided (skip check for preview setting changes)
         if (loadIdx !== undefined && state.reviewer.currentIdx !== loadIdx) {
+            console.log(`[updatePreview] Skipped: currentIdx=${state.reviewer.currentIdx} != loadIdx=${loadIdx}`);
             return;
         }
         
@@ -1718,8 +1803,10 @@ function updatePreview(loadIdx) {
                 width: ${result.width}px;
                 height: ${result.height}px;
             ">`;
+            console.log(`[updatePreview] Successfully updated preview`);
         } else {
             // Fallback - show text only
+            console.log(`[updatePreview] No image in result, using fallback`);
             container.innerText = text || '(no preview available)';
             container.style.width = '';
             container.style.height = '';
@@ -2281,21 +2368,26 @@ function hideTooltip() {
 
 function initMetadataControls() {
     // Initialize speaker, archetype, and entry type controls
+    debugLog('App', 'initMetadataControls: Initializing...');
     console.log('[initMetadataControls] Initializing...');
 
     // Populate archetype dropdown with archetypes from config
     const archSelect = document.getElementById('archetype-select');
     if (archSelect) {
-        eel.get_full_config()().then(config => {
-            if (config && config.archetypes) {
-                archSelect.innerHTML = '<option>(none)</option>';
-                Object.entries(config.archetypes).sort(([a], [b]) => a.localeCompare(b)).forEach(([key, data]) => {
+        eel.get_archetypes_list()().then(archetypes => {
+            if (archetypes && archetypes.length > 0) {
+                archSelect.innerHTML = '';
+                archetypes.forEach(arch => {
                     const opt = document.createElement('option');
-                    opt.value = key;
-                    opt.innerText = data.name || key;
+                    opt.value = arch.key;
+                    opt.innerText = arch.name;
                     archSelect.appendChild(opt);
                 });
+                debugLog('App', `Populated archetype dropdown with ${archetypes.length} archetypes`);
                 console.log('[initMetadataControls] Populated archetype dropdown');
+            } else {
+                archSelect.innerHTML = '<option>(none)</option>';
+                debugLog('App', 'No archetypes found');
             }
         });
     }
@@ -2304,6 +2396,7 @@ function initMetadataControls() {
     const entTypeSelect = document.getElementById('entry-type-select');
     if (entTypeSelect) {
         eel.get_all_items_in_queue()().then(items => {
+            debugLog('App', `initMetadataControls: Got ${items?.length || 0} items for entry type dropdown`);
             if (items && items.length > 0) {
                 const entryTypes = new Set();
                 items.forEach(item => {
@@ -2320,18 +2413,22 @@ function initMetadataControls() {
                         opt.innerText = type;
                         entTypeSelect.appendChild(opt);
                     });
+                    debugLog('App', `Populated entry type dropdown with types: ${sortedTypes.join(', ')}`);
                     console.log('[initMetadataControls] Populated entry type dropdown:', sortedTypes);
                 } else {
                     entTypeSelect.innerHTML = '<option value="">(none)</option>';
+                    debugLog('App', 'No entry types found in items');
                     console.log('[initMetadataControls] No entry types found in items');
                 }
             } else {
                 entTypeSelect.innerHTML = '<option value="">(none)</option>';
+                debugLog('App', 'No items in queue for entry type dropdown');
                 console.log('[initMetadataControls] No items in queue');
             }
         });
     }
 
+    debugLog('App', 'initMetadataControls: Initialized');
     console.log('[initMetadataControls] Initialized');
 }
 
@@ -2661,21 +2758,30 @@ async function fetchDeepLSuggestion(text, loadIdx) {
     if (!el || !text) return;
     console.log(`[fetchDeepLSuggestion] Starting for loadIdx=${loadIdx}, currentIdx=${state.reviewer.currentIdx}`);
     
-    // Check prefetch cache first
     let res = null;
-    const category = state.reviewer.currentCategory || 'default';
-    const cached = await eel.get_prefetch_cache(category, loadIdx)();
     
-    if (cached && cached.deepl_suggestion) {
-        console.log(`[fetchDeepLSuggestion] Using cached DeepL suggestion for idx=${loadIdx}`);
-        res = cached.deepl_suggestion;
+    // Check client-side cache first
+    if (deepLCache.has(text)) {
+        console.log(`[fetchDeepLSuggestion] Client cache hit for idx=${loadIdx}`);
+        res = deepLCache.get(text);
     } else {
-        // Fetch fresh if not cached
-        el.value = 'Consulting DeepL…';
-        const startTime = Date.now();
-        res = await eel.get_deepl_suggestion(text)();
-        const elapsed = Date.now() - startTime;
-        console.log(`[fetchDeepLSuggestion] Fetched fresh for idx=${loadIdx}, elapsed=${elapsed}ms`);
+        // Check prefetch cache
+        const category = state.reviewer.currentCategory || 'default';
+        const cached = await eel.get_prefetch_cache(category, loadIdx)();
+        
+        if (cached && cached.deepl_suggestion) {
+            console.log(`[fetchDeepLSuggestion] Using prefetch cache for idx=${loadIdx}`);
+            res = cached.deepl_suggestion;
+            deepLCache.set(text, res);
+        } else {
+            // Fetch fresh if not cached
+            el.value = 'Consulting DeepL…';
+            const startTime = Date.now();
+            res = await eel.get_deepl_suggestion(text)();
+            const elapsed = Date.now() - startTime;
+            console.log(`[fetchDeepLSuggestion] Fetched fresh for idx=${loadIdx}, elapsed=${elapsed}ms`);
+            deepLCache.set(text, res);
+        }
     }
     
     // Only update if we're still on the same item
@@ -2706,12 +2812,184 @@ async function fetchDeepLSuggestion(text, loadIdx) {
         
         editor.innerText = suggestion;
         updateReviewerCounters();
-        syncLineCounters();
-        
-        // Re-scan for anachronisms after DeepL paste
-        scanAnachronisms(suggestion);
     };
 }
+
+// =============================================================================
+// REVIEWER — TRANSLATION MEMORY
+// =============================================================================
+async function fetchTMSuggestions(jpText, loadIdx) {
+    const panel = document.getElementById('tm-suggestions-panel');
+    const list = document.getElementById('tm-suggestions-list');
+    if (!panel || !list || !jpText) return;
+    
+    console.log(`[fetchTMSuggestions] Starting for loadIdx=${loadIdx}, jpText="${jpText}"`);
+    
+    // Fetch TM matches with higher threshold (0.7 = 70%) to filter out low-quality matches
+    let result;
+    try {
+        result = await eel.tm_find_matches(jpText, 0.7, 10)();
+        console.log(`[fetchTMSuggestions] Result:`, result);
+    } catch (error) {
+        console.error(`[fetchTMSuggestions] Error:`, error);
+        return;
+    }
+    
+    // Only update if we're still on the same item
+    if (state.reviewer.currentIdx !== loadIdx) {
+        console.log(`[fetchTMSuggestions] Skipped update because currentIdx=${state.reviewer.currentIdx} != loadIdx=${loadIdx}`);
+        return;
+    }
+    
+    if (!result.ok) {
+        console.error(`[fetchTMSuggestions] Failed: ${result.message}`);
+        return;
+    }
+    
+    if (result.matches.length === 0) {
+        console.log(`[fetchTMSuggestions] No matches found`);
+        panel.style.display = 'none';
+        return;
+    }
+    
+    console.log(`[fetchTMSuggestions] Found ${result.matches.length} matches`);
+    panel.style.display = 'block';
+    
+    // Clear previous results
+    list.innerHTML = '';
+    
+    result.matches.forEach(match => {
+        const item = document.createElement('div');
+        item.className = `kl-tm-item match-${match.match_type}`;
+        
+        const score = Math.round(match.score * 100);
+        const translation = match.substituted_translation || match.entry.translation;
+        const tmJp = match.entry.source || '';
+        
+        // Normalize newlines for comparison
+        const normalizedJpQuery = jpText.replace(/\n/g, ' ');
+        const normalizedJpTM = tmJp.replace(/\n/g, ' ');
+        const jpIdentical = normalizedJpQuery.trim() === normalizedJpTM.trim();
+        
+        console.log(`[TM DEBUG] score=${score}%, jpIdentical=${jpIdentical}, normalizedQuery="${normalizedJpQuery.slice(0,30)}...", normalizedTM="${normalizedJpTM.slice(0,30)}..."`);
+        console.log(`[TM DEBUG] Will highlight Jp: ${!jpIdentical}, Will highlight En: ${!jpIdentical}`);
+        
+        // Diff highlighting on Japanese (what determines if entries differ)
+        const highlightedJp = jpIdentical ? escapeHtml(tmJp) : highlightDiff(jpText, tmJp);
+        
+        // Diff highlighting on English (what user will use)
+        const editor = document.getElementById('en-editor');
+        const currentText = editor ? editor.innerText.trim() : '';
+        const highlightedEn = jpIdentical ? escapeHtml(translation) : highlightDiff(currentText, translation);
+        
+        item.innerHTML = `
+            <span class="kl-tm-score">${score}%</span>
+            <div class="kl-tm-jp">${highlightedJp}</div>
+            <div class="kl-tm-text">${highlightedEn}</div>
+        `;
+        
+        // Click to apply
+        item.onclick = () => {
+            const editor = document.getElementById('en-editor');
+            if (!editor) return;
+            
+            const current = editor.innerText.trim();
+            if (current) {
+                openConfirmModal('OVERWRITE TEXT', 'Overwrite current English text with TM suggestion?', (confirmed) => {
+                    if (confirmed) {
+                        editor.innerText = translation;
+                        updateReviewerCounters();
+                        syncLineCounters();
+                        // Track usage
+                        eel.tm_track_usage(match.entry.id)();
+                    }
+                });
+                return;
+            }
+            
+            editor.innerText = translation;
+            updateReviewerCounters();
+            syncLineCounters();
+            // Track usage
+            eel.tm_track_usage(match.entry.id)();
+        };
+        
+        list.appendChild(item);
+    });
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Simple diff highlighting - highlights parts of suggestion that differ from current text
+function highlightDiff(currentText, suggestionText) {
+    if (!currentText || !suggestionText) return escapeHtml(suggestionText);
+    
+    // Normalize newlines for comparison
+    const normalizedCurrent = currentText.replace(/\n/g, ' ');
+    const normalizedSuggestion = suggestionText.replace(/\n/g, ' ');
+    
+    // If texts are identical, no highlighting needed
+    if (normalizedCurrent.trim() === normalizedSuggestion.trim()) return escapeHtml(suggestionText);
+    
+    // Character-level LCS diff
+    const currentChars = normalizedCurrent.split('');
+    const suggestionChars = normalizedSuggestion.split('');
+    
+    // Build LCS matrix
+    const m = currentChars.length;
+    const n = suggestionChars.length;
+    const dp = Array(m + 1).fill(null).map(() => Array(n + 1).fill(0));
+    
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (currentChars[i - 1] === suggestionChars[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+            } else {
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+    
+    // Backtrack to find diff
+    let result = '';
+    let i = m, j = n;
+    const diff = [];
+    
+    while (i > 0 || j > 0) {
+        if (i > 0 && j > 0 && currentChars[i - 1] === suggestionChars[j - 1]) {
+            diff.unshift({ type: 'same', char: currentChars[i - 1] });
+            i--;
+            j--;
+        } else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
+            diff.unshift({ type: 'insert', char: suggestionChars[j - 1] });
+            j--;
+        } else if (i > 0) {
+            diff.unshift({ type: 'delete', char: currentChars[i - 1] });
+            i--;
+        }
+    }
+    
+    // Build result with highlighting
+    for (const d of diff) {
+        if (d.type === 'same') {
+            result += escapeHtml(d.char);
+        } else {
+            result += `<span class="diff-highlight">${escapeHtml(d.char)}</span>`;
+        }
+    }
+    
+    return result;
+}
+
+// Client-side gloss cache to avoid repeated Eel calls
+const glossCache = new Map();
+
+// Client-side DeepL cache to avoid repeated Eel calls
+const deepLCache = new Map();
 
 async function populateGloss(jpText, loadIdx) {
     const box = document.getElementById('gloss-box');
@@ -2724,7 +3002,15 @@ async function populateGloss(jpText, loadIdx) {
     console.log(`[populateGloss] Starting for loadIdx=${loadIdx}, jpText="${jpText?.slice(0, 30)}..."`);
     const startTime = Date.now();
     try {
-        const tokens = await eel.get_gloss(jpText)();
+        // Check client-side cache first
+        let tokens;
+        if (glossCache.has(jpText)) {
+            tokens = glossCache.get(jpText);
+            console.log(`[populateGloss] Client cache hit for loadIdx=${loadIdx}`);
+        } else {
+            tokens = await eel.get_gloss(jpText)();
+            glossCache.set(jpText, tokens);
+        }
         const elapsed = Date.now() - startTime;
         console.log(`[populateGloss] Completed for loadIdx=${loadIdx}, ${tokens?.length || 0} tokens, elapsed=${elapsed}ms`);
         

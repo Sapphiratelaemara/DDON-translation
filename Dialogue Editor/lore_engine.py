@@ -212,8 +212,8 @@ class LoreEngine:
                     return os.path.join(config_dir, "anach_definitions.json")
         except:
             pass
-        # Fallback to root directory
-        return os.path.join(os.path.dirname(os.path.abspath(__file__)), "anach_definitions.json")
+        # Return None if not found - config file must exist
+        return None
     
     @classmethod
     def _get_examples_file(cls):
@@ -228,17 +228,18 @@ class LoreEngine:
                     return os.path.join(config_dir, "archaic_examples.json")
         except:
             pass
-        # Fallback to root directory
-        return os.path.join(os.path.dirname(os.path.abspath(__file__)), "archaic_examples.json")
+        # Return None if not found - config file must exist
+        return None
     
     DEFINITIONS_FILE = property(lambda cls: cls._get_definitions_file())
     EXAMPLES_FILE = property(lambda cls: cls._get_examples_file())
 
     @classmethod
     def _load_def_cache(cls):
-        if os.path.exists(cls.DEFINITIONS_FILE):
+        definitions_file = cls._get_definitions_file()
+        if definitions_file and os.path.exists(definitions_file):
             try:
-                with open(cls.DEFINITIONS_FILE, 'r', encoding='utf-8-sig') as f:
+                with open(definitions_file, 'r', encoding='utf-8-sig') as f:
                     data = json.load(f)
                     # Handle new nested structure with dd1_definitions and other_definitions
                     if isinstance(data, dict) and "dd1_definitions" in data:
@@ -260,8 +261,9 @@ class LoreEngine:
         """Save definitions as strings only - no examples in this file."""
         try:
             # Load existing file to preserve structure
-            if os.path.exists(cls.DEFINITIONS_FILE):
-                with open(cls.DEFINITIONS_FILE, 'r', encoding='utf-8-sig') as f:
+            definitions_file = cls._get_definitions_file()
+            if definitions_file and os.path.exists(definitions_file):
+                with open(definitions_file, 'r', encoding='utf-8-sig') as f:
                     existing_data = json.load(f)
             else:
                 existing_data = {}
@@ -294,7 +296,7 @@ class LoreEngine:
                 "other_definitions": other_defs
             }
             
-            with open(cls.DEFINITIONS_FILE, 'w', encoding='utf-8-sig') as f:
+            with open(definitions_file, 'w', encoding='utf-8-sig') as f:
                 json.dump(new_data, f, indent=2, ensure_ascii=False)
         except Exception as e:
             print(f"Definition cache save error: {e}")
@@ -302,9 +304,9 @@ class LoreEngine:
     @classmethod
     def _load_examples(cls):
         """Load local examples database."""
-        if os.path.exists(cls.EXAMPLES_FILE):
+        if os.path.exists(cls._get_examples_file()):
             try:
-                with open(cls.EXAMPLES_FILE, 'r', encoding='utf-8-sig') as f:
+                with open(cls._get_examples_file(), 'r', encoding='utf-8-sig') as f:
                     data = json.load(f)
                     # Handle new nested structure with dd1_examples and other_examples
                     if isinstance(data, dict) and "dd1_examples" in data:

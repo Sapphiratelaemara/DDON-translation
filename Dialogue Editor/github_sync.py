@@ -188,7 +188,8 @@ class GitHubSync:
 
             # This will be called from translation_manager context
             # Need to get the translation_manager instance
-            from translation_manager import translation_manager as tm
+            from translation_manager import get_translation_manager
+            tm = get_translation_manager(self.cm.language)
             self.sync_push(tm)
     
     def flush_on_exit(self, translation_manager):

@@ -46,10 +46,8 @@ class PrefetchManager:
                     return os.path.join(config_dir, "prefetch_cache.json")
         except:
             pass
-        # Fallback to root directory
-        import os
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        return os.path.join(base_dir, "prefetch_cache.json")
+        # Return None if config not available - cache must be per-language
+        return None
     
     def _cache_key(self, category: str, idx: int) -> str:
         """Convert category and index to a string key for JSON serialization."""
@@ -61,7 +59,7 @@ class PrefetchManager:
             import os
             import json
             cache_path = self._get_cache_path()
-            if os.path.exists(cache_path):
+            if cache_path and os.path.exists(cache_path):
                 with open(cache_path, 'r', encoding='utf-8') as f:
                     cached_data = json.load(f)
                 # Remove entries older than 7 days (604800 seconds)
@@ -79,7 +77,7 @@ class PrefetchManager:
             try:
                 import os
                 cache_path = self._get_cache_path()
-                if os.path.exists(cache_path):
+                if cache_path and os.path.exists(cache_path):
                     os.remove(cache_path)
                     print(f"[PrefetchManager] Deleted corrupted cache file")
             except Exception as e:
@@ -94,6 +92,8 @@ class PrefetchManager:
             import os
             import json
             cache_path = self._get_cache_path()
+            if not cache_path:
+                return  # Skip saving if no config available
             # Ensure directory exists
             cache_dir = os.path.dirname(cache_path)
             if cache_dir and not os.path.exists(cache_dir):
@@ -223,7 +223,7 @@ class PrefetchManager:
                 for key in keys_to_remove:
                     del self._cache[key]
     
-    def prefetch_next(self, category: str, items: list, current_idx: int, depth: int = 3):
+    def prefetch_next(self, category: str, items: list, current_idx: int, depth: int = 25):
         """Prefetch the next N entries after the current index."""
         for offset in range(1, depth + 1):
             next_idx = current_idx + offset

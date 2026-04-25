@@ -55,9 +55,12 @@ _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 # Look for jamdict data in parent project directory
 _PARENT_DIR = os.path.dirname(_THIS_DIR)
 _LOCAL_JAMDICT_HOME = os.path.join(_PARENT_DIR, "deps", "jamdict_data")
+# Always use local directory if it exists
 if os.path.isdir(_LOCAL_JAMDICT_HOME):
-    os.environ.setdefault("JAMDICT_HOME", _LOCAL_JAMDICT_HOME)
+    os.environ["JAMDICT_HOME"] = _LOCAL_JAMDICT_HOME
     print(f"[GlossEngine] Using local jamdict data: {_LOCAL_JAMDICT_HOME}")
+else:
+    print(f"[GlossEngine] Local jamdict data not found at {_LOCAL_JAMDICT_HOME}, using default location")
 
 # ---------------------------------------------------------------------------
 # Availability guard — soft-fail if deps are missing

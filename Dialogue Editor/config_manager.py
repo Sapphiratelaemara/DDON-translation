@@ -1,6 +1,18 @@
 import json
 import os
 import threading
+import logging
+
+# Debug logging
+DEBUG_ENABLED = True
+logger = logging.getLogger('DDON_Editor.ConfigManager')
+
+def debug_log(message, level='DEBUG'):
+    """Log debug message."""
+    if not DEBUG_ENABLED:
+        return
+    log_func = getattr(logger, level.lower(), logger.debug)
+    log_func(message)
 
 class ConfigManager:
     def __init__(self, config_file="formatter_config.json", memory_file="memory.json", keys_file="keys.json", cache_file="cache.json", user_settings_file="user_settings.json", language="en"):
@@ -127,6 +139,7 @@ class ConfigManager:
 
     def load_user_settings(self):
         """Load user-specific settings from a separate file."""
+        debug_log(f"Loading user_settings from: {self.user_settings_file}")
         with self._lock:
             base_dir = os.path.dirname(os.path.abspath(__file__))
             project_root = os.path.dirname(base_dir)
@@ -140,8 +153,18 @@ class ConfigManager:
                 try:
                     with open(self.user_settings_file, 'r', encoding='utf-8') as f:
                         user_settings = json.load(f)
-                except (json.JSONDecodeError, IOError):
+                    debug_log(f"Loaded user_settings with {len(user_settings)} keys")
+                except (json.JSONDecodeError, IOError) as e:
+                    debug_log(f"Failed to load user_settings: {e}", level='ERROR')
                     pass
+            
+            # Ensure speaker_archetypes and speaker_notes exist
+            if "speaker_archetypes" not in user_settings:
+                user_settings["speaker_archetypes"] = {}
+                debug_log("Initialized speaker_archetypes in user_settings")
+            if "speaker_notes" not in user_settings:
+                user_settings["speaker_notes"] = {}
+                debug_log("Initialized speaker_notes in user_settings")
             
             # Migrate github_token from keys.json if not in user_settings
             if "github_token" not in user_settings or user_settings["github_token"] is None:
@@ -198,16 +221,14 @@ class ConfigManager:
                 if key not in user_settings:
                     user_settings[key] = default
                 elif key in ["bible_path", "glossary_path", "assets_path"]:
-                    # Always resolve to absolute, or overwrite with default if invalid
+                    # Only resolve to absolute if not empty; don't override empty strings with defaults
                     val = user_settings[key]
-                    if val:
+                    if val:  # Only process if not empty string
                         if not os.path.isabs(val):
                             val = os.path.normpath(os.path.join(base_dir, val)).replace("\\", "/")
                             user_settings[key] = val
-                        if not os.path.exists(val):
-                            user_settings[key] = default
-                    else:
-                        user_settings[key] = default
+                        # Don't override with default if path doesn't exist - user may have intentionally set it
+                    # If val is empty string, keep it empty (don't apply default)
 
             return user_settings
 

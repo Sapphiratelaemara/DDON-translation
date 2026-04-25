@@ -1,12 +1,43 @@
 import os
 import sys
 import subprocess
+import logging
+from datetime import datetime
 
 # Set console to UTF-8 for Windows to handle Japanese characters
 if sys.platform == 'win32':
     import codecs
     sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer, 'strict')
     sys.stderr = codecs.getwriter('utf-8')(sys.stderr.buffer, 'strict')
+
+# Configure debug logging
+DEBUG_LOG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'debug.log')
+DEBUG_ENABLED = True
+
+def setup_debug_logging():
+    """Setup debug logging to file."""
+    if not DEBUG_ENABLED:
+        return
+    
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler(DEBUG_LOG_FILE, encoding='utf-8'),
+            logging.StreamHandler(sys.stdout)
+        ]
+    )
+    return logging.getLogger('DDON_Editor')
+
+logger = setup_debug_logging()
+
+def debug_log(component, message, level='DEBUG'):
+    """Log debug message with component name."""
+    if not DEBUG_ENABLED:
+        return
+    log_func = getattr(logger, level.lower(), logger.debug)
+    log_msg = f"[{component}] {message}"
+    log_func(log_msg)
 
 # Dependency check and auto-install
 def check_dependencies():
@@ -15,6 +46,7 @@ def check_dependencies():
         'eel': 'eel>=0.16.0',
         'requests': 'requests>=2.31.0',
         'msgpack': 'msgpack>=1.0.0',
+        'PIL': 'Pillow>=10.0.0',
     }
     
     missing = []
@@ -60,7 +92,7 @@ from api_handler import DeepLClient, OpenRouterClient
 from translator_engine import TranslationEngine
 from file_utils import _get_csv_files, _read_csv
 from batch_runner import run_batch, BatchSettings
-from translation_manager import translation_manager
+from translation_manager import get_translation_manager
 from github_sync import GitHubSync
 
 # Initialize core logic
@@ -83,6 +115,7 @@ cm     = ConfigManager(language=initial_language)
 set_config_manager(cm)  # Set ConfigManager for lore_data to load language-specific vocab
 engine = TranslationEngine(cm.config.get("tag_map", {}))
 github_sync = GitHubSync(cm)
+translation_manager = get_translation_manager(initial_language)
 
 # Set up sync callback - request push to GitHub after local saves
 # Comments trigger urgent push (1 min), other changes wait (30 min)
@@ -99,15 +132,35 @@ _lore_engine_lock = threading.Lock()
 # Lazy-initialized gloss engine
 _gloss_engine      = None
 _gloss_engine_lock = threading.Lock()
+_gloss_engine_last_lore_map = None
+_gloss_cache = {}  # Clear cache on restart to use new smaller format
+
+# Lazy-initialized TM components
+_tm_instance      = None
+_tm_lock          = threading.Lock()
+_tm_matcher       = None
+_tm_substitutor    = None
 
 # Start GitHub auto-sync if enabled (30 min intervals)
 if github_sync.is_configured() and cm.config.get('sync_auto', False):
     github_sync.start_auto_sync(translation_manager)
     print("[main] GitHub auto-sync started (30min intervals)")
 
+def _get_tm_components():
+    """Return cached TM instance, matcher, and substitutor."""
+    global _tm_instance, _tm_matcher, _tm_substitutor
+    with _tm_lock:
+        if _tm_instance is None:
+            from translation_memory import TranslationMemory, FuzzyMatcher, AutoSubstitutor
+            _tm_instance = TranslationMemory(cm)
+            _tm_matcher = FuzzyMatcher(cm)
+            _tm_substitutor = AutoSubstitutor(cm)
+            print(f"[TM] Initialized TM with {len(_tm_instance.entries)} entries")
+        return _tm_instance, _tm_matcher, _tm_substitutor
+
 def _get_gloss_engine():
     """Return a cached GlossEngine, rebuilding if needed."""
-    global _gloss_engine
+    global _gloss_engine, _gloss_engine_last_lore_map
     # Get lore_map from LoreEngine (which loads from glossary files)
     le = _get_lore_engine()
     lore_map = le.lore_map if le else {}
@@ -117,11 +170,15 @@ def _get_gloss_engine():
                 if _gloss_engine is None:
                     from gloss_engine import GlossEngine
                     _gloss_engine = GlossEngine(lore_map=lore_map)
-        _gloss_engine.update_lore_map(lore_map)
-        # Clear gloss cache when lore_map is updated
-        global _gloss_cache
-        with _gloss_cache_lock:
-            _gloss_cache.clear()
+                    _gloss_engine_last_lore_map = lore_map
+        # Only update and clear cache if lore_map actually changed
+        if lore_map != _gloss_engine_last_lore_map:
+            _gloss_engine.update_lore_map(lore_map)
+            # Clear gloss cache when lore_map is updated
+            global _gloss_cache
+            with _gloss_cache_lock:
+                _gloss_cache.clear()
+            _gloss_engine_last_lore_map = lore_map
     except Exception as e:
         print(f"[WARN] GlossEngine unavailable: {e}")
     return _gloss_engine
@@ -136,8 +193,8 @@ def _get_lore_engine():
                     from lore_engine import LoreEngine
                     le = LoreEngine(cm.config.get("archetypes"))
                     le.load_data(
-                        cm.config.get("bible_path",    ""),
-                        cm.config.get("glossary_path", ""))
+                        cm.user_settings.get("bible_path",    "") if hasattr(cm, 'user_settings') else "",
+                        cm.user_settings.get("glossary_path", "") if hasattr(cm, 'user_settings') else "")
                     _lore_engine = le
                 except Exception as e:
                     print(f"[WARN] LoreEngine unavailable: {e}")
@@ -306,28 +363,28 @@ def serve_assets(path):
 
 @eel.expose
 def get_dashboard_data():
-    folders   = cm.config.get("folders", [])
+    folders   = cm.user_settings.get("folders", []) if hasattr(cm, 'user_settings') else []
     csv_files = _get_csv_files(folders)
     return {
         "folders":      folders,
-        "triggers":     cm.config.get("triggers",   []),
+        "triggers":     cm.user_settings.get("triggers",   []) if hasattr(cm, 'user_settings') else [],
         "file_count":   len(csv_files),
         "last_scan":    datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "in_universe":  cm.config.get("in_universe",  True),
-        "preview_mode": cm.config.get("preview_mode", False),
-        "last_stats":   cm.config.get("last_stats",   {}),
+        "in_universe":  cm.user_settings.get("in_universe",  True) if hasattr(cm, 'user_settings') else True,
+        "preview_mode": cm.user_settings.get("preview_mode", False) if hasattr(cm, 'user_settings') else False,
+        "last_stats":   cm.user_settings.get("last_stats",   {}) if hasattr(cm, 'user_settings') else {},
         "presets":      list(cm.config.get("presets", {"Standard": 50}).keys()),
         "wall_presets": list(cm.config.get("wall_presets", {"Standard": 7}).keys()),
-        "selected_preset": cm.config.get("selected_preset", "Standard"),
-        "wall_preset":  cm.config.get("wall_preset", "Standard"),
-        "dark_mode":    cm.config.get("dark_mode", False),
+        "selected_preset": cm.user_settings.get("selected_preset", "Standard") if hasattr(cm, 'user_settings') else "Standard",
+        "wall_preset":  cm.user_settings.get("wall_preset", "Standard") if hasattr(cm, 'user_settings') else "Standard",
+        "dark_mode":    cm.user_settings.get("dark_mode", False) if hasattr(cm, 'user_settings') else False,
         "theme_colors": get_theme_colors(),
     }
 
 @eel.expose
 def calculate_project_stats():
     """Project-wide stats: total lines vs translated lines."""
-    folders   = cm.config.get("folders", [])
+    folders   = cm.user_settings.get("folders", []) if hasattr(cm, 'user_settings') else []
     csv_files = _get_csv_files(folders)
     total_lines = 0
     translated  = 0
@@ -351,8 +408,8 @@ def calculate_project_stats():
         "translated": translated,
         "percent":    round((translated / total_lines * 100), 1) if total_lines > 0 else 0,
     }
-    cm.config["last_stats"] = res
-    cm.save_all()
+    cm.user_settings["last_stats"] = res
+    cm.save_user_settings()
     return res
 
 @eel.expose
@@ -372,7 +429,7 @@ def add_log_message(message):
 @eel.expose
 def get_theme_colors():
     """Return current theme colors based on dark mode setting."""
-    dark_mode = cm.config.get("dark_mode", False)
+    dark_mode = cm.user_settings.get("dark_mode", False) if hasattr(cm, 'user_settings') else False
     
     # Default colors
     default_dark = {
@@ -396,7 +453,7 @@ def get_theme_colors():
         "lore":     "#6fb3ff",
         "lore_hover": "#a8d4ff",
         "anach":    "#ffd700",
-        "tooltip":  "#ff8800",
+        "tooltip":  "#fcf34b",
         "mask_015": "rgba(0, 0, 0, 0.15)",
         "mask_025": "rgba(0, 0, 0, 0.25)",
         "mask_03":  "rgba(0, 0, 0, 0.3)",
@@ -566,13 +623,13 @@ def get_theme_colors():
     
     if dark_mode:
         # Use custom dark theme if configured
-        custom = cm.config.get("custom_dark_theme", {})
+        custom = cm.user_settings.get("custom_dark_theme", {}) if hasattr(cm, 'user_settings') else {}
         if custom:
             return {**default_dark, **custom}
         return default_dark
     else:
         # Use custom light theme if configured
-        custom = cm.config.get("custom_light_theme", {})
+        custom = cm.user_settings.get("custom_light_theme", {}) if hasattr(cm, 'user_settings') else {}
         if custom:
             return {**default_light, **custom}
         return default_light
@@ -580,10 +637,10 @@ def get_theme_colors():
 @eel.expose
 def toggle_dark_mode():
     """Toggle dark mode and return new theme colors."""
-    current_mode = cm.config.get("dark_mode", False)
+    current_mode = cm.user_settings.get("dark_mode", False) if hasattr(cm, 'user_settings') else False
     new_mode = not current_mode
-    cm.config["dark_mode"] = new_mode
-    cm.save_all()
+    cm.user_settings["dark_mode"] = new_mode
+    cm.save_user_settings()
     return get_theme_colors()
 
 # =============================================================================
@@ -593,34 +650,58 @@ def toggle_dark_mode():
 @eel.expose
 def update_config_dict(dict_key, action, key, value=None):
     """Handles Dictionary-based settings (tags, presets)"""
-    if dict_key not in cm.config:
-        cm.config[dict_key] = {}
+    user_specific_keys = ["speaker_archetypes", "speaker_notes"]
+    is_user_specific = dict_key in user_specific_keys
+    
+    if is_user_specific:
+        if dict_key not in cm.user_settings:
+            cm.user_settings[dict_key] = {}
+        target_dict = cm.user_settings
+    else:
+        if dict_key not in cm.config:
+            cm.config[dict_key] = {}
+        target_dict = cm.config
         
     if action == "add":
-        cm.config[dict_key][key] = value
+        target_dict[dict_key][key] = value
     elif action == "remove":
-        if key in cm.config[dict_key]:
-            del cm.config[dict_key][key]
+        if key in target_dict[dict_key]:
+            del target_dict[dict_key][key]
             
-    cm.save_all()
-    return cm.config[dict_key]
+    if is_user_specific:
+        cm.save_user_settings()
+    else:
+        cm.save_all()
+    return target_dict[dict_key]
     
 @eel.expose
 def update_config_list(list_key, action, item=None, index=None):
     """Generic handler for folders and triggers lists"""
-    if list_key not in cm.config:
-        cm.config[list_key] = []
+    user_specific_keys = ["folders", "triggers"]
+    is_user_specific = list_key in user_specific_keys
+    
+    if is_user_specific:
+        if list_key not in cm.user_settings:
+            cm.user_settings[list_key] = []
+        target_dict = cm.user_settings
+    else:
+        if list_key not in cm.config:
+            cm.config[list_key] = []
+        target_dict = cm.config
         
     if action == "add" and item:
-        cm.config[list_key].append(item)
+        target_dict[list_key].append(item)
     elif action == "remove":
         if index is not None:
-            cm.config[list_key].pop(index)
-        elif item in cm.config[list_key]:
-            cm.config[list_key].remove(item)
+            target_dict[list_key].pop(index)
+        elif item in target_dict[list_key]:
+            target_dict[list_key].remove(item)
             
-    cm.save_all()
-    return cm.config[list_key]
+    if is_user_specific:
+        cm.save_user_settings()
+    else:
+        cm.save_all()
+    return target_dict[list_key]
 
 @eel.expose
 def switch_language(new_language):
@@ -806,29 +887,59 @@ def delete_map_setting(section, key):
 
 @eel.expose
 def add_list_item(section, item):
-    items = cm.config.get(section, [])
-    if item not in items:
-        items.append(item)
-        cm.config[section] = items
-        cm.save_all()
+    user_specific_keys = ["folders", "triggers"]
+    is_user_specific = section in user_specific_keys
+    
+    if is_user_specific:
+        items = cm.user_settings.get(section, [])
+        if item not in items:
+            items.append(item)
+            cm.user_settings[section] = items
+            cm.save_user_settings()
+    else:
+        items = cm.config.get(section, [])
+        if item not in items:
+            items.append(item)
+            cm.config[section] = items
+            cm.save_all()
     return items
 
 @eel.expose
 def remove_list_item(section, item):
-    items = cm.config.get(section, [])
-    if item in items:
-        items.remove(item)
-        cm.config[section] = items
-        cm.save_all()
+    user_specific_keys = ["folders", "triggers"]
+    is_user_specific = section in user_specific_keys
+    
+    if is_user_specific:
+        items = cm.user_settings.get(section, [])
+        if item in items:
+            items.remove(item)
+            cm.user_settings[section] = items
+            cm.save_user_settings()
+    else:
+        items = cm.config.get(section, [])
+        if item in items:
+            items.remove(item)
+            cm.config[section] = items
+            cm.save_all()
     return items
 
 @eel.expose
 def update_list_item(section, index, item):
-    items = cm.config.get(section, [])
-    if 0 <= index < len(items):
-        items[index] = item
-        cm.config[section] = items
-        cm.save_all()
+    user_specific_keys = ["folders", "triggers"]
+    is_user_specific = section in user_specific_keys
+    
+    if is_user_specific:
+        items = cm.user_settings.get(section, [])
+        if 0 <= index < len(items):
+            items[index] = item
+            cm.user_settings[section] = items
+            cm.save_user_settings()
+    else:
+        items = cm.config.get(section, [])
+        if 0 <= index < len(items):
+            items[index] = item
+            cm.config[section] = items
+            cm.save_all()
     return items
 
 # --- REPLACEMENT RULES ---
@@ -898,39 +1009,39 @@ def pick_file(title="Select File", filetypes=[("All Files", "*.*")]):
 @eel.expose
 def add_folder(folder_path):
     """Add a folder to the watched folders list."""
-    if folder_path and folder_path not in cm.config.get("folders", []):
-        cm.config.setdefault("folders", []).append(folder_path)
-        cm.save_all()
-        return cm.config["folders"]
-    return cm.config.get("folders", [])
+    if folder_path and folder_path not in cm.user_settings.get("folders", []):
+        cm.user_settings["folders"].append(folder_path)
+        cm.save_user_settings()
+        return cm.user_settings["folders"]
+    return cm.user_settings.get("folders", []) if hasattr(cm, 'user_settings') else []
 
 @eel.expose
 def remove_folder(index):
     """Remove a folder from the watched folders list by index."""
-    folders = cm.config.get("folders", [])
+    folders = cm.user_settings.get("folders", [])
     if 0 <= index < len(folders):
         folders.pop(index)
-        cm.config["folders"] = folders
-        cm.save_all()
+        cm.user_settings["folders"] = folders
+        cm.save_user_settings()
     return folders
 
 @eel.expose
 def add_trigger(trigger_text):
     """Add a trigger to the scan triggers list."""
-    if trigger_text and trigger_text not in cm.config.get("triggers", []):
-        cm.config.setdefault("triggers", []).append(trigger_text)
-        cm.save_all()
-        return cm.config["triggers"]
-    return cm.config.get("triggers", [])
+    if trigger_text and trigger_text not in cm.user_settings.get("triggers", []):
+        cm.user_settings["triggers"].append(trigger_text)
+        cm.save_user_settings()
+        return cm.user_settings["triggers"]
+    return cm.user_settings.get("triggers", []) if hasattr(cm, 'user_settings') else []
 
 @eel.expose
 def remove_trigger(index):
     """Remove a trigger from the scan triggers list by index."""
-    triggers = cm.config.get("triggers", [])
+    triggers = cm.user_settings.get("triggers", [])
     if 0 <= index < len(triggers):
         triggers.pop(index)
-        cm.config["triggers"] = triggers
-        cm.save_all()
+        cm.user_settings["triggers"] = triggers
+        cm.save_user_settings()
     return triggers
 
 @eel.expose
@@ -941,14 +1052,14 @@ def refresh_ui():
     # In web context, this mainly updates the dashboard data
     # The frontend will handle the actual UI refresh
     return {
-        "folders": cm.config.get("folders", []),
-        "triggers": cm.config.get("triggers", []),
+        "folders": cm.user_settings.get("folders", []),
+        "triggers": cm.user_settings.get("triggers", []),
         "presets": list(cm.config.get("presets", {"Standard": 50}).keys()),
         "wall_presets": list(cm.config.get("wall_presets", {"Standard": 7}).keys()),
-        "selected_preset": cm.config.get("selected_preset", "Standard"),
-        "wall_preset": cm.config.get("wall_preset", "Standard"),
-        "in_universe": cm.config.get("in_universe", True),
-        "preview_mode": cm.config.get("preview_mode", False),
+        "selected_preset": cm.user_settings.get("selected_preset", "Standard"),
+        "wall_preset": cm.user_settings.get("wall_preset", "Standard"),
+        "in_universe": cm.user_settings.get("in_universe", True),
+        "preview_mode": cm.user_settings.get("preview_mode", False),
     }
 
 @eel.expose
@@ -1021,20 +1132,20 @@ def reload_archetypes_from_file():
 
 @eel.expose
 def save_speaker_archetype(speaker, archetype_key, note=""):
-    cm.config.setdefault("speaker_archetypes", {})[speaker] = archetype_key if archetype_key else None
+    cm.user_settings.setdefault("speaker_archetypes", {})[speaker] = archetype_key if archetype_key else None
     if not archetype_key:
-        cm.config["speaker_archetypes"].pop(speaker, None)
+        cm.user_settings["speaker_archetypes"].pop(speaker, None)
     if note:
-        cm.config.setdefault("speaker_notes", {})[speaker] = note
+        cm.user_settings.setdefault("speaker_notes", {})[speaker] = note
     else:
-        cm.config.setdefault("speaker_notes", {}).pop(speaker, None)
-    cm.save_all()
+        cm.user_settings.setdefault("speaker_notes", {}).pop(speaker, None)
+    cm.save_user_settings()
     return True
 
 @eel.expose
 def get_archetypes_list():
     """Return list of available archetypes for dropdown."""
-    archetypes = cm.config.get("archetypes", {})
+    archetypes = cm.archetypes.get("archetypes", {})
     result = [{"key": k, "name": v.get("name", k)} for k, v in archetypes.items()]
     result.insert(0, {"key": "", "name": "(none)"})
     return result
@@ -1042,12 +1153,18 @@ def get_archetypes_list():
 @eel.expose
 def get_speaker_archetype(speaker):
     """Return saved archetype for a speaker."""
-    return cm.config.get("speaker_archetypes", {}).get(speaker, "")
+    debug_log("Main", f"get_speaker_archetype called for speaker: {speaker}")
+    result = cm.user_settings.get("speaker_archetypes", {}).get(speaker, "")
+    debug_log("Main", f"get_speaker_archetype result: {result}")
+    return result
 
 @eel.expose
 def get_speaker_note(speaker):
     """Return saved note for a speaker."""
-    return cm.config.get("speaker_notes", {}).get(speaker, "")
+    debug_log("Main", f"get_speaker_note called for speaker: {speaker}")
+    result = cm.user_settings.get("speaker_notes", {}).get(speaker, "")
+    debug_log("Main", f"get_speaker_note result: {result}")
+    return result
 
 @eel.expose
 def get_speakers_list():
@@ -1081,8 +1198,8 @@ def test_openrouter(key):
 def fetch_models(key, free_only=True):
     models = OpenRouterClient(key).fetch_models(free_only=free_only)
     if models:
-        cm.config["openrouter_models"] = models
-        cm.save_all()
+        cm.user_settings["openrouter_models"] = models
+        cm.save_user_settings()
     return models
 
 # =============================================================================
@@ -1120,13 +1237,13 @@ def rewrap_text(text, limit=None):
 
 @eel.expose
 def get_standard_limit():
-    selected = cm.config.get("selected_preset", "Standard")
+    selected = cm.user_settings.get("selected_preset", "Standard")
     presets  = cm.config.get("presets", {"Standard": 50})
     return presets.get(selected, list(presets.values())[0] if presets else 50)
 
 @eel.expose
 def get_wall_limit():
-    selected = cm.config.get("wall_preset", "Standard")
+    selected = cm.user_settings.get("wall_preset", "Standard")
     presets  = cm.config.get("wall_presets", {"Standard": 3})
     return presets.get(selected, list(presets.values())[0] if presets else 3)
 
@@ -1138,8 +1255,8 @@ def get_all_presets():
     return {
         "char_presets": char_presets,
         "line_presets": line_presets,
-        "selected_char": cm.config.get("selected_preset", "Standard"),
-        "selected_line": cm.config.get("wall_preset", "Standard"),
+        "selected_char": cm.user_settings.get("selected_preset", "Standard"),
+        "selected_line": cm.user_settings.get("wall_preset", "Standard"),
     }
 
 @eel.expose
@@ -1276,16 +1393,28 @@ def generate_preview_image(profile_name, text):
         import base64
         from PIL import Image, ImageDraw, ImageFont
         
+        print(f"[generate_preview_image] Called with profile={profile_name}, text={text[:50]}...")
+        
         # Get profile data
         profiles = get_preview_profiles()
         profile = profiles.get(profile_name)
         if not profile:
+            print(f"[generate_preview_image] Profile '{profile_name}' not found. Available: {list(profiles.keys())}")
             return {"error": f"Profile '{profile_name}' not found"}
         
+        print(f"[generate_preview_image] Profile found: {profile}")
+        
         # Load actual PNG image from assets
-        assets_path = cm.config.get("assets_path")
+        # assets_path is in user_settings, not the main config
+        assets_path = cm.user_settings.get("assets_path") if hasattr(cm, 'user_settings') else None
         if not assets_path:
-            return {"error": "Assets path not configured"}
+            return {
+                "error": "Assets path not configured",
+                "debug": {
+                    "has_user_settings": hasattr(cm, 'user_settings'),
+                    "assets_path": assets_path
+                }
+            }
         
         # Don't crop in Python - return full image and use CSS to position based on crop values
         # This prevents zooming when crop dimensions change
@@ -1300,17 +1429,21 @@ def generate_preview_image(profile_name, text):
         
         final_base = None
         for png_path in src_candidates:
+            print(f"[generate_preview_image] Trying to load: {png_path}, exists: {os.path.exists(png_path)}")
             if not os.path.exists(png_path):
                 continue
             try:
                 with Image.open(png_path) as img:
                     final_base = img.convert("RGBA")
+                print(f"[generate_preview_image] Successfully loaded: {png_path}")
                 break
-            except Exception:
+            except Exception as e:
+                print(f"[generate_preview_image] Failed to load {png_path}: {e}")
                 continue
         
         # Fallback to procedural if no image found - create with transparency
         if final_base is None:
+            print(f"[generate_preview_image] No PNG found, using procedural fallback")
             _box_styles = {
                 "dialogue": {"bg": (242, 238, 220, 255), "border": (180, 160, 100, 255)},
                 "choice":   {"bg": (30, 25, 45, 255),    "border": (120, 100, 200, 255)},
@@ -1326,19 +1459,24 @@ def generate_preview_image(profile_name, text):
         
         # Try to load font
         font_path = os.path.join(assets_path, "DDONfont.otf")
+        print(f"[generate_preview_image] Font path: {font_path}, exists: {os.path.exists(font_path)}")
         if not os.path.exists(font_path):
             font_path = None
         
         if not font_path:
             # Fallback to system font
+            print(f"[generate_preview_image] Font not found, using system font")
             try:
                 font = ImageFont.truetype("arial.ttf", profile.get("font_sz", 14))
-            except:
+            except Exception as e:
+                print(f"[generate_preview_image] System font failed: {e}, using default")
                 font = ImageFont.load_default()
         else:
             try:
                 font = ImageFont.truetype(font_path, profile.get("font_sz", 14))
-            except:
+                print(f"[generate_preview_image] Successfully loaded custom font")
+            except Exception as e:
+                print(f"[generate_preview_image] Custom font failed: {e}, using default")
                 font = ImageFont.load_default()
         
         # Add text overlay on RGBA image
@@ -1373,6 +1511,8 @@ def generate_preview_image(profile_name, text):
         final_base.save(buffer, format='PNG')
         img_base64 = base64.b64encode(buffer.getvalue()).decode()
         
+        print(f"[generate_preview_image] Successfully generated preview: {final_base.width}x{final_base.height}")
+        
         return {
             "image": f"data:image/png;base64,{img_base64}",
             "width": final_base.width,
@@ -1381,6 +1521,9 @@ def generate_preview_image(profile_name, text):
         }
         
     except Exception as e:
+        import traceback
+        print(f"[generate_preview_image] Exception: {e}")
+        traceback.print_exc()
         return {"error": f"Failed to generate preview: {str(e)}"}
 
 # --- GLOSSING / WORD LOOKUP ---
@@ -1448,13 +1591,12 @@ def get_gloss(jp_text):
             print(f"[get_gloss] Processing chunk {i+1}/{len(chunks)} ({len(chunk)} chars)")
             try:
                 tokens = ge.gloss(chunk)
-                # Convert tokens to serializable dicts
+                # Convert tokens to serializable dicts (minimize payload for Eel speed)
                 result = [
                     {
                         "surface": t.surface,
-                        "base": t.base,
                         "pos": t.pos,
-                        "candidates": t.candidates,
+                        "candidates": t.candidates[:5] if t.candidates else [],  # Limit to top 5 candidates
                         "is_lore": t.is_lore,
                     }
                     for t in tokens
@@ -1475,13 +1617,12 @@ def get_gloss(jp_text):
         try:
             tokens = ge.gloss(jp_text)
             print(f"[get_gloss] gloss() returned, got {len(tokens) if tokens else 'None'} tokens")
-            # Convert tokens to serializable dicts
+            # Convert tokens to serializable dicts (minimize payload for Eel speed)
             result = [
                 {
                     "surface": t.surface,
-                    "base": t.base,
                     "pos": t.pos,
-                    "candidates": t.candidates,
+                    "candidates": t.candidates[:5] if t.candidates else [],  # Limit to top 5 candidates
                     "is_lore": t.is_lore,
                 }
                 for t in tokens
@@ -1645,7 +1786,7 @@ def get_adjacent_context(path, row_idx):
         print(f"[get_adjacent_context] Returning empty: path={path}, row_idx={row_idx}")
         return {}
     try:
-        _, _, rows = _read_csv_cached(path)
+        _, _, rows = _read_csv(path)
         print(f"[get_adjacent_context] Read {len(rows)} rows from CSV")
         
         # Row index is used directly (no header row in source CSVs)
@@ -1704,10 +1845,10 @@ def start_batch_scan(preset_name="Standard", wall_preset_name="Standard"):
     batch_scan_complete = False
 
     # Save selected limits and UI state
-    cm.config["selected_preset"] = preset_name
-    cm.config["wall_preset"]     = wall_preset_name
-    cm.config["in_universe"]     = cm.config.get("in_universe", True)
-    cm.save_all()
+    cm.user_settings["selected_preset"] = preset_name
+    cm.user_settings["wall_preset"]     = wall_preset_name
+    cm.user_settings["in_universe"]     = cm.user_settings.get("in_universe",  True)
+    cm.save_user_settings()
 
     limit      = cm.config.get("presets",      {}).get(preset_name, 50)
     wall_limit = cm.config.get("wall_presets", {}).get(wall_preset_name, 7)
@@ -1715,13 +1856,13 @@ def start_batch_scan(preset_name="Standard", wall_preset_name="Standard"):
     settings = BatchSettings(
         limit            = limit,
         wall_limit       = wall_limit,
-        triggers         = cm.config.get("triggers",     []),
-        do_in_universe   = cm.config.get("in_universe",  True),
-        folders          = cm.config.get("folders",      []),
+        triggers         = cm.user_settings.get("triggers",     []) if hasattr(cm, 'user_settings') else [],
+        do_in_universe   = cm.user_settings.get("in_universe",  True) if hasattr(cm, 'user_settings') else True,
+        folders          = cm.user_settings.get("folders",      []) if hasattr(cm, 'user_settings') else [],
         tag_map          = cm.config.get("tag_map",      {}),
         entry_type_rules = cm.config.get("entry_type_rules", {}),
         replace_rules    = cm.config.get("replace_rules",    []),
-        preview_mode     = cm.config.get("preview_mode",     False),
+        preview_mode     = cm.user_settings.get("preview_mode",     False) if hasattr(cm, 'user_settings') else False,
         checkpoint_file  = os.path.join(os.path.dirname(os.path.abspath(__file__)), "batch_checkpoint.json"),
     )
 
@@ -1853,7 +1994,7 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
     if not key:
         return "Error: No OpenRouter key found."
 
-    model = cm.config.get("selected_openrouter_model", "openrouter/auto")
+    model = cm.user_settings.get("selected_openrouter_model", "openrouter/auto")
     cache_key = f"{model}::{message}"
     cached = cm.get_cached("openrouter", cache_key)
     if cached:
@@ -2032,7 +2173,7 @@ def apply_fix(item_id, new_text, force=False, user="translator"):
     print(f"[apply_fix]   TM logs: {len(translation_manager.logs)}")
 
     # Respect Preview Mode - don't write to disk if user is just reviewing
-    if cm.config.get("preview_mode", False):
+    if cm.user_settings.get("preview_mode", False) if hasattr(cm, 'user_settings') else False:
         cm.save_all()
         return {"ok": True}
 
@@ -2099,6 +2240,7 @@ def load_csv_for_translation(filepath=None):
                 "jp": jp_text,
                 "en": en_text,
                 "category": category,
+                "entry_type": category,  # Use category as entry_type
                 "path": filepath,
                 "row": i  # i is the actual row index in the CSV file
             })
@@ -2119,9 +2261,9 @@ except Exception as e:
     print(f"[INIT] Error cleaning up old logs: {e}")
 
 try:
-    if 'sync_nickname' in cm.config:
-        translation_manager.update_all_log_usernames(cm.config['sync_nickname'])
-        print(f"[INIT] Updated log usernames to {cm.config['sync_nickname']}")
+    if hasattr(cm, 'user_settings') and 'sync_nickname' in cm.user_settings:
+        translation_manager.update_all_log_usernames(cm.user_settings['sync_nickname'])
+        print(f"[INIT] Updated log usernames to {cm.user_settings['sync_nickname']}")
 except Exception as e:
     print(f"[INIT] Error updating log usernames: {e}")
 
@@ -2134,7 +2276,7 @@ _prefetch_mgr = PrefetchManager(lore_engine_getter=_get_lore_engine)
 _prefetch_mgr.start()
 
 @eel.expose
-def start_prefetch(category, items, current_idx, depth=3):
+def start_prefetch(category, items, current_idx, depth=25):
     """Start prefetching the next N entries after current index."""
     try:
         _prefetch_mgr.update_current_idx(category, current_idx)
@@ -2395,7 +2537,7 @@ def get_sync_status():
             "repo": cm.user_settings.get('github_repo', ''),
             "nickname": cm.user_settings.get('sync_nickname', ''),
             "language": cm.language,
-            "auto_sync": cm.user_settings.get('sync_auto', False),
+            "auto_sync": cm.user_settings.get('sync_auto', False) if hasattr(cm, 'user_settings') else False,
             "interval": cm.config.get('sync_interval', 30)
         }
     except Exception as e:
@@ -2427,7 +2569,7 @@ def perform_search(query, field_col=None):
     if not query:
         return []
     query_lc  = query.lower()
-    csv_files = _get_csv_files(cm.config.get("folders", []))
+    csv_files = _get_csv_files(cm.user_settings.get("folders", []) if hasattr(cm, 'user_settings') else [])
     results   = []
     for f_path in csv_files:
         try:
@@ -2453,6 +2595,7 @@ def perform_search(query, field_col=None):
                         "jp":    (row[2] if len(row) > 2 else "")[:200],
                         "speaker": speaker,
                         "category": category,
+                        "entry_type": category,  # Use category as entry_type for search results
                     })
         except:
             continue
@@ -2473,8 +2616,8 @@ def get_feature_status():
         "deepl_key_configured": False,
         "lore_context": False,
         "lore_context_error": None,
-        "glossary_path": cm.config.get("glossary_path", ""),
-        "bible_path": cm.config.get("bible_path", ""),
+        "glossary_path": cm.user_settings.get("glossary_path", "") if hasattr(cm, 'user_settings') else "",
+        "bible_path": cm.user_settings.get("bible_path", "") if hasattr(cm, 'user_settings') else "",
     }
     
     # Check GlossEngine (Jamdict)
@@ -2638,6 +2781,497 @@ def main():
     
     return True
 
+# =============================================================================
+# TRANSLATION MEMORY DIAGNOSTICS
+# =============================================================================
+
+@eel.expose
+def tm_test_data_structure():
+    """Test TM data structure creation and validation."""
+    tm, _, _ = _get_tm_components()
+    
+    # Create test entry
+    test_entry = {
+        "source": "テストテキスト",
+        "translation": "Test text",
+        "context": {"speaker": "Test", "entry_type": "dialogue"},
+        "quality": "approved"
+    }
+    
+    entry_id = tm.add_entry(test_entry)
+    retrieved = tm.get_entry(entry_id)
+    validation = tm.validate_entry(retrieved) if retrieved else False
+    
+    # Cleanup
+    tm.delete_entry(entry_id)
+    
+    return {
+        "ok": True,
+        "entry_id": entry_id,
+        "retrieved": retrieved,
+        "validation": validation,
+        "pass": validation is True
+    }
+
+@eel.expose
+def tm_test_migration():
+    """Test migration from old memory.json to new format."""
+    tm, _, _ = _get_tm_components()
+    
+    # Get current memory count
+    old_memory = cm.memory.copy()
+    old_count = len(old_memory)
+    
+    # Run migration
+    migrated_count = tm.migrate_from_memory(old_memory)
+    
+    # Check results
+    tm_entries_count = len(tm.entries)
+    
+    return {
+        "ok": True,
+        "old_count": old_count,
+        "migrated_count": migrated_count,
+        "tm_entries": tm_entries_count,
+        "pass": migrated_count == old_count or old_count == 0
+    }
+
+@eel.expose
+def tm_test_fuzzy_matching():
+    """Test fuzzy matching with various test cases."""
+    from translation_memory import FuzzyMatcher
+    
+    matcher = FuzzyMatcher(cm)
+    
+    test_cases = [
+        ("exact match", "テスト", "テスト", 1.0),
+        ("minor typo", "テスト", "テストト", 0.9),
+        ("word order", "A B C", "B A C", 0.7),
+        ("punctuation", "Hello.", "Hello!", 0.95),
+        ("tags", "Hello {name}", "Hello {player}", 0.85),
+        ("no match", "完全に違う", "totally different", 0.0)
+    ]
+    
+    results = []
+    for name, source1, source2, expected in test_cases:
+        score = matcher.calculate_similarity(source1, source2)
+        results.append({
+            "test": name,
+            "score": score,
+            "expected": expected,
+            "pass": abs(score - expected) < 0.15  # Allow 15% tolerance
+        })
+    
+    return {"ok": True, "results": results}
+
+@eel.expose
+def tm_test_match_performance():
+    """Test fuzzy matching performance with large dataset."""
+    from translation_memory import FuzzyMatcher
+    import time
+    
+    tm, matcher, _ = _get_tm_components()
+    
+    # Generate test data
+    for i in range(1000):
+        tm.add_entry({
+            "source": f"Test text {i}",
+            "translation": f"Translation {i}",
+            "context": {},
+            "quality": "approved"
+        })
+    
+    query = "Test text 500"
+    start = time.time()
+    matches = matcher.find_matches(query, tm.entries, threshold=0.5)
+    elapsed = time.time() - start
+    
+    # Cleanup
+    for i in range(1000):
+        # Find and delete the test entries
+        matches_to_delete = tm.find_by_source(f"Test text {i}")
+        for match in matches_to_delete:
+            tm.delete_entry(match["id"])
+    
+    return {
+        "ok": True,
+        "entry_count": 1000,
+        "match_count": len(matches),
+        "top_score": matches[0]["score"] if matches else 0,
+        "elapsed_ms": elapsed * 1000,
+        "pass": elapsed < 1.0  # Should complete in under 1 second
+    }
+
+@eel.expose
+def tm_test_auto_substitution():
+    """Test auto-substitution with various patterns."""
+    from translation_memory import AutoSubstitutor
+    
+    sub = AutoSubstitutor(cm)
+    
+    test_cases = [
+        ("placeholders", "Hello {player}", "Bonjour {name}", "Bonjour {player}"),
+        ("multiple placeholders", "A {x} B {y}", "X {1} Y {2}", "X {x} Y {y}"),
+        ("html tags", "<b>Bold</b>", "<b>Gras</b>", "<b>Gras</b>"),
+        ("numbers", "Level 5", "Niveau 3", "Niveau 5"),
+        ("mixed", "Hello {player} <br> Level {level}", "Bonjour {name} <br> Niveau {lvl}", "Bonjour {player} <br> Niveau {level}")
+    ]
+    
+    results = []
+    for name, source, tm, expected in test_cases:
+        result = sub.apply_auto_substitution(source, {"translation": tm})
+        results.append({
+            "test": name,
+            "result": result,
+            "expected": expected,
+            "pass": result == expected
+        })
+    
+    return {"ok": True, "results": results}
+
+@eel.expose
+def tm_find_matches(jp_text: str, threshold: float = 0.5, max_results: int = 10):
+    """Find TM matches for given JP text."""
+    import time
+    start_time = time.time()
+    
+    tm, matcher, substitutor = _get_tm_components()
+    
+    if not tm.entries:
+        elapsed = (time.time() - start_time) * 1000
+        print(f"[TM] No entries available, elapsed={elapsed:.2f}ms")
+        return {"ok": True, "matches": [], "message": "No TM entries available"}
+    
+    matches = matcher.find_matches(jp_text, tm.entries, threshold, tm._exact_match_index)
+    
+    # Apply auto-substitution to matches
+    for match in matches[:max_results]:
+        substituted = substitutor.apply_auto_substitution(jp_text, match["entry"])
+        match["substituted_translation"] = substituted
+        debug_log("TM", f"Match: query='{jp_text}' vs tm_source='{match['entry'].get('source', 'N/A')}', score={match['score']:.2f}")
+    
+    elapsed = (time.time() - start_time) * 1000
+    print(f"[TM] Found {len(matches)} matches, elapsed={elapsed:.2f}ms")
+    
+    return {
+        "ok": True,
+        "matches": matches[:max_results],
+        "total_found": len(matches)
+    }
+
+@eel.expose
+def tm_track_usage(entry_id: str):
+    """Track TM entry usage."""
+    tm, _, _ = _get_tm_components()
+    success = tm.increment_match_count(entry_id)
+    
+    return {"ok": True, "success": success}
+
+@eel.expose
+def tm_test_ui_integration():
+    """Test TM UI integration functions."""
+    from translation_memory import TranslationMemory, FuzzyMatcher, AutoSubstitutor
+    
+    tm = TranslationMemory(cm)
+    matcher = FuzzyMatcher(cm)
+    substitutor = AutoSubstitutor(cm)
+    
+    # Add test entry
+    test_entry = {
+        "source": "テストメッセージ",
+        "translation": "Test message",
+        "context": {"file": "test.csv", "row": 1},
+        "quality": "approved"
+    }
+    entry_id = tm.add_entry(test_entry)
+    
+    # Test find_matches
+    matches = matcher.find_matches("テストメッセージ", tm.entries, threshold=0.5)
+    
+    # Test auto-substitution
+    substituted = substitutor.apply_auto_substitution("テストメッセージ", test_entry)
+    
+    # Test track usage
+    success = tm.increment_match_count(entry_id)
+    
+    # Cleanup
+    tm.delete_entry(entry_id)
+    
+    return {
+        "ok": True,
+        "find_matches_count": len(matches),
+        "find_matches_score": matches[0]["score"] if matches else 0,
+        "substituted": substituted,
+        "track_usage_success": success,
+        "pass": len(matches) > 0 and matches[0]["score"] >= 0.9 and success
+    }
+
+@eel.expose
+def tm_pretranslate_batch(items: list, threshold: float = 0.9, min_quality: str = "approved"):
+    """Pre-translate batch of items using high-confidence TM matches."""
+    tm, matcher, substitutor = _get_tm_components()
+    
+    results = []
+    applied_count = 0
+    
+    for item in items:
+        jp_text = item.get("jp", "")
+        if not jp_text:
+            results.append({
+                "item_id": item.get("id"),
+                "success": False,
+                "reason": "No JP text"
+            })
+            continue
+        
+        # Find matches
+        matches = matcher.find_matches(jp_text, tm.entries, threshold)
+        
+        # Filter by quality and find best match
+        best_match = None
+        for match in matches:
+            if match["entry"].get("quality") == min_quality or min_quality == "any":
+                if best_match is None or match["score"] > best_match["score"]:
+                    best_match = match
+        
+        if best_match and best_match["score"] >= threshold:
+            # Apply auto-substitution
+            translation = substitutor.apply_auto_substitution(jp_text, best_match["entry"])
+            
+            results.append({
+                "item_id": item.get("id"),
+                "success": True,
+                "translation": translation,
+                "score": best_match["score"],
+                "match_type": best_match["match_type"]
+            })
+            applied_count += 1
+            
+            # Track usage
+            tm.increment_match_count(best_match["entry"]["id"])
+        else:
+            results.append({
+                "item_id": item.get("id"),
+                "success": False,
+                "reason": "No high-confidence match"
+            })
+    
+    return {
+        "ok": True,
+        "total": len(items),
+        "applied": applied_count,
+        "results": results
+    }
+
+@eel.expose
+def tm_test_pretranslate_batch():
+    """Test pre-translation batch feature."""
+    from translation_memory import TranslationMemory
+    
+    tm = TranslationMemory(cm)
+    
+    # Add test entries
+    test_entries = [
+        {"source": "こんにちは", "translation": "Hello", "context": {}, "quality": "approved"},
+        {"source": "さようなら", "translation": "Goodbye", "context": {}, "quality": "approved"},
+        {"source": "ありがとう", "translation": "Thank you", "context": {}, "quality": "draft"}
+    ]
+    
+    entry_ids = []
+    for entry in test_entries:
+        entry_ids.append(tm.add_entry(entry))
+    
+    # Test batch pre-translation
+    items = [
+        {"id": "1", "jp": "こんにちは"},
+        {"id": "2", "jp": "さようなら"},
+        {"id": "3", "jp": "ありがとう"},
+        {"id": "4", "jp": "おはよう"}  # No match
+    ]
+    
+    result = tm_pretranslate_batch(items, threshold=0.9, min_quality="approved")
+    
+    # Cleanup
+    for entry_id in entry_ids:
+        tm.delete_entry(entry_id)
+    
+    return {
+        "ok": True,
+        "total": result["total"],
+        "applied": result["applied"],
+        "pass": result["applied"] == 2  # Only approved entries should match
+    }
+
+@eel.expose
+def tm_get_available_languages():
+    """Get list of available languages for cross-language TM."""
+    from translation_memory import CrossLanguageTM
+    
+    cross_tm = CrossLanguageTM(cm)
+    languages = cross_tm.get_available_languages()
+    
+    return {"ok": True, "languages": languages}
+
+@eel.expose
+def tm_find_cross_language_matches(jp_text: str, target_language: str, threshold: float = 0.7):
+    """Find matches from another language's TM."""
+    from translation_memory import CrossLanguageTM, AutoSubstitutor
+    
+    cross_tm = CrossLanguageTM(cm)
+    substitutor = AutoSubstitutor(cm)
+    
+    matches = cross_tm.find_cross_language_matches(jp_text, cm.language, target_language, threshold)
+    
+    # Apply auto-substitution to matches
+    for match in matches:
+        substituted = substitutor.apply_auto_substitution(jp_text, match["entry"])
+        match["substituted_translation"] = substituted
+    
+    return {
+        "ok": True,
+        "matches": matches,
+        "total_found": len(matches)
+    }
+
+@eel.expose
+def tm_share_translation(entry_id: str, target_language: str):
+    """Share a translation entry to another language's TM."""
+    from translation_memory import CrossLanguageTM
+    
+    cross_tm = CrossLanguageTM(cm)
+    success = cross_tm.share_translation(entry_id, target_language)
+    
+    return {"ok": True, "success": success}
+
+@eel.expose
+def tm_test_cross_language():
+    """Test cross-language TM sharing."""
+    from translation_memory import CrossLanguageTM, TranslationMemory
+    
+    cross_tm = CrossLanguageTM(cm)
+    tm = TranslationMemory(cm)
+    
+    # Get available languages
+    languages = cross_tm.get_available_languages()
+    
+    # Add test entry to current TM
+    test_entry = {
+        "source": "テスト",
+        "translation": "Test",
+        "context": {},
+        "quality": "approved"
+    }
+    entry_id = tm.add_entry(test_entry)
+    
+    # Test cross-language find (use current language as target for test)
+    matches = cross_tm.find_cross_language_matches("テスト", cm.language, cm.language, threshold=0.5)
+    
+    # Cleanup
+    tm.delete_entry(entry_id)
+    
+    return {
+        "ok": True,
+        "available_languages": languages,
+        "matches_found": len(matches),
+        "pass": len(matches) > 0
+    }
+
+@eel.expose
+def tm_get_statistics():
+    """Get TM statistics."""
+    from translation_memory import TMManager
+    
+    manager = TMManager(cm)
+    stats = manager.get_statistics()
+    
+    return {"ok": True, "statistics": stats}
+
+@eel.expose
+def tm_get_all_entries(filters: dict = None):
+    """Get all TM entries with optional filtering."""
+    from translation_memory import TMManager
+    
+    manager = TMManager(cm)
+    entries = manager.get_all_entries(filters)
+    
+    return {"ok": True, "entries": entries, "total": len(entries)}
+
+@eel.expose
+def tm_export_tm(filepath: str, format: str = "json"):
+    """Export TM to file."""
+    from translation_memory import TMManager
+    
+    manager = TMManager(cm)
+    success = manager.export_tm(filepath, format)
+    
+    return {"ok": True, "success": success}
+
+@eel.expose
+def tm_import_tm(filepath: str, format: str = "json", merge: bool = True):
+    """Import TM from file."""
+    from translation_memory import TMManager
+    
+    manager = TMManager(cm)
+    result = manager.import_tm(filepath, format, merge)
+    
+    return {"ok": True, **result}
+
+@eel.expose
+def tm_test_management():
+    """Test TM management tools."""
+    from translation_memory import TMManager, TranslationMemory
+    import tempfile
+    import os
+    
+    tm = TranslationMemory(cm)
+    manager = TMManager(cm)
+    
+    # Add test entries
+    test_entries = [
+        {"source": "テスト1", "translation": "Test 1", "context": {}, "quality": "approved"},
+        {"source": "テスト2", "translation": "Test 2", "context": {}, "quality": "draft"}
+    ]
+    
+    entry_ids = []
+    for entry in test_entries:
+        entry_ids.append(tm.add_entry(entry))
+    
+    # Test get_statistics
+    stats = manager.get_statistics()
+    
+    # Test get_all_entries
+    entries = manager.get_all_entries({"quality": "approved"})
+    
+    # Test export
+    with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        export_path = f.name
+    
+    export_success = manager.export_tm(export_path, "json")
+    
+    # Test import
+    # Clear TM first
+    for entry_id in entry_ids:
+        tm.delete_entry(entry_id)
+    
+    import_result = manager.import_tm(export_path, "json", merge=False)
+    
+    # Cleanup
+    os.unlink(export_path)
+    
+    # Clear test entries
+    for entry in tm.entries:
+        tm.delete_entry(entry["id"])
+    
+    return {
+        "ok": True,
+        "stats_total": stats["total_entries"],
+        "filtered_count": len(entries),
+        "export_success": export_success,
+        "import_success": import_result["success"],
+        "imported": import_result["imported"],
+        "pass": stats["total_entries"] >= 2 and len(entries) == 1 and export_success and import_result["success"]
+    }
+
 if __name__ == '__main__':
     try:
         print("[MAIN] Initializing application...")
@@ -2656,6 +3290,4 @@ if __name__ == '__main__':
     finally:
         print("[MAIN] Application cleanup completed")
         sys.stdout.flush()
-
-
 

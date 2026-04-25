@@ -20,7 +20,6 @@ except ImportError:
     MSGPACK_AVAILABLE = False
     print("[TranslationManager] msgpack not available, falling back to JSON")
 
-DATA_DIR = "translation_data"
 MAX_FILE_SIZE = 100 * 1024 * 1024  # 100MB max file size
 MAX_COMMENT_LENGTH = 5000  # Max characters in a comment
 MAX_LOG_ENTRIES = 100000  # Max history entries per file
@@ -106,6 +105,7 @@ class TranslationLogEntry:
     old_value: Optional[str] = None
     new_value: Optional[str] = None
     comment: Optional[str] = None
+    comments: List['Comment'] = field(default_factory=list)  # Comments attached to this history entry
     
     def to_dict(self) -> Dict:
         return asdict(self)
@@ -120,6 +120,7 @@ class Comment:
     text: str
     timestamp: str = field(default_factory=lambda: datetime.now().isoformat())
     parent_id: Optional[str] = None  # For threaded comments
+    history_entry_id: Optional[str] = None  # Explicit attachment to specific history entry
     
     def to_dict(self) -> Dict:
         return asdict(self)
@@ -140,7 +141,8 @@ class Vote:
 class TranslationManager:
     """Manages translation entries, history, comments, and voting - with security."""
     
-    def __init__(self):
+    def __init__(self, language: str = "en"):
+        self.language = language
         self.entries: Dict[str, TranslationEntry] = {}
         self.logs: List[TranslationLogEntry] = []
         self.comments: Dict[str, List[Comment]] = defaultdict(list)
@@ -154,20 +156,26 @@ class TranslationManager:
     
     def _ensure_data_dir(self):
         """Create data directory if it doesn't exist."""
-        if not os.path.exists(DATA_DIR):
-            os.makedirs(DATA_DIR)
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        data_dir = os.path.join(base_dir, "config", self.language, "translation_data")
+        if not os.path.exists(data_dir):
+            os.makedirs(data_dir)
     
     def _sanitize_filename(self, name: str) -> str:
-        """Create safe directory name from file path."""
-        safe = re.sub(r'[<>:"/\\|?*]', '_', name)
+        """Create safe directory name from file path (uses only filename)."""
+        # Extract just the filename from the full path
+        filename = os.path.basename(name)
+        safe = re.sub(r'[<>:"/\\|?*]', '_', filename)
         if len(safe) > 100:
             safe = safe[:100]
         return safe or 'unknown'
     
     def _get_file_dir(self, file_path: str) -> str:
         """Get the data directory path for a source file."""
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        data_dir = os.path.join(base_dir, "config", self.language, "translation_data")
         safe_name = self._sanitize_filename(file_path)
-        return os.path.join(DATA_DIR, safe_name)
+        return os.path.join(data_dir, safe_name)
     
     def _ensure_file_dir(self, file_path: str):
         """Create directory for a file's data if it doesn't exist."""
@@ -249,15 +257,18 @@ class TranslationManager:
     
     def _load_data(self):
         """Load all persisted data from per-file storage."""
-        if not os.path.exists(DATA_DIR):
-            print(f"[TranslationManager] Data directory {DATA_DIR} does not exist, starting fresh")
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        data_dir = os.path.join(base_dir, "config", self.language, "translation_data")
+        
+        if not os.path.exists(data_dir):
+            print(f"[TranslationManager] Data directory {data_dir} does not exist, starting fresh")
             return
 
-        print(f"[TranslationManager] Loading data from {DATA_DIR}")
+        print(f"[TranslationManager] Loading data from {data_dir}")
         loaded_dirs = 0
 
-        for dir_name in os.listdir(DATA_DIR):
-            dir_path = os.path.join(DATA_DIR, dir_name)
+        for dir_name in os.listdir(data_dir):
+            dir_path = os.path.join(data_dir, dir_name)
             if not os.path.isdir(dir_path):
                 continue
 
@@ -673,5 +684,12 @@ class TranslationManager:
         return Comment(**data)
 
 
-# Global instance
-translation_manager = TranslationManager()
+# Global instance - will be initialized with language from config
+translation_manager = None
+
+def get_translation_manager(language: str = "en") -> TranslationManager:
+    """Get or create a TranslationManager instance for the specified language."""
+    global translation_manager
+    if translation_manager is None or translation_manager.language != language:
+        translation_manager = TranslationManager(language)
+    return translation_manager
