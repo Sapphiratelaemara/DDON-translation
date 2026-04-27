@@ -134,6 +134,7 @@
             <li><code>config/&lt;lang&gt;/other_vocab.json</code> - Non-DD1 vocabulary (synced to GitHub)</li>
             <li><code>config/&lt;lang&gt;/anach_definitions.json</code> - Anachronism definitions (synced to GitHub)</li>
             <li><code>config/&lt;lang&gt;/archaic_examples.json</code> - Archaic word examples (synced to GitHub)</li>
+            <li><code>config/&lt;lang&gt;/translation_memory.json</code> - Translation memory entries (synced to GitHub, with hash-based entry IDs)</li>
             <li><code>config/&lt;lang&gt;/cache.json</code> - API response cache (7-day TTL, per-language)</li>
             <li><code>config/&lt;lang&gt;/prefetch_cache.json</code> - Prefetch cache for performance (7-day TTL, per-language)</li>
             <li><code>config/&lt;lang&gt;/review_queues_cache.json</code> - Review queues (per-language, not synced)</li>
@@ -207,7 +208,7 @@
         <h3>Settings Sections:</h3>
         <ul>
             <li><strong>Language:</strong> Select the current language to work with. Each language has its own configuration directory (config/&lt;lang&gt;/) with separate settings files. Switching languages loads the appropriate configuration for that language.</li>
-            <li><strong>GitHub Sync:</strong> Configure GitHub repository and token for syncing translation data, archetypes, vocabulary, and anachronism definitions. Set your sync nickname to identify your contributions. Enable auto-sync to automatically push/pull on save/load.</li>
+            <li><strong>GitHub Sync:</strong> Configure GitHub repository and token for syncing translation data, archetypes, vocabulary, anachronism definitions, and translation memory. Set your sync nickname to identify your contributions. Enable auto-sync to automatically push/pull on save/load. Sync uses hash-based entry IDs to group translations of the same source text. Conflicts are automatically resolved by keeping both versions with timestamp suffixes.</li>
             <li><strong>API Keys:</strong> Configure DeepL and OpenRouter API keys for translation services</li>
             <li><strong>Path Mappings:</strong> Configure paths to bible (.txt/.log), glossary (.csv), and assets directory</li>
             <li><strong>Tag Mappings:</strong> Define custom tag lengths for automatic line calculations and in-game preview</li>

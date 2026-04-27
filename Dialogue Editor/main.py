@@ -786,7 +786,7 @@ def create_language(language_code):
             "folders": [],
             "bible_path": "",
             "glossary_path": "",
-            "assets_path": "c:/DDON-translation/Dialogue Editor/assets",
+            "assets_path": "assets",
             "theme_mode": "dark",
             "dark_mode": True,
             "in_universe": True,
@@ -2274,11 +2274,15 @@ def apply_fix(item_id, new_text, force=False, user="translator"):
     cm.memory[item["jp"]] = new_text
 
     # Track translation in translation manager
+    from src.translation_manager import generate_entry_id
+    # Generate entry ID from source text (hash-based)
+    entry_id = generate_entry_id(item["jp"])
+    print(f"[apply_fix] Generated entry_id={entry_id} from source text")
     print(f"[apply_fix] Tracking translation for item {item_id}")
     print(f"[apply_fix]   path: {item.get('path')}, row: {item.get('row')}")
     print(f"[apply_fix]   TM entries before: {len(translation_manager.entries)}")
     translation_manager.submit_translation(
-        entry_id=item_id,
+        entry_id=entry_id,
         source_text=item["jp"],
         translated_text=new_text,
         translator=user,
@@ -2599,7 +2603,10 @@ def vote_translation(entry_id, user, vote):
 def save_translation_history(entry_id, jp_text, en_text, speaker=None, entry_type=None, translator=None, file_path=None, row_index=None):
     """Save translation history without writing to CSV (for Save button)."""
     try:
-        print(f"[save_translation_history] entry_id={entry_id}, translator={translator}, file_path={file_path}")
+        from src.translation_manager import generate_entry_id
+        # Generate entry ID from source text (hash-based)
+        entry_id = generate_entry_id(jp_text)
+        print(f"[save_translation_history] Generated entry_id={entry_id} from source text, translator={translator}, file_path={file_path}")
         # Track in translation manager (saves history)
         print(f"[save_translation_history] Calling submit_translation with translator={translator or user}")
         translation_manager.submit_translation(
@@ -2613,7 +2620,7 @@ def save_translation_history(entry_id, jp_text, en_text, speaker=None, entry_typ
             entry_type=entry_type
         )
         print(f"[save_translation_history] submit_translation completed, logs count={len(translation_manager.logs)}")
-        return {"ok": True}
+        return {"ok": True, "entry_id": entry_id}
     except Exception as e:
         print(f"[save_translation_history] Error: {e}")
         return {"ok": False, "error": str(e)}
@@ -2706,7 +2713,7 @@ def sync_push():
         # Check if there's data to push
         entry_count = len(translation_manager.entries)
         log_count = len(translation_manager.logs)
-        comment_count = len(translation_manager.comments)
+        comment_count = sum(len(log.comments) for log in translation_manager.logs)
         
         if entry_count == 0:
             return {"ok": False, "error": f"No entries to sync. Have you approved/rejected any translations?\nTM Status: {entry_count} entries, {log_count} logs, {comment_count} comments"}
@@ -2770,8 +2777,10 @@ def clear_queue():
 @eel.expose
 def bulk_inject(items):
     global review_items
+    from src.translation_manager import generate_entry_id
     for item in reversed(items):
-        item["id"] = f"SEARCH_{item['row']}"
+        # Generate entry ID from source text (hash-based)
+        item["id"] = generate_entry_id(item.get('jp', ''))
         review_items.insert(current_review_idx, item)
     _save_review_items()
     return True

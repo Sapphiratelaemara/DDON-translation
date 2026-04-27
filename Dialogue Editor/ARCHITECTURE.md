@@ -89,10 +89,10 @@ Dialogue Editor/
 │   └── check_keys.py      # Utility script for testing API keys
 ├── config/                # Per-language configuration directory
 │   ├── en/                # English language configuration
-│   │   ├── formatter_config.json   # Main configuration (folders, triggers, tag maps, presets)
+│   │   ├── formatter_config.json   # Main configuration - partial sync (tag_map, triggers, presets, wall_presets, speaker_archetypes, speaker_notes, tag_display, entry_type_rules)
 │   │   ├── user_settings.json      # User preferences (sync settings, paths, theme, etc.)
 │   │   ├── memory.json             # Learned fixes (source text → wrapped text mappings, archetype assignments)
-│   │   ├── translation_memory.json # Translation memory entries (per-language, not synced)
+│   │   ├── translation_memory.json # Translation memory entries (synced to GitHub)
 │   │   ├── archetypes.json        # Character archetypes (synced to GitHub)
 │   │   ├── dd1_vocab.json         # DD1 vocabulary (synced to GitHub)
 │   │   ├── other_vocab.json       # Non-DD1 vocabulary (synced to GitHub)
@@ -322,10 +322,10 @@ Functions decorated with `@eel.expose` are callable from JavaScript:
 - Seed default archetypes from lore_data
 
 **Configuration Files (Per-Language in config/<lang>/):**
-- `formatter_config.json` - Main configuration (folders, triggers, tag maps, presets)
+- `formatter_config.json` - Main configuration - partial sync (tag_map, triggers, presets, wall_presets, speaker_archetypes, speaker_notes, tag_display, entry_type_rules)
 - `user_settings.json` - User preferences (sync settings, paths, theme, etc.)
 - `memory.json` - Learned fixes (source text → wrapped text mappings, archetype assignments)
-- `translation_memory.json` - Translation memory entries (per-language, not synced)
+- `translation_memory.json` - Translation memory entries (synced to GitHub)
 - `archetypes.json` - Character archetypes (synced to GitHub)
 - `dd1_vocab.json` - DD1 vocabulary (synced to GitHub)
 - `other_vocab.json` - Non-DD1 vocabulary (synced to GitHub)
@@ -361,35 +361,52 @@ save_vocab(file, data)        # Save vocabulary file
 **Responsibilities:**
 - Synchronize per-language data with GitHub repository
 - Push/pull translation data (status, logs, comments) per entry file
-- Push/pull language-level files (archetypes, vocab, anach definitions, archaic examples)
-- Merge conflicts resolution (remote wins for logs/comments)
+- Push/pull language-level files (archetypes, vocab, anach definitions, archaic examples, translation memory)
+- Automatic merge of conflicts (timestamp-based, keeps both versions when same entry_id)
 - Auto-sync on schedule if enabled
 
 **Synced Files (Per-Language):**
+- `formatter_config.json` - Main configuration (partial sync only: tag_map, triggers, presets, wall_presets, speaker_archetypes, speaker_notes, tag_display, entry_type_rules)
 - `archetypes.json` - Character archetypes
 - `dd1_vocab.json` - DD1 vocabulary
 - `other_vocab.json` - Non-DD1 vocabulary
 - `anach_definitions.json` - Anachronism definitions
 - `archaic_examples.json` - Archaic word examples
+- `translation_memory.json` - Translation memory entries (with hash-based entry IDs)
 - Entry data: status, logs, comments per source file
 
 **NOT Synced (Local Only):**
 - `memory.json` - User's learned fixes
-- `translation_memory.json` - Translation memory entries
 - `user_settings.json` - User preferences (sync settings, paths, theme)
 - `prefetch_cache.json` - Performance cache
-- `cache.json` - API response cache
+- `api_response_cache.json` - API response cache
 - `review_queues_cache.json` - Review queues (per-language)
-- `review_items_cache.json` - Manual translation queue (per-language)
-- `keys.json` - API keys (global)
+- `manual_translation_queue.json` - Manual translation queue (per-language)
+- `api_keys.json` - API keys (global)
 
 **Key Methods:**
 ```python
-sync_push(translation_manager)  # Push local data to GitHub
+sync_push(translation_manager)  # Push local data to GitHub (with merge)
 sync_pull(translation_manager)  # Pull remote data from GitHub
 is_configured()                  # Check if sync is configured
 sync_auto_enabled()              # Check if auto-sync is enabled
+_merge_translation_memory(local, remote)  # Merge TM entries
+_merge_status_entries(local, remote)       # Merge status entries
+_merge_logs(local, remote)                # Merge logs
 ```
+
+**Merge Strategy:**
+- **Translation Memory**: Combines all entries from local and remote, sorts by timestamp
+- **Status Entries**: Merges entries by entry_id. If same entry_id exists in both, keeps both by appending timestamp to key (e.g., "abc123_2026-04-12T13:59:00")
+- **Logs**: Deduplicates by log ID, keeps newer timestamp for duplicates
+- **Partial Sync (formatter_config.json)**: Only syncs specific fields (tag_map, triggers, presets, wall_presets, speaker_archetypes, speaker_notes, tag_display, entry_type_rules), other fields remain local
+
+**Hash-Based Entry IDs:**
+- All translation entries and TM entries use hash-based entry IDs generated from source text
+- SHA256 hash of normalized source text, first 16 characters
+- Ensures all translations of the same source text have the same base entry_id
+- Allows proper grouping and merge of multiple translations of the same string
+- Generated in `translation_manager.generate_entry_id()` and used throughout the system
 
 **Sync Structure on GitHub:**
 ```
@@ -400,8 +417,9 @@ sync_auto_enabled()              # Check if auto-sync is enabled
     ├── other_vocab.json
     ├── anach_definitions.json
     ├── archaic_examples.json
+    ├── translation_memory.json
     └── <sanitized_filename>/  # Per source file
-        ├── status.json        # Entry status data
+        ├── status.json        # Entry status data (with hash-based entry IDs)
         ├── logs.json          # Translation logs
         └── comments.json      # User comments
 ```

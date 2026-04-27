@@ -67,6 +67,16 @@ def validate_entry_id(entry_id: str) -> bool:
     return bool(re.match(r'^[a-zA-Z0-9_\-\.:]+$', entry_id))
 
 
+def generate_entry_id(source_text: str) -> str:
+    """Generate entry ID from source text using SHA256 hash."""
+    import hashlib
+    # Normalize the source text for consistent hashing
+    normalized = source_text.strip().replace('\n', ' ').replace('\r', ' ')
+    # Generate SHA256 hash and take first 16 characters
+    hash_obj = hashlib.sha256(normalized.encode('utf-8'))
+    return hash_obj.hexdigest()[:16]
+
+
 def validate_username(username: str) -> bool:
     """Validate username - alphanumeric with common characters."""
     if not isinstance(username, str):

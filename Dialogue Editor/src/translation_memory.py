@@ -119,10 +119,13 @@ class TranslationMemory:
     
     def add_entry(self, entry_data: Dict[str, Any]) -> str:
         """Add a new entry to TM."""
+        from src.translation_manager import generate_entry_id
         debug_log(f"add_entry called with source: {entry_data.get('source', '')[:50]}...")
         with self._lock:
+            # Generate entry ID from source text (hash-based)
+            entry_id = generate_entry_id(entry_data["source"])
             entry = {
-                "id": entry_data.get("id", str(uuid.uuid4())),
+                "id": entry_id,
                 "source": entry_data["source"],
                 "translation": entry_data["translation"],
                 "context": entry_data.get("context", {}),
@@ -721,9 +724,12 @@ class TMManager:
                 with open(filepath, 'r', encoding='utf-8', newline='') as f:
                     reader = csv.DictReader(f)
                     for row in reader:
+                        from src.translation_manager import generate_entry_id
+                        source = row.get("source", "")
+                        entry_id = generate_entry_id(source)
                         entries.append({
-                            "id": row.get("id", str(uuid.uuid4())),
-                            "source": row.get("source", ""),
+                            "id": entry_id,
+                            "source": source,
                             "translation": row.get("translation", ""),
                             "quality": row.get("quality", "draft"),
                             "timestamp": row.get("timestamp", datetime.now().isoformat()),
