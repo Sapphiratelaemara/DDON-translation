@@ -7,7 +7,7 @@ import urllib.error
 import threading
 import time
 
-from lore_data import DEFAULT_ARCHETYPES, IN_UNIVERSE_VOCAB, ANACHRONISM_PATTERNS, DD1_VOCAB
+from src.lore_data import DEFAULT_ARCHETYPES, IN_UNIVERSE_VOCAB, ANACHRONISM_PATTERNS, DD1_VOCAB
 
 # Track files written by app for cache invalidation
 _recently_written_files = {}
@@ -83,11 +83,14 @@ class LoreEngine:
                                 self.lore_map[jp] = " | ".join(parts)
                 # Update cache timestamp after successful load
                 self._cache_timestamps[path] = time.time()
-                # Import and clear gloss cache since lore_map changed
+                # Clear gloss cache since lore_map changed (avoid circular import)
                 try:
-                    import main
-                    with main._gloss_cache_lock:
-                        main._gloss_cache.clear()
+                    # Access via sys.modules to avoid circular import
+                    import sys
+                    if 'main' in sys.modules:
+                        main_module = sys.modules['main']
+                        with main_module._gloss_cache_lock:
+                            main_module._gloss_cache.clear()
                 except Exception:
                     pass  # Main module may not be available in all contexts
             except Exception as e:
@@ -139,6 +142,8 @@ class LoreEngine:
     def _build_anach_pattern(cls):
         if cls._ANACH_PATTERN is not None:
             return
+        # Import IN_UNIVERSE_VOCAB dynamically to get updated values after reload_vocab
+        from src.lore_data import IN_UNIVERSE_VOCAB
         # Longest keys first so multi-word phrases match before single words
         sorted_keys = sorted(IN_UNIVERSE_VOCAB.keys(), key=lambda x: -len(x))
         parts = []
@@ -153,9 +158,9 @@ class LoreEngine:
 
     def scan_anachronisms(self, en_text):
         if not en_text: return []
-        # Force pattern rebuild to ensure new logic takes effect
-        LoreEngine._ANACH_PATTERN = None
         self._build_anach_pattern()
+        # Import dynamically to get updated values after reload_vocab
+        from src.lore_data import IN_UNIVERSE_VOCAB, DD1_VOCAB
         # Get all matches with their positions
         matches = []
         for m in self._ANACH_PATTERN.finditer(en_text):
@@ -302,28 +307,6 @@ class LoreEngine:
             print(f"Definition cache save error: {e}")
 
     @classmethod
-    def _load_examples(cls):
-        """Load local examples database."""
-        if os.path.exists(cls._get_examples_file()):
-            try:
-                with open(cls._get_examples_file(), 'r', encoding='utf-8-sig') as f:
-                    data = json.load(f)
-                    # Handle new nested structure with dd1_examples and other_examples
-                    if isinstance(data, dict) and "dd1_examples" in data:
-                        examples = {}
-                        # Add dd1_examples first (higher priority)
-                        examples.update(data.get("dd1_examples", {}))
-                        # Add other_examples only if word not already in dd1_examples
-                        for word, example in data.get("other_examples", {}).items():
-                            if word not in examples:
-                                examples[word] = example
-                        return examples
-                    return data
-            except Exception:
-                pass
-        return {}
-
-    @classmethod
     def get_definition(cls, word, callback=None):
         """Return cached (definition, example) tuple for word, or fetch it asynchronously.
         If callback is given, calls callback(word, (definition, example)) when fetch completes.
@@ -372,6 +355,29 @@ class LoreEngine:
                 if callback:
                     callback(word, defn)
             threading.Thread(target=_fetch, daemon=True).start()
+
+    @classmethod
+    def _load_examples(cls):
+        """Load local examples database."""
+        examples_file = cls._get_examples_file()
+        if examples_file and os.path.exists(examples_file):
+            try:
+                with open(examples_file, 'r', encoding='utf-8-sig') as f:
+                    data = json.load(f)
+                    # Handle new nested structure with dd1_examples and other_examples
+                    if isinstance(data, dict) and "dd1_examples" in data:
+                        examples = {}
+                        # Add dd1_examples first (higher priority)
+                        examples.update(data.get("dd1_examples", {}))
+                        # Add other_examples only if word not already in dd1_examples
+                        for word, example in data.get("other_examples", {}).items():
+                            if word not in examples:
+                                examples[word] = example
+                        return examples
+                    return data
+            except Exception:
+                pass
+        return {}
 
     @classmethod
     def _fetch_definition(cls, word):

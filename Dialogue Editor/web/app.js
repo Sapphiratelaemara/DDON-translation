@@ -132,7 +132,6 @@ function saveState() {
     const showTranslated = document.getElementById('show-translated-rows')?.checked || false;
     
     // Save panel visibility states
-    const commentsPanel = document.getElementById('panel-comments');
     const historyPanel = document.getElementById('panel-history');
     const aiPanel = document.getElementById('panel-ai');
     const refsPanel = document.getElementById('panel-references');
@@ -150,7 +149,6 @@ function saveState() {
         },
         search: state.search || {},
         panels: {
-            comments: commentsPanel ? !commentsPanel.classList.contains('collapsed') : true,
             history: historyPanel ? !historyPanel.classList.contains('collapsed') : true,
             ai: aiPanel ? !aiPanel.classList.contains('collapsed') : true,
             references: refsPanel ? !refsPanel.classList.contains('collapsed') : true,
@@ -386,6 +384,13 @@ function populateCategorySelector(queueStructure) {
     select.appendChild(unapprovedOption);
     console.log('[populateCategorySelector] Added Unapproved Entries option');
 
+    // Add Pre-translated Unapproved option
+    const pretranslatedOption = document.createElement('option');
+    pretranslatedOption.value = "Pre-translated Unapproved";
+    pretranslatedOption.innerText = "Pre-translated Unapproved";
+    select.appendChild(pretranslatedOption);
+    console.log('[populateCategorySelector] Added Pre-translated Unapproved option');
+
     // Always show Manual Translation
     if (queueStructure["Manual Translation"]) {
         const manualOption = document.createElement('option');
@@ -458,6 +463,27 @@ async function switchCategory(categoryDisplayName) {
                 console.error('[switchCategory] Failed to load unapproved entries:', res?.error);
                 state.reviewer.fullQueue = [];
             }
+        } else if (categoryDisplayName === "Pre-translated Unapproved") {
+            console.log('[switchCategory] Loading pre-translated unapproved entries');
+            const res = await eel.get_pretranslated_unapproved_entries()();
+            if (res && res.ok) {
+                // Convert to queue format with comment count
+                state.reviewer.fullQueue = res.entries.map((item, idx) => ({
+                    id: item.entry.id,
+                    speaker: item.entry.speaker || "Unknown",
+                    jp: item.entry.source_text,
+                    en: item.entry.translated_text,
+                    category: "PRETRANSLATED",
+                    path: item.entry.file_path,
+                    row: item.entry.row_index,
+                    entry_type: item.entry.entry_type,
+                    comment_count: item.comment_count
+                }));
+                console.log('[switchCategory] Loaded pre-translated unapproved entries, count:', state.reviewer.fullQueue.length);
+            } else {
+                console.error('[switchCategory] Failed to load pre-translated unapproved entries:', res?.error);
+                state.reviewer.fullQueue = [];
+            }
         } else if (categoryDisplayName === "Manual Translation") {
             console.log('[switchCategory] Loading manual translation items');
             state.reviewer.fullQueue = await eel.get_all_items_in_queue()();
@@ -475,7 +501,10 @@ async function switchCategory(categoryDisplayName) {
         console.log('[switchCategory] About to load item at idx 0, queue length:', state.reviewer.fullQueue.length);
         if (state.reviewer.fullQueue.length > 0) {
             console.log('[switchCategory] Item at idx 0:', state.reviewer.fullQueue[0]);
-            await loadItemAtIdx(0);
+            // Start prefetching BEFORE loading first item
+            console.log('[switchCategory] Starting prefetch_all for category:', categoryDisplayName, 'items:', state.reviewer.fullQueue.length);
+            eel.start_prefetch_all(categoryDisplayName, state.reviewer.fullQueue)();
+            loadItemAtIdx(0);  // Don't await - let it load in background
         } else {
             console.log('[switchCategory] Queue is empty, skipping item load');
         }
@@ -550,7 +579,10 @@ function switchTab(tabId) {
                             state.reviewer.currentIdx = 0;
                             state.reviewer.currentItem = null;
                             renderRowSidebar();
-                            loadItemAtIdx(0);
+                            // Start prefetching BEFORE loading first item
+                            console.log('[switchTab] Starting prefetch_all for Manual Translation, items:', items.length);
+                            eel.start_prefetch_all('Manual Translation', items)();
+                            loadItemAtIdx(0);  // Don't await - let it load in background
                         });
                     } else {
                         eel.get_items_for_category(state.reviewer.currentCategory)().then(items => {
@@ -559,7 +591,10 @@ function switchTab(tabId) {
                             state.reviewer.currentIdx = 0;
                             state.reviewer.currentItem = null;
                             renderRowSidebar();
-                            loadItemAtIdx(0);
+                            // Start prefetching BEFORE loading first item
+                            console.log('[switchTab] Starting prefetch_all for category:', state.reviewer.currentCategory, 'items:', items.length);
+                            eel.start_prefetch_all(state.reviewer.currentCategory, items)();
+                            loadItemAtIdx(0);  // Don't await - let it load in background
                         });
                     }
                 } else {
@@ -572,7 +607,10 @@ function switchTab(tabId) {
                         state.reviewer.currentItem = null;  // Reset to force reload
                         renderRowSidebar();
                         if (state.reviewer.fullQueue.length > 0) {
-                            loadItemAtIdx(0);
+                            // Start prefetching BEFORE loading first item
+                            console.log('[switchTab] Starting prefetch_all for default category, items:', items.length);
+                            eel.start_prefetch_all('default', items)();
+                            loadItemAtIdx(0);  // Don't await - let it load in background
                         }
                     });
                 }
@@ -626,6 +664,62 @@ function initDashboardActions() {
             switchTab('editor');
         } else if (res === 0) {
             openAlertModal('INFO', 'No translatable lines found in selected CSV.');
+        }
+    };
+
+    // NEW: Pre-translate bind
+    const btnPretranslate = document.getElementById('btn-pretranslate');
+    if (btnPretranslate) btnPretranslate.onclick = async () => {
+        btnPretranslate.innerText = 'PRE-TRANSLATING...';
+        btnPretranslate.disabled = true;
+        
+        log_to_js('[SYSTEM] Starting pre-translation batch...');
+        
+        try {
+            // Get all untranslated entries from the current queue
+            const queue = state.reviewer.fullQueue || [];
+            const itemsToPretranslate = queue.filter(item => !item.en || item.en.trim() === '');
+            
+            log_to_js(`[SYSTEM] Found ${itemsToPretranslate.length} items to pre-translate`);
+            
+            if (itemsToPretranslate.length === 0) {
+                openAlertModal('INFO', 'No untranslated items found in current queue.');
+                btnPretranslate.innerText = 'PRE-TRANSLATE';
+                btnPretranslate.disabled = false;
+                return;
+            }
+            
+            // Format items for pretranslate_batch
+            const items = itemsToPretranslate.map(item => ({
+                id: item.id,
+                jp: item.jp,
+                file_path: item.path,
+                row_idx: item.row,
+                speaker: item.speaker,
+                entry_type: item.entry_type
+            }));
+            
+            const res = await eel.pretranslate_batch(items)();
+            
+            if (res && res.ok) {
+                log_to_js(`[SYSTEM] Pre-translation complete: TM=${res.tm_applied}, AI=${res.ai_applied}, DeepL=${res.deepl_applied}`);
+                openAlertModal('SUCCESS', `Pre-translation complete!\n\nTM: ${res.tm_applied}\nAI: ${res.ai_applied}\nDeepL: ${res.deepl_applied}\n\nTotal: ${res.total}`);
+                
+                // Reload the current queue to show pre-translated entries
+                const currentCategory = document.getElementById('category-select')?.value;
+                if (currentCategory) {
+                    await switchCategory(currentCategory);
+                }
+            } else {
+                log_to_js(`[SYSTEM] Pre-translation failed: ${res?.error || 'Unknown error'}`);
+                openAlertModal('ERROR', `Pre-translation failed: ${res?.error || 'Unknown error'}`);
+            }
+        } catch (e) {
+            log_to_js(`[SYSTEM] Pre-translation error: ${e}`);
+            openAlertModal('ERROR', `Pre-translation error: ${e}`);
+        } finally {
+            btnPretranslate.innerText = 'PRE-TRANSLATE';
+            btnPretranslate.disabled = false;
         }
     };
 
@@ -787,7 +881,6 @@ function initDashboardActions() {
     const btnToggleAi = document.getElementById('btn-toggle-ai');
     const sidebarRight = document.querySelector('.kl-sidebar-right');
     const aiPanel = document.getElementById('panel-ai'); // AI Assistant panel
-    const commentsPanel = document.getElementById('panel-comments');
     const historyPanel = document.getElementById('panel-history');
     const nonAiPanels = sidebarRight?.querySelectorAll('#panel-references, #panel-archetype');
     const panelToggles = document.querySelector('.panel-toggles');
@@ -802,11 +895,10 @@ function initDashboardActions() {
         const anyContextVisible = Array.from(allPanels).some(p => p !== aiPanel && !p.classList.contains('collapsed'));
         // Check if AI panel is visible
         const aiVisible = !aiPanel?.classList.contains('collapsed');
-        // Check if Comments or History panels are visible
-        const commentsVisible = commentsPanel && !commentsPanel.classList.contains('collapsed');
+        // Check if History panel is visible
         const historyVisible = historyPanel && !historyPanel.classList.contains('collapsed');
         // Right sidebar collapsed if no panels visible
-        const rightCollapsed = !anyContextVisible && !aiVisible && !commentsVisible && !historyVisible;
+        const rightCollapsed = !anyContextVisible && !aiVisible && !historyVisible;
         // Update footer
         footer?.classList.toggle('with-right-collapsed', rightCollapsed);
         // Update main workspace margin
@@ -815,8 +907,7 @@ function initDashboardActions() {
         sidebarRight.classList.toggle('collapsed', rightCollapsed);
     }
     
-    // COMMENTS and HISTORY panel toggles - declare before use
-    const btnToggleComments = document.getElementById('btn-toggle-comments');
+    // HISTORY panel toggle - declare before use
     const btnToggleHistory = document.getElementById('btn-toggle-history');
     
     // Initialize: restore panel visibility from saved state
@@ -841,11 +932,6 @@ function initDashboardActions() {
     const aiCollapsed = savedPanels.ai === false;
     if (aiPanel) aiPanel.classList.toggle('collapsed', aiCollapsed);
     if (btnToggleAi) btnToggleAi.classList.toggle('active', !aiCollapsed);
-    
-    // Restore Comments panel
-    const commentsCollapsed = savedPanels.comments === false;
-    if (commentsPanel) commentsPanel.classList.toggle('collapsed', commentsCollapsed);
-    if (btnToggleComments) btnToggleComments.classList.toggle('active', !commentsCollapsed);
     
     // Restore History panel
     const historyCollapsed = savedPanels.history === false;
@@ -875,18 +961,7 @@ function initDashboardActions() {
         };
     }
     
-    if (btnToggleComments) btnToggleComments.classList.add('active');
     if (btnToggleHistory) btnToggleHistory.classList.add('active');
-    
-    if (btnToggleComments && commentsPanel) {
-        btnToggleComments.onclick = () => {
-            const willCollapse = !commentsPanel.classList.contains('collapsed');
-            commentsPanel.classList.toggle('collapsed', willCollapse);
-            btnToggleComments.classList.toggle('active', !willCollapse);
-            updateRightSidebarState();
-            saveState();
-        };
-    }
     
     if (btnToggleHistory && historyPanel) {
         btnToggleHistory.onclick = () => {
@@ -1045,9 +1120,9 @@ async function processLoadQueue() {
     } catch (e) {
         console.error('[processLoadQueue] Error:', e);
         resolve();
+    } finally {
+        isProcessingLoadQueue = false;
     }
-
-    isProcessingLoadQueue = false;
 
     // Process next request in queue
     if (loadQueue.length > 0) {
@@ -1135,7 +1210,10 @@ async function loadItemAtIdxInternal(idx, mode) {
 
         // Check prefetch cache for this item (use current category)
         const category = state.reviewer.currentCategory || 'default';
+        const loadStartTime = performance.now();
+        console.log(`[loadItemAtIdxInternal] Fetching cache for category=${category}, idx=${idx}`);
         const cached = await eel.get_prefetch_cache(category, idx)();
+        console.log(`[loadItemAtIdxInternal] Cache result:`, cached);
         if (cached) {
             console.log(`[loadItemAtIdxInternal] Using cached data for category=${category}, idx=${idx}`);
         }
@@ -1146,26 +1224,28 @@ async function loadItemAtIdxInternal(idx, mode) {
         if (speakerNameEl) speakerNameEl.innerText = item.speaker || '—';
         if (speakerValue) speakerValue.innerText = item.speaker || '—';
         
-        // Load saved archetype and note for this speaker
+        // Load saved archetype and note for this speaker (non-blocking)
         const archetypeSelect = document.getElementById('archetype-select');
         const noteInput = document.getElementById('speaker-note');
         if (item.speaker) {
-            // Fetch saved speaker config from backend
+            // Fetch saved speaker config from backend (fire-and-forget)
             debugLog('App', `Fetching speaker config for: ${item.speaker}`);
-            const speakerArchetype = await eel.get_speaker_archetype(item.speaker)();
-            const speakerNote = await eel.get_speaker_note(item.speaker)();
-            debugLog('App', `Speaker archetype: ${speakerArchetype}, note: ${speakerNote}`);
-            if (archetypeSelect) archetypeSelect.value = speakerArchetype || '';
-            if (noteInput) noteInput.value = speakerNote || '';
-            
-            // Update sidebar speaker note
-            const sidebarNote = document.getElementById('sidebar-speaker-note');
-            if (sidebarNote) sidebarNote.innerText = speakerNote || '';
-            
-            // Fetch and display archetype notes
-            const archetypeNotes = await eel.get_archetype_notes(speakerArchetype || '')();
-            const notesPanel = document.getElementById('archetype-notes');
-            if (notesPanel) notesPanel.innerText = archetypeNotes || '(no notes)';
+            eel.get_speaker_archetype(item.speaker)().then(speakerArchetype => {
+                if (archetypeSelect) archetypeSelect.value = speakerArchetype || '';
+                debugLog('App', `Speaker archetype: ${speakerArchetype}`);
+                // Fetch archetype notes after archetype is loaded
+                eel.get_archetype_notes(speakerArchetype || '')().then(archetypeNotes => {
+                    const notesPanel = document.getElementById('archetype-notes');
+                    if (notesPanel) notesPanel.innerText = archetypeNotes || '(no notes)';
+                });
+            });
+            eel.get_speaker_note(item.speaker)().then(speakerNote => {
+                if (noteInput) noteInput.value = speakerNote || '';
+                debugLog('App', `Speaker note: ${speakerNote}`);
+                // Update sidebar speaker note
+                const sidebarNote = document.getElementById('sidebar-speaker-note');
+                if (sidebarNote) sidebarNote.innerText = speakerNote || '';
+            });
         } else {
             if (archetypeSelect) archetypeSelect.value = '';
             if (noteInput) noteInput.value = '';
@@ -1176,10 +1256,10 @@ async function loadItemAtIdxInternal(idx, mode) {
         }
         
         const entryTypeEl = document.getElementById('entry-type-parity');
-        const entryTypeSelect = document.getElementById('entry-type-select');
+        const entryTypeDisplay = document.getElementById('entry-type-display');
         debugLog('App', `Setting entry type: ${item.entry_type}`);
         if (entryTypeEl) entryTypeEl.innerText = item.entry_type || '—';
-        if (entryTypeSelect) entryTypeSelect.value = item.entry_type || 'Dialogue';
+        if (entryTypeDisplay) entryTypeDisplay.innerText = item.entry_type || '—';
         
         // Clear editor before setting new text to prevent stale data
         const enEditor = document.getElementById('en-editor');
@@ -1204,45 +1284,95 @@ async function loadItemAtIdxInternal(idx, mode) {
         const sidebarCounter = document.getElementById('sidebar-queue-count');
         if (sidebarCounter) sidebarCounter.innerText = `${idx + 1} / ${items.length}`;
         
-        // Use cached lore context if available, otherwise fetch it
+        // Use cached lore context if available, otherwise fetch it (non-blocking)
         if (cached && cached.lore_context) {
             populateSourceWithLoreHighlightsFromCache(item.jp, item.en || '', cached.lore_context);
         } else {
-            await populateSourceWithLoreHighlights(item.jp, item.en || '');
+            populateSourceWithLoreHighlights(item.jp, item.en || '');
         }
 
         updateReviewerCounters();
         syncLineCounters();
         renderRowSidebar();
 
-        // Ensure preview profiles are loaded before first preview render
+        // Ensure preview profiles are loaded before first preview render (non-blocking)
         if (!state.preview || !state.preview.profiles || Object.keys(state.preview.profiles).length === 0) {
-            await loadPreviewProfiles();
+            loadPreviewProfiles();
         }
 
         // Use cached data if available, otherwise fetch it
-        if (cached && cached.anachronisms) {
-            populateLoreContextFromCache(item.jp, item.en, cached.anachronisms, loadIdx);
+        if (cached && (cached.lore_context || cached.anachronisms)) {
+            populateLoreContextFromCache(item.jp, item.en, cached.lore_context, cached.anachronisms, loadIdx);
         } else {
             populateLoreContext(item.jp, item.en, loadIdx);
         }
         
+        // Check if current item is missing critical data (DeepL or gloss)
+        console.log(`[loadItemAtIdxInternal] cached.deepl_suggestion=${!!cached.deepl_suggestion}, cached.gloss_result=${!!cached.gloss_result}`);
+        const needsRefetch = cached && (!cached.deepl_suggestion || !cached.gloss_result);
+        
         // Other async enrichments - fire-and-forget with index-based cancellation
-        fetchDeepLSuggestion(item.jp, loadIdx);
-        fetchTMSuggestions(item.jp, loadIdx);
-        populateGloss(item.jp, loadIdx);
-        populateAdjacentContext(item.path, item.row, loadIdx);
+        if (cached && cached.deepl_suggestion) {
+            populateDeepLFromCache(cached.deepl_suggestion, loadIdx);
+        } else if (!needsRefetch) {
+            // Only fetch fresh if we're NOT triggering prefetch for this item
+            fetchDeepLSuggestion(item.jp, loadIdx);
+        }
+        if (cached && cached.tm_matches) {
+            populateTMFromCache(cached.tm_matches, item.jp, loadIdx);
+        } else {
+            fetchTMSuggestions(item.jp, loadIdx);
+        }
+        if (cached && cached.gloss_result) {
+            populateGlossFromCache(cached.gloss_result, loadIdx);
+        } else if (!needsRefetch) {
+            // Only generate fresh if we're NOT triggering prefetch for this item
+            console.log(`[loadItemAtIdxInternal] Gloss NOT in cache for idx=${idx}, will generate`);
+            populateGloss(item.jp, loadIdx);
+        }
+        if (cached && cached.adjacent_context) {
+            populateAdjacentContextFromCache(cached.adjacent_context, loadIdx);
+        } else {
+            populateAdjacentContext(item.path, item.row, loadIdx);
+        }
+        // Update preview asynchronously - don't block on it
         updatePreview(loadIdx);
         
-        // Trigger prefetching of next 25 entries
-        eel.start_prefetch(category, items, idx, 25)();
+        // Trigger DeepL batch fetch if missing critical data
+        if (needsRefetch) {
+            console.log(`[loadItemAtIdxInternal] Current item idx=${idx} missing critical data, fetching DeepL batch`);
+            eel.fetch_deepl_batch(category, items, idx, 20)();  // Fetch current + next 20 entries
+            // Poll cache for updated data and populate when available
+            const pollCache = async (pollIdx, category, pollCount = 0) => {
+                if (pollCount > 10) return;  // Max 10 polls (5 seconds)
+                if (state.reviewer.currentIdx !== pollIdx) return;  // Stop if navigated away
+                const updatedCache = await eel.get_prefetch_cache(category, pollIdx)();
+                if (updatedCache && (updatedCache.deepl_suggestion || updatedCache.gloss_result)) {
+                    console.log(`[loadItemAtIdxInternal] Cache updated for idx=${pollIdx}, populating`);
+                    if (updatedCache.deepl_suggestion && state.reviewer.currentIdx === pollIdx) {
+                        populateDeepLFromCache(updatedCache.deepl_suggestion, pollIdx);
+                    }
+                    if (updatedCache.gloss_result && state.reviewer.currentIdx === pollIdx) {
+                        populateGlossFromCache(updatedCache.gloss_result, pollIdx);
+                    }
+                } else {
+                    setTimeout(() => pollCache(pollIdx, category, pollCount + 1), 500);
+                }
+            };
+            pollCache(idx, category);
+        }
+        eel.start_prefetch(category, items, idx, 25)();  // Prefetch next 25
 
-        // Update Crowdin-style translation status and history
+        // Update translation status and history
         if (item.id) {
             updateTranslationStatusBadge(item.id);
             loadTranslationHistory(item.id);
             loadTranslationComments(item.id);
         }
+
+        const loadEndTime = performance.now();
+        const loadDuration = loadEndTime - loadStartTime;
+        console.log(`[loadItemAtIdxInternal] FINISHED idx=${idx}, total time=${loadDuration.toFixed(2)}ms`);
     } catch (e) {
         console.error('[loadItemAtIdx] Error:', e);
     }
@@ -1275,7 +1405,7 @@ function initReviewerActions() {
         document.getElementById('filter-dropdown').style.display = 'none';
     });
 
-    // Crowdin-style reviewer mode controls (always enabled)
+    // Reviewer mode controls (always enabled)
     bind('btn-approve', 'onclick', approveCurrentTranslation);
     bind('btn-reject', 'onclick', rejectCurrentTranslation);
     bind('btn-add-comment', 'onclick', addTranslationComment);
@@ -1320,29 +1450,17 @@ function initReviewerActions() {
         
         ed.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
-                console.log(`[Enter key] pressed, target=${e.target?.id}, activeElement=${document.activeElement?.id}`);
-                
                 // CRITICAL: Set flag BEFORE any DOM changes so input event knows Enter was pressed
                 ed._justPressedEnter = true;
-                console.log(`[Enter key] _justPressedEnter flag set to true`);
+                // Also set skipCursorRestore to prevent cursor restoration after Enter
+                skipCursorRestore = true;
                 
-                // Log DOM structure before Enter
-                let domDump = '';
-                for (let i = 0; i < ed.childNodes.length; i++) {
-                    const n = ed.childNodes[i];
-                    if (n.nodeType === Node.TEXT_NODE) domDump += `TEXT(${n.length}) `;
-                    else if (n.nodeName === 'BR') domDump += 'BR ';
-                    else domDump += `${n.nodeName} `;
-                }
-                console.log(`[Enter key] DOM before: ${domDump}`);
-                console.log(`[Enter key] innerText="${ed.innerText.substring(0,60)}"`);
+                // Prevent default Enter behavior (which would insert <div> in contenteditable)
                 e.preventDefault();
+                
                 const selection = window.getSelection();
-                console.log(`[Enter key] rangeCount=${selection.rangeCount}, isCollapsed=${selection.isCollapsed}`);
                 if (selection.rangeCount > 0) {
-                    console.log(`[Enter key] Processing - range found`);
                     const range = selection.getRangeAt(0);
-                    console.log(`[Enter key] Range: startContainer=${range.startContainer?.nodeName}, startOffset=${range.startOffset}, endContainer=${range.endContainer?.nodeName}, endOffset=${range.endOffset}`);
                     
                     // Get the text node and offset where cursor is
                     const textNode = range.startContainer;
@@ -1369,7 +1487,6 @@ function initReviewerActions() {
                             }
                             // Position cursor in the zero-width space node
                             range.setStart(zwspNode, 0);
-                            console.log(`[Enter key] BR and ZWSP text node inserted, cursor positioned`);
                         } else {
                             // Cursor in middle of text - split the node
                             const afterText = textNode.textContent.substring(offset);
@@ -1379,9 +1496,8 @@ function initReviewerActions() {
                             textNode.parentNode.insertBefore(afterNode, br.nextSibling);
                         }
                         
-                        // Position cursor after the BR - browser will handle creating text node if needed
+                        // Position cursor after the BR
                         range.setStartAfter(br);
-                        console.log(`[Enter key] BR inserted, cursor positioned after BR`);
                     } else {
                         // Fallback for non-text containers
                         br = document.createElement('br');
@@ -1389,25 +1505,7 @@ function initReviewerActions() {
                         range.insertNode(br);
                         range.setStartAfter(br);
                     }
-                    console.log(`[Enter key] BR inserted, nextSibling=${br.nextSibling?.nodeName}, nodeType=${br.nextSibling?.nodeType}`);
-                    // Log actual text content of each node
-                    for (let i = 0; i < ed.childNodes.length; i++) {
-                        const n = ed.childNodes[i];
-                        if (n.nodeType === Node.TEXT_NODE) {
-                            console.log(`[Enter key] Node ${i}: TEXT(${n.length})="${n.textContent.replace(/\n/g, '\\n').substring(0,30)}"`);
-                        }
-                    }
                     
-                    // Log DOM immediately after BR insertion
-                    let domDumpAfterBR = '';
-                    for (let i = 0; i < ed.childNodes.length; i++) {
-                        const n = ed.childNodes[i];
-                        if (n === br) domDumpAfterBR += `**NEW_BR** `;
-                        else if (n.nodeType === Node.TEXT_NODE) domDumpAfterBR += `TEXT(${n.length}) `;
-                        else if (n.nodeName === 'BR') domDumpAfterBR += 'BR ';
-                        else domDumpAfterBR += `${n.nodeName} `;
-                    }
-                    console.log(`[Enter key] DOM after BR insert: ${domDumpAfterBR}`);
                     // Set the range without focus() which might interfere
                     range.collapse(true);
                     selection.removeAllRanges();
@@ -1415,36 +1513,6 @@ function initReviewerActions() {
                     
                     // Force reflow to ensure visual cursor update
                     void ed.offsetHeight;
-                    
-                    console.log(`[Enter key] innerText RIGHT AFTER cursor set: "${ed.innerText.substring(0,80).replace(/\n/g, '\\n')}"`);
-                    
-                    // IMMEDIATE verification - get fresh selection right after setting it
-                    const freshSel = window.getSelection();
-                    const freshRange = freshSel.rangeCount > 0 ? freshSel.getRangeAt(0) : null;
-                    const freshNodeIndex = Array.from(ed.childNodes).indexOf(freshRange?.endContainer);
-                    console.log(`[Enter key] FRESH cursor check - nodeIndex=${freshNodeIndex}, endOffset=${freshRange?.endOffset}, text="${freshRange?.endContainer?.textContent?.substring(0,20)}"`);
-                    
-                    // Dump DOM for debugging
-                    let domAtCalc = '';
-                    for (let i = 0; i < ed.childNodes.length; i++) {
-                        const n = ed.childNodes[i];
-                        if (n.nodeType === Node.TEXT_NODE) domAtCalc += `TEXT(${n.length}) `;
-                        else if (n.nodeName === 'BR') domAtCalc += 'BR ';
-                        else domAtCalc += `${n.nodeName} `;
-                    }
-                    console.log(`[Enter key] DOM at calc time: ${domAtCalc}`);
-                    
-                    // Calculate what the offset SHOULD be right now
-                    let expectedOffset = 0;
-                    for (let i = 0; i < freshNodeIndex; i++) {
-                        const n = ed.childNodes[i];
-                        if (n.nodeType === Node.TEXT_NODE) expectedOffset += n.length;
-                        else if (n.nodeName === 'BR') expectedOffset += 1;
-                    }
-                    if (freshRange?.endContainer.nodeType === Node.TEXT_NODE) {
-                        expectedOffset += freshRange.endOffset;
-                    }
-                    console.log(`[Enter key] Expected cursor offset should be: ${expectedOffset}`);
                     
                     // Manually trigger what the input event would do
                     saveUndoState('Enter-key');
@@ -1460,41 +1528,23 @@ function initReviewerActions() {
                         cc.style.color = lineCount > maxLines ? '#ff4444' : 'var(--accent-color)';
                     }
                     
-                    // Schedule scan after a short delay so cursor position is preserved
-                    setTimeout(() => {
-                        scanAnachronisms(ed.innerText);
-                    }, 50);
-                    
-                    const finalLines = ed.innerText.split('\n');
-                    console.log(`[Enter key] DONE - ${finalLines.length} lines, line 0="${finalLines[0]?.substring(0,30)}", line 1="${finalLines[1]?.substring(0,30)}", line 2="${finalLines[2]?.substring(0,30)}"`);
-                } else {
-                    console.log(`[Enter key] SKIPPED - no range in selection`);
+                    // Don't schedule scan on Enter - it causes cursor position issues
+                    // The anachronism scan will be triggered by the next normal input event
                 }
-                
-                // Log DOM structure after Enter
-                finalDom = '';
-                for (let i = 0; i < ed.childNodes.length; i++) {
-                    const n = ed.childNodes[i];
-                    if (n.nodeType === Node.TEXT_NODE) finalDom += `TEXT(${n.length}) `;
-                    else if (n.nodeName === 'BR') finalDom += 'BR ';
-                    else finalDom += `${n.nodeName} `;
-                }
-                console.log(`[Enter key] DOM after: ${finalDom}`);
             }
         });
 
         ed.addEventListener('input', async () => { 
-            console.log(`[input event] fired, _justPressedEnter=${ed._justPressedEnter}, skipInputHandling=${skipInputHandling}`);
             // Skip input handling during undo/redo
             if (skipInputHandling) {
-                console.log(`[input event] SKIPPED due to skipInputHandling`);
                 return;
             }
             
             // If Enter was just pressed, handle it specially
             if (ed._justPressedEnter) {
-                console.log(`[input event] Handling Enter press`);
                 ed._justPressedEnter = false;
+                // Reset skipCursorRestore flag after handling Enter
+                skipCursorRestore = false;
                 saveUndoState('input-justPressedEnter');
                 syncLineCounters();
                 // Update line count display
@@ -1506,10 +1556,10 @@ function initReviewerActions() {
                     cc.innerText = `${lineCount} / ${maxLines} lines`;
                     cc.style.color = lineCount > maxLines ? '#ff4444' : 'var(--accent-color)';
                 }
-                // Schedule scan after a short delay so cursor position is preserved
-                setTimeout(() => {
-                    scanAnachronisms(ed.innerText);
-                }, 50);
+                // Don't scan on Enter - it causes cursor position issues
+                // Just update lore context
+                const jpText = document.getElementById('jp-source')?.innerText || '';
+                populateLoreContext(jpText, ed.innerText, state.reviewer.currentIdx);
                 return;
             }
             
@@ -1524,9 +1574,11 @@ function initReviewerActions() {
                 cc.innerText = `${lineCount} / ${maxLines} lines`;
                 cc.style.color = lineCount > maxLines ? '#ff4444' : 'var(--accent-color)';
             }
-            // Re-scan for anachronisms as user types
+            // Re-scan for anachronisms as user types (debounced)
             const jpText = document.getElementById('jp-source')?.innerText || '';
             populateLoreContext(jpText, ed.innerText, state.reviewer.currentIdx);
+            // Trigger debounced anachronism scan
+            scanAnachronisms(ed.innerText);
             // Don't update source window highlights on every keystroke - let scanAnachronisms handle that
         });
         ed.addEventListener('scroll', syncCounterScroll);
@@ -1591,23 +1643,24 @@ async function nextItem() {
     const next = state.reviewer.currentIdx + 1;
     saveState();
     if (next < total) {
-        loadItemAtIdx(next);
+        loadItemAtIdx(next);  // Don't await - let it load in background
     } else {
         // Try fetching another item from Python's rolling queue (review mode)
-        const item = await eel.get_next_review_item()();
-        if (item) {
-            // refresh full list and move to new end
-            await loadItemAtIdx(next);
-        } else {
-            openAlertModal('INFO', 'End of queue reached.');
-        }
+        eel.get_next_review_item()().then(item => {
+            if (item) {
+                // refresh full list and move to new end
+                loadItemAtIdx(next);  // Don't await - let it load in background
+            } else {
+                openAlertModal('INFO', 'End of queue reached.');
+            }
+        });
     }
 }
 
 function prevItem() {
     if (state.reviewer.currentIdx > 0) {
         saveState();
-        loadItemAtIdx(state.reviewer.currentIdx - 1);
+        loadItemAtIdx(state.reviewer.currentIdx - 1);  // Don't await - let it load in background
     }
 }
 
@@ -1617,7 +1670,6 @@ async function applyFix() {
     saveUndoState('applyFix');
     const text = document.getElementById('en-editor').innerText;
     const speaker = document.getElementById('speaker-value')?.textContent || '';
-    const entryType = document.getElementById('entry-type-select')?.value || '';
 
     // Save to in-memory state only (not to CSV yet)
     item.en = text;
@@ -1761,6 +1813,7 @@ async function updateReviewerCounters() {
 }
 
 function updatePreview(loadIdx) {
+    const startTime = performance.now();
     console.log(`[updatePreview] Called with loadIdx=${loadIdx}`);
     const ed = document.getElementById('en-editor');
     const container = document.getElementById('preview-container');
@@ -1774,8 +1827,11 @@ function updatePreview(loadIdx) {
     const text = ed.innerText || '';
     console.log(`[updatePreview] boxType=${boxType}, text="${text.substring(0, 30)}..."`);
     
+    const eelCallStart = performance.now();
     // Generate preview image
     eel.generate_preview_image(boxType, text)().then(result => {
+        const eelCallEnd = performance.now();
+        console.log(`[updatePreview] Eel call took ${(eelCallEnd - eelCallStart).toFixed(2)}ms`);
         console.log(`[updatePreview] Got result:`, result);
         if (result.error && result.debug) {
             console.log(`[updatePreview] Debug info:`, result.debug);
@@ -1787,6 +1843,7 @@ function updatePreview(loadIdx) {
         }
         
         if (result && result.image) {
+            const domUpdateStart = performance.now();
             // Display just the image with text overlay directly
             // Crop values: [x1, y1] for position offset, [x2, y2] for window size
             const crop = result.crop || [0, 0, result.width, result.height];
@@ -1803,7 +1860,9 @@ function updatePreview(loadIdx) {
                 width: ${result.width}px;
                 height: ${result.height}px;
             ">`;
-            console.log(`[updatePreview] Successfully updated preview`);
+            const domUpdateEnd = performance.now();
+            console.log(`[updatePreview] DOM update took ${(domUpdateEnd - domUpdateStart).toFixed(2)}ms`);
+            console.log(`[updatePreview] Total updatePreview took ${(domUpdateEnd - startTime).toFixed(2)}ms`);
         } else {
             // Fallback - show text only
             console.log(`[updatePreview] No image in result, using fallback`);
@@ -1855,33 +1914,23 @@ async function scanAnachronisms(text) {
         // Capture current generation to detect if this render is stale
         const generation = ++highlightGeneration;
         
-        try {
-            const hits = await eel.scan_anachronisms(text)();
-            // Only update if we're still rendering this generation and not typing anymore
-            if (generation === highlightGeneration && !isUserTyping) {
-                state.reviewer.anachRanges = hits || [];
-                renderHighlights(text, generation);
-            }
-        } catch(e) {
-            console.error('[scanAnachronisms]', e);
-            if (generation === highlightGeneration && !isUserTyping) {
-                state.reviewer.anachRanges = [];
-                renderHighlights(text, generation);
-            }
+        // Backend now handles caching via ConfigManager (file-based, per-language)
+        const hits = await eel.scan_anachronisms(text)();
+        
+        // Only update if we're still rendering this generation and not typing anymore
+        if (generation === highlightGeneration && !isUserTyping) {
+            state.reviewer.anachRanges = hits || [];
+            renderHighlights(text, generation);
         }
     }, ANACHRONISM_DEBOUNCE_MS);
 }
 
 function renderHighlights(text, generation) {
-    // TEMPORARILY DISABLED to test Enter key functionality
-    // TODO: Re-enable after fixing cursor issues
-    return;
-    
     const ed = document.getElementById('en-editor');
     if (!ed) return;
     
-    // Skip if user is currently typing - wait for next debounce cycle
-    if (isUserTyping) {
+    // Ensure we're not rendering stale data
+    if (generation !== highlightGeneration) {
         return;
     }
     
@@ -1903,9 +1952,6 @@ function renderHighlights(text, generation) {
     const selection = window.getSelection();
     const range = selection.rangeCount > 0 ? selection.getRangeAt(0).cloneRange() : null;
     const cursorOffset = (shouldSkipRestore || !range) ? null : getCaretOffset(ed, range);
-    
-    // DEBUG: Log cursor position
-    console.log(`[renderHighlights] text="${text.substring(0,20)}...", cursorOffset=${cursorOffset}, shouldSkip=${shouldSkipRestore}`);
     
     // Escape HTML tags to make them visible as text, but preserve newlines initially
     let html = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -1976,20 +2022,16 @@ function getCaretOffset(element, range) {
             
             if (node.nodeType === Node.TEXT_NODE) {
                 const isTarget = node === range.endContainer;
-                const textPreview = node.nodeValue.substring(0, 30).replace(/\n/g, '\\n');
-                console.log(`[getCaretOffset] TEXT: len=${node.length}, current=${currentOffset}, target=${isTarget}, text="${textPreview}"`);
                 if (isTarget) {
                     // This is the target text node
                     currentOffset += range.endOffset;
                     found = true;
-                    console.log(`[getCaretOffset] FOUND at final offset ${currentOffset}`);
                     return;
                 }
                 currentOffset += node.length;
             } else if (node.nodeType === Node.ELEMENT_NODE) {
                 // Handle BR elements as single character line breaks
                 if (node.nodeName === 'BR') {
-                    console.log(`[getCaretOffset] BR: current=${currentOffset} -> ${currentOffset + 1}`);
                     currentOffset += 1;
                 } else if (node.nodeName === 'SPAN' || node.nodeName === 'DIV') {
                     // Traverse children
@@ -2008,17 +2050,14 @@ function getCaretOffset(element, range) {
         traverse(element);
         
         if (found) {
-            console.log(`[getCaretOffset] Found at offset ${currentOffset}`);
             return currentOffset;
         }
         
         // Fallback: use the original range-based method if our traversal fails
-        console.log(`[getCaretOffset] Traversal failed, using fallback`);
         const preCaretRange = range.cloneRange();
         preCaretRange.selectNodeContents(element);
         preCaretRange.setEnd(range.endContainer, range.endOffset);
         const fallbackOffset = preCaretRange.toString().length;
-        console.log(`[getCaretOffset] Fallback returned ${fallbackOffset}`);
         return fallbackOffset;
     } catch (e) {
         console.error('[getCaretOffset] Error:', e);
@@ -2288,11 +2327,10 @@ function handleMouseMove(e) {
             
             tooltip.innerHTML = tooltipHtml;
             tooltip.style.display = 'block';
-            
-            // Position tooltip near cursor
-            const rect = ed.getBoundingClientRect();
-            const tooltipX = e.clientX - rect.left + 15;
-            const tooltipY = e.clientY - rect.top + 20;
+
+            // Position tooltip near cursor (fixed positioning)
+            const tooltipX = e.clientX + 15;
+            const tooltipY = e.clientY + 20;
             tooltip.style.left = tooltipX + 'px';
             tooltip.style.top = tooltipY + 'px';
         }
@@ -2387,46 +2425,11 @@ function initMetadataControls() {
                 console.log('[initMetadataControls] Populated archetype dropdown');
             } else {
                 archSelect.innerHTML = '<option>(none)</option>';
-                debugLog('App', 'No archetypes found');
             }
         });
     }
 
-    // Populate entry type dropdown with entry types from review items
-    const entTypeSelect = document.getElementById('entry-type-select');
-    if (entTypeSelect) {
-        eel.get_all_items_in_queue()().then(items => {
-            debugLog('App', `initMetadataControls: Got ${items?.length || 0} items for entry type dropdown`);
-            if (items && items.length > 0) {
-                const entryTypes = new Set();
-                items.forEach(item => {
-                    if (item.entry_type) {
-                        entryTypes.add(item.entry_type);
-                    }
-                });
-                const sortedTypes = Array.from(entryTypes).sort();
-                if (sortedTypes.length > 0) {
-                    entTypeSelect.innerHTML = '';
-                    sortedTypes.forEach(type => {
-                        const opt = document.createElement('option');
-                        opt.value = type;
-                        opt.innerText = type;
-                        entTypeSelect.appendChild(opt);
-                    });
-                    debugLog('App', `Populated entry type dropdown with types: ${sortedTypes.join(', ')}`);
-                    console.log('[initMetadataControls] Populated entry type dropdown:', sortedTypes);
-                } else {
-                    entTypeSelect.innerHTML = '<option value="">(none)</option>';
-                    debugLog('App', 'No entry types found in items');
-                    console.log('[initMetadataControls] No entry types found in items');
-                }
-            } else {
-                entTypeSelect.innerHTML = '<option value="">(none)</option>';
-                debugLog('App', 'No items in queue for entry type dropdown');
-                console.log('[initMetadataControls] No items in queue');
-            }
-        });
-    }
+    // Entry type is now read-only display, no dropdown population needed
 
     debugLog('App', 'initMetadataControls: Initialized');
     console.log('[initMetadataControls] Initialized');
@@ -2753,6 +2756,20 @@ function savePreviewProfile() {
 // =============================================================================
 // REVIEWER — DEEPL + LORE + ADJACENT
 // =============================================================================
+function populateDeepLFromCache(suggestion, loadIdx) {
+    const el = document.getElementById('deepl-text');
+    if (!el) return;
+    
+    // Only update if we're still on the same item
+    if (state.reviewer.currentIdx !== loadIdx) {
+        console.log(`[populateDeepLFromCache] Skipped because currentIdx=${state.reviewer.currentIdx} != loadIdx=${loadIdx}`);
+        return;
+    }
+    
+    el.value = suggestion || '';
+    console.log(`[populateDeepLFromCache] Rendered suggestion from cache`);
+}
+
 async function fetchDeepLSuggestion(text, loadIdx) {
     const el = document.getElementById('deepl-text');
     if (!el || !text) return;
@@ -2760,28 +2777,20 @@ async function fetchDeepLSuggestion(text, loadIdx) {
     
     let res = null;
     
-    // Check client-side cache first
-    if (deepLCache.has(text)) {
-        console.log(`[fetchDeepLSuggestion] Client cache hit for idx=${loadIdx}`);
-        res = deepLCache.get(text);
+    // Check prefetch cache
+    const category = state.reviewer.currentCategory || 'default';
+    const cached = await eel.get_prefetch_cache(category, loadIdx)();
+    
+    if (cached && cached.deepl_suggestion) {
+        console.log(`[fetchDeepLSuggestion] Using prefetch cache for idx=${loadIdx}`);
+        res = cached.deepl_suggestion;
     } else {
-        // Check prefetch cache
-        const category = state.reviewer.currentCategory || 'default';
-        const cached = await eel.get_prefetch_cache(category, loadIdx)();
-        
-        if (cached && cached.deepl_suggestion) {
-            console.log(`[fetchDeepLSuggestion] Using prefetch cache for idx=${loadIdx}`);
-            res = cached.deepl_suggestion;
-            deepLCache.set(text, res);
-        } else {
-            // Fetch fresh if not cached
-            el.value = 'Consulting DeepL…';
-            const startTime = Date.now();
-            res = await eel.get_deepl_suggestion(text)();
-            const elapsed = Date.now() - startTime;
-            console.log(`[fetchDeepLSuggestion] Fetched fresh for idx=${loadIdx}, elapsed=${elapsed}ms`);
-            deepLCache.set(text, res);
-        }
+        // Fetch fresh if not cached
+        el.value = 'Consulting DeepL…';
+        const startTime = Date.now();
+        res = await eel.get_deepl_suggestion(text)();
+        const elapsed = Date.now() - startTime;
+        console.log(`[fetchDeepLSuggestion] Fetched fresh for idx=${loadIdx}, elapsed=${elapsed}ms`);
     }
     
     // Only update if we're still on the same item
@@ -2818,6 +2827,88 @@ async function fetchDeepLSuggestion(text, loadIdx) {
 // =============================================================================
 // REVIEWER — TRANSLATION MEMORY
 // =============================================================================
+function populateTMFromCache(matches, jpText, loadIdx) {
+    const panel = document.getElementById('tm-suggestions-panel');
+    const list = document.getElementById('tm-suggestions-list');
+    if (!panel || !list || !matches) return;
+    
+    console.log(`[populateTMFromCache] Starting for loadIdx=${loadIdx}, matches=${matches.length}`);
+    
+    // Only update if we're still on the same item
+    if (state.reviewer.currentIdx !== loadIdx) {
+        console.log(`[populateTMFromCache] Skipped because currentIdx=${state.reviewer.currentIdx} != loadIdx=${loadIdx}`);
+        return;
+    }
+    
+    if (matches.length === 0) {
+        console.log(`[populateTMFromCache] No matches in cache`);
+        panel.style.display = 'none';
+        return;
+    }
+    
+    console.log(`[populateTMFromCache] Rendering ${matches.length} matches from cache`);
+    panel.style.display = 'block';
+    
+    // Clear previous results
+    list.innerHTML = '';
+    
+    matches.forEach(match => {
+        const item = document.createElement('div');
+        item.className = `kl-tm-item match-${match.match_type}`;
+        
+        const score = Math.round(match.score * 100);
+        const translation = match.substituted_translation || match.entry.translation;
+        const tmJp = match.entry.source || '';
+        
+        // Normalize newlines for comparison
+        const normalizedJpQuery = jpText.replace(/\n/g, ' ');
+        const normalizedJpTM = tmJp.replace(/\n/g, ' ');
+        const jpIdentical = normalizedJpQuery.trim() === normalizedJpTM.trim();
+        
+        // Diff highlighting on Japanese (what determines if entries differ)
+        const highlightedJp = jpIdentical ? escapeHtml(tmJp) : highlightDiff(jpText, tmJp);
+        
+        // Diff highlighting on English (what user will use)
+        const editor = document.getElementById('en-editor');
+        const currentText = editor ? editor.innerText.trim() : '';
+        const highlightedEn = jpIdentical ? escapeHtml(translation) : highlightDiff(currentText, translation);
+        
+        item.innerHTML = `
+            <span class="kl-tm-score">${score}%</span>
+            <div class="kl-tm-jp">${highlightedJp}</div>
+            <div class="kl-tm-text">${highlightedEn}</div>
+        `;
+        
+        // Click to apply
+        item.onclick = () => {
+            const editor = document.getElementById('en-editor');
+            if (!editor) return;
+            
+            const current = editor.innerText.trim();
+            if (current) {
+                openConfirmModal('OVERWRITE TEXT', 'Overwrite current English text with TM suggestion?', (confirmed) => {
+                    if (confirmed) {
+                        editor.innerText = translation;
+                        updateReviewerCounters();
+                        syncLineCounters();
+                        // Track usage
+                        eel.tm_track_usage(match.entry.id)();
+                    }
+                });
+                return;
+            }
+            
+            editor.innerText = translation;
+            updateReviewerCounters();
+            syncLineCounters();
+            // Track usage
+            eel.tm_track_usage(match.entry.id)();
+        };
+        
+        list.appendChild(item);
+    });
+}
+
 async function fetchTMSuggestions(jpText, loadIdx) {
     const panel = document.getElementById('tm-suggestions-panel');
     const list = document.getElementById('tm-suggestions-list');
@@ -2985,11 +3076,70 @@ function highlightDiff(currentText, suggestionText) {
     return result;
 }
 
-// Client-side gloss cache to avoid repeated Eel calls
-const glossCache = new Map();
-
-// Client-side DeepL cache to avoid repeated Eel calls
-const deepLCache = new Map();
+function populateGlossFromCache(tokens, loadIdx) {
+    const box = document.getElementById('gloss-box');
+    if (!box) return;
+    if (!tokens || !tokens.length) {
+        box.innerHTML = '<em style="opacity:0.5">No gloss available</em>';
+        return;
+    }
+    
+    // Only update if we're still on the same item
+    if (state.reviewer.currentIdx !== loadIdx) {
+        console.log(`[populateGlossFromCache] Skipped because currentIdx=${state.reviewer.currentIdx} != loadIdx=${loadIdx}`);
+        return;
+    }
+    
+    // POS colors matching main function
+    const POS_COLORS = {
+        noun:    '#6fb3ff',
+        verb:    '#7ddb8a',
+        adj:     '#e8c56a',
+        adv:     '#a78bfa',
+        particle:'#aaaaaa',
+        aux:     '#aaaaaa',
+        other:   '#cccccc',
+    };
+    
+    // Render as inline flow
+    let html = '';
+    tokens.forEach((t, i) => {
+        const surface = t.surface || '';
+        const cands = t.candidates || [];
+        
+        if (!cands.length || !surface.trim()) {
+            html += `<span style="color:var(--tab-inactive)">${escHtml(surface)}</span>`;
+            return;
+        }
+        
+        const baseFg = t.is_lore ? '#f0b429' : (POS_COLORS[t.pos] || POS_COLORS.other);
+        const hasMulti = cands.length > 1;
+        const tooltip = t.is_lore ? '★ ' + cands.join(', ') : cands.join(', ');
+        const insertStr = `${surface}[${cands[0]}]${hasMulti ? '  ' : ''}`;
+        
+        html += `<span class="gloss-span" 
+            data-candidate="${escHtml(cands[0])}"
+            style="color:${baseFg};${hasMulti ? 'text-decoration:underline;' : ''}cursor:pointer;"
+            title="${escHtml(tooltip)}">${escHtml(insertStr)}</span>`;
+    });
+    
+    box.innerHTML = html;
+    
+    // Wire up click handlers
+    box.querySelectorAll('.gloss-span').forEach(span => {
+        span.onclick = async () => {
+            const candidate = span.getAttribute('data-candidate');
+            const ed = document.getElementById('en-editor');
+            if (ed && candidate) {
+                ed.innerText += candidate;
+                updateReviewerCounters();
+                syncLineCounters();
+            }
+        };
+    });
+    
+    console.log(`[populateGlossFromCache] Rendered ${tokens.length} tokens from cache`);
+}
 
 async function populateGloss(jpText, loadIdx) {
     const box = document.getElementById('gloss-box');
@@ -3001,19 +3151,13 @@ async function populateGloss(jpText, loadIdx) {
     box.innerHTML = '<em style="opacity:0.5">analysing…</em>';
     console.log(`[populateGloss] Starting for loadIdx=${loadIdx}, jpText="${jpText?.slice(0, 30)}..."`);
     const startTime = Date.now();
+    
     try {
-        // Check client-side cache first
-        let tokens;
-        if (glossCache.has(jpText)) {
-            tokens = glossCache.get(jpText);
-            console.log(`[populateGloss] Client cache hit for loadIdx=${loadIdx}`);
-        } else {
-            tokens = await eel.get_gloss(jpText)();
-            glossCache.set(jpText, tokens);
-        }
+        // Fetch from backend (uses ConfigManager file-based cache)
+        const tokens = await eel.get_gloss(jpText)();
         const elapsed = Date.now() - startTime;
-        console.log(`[populateGloss] Completed for loadIdx=${loadIdx}, ${tokens?.length || 0} tokens, elapsed=${elapsed}ms`);
-        
+        console.log(`[populateGloss] Completed in ${elapsed}ms, got ${tokens?.length || 0} tokens`);
+            
         // Only update if we're still on the same item
         if (state.reviewer.currentIdx !== loadIdx) {
             console.log(`[populateGloss] Skipped update because currentIdx=${state.reviewer.currentIdx} != loadIdx=${loadIdx}`);
@@ -3160,9 +3304,9 @@ async function populateSourceWithLoreHighlightsFromCache(jpText, enText, loreMat
                     let tooltipHtml = `<span class="tooltip-word">${span.innerText}</span> <span class="tooltip-arrow">→</span> ${allSuggestions}`;
                     tooltip.innerHTML = tooltipHtml;
                     tooltip.style.display = 'block';
-                    const rect = box.getBoundingClientRect();
-                    const tooltipX = e.clientX - rect.left + 15;
-                    const tooltipY = e.clientY - rect.top + 20;
+                    // Position tooltip near cursor (fixed positioning)
+                    const tooltipX = e.clientX + 15;
+                    const tooltipY = e.clientY + 20;
                     tooltip.style.left = tooltipX + 'px';
                     tooltip.style.top = tooltipY + 'px';
                 }
@@ -3181,7 +3325,7 @@ async function populateSourceWithLoreHighlightsFromCache(jpText, enText, loreMat
     }
 }
 
-function populateLoreContextFromCache(jpText, enText, anachHits, loadIdx) {
+function populateLoreContextFromCache(jpText, enText, loreContext, anachHits, loadIdx) {
     const box = document.getElementById('lore-box');
     if (!box) return;
     
@@ -3192,9 +3336,105 @@ function populateLoreContextFromCache(jpText, enText, anachHits, loadIdx) {
     }
     
     box.innerHTML = '';
+    let hasContent = false;
+    
+    // Show lore references from cache
+    if (loreContext && loreContext.length > 0) {
+        hasContent = true;
+        const loreHeader = document.createElement('div');
+        loreHeader.className = 'lore-header';
+        loreHeader.innerText = 'References:';
+        loreHeader.style.cssText = 'font-size: 9px; font-weight: 700; color: var(--tab-inactive); margin-bottom: 6px; margin-top: 4px;';
+        box.appendChild(loreHeader);
+        
+        // Create flex container for lore references
+        const loreContainer = document.createElement('div');
+        loreContainer.style.cssText = 'display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;';
+        
+        // Convert array format [jp, en] to object format {is_lore: true, jp, en}
+        const normalizedLoreContext = loreContext.map(item => {
+            if (Array.isArray(item)) {
+                return { is_lore: true, jp: item[0], en: item[1] };
+            }
+            return item;
+        });
+        
+        normalizedLoreContext.forEach(m => {
+            if (!m.is_lore) {
+                // Strip angle brackets from tag name and quotes from value before comparing
+                const enValue = (m.en || '').trim().replace(/^"|"$/g, '');
+                const jpValue = (m.jp || '').trim().replace(/^<|>$/g, '').replace(/^<|>$/g, ''); // Remove angle brackets
+                if (jpValue === enValue) {
+                    return; // Skip tags where name equals value
+                }
+            }
+            
+            const row = document.createElement('div');
+            row.className = 'lore-row';
+            row.style.cssText = 'flex: 0 0 auto; font-size: 10px;';
+            if (m.is_lore) {
+                // Clickable lore terms — insert into editor on click
+                // Quote-aware split: don't split on delimiters inside quotes
+                const suggestions = [];
+                let current = '';
+                let inQuotes = false;
+                for (let i = 0; i < m.en.length; i++) {
+                    const char = m.en[i];
+                    if (char === '"' && (i === 0 || m.en[i-1] !== '\\')) {
+                        inQuotes = !inQuotes;
+                        current += char;
+                    } else if (/[,\;|\n\/]/.test(char) && !inQuotes) {
+                        if (current.trim()) {
+                            suggestions.push(current.trim());
+                        }
+                        current = '';
+                    } else {
+                        current += char;
+                    }
+                }
+                if (current.trim()) {
+                    suggestions.push(current.trim());
+                }
+                
+                // Filter out headers like "less common:"
+                const filteredSuggestions = suggestions.filter(s => !/^(less|lesser|lesson)\s+common:?$/i.test(s));
+                
+                const jpSpan = document.createElement('span');
+                jpSpan.className = 'lore-jp';
+                jpSpan.innerText = (m.jp || '') + ':  ';
+                row.appendChild(jpSpan);
+                filteredSuggestions.forEach((sug, i) => {
+                    const a = document.createElement('span');
+                    a.className = 'lore-en';
+                    a.innerText = sug;
+                    a.title = 'Click to insert';
+                    a.onclick = () => insertIntoEditor(sug);
+                    row.appendChild(a);
+                    if (i < filteredSuggestions.length - 1) {
+                        row.appendChild(document.createTextNode(' | '));
+                    }
+                });
+
+                // Add dragon emoji for Cecily
+                if (filteredSuggestions.some(s => s.toLowerCase() === 'cecily')) {
+                    const dragonArt = document.createElement('img');
+                    dragonArt.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0iI2U4YzZhYSI+PHBhdGggZD0iTTEwLjUgMy41Yy0uNSAwLTEgLjUtMS0xIDAgMCAuNS41IDEgMSAxczEuNSAxIDEgMSAxLS41IDEtMS0xem0tNSAwdjFoMnYxaC0yem0zIDJ2MWgxdjFoLTF6bS00IDJ2MWgxdjFoLTF6bTcgMmMtMSAwLTIuNS0xLTIuNS0yLjUgMC0xLjUgMS41LTIuNSAyLjUtMi41czIuNSAxIDIuNSAyLjVjMCAxLjUtMS41IDIuNS0yLjUgMi41em0tOCAxYzAgMS41IDEuNSAyLjUgMi41IDIuNXMyLjUtMSAyLjUtMi41YzAtMS41LTEuNS0yLjUtMi41LTIuNXptMTEuNSAwYzAgMS41IDEuNSAyLjUgMi41IDIuNXMyLjUtMSAyLjUtMi41YzAtMS41LTEuNS0yLjUtMi41LTIuNXoiLz48L3N2Zz4=';
+                    dragonArt.style.cssText = 'width: 16px; height: 16px; margin: 0 0 0 8px; vertical-align: middle;';
+                    row.appendChild(dragonArt);
+                }
+            } else {
+                // Tag display entry
+                row.innerHTML = `<span class="lore-tag">${escHtml(m.jp || '')}</span> = <span class="lore-tag-val">"${escHtml(m.en || '')}"</span>`;
+            }
+            loreContainer.appendChild(row);
+        });
+        
+        box.appendChild(loreContainer);
+    }
     
     // Show anachronisms from cache
     if (anachHits && anachHits.length > 0) {
+        hasContent = true;
         const anachHeader = document.createElement('div');
         anachHeader.className = 'lore-header';
         anachHeader.innerText = 'Possible Anachronisms:';
@@ -3265,7 +3505,8 @@ function populateLoreContextFromCache(jpText, enText, anachHits, loadIdx) {
         box.appendChild(anachContainer);
     }
     
-    if (!anachHits?.length) {
+    // Only show "No references found" if we have no content at all
+    if (!hasContent) {
         box.innerHTML = '<em style="opacity:0.5">No references found.</em>';
     }
 }
@@ -3392,9 +3633,9 @@ async function populateSourceWithLoreHighlights(jpText, enText = '') {
                     let tooltipHtml = `<span class="tooltip-word">${span.innerText}</span> <span class="tooltip-arrow">→</span> ${allSuggestions}`;
                     tooltip.innerHTML = tooltipHtml;
                     tooltip.style.display = 'block';
-                    const rect = box.getBoundingClientRect();
-                    const tooltipX = e.clientX - rect.left + 15;
-                    const tooltipY = e.clientY - rect.top + 20;
+                    // Position tooltip near cursor (fixed positioning)
+                    const tooltipX = e.clientX + 15;
+                    const tooltipY = e.clientY + 20;
                     tooltip.style.left = tooltipX + 'px';
                     tooltip.style.top = tooltipY + 'px';
                 }
@@ -3473,8 +3714,8 @@ async function populateLoreContext(jpText, enText, loadIdx) {
             matches.forEach(m => {
                 if (!m.is_lore) {
                     // Strip angle brackets from tag name and quotes from value before comparing
-                    const enValue = m.en.trim().replace(/^"|"$/g, '');
-                    const jpValue = m.jp.trim().replace(/^<|>$/g, '').replace(/^<|>$/g, ''); // Remove angle brackets
+                    const enValue = (m.en || '').trim().replace(/^"|"$/g, '');
+                    const jpValue = (m.jp || '').trim().replace(/^<|>$/g, '').replace(/^<|>$/g, ''); // Remove angle brackets
                     if (jpValue === enValue) {
                         return; // Skip tags where name equals value
                     }
@@ -3507,24 +3748,27 @@ async function populateLoreContext(jpText, enText, loadIdx) {
                         suggestions.push(current.trim());
                     }
                     
+                    // Filter out headers like "less common:"
+                    const filteredSuggestions = suggestions.filter(s => !/^(less|lesser|lesson)\s+common:?$/i.test(s));
+                    
                     const jpSpan = document.createElement('span');
                     jpSpan.className = 'lore-jp';
-                    jpSpan.innerText = m.jp + ':  ';
+                    jpSpan.innerText = (m.jp || '') + ':  ';
                     row.appendChild(jpSpan);
-                    suggestions.forEach((sug, i) => {
+                    filteredSuggestions.forEach((sug, i) => {
                         const a = document.createElement('span');
                         a.className = 'lore-en';
                         a.innerText = sug;
                         a.title = 'Click to insert';
                         a.onclick = () => insertIntoEditor(sug);
                         row.appendChild(a);
-                        if (i < suggestions.length - 1) {
+                        if (i < filteredSuggestions.length - 1) {
                             row.appendChild(document.createTextNode(' | '));
                         }
                     });
 
                     // Add dragon emoji for Cecily
-                    if (suggestions.some(s => s.toLowerCase() === 'cecily')) {
+                    if (filteredSuggestions.some(s => s.toLowerCase() === 'cecily')) {
                         const dragonArt = document.createElement('img');
                         dragonArt.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0iI2U4YzZhYSI+PHBhdGggZD0iTTEwLjUgMy41Yy0uNSAwLTEgLjUtMS0xIDAgMCAuNS41IDEgMSAxczEuNSAxIDEgMSAxLS41IDEtMS0xem0tNSAwdjFoMnYxaC0yem0zIDJ2MWgxdjFoLTF6bS00IDJ2MWgxdjFoLTF6bTcgMmMtMSAwLTIuNS0xLTIuNS0yLjUgMC0xLjUgMS41LTIuNSAyLjUtMi41czIuNSAxIDIuNSAyLjVjMCAxLjUtMS41IDIuNS0yLjUgMi41em0tOCAxYzAgMS41IDEuNSAyLjUgMi41IDIuNXMyLjUtMSAyLjUtMi41YzAtMS41LTEuNS0yLjUtMi41LTIuNXptMTEuNSAwYzAgMS41IDEuNSAyLjUgMi41IDIuNXMyLjUtMSAyLjUtMi41YzAtMS41LTEuNS0yLjUtMi41LTIuNXoiLz48L3N2Zz4=';
                         dragonArt.style.cssText = 'width: 16px; height: 16px; margin: 0 0 0 8px; vertical-align: middle;';
@@ -3532,7 +3776,7 @@ async function populateLoreContext(jpText, enText, loadIdx) {
                     }
                 } else {
                     // Tag display entry
-                    row.innerHTML = `<span class="lore-tag">${escHtml(m.jp)}</span> = <span class="lore-tag-val">"${escHtml(m.en)}"</span>`;
+                    row.innerHTML = `<span class="lore-tag">${escHtml(m.jp || '')}</span> = <span class="lore-tag-val">"${escHtml(m.en || '')}"</span>`;
                 }
                 loreContainer.appendChild(row);
             });
@@ -3617,9 +3861,34 @@ async function populateLoreContext(jpText, enText, loadIdx) {
             box.innerHTML = '<em style="opacity:0.5">No references found.</em>';
         }
     } catch (e) {
-        box.innerHTML = '<em style="opacity:0.5">Error loading context.</em>';
+        box.innerHTML = `<em style="opacity:0.5">Error loading context: ${e.message || e}</em>`;
         console.error('[populateLoreContext]', e);
     }
+}
+
+function populateAdjacentContextFromCache(adjCtx, loadIdx) {
+    const prevEl = document.getElementById('ctx-prev');
+    const nextEl = document.getElementById('ctx-next');
+    if (!prevEl && !nextEl) return;
+    
+    // Only update if we're still on the same item
+    if (state.reviewer.currentIdx !== loadIdx) {
+        console.log(`[populateAdjacentContextFromCache] Skipped because currentIdx=${state.reviewer.currentIdx} != loadIdx=${loadIdx}`);
+        return;
+    }
+    
+    if (prevEl) {
+        prevEl.innerHTML = adjCtx && adjCtx.prev
+            ? `<span class="adj-arrow">▲</span><span class="adj-jp">${escHtml(adjCtx.prev.jp)}</span><br><span class="adj-en">${escHtml(adjCtx.prev.en)}</span>`
+            : '<span class="adj-arrow">▲</span>—';
+    }
+    if (nextEl) {
+        nextEl.innerHTML = adjCtx && adjCtx.next
+            ? `<span class="adj-jp">${escHtml(adjCtx.next.jp)}</span><br><span class="adj-en">${escHtml(adjCtx.next.en)}</span><span class="adj-arrow">▼</span>`
+            : '—<span class="adj-arrow">▼</span>';
+    }
+    
+    console.log(`[populateAdjacentContextFromCache] Rendered context from cache`);
 }
 
 async function populateAdjacentContext(path, rowIdx, loadIdx) {
@@ -3744,7 +4013,7 @@ function renderRowSidebar() {
         li.innerHTML = `${rowNum}<div class="row-text"><span class="row-jp">${jpText}</span>${enText}</div>${commentIndicator}`;
         if (item.en) li.classList.add('translated');
         if (state.reviewer.currentIdx === idx) li.classList.add('active');
-        li.onclick = () => loadItemAtIdx(idx);
+        li.onclick = () => loadItemAtIdx(idx);  // Don't await - let it load in background
         ul.appendChild(li);
     });
 }
@@ -4073,6 +4342,13 @@ async function loadSettings() {
         setVal('opt-ai-prompt-rephrase', buttonPrompts.rephrase || 'Rephrase this: {text}');
         setVal('opt-ai-prompt-archaize', buttonPrompts.archaize || 'Make this more archaic: {text}');
         setVal('opt-ai-prompt-check', buttonPrompts.check || 'Check this for errors: {text}');
+
+        // Pre-Translation Settings
+        const pretranslateSettings = config.pretranslate_settings || {};
+        setVal('opt-pretranslate-tm-threshold', pretranslateSettings.tm_threshold || 0.9);
+        setVal('opt-pretranslate-tm-quality', pretranslateSettings.tm_quality || 'approved');
+        setCheck('opt-pretranslate-enable-openrouter', pretranslateSettings.enable_openrouter !== false);
+        setCheck('opt-pretranslate-enable-deepl', pretranslateSettings.enable_deepl !== false);
 
         // GitHub Sync Settings
         setVal('opt-github-repo', config.github_repo || '');
@@ -4640,6 +4916,21 @@ function initSettingsActions() {
             };
             await eel.save_config_field('ai_button_prompts', prompts)();
             alert('AI Button Prompts saved!');
+        };
+    }
+
+    // --- Pre-Translation Settings: save on button click ---
+    const btnSavePretranslate = document.getElementById('btn-save-pretranslate-settings');
+    if (btnSavePretranslate) {
+        btnSavePretranslate.onclick = async () => {
+            const settings = {
+                tm_threshold: parseFloat(document.getElementById('opt-pretranslate-tm-threshold')?.value) || 0.9,
+                tm_quality: document.getElementById('opt-pretranslate-tm-quality')?.value || 'approved',
+                enable_openrouter: document.getElementById('opt-pretranslate-enable-openrouter')?.checked !== false,
+                enable_deepl: document.getElementById('opt-pretranslate-enable-deepl')?.checked !== false
+            };
+            await eel.save_config_field('pretranslate_settings', settings)();
+            alert('Pre-Translation Settings saved!');
         };
     }
 
@@ -5463,7 +5754,7 @@ async function openSearchHitInReviewer(res) {
     state.reviewer.currentCategory = "Manual Translation";
     state.reviewer.fullQueue = await eel.get_all_items_in_queue()() || [];
     switchTab('editor');
-    loadItemAtIdx(0);
+    loadItemAtIdx(0);  // Don't await - let it load in background
 }
 
 // =============================================================================
@@ -5477,23 +5768,10 @@ function saveUndoState(caller = 'unknown') {
     const ed = document.getElementById('en-editor');
     if (!ed) return;
     
-    // Log DOM structure at time of save
-    let domDump = '';
-    for (let i = 0; i < ed.childNodes.length; i++) {
-        const n = ed.childNodes[i];
-        if (n.nodeType === Node.TEXT_NODE) domDump += `TEXT(${n.length}) `;
-        else if (n.nodeName === 'BR') domDump += 'BR ';
-        else domDump += `${n.nodeName} `;
-    }
-    console.log(`[saveUndoState] DOM: ${domDump}`);
-    
     // Save both text and cursor position
     const selection = window.getSelection();
     const range = selection.rangeCount > 0 ? selection.getRangeAt(0) : null;
-    const nodeIndex = range ? Array.from(ed.childNodes).indexOf(range.endContainer) : -1;
-    console.log(`[saveUndoState] caller=${caller}, nodeIndex=${nodeIndex}, endContainer=${range?.endContainer?.nodeName}, text="${range?.endContainer?.textContent?.substring(0,20)}"`);
     const cursorOffset = range ? getCaretOffset(ed, range.cloneRange()) : null;
-    console.log(`[saveUndoState] calculated cursorOffset=${cursorOffset}`);
     
     undoStack.push({
         text: ed.innerText,
@@ -5698,7 +5976,7 @@ async function updateSyncStatusDisplay() {
 function escAttr(s) { return escHtml(s); }
 
 // =============================================================================
-// CROWDIN-STYLE TRANSLATION MANAGEMENT
+// TRANSLATION MANAGEMENT
 // =============================================================================
 
 function togglePanel(panelId) {
@@ -5787,6 +6065,12 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
+function decodeHtmlEntities(text) {
+    const div = document.createElement('div');
+    div.innerHTML = text;
+    return div.textContent || div.innerText || '';
+}
+
 async function loadTranslationHistory(entryId) {
     const historyContainer = document.getElementById('translation-history');
     const historyPanel = document.getElementById('panel-history');
@@ -5797,9 +6081,9 @@ async function loadTranslationHistory(entryId) {
         const res = await eel.get_translation_history(entryId)();
         console.log('[loadTranslationHistory] response:', res);
         if (res && res.ok && res.history && res.history.length > 0) {
-            // Show all history entries except comments and approve/reject (old log entries)
-            const filteredHistory = res.history.filter(h => h.action !== 'comment' && h.action !== 'approve' && h.action !== 'reject');
-            console.log('[loadTranslationHistory] Showing', filteredHistory.length, 'entries (excluding comments, approve, reject)');
+            // Show all history entries except approve/reject (comments are now shown inline)
+            const filteredHistory = res.history.filter(h => h.action !== 'approve' && h.action !== 'reject');
+            console.log('[loadTranslationHistory] Showing', filteredHistory.length, 'entries (excluding approve, reject)');
             if (filteredHistory.length > 0) {
                 // Use full history to check for approve/reject actions after each translate
                 const fullHistory = res.history || [];
@@ -5808,16 +6092,23 @@ async function loadTranslationHistory(entryId) {
 
                 historyContainer.innerHTML = filteredHistory.map((h, idx) => {
                     const actionLabel = h.action === 'translate' ? 'Edit' : h.action;
-                    // For translate entries, check if there was an approve/reject action after this entry with matching text
+                    // For translate entries, check if there was an approve/reject action after this entry
                     let statusBadge = '';
                     let displayUser = h.user;
                     if (h.action === 'translate') {
                         const entryTimestamp = new Date(h.timestamp).getTime();
-                        // Find the first approve/reject action after this translate entry with matching text
+                        // Find the next translate entry after this one (if any)
+                        const nextTranslate = filteredHistory.find(log =>
+                            log.action === 'translate' &&
+                            new Date(log.timestamp).getTime() > entryTimestamp
+                        );
+                        const nextTranslateTimestamp = nextTranslate ? new Date(nextTranslate.timestamp).getTime() : Infinity;
+                        
+                        // Find the first approve/reject action after this entry but before the next translate
                         const laterAction = fullHistory.find(log =>
                             (log.action === 'approve' || log.action === 'reject') &&
                             new Date(log.timestamp).getTime() > entryTimestamp &&
-                            log.new_value === h.new_value
+                            new Date(log.timestamp).getTime() < nextTranslateTimestamp
                         );
                         console.log('[loadTranslationHistory] For entry at', new Date(h.timestamp).toLocaleString(), 'laterAction:', laterAction?.action);
                         if (laterAction) {
@@ -5829,7 +6120,7 @@ async function loadTranslationHistory(entryId) {
                                 statusBadge = `<span class="kl-history-status-inline status-reject">REJECTED</span>`;
                             }
                         } else {
-                            // No matching approve/reject after this entry, check if it's the latest
+                            // No approve/reject after this entry, check if it's the latest
                             const latestTranslate = filteredHistory.filter(e => e.action === 'translate').sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
                             if (latestTranslate && new Date(latestTranslate.timestamp).getTime() === entryTimestamp) {
                                 // This is the latest entry, show current status
@@ -5840,18 +6131,40 @@ async function loadTranslationHistory(entryId) {
                                 } else {
                                     statusBadge = `<span class="kl-history-status-inline status-unapproved">UNAPPROVED</span>`;
                                 }
+                            } else {
+                                // Older entry with no approve/reject, show as UNAPPROVED
+                                statusBadge = `<span class="kl-history-status-inline status-unapproved">UNAPPROVED</span>`;
                             }
                         }
                     }
+
+                    // Render comments for this history entry
+                    const commentsHtml = h.comments && h.comments.length > 0 
+                        ? h.comments.map(c => `
+                            <div class="kl-history-comment">
+                                <div class="kl-history-comment-header">
+                                    <span class="kl-history-comment-user">${escapeHtml(c.user)}</span>
+                                    <span class="kl-history-comment-time">${new Date(c.timestamp).toLocaleString()}</span>
+                                </div>
+                                <div class="kl-history-comment-text">${escapeHtml(c.text)}</div>
+                            </div>
+                        `).join('')
+                        : '';
+
+                    // Add comment button
+                    const addCommentBtn = `<button class="kl-history-add-comment-btn" data-history-id="${h.id}">+ Add Comment</button>`;
+
                     return `
-                    <div class="kl-history-item" data-history-idx="${idx}" data-text="${escapeHtml(h.new_value || '')}" style="cursor: pointer;">
+                    <div class="kl-history-item" data-history-idx="${idx}" data-text="${escapeHtml(h.new_value || '')}" data-history-id="${h.id}" style="cursor: pointer;">
                         <div class="kl-history-header">
                             <span class="kl-history-action action-${h.action}">${actionLabel}</span>
                             ${statusBadge}
                             <span class="kl-history-user">by ${displayUser}</span>
                             <span class="kl-history-time">${new Date(h.timestamp).toLocaleString()}</span>
+                            ${addCommentBtn}
                         </div>
-                        ${h.new_value ? `<div class="kl-history-text">${escapeHtml(h.new_value)}</div>` : ''}
+                        ${h.new_value ? `<div class="kl-history-text">${decodeHtmlEntities(h.new_value)}</div>` : ''}
+                        ${commentsHtml}
                     </div>
                     `;
                 }).join('');
@@ -5861,13 +6174,35 @@ async function loadTranslationHistory(entryId) {
 
                 // Add click handlers to history items
                 historyContainer.querySelectorAll('.kl-history-item').forEach(item => {
-                    item.addEventListener('click', () => {
+                    item.addEventListener('click', (e) => {
+                        // Don't trigger if clicking the add comment button
+                        if (e.target.classList.contains('kl-history-add-comment-btn')) {
+                            return;
+                        }
                         const text = item.getAttribute('data-text');
                         if (text) {
                             const editor = document.getElementById('en-editor');
                             if (editor) {
-                                editor.innerText = text;
+                                editor.innerText = decodeHtmlEntities(text);
                                 console.log('[loadTranslationHistory] Pasted history text into editor');
+                            }
+                        }
+                    });
+                });
+
+                // Add click handlers for "Add Comment" buttons
+                historyContainer.querySelectorAll('.kl-history-add-comment-btn').forEach(btn => {
+                    btn.addEventListener('click', async (e) => {
+                        e.stopPropagation();
+                        const historyId = btn.getAttribute('data-history-id');
+                        const commentText = prompt('Enter your comment:');
+                        if (commentText && commentText.trim()) {
+                            const nickname = state.settings.lastConfig?.sync_nickname || 'reviewer';
+                            const res = await eel.add_translation_comment(entryId, nickname, commentText.trim(), null, historyId)();
+                            if (res && res.ok) {
+                                await loadTranslationHistory(entryId);
+                            } else {
+                                openAlertModal('ERROR', res?.error || 'Failed to add comment.');
                             }
                         }
                     });
@@ -5879,7 +6214,7 @@ async function loadTranslationHistory(entryId) {
                     if (latestTranslateEntry && latestTranslateEntry.new_value) {
                         const editor = document.getElementById('en-editor');
                         if (editor) {
-                            editor.innerText = latestTranslateEntry.new_value;
+                            editor.innerText = decodeHtmlEntities(latestTranslateEntry.new_value);
                             console.log('[loadTranslationHistory] Auto-loaded latest history text into editor for unapproved entries queue');
                         }
                     }

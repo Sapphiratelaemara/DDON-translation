@@ -27,7 +27,7 @@ The application follows a **client-server architecture** where:
 └――――――――――――――――――――――――――┬――――――――――――――――――――――――――――――――――┘
                            │ Eel IPC
                            │ (WebSocket/HTTP)
-┌――――――――――――――――――――――――――┴――――――――――――――――――――――――――――――――――┐
+┌――――――――――――――――――――――――――┴――――――――――――――――――――――――――――――――┐
 │                    Python Backend                            │
 │  ┌――――――――――――――――――――――――――――――――――――――――――――――――――――――┐  │
 │  │              main.py (Entry Point)                    │  │
@@ -38,14 +38,17 @@ The application follows a **client-server architecture** where:
 │  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  │
 │  │ Config   │  │  API     │  │  Lore    │  │  Gloss   │  │
 │  │ Manager  │  │  Handler  │  │  Engine   │  │  Engine  │  │
+│  │(src/)    │  │(src/)    │  │(src/)    │  │(src/)    │  │
 │  └――――――――――┘  └――――――――――┘  └――――――――――┘  └――――――――――┘  │
 │  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  │
 │  │ Trans    │  │  Batch   │  │  File    │  │  Search  │  │
 │  │ Engine   │  │  Runner  │  │  Utils   │  │  Window  │  │
+│  │(src/)    │  │(src/)    │  │(src/)    │  │          │  │
 │  └――――――――――┘  └――――――――――┘  └――――――――――┘  └――――――――――┘  │
 │  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  ┌――――――――――┐  │
 │  │ Trans    │  │  Prefetch│  │  Trans   │  │  GitHub  │  │
 │  │ Memory   │  │  Manager │  │  Manager │  │  Sync    │  │
+│  │(src/)    │  │(src/)    │  │(src/)    │  │(src/)    │  │
 │  └――――――――――┘  └――――――――――┘  └――――――――――┘  └――――――――――┘  │
 └―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――┘
                            │
@@ -64,20 +67,26 @@ The application follows a **client-server architecture** where:
 ```
 Dialogue Editor/
 ├── main.py                 # Application entry point, Eel routes, global state
-├── config_manager.py       # Configuration management (JSON files)
-├── github_sync.py          # GitHub synchronization for per-language data
-├── api_handler.py          # External API clients (DeepL, OpenRouter)
-├── translator_engine.py   # Text wrapping and translation processing
-├── lore_engine.py          # Lore/context system, archetypes, in-universe vocab
-├── gloss_engine.py        # Japanese morpheme glossing (Janome + Jamdict)
-├── lore_data.py           # Default archetypes, vocabulary, anachronism patterns
-├── translation_memory.py   # Translation memory management and fuzzy matching
-├── file_utils.py          # CSV file reading utilities
-├── batch_runner.py        # Batch scanning logic (background thread)
-├── translation_manager.py  # Translation data management
-├── prefetch_manager.py    # API result caching
+├── count_chars.py         # Utility script for character counting
+├── runtime_hook.py        # PyInstaller runtime hook
 ├── requirements.txt        # Python dependencies
 ├── keys.json              # API keys (separate for security, global)
+├── ARCHITECTURE.md        # This file
+├── USER_GUIDE.html        # User documentation
+├── src/                   # Source code modules
+│   ├── config_manager.py  # Configuration management (JSON files)
+│   ├── github_sync.py     # GitHub synchronization for per-language data
+│   ├── api_handler.py     # External API clients (DeepL, OpenRouter)
+│   ├── translator_engine.py # Text wrapping and translation processing
+│   ├── lore_engine.py     # Lore/context system, archetypes, in-universe vocab
+│   ├── gloss_engine.py    # Japanese morpheme glossing (Janome + Jamdict)
+│   ├── lore_data.py       # Default archetypes, vocabulary, anachronism patterns
+│   ├── translation_memory.py # Translation memory management and fuzzy matching
+│   ├── file_utils.py      # CSV file reading utilities
+│   ├── batch_runner.py    # Batch scanning logic (background thread)
+│   ├── translation_manager.py # Translation data management
+│   ├── prefetch_manager.py # Local-only prefetch caching (TM, gloss, lore, adjacent context)
+│   └── check_keys.py      # Utility script for testing API keys
 ├── config/                # Per-language configuration directory
 │   ├── en/                # English language configuration
 │   │   ├── formatter_config.json   # Main configuration (folders, triggers, tag maps, presets)
@@ -93,7 +102,6 @@ Dialogue Editor/
 │   │   ├── cache.json             # API response cache (per-language, not synced)
 │   │   ├── review_queues_cache.json # Review queues (per-language, not synced)
 │   │   └── review_items_cache.json # Manual translation queue (per-language, not synced)
-│   ├── ar/                # Arabic language configuration (example)
 │   └── [lang]/            # Other language directories
 ├── web/                   # Frontend web interface
 │   ├── index.html         # Main HTML structure
@@ -132,32 +140,17 @@ active_editors = []            # Active editor windows
 
 **Eel Routes:**
 Functions decorated with `@eel.expose` are callable from JavaScript:
+
+**Dashboard & Stats:**
 - `get_dashboard_data()` - Dashboard statistics
 - `calculate_project_stats()` - Calculate project-wide statistics
+
+**Configuration Management:**
 - `get_full_config()` - Complete configuration
-- `save_config()` - Persist configuration changes
 - `save_config_field()` - Save single config field
-- `scan_csv()` - Trigger batch scan
-- `get_item_at_idx()` - Retrieve specific item
-- `save_item()` - Persist item changes
-- `translate_text()` - DeepL translation
-- `ai_chat()` - OpenRouter AI chat
-- `get_gloss()` - Glossary lookup
-- `get_lore_context()` - Lore context lookup
-- `perform_search()` - Database search
-- `bulk_inject()` - Inject search results into review queue
-- `get_theme_colors()` - Get current theme colors
-- `toggle_dark_mode()` - Toggle dark/light theme
-- `get_archetypes_list()` - Get available archetypes
-- `get_speaker_archetype()` - Get archetype for speaker
-- `get_speaker_note()` - Get note for speaker
-- `get_speakers_list()` - Get list of speakers
-- `get_entry_types_list()` - Get list of entry types
-- `get_simulated_len()` - Calculate text length with tags
-- `get_standard_limit()` - Get standard character limit
-- `get_wall_limit()` - Get wall text limit
-- `get_all_presets()` - Get all limit presets
-- `get_preview_profiles()` - Get preview profiles
+- `switch_language()` - Switch to different language
+- `create_language()` - Create new language configuration
+- `get_available_languages()` - Get list of available languages
 - `update_config_dict()` - Update dictionary config values
 - `update_config_list()` - Update list config values
 - `update_map_setting()` - Update map/dict config setting
@@ -165,62 +158,160 @@ Functions decorated with `@eel.expose` are callable from JavaScript:
 - `add_list_item()` - Add item to list config
 - `remove_list_item()` - Remove item from list config
 - `update_list_item()` - Update item in list config
-- `save_replace_rule()` - Save single replace rule
-- `save_replace_rules()` - Save all replace rules
+
+**Archetypes & Speakers:**
 - `save_archetype()` - Save archetype metadata
 - `save_archetype_data()` - Save archetype data
 - `delete_archetype()` - Delete archetype
 - `reset_archetypes_to_defaults()` - Reset archetypes to defaults
 - `reload_archetypes_from_file()` - Reload archetypes from file
 - `save_speaker_archetype()` - Save speaker archetype assignment
+- `get_archetypes_list()` - Get available archetypes
+- `get_speaker_archetype()` - Get archetype for speaker
+- `get_speaker_note()` - Get note for speaker
+- `get_speakers_list()` - Get list of speakers
+- `get_archetype_options()` - Get archetype options
+- `get_archetype_notes()` - Get archetype notes
+
+**Folders & Triggers:**
 - `pick_directory()` - Open directory picker dialog
 - `pick_file()` - Open file picker dialog
 - `add_folder()` - Add folder to watched folders
 - `remove_folder()` - Remove folder from watched folders
 - `add_trigger()` - Add entry trigger
 - `remove_trigger()` - Remove entry trigger
+
+**UI & Theme:**
+- `get_theme_colors()` - Get current theme colors
+- `toggle_dark_mode()` - Toggle dark/light theme
 - `refresh_ui()` - Refresh UI state
+
+**Editor Windows:**
 - `notify_active_editors()` - Notify active editor windows
 - `register_editor()` - Register editor window
 - `unregister_editor()` - Unregister editor window
+
+**Log:**
 - `clear_log()` - Clear log messages
 - `add_log_message()` - Add message to log
-- `open_search_window()` - Open Tkinter search window
-- `open_options_window()` - Open Tkinter options window
-- `save_entry_type_to_csv()` - Save entry type to CSV
+
+**Testing & Validation:**
 - `test_deepl()` - Test DeepL API key
 - `test_openrouter()` - Test OpenRouter API key
 - `fetch_models()` - Fetch available AI models
 - `test_regex()` - Test regex pattern
+
+**Text Processing:**
+- `get_simulated_len()` - Calculate text length with tags
 - `rewrap_text()` - Re-wrap text with current limits
+- `get_standard_limit()` - Get standard character limit
+- `get_wall_limit()` - Get wall text limit
+
+**Presets & Profiles:**
+- `get_all_presets()` - Get all limit presets
+- `get_preview_profiles()` - Get preview profiles
 - `save_preview_profile()` - Save preview profile
 - `add_preview_type()` - Add preview type to profile
 - `remove_preview_type()` - Remove preview type from profile
+
+**Preview Images:**
 - `generate_preview_image()` - Generate preview image
+
+**Glossary & Lore:**
+- `get_gloss()` - Glossary lookup
+- `get_lore_context()` - Lore context lookup
 - `scan_anachronisms()` - Scan text for anachronisms
 - `get_definition()` - Get anachronism definition
 - `prefetch_definitions()` - Prefetch anachronism definitions
-- `get_adjacent_context()` - Get adjacent context for item
-- `get_archetype_options()` - Get archetype options
-- `get_archetype_notes()` - Get archetype notes
+
+**Translation & AI:**
+- `get_deepl_suggestion()` - Get DeepL translation suggestion
+- `send_ai_chat()` - Send AI chat message
+- `get_entry_types_list()` - Get list of entry types
+
+**Batch Scanning:**
 - `start_batch_scan()` - Start batch scan with preset
 - `is_batch_scan_complete()` - Check if batch scan complete
+
+**Review Queue:**
 - `get_queue_structure()` - Get review queue structure
 - `get_items_for_category()` - Get items for category
 - `get_all_items_in_queue()` - Get all items in review queue
 - `get_next_review_item()` - Get next review item
-- `get_deepl_suggestion()` - Get DeepL translation suggestion
-- `send_ai_chat()` - Send AI chat message
+- `clear_queue()` - Clear review queue
+- `bulk_inject()` - Inject search results into review queue
+
+**CSV Operations:**
 - `flush_csv_writes()` - Flush pending CSV writes
 - `apply_fix()` - Apply fix to item
 - `load_csv_for_translation()` - Load CSV for translation
-- `start_prefetch()` - Start prefetch operation
+
+**Prefetching:**
+- `start_prefetch()` - Start prefetch operation (local-only: TM, gloss, lore, adjacent context)
+- `start_prefetch_all()` - Start prefetch for all items
 - `get_prefetch_cache()` - Get prefetch cache entry
 - `clear_prefetch_cache()` - Clear prefetch cache
-- `clear_gloss_cache()` - Clear gloss cache
-- `clear_queue()` - Clear review queue
+- `fetch_deepl_batch()` - Batch fetch DeepL translations for current + next N entries
+- `get_adjacent_context()` - Get adjacent context for item
 
-### 2. Configuration Management (`config_manager.py`)
+**Gloss Cache:**
+- `clear_gloss_cache()` - Clear gloss cache
+
+**Translation Approval Workflow:**
+- `approve_translation()` - Approve translation entry
+- `reject_translation()` - Reject translation entry
+- `get_translation_status()` - Get translation approval status
+- `add_translation_comment()` - Add comment to translation
+- `get_translation_comments()` - Get translation comments
+- `vote_translation()` - Vote on translation
+- `save_translation_history()` - Save translation history entry
+- `get_translation_history()` - Get translation history for entry
+- `cleanup_old_approval_logs()` - Clean up old approval logs
+- `update_all_log_usernames()` - Update usernames in logs
+- `get_recent_translation_activity()` - Get recent translation activity
+- `get_translation_stats()` - Get translation statistics
+- `get_entries_by_status()` - Get entries by approval status
+- `get_unapproved_entries_with_comments()` - Get unapproved entries with comments
+
+**GitHub Sync:**
+- `sync_push()` - Push data to GitHub
+- `sync_pull()` - Pull data from GitHub
+- `get_sync_status()` - Get sync status
+
+**Search:**
+- `perform_search()` - Database search
+
+**Translation Memory (TM):**
+- `tm_test_data_structure()` - Test TM data structure
+- `tm_test_migration()` - Test TM migration
+- `tm_test_fuzzy_matching()` - Test TM fuzzy matching
+- `tm_test_match_performance()` - Test TM match performance
+- `tm_test_ui_integration()` - Test TM UI integration
+- `tm_find_matches()` - Find TM matches
+- `tm_track_usage()` - Track TM entry usage
+- `tm_pretranslate_batch()` - Pretranslate batch using TM
+- `pretranslate_batch()` - Pretranslate batch with TM
+- `tm_test_pretranslate_batch()` - Test TM pretranslate batch
+- `tm_get_available_languages()` - Get available TM languages
+- `tm_find_cross_language_matches()` - Find cross-language TM matches
+- `tm_share_translation()` - Share translation across languages
+- `tm_test_cross_language()` - Test cross-language TM
+- `tm_get_statistics()` - Get TM statistics
+- `tm_get_all_entries()` - Get all TM entries
+- `tm_export_tm()` - Export TM to file
+- `tm_import_tm()` - Import TM from file
+- `tm_test_management()` - Test TM management
+
+**Feature Flags:**
+- `get_feature_status()` - Get feature flag status
+
+**Testing:**
+- `run_tests()` - Run test suite
+
+**Shutdown:**
+- `shutdown_app()` - Shutdown application
+
+### 2. Configuration Management (`src/config_manager.py`)
 
 **Responsibilities:**
 - Load/save configuration from JSON files
@@ -265,7 +356,7 @@ load_vocab(file)             # Load vocabulary file
 save_vocab(file, data)        # Save vocabulary file
 ```
 
-### 3. GitHub Sync (`github_sync.py`)
+### 3. GitHub Sync (`src/github_sync.py`)
 
 **Responsibilities:**
 - Synchronize per-language data with GitHub repository
@@ -315,7 +406,7 @@ sync_auto_enabled()              # Check if auto-sync is enabled
         └── comments.json      # User comments
 ```
 
-### 4. API Handler (`api_handler.py`)
+### 4. API Handler (`src/api_handler.py`)
 
 **Responsibilities:**
 - Abstract external API calls
@@ -333,7 +424,7 @@ sync_auto_enabled()              # Check if auto-sync is enabled
 - Timeout handling
 - Error message sanitization
 
-### 4. Translation Engine (`translator_engine.py`)
+### 5. Translation Engine (`src/translator_engine.py`)
 
 **Responsibilities:**
 - Text wrapping with tag awareness
@@ -356,7 +447,7 @@ clean_and_wrap(text, limit)       # Clean and wrap text
 2. Wrap each intentional segment independently
 3. Balance stub lines by pulling words from preceding lines (never across segment boundaries)
 
-### 5. Lore Engine (`lore_engine.py`)
+### 6. Lore Engine (`src/lore_engine.py`)
 
 **Responsibilities:**
 - Load and manage lore/glossary data from CSV files
@@ -383,7 +474,7 @@ Character personality types that influence translation style (e.g., "Noble", "Pe
 - Notes (translation guidelines)
 - Associated vocabulary patterns
 
-### 6. Gloss Engine (`gloss_engine.py`)
+### 7. Gloss Engine (`src/gloss_engine.py`)
 
 **Responsibilities:**
 - Japanese morpheme tokenization using Janome
@@ -412,7 +503,7 @@ GlossToken(
 )
 ```
 
-### 7. Translation Memory (`translation_memory.py`)
+### 8. Translation Memory (`src/translation_memory.py`)
 
 **Responsibilities:**
 - Manage translation memory entries (source → translation mappings)
@@ -461,6 +552,9 @@ Common particles (の, を, に, が, へ, と, で) are removed during normaliz
 - N-gram: 10%
 - Tag: 5%
 
+**Match Sorting:**
+When multiple entries have the same similarity score, they are sorted by timestamp (newest first) to prioritize recent translations.
+
 **Key Methods:**
 ```python
 add_entry(entry)              # Add new TM entry
@@ -479,7 +573,7 @@ The `CrossLanguageTM` class enables sharing translation memories between languag
 - Merge entries from multiple languages
 - Export merged TM to target language
 
-### 8. Batch Runner (`batch_runner.py`)
+### 9. Batch Runner (`src/batch_runner.py`)
 
 **Responsibilities:**
 - Background batch scanning of CSV files
@@ -513,7 +607,7 @@ class BatchSettings:
 8. Populate queues with issues found
 9. Report progress via callbacks
 
-### 8. File Utilities (`file_utils.py`)
+### 10. File Utilities (`src/file_utils.py`)
 
 **Responsibilities:**
 - CSV file discovery in directories
@@ -686,6 +780,28 @@ Result returned to frontend
 Frontend updates translation field
 ```
 
+### DeepL Batch Fetching Flow
+
+```
+Frontend loads entry and checks prefetch cache
+    ↓
+If cache missing deepl_suggestion or gloss_result:
+    ↓
+Frontend calls eel.fetch_deepl_batch(category, items, start_idx, count)
+    ↓
+Python main.py fetches DeepL translations for batch (current + next N entries)
+    ↓
+For each entry in batch:
+    - Check cache.json for existing translation
+    - If not cached, call DeepLClient.translate()
+    - Store result in cache.json
+    - Update prefetch_cache.json with deepl_suggestion
+    ↓
+Frontend polls prefetch cache for updated data
+    ↓
+When deepl_suggestion appears in cache, frontend populates UI
+```
+
 ## Communication Patterns
 
 ### Python to JavaScript (Eel)
@@ -814,7 +930,10 @@ prefetch_cache.json (Prefetch Cache - Local Only)
 │   ├── timestamp: 0          # Cache timestamp
 │   ├── lore_context: {}     # Lore context results
 │   ├── anachronisms: []     # Anachronism scan results
-│   └── ...
+│   ├── adjacent_context: {} # Adjacent context results
+│   ├── gloss_result: []     # Glossary lookup results
+│   ├── tm_matches: []       # Translation memory matches
+│   └── deepl_suggestion: str # DeepL translation (populated by fetch_deepl_batch)
 │   }
 └── ...
 
@@ -881,12 +1000,13 @@ When switching languages (e.g., from English to Arabic):
 ```
 eel>=0.16.0          # Python-JavaScript IPC
 requests>=2.31.0    # HTTP client for API calls
-jamdict>=1.0.0       # Japanese-English dictionary
+msgpack>=1.0.0      # Message serialization
 ```
 
 ### Optional Python Packages
 
 ```
+jamdict>=1.0.0       # Japanese-English dictionary (for gloss engine)
 janome               # Japanese tokenization (for gloss engine)
 ```
 
@@ -969,8 +1089,16 @@ janome               # Japanese tokenization (for gloss engine)
 - Key: Category + index
 - Value: Cached results with timestamp
 - Lifetime: 7 days (604800 seconds)
-- Purpose: Pre-load commonly accessed items
+- Purpose: Pre-load commonly accessed items (local-only operations)
 - Invalidation: Automatic TTL-based expiration on load
+- **Cached Data:**
+  - `lore_context`: Lore context scan results
+  - `anachronisms`: Anachronism detection results
+  - `adjacent_context`: Adjacent lines from source file
+  - `gloss_result`: Glossary lookup results
+  - `tm_matches`: Translation memory fuzzy matches
+  - `deepl_suggestion`: DeepL translation (populated by `fetch_deepl_batch`)
+- **Note:** DeepL suggestions are populated by the separate `fetch_deepl_batch()` function, not by PrefetchManager
 
 ### Review Queue
 - Lifetime: Until manual clear or application restart

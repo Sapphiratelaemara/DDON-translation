@@ -61,10 +61,6 @@
                     <span class="panel-toggle-icon material-symbols-outlined">smart_toy</span>
                     <span class="panel-toggle-label">AI_ASSISTANT</span>
                 </button>
-                <button class="panel-toggle" id="btn-toggle-comments" title="Toggle Comments Panel">
-                    <span class="panel-toggle-icon material-symbols-outlined">chat_bubble</span>
-                    <span class="panel-toggle-label">COMMENTS</span>
-                </button>
                 <button class="panel-toggle" id="btn-toggle-history" title="Toggle History Panel">
                     <span class="panel-toggle-icon material-symbols-outlined">history</span>
                     <span class="panel-toggle-label">HISTORY</span>
@@ -229,6 +225,8 @@ Ctrl+Shift+D: Ellipsis</div>
                         style="flex: 2; padding: 20px; font-size: 1.1rem;"> EXECUTE BATCH SCAN</button>
                     <button class="btn-secondary large" id="btn-translate-csv"
                         style="flex: 1; padding: 20px; font-size: 1rem; border: 1px solid var(--accent-color); color: var(--accent-color);"> TRANSLATE CSV</button>
+                    <button class="btn-secondary large" id="btn-pretranslate"
+                        style="flex: 1; padding: 20px; font-size: 1rem; border: 1px solid var(--accent-color); color: var(--accent-color);"> PRE-TRANSLATE</button>
                 </div>
 
                 <!-- Progress Display Label (missing from old version) -->
@@ -324,9 +322,7 @@ Ctrl+Shift+D: Ellipsis</div>
                                         <div class="kl-metadata-row">
                                             <div class="kl-field-group">
                                                 <label class="kl-field-label">Entry Type:</label>
-                                                <select class="kl-select kl-wide" id="entry-type-select">
-                                                    <option>Dialogue</option>
-                                                </select>
+                                                <span class="kl-status-badge" id="entry-type-display">—</span>
                                             </div>
                                             <div class="kl-field-group">
                                                 <label class="kl-field-label">Status:</label>
@@ -527,7 +523,7 @@ Ctrl+Shift+D: Ellipsis</div>
                             <div class="kl-note-italic" id="sidebar-speaker-note"></div>
                         </div>
 
-                        <!-- Translation History Section (Crowdin-style) -->
+                        <!-- Translation History Section -->
                         <div class="kl-panel kl-flex-1" id="panel-history">
                             <h3 class="kl-panel-title">Translation_History</h3>
                             <div class="kl-panel-content" id="translation-history">
@@ -535,7 +531,7 @@ Ctrl+Shift+D: Ellipsis</div>
                             </div>
                         </div>
 
-                        <!-- Comments Section (Crowdin-style) -->
+                        <!-- Comments Section -->
                         <div class="kl-panel kl-flex-1" id="panel-comments">
                             <h3 class="kl-panel-title">Comments</h3>
                             <div class="kl-panel-content" id="translation-comments">
@@ -871,6 +867,29 @@ Ctrl+Shift+D: Ellipsis</div>
                                     <input type="text" id="opt-ai-prompt-check">
                                 </div>
                                 <button class="btn-primary" id="btn-save-ai-button-prompts" style="margin-top: 10px;">SAVE BUTTON PROMPTS</button>
+
+                                <label style="margin-top: 30px;">Pre-Translation Settings</label>
+                                <p class="help-text">Settings for batch pre-translation. Order: TM → OpenRouter → DeepL (fallback).</p>
+                                <div class="field-group">
+                                    <label>TM Match Threshold (0.0-1.0)</label>
+                                    <input type="number" id="opt-pretranslate-tm-threshold" min="0" max="1" step="0.05" value="0.9">
+                                </div>
+                                <div class="field-group">
+                                    <label>TM Minimum Quality</label>
+                                    <select id="opt-pretranslate-tm-quality" class="settings-select">
+                                        <option value="approved">Approved only</option>
+                                        <option value="any">Any quality</option>
+                                    </select>
+                                </div>
+                                <div class="field-group">
+                                    <label>Enable OpenRouter AI</label>
+                                    <input type="checkbox" id="opt-pretranslate-enable-openrouter" checked>
+                                </div>
+                                <div class="field-group">
+                                    <label>Enable DeepL Fallback</label>
+                                    <input type="checkbox" id="opt-pretranslate-enable-deepl" checked>
+                                </div>
+                                <button class="btn-primary" id="btn-save-pretranslate-settings" style="margin-top: 10px;">SAVE PRE-TRANSLATE SETTINGS</button>
                             </div>
 
                             <!-- Section: Regex Sandbox -->
@@ -1202,3 +1221,6 @@ Ctrl+Shift+D: Ellipsis</div>
 </body>
 
 </html>
+
+
+

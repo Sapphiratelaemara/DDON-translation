@@ -22,8 +22,8 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from typing import Callable, Dict, List
 
-from lore_engine import LoreEngine
-from file_utils import _read_csv
+from src.lore_engine import LoreEngine
+from src.file_utils import _read_csv
 
 
 # ---------------------------------------------------------------------------

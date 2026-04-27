@@ -7,12 +7,14 @@ from datetime import datetime
 # Set console to UTF-8 for Windows to handle Japanese characters
 if sys.platform == 'win32':
     import codecs
-    sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer, 'strict')
-    sys.stderr = codecs.getwriter('utf-8')(sys.stderr.buffer, 'strict')
+    # Set console code page to UTF-8 instead of wrapping stdout (avoids threading issues)
+    import subprocess
+    subprocess.run(['chcp', '65001'], shell=True, capture_output=True)
 
 # Configure debug logging
 DEBUG_LOG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'debug.log')
 DEBUG_ENABLED = True
+TEST_MODE = False  # Set to True during testing to disable side effects (file writes, API calls)
 
 def setup_debug_logging():
     """Setup debug logging to file."""
@@ -83,17 +85,13 @@ import time
 from collections import defaultdict
 from datetime import datetime
 
-# Add parent directory to path so we can import project modules
-PARENT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(PARENT_DIR)
-
-from config_manager import ConfigManager
-from api_handler import DeepLClient, OpenRouterClient
-from translator_engine import TranslationEngine
-from file_utils import _get_csv_files, _read_csv
-from batch_runner import run_batch, BatchSettings
-from translation_manager import get_translation_manager
-from github_sync import GitHubSync
+from src.config_manager import ConfigManager
+from src.api_handler import DeepLClient, OpenRouterClient
+from src.translator_engine import TranslationEngine
+from src.file_utils import _get_csv_files, _read_csv
+from src.batch_runner import run_batch, BatchSettings
+from src.translation_manager import get_translation_manager
+from src.github_sync import GitHubSync
 
 # Initialize core logic
 # Load language from global user_settings if available, default to "en"
@@ -109,10 +107,11 @@ if os.path.exists(global_user_settings_path):
     except:
         pass
 
-from lore_data import set_config_manager, reload_vocab
+from src.lore_data import set_config_manager, reload_vocab
 
 cm     = ConfigManager(language=initial_language)
 set_config_manager(cm)  # Set ConfigManager for lore_data to load language-specific vocab
+reload_vocab()  # Reload vocab from ConfigManager to ensure it's loaded from the correct source
 engine = TranslationEngine(cm.config.get("tag_map", {}))
 github_sync = GitHubSync(cm)
 translation_manager = get_translation_manager(initial_language)
@@ -135,11 +134,23 @@ _gloss_engine_lock = threading.Lock()
 _gloss_engine_last_lore_map = None
 _gloss_cache = {}  # Clear cache on restart to use new smaller format
 
+# Preview image cache
+_preview_cache = {}
+_preview_cache_lock = threading.Lock()
+
+# Clear preview cache on startup to get fresh timing data
+print("[main] Preview cache cleared for timing analysis")
+
 # Lazy-initialized TM components
 _tm_instance      = None
 _tm_lock          = threading.Lock()
 _tm_matcher       = None
 _tm_substitutor    = None
+
+# TM result cache: jp_text -> (matches, timestamp)
+_tm_result_cache = {}
+_tm_cache_lock = threading.Lock()
+_tm_cache_ttl = 300  # 5 minutes
 
 # Start GitHub auto-sync if enabled (30 min intervals)
 if github_sync.is_configured() and cm.config.get('sync_auto', False):
@@ -151,7 +162,7 @@ def _get_tm_components():
     global _tm_instance, _tm_matcher, _tm_substitutor
     with _tm_lock:
         if _tm_instance is None:
-            from translation_memory import TranslationMemory, FuzzyMatcher, AutoSubstitutor
+            from src.translation_memory import TranslationMemory, FuzzyMatcher, AutoSubstitutor
             _tm_instance = TranslationMemory(cm)
             _tm_matcher = FuzzyMatcher(cm)
             _tm_substitutor = AutoSubstitutor(cm)
@@ -168,7 +179,7 @@ def _get_gloss_engine():
         if _gloss_engine is None:
             with _gloss_engine_lock:
                 if _gloss_engine is None:
-                    from gloss_engine import GlossEngine
+                    from src.gloss_engine import GlossEngine
                     _gloss_engine = GlossEngine(lore_map=lore_map)
                     _gloss_engine_last_lore_map = lore_map
         # Only update and clear cache if lore_map actually changed
@@ -190,7 +201,7 @@ def _get_lore_engine():
         with _lore_engine_lock:
             if _lore_engine is None:
                 try:
-                    from lore_engine import LoreEngine
+                    from src.lore_engine import LoreEngine
                     le = LoreEngine(cm.config.get("archetypes"))
                     le.load_data(
                         cm.user_settings.get("bible_path",    "") if hasattr(cm, 'user_settings') else "",
@@ -408,6 +419,7 @@ def calculate_project_stats():
         "translated": translated,
         "percent":    round((translated / total_lines * 100), 1) if total_lines > 0 else 0,
     }
+    cm.user_settings.setdefault("last_stats", res)
     cm.user_settings["last_stats"] = res
     cm.save_user_settings()
     return res
@@ -639,6 +651,7 @@ def toggle_dark_mode():
     """Toggle dark mode and return new theme colors."""
     current_mode = cm.user_settings.get("dark_mode", False) if hasattr(cm, 'user_settings') else False
     new_mode = not current_mode
+    cm.user_settings.setdefault("dark_mode", False)
     cm.user_settings["dark_mode"] = new_mode
     cm.save_user_settings()
     return get_theme_colors()
@@ -654,12 +667,10 @@ def update_config_dict(dict_key, action, key, value=None):
     is_user_specific = dict_key in user_specific_keys
     
     if is_user_specific:
-        if dict_key not in cm.user_settings:
-            cm.user_settings[dict_key] = {}
+        cm.user_settings.setdefault(dict_key, {})
         target_dict = cm.user_settings
     else:
-        if dict_key not in cm.config:
-            cm.config[dict_key] = {}
+        cm.config.setdefault(dict_key, {})
         target_dict = cm.config
         
     if action == "add":
@@ -681,12 +692,10 @@ def update_config_list(list_key, action, item=None, index=None):
     is_user_specific = list_key in user_specific_keys
     
     if is_user_specific:
-        if list_key not in cm.user_settings:
-            cm.user_settings[list_key] = []
+        cm.user_settings.setdefault(list_key, [])
         target_dict = cm.user_settings
     else:
-        if list_key not in cm.config:
-            cm.config[list_key] = []
+        cm.config.setdefault(list_key, [])
         target_dict = cm.config
         
     if action == "add" and item:
@@ -844,6 +853,7 @@ def save_config_field(key, value):
     if key in ["deepl_api_key", "openrouter_api_key"]:
         cm.set_key(key, value)
     elif key in user_specific_keys:
+        cm.user_settings.setdefault(key, value)
         cm.user_settings[key] = value
         print(f"[DEBUG] Calling save_user_settings() for key={key}")
         cm.save_user_settings()  # Save to user_settings.json
@@ -891,12 +901,14 @@ def add_list_item(section, item):
     is_user_specific = section in user_specific_keys
     
     if is_user_specific:
+        cm.user_settings.setdefault(section, [])
         items = cm.user_settings.get(section, [])
         if item not in items:
             items.append(item)
             cm.user_settings[section] = items
             cm.save_user_settings()
     else:
+        cm.config.setdefault(section, [])
         items = cm.config.get(section, [])
         if item not in items:
             items.append(item)
@@ -910,12 +922,14 @@ def remove_list_item(section, item):
     is_user_specific = section in user_specific_keys
     
     if is_user_specific:
+        cm.user_settings.setdefault(section, [])
         items = cm.user_settings.get(section, [])
         if item in items:
             items.remove(item)
             cm.user_settings[section] = items
             cm.save_user_settings()
     else:
+        cm.config.setdefault(section, [])
         items = cm.config.get(section, [])
         if item in items:
             items.remove(item)
@@ -929,12 +943,14 @@ def update_list_item(section, index, item):
     is_user_specific = section in user_specific_keys
     
     if is_user_specific:
+        cm.user_settings.setdefault(section, [])
         items = cm.user_settings.get(section, [])
         if 0 <= index < len(items):
             items[index] = item
             cm.user_settings[section] = items
             cm.save_user_settings()
     else:
+        cm.config.setdefault(section, [])
         items = cm.config.get(section, [])
         if 0 <= index < len(items):
             items[index] = item
@@ -1009,7 +1025,8 @@ def pick_file(title="Select File", filetypes=[("All Files", "*.*")]):
 @eel.expose
 def add_folder(folder_path):
     """Add a folder to the watched folders list."""
-    if folder_path and folder_path not in cm.user_settings.get("folders", []):
+    cm.user_settings.setdefault("folders", [])
+    if folder_path and folder_path not in cm.user_settings["folders"]:
         cm.user_settings["folders"].append(folder_path)
         cm.save_user_settings()
         return cm.user_settings["folders"]
@@ -1021,6 +1038,7 @@ def remove_folder(index):
     folders = cm.user_settings.get("folders", [])
     if 0 <= index < len(folders):
         folders.pop(index)
+        cm.user_settings.setdefault("folders", [])
         cm.user_settings["folders"] = folders
         cm.save_user_settings()
     return folders
@@ -1028,7 +1046,8 @@ def remove_folder(index):
 @eel.expose
 def add_trigger(trigger_text):
     """Add a trigger to the scan triggers list."""
-    if trigger_text and trigger_text not in cm.user_settings.get("triggers", []):
+    cm.user_settings.setdefault("triggers", [])
+    if trigger_text and trigger_text not in cm.user_settings["triggers"]:
         cm.user_settings["triggers"].append(trigger_text)
         cm.save_user_settings()
         return cm.user_settings["triggers"]
@@ -1040,6 +1059,7 @@ def remove_trigger(index):
     triggers = cm.user_settings.get("triggers", [])
     if 0 <= index < len(triggers):
         triggers.pop(index)
+        cm.user_settings.setdefault("triggers", [])
         cm.user_settings["triggers"] = triggers
         cm.save_user_settings()
     return triggers
@@ -1097,7 +1117,7 @@ def delete_archetype(key):
 @eel.expose
 def reset_archetypes_to_defaults():
     try:
-        from lore_engine import DEFAULT_ARCHETYPES
+        from src.lore_engine import DEFAULT_ARCHETYPES
         # DEFAULT_ARCHETYPES is nested: {"archetypes": {key: {...}}}
         default_archs = DEFAULT_ARCHETYPES.get("archetypes", {})
         cm.config["archetypes"] = {k: dict(v) for k, v in default_archs.items()}
@@ -1113,7 +1133,7 @@ def reset_archetypes_to_defaults():
 def reload_archetypes_from_file():
     """Merge new archetypes from DEFAULT_ARCHETYPES into existing config."""
     try:
-        from lore_engine import DEFAULT_ARCHETYPES
+        from src.lore_engine import DEFAULT_ARCHETYPES
         # DEFAULT_ARCHETYPES is nested: {"archetypes": {key: {...}}}
         default_archs = DEFAULT_ARCHETYPES.get("archetypes", {})
         if "archetypes" not in cm.config:
@@ -1198,6 +1218,7 @@ def test_openrouter(key):
 def fetch_models(key, free_only=True):
     models = OpenRouterClient(key).fetch_models(free_only=free_only)
     if models:
+        cm.user_settings.setdefault("openrouter_models", [])
         cm.user_settings["openrouter_models"] = models
         cm.save_user_settings()
     return models
@@ -1387,13 +1408,26 @@ def remove_preview_type(profile_name):
 @eel.expose
 def generate_preview_image(profile_name, text):
     """Generate a preview image with text overlay for the given profile."""
+    import time
+    start_time = time.time()
     try:
         import os
         import io
         import base64
+        import hashlib
         from PIL import Image, ImageDraw, ImageFont
         
-        print(f"[generate_preview_image] Called with profile={profile_name}, text={text[:50]}...")
+        # Create cache key from profile_name and text
+        cache_key = f"{profile_name}:{hashlib.md5(text.encode('utf-8')).hexdigest()}"
+        
+        # Check cache
+        with _preview_cache_lock:
+            if cache_key in _preview_cache:
+                print(f"[generate_preview_image] Cache hit for {profile_name}")
+                return _preview_cache[cache_key]
+        
+        print(f"[generate_preview_image] Cache miss for {profile_name}, text={text[:50]}...")
+        cache_check_time = time.time()
         
         # Get profile data
         profiles = get_preview_profiles()
@@ -1403,6 +1437,8 @@ def generate_preview_image(profile_name, text):
             return {"error": f"Profile '{profile_name}' not found"}
         
         print(f"[generate_preview_image] Profile found: {profile}")
+        profile_time = time.time()
+        image_load_time = profile_time  # Default if no image loaded
         
         # Load actual PNG image from assets
         # assets_path is in user_settings, not the main config
@@ -1436,6 +1472,7 @@ def generate_preview_image(profile_name, text):
                 with Image.open(png_path) as img:
                     final_base = img.convert("RGBA")
                 print(f"[generate_preview_image] Successfully loaded: {png_path}")
+                image_load_time = time.time()
                 break
             except Exception as e:
                 print(f"[generate_preview_image] Failed to load {png_path}: {e}")
@@ -1463,6 +1500,7 @@ def generate_preview_image(profile_name, text):
         if not os.path.exists(font_path):
             font_path = None
         
+        font_load_time = time.time()
         if not font_path:
             # Fallback to system font
             print(f"[generate_preview_image] Font not found, using system font")
@@ -1506,19 +1544,33 @@ def generate_preview_image(profile_name, text):
                 draw.text((text_x, y_offset), line.strip(), fill=text_color, font=font)
             y_offset += int(font.size * line_spacing)
         
+        text_draw_time = time.time()
+        
         # Convert to base64 (preserve RGBA/transparency)
         buffer = io.BytesIO()
         final_base.save(buffer, format='PNG')
         img_base64 = base64.b64encode(buffer.getvalue()).decode()
         
         print(f"[generate_preview_image] Successfully generated preview: {final_base.width}x{final_base.height}")
+        print(f"[generate_preview_image] Base64 size: {len(img_base64)} bytes")
+        print(f"[generate_preview_image] Timing - Cache check: {(cache_check_time - start_time)*1000:.2f}ms, Profile: {(profile_time - cache_check_time)*1000:.2f}ms, Image load: {(image_load_time - profile_time)*1000:.2f}ms, Font load: {(font_load_time - image_load_time)*1000:.2f}ms, Text draw: {(text_draw_time - font_load_time)*1000:.2f}ms, Base64: {(time.time() - text_draw_time)*1000:.2f}ms, Total: {(time.time() - start_time)*1000:.2f}ms")
         
-        return {
+        result = {
             "image": f"data:image/png;base64,{img_base64}",
             "width": final_base.width,
             "height": final_base.height,
             "crop": crop
         }
+        
+        # Store in cache
+        with _preview_cache_lock:
+            _preview_cache[cache_key] = result
+            # Limit cache size to 100 entries
+            if len(_preview_cache) > 100:
+                # Remove oldest entry (first key)
+                _preview_cache.pop(next(iter(_preview_cache)))
+        
+        return result
         
     except Exception as e:
         import traceback
@@ -1539,11 +1591,23 @@ def get_gloss(jp_text):
     if not jp_text:
         return []
     
-    # Check cache
-    with _gloss_cache_lock:
-        if jp_text in _gloss_cache:
-            print(f"[get_gloss] Cache hit for: {jp_text[:30]}...")
-            return _gloss_cache[jp_text]
+    # Check prefetch cache first (in-memory, fastest)
+    global _prefetch_mgr
+    if _prefetch_mgr:
+        # Try to find cached gloss by matching jp_text in cached items
+        with _prefetch_mgr._lock:
+            for cache_key, cached_data in _prefetch_mgr._cache.items():
+                # Check if this cached entry has gloss data
+                if cached_data.get('gloss_result'):
+                    # We can't easily match by jp_text since prefetch caches by category::idx
+                    # Skip for now - would need to pass category/idx to use this cache
+                    pass
+    
+    # Check ConfigManager cache (file-based, per-language)
+    cached = cm.get_cached("gloss", jp_text)
+    if cached:
+        print(f"[get_gloss] Cache hit for: {jp_text[:30]}...")
+        return cached
     
     ge = _get_gloss_engine()
     print(f"[get_gloss] GlossEngine: {ge}")
@@ -1607,9 +1671,8 @@ def get_gloss(jp_text):
                 print(f"[get_gloss] Error processing chunk {i+1}: {e}")
         
         print(f"[get_gloss] Batch processing completed, total {len(all_results)} tokens")
-        # Cache result
-        with _gloss_cache_lock:
-            _gloss_cache[jp_text] = all_results
+        # Cache result using ConfigManager (file-based, per-language)
+        cm.set_cached("gloss", jp_text, all_results)
         print(f"[get_gloss] Returning {len(all_results)} dicts, total time: {(time.time() - start)*1000:.0f}ms")
         return all_results
     
@@ -1628,9 +1691,8 @@ def get_gloss(jp_text):
                 for t in tokens
             ]
             print(f"[get_gloss] Converted {len(result)} tokens to dicts")
-            # Cache result
-            with _gloss_cache_lock:
-                _gloss_cache[jp_text] = result
+            # Cache result using ConfigManager (file-based, per-language)
+            cm.set_cached("gloss", jp_text, result)
             return result
         except Exception as e:
             print(f"[get_gloss] Error: {e}")
@@ -1645,10 +1707,10 @@ def get_gloss(jp_text):
     
     thread = threading.Thread(target=_run, daemon=True)
     thread.start()
-    thread.join(timeout=30.0)  # 30 second timeout for gloss() (test if long text eventually completes)
+    thread.join(timeout=5.0)  # 5 second timeout for gloss() - fail fast for UI responsiveness
     
     if thread.is_alive():
-        print(f"[get_gloss] Timeout after 30s, returning empty result")
+        print(f"[get_gloss] Timeout after 5s, returning empty result")
         return []
     
     if result_container[0]:
@@ -1728,11 +1790,21 @@ def scan_anachronisms(en_text):
     """Scan English text for modern words that should use archaic alternatives."""
     if not en_text:
         return []
+    
+    # Check ConfigManager cache (file-based, per-language)
+    cached = cm.get_cached("anachronisms", en_text)
+    if cached:
+        print(f"[scan_anachronisms] Cache hit")
+        return cached
+    
     try:
         le = _get_lore_engine()
         if not le:
             return []
-        return le.scan_anachronisms(en_text)
+        result = le.scan_anachronisms(en_text)
+        # Cache result using ConfigManager (file-based, per-language)
+        cm.set_cached("anachronisms", en_text, result)
+        return result
     except Exception as e:
         print(f"[scan_anachronisms] Error: {e}")
         return []
@@ -1807,7 +1879,7 @@ def get_adjacent_context(path, row_idx):
                 "en": (nxt[3] if len(nxt) > 3 else "").replace("\r", ""),
             }
             print(f"[get_adjacent_context] Found next row at index {data_row_idx + 1}")
-        print(f"[get_adjacent_context] Returning result: {result}")
+        # print(f"[get_adjacent_context] Returning result: {result}")  # Disabled due to encoding issues
         return result
     except Exception as e:
         print(f"[get_adjacent_context] Error: {e}")
@@ -1845,8 +1917,11 @@ def start_batch_scan(preset_name="Standard", wall_preset_name="Standard"):
     batch_scan_complete = False
 
     # Save selected limits and UI state
+    cm.user_settings.setdefault("selected_preset", preset_name)
     cm.user_settings["selected_preset"] = preset_name
+    cm.user_settings.setdefault("wall_preset", wall_preset_name)
     cm.user_settings["wall_preset"]     = wall_preset_name
+    cm.user_settings.setdefault("in_universe", True)
     cm.user_settings["in_universe"]     = cm.user_settings.get("in_universe",  True)
     cm.save_user_settings()
 
@@ -2002,17 +2077,60 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
 
     sys_prompt = cm.config.get("ai_system_prompt",
         "You are a Dragon's Dogma Online (DDON) localization assistant. "
-        "You must strictly adhere to the 'Dragon's Dogma' localization style. "
-        "This style uses Early Modern English, archaic vocabulary (e.g., 'tis, naught, aught, pray, afore, mayhap, forsooth, arise, pawn), "
-        "Do not go overboard on the archaic language, it should sound natural in English."
-        "and a formal medieval fantasy tone. NEVER use modern slang, colloquialisms, or modern contractions (e.g., avoid 'okay', 'gonna', 'don't', 'can't'). "
-        "CRITICAL RULES: Do NOT use any Japanese honorifics (e.g. -san, -sama, -dono). Use precise, proper English punctuation. "
-        "Do NOT insert any blank lines or newlines in your response. "
-        "Translate Japanese dashes as either an ellipsis (...) or a regular em dash (—), when appropriate for the context. "
-        "Help the user translate or refine dialogue while respecting these rules and the character archetypes. "
-        "Do not add unecessary quotation marks."
-        "Stay close to the original meaning, but rephrase it to sound more natural in English. "
-        "Things within < and > are tags & should be preserved as-is."
+        "Your output will be inserted directly into the game — follow every rule precisely.\n\n"
+
+        "OUTPUT FORMAT:\n"
+        "Return only the translated or refined text. No preamble, no explanation, no quotation marks. "
+        "If you are genuinely uncertain about a reading, append a single bracketed note: [alt: ...]. "
+        "Do not insert blank lines or extra newlines.\n\n"
+
+        "HARD RULES:\n"
+        "- Preserve anything inside < > angle brackets exactly as-is — these are engine tags. "
+        "Text between paired tags (e.g. <COL>text</COL>) should be translated; the tags themselves must not change.\n"
+        "- Do NOT use Japanese honorifics (e.g. -san, -sama, -dono).\n"
+        "- Render Japanese dashes as an ellipsis (...) or em dash (—) depending on context.\n"
+        "- For unknown proper nouns (names, places, skills), keep the established romanisation.\n"
+        "- Address the player as 'Master' or 'Arisen' as context warrants. Use 'ser' not 'sir'.\n\n"
+
+        "STYLE — THE DRAGON'S DOGMA HOUSE STYLE:\n"
+        "The style is natural English grammar with archaic vocabulary woven in. "
+        "Standard contractions (don't, can't, won't, it's, let's, we're) are used freely — "
+        "what is avoided is modern slang: never use 'gonna', 'gotta', 'kinda', 'sorta', 'nah', 'dude', 'okay', 'awesome'.\n\n"
+
+        "Draw on these archaic vocabulary choices where they fit naturally:\n"
+        "  'tis / 'twas / 'twould  — for 'it is / it was / it would'\n"
+        "  naught / aught          — for 'nothing / anything'\n"
+        "  afore                   — for 'before'\n"
+        "  ere                     — for 'before' (in time: 'ere more arrive')\n"
+        "  nigh                    — for 'near' or 'almost'\n"
+        "  mayhap                  — for 'perhaps'\n"
+        "  o'er / whate'er / e'er  — contracted forms\n"
+        "  nary                    — for 'not a single'\n"
+        "  summat                  — for 'something' (informal)\n"
+        "  what                    — as a relative pronoun ('fiends what haunt these halls')\n\n"
+
+        "'Tis is especially characteristic — use it freely for observations and reactions "
+        "('Hobgoblin! 'Tis a formidable foe.', ''Tis more bloodthirsty than a wolf!'). "
+        "Short, punchy combat calls are the norm for battle lines — keep them terse.\n\n"
+
+        "EXAMPLES (from the actual game):\n"
+        "JP: 仲間を呼ばれる前に仕留めましょう！\n"
+        "EN: Silence that howl, ere more arrive!\n\n"
+        "JP: あいつも尻尾が弱点かもしれませんね\n"
+        "EN: Mayhap their tails are weak as well.\n\n"
+        "JP: こう素早いと…当てにくいです！\n"
+        "EN: 'Tis a trial to hit such swift targets!\n\n"
+        "JP: 陸に上がる前に仕留めましょう！\n"
+        "EN: Let's end this afore they reach land!\n\n"
+        "JP: ゴールデンナイトの攻撃力は脅威です！\n"
+        "EN: The knight of gold is fearsome strong!\n\n"
+
+        "TRANSLATION GUIDANCE:\n"
+        "Stay faithful to the original meaning and its length — do not add, omit, or embellish. "
+        "Rephrase for natural English flow within the style above. "
+        "Characters often speak with heightened gravity — preserve that register rather than flattening it. "
+        "Respect the character's voice and any archetype notes provided. "
+        "Stay consistent with any translation choices made earlier in this conversation.\n"
     )
     
     # Add archetype notes if available
@@ -2270,14 +2388,24 @@ except Exception as e:
 # =============================================================================
 # PREFETCH MANAGER
 # =============================================================================
-from prefetch_manager import PrefetchManager
+from src.prefetch_manager import PrefetchManager
 
-_prefetch_mgr = PrefetchManager(lore_engine_getter=_get_lore_engine)
+# Initialize TM components before PrefetchManager so they're available
+_get_tm_components()
+
+_prefetch_mgr = PrefetchManager(lore_engine_getter=_get_lore_engine, language=initial_language, get_adjacent_context_getter=lambda: get_adjacent_context, gloss_engine_getter=_get_gloss_engine, tm_getter=lambda: (_tm_instance, _tm_matcher, _tm_lock))
 _prefetch_mgr.start()
 
 @eel.expose
-def start_prefetch(category, items, current_idx, depth=25):
-    """Start prefetching the next N entries after current index."""
+def start_prefetch(category, items, current_idx, depth=3):
+    """Start prefetching the next N entries after current index.
+
+    Args:
+        category: Category name
+        items: List of items to prefetch
+        current_idx: Current index
+        depth: Number of entries to prefetch
+    """
     try:
         _prefetch_mgr.update_current_idx(category, current_idx)
         _prefetch_mgr.prefetch_next(category, items, current_idx, depth)
@@ -2287,18 +2415,84 @@ def start_prefetch(category, items, current_idx, depth=25):
         return False
 
 @eel.expose
+def fetch_deepl_batch(category, items, start_idx, count=20):
+    """Fetch DeepL translations for a batch of entries starting from start_idx.
+
+    Args:
+        category: Category name
+        items: List of items
+        start_idx: Starting index
+        count: Number of entries to fetch (default 20)
+    """
+    print(f"[fetch_deepl_batch] CALLED with category={category}, start_idx={start_idx}, count={count}")
+    try:
+        from src.api_handler import DeepLClient
+        key = cm.get_key("deepl_api_key")
+        if not key:
+            print(f"[fetch_deepl_batch] No DeepL key configured")
+            return False
+
+        target_lang = cm.config.get("deepl_target_lang", "EN-US")
+        end_idx = min(start_idx + count, len(items))
+        print(f"[fetch_deepl_batch] Fetching DeepL for indices {start_idx}-{end_idx-1}")
+
+        for i in range(start_idx, end_idx):
+            item = items[i]
+            if item.get('jp'):
+                try:
+                    # Check cache first
+                    cached_deepl = cm.get_cached("deepl", item['jp'])
+                    if cached_deepl:
+                        translation = cached_deepl
+                        print(f"[fetch_deepl_batch] idx={i}: using cached translation")
+                    else:
+                        res = DeepLClient(key).translate(item['jp'], target_lang=target_lang)
+                        if "text" in res:
+                            translation = res["text"]
+                            cm.set_cached("deepl", item['jp'], translation)
+                        else:
+                            translation = None
+                            print(f"[fetch_deepl_batch] idx={i}: DeepL error: {res.get('error')}")
+                    print(f"[fetch_deepl_batch] idx={i}: {translation[:50] if translation else 'None'}...")
+                    # Update prefetch cache with the result
+                    cache_key = _prefetch_mgr._cache_key(category, i)
+                    cached = _prefetch_mgr._cache.get(cache_key, {})
+                    cached['deepl_suggestion'] = translation
+                    cached['timestamp'] = time.time()
+                    _prefetch_mgr._cache[cache_key] = cached
+                except Exception as e:
+                    print(f"[fetch_deepl_batch] Error fetching idx={i}: {e}")
+
+        _prefetch_mgr._save_cache_to_file()
+        return True
+    except Exception as e:
+        print(f"[fetch_deepl_batch] Error: {e}")
+        return False
+
+@eel.expose
+def start_prefetch_all(category, items):
+    """Start prefetching all entries in the queue (for local-only operations).
+
+    Args:
+        category: Category name
+        items: List of items to prefetch
+    """
+    try:
+        print(f"[start_prefetch_all] Called with category={category}, items={len(items) if items else 0}")
+        _prefetch_mgr.prefetch_all(category, items)
+        return True
+    except Exception as e:
+        print(f"[start_prefetch_all] Error: {e}")
+        return False
+
+@eel.expose
 def get_prefetch_cache(category, idx):
     """Get cached prefetch results for a category and index."""
     try:
-        cached = _prefetch_mgr.get_cached(category, idx)
-        if cached:
-            return {
-                'lore_context': cached.get('lore_context'),
-                'anachronisms': cached.get('anachronisms'),
-                'adjacent_context': cached.get('adjacent_context'),
-                'deepl_suggestion': cached.get('deepl_suggestion')
-            }
-        return None
+        print(f"[get_prefetch_cache] Called with category={category}, idx={idx}")
+        result = _prefetch_mgr.get_cached(category, idx)
+        print(f"[get_prefetch_cache] Result: {result is not None}, keys={list(result.keys()) if result else 'None'}")
+        return result
     except Exception as e:
         print(f"[get_prefetch_cache] Error: {e}")
         return None
@@ -2327,7 +2521,7 @@ def clear_gloss_cache():
         return False
 
 # =============================================================================
-# CROWDIN-STYLE TRANSLATION MANAGEMENT
+# TRANSLATION MANAGEMENT
 # =============================================================================
 
 @eel.expose
@@ -2365,10 +2559,19 @@ def get_translation_status(entry_id):
         return {"ok": False, "error": str(e)}
 
 @eel.expose
-def add_translation_comment(entry_id, user, text, parent_id=None):
-    """Add a comment to a translation entry."""
+def add_translation_comment(entry_id, user, text, parent_id=None, history_entry_id=None):
+    """Add a comment to a translation entry.
+    
+    Args:
+        entry_id: The translation entry ID
+        user: Username adding the comment
+        text: Comment text
+        parent_id: For threaded comments (replies)
+        history_entry_id: If specified, attach to this specific history entry.
+                        If None, attach to the most recent history entry.
+    """
     try:
-        comment = translation_manager.add_comment(entry_id, user, text, parent_id)
+        comment = translation_manager.add_comment(entry_id, user, text, parent_id, history_entry_id)
         return {"ok": True, "comment": comment.to_dict()}
     except Exception as e:
         return {"ok": False, "error": str(e)}
@@ -2475,6 +2678,15 @@ def get_unapproved_entries_with_comments():
     """Get all unapproved entries with comment count."""
     try:
         entries = translation_manager.get_unapproved_entries_with_comments()
+        return {"ok": True, "entries": entries, "count": len(entries)}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+@eel.expose
+def get_pretranslated_unapproved_entries():
+    """Get all pre-translated unapproved entries with comment count."""
+    try:
+        entries = translation_manager.get_pretranslated_unapproved_entries()
         return {"ok": True, "entries": entries, "count": len(entries)}
     except Exception as e:
         return {"ok": False, "error": str(e)}
@@ -2839,7 +3051,7 @@ def tm_test_migration():
 @eel.expose
 def tm_test_fuzzy_matching():
     """Test fuzzy matching with various test cases."""
-    from translation_memory import FuzzyMatcher
+    from src.translation_memory import FuzzyMatcher
     
     matcher = FuzzyMatcher(cm)
     
@@ -2867,7 +3079,7 @@ def tm_test_fuzzy_matching():
 @eel.expose
 def tm_test_match_performance():
     """Test fuzzy matching performance with large dataset."""
-    from translation_memory import FuzzyMatcher
+    from src.translation_memory import FuzzyMatcher
     import time
     
     tm, matcher, _ = _get_tm_components()
@@ -2905,7 +3117,7 @@ def tm_test_match_performance():
 @eel.expose
 def tm_test_auto_substitution():
     """Test auto-substitution with various patterns."""
-    from translation_memory import AutoSubstitutor
+    from src.translation_memory import AutoSubstitutor
     
     sub = AutoSubstitutor(cm)
     
@@ -2935,6 +3147,25 @@ def tm_find_matches(jp_text: str, threshold: float = 0.5, max_results: int = 10)
     import time
     start_time = time.time()
     
+    # Normalize jp_text for cache key
+    normalized_text = re.sub(r'\s+', ' ', jp_text.strip())
+    cache_key = f"{normalized_text}:{threshold}:{max_results}"
+    
+    # Check cache first
+    with _tm_cache_lock:
+        if cache_key in _tm_result_cache:
+            cached_matches, cache_time = _tm_result_cache[cache_key]
+            # Check if cache is still valid
+            if time.time() - cache_time < _tm_cache_ttl:
+                elapsed = (time.time() - start_time) * 1000
+                print(f"[TM] Cache hit for '{jp_text[:30]}...', elapsed={elapsed:.2f}ms")
+                return {
+                    "ok": True,
+                    "matches": cached_matches[:max_results],
+                    "total_found": len(cached_matches),
+                    "cached": True
+                }
+    
     tm, matcher, substitutor = _get_tm_components()
     
     if not tm.entries:
@@ -2953,10 +3184,15 @@ def tm_find_matches(jp_text: str, threshold: float = 0.5, max_results: int = 10)
     elapsed = (time.time() - start_time) * 1000
     print(f"[TM] Found {len(matches)} matches, elapsed={elapsed:.2f}ms")
     
+    # Cache the result
+    with _tm_cache_lock:
+        _tm_result_cache[cache_key] = (matches[:max_results], time.time())
+    
     return {
         "ok": True,
         "matches": matches[:max_results],
-        "total_found": len(matches)
+        "total_found": len(matches),
+        "cached": False
     }
 
 @eel.expose
@@ -3064,6 +3300,305 @@ def tm_pretranslate_batch(items: list, threshold: float = 0.9, min_quality: str 
     }
 
 @eel.expose
+def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: str = None):
+    """
+    Pre-translate batch using TM, OpenRouter, and DeepL fallback.
+    
+    Order of operations:
+    1. Translation Memory (high-confidence matches)
+    2. OpenRouter AI (if key configured and enabled)
+    3. DeepL (fallback if no OpenRouter key or disabled)
+    
+    All pre-translated entries are marked as 'pre-translated' (not 'approved').
+    
+    Args:
+        items: List of dicts with keys: id, jp, file_path, row_idx, speaker, entry_type
+        tm_threshold: TM match threshold (uses config if not provided)
+        tm_min_quality: Minimum TM quality to use (uses config if not provided)
+    """
+    from translation_memory import TranslationMemory, FuzzyMatcher, AutoSubstitutor
+    
+    # Get settings from config or use defaults
+    pretranslate_settings = cm.config.get("pretranslate_settings", {})
+    tm_threshold = tm_threshold if tm_threshold is not None else pretranslate_settings.get("tm_threshold", 0.9)
+    tm_min_quality = tm_min_quality if tm_min_quality is not None else pretranslate_settings.get("tm_quality", "approved")
+    enable_openrouter = pretranslate_settings.get("enable_openrouter", True)
+    enable_deepl = pretranslate_settings.get("enable_deepl", True)
+    
+    print(f"[pretranslate_batch] Settings: tm_threshold={tm_threshold}, tm_min_quality={tm_min_quality}, enable_openrouter={enable_openrouter}, enable_deepl={enable_deepl}")
+
+    tm = TranslationMemory(cm)
+    matcher = FuzzyMatcher(cm.config.get("tm_settings", {}))
+    substitutor = AutoSubstitutor(cm.config.get("tm_settings", {}))
+    
+    openrouter_key = cm.get_key("openrouter_api_key") if enable_openrouter else None
+    deepl_key = cm.get_key("deepl_api_key") if enable_deepl else None
+    openrouter_model = cm.user_settings.get("selected_openrouter_model", "openrouter/auto")
+    deepl_target_lang = cm.config.get("deepl_target_lang", "EN-US")
+    
+    print(f"[pretranslate_batch] API keys: openrouter={'configured' if openrouter_key else 'none'}, deepl={'configured' if deepl_key else 'none'}")
+    
+    # Local cache for translations within this batch (avoids duplicate API calls for identical JP text)
+    batch_translation_cache = {}
+    
+    results = []
+    tm_applied = 0
+    ai_applied = 0
+    deepl_applied = 0
+    
+    for item in items:
+        item_id = item.get("id")
+        jp_text = item.get("jp", "")
+        file_path = item.get("file_path", "")
+        row_idx = item.get("row_idx", 0)
+        speaker = item.get("speaker", "")
+        entry_type = item.get("entry_type", "")
+        
+        print(f"[pretranslate_batch] Processing item {item_id}: jp_text='{jp_text[:50]}...'")
+        
+        if not jp_text:
+            results.append({
+                "item_id": item_id,
+                "success": False,
+                "reason": "No JP text"
+            })
+            print(f"[pretranslate_batch] Item {item_id}: skipped (no JP text)")
+            continue
+        
+        translation = None
+        source = None
+        
+        # Step 1: Try Translation Memory (100% matches or element-only differences)
+        matches = matcher.find_matches(jp_text, tm.entries, tm_threshold)
+        print(f"[pretranslate_batch] Item {item_id}: TM found {len(matches)} matches")
+        
+        best_match = None
+        for match in matches:
+            if match["entry"].get("quality") == tm_min_quality or tm_min_quality == "any":
+                # Check if this is a 100% match OR differs only in non-translatable elements
+                is_100_match = match["score"] >= 1.0
+                
+                # For auto-substitution: check if Japanese sources differ only in elements
+                # Strip all non-translatable elements and compare the remaining text
+                source_elements = substitutor.extract_elements(jp_text)
+                tm_source_elements = substitutor.extract_elements(match["entry"]["source"])
+                
+                # Remove elements from both texts and compare
+                import re
+                # Remove placeholders, tags, numbers, entities
+                element_pattern = r'\{[^}]+\}|<[^>]+>|\d+\.?\d*|&[a-z]+;'
+                source_stripped = re.sub(element_pattern, '', jp_text)
+                tm_source_stripped = re.sub(element_pattern, '', match["entry"]["source"])
+                
+                # Normalize whitespace (line breaks, tabs, multiple spaces -> single space)
+                source_stripped = re.sub(r'\s+', ' ', source_stripped).strip()
+                tm_source_stripped = re.sub(r'\s+', ' ', tm_source_stripped).strip()
+                
+                # If stripped text matches AND element counts match, difference is only in elements → safe for auto-substitution
+                is_element_only_diff = (source_stripped == tm_source_stripped and 
+                                       len(source_elements) == len(tm_source_elements) and 
+                                       len(source_elements) > 0)
+                
+                print(f"[pretranslate_batch] Item {item_id}: Match score={match['score']:.3f}, is_100={is_100_match}, is_element_only={is_element_only_diff}, source_elements={len(source_elements)}, tm_elements={len(tm_source_elements)}")
+                
+                if is_100_match or is_element_only_diff:
+                    if best_match is None or match["score"] > best_match["score"]:
+                        best_match = match
+        
+        if best_match and best_match["score"] >= tm_threshold:
+            translation = substitutor.apply_auto_substitution(jp_text, best_match["entry"])
+            source = "tm"
+            tm.increment_match_count(best_match["entry"]["id"])
+            tm_applied += 1
+            print(f"[pretranslate_batch] Item {item_id}: Using TM translation")
+        
+        # Step 2: Try OpenRouter AI (if no TM match and key configured)
+        if translation is None and openrouter_key:
+            # Check local batch cache first
+            if jp_text in batch_translation_cache:
+                cached_trans, cached_source = batch_translation_cache[jp_text]
+                translation = cached_trans
+                source = f"{cached_source}_batch_cached"
+                print(f"[pretranslate_batch] Item {item_id}: Using batch-cached translation from {cached_source}")
+            else:
+                print(f"[pretranslate_batch] Item {item_id}: Trying OpenRouter AI")
+                try:
+                    sys_prompt = cm.config.get("ai_system_prompt",
+                        "You are a Dragon's Dogma Online (DDON) localization assistant. "
+                        "Your output will be inserted directly into the game — follow every rule precisely.\n\n"
+
+                        "OUTPUT FORMAT:\n"
+                        "Return only the translated or refined text. No preamble, no explanation, no quotation marks. "
+                        "If genuinely uncertain about a reading, append a single bracketed note: [alt: ...]. "
+                        "Do not insert blank lines or extra newlines.\n\n"
+
+                        "HARD RULES:\n"
+                        "- Preserve anything inside < > angle brackets exactly as-is — these are engine tags. "
+                        "Text between paired tags (e.g. <COL>text</COL>) should be translated; the tags themselves must not change.\n"
+                        "- Do NOT use Japanese honorifics (e.g. -san, -sama, -dono).\n"
+                        "- Render Japanese dashes as an ellipsis (...) or em dash (—) depending on context.\n"
+                        "- For unknown proper nouns, keep the established romanisation.\n\n"
+
+                        "STYLE — THE DRAGON'S DOGMA HOUSE STYLE:\n"
+                        "Natural English grammar with archaic vocabulary woven in. "
+                        "Standard contractions (don't, can't, won't, it's, let's, we're) are used freely. "
+                        "What is avoided is modern slang: never use 'gonna', 'gotta', 'kinda', 'sorta', 'okay', 'awesome', 'yeah'.\n"
+                        "Favour archaic vocabulary where it fits naturally: "
+                        "'tis / 'twas, naught / aught, afore, ere, nigh, mayhap, o'er, e'er, nary, anon, forsooth, hath, dost. "
+                        "'Tis is especially characteristic — use it freely for observations ('Tis a formidable foe.').\n"
+                        "Characters often speak with heightened gravity — preserve that register rather than flattening it.\n\n"
+
+                        "EXAMPLES (from the actual game):\n"
+                        "❌ \"Watch out, the monster is almost here!\"\n"
+                        "✓  \"Have a care! The beast draws nigh!\"\n"
+                        "❌ \"Let's finish this before more show up.\"\n"
+                        "✓  \"Let's end this afore more arrive!\"\n"
+                        "❌ \"It's a fast enemy, hard to hit.\"\n"
+                        "✓  \"'Tis a trial to hit such swift targets!\"\n\n"
+
+                        "TRANSLATION GUIDANCE:\n"
+                        "Stay faithful to the original meaning and length — do not add, omit, or embellish. "
+                        "Rephrase for natural English flow within the style above. "
+                        "Stay consistent with any translation choices made earlier in this conversation.\n"
+                    )
+                    
+                    # Add archetype notes if available
+                    if speaker:
+                        # Get the archetype key assigned to this speaker
+                        archetype_key = cm.user_settings.get("speaker_archetypes", {}).get(speaker, "")
+                        if archetype_key:
+                            archetypes = cm.config.get("archetypes", {})
+                            if archetype_key in archetypes:
+                                arch_data = archetypes[archetype_key]
+                                sys_prompt += f"\n\nCHARACTER ARCHETYPE FOR {speaker}:\n{arch_data.get('notes', '')}"
+                                print(f"[pretranslate_batch] Item {item_id}: Added archetype notes for speaker {speaker} (archetype: {archetype_key})")
+                    
+                    # Add lore glossary terms from current JP text
+                    le = _get_lore_engine()
+                    if le:
+                        # Get relevant lore terms from Japanese text
+                        relevant_terms = le.scan_text(jp_text)
+                        if relevant_terms:
+                            sys_prompt += "\n\nGLOSSARY — use these renderings unless the surrounding context makes a different reading clearly more accurate:\n"
+                            for jp, en in relevant_terms:
+                                sys_prompt += f"- {jp} → {en}\n"
+                            print(f"[pretranslate_batch] Item {item_id}: Added {len(relevant_terms)} glossary terms")
+                    
+                    cache_key = f"{openrouter_model}::{jp_text}"
+                    cached = cm.get_cached("openrouter", cache_key)
+                    if cached:
+                        translation = cached
+                        source = "openrouter_cached"
+                        # Store in batch cache for reuse
+                        batch_translation_cache[jp_text] = (translation, source)
+                        print(f"[pretranslate_batch] Item {item_id}: Using persistent cached OpenRouter translation")
+                    else:
+                        print(f"[pretranslate_batch] Item {item_id}: Calling OpenRouter API with model {openrouter_model}")
+                        res = OpenRouterClient(openrouter_key).chat(
+                            [{"role": "system", "content": sys_prompt}, {"role": "user", "content": f"Translate this to English: {jp_text}"}],
+                            model=openrouter_model
+                        )
+                        if "text" in res:
+                            translation = res["text"]
+                            cm.set_cached("openrouter", cache_key, translation)
+                            source = "openrouter"
+                            # Store in batch cache for reuse
+                            batch_translation_cache[jp_text] = (translation, source)
+                            print(f"[pretranslate_batch] Item {item_id}: OpenRouter translation successful")
+                        else:
+                            print(f"[pretranslate_batch] OpenRouter error for {item_id}: {res.get('error')}")
+                except Exception as e:
+                    print(f"[pretranslate_batch] OpenRouter exception for {item_id}: {e}")
+        
+        # Step 3: Fallback to DeepL (if no translation yet and key configured)
+        if translation is None and deepl_key:
+            # Check local batch cache first
+            if jp_text in batch_translation_cache:
+                cached_trans, cached_source = batch_translation_cache[jp_text]
+                translation = cached_trans
+                source = f"{cached_source}_batch_cached"
+                print(f"[pretranslate_batch] Item {item_id}: Using batch-cached translation from {cached_source}")
+            else:
+                print(f"[pretranslate_batch] Item {item_id}: Trying DeepL fallback")
+                try:
+                    cached = cm.get_cached("deepl", jp_text)
+                    if cached:
+                        translation = cached
+                        source = "deepl_cached"
+                        # Store in batch cache for reuse
+                        batch_translation_cache[jp_text] = (translation, source)
+                        print(f"[pretranslate_batch] Item {item_id}: Using persistent cached DeepL translation")
+                    else:
+                        print(f"[pretranslate_batch] Item {item_id}: Calling DeepL API with target lang {deepl_target_lang}")
+                        res = DeepLClient(deepl_key).translate(jp_text, target_lang=deepl_target_lang)
+                        if "text" in res:
+                            translation = res["text"]
+                            cm.set_cached("deepl", jp_text, translation)
+                            source = "deepl"
+                            # Store in batch cache for reuse
+                            batch_translation_cache[jp_text] = (translation, source)
+                            print(f"[pretranslate_batch] Item {item_id}: DeepL translation successful")
+                        else:
+                            print(f"[pretranslate_batch] DeepL error for {item_id}: {res.get('error')}")
+                except Exception as e:
+                    print(f"[pretranslate_batch] DeepL exception for {item_id}: {e}")
+        
+        # Save translation if successful
+        if translation:
+            try:
+                print(f"[pretranslate_batch] Item {item_id}: Saving translation with source={source}, status=pre-translated")
+                translation_manager.submit_translation(
+                    entry_id=item_id,
+                    source_text=jp_text,
+                    translated_text=translation,
+                    translator="pretranslate",
+                    file_path=file_path,
+                    row_index=row_idx,
+                    speaker=speaker,
+                    entry_type=entry_type,
+                    status="pre-translated"
+                )
+                
+                if source.startswith("tm"):
+                    tm_applied += 1
+                elif source.startswith("openrouter"):
+                    ai_applied += 1
+                elif source.startswith("deepl"):
+                    deepl_applied += 1
+                
+                results.append({
+                    "item_id": item_id,
+                    "success": True,
+                    "translation": translation,
+                    "source": source
+                })
+                print(f"[pretranslate_batch] Item {item_id}: Translation saved successfully")
+            except Exception as e:
+                print(f"[pretranslate_batch] Error saving translation for {item_id}: {e}")
+                results.append({
+                    "item_id": item_id,
+                    "success": False,
+                    "reason": f"Save error: {str(e)}"
+                })
+        else:
+            print(f"[pretranslate_batch] Item {item_id}: No translation source available")
+            results.append({
+                "item_id": item_id,
+                "success": False,
+                "reason": "No translation source available"
+            })
+    
+    print(f"[pretranslate_batch] Complete: total={len(items)}, tm={tm_applied}, ai={ai_applied}, deepl={deepl_applied}")
+    return {
+        "ok": True,
+        "total": len(items),
+        "tm_applied": tm_applied,
+        "ai_applied": ai_applied,
+        "deepl_applied": deepl_applied,
+        "results": results
+    }
+
+@eel.expose
 def tm_test_pretranslate_batch():
     """Test pre-translation batch feature."""
     from translation_memory import TranslationMemory
@@ -3105,7 +3640,7 @@ def tm_test_pretranslate_batch():
 @eel.expose
 def tm_get_available_languages():
     """Get list of available languages for cross-language TM."""
-    from translation_memory import CrossLanguageTM
+    from src.translation_memory import CrossLanguageTM
     
     cross_tm = CrossLanguageTM(cm)
     languages = cross_tm.get_available_languages()
@@ -3115,7 +3650,7 @@ def tm_get_available_languages():
 @eel.expose
 def tm_find_cross_language_matches(jp_text: str, target_language: str, threshold: float = 0.7):
     """Find matches from another language's TM."""
-    from translation_memory import CrossLanguageTM, AutoSubstitutor
+    from src.translation_memory import CrossLanguageTM, AutoSubstitutor
     
     cross_tm = CrossLanguageTM(cm)
     substitutor = AutoSubstitutor(cm)
@@ -3136,7 +3671,7 @@ def tm_find_cross_language_matches(jp_text: str, target_language: str, threshold
 @eel.expose
 def tm_share_translation(entry_id: str, target_language: str):
     """Share a translation entry to another language's TM."""
-    from translation_memory import CrossLanguageTM
+    from src.translation_memory import CrossLanguageTM
     
     cross_tm = CrossLanguageTM(cm)
     success = cross_tm.share_translation(entry_id, target_language)
@@ -3146,7 +3681,7 @@ def tm_share_translation(entry_id: str, target_language: str):
 @eel.expose
 def tm_test_cross_language():
     """Test cross-language TM sharing."""
-    from translation_memory import CrossLanguageTM, TranslationMemory
+    from src.translation_memory import CrossLanguageTM, TranslationMemory
     
     cross_tm = CrossLanguageTM(cm)
     tm = TranslationMemory(cm)
@@ -3179,7 +3714,7 @@ def tm_test_cross_language():
 @eel.expose
 def tm_get_statistics():
     """Get TM statistics."""
-    from translation_memory import TMManager
+    from src.translation_memory import TMManager
     
     manager = TMManager(cm)
     stats = manager.get_statistics()
@@ -3189,7 +3724,7 @@ def tm_get_statistics():
 @eel.expose
 def tm_get_all_entries(filters: dict = None):
     """Get all TM entries with optional filtering."""
-    from translation_memory import TMManager
+    from src.translation_memory import TMManager
     
     manager = TMManager(cm)
     entries = manager.get_all_entries(filters)
@@ -3199,7 +3734,7 @@ def tm_get_all_entries(filters: dict = None):
 @eel.expose
 def tm_export_tm(filepath: str, format: str = "json"):
     """Export TM to file."""
-    from translation_memory import TMManager
+    from src.translation_memory import TMManager
     
     manager = TMManager(cm)
     success = manager.export_tm(filepath, format)
@@ -3209,7 +3744,7 @@ def tm_export_tm(filepath: str, format: str = "json"):
 @eel.expose
 def tm_import_tm(filepath: str, format: str = "json", merge: bool = True):
     """Import TM from file."""
-    from translation_memory import TMManager
+    from src.translation_memory import TMManager
     
     manager = TMManager(cm)
     result = manager.import_tm(filepath, format, merge)
@@ -3219,7 +3754,7 @@ def tm_import_tm(filepath: str, format: str = "json", merge: bool = True):
 @eel.expose
 def tm_test_management():
     """Test TM management tools."""
-    from translation_memory import TMManager, TranslationMemory
+    from src.translation_memory import TMManager, TranslationMemory
     import tempfile
     import os
     
@@ -3272,7 +3807,73 @@ def tm_test_management():
         "pass": stats["total_entries"] >= 2 and len(entries) == 1 and export_success and import_result["success"]
     }
 
+@eel.expose
+def run_tests(category=None, verbose=False, coverage=False):
+    """Run pytest tests and return results."""
+    import subprocess
+    import sys
+
+    # Set TEST_MODE
+    global TEST_MODE
+    TEST_MODE = True
+
+    # Build pytest command
+    cmd = [sys.executable, "run_tests.py"]
+    if category:
+        cmd.extend(["--category", category])
+    if verbose:
+        cmd.append("-v")
+    if coverage:
+        cmd.append("--coverage")
+
+    try:
+        result = subprocess.run(cmd, cwd=os.path.dirname(os.path.abspath(__file__)),
+                               capture_output=True, text=True, timeout=60)
+        return {
+            "ok": True,
+            "exit_code": result.returncode,
+            "stdout": result.stdout,
+            "stderr": result.stderr
+        }
+    except subprocess.TimeoutExpired:
+        return {
+            "ok": False,
+            "error": "Tests timed out after 60 seconds"
+        }
+    except Exception as e:
+        return {
+            "ok": False,
+            "error": str(e)
+        }
+    finally:
+        TEST_MODE = False
+
+
 if __name__ == '__main__':
+    import argparse
+
+    # Check for --run-tests flag
+    if "--run-tests" in sys.argv:
+        parser = argparse.ArgumentParser()
+        parser.add_argument("--run-tests", action="store_true")
+        parser.add_argument("--category", help="Test category to run")
+        parser.add_argument("-v", "--verbose", action="store_true")
+        parser.add_argument("--coverage", action="store_true")
+        args = parser.parse_args()
+
+        # Run tests directly
+        import subprocess
+        cmd = [sys.executable, "run_tests.py"]
+        if args.category:
+            cmd.extend(["--category", args.category])
+        if args.verbose:
+            cmd.append("-v")
+        if args.coverage:
+            cmd.append("--coverage")
+
+        result = subprocess.run(cmd, cwd=os.path.dirname(os.path.abspath(__file__)))
+        sys.exit(result.returncode)
+
     try:
         print("[MAIN] Initializing application...")
         success = main()
@@ -3290,4 +3891,3 @@ if __name__ == '__main__':
     finally:
         print("[MAIN] Application cleanup completed")
         sys.stdout.flush()
-

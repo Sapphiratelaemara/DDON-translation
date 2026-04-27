@@ -16,7 +16,7 @@ def debug_log(message, level='DEBUG'):
 
 class ConfigManager:
     def __init__(self, config_file="formatter_config.json", memory_file="memory.json", keys_file="keys.json", cache_file="cache.json", user_settings_file="user_settings.json", language="en"):
-        base_dir = os.path.dirname(os.path.abspath(__file__))
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         self.base_dir = base_dir
         self.language = language
         config_dir = os.path.join(base_dir, "config", language)
@@ -47,6 +47,7 @@ class ConfigManager:
         self.other_vocab = {}
         self._lock = threading.RLock()
         self.config = self.load_all()
+        self.config['config_dir'] = config_dir  # Add config_dir to config for lore_data
         self.memory = self.load_memory()
         self.keys = self.load_keys()
         self.cache = self.load_cache()
@@ -60,7 +61,7 @@ class ConfigManager:
     def _seed_archetypes(self):
         """Merge new archetypes from DEFAULT_ARCHETYPES into config."""
         try:
-            from lore_engine import DEFAULT_ARCHETYPES
+            from src.lore_engine import DEFAULT_ARCHETYPES
             # DEFAULT_ARCHETYPES is nested: {"archetypes": {key: {...}}}
             default_archs = DEFAULT_ARCHETYPES.get("archetypes", {})
             if "archetypes" not in self.config or not self.config["archetypes"]:
@@ -208,6 +209,7 @@ class ConfigManager:
                 "preview_mode": True,
                 "show_paid_models": False,
                 "selected_preset": "Dialogue Box",
+                "wall_preset": "Dialogue Box",
                 "custom_dark_theme": {},
                 "custom_light_theme": {},
                 "last_stats": {"total": 0, "translated": 0, "percent": 0},

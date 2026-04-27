@@ -188,7 +188,7 @@ class GitHubSync:
 
             # This will be called from translation_manager context
             # Need to get the translation_manager instance
-            from translation_manager import get_translation_manager
+            from src.translation_manager import get_translation_manager
             tm = get_translation_manager(self.cm.language)
             self.sync_push(tm)
     
@@ -217,16 +217,8 @@ class GitHubSync:
             if entry_id in translation_manager.entries:
                 file_path = translation_manager.entries[entry_id].file_path or 'unknown'
                 if file_path not in files_data:
-                    files_data[file_path] = {'entries': {}, 'logs': [], 'comments': {}}
+                    files_data[file_path] = {'entries': {}, 'logs': []}
                 files_data[file_path]['logs'].append(log)
-        
-        # Distribute comments to their respective files
-        for entry_id, comments in translation_manager.comments.items():
-            if entry_id in translation_manager.entries:
-                file_path = translation_manager.entries[entry_id].file_path or 'unknown'
-                if file_path not in files_data:
-                    files_data[file_path] = {'entries': {}, 'logs': [], 'comments': {}}
-                files_data[file_path]['comments'][entry_id] = comments
         
         return files_data
     
@@ -286,7 +278,7 @@ class GitHubSync:
                 import os
                 anach_definitions_path = self._get_file_path('anach_definitions.json', None)
                 remote_anach_definitions = self._fetch_remote_file(anach_definitions_path)
-                base_dir = os.path.dirname(os.path.abspath(__file__))
+                base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
                 config_dir = os.path.join(base_dir, "config", language)
                 anach_file = os.path.join(config_dir, "anach_definitions.json")
                 if os.path.exists(anach_file):
@@ -356,30 +348,7 @@ class GitHubSync:
                         results.append(logs_result.get("success", False))
                         debug_info.append({"file": file_path, "type": "logs", "result": logs_result})
                     
-                    # Push comments for this entry file
-                    if data['comments']:
-                        comments_content = {k: [c.to_dict() for c in v] for k, v in data['comments'].items()}
-                        remote_comments = self._fetch_remote_file(self._get_file_path('comments', dir_name))
-                        
-                        # Merge with remote comments
-                        if remote_comments and 'content' in remote_comments:
-                            for entry_id, local_comments in comments_content.items():
-                                remote_list = remote_comments['content'].get(entry_id, [])
-                                seen = {c.get('id', '') + c.get('timestamp', '') for c in remote_list}
-                                for c in local_comments:
-                                    key = c.get('id', '') + c.get('timestamp', '')
-                                    if key not in seen:
-                                        remote_list.append(c)
-                                remote_comments['content'][entry_id] = remote_list
-                            comments_content = remote_comments['content']
-                        
-                        comments_result = self._upload_file(
-                            self._get_file_path('comments', dir_name),
-                            comments_content,
-                            remote_comments['sha'] if remote_comments else None
-                        )
-                        results.append(comments_result.get("success", False))
-                        debug_info.append({"file": file_path, "type": "comments", "result": comments_result})
+                    # Comments are now embedded in logs, no separate sync needed
                 
                 success = all(results) if results else True
                 return {"success": success, "debug": debug_info, "total": len(results), "successful": sum(results)}
@@ -449,7 +418,7 @@ class GitHubSync:
                 if remote_anach_definitions and 'content' in remote_anach_definitions:
                     import json
                     import os
-                    base_dir = os.path.dirname(os.path.abspath(__file__))
+                    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
                     config_dir = os.path.join(base_dir, "config", language)
                     anach_file = os.path.join(config_dir, "anach_definitions.json")
                     os.makedirs(config_dir, exist_ok=True)
@@ -462,7 +431,7 @@ class GitHubSync:
                 if remote_archaic_examples and 'content' in remote_archaic_examples:
                     import json
                     import os
-                    base_dir = os.path.dirname(os.path.abspath(__file__))
+                    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
                     config_dir = os.path.join(base_dir, "config", language)
                     archaic_file = os.path.join(config_dir, "archaic_examples.json")
                     os.makedirs(config_dir, exist_ok=True)
@@ -490,7 +459,6 @@ class GitHubSync:
                 
                 total_entries = 0
                 total_logs = 0
-                total_comments = 0
                 
                 for dir_info in file_dirs:
                     dir_name = dir_info['name']
@@ -518,7 +486,7 @@ class GitHubSync:
                                 if remote_time > local_time:
                                     translation_manager.entries[entry_id] = translation_manager._entry_from_dict(entry_data)
                     
-                    # Fetch logs
+                    # Fetch logs (comments are now embedded in logs)
                     logs_path = self._get_file_path('logs', dir_name)
                     remote_logs = self._fetch_remote_file(logs_path)
                     if remote_logs and 'content' in remote_logs:
@@ -529,19 +497,7 @@ class GitHubSync:
                                 translation_manager.logs.append(translation_manager._log_from_dict(log_data))
                                 total_logs += 1
                     
-                    # Fetch comments
-                    comments_path = self._get_file_path('comments', dir_name)
-                    remote_comments = self._fetch_remote_file(comments_path)
-                    if remote_comments and 'content' in remote_comments:
-                        for entry_id, comments_list in remote_comments['content'].items():
-                            if entry_id not in translation_manager.comments:
-                                translation_manager.comments[entry_id] = []
-                            seen = {c.id + c.timestamp for c in translation_manager.comments[entry_id]}
-                            for c in comments_list:
-                                key = c.get('id', '') + c.get('timestamp', '')
-                                if key not in seen:
-                                    translation_manager.comments[entry_id].append(translation_manager._comment_from_dict(c))
-                                    total_comments += 1
+                    # Comments are now embedded in logs, no separate sync needed
                     
                     # Mark this file as dirty so it gets saved locally
                     translation_manager._mark_dirty(dir_name)
@@ -549,7 +505,7 @@ class GitHubSync:
                 # Save all merged data to local per-file storage
                 translation_manager.flush_saves()
                 
-                print(f"[GitHubSync] Pull completed: {total_entries} entries, {total_logs} logs, {total_comments} comments")
+                print(f"[GitHubSync] Pull completed: {total_entries} entries, {total_logs} logs")
                 return True
                 
             except Exception as e:

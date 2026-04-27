@@ -1,5 +1,5 @@
 """
-Translation Memory Module - Crowdin-style TM with fuzzy matching and auto-substitution
+Translation Memory Module - TM with fuzzy matching and auto-substitution
 Stores translation units with metadata, context, and quality tracking.
 """
 
@@ -13,13 +13,16 @@ from typing import Optional, Dict, Any, List, Tuple
 import threading
 from difflib import SequenceMatcher
 
+# Test mode flag - check environment variable to avoid circular import
+TEST_MODE = os.environ.get('DDON_TEST_MODE', 'false').lower() == 'true'
+
 # Debug logging
 DEBUG_ENABLED = True
 logger = logging.getLogger('DDON_Editor.TranslationMemory')
 
 def debug_log(message, level='DEBUG'):
-    """Log debug message."""
-    if not DEBUG_ENABLED:
+    """Log debug message (only when TEST_MODE is enabled)."""
+    if not DEBUG_ENABLED or not TEST_MODE:
         return
     log_func = getattr(logger, level.lower(), logger.debug)
     log_func(message)
@@ -116,6 +119,7 @@ class TranslationMemory:
     
     def add_entry(self, entry_data: Dict[str, Any]) -> str:
         """Add a new entry to TM."""
+        debug_log(f"add_entry called with source: {entry_data.get('source', '')[:50]}...")
         with self._lock:
             entry = {
                 "id": entry_data.get("id", str(uuid.uuid4())),
@@ -127,15 +131,17 @@ class TranslationMemory:
                 "match_count": entry_data.get("match_count", 0),
                 "last_used": entry_data.get("last_used", None)
             }
-            
+
             # Check for duplicate source
             for existing in self.entries:
                 if existing["source"] == entry["source"] and existing["context"] == entry["context"]:
                     # Update existing instead of duplicate
+                    debug_log(f"add_entry: Updating existing entry {existing['id']}")
                     existing.update(entry)
                     self._save()
                     return existing["id"]
-            
+
+            debug_log(f"add_entry: Adding new entry {entry['id']}")
             self.entries.append(entry)
             self._save()
             return entry["id"]
@@ -436,14 +442,16 @@ class FuzzyMatcher:
     
     def find_matches(self, query: str, tm_entries: List[Dict], threshold: float = 0.5, exact_match_index: Dict = None) -> List[Dict]:
         """Find all TM entries matching query above threshold."""
+        debug_log(f"find_matches called with query: {query[:50]}..., threshold: {threshold}")
         # Normalize query to handle line breaks before comparison
         normalized_query = re.sub(r'\s+', ' ', query.strip())
         matches = []
         seen_translations = set()  # Track translations to deduplicate
-        
+
         # Check exact match index first (O(1) lookup) if provided
         has_exact_match = False
         if exact_match_index and normalized_query in exact_match_index:
+            debug_log(f"find_matches: Found exact match in index")
             exact_entries = exact_match_index[normalized_query]
             # Add all entries with this exact match, deduplicating by translation
             for entry in exact_entries:
@@ -456,16 +464,17 @@ class FuzzyMatcher:
                         "match_type": "perfect"
                     })
             has_exact_match = True
-        
+
         # Do fuzzy search on all entries if no exact match or need more results
         # Skip fuzzy search if we have 5+ exact matches (sufficient variety)
         if not has_exact_match or len(matches) < 5:
+            debug_log(f"find_matches: Performing fuzzy search on {len(tm_entries)} entries")
             for entry in tm_entries:
                 # Skip if already matched exactly (by translation)
                 translation = entry.get("translation", "")
                 if translation in seen_translations:
                     continue
-                
+
                 # Normalize TM source to handle line breaks
                 normalized_source = re.sub(r'\s+', ' ', entry["source"].strip())
                 score = self.calculate_similarity(normalized_query, normalized_source)
@@ -476,9 +485,10 @@ class FuzzyMatcher:
                         "score": score,
                         "match_type": self._classify_match(score)
                     })
-        
-        # Sort by score descending
-        return sorted(matches, key=lambda x: x["score"], reverse=True)
+
+        debug_log(f"find_matches: Found {len(matches)} matches")
+        # Sort by score descending, then by timestamp (newest first) for same score
+        return sorted(matches, key=lambda x: (x["score"], x["entry"].get("timestamp", "")), reverse=True)
 
 
 class AutoSubstitutor:

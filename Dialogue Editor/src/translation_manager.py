@@ -1,6 +1,6 @@
 """
 Translation Management Module - Per-file storage with MessagePack and security
-Handles Crowdin-style features with efficient binary storage and input validation.
+Handles translation features with efficient binary storage and input validation.
 """
 
 import json
@@ -8,10 +8,23 @@ import os
 import re
 import html
 import hashlib
+import logging
 from datetime import datetime
 from typing import Dict, List, Optional, Any
 from dataclasses import dataclass, field, asdict
 from collections import defaultdict
+
+# Test mode flag - check environment variable to avoid circular import
+TEST_MODE = os.environ.get('DDON_TEST_MODE', 'false').lower() == 'true'
+
+def debug_log(component, message, level='DEBUG'):
+    """Log debug message with component name (only when TEST_MODE is enabled)."""
+    if not TEST_MODE:
+        return
+    logger = logging.getLogger('DDON_Editor.TranslationManager')
+    log_func = getattr(logger, level.lower(), logger.debug)
+    log_msg = f"[{component}] {message}"
+    log_func(log_msg)
 
 try:
     import msgpack
@@ -26,7 +39,7 @@ MAX_LOG_ENTRIES = 100000  # Max history entries per file
 MAX_COMMENTS_PER_ENTRY = 1000  # Max comments per translation entry
 
 # Validation schemas
-VALID_STATUSES = {"untranslated", "translated", "approved", "rejected"}
+VALID_STATUSES = {"untranslated", "translated", "pre-translated", "approved", "rejected"}
 VALID_ACTIONS = {"translate", "approve", "reject", "comment", "vote"}
 
 
@@ -145,7 +158,6 @@ class TranslationManager:
         self.language = language
         self.entries: Dict[str, TranslationEntry] = {}
         self.logs: List[TranslationLogEntry] = []
-        self.comments: Dict[str, List[Comment]] = defaultdict(list)
         self.votes: Dict[str, List[Vote]] = defaultdict(list)
         self._sync_callback = None
         self._dirty_files: set = set()
@@ -156,7 +168,7 @@ class TranslationManager:
     
     def _ensure_data_dir(self):
         """Create data directory if it doesn't exist."""
-        base_dir = os.path.dirname(os.path.abspath(__file__))
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         data_dir = os.path.join(base_dir, "config", self.language, "translation_data")
         if not os.path.exists(data_dir):
             os.makedirs(data_dir)
@@ -172,7 +184,7 @@ class TranslationManager:
     
     def _get_file_dir(self, file_path: str) -> str:
         """Get the data directory path for a source file."""
-        base_dir = os.path.dirname(os.path.abspath(__file__))
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         data_dir = os.path.join(base_dir, "config", self.language, "translation_data")
         safe_name = self._sanitize_filename(file_path)
         return os.path.join(data_dir, safe_name)
@@ -257,7 +269,7 @@ class TranslationManager:
     
     def _load_data(self):
         """Load all persisted data from per-file storage."""
-        base_dir = os.path.dirname(os.path.abspath(__file__))
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         data_dir = os.path.join(base_dir, "config", self.language, "translation_data")
         
         if not os.path.exists(data_dir):
@@ -300,37 +312,19 @@ class TranslationManager:
                             for log_data in data[:MAX_LOG_ENTRIES]:  # Limit entries
                                 try:
                                     if log_data.get('action') in VALID_ACTIONS:
+                                        # Convert comments from dicts to Comment objects
+                                        if 'comments' in log_data and isinstance(log_data['comments'], list):
+                                            log_data['comments'] = [Comment(**c) if isinstance(c, dict) else c for c in log_data['comments']]
                                         self.logs.append(TranslationLogEntry(**log_data))
                                 except Exception as e:
                                     print(f"[TranslationManager] Invalid log entry: {e}")
-                            break
-
-                # Load comments file
-                comments_path = os.path.join(dir_path, 'comments.mp' if MSGPACK_AVAILABLE else 'comments.json')
-                fallback_comments = os.path.join(dir_path, 'comments.json')
-
-                for path in [comments_path, fallback_comments]:
-                    if os.path.exists(path):
-                        data = self._load_msgpack_file(path)
-                        if data and isinstance(data, dict):
-                            for entry_id, comments_list in data.items():
-                                if validate_entry_id(entry_id) and isinstance(comments_list, list):
-                                    valid_comments = []
-                                    for c in comments_list[:MAX_COMMENTS_PER_ENTRY]:
-                                        try:
-                                            if isinstance(c, dict) and 'text' in c:
-                                                c['text'] = sanitize_text(c['text'], MAX_COMMENT_LENGTH)
-                                                valid_comments.append(Comment(**c))
-                                        except Exception as e:
-                                            print(f"[TranslationManager] Invalid comment: {e}")
-                                    self.comments[entry_id] = valid_comments
                             break
 
                 loaded_dirs += 1
             except Exception as e:
                 print(f"[TranslationManager] Error loading data from {dir_name}: {e}")
 
-        print(f"[TranslationManager] Loaded data from {loaded_dirs} directories: {len(self.entries)} entries, {len(self.logs)} logs, {sum(len(v) for v in self.comments.values())} comments")
+        print(f"[TranslationManager] Loaded data from {loaded_dirs} directories: {len(self.entries)} entries, {len(self.logs)} logs, {sum(len(log.comments) for log in self.logs)} comments")
     
     def _get_entries_by_file(self, file_path: str) -> Dict[str, TranslationEntry]:
         """Get all entries belonging to a specific file."""
@@ -341,12 +335,6 @@ class TranslationManager:
         file_entries = self._get_entries_by_file(file_path)
         file_entry_ids = set(file_entries.keys())
         return [log for log in self.logs if log.id in file_entry_ids]
-    
-    def _get_comments_by_file(self, file_path: str) -> Dict[str, List[Comment]]:
-        """Get all comments for entries belonging to a specific file."""
-        file_entries = self._get_entries_by_file(file_path)
-        file_entry_ids = set(file_entries.keys())
-        return {k: v for k, v in self.comments.items() if k in file_entry_ids}
     
     def _save_file_data(self, file_path: str):
         """Save all data for a specific file using MessagePack."""
@@ -364,21 +352,13 @@ class TranslationManager:
             if status_data:
                 self._save_msgpack_file(status_path, status_data)
 
-            # Save logs (limit to most recent)
+            # Save logs (limit to most recent) - comments are now embedded in logs
             logs = self._get_logs_by_file(file_path)
             logs_path = os.path.join(dir_path, f'logs{ext}')
             logs_data = [log.to_dict() for log in logs[-MAX_LOG_ENTRIES:]]
             # Only save if there's data
             if logs_data:
                 self._save_msgpack_file(logs_path, logs_data)
-
-            # Save comments
-            comments = self._get_comments_by_file(file_path)
-            comments_path = os.path.join(dir_path, f'comments{ext}')
-            comments_data = {k: [c.to_dict() for c in v] for k, v in comments.items()}
-            # Only save if there's data
-            if comments_data:
-                self._save_msgpack_file(comments_path, comments_data)
 
             print(f"[TranslationManager] Saved data for {file_path}")
 
@@ -419,29 +399,38 @@ class TranslationManager:
         return self.entries[entry_id]
     
     def submit_translation(self, entry_id: str, source_text: str, translated_text: str,
-                          translator: str, file_path: Optional[str] = None,
+                          translator: str, file_path: str,
                           row_index: Optional[int] = None,
                           speaker: Optional[str] = None,
-                          entry_type: Optional[str] = None) -> TranslationEntry:
+                          entry_type: Optional[str] = None,
+                          status: str = "translated") -> TranslationEntry:
         """Submit a new translation."""
+        debug_log("submit_translation", f"Called with entry_id={entry_id}, status={status}")
         if not validate_entry_id(entry_id):
+            debug_log("submit_translation", f"Invalid entry ID: {entry_id}", level="ERROR")
             raise ValueError(f"Invalid entry ID: {entry_id}")
         if not validate_username(translator):
+            debug_log("submit_translation", f"Invalid translator name: {translator}", level="ERROR")
             raise ValueError(f"Invalid translator name: {translator}")
-        
+        if status not in VALID_STATUSES:
+            debug_log("submit_translation", f"Invalid status: {status}", level="ERROR")
+            raise ValueError(f"Invalid status: {status}")
+
         entry = self.get_or_create_entry(entry_id, source_text, file_path, row_index, speaker, entry_type)
-        
+        debug_log("submit_translation", f"Got or created entry: {entry_id}")
+
         old_value = entry.translated_text
         entry.translated_text = sanitize_text(translated_text)
         entry.translator = sanitize_text(translator)
-        entry.status = "translated"
+        entry.status = status
         entry.updated_at = datetime.now().isoformat()
-        
+
         self._mark_dirty(file_path)
         self._save_file_data(file_path)
-        
+        debug_log("submit_translation", f"Saved entry data for {file_path}")
+
         self.logs.append(TranslationLogEntry(
-            id=entry_id,
+            id=f"{entry_id}_{datetime.now().timestamp()}",
             action="translate",
             user=sanitize_text(translator),
             old_value=old_value,
@@ -449,17 +438,46 @@ class TranslationManager:
         ))
         self._mark_dirty(file_path)
         self._save_file_data(file_path)
-        
+        debug_log("submit_translation", f"Logged translation action for {entry_id}")
+
+        # Add to Translation Memory if approved
+        if status == "approved" and self.cm:
+            try:
+                from src.translation_memory import TranslationMemory
+                tm = TranslationMemory(self.cm)
+                tm_entry = {
+                    "source": source_text,
+                    "translation": translated_text,
+                    "context": {
+                        "file": file_path,
+                        "row": row_index,
+                        "speaker": speaker,
+                        "entry_type": entry_type
+                    },
+                    "quality": "approved"
+                }
+                tm.add_entry(tm_entry)
+                debug_log("submit_translation", f"Added approved translation to TM: {entry_id}")
+                print(f"[TranslationManager] Added approved translation to TM: {entry_id}")
+            except Exception as e:
+                debug_log("submit_translation", f"Failed to add to TM: {e}", level="ERROR")
+                print(f"[TranslationManager] Failed to add to TM: {e}")
+
+        debug_log("submit_translation", f"Completed successfully for {entry_id}")
         return entry
     
     def approve_translation(self, entry_id: str, approver: str) -> Optional[TranslationEntry]:
         """Approve a translation."""
+        debug_log("approve_translation", f"Called with entry_id={entry_id}, approver={approver}")
         if not validate_entry_id(entry_id):
+            debug_log("approve_translation", f"Invalid entry ID: {entry_id}", level="ERROR")
             return None
         if not validate_username(approver):
+            debug_log("approve_translation", f"Invalid approver name: {approver}", level="ERROR")
             return None
 
         if entry_id not in self.entries:
+            debug_log("approve_translation", f"Entry not found: {entry_id}", level="ERROR")
             return None
 
         entry = self.entries[entry_id]
@@ -467,36 +485,68 @@ class TranslationManager:
         entry.approver = sanitize_text(approver)
         entry.approved_at = datetime.now().isoformat()
         entry.updated_at = datetime.now().isoformat()
+        debug_log("approve_translation", f"Updated entry status to approved: {entry_id}")
 
         file_path = entry.file_path
         self._mark_dirty(file_path)
         self._save_file_data(file_path)
+        debug_log("approve_translation", f"Saved entry data for {file_path}")
 
         # Log the approve action
         self.logs.append(TranslationLogEntry(
-            id=entry_id,
+            id=f"{entry_id}_{datetime.now().timestamp()}",
             action="approve",
             user=sanitize_text(approver),
             new_value=entry.translated_text
         ))
         self._mark_dirty(file_path)
         self._save_file_data(file_path)
+        debug_log("approve_translation", f"Logged approve action for {entry_id}")
 
+        # Add to Translation Memory
+        if self.cm:
+            try:
+                from src.translation_memory import TranslationMemory
+                tm = TranslationMemory(self.cm)
+                tm_entry = {
+                    "source": entry.source_text,
+                    "translation": entry.translated_text,
+                    "context": {
+                        "file": entry.file_path,
+                        "row": entry.row_index,
+                        "speaker": entry.speaker,
+                        "entry_type": entry.entry_type
+                    },
+                    "quality": "approved"
+                }
+                tm.add_entry(tm_entry)
+                debug_log("approve_translation", f"Added approved translation to TM: {entry_id}")
+                print(f"[TranslationManager] Added approved translation to TM: {entry_id}")
+            except Exception as e:
+                debug_log("approve_translation", f"Failed to add to TM: {e}", level="ERROR")
+                print(f"[TranslationManager] Failed to add to TM: {e}")
+
+        debug_log("approve_translation", f"Completed successfully for {entry_id}")
         return entry
 
     def reject_translation(self, entry_id: str, reviewer: str, reason: Optional[str] = None) -> Optional[TranslationEntry]:
         """Reject a translation."""
+        debug_log("reject_translation", f"Called with entry_id={entry_id}, reviewer={reviewer}")
         if not validate_entry_id(entry_id):
+            debug_log("reject_translation", f"Invalid entry ID: {entry_id}", level="ERROR")
             return None
         if not validate_username(reviewer):
+            debug_log("reject_translation", f"Invalid reviewer name: {reviewer}", level="ERROR")
             return None
 
         if entry_id not in self.entries:
+            debug_log("reject_translation", f"Entry not found: {entry_id}", level="ERROR")
             return None
 
         entry = self.entries[entry_id]
         entry.status = "rejected"
         entry.updated_at = datetime.now().isoformat()
+        debug_log("reject_translation", f"Updated entry status to rejected: {entry_id}")
 
         file_path = entry.file_path
         self._mark_dirty(file_path)
@@ -504,7 +554,7 @@ class TranslationManager:
 
         # Log the reject action
         self.logs.append(TranslationLogEntry(
-            id=entry_id,
+            id=f"{entry_id}_{datetime.now().timestamp()}",
             action="reject",
             user=sanitize_text(reviewer),
             new_value=entry.translated_text,
@@ -515,8 +565,17 @@ class TranslationManager:
 
         return entry
     
-    def add_comment(self, entry_id: str, user: str, text: str, parent_id: Optional[str] = None) -> Comment:
-        """Add a comment to a translation entry."""
+    def add_comment(self, entry_id: str, user: str, text: str, parent_id: Optional[str] = None, history_entry_id: Optional[str] = None) -> Comment:
+        """Add a comment to a translation entry.
+        
+        Args:
+            entry_id: The translation entry ID
+            user: Username adding the comment
+            text: Comment text
+            parent_id: For threaded comments (replies)
+            history_entry_id: If specified, attach to this specific history entry. 
+                            If None, attach to the most recent history entry for this entry_id.
+        """
         if not validate_entry_id(entry_id):
             raise ValueError(f"Invalid entry ID: {entry_id}")
         if not validate_username(user):
@@ -526,41 +585,56 @@ class TranslationManager:
         if not sanitized_text:
             raise ValueError("Comment text cannot be empty")
         
-        # Check comment limit
-        existing = self.comments.get(entry_id, [])
-        if len(existing) >= MAX_COMMENTS_PER_ENTRY:
-            raise ValueError(f"Maximum comments ({MAX_COMMENTS_PER_ENTRY}) reached for this entry")
+        # Find the target history entry
+        target_history_entry = None
+        if history_entry_id:
+            # Find specific history entry by exact ID match
+            for log in reversed(self.logs):
+                if log.id == history_entry_id:
+                    target_history_entry = log
+                    break
+            if not target_history_entry:
+                raise ValueError(f"History entry {history_entry_id} not found")
+        else:
+            # Find most recent history entry for this entry_id
+            for log in reversed(self.logs):
+                if log.id.startswith(entry_id):
+                    target_history_entry = log
+                    break
+        
+        if not target_history_entry:
+            raise ValueError(f"No history entry found for {entry_id}. Cannot attach comment.")
+        
+        # Check comment limit on the target history entry
+        if len(target_history_entry.comments) >= MAX_COMMENTS_PER_ENTRY:
+            raise ValueError(f"Maximum comments ({MAX_COMMENTS_PER_ENTRY}) reached for this history entry")
         
         comment = Comment(
-            id=f"{entry_id}_{len(existing)}_{datetime.now().timestamp()}",
+            id=f"{entry_id}_{len(target_history_entry.comments)}_{datetime.now().timestamp()}",
             entry_id=entry_id,
             user=sanitize_text(user),
             text=sanitized_text,
-            parent_id=sanitize_text(parent_id) if parent_id else None
+            parent_id=sanitize_text(parent_id) if parent_id else None,
+            history_entry_id=target_history_entry.id
         )
         
-        self.comments[entry_id].append(comment)
+        # Attach comment to history entry
+        target_history_entry.comments.append(comment)
         
         file_path = self.entries.get(entry_id, {}).file_path if entry_id in self.entries else None
         self._mark_dirty(file_path)
         self._trigger_sync(urgent=True)
         self._save_file_data(file_path)
         
-        # Log comment
-        self.logs.append(TranslationLogEntry(
-            id=entry_id,
-            action="comment",
-            user=sanitize_text(user),
-            comment=sanitized_text
-        ))
-        self._mark_dirty(file_path)
-        self._save_file_data(file_path)
-        
         return comment
     
     def get_comments(self, entry_id: str) -> List[Comment]:
-        """Get all comments for an entry."""
-        return self.comments.get(entry_id, [])
+        """Get all comments for an entry (collected from history entries)."""
+        comments = []
+        for log in self.logs:
+            if log.id.startswith(entry_id):
+                comments.extend(log.comments)
+        return comments
     
     def get_sanitized_comments_for_display(self, entry_id: str) -> List[Dict]:
         """Get comments sanitized for HTML display."""
@@ -590,7 +664,7 @@ class TranslationManager:
         
         # Log vote
         self.logs.append(TranslationLogEntry(
-            id=entry_id,
+            id=f"{entry_id}_{datetime.now().timestamp()}",
             action="vote",
             user=sanitize_text(user),
             new_value=str(vote)
@@ -614,7 +688,7 @@ class TranslationManager:
     
     def get_translation_history(self, entry_id: str) -> List[TranslationLogEntry]:
         """Get all logged actions for an entry."""
-        return [log for log in self.logs if log.id == entry_id]
+        return [log for log in self.logs if log.id.startswith(entry_id)]
     
     def get_recent_activity(self, limit: int = 50) -> List[TranslationLogEntry]:
         """Get recent translation activity across all entries."""
@@ -646,12 +720,27 @@ class TranslationManager:
         # Only get entries from translation_manager (these have history/comments)
         for entry in self.entries.values():
             if entry.status != 'approved':
-                comment_count = len(self.comments.get(entry.id, []))
+                comment_count = len(self.get_comments(entry.id))
                 result.append({
                     'entry': entry.to_dict(),
                     'comment_count': comment_count
                 })
 
+        return result
+
+    def get_pretranslated_unapproved_entries(self) -> List[Dict]:
+        """Get all pre-translated unapproved entries with comment count."""
+        result = []
+        print(f"[get_pretranslated_unapproved_entries] Checking {len(self.entries)} entries for pre-translated status")
+        for entry in self.entries.values():
+            if entry.status == 'pre-translated':
+                comment_count = len(self.get_comments(entry.id))
+                result.append({
+                    'entry': entry.to_dict(),
+                    'comment_count': comment_count
+                })
+                print(f"[get_pretranslated_unapproved_entries] Found pre-translated entry: {entry.id}, comments: {comment_count}")
+        print(f"[get_pretranslated_unapproved_entries] Returning {len(result)} pre-translated entries")
         return result
 
     def cleanup_old_approval_logs(self):
@@ -676,6 +765,9 @@ class TranslationManager:
     @staticmethod
     def _log_from_dict(data: Dict) -> 'TranslationLogEntry':
         """Convert dict to TranslationLogEntry."""
+        # Convert comments from dicts to Comment objects
+        if 'comments' in data and isinstance(data['comments'], list):
+            data['comments'] = [Comment(**c) if isinstance(c, dict) else c for c in data['comments']]
         return TranslationLogEntry(**data)
     
     @staticmethod
