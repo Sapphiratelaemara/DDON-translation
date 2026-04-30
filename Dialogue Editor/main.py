@@ -92,6 +92,7 @@ from src.file_utils import _get_csv_files, _read_csv
 from src.batch_runner import run_batch, BatchSettings
 from src.translation_manager import get_translation_manager
 from src.github_sync import GitHubSync
+from src.source_validator import SourceValidator
 
 # Initialize core logic
 # Load language from global user_settings if available, default to "en"
@@ -115,6 +116,8 @@ reload_vocab()  # Reload vocab from ConfigManager to ensure it's loaded from the
 engine = TranslationEngine(cm.config.get("tag_map", {}))
 github_sync = GitHubSync(cm)
 translation_manager = get_translation_manager(initial_language)
+source_validator = SourceValidator()
+source_validator.load_tag_map(cm.config.get("tag_map", {}))
 
 # Set up sync callback - request push to GitHub after local saves
 # Comments trigger urgent push (1 min), other changes wait (30 min)
@@ -2502,6 +2505,16 @@ def get_prefetch_cache(category, idx):
         return None
 
 @eel.expose
+def update_prefetch_cache(category, idx, data):
+    """Update the prefetch cache for a specific category and index."""
+    try:
+        _prefetch_mgr.update_cache(category, idx, data)
+        return True
+    except Exception as e:
+        print(f"[update_prefetch_cache] Error: {e}")
+        return False
+
+@eel.expose
 def clear_prefetch_cache():
     """Clear the prefetch cache."""
     try:
@@ -2708,12 +2721,12 @@ def sync_push():
     try:
         # Check if configured
         if not github_sync.is_configured():
-            return {"ok": False, "error": "GitHub sync not configured. Check repo and token in settings."}
+            return {"ok": False, "error": "GitHub sync not configured. Please set up GitHub token and repository in Options."}
         
-        # Check if there's data to push
-        entry_count = len(translation_manager.entries)
-        log_count = len(translation_manager.logs)
-        comment_count = sum(len(log.comments) for log in translation_manager.logs)
+        # Get counts for status message
+        entry_count = len(translation_manager.get_approved_entries())
+        log_count = len(translation_manager.get_translation_logs())
+        comment_count = len(translation_manager.get_comment_log())
         
         if entry_count == 0:
             return {"ok": False, "error": f"No entries to sync. Have you approved/rejected any translations?\nTM Status: {entry_count} entries, {log_count} logs, {comment_count} comments"}
@@ -2722,16 +2735,8 @@ def sync_push():
         return {
             "ok": result.get("success", False), 
             "message": f"Push {'successful' if result.get('success') else 'failed'}. Synced {entry_count} entries, {log_count} logs, {comment_count} comments.",
-            "debug": {
-                "entry_count": entry_count, 
-                "log_count": log_count, 
-                "comment_count": comment_count, 
-                "sync_result": result.get("success", False),
-                "sync_debug": result.get("debug", []),
-                "sync_total": result.get("total", 0),
-                "sync_successful": result.get("successful", 0),
-                "sync_error": result.get("error")
-            }
+            "debug": result.get("debug", []),
+            "sync_error": result.get("error")
         }
     except Exception as e:
         import traceback
@@ -2744,6 +2749,25 @@ def sync_pull():
         success = github_sync.sync_pull(translation_manager)
         return {"ok": success, "message": "Pull successful" if success else "Pull failed"}
     except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+@eel.expose
+def sync_config_files():
+    """Manually push config files (vocab, archetypes) to GitHub."""
+    try:
+        # Check if configured
+        if not github_sync.is_configured():
+            return {"ok": False, "error": "GitHub sync not configured. Please set up GitHub token and repository in Options."}
+        
+        # Create a dummy translation manager for config sync
+        result = github_sync.sync_push(None)  # Pass None to only sync config files
+        return {
+            "ok": result.get("success", False), 
+            "message": f"Config files push {'successful' if result.get('success') else 'failed'}.",
+            "debug": result.get("debug", [])
+        }
+    except Exception as e:
+        print(f"[sync_config_files] Error: {e}")
         return {"ok": False, "error": str(e)}
 
 @eel.expose
@@ -2825,6 +2849,23 @@ def perform_search(query, field_col=None):
 # =============================================================================
 # DIAGNOSTICS — Feature Status
 # =============================================================================
+
+@eel.expose
+def validate_translation(source: str, translation: str) -> dict:
+    """Validate that translation preserves source elements (tags, placeholders)."""
+    try:
+        # Reload tag_map in case it was updated
+        source_validator.load_tag_map(cm.config.get("tag_map", {}))
+        errors = source_validator.validate_translation(source, translation)
+        print(f"[validate_translation] Source: {source[:50]}...")
+        print(f"[validate_translation] Translation: {translation[:50]}...")
+        print(f"[validate_translation] Errors: {errors}")
+        return {"ok": True, "errors": errors}
+    except Exception as e:
+        print(f"[validate_translation] Error: {e}")
+        import traceback
+        traceback.print_exc()
+        return {"ok": False, "error": str(e)}
 
 @eel.expose
 def get_feature_status():
@@ -3347,6 +3388,13 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
     
     print(f"[pretranslate_batch] API keys: openrouter={'configured' if openrouter_key else 'none'}, deepl={'configured' if deepl_key else 'none'}")
     
+    # Rate limiting for API calls
+    import time
+    last_openrouter_call = 0
+    last_deepl_call = 0
+    OPENROUTER_RATE_LIMIT = 5.0  # seconds between calls (more reasonable)
+    DEEPL_RATE_LIMIT = 2.0        # seconds between calls (Free tier: 5/min, allows buffer)
+    
     # Local cache for translations within this batch (avoids duplicate API calls for identical JP text)
     batch_translation_cache = {}
     
@@ -3502,7 +3550,20 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
                         batch_translation_cache[jp_text] = (translation, source)
                         print(f"[pretranslate_batch] Item {item_id}: Using persistent cached OpenRouter translation")
                     else:
+                        # Reset translation for this attempt
+                        translation = None
+                        source = None
+                        
+                        # Rate limiting: wait if needed
+                        current_time = time.time()
+                        time_since_openrouter = current_time - last_openrouter_call
+                        if time_since_openrouter < OPENROUTER_RATE_LIMIT:
+                            sleep_time = OPENROUTER_RATE_LIMIT - time_since_openrouter
+                            print(f"[pretranslate_batch] Rate limiting OpenRouter: waiting {sleep_time:.1f}s")
+                            time.sleep(sleep_time)
+                        
                         print(f"[pretranslate_batch] Item {item_id}: Calling OpenRouter API with model {openrouter_model}")
+                        last_openrouter_call = time.time()
                         res = OpenRouterClient(openrouter_key).chat(
                             [{"role": "system", "content": sys_prompt}, {"role": "user", "content": f"Translate this to English: {jp_text}"}],
                             model=openrouter_model
@@ -3515,7 +3576,13 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
                             batch_translation_cache[jp_text] = (translation, source)
                             print(f"[pretranslate_batch] Item {item_id}: OpenRouter translation successful")
                         else:
-                            print(f"[pretranslate_batch] OpenRouter error for {item_id}: {res.get('error')}")
+                            error = res.get('error', 'Unknown error')
+                            if 'rate limit' in error.lower() or '429' in error:
+                                print(f"[pretranslate_batch] OpenRouter rate limit hit for {item_id}: {error}")
+                                # Increase delay for next call
+                                last_openrouter_call = time.time() + 30  # Add 30s penalty
+                            else:
+                                print(f"[pretranslate_batch] OpenRouter error for {item_id}: {error}")
                 except Exception as e:
                     print(f"[pretranslate_batch] OpenRouter exception for {item_id}: {e}")
         
@@ -3528,6 +3595,14 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
                 source = f"{cached_source}_batch_cached"
                 print(f"[pretranslate_batch] Item {item_id}: Using batch-cached translation from {cached_source}")
             else:
+                # Rate limiting: wait if needed
+                current_time = time.time()
+                time_since_deepl = current_time - last_deepl_call
+                if time_since_deepl < DEEPL_RATE_LIMIT:
+                    sleep_time = DEEPL_RATE_LIMIT - time_since_deepl
+                    print(f"[pretranslate_batch] Rate limiting DeepL: waiting {sleep_time:.1f}s")
+                    time.sleep(sleep_time)
+                
                 print(f"[pretranslate_batch] Item {item_id}: Trying DeepL fallback")
                 try:
                     cached = cm.get_cached("deepl", jp_text)
@@ -3539,6 +3614,7 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
                         print(f"[pretranslate_batch] Item {item_id}: Using persistent cached DeepL translation")
                     else:
                         print(f"[pretranslate_batch] Item {item_id}: Calling DeepL API with target lang {deepl_target_lang}")
+                        last_deepl_call = time.time()
                         res = DeepLClient(deepl_key).translate(jp_text, target_lang=deepl_target_lang)
                         if "text" in res:
                             translation = res["text"]
@@ -3548,7 +3624,13 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
                             batch_translation_cache[jp_text] = (translation, source)
                             print(f"[pretranslate_batch] Item {item_id}: DeepL translation successful")
                         else:
-                            print(f"[pretranslate_batch] DeepL error for {item_id}: {res.get('error')}")
+                            error = res.get('error', 'Unknown error')
+                            if 'rate limit' in error.lower() or '429' in error:
+                                print(f"[pretranslate_batch] DeepL rate limit hit for {item_id}: {error}")
+                                # Increase delay for next call
+                                last_deepl_call = time.time() + 60  # Add 60s penalty
+                            else:
+                                print(f"[pretranslate_batch] DeepL error for {item_id}: {error}")
                 except Exception as e:
                     print(f"[pretranslate_batch] DeepL exception for {item_id}: {e}")
         

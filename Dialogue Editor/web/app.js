@@ -226,6 +226,9 @@ window.onload = async () => {
         await loadDashboard();
         await loadSettings();
         
+        // Initialize AI model dropdown
+        await initAIModels();
+        
         // Load saved queue structure to populate category dropdown
         const queueStructure = await eel.get_queue_structure()();
         state.reviewer.queueStructure = queueStructure;
@@ -1286,8 +1289,10 @@ async function loadItemAtIdxInternal(idx, mode) {
         
         // Use cached lore context if available, otherwise fetch it (non-blocking)
         if (cached && cached.lore_context) {
+            console.log(`[loadItemAtIdxInternal] Using cached lore_context for source highlighting, cache:`, cached.lore_context);
             populateSourceWithLoreHighlightsFromCache(item.jp, item.en || '', cached.lore_context);
         } else {
+            console.log(`[loadItemAtIdxInternal] No cached lore_context, fetching fresh for source highlighting`);
             populateSourceWithLoreHighlights(item.jp, item.en || '');
         }
 
@@ -1301,6 +1306,7 @@ async function loadItemAtIdxInternal(idx, mode) {
         }
 
         // Use cached data if available, otherwise fetch it
+        console.log(`[loadItemAtIdxInternal] Checking cache for lore_context. cached:`, cached, 'cached.lore_context:', cached?.lore_context);
         if (cached && (cached.lore_context || cached.anachronisms)) {
             populateLoreContextFromCache(item.jp, item.en, cached.lore_context, cached.anachronisms, loadIdx);
         } else {
@@ -1369,6 +1375,9 @@ async function loadItemAtIdxInternal(idx, mode) {
             loadTranslationHistory(item.id);
             loadTranslationComments(item.id);
         }
+        
+        // Validate translation
+        validateCurrentTranslation();
 
         const loadEndTime = performance.now();
         const loadDuration = loadEndTime - loadStartTime;
@@ -1579,6 +1588,8 @@ function initReviewerActions() {
             populateLoreContext(jpText, ed.innerText, state.reviewer.currentIdx);
             // Trigger debounced anachronism scan
             scanAnachronisms(ed.innerText);
+            // Trigger debounced validation
+            debounce(validateCurrentTranslation, 500)();
             // Don't update source window highlights on every keystroke - let scanAnachronisms handle that
         });
         ed.addEventListener('scroll', syncCounterScroll);
@@ -1939,73 +1950,133 @@ function renderHighlights(text, generation) {
         return;
     }
     
-    // Also check if the text has changed since this render was started
+    // Also check if text has changed since this render was started
     const currentText = ed.innerText;
     if (currentText !== text) {
         return;
     }
     
-    // Check if we should skip cursor restoration (e.g., after Enter key)
-    const shouldSkipRestore = ed._skipCursorRestore && ed._skipCursorRestore();
-    
-    // Save cursor position
-    const selection = window.getSelection();
-    const range = selection.rangeCount > 0 ? selection.getRangeAt(0).cloneRange() : null;
-    const cursorOffset = (shouldSkipRestore || !range) ? null : getCaretOffset(ed, range);
-    
-    // Escape HTML tags to make them visible as text, but preserve newlines initially
-    let html = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    
-    // Convert newlines to BR tags BEFORE applying highlights
-    // This ensures empty lines are properly represented as <br> elements
-    html = html.replace(/\n/g, '<br>');
-    
-    // Apply anachronism highlights using position-based approach
-    if (state.reviewer.anachRanges && state.reviewer.anachRanges.length > 0) {
-        // Sort by length (longer first) to handle multi-word phrases first
-        const sortedRanges = [...state.reviewer.anachRanges].sort((a, b) => b[0].length - a[0].length);
-        
-        for (const [word, suggestion, is_ddon] of sortedRanges) {
-            const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            // Use word boundary for single words, but not for multi-word phrases
-            const useWordBoundary = !word.includes(' ');
-            const regex = new RegExp(useWordBoundary ? `\\b${escapedWord}\\b` : escapedWord, 'gi');
-            
-            // Replace all occurrences, but skip those already inside span tags or br tags
-            let match;
-            const regexObj = new RegExp(regex);
-            let lastIndex = 0;
-            let newHtml = '';
-            
-            while ((match = regexObj.exec(html)) !== null) {
-                // Add text before this match
-                newHtml += html.substring(lastIndex, match.index);
-                
-                // Check if we're inside a span tag or adjacent to a BR
-                const before = html.substring(0, match.index);
-                const openSpanCount = (before.match(/<span/g) || []).length;
-                const closeSpanCount = (before.match(/<\/span>/g) || []).length;
-                
-                if (openSpanCount > closeSpanCount) {
-                    // Already inside a span, don't replace
-                    newHtml += match[0];
-                } else {
-                    // Not inside a span, add highlight
-                    const className = is_ddon ? "anach-highlight anach-ddon" : "anach-highlight";
-                    newHtml += `<span class="${className}" data-word="${escAttr(word)}" data-suggestion="${escAttr(suggestion)}" data-is-ddon="${is_ddon}">${match[0]}</span>`;
-                }
-                
-                lastIndex = match.index + match[0].length;
-            }
-            
-            // Add remaining text
-            newHtml += html.substring(lastIndex);
-            html = newHtml;
+    // Safety check: don't process extremely long text that could cause RangeError
+    if (!text || text.length > 50000) {
+        if (text && text.length > 50000) {
+            console.warn('[renderHighlights] Text too long for highlighting, skipping');
         }
+        return;
     }
     
-    ed.innerHTML = html;
-    if (cursorOffset !== null) restoreCursor(ed, cursorOffset);
+    // Additional safety check: ensure text is a string
+    if (typeof text !== 'string') {
+        console.warn('[renderHighlights] Text is not a string, skipping');
+        return;
+    }
+    
+    // Additional safety check: prevent processing if anachronism ranges are too many
+    if (state.reviewer.anachRanges && state.reviewer.anachRanges.length > 50) {
+        console.warn('[renderHighlights] Too many anachronism ranges, limiting to first 50');
+        state.reviewer.anachRanges = state.reviewer.anachRanges.slice(0, 50);
+    }
+    
+    try {
+        // Check if we should skip cursor restoration (e.g., after Enter key)
+        const shouldSkipRestore = ed._skipCursorRestore && ed._skipCursorRestore();
+        
+        // Save cursor position
+        const selection = window.getSelection();
+        const range = selection.rangeCount > 0 ? selection.getRangeAt(0).cloneRange() : null;
+        const cursorOffset = (shouldSkipRestore || !range) ? null : getCaretOffset(ed, range);
+        
+        // Escape HTML tags to make them visible as text, but preserve newlines initially
+        let html = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        
+        // Convert newlines to BR tags BEFORE applying highlights
+        // This ensures empty lines are properly represented as <br> elements
+        html = html.replace(/\n/g, '<br>');
+        
+        // Apply anachronism highlights using position-based approach
+        if (state.reviewer.anachRanges && state.reviewer.anachRanges.length > 0) {
+            console.log(`[renderHighlights] Processing ${state.reviewer.anachRanges.length} anachronism ranges`);
+            // Sort by length (longer first) to handle multi-word phrases first
+            const sortedRanges = [...state.reviewer.anachRanges].sort((a, b) => b[0].length - a[0].length);
+            
+            for (const [word, suggestion, is_ddon] of sortedRanges) {
+                try {
+                    console.log(`[renderHighlights] Processing word: "${word}", suggestion: "${suggestion}"`);
+                    
+                    // Skip empty words or null/undefined words
+                    if (!word || word.trim() === '') {
+                        console.log(`[renderHighlights] Skipping empty word`);
+                        continue;
+                    }
+                    
+                    const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                    // Use word boundary for single words, but not for multi-word phrases
+                    const useWordBoundary = !word.includes(' ');
+                    const regex = new RegExp(useWordBoundary ? `\\b${escapedWord}\\b` : escapedWord, 'gi');
+                    
+                    // Replace all occurrences, but skip those already inside span tags or br tags
+                    let match;
+                    const regexObj = new RegExp(regex);
+                    let lastIndex = 0;
+                    let newHtml = '';
+                    let matchCount = 0;
+                    
+                    while ((match = regexObj.exec(html)) !== null && matchCount < 100) { // Limit matches to prevent infinite loops
+                        // Add text before this match
+                        newHtml += html.substring(lastIndex, match.index);
+                        
+                        // Check if we're inside a span tag or adjacent to a BR
+                        const before = html.substring(0, match.index);
+                        const openSpanCount = (before.match(/<span/g) || []).length;
+                        const closeSpanCount = (before.match(/<\/span>/g) || []).length;
+                        
+                        if (openSpanCount > closeSpanCount) {
+                            // Already inside a span, don't replace
+                            newHtml += match[0];
+                        } else {
+                            // Not inside a span, add highlight
+                            const className = is_ddon ? "anach-highlight anach-ddon" : "anach-highlight";
+                            newHtml += `<span class="${className}" data-word="${escAttr(word)}" data-suggestion="${escAttr(suggestion)}" data-is-ddon="${is_ddon}">${match[0]}</span>`;
+                        }
+                        
+                        lastIndex = match.index + match[0].length;
+                        matchCount++;
+                        
+                        // Prevent infinite loops and excessive string growth
+                        if (lastIndex >= html.length || newHtml.length > 100000) break;
+                    }
+                    
+                    // Add remaining text
+                    newHtml += html.substring(lastIndex);
+                    html = newHtml;
+                    console.log(`[renderHighlights] Processed ${matchCount} matches for word: "${word}"`);
+                } catch (e) {
+                    console.error(`[renderHighlights] Error processing word "${word}":`, e);
+                    // Continue with next word
+                }
+            }
+        }
+        
+        ed.innerHTML = html;
+        if (cursorOffset !== null) restoreCursor(ed, cursorOffset);
+    } catch (e) {
+        if (e instanceof RangeError && e.message === 'Invalid string length') {
+            console.error('[renderHighlights] RangeError: Invalid string length - falling back to plain text');
+            console.error('[renderHighlights] Text length:', text ? text.length : 'null');
+            console.error('[renderHighlights] HTML length before error:', html ? html.length : 'null');
+            console.error('[renderHighlights] Anachronism ranges count:', state.reviewer.anachRanges ? state.reviewer.anachRanges.length : 'null');
+            ed.innerText = text;
+        } else {
+            console.error('[renderHighlights] Unexpected error:', e);
+            console.error('[renderHighlights] Error details:', {
+                message: e.message,
+                stack: e.stack,
+                textLength: text ? text.length : 'null',
+                htmlLength: html ? html.length : 'null',
+                anachRangesCount: state.reviewer.anachRanges ? state.reviewer.anachRanges.length : 'null'
+            });
+            ed.innerText = text;
+        }
+    }
 }
 
 function getCaretOffset(element, range) {
@@ -3227,16 +3298,25 @@ async function populateGloss(jpText, loadIdx) {
 
 async function populateSourceWithLoreHighlightsFromCache(jpText, enText, loreMatches) {
     const box = document.getElementById('jp-source');
-    if (!box) return;
+    if (!box) {
+        console.log('[populateSourceWithLoreHighlightsFromCache] jp-source element not found');
+        return;
+    }
     if (!jpText) {
         box.innerText = '';
         return;
     }
     
+    console.log(`[populateSourceWithLoreHighlightsFromCache] Called with jpText="${jpText?.substring(0, 30)}...", loreMatches:`, loreMatches);
+    
+    // Store original Japanese text for dynamic updates
     box._originalJp = jpText;
+    
+    // Set plain text immediately for instant feedback
     box.innerText = jpText;
     
     if (!loreMatches || !loreMatches.length) {
+        console.log(`[populateSourceWithLoreHighlightsFromCache] No lore matches, returning`);
         return;
     }
     
@@ -3277,6 +3357,7 @@ async function populateSourceWithLoreHighlightsFromCache(jpText, enText, loreMat
         }
         
         box.innerHTML = html;
+        console.log(`[populateSourceWithLoreHighlightsFromCache] Applied ${markers.length} highlights, final HTML length: ${html.length}`);
         
         // Wire up click handlers to insert into editor
         box.querySelectorAll('.lore-source-span').forEach(span => {
@@ -3327,7 +3408,13 @@ async function populateSourceWithLoreHighlightsFromCache(jpText, enText, loreMat
 
 function populateLoreContextFromCache(jpText, enText, loreContext, anachHits, loadIdx) {
     const box = document.getElementById('lore-box');
-    if (!box) return;
+    if (!box) {
+        console.log('[populateLoreContextFromCache] lore-box element not found');
+        return;
+    }
+    
+    console.log(`[populateLoreContextFromCache] Called with loadIdx=${loadIdx}, loreContext:`, loreContext, 'anachHits:', anachHits);
+    console.log(`[populateLoreContextFromCache] Box element found:`, !!box, 'box.innerHTML length:', box.innerHTML.length);
     
     // Only update if we're still on the same item
     if (state.reviewer.currentIdx !== loadIdx) {
@@ -3335,17 +3422,20 @@ function populateLoreContextFromCache(jpText, enText, loreContext, anachHits, lo
         return;
     }
     
+    console.log(`[populateLoreContextFromCache] Clearing box and setting up content`);
     box.innerHTML = '';
     let hasContent = false;
     
     // Show lore references from cache
     if (loreContext && loreContext.length > 0) {
+        console.log(`[populateLoreContextFromCache] Processing ${loreContext.length} lore items:`, loreContext);
         hasContent = true;
         const loreHeader = document.createElement('div');
         loreHeader.className = 'lore-header';
         loreHeader.innerText = 'References:';
         loreHeader.style.cssText = 'font-size: 9px; font-weight: 700; color: var(--tab-inactive); margin-bottom: 6px; margin-top: 4px;';
         box.appendChild(loreHeader);
+        console.log(`[populateLoreContextFromCache] Added lore header, box children count:`, box.children.length);
         
         // Create flex container for lore references
         const loreContainer = document.createElement('div');
@@ -3359,12 +3449,16 @@ function populateLoreContextFromCache(jpText, enText, loreContext, anachHits, lo
             return item;
         });
         
-        normalizedLoreContext.forEach(m => {
+        console.log(`[populateLoreContextFromCache] Processing ${normalizedLoreContext.length} normalized lore items`);
+        normalizedLoreContext.forEach((m, index) => {
+            console.log(`[populateLoreContextFromCache] Processing item ${index}:`, m);
             if (!m.is_lore) {
                 // Strip angle brackets from tag name and quotes from value before comparing
                 const enValue = (m.en || '').trim().replace(/^"|"$/g, '');
                 const jpValue = (m.jp || '').trim().replace(/^<|>$/g, '').replace(/^<|>$/g, ''); // Remove angle brackets
+                console.log(`[populateLoreContextFromCache] Non-lore item - enValue: "${enValue}", jpValue: "${jpValue}"`);
                 if (jpValue === enValue) {
+                    console.log(`[populateLoreContextFromCache] Skipping item ${index} - name equals value`);
                     return; // Skip tags where name equals value
                 }
             }
@@ -3427,9 +3521,11 @@ function populateLoreContextFromCache(jpText, enText, loreContext, anachHits, lo
                 row.innerHTML = `<span class="lore-tag">${escHtml(m.jp || '')}</span> = <span class="lore-tag-val">"${escHtml(m.en || '')}"</span>`;
             }
             loreContainer.appendChild(row);
+            console.log(`[populateLoreContextFromCache] Added row for item ${index}, loreContainer children count:`, loreContainer.children.length);
         });
         
         box.appendChild(loreContainer);
+        console.log(`[populateLoreContextFromCache] Added lore container to box, box children count:`, box.children.length);
     }
     
     // Show anachronisms from cache
@@ -3507,17 +3603,25 @@ function populateLoreContextFromCache(jpText, enText, loreContext, anachHits, lo
     
     // Only show "No references found" if we have no content at all
     if (!hasContent) {
+        console.log(`[populateLoreContextFromCache] No content found, showing "No references found"`);
         box.innerHTML = '<em style="opacity:0.5">No references found.</em>';
+    } else {
+        console.log(`[populateLoreContextFromCache] Content added successfully, final box children count:`, box.children.length, 'box.innerHTML length:', box.innerHTML.length);
     }
 }
 
 async function populateSourceWithLoreHighlights(jpText, enText = '') {
     const box = document.getElementById('jp-source');
-    if (!box) return;
+    if (!box) {
+        console.log('[populateSourceWithLoreHighlights] jp-source element not found');
+        return;
+    }
     if (!jpText) {
         box.innerText = '';
         return;
     }
+    
+    console.log(`[populateSourceWithLoreHighlights] Called with jpText="${jpText?.substring(0, 30)}...", enText="${enText?.substring(0, 30)}..."`);
     
     // Store original Japanese text for dynamic updates
     box._originalJp = jpText;
@@ -3527,8 +3631,10 @@ async function populateSourceWithLoreHighlights(jpText, enText = '') {
     
     try {
         const matches = await eel.get_lore_context(jpText)();
+        console.log(`[populateSourceWithLoreHighlights] Got matches:`, matches);
         
         if (!matches || !matches.length) {
+            console.log('[populateSourceWithLoreHighlights] No matches found, keeping plain text');
             box.innerText = jpText;
             return;
         }
@@ -3675,16 +3781,23 @@ async function populateSourceWithLoreHighlights(jpText, enText = '') {
 
 async function populateLoreContext(jpText, enText, loadIdx) {
     const box = document.getElementById('lore-box');
-    if (!box) return;
+    if (!box) {
+        console.log('[populateLoreContext] lore-box element not found');
+        return;
+    }
+    console.log(`[populateLoreContext] Called with jpText="${jpText?.substring(0, 30)}...", enText="${enText?.substring(0, 30)}...", loadIdx=${loadIdx}`);
     box.innerHTML = '<em style="opacity:0.5">Loading…</em>';
+    
+    const loreCategory = 'lore_context';
+    let matches = [];
+    
     try {
-        // Check prefetch cache first
-        let matches = null;
-        const loreCategory = state.reviewer.currentCategory || 'default';
+        // Check if we have cached lore context for this item
         const loreCached = await eel.get_prefetch_cache(loreCategory, loadIdx)();
+        console.log(`[populateLoreContext] loreCached:`, loreCached);
         
         if (loreCached && loreCached.lore_context) {
-            console.log(`[populateLoreContext] Using cached lore_context for idx=${loadIdx}`);
+            console.log(`[populateLoreContext] Using cached lore_context for idx=${loadIdx}, matches:`, loreCached.lore_context);
             matches = loreCached.lore_context;
         } else {
             // Fetch fresh if not cached
@@ -3698,6 +3811,16 @@ async function populateLoreContext(jpText, enText, loadIdx) {
         }
         
         box.innerHTML = '';
+        
+        // Store lore context in cache for future use
+        if (matches && matches.length > 0) {
+            console.log(`[populateLoreContext] Storing lore_context in cache for idx=${loadIdx}`);
+            eel.update_prefetch_cache(loreCategory, loadIdx, { lore_context: matches })().then(result => {
+                console.log(`[populateLoreContext] Cache update result:`, result);
+            }).catch(err => {
+                console.error(`[populateLoreContext] Error updating cache:`, err);
+            });
+        }
         
         // Show lore references first
         if (matches && matches.length > 0) {
@@ -3786,6 +3909,17 @@ async function populateLoreContext(jpText, enText, loadIdx) {
         
         // Show anachronisms at the bottom if any
         const anachHits = state.reviewer.anachRanges || [];
+        
+        // Store anachronisms in cache for future use
+        if (anachHits && anachHits.length > 0) {
+            console.log(`[populateLoreContext] Storing anachronisms in cache for idx=${loadIdx}`);
+            eel.update_prefetch_cache(loreCategory, loadIdx, { anachronisms: anachHits })().then(result => {
+                console.log(`[populateLoreContext] Anachronisms cache update result:`, result);
+            }).catch(err => {
+                console.error(`[populateLoreContext] Error updating anachronisms cache:`, err);
+            });
+        }
+        
         if (anachHits && anachHits.length > 0) {
             const anachHeader = document.createElement('div');
             anachHeader.className = 'lore-header';
@@ -4987,7 +5121,6 @@ function initSettingsActions() {
         const models = await eel.fetch_models(key, freeOnly)();
         btnRefresh.innerText = 'REFRESH MODELS';
         if (models && models.length) {
-            renderModelSelector(models, models[0]);
             openAlertModal('SUCCESS', `Updated — found ${models.length} model(s).`);
         } else { openAlertModal('INFO', 'No models returned.'); }
     };
@@ -6286,3 +6419,247 @@ async function loadTranslationComments(entryId) {
 }
 
 // Note: Event listeners for reviewer mode are initialized in initReviewerActions()
+
+// =============================================================================
+// UTILITIES
+// =============================================================================
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// =============================================================================
+// VALIDATION
+// =============================================================================
+let validationErrors = null;
+
+async function validateCurrentTranslation() {
+    const jpText = document.getElementById('jp-source')?.innerText || '';
+    const enText = document.getElementById('en-editor')?.innerText || '';
+    
+    if (!jpText || !enText) return;
+    
+    try {
+        const result = await eel.validate_translation(jpText, enText)();
+        console.log('[validateCurrentTranslation] Result:', result);
+        if (result && result.ok) {
+            validationErrors = result.errors;
+            console.log('[validateCurrentTranslation] Errors:', result.errors);
+            displayValidationErrors(result.errors);
+        }
+    } catch (e) {
+        console.error('[validateCurrentTranslation] Error:', e);
+    }
+}
+
+function displayValidationErrors(errors) {
+    const container = document.getElementById('validation-warnings');
+    console.log('[displayValidationErrors] Container:', container);
+    if (!container) return;
+    
+    console.log('[displayValidationErrors] Errors object:', errors);
+    console.log('[displayValidationErrors] missing_tags:', errors.missing_tags);
+    console.log('[displayValidationErrors] missing_placeholders:', errors.missing_placeholders);
+    
+    const hasErrors = (
+        errors.missing_tags.length > 0 ||
+        errors.missing_placeholders.length > 0 ||
+        errors.extra_tags.length > 0 ||
+        errors.extra_placeholders.length > 0
+    );
+    
+    console.log('[displayValidationErrors] hasErrors:', hasErrors);
+    
+    if (!hasErrors) {
+        container.innerHTML = '';
+        container.style.display = 'none';
+        return;
+    }
+    
+    let html = '<div class="validation-warning-header">⚠️ Translation Issues:</div>';
+    
+    if (errors.missing_tags.length > 0) {
+        const tagHtml = errors.missing_tags.map(e => `&lt;${e.tag}&gt;`).join(', ');
+        console.log('[displayValidationErrors] Missing tags HTML:', tagHtml);
+        html += '<div class="validation-error">Missing tags: ' + tagHtml + '</div>';
+    }
+    if (errors.extra_tags.length > 0) {
+        html += '<div class="validation-error">Extra tags: ' + errors.extra_tags.map(e => `&lt;${e.tag}&gt;`).join(', ') + '</div>';
+    }
+    if (errors.missing_placeholders.length > 0) {
+        html += '<div class="validation-error">Missing placeholders: ' + errors.missing_placeholders.map(e => e.placeholder).join(', ') + '</div>';
+    }
+    if (errors.extra_placeholders.length > 0) {
+        html += '<div class="validation-error">Extra placeholders: ' + errors.extra_placeholders.map(e => e.placeholder).join(', ') + '</div>';
+    }
+    
+    console.log('[displayValidationErrors] Final HTML:', html);
+    
+    container.innerHTML = html;
+    container.style.display = 'block';
+    console.log('[displayValidationErrors] Set innerHTML, container display:', container.style.display);
+    console.log('[displayValidationErrors] Container after update:', container.innerHTML);
+}
+
+// =============================================================================
+// QUEUE SEARCH
+// =============================================================================
+let queueSearchResults = [];
+let currentSearchIndex = -1;
+
+function initQueueSearch() {
+    const input = document.getElementById('queue-search-input');
+    const prevBtn = document.getElementById('btn-queue-search-prev');
+    const nextBtn = document.getElementById('btn-queue-search-next');
+    
+    if (!input) return;
+    
+    input.addEventListener('keydown', handleQueueSearchKeydown);
+    prevBtn?.addEventListener('click', () => navigateQueueSearch(-1));
+    nextBtn?.addEventListener('click', () => navigateQueueSearch(1));
+}
+
+function handleQueueSearch(e) {
+    const rawQuery = e.target.value.trim();
+    const query = rawQuery.toLowerCase();
+    const resultsContainer = document.getElementById('queue-search-results');
+    const countDisplay = document.getElementById('queue-search-count');
+    
+    if (!query) {
+        queueSearchResults = [];
+        currentSearchIndex = -1;
+        if (resultsContainer) resultsContainer.innerHTML = '';
+        if (countDisplay) countDisplay.textContent = '';
+        return;
+    }
+    
+    const items = state.reviewer.fullQueue || [];
+    queueSearchResults = items.map((item, idx) => {
+        // For Japanese: use includes without toLowerCase (Japanese has no case)
+        // For English: use toLowerCase for case-insensitive match
+        const jpText = item.jp || '';
+        const enText = item.en || '';
+        const jpMatch = jpText.includes(rawQuery) || jpText.includes(query);
+        const enMatch = enText.toLowerCase().includes(query);
+        if (jpMatch || enMatch) return { idx, item, jpMatch, enMatch };
+        return null;
+    }).filter(r => r !== null);
+    
+    currentSearchIndex = queueSearchResults.length > 0 ? 0 : -1;
+    
+    if (countDisplay) {
+        countDisplay.textContent = queueSearchResults.length > 0 
+            ? `${currentSearchIndex + 1} / ${queueSearchResults.length}` : '0 results';
+    }
+    
+    renderQueueSearchResults(query);
+    if (queueSearchResults.length > 0) jumpToQueueResult(0);
+}
+
+function renderQueueSearchResults(query) {
+    const container = document.getElementById('queue-search-results');
+    if (!container) return;
+    
+    if (queueSearchResults.length === 0) {
+        container.innerHTML = '<div style="padding: 8px; color: var(--text-muted); font-size: 11px;">No matches</div>';
+        return;
+    }
+    
+    container.innerHTML = queueSearchResults.map((result, i) => {
+        const jpText = highlightSearchText(result.item.jp?.substring(0, 60) || '', query);
+        const enText = highlightSearchText(result.item.en?.substring(0, 60) || '', query);
+        const isActive = i === currentSearchIndex ? 'active' : '';
+        return `
+            <div class="search-result-item ${isActive}" data-idx="${i}">
+                <div class="search-result-jp">${jpText}</div>
+                <div class="search-result-en">${enText}</div>
+                <div class="search-result-meta"><span>#${result.idx + 1}</span><span>${result.item.file || ''}</span></div>
+            </div>`;
+    }).join('');
+    
+    container.querySelectorAll('.search-result-item').forEach(el => {
+        el.addEventListener('click', () => jumpToQueueResult(parseInt(el.dataset.idx)));
+    });
+}
+
+function highlightSearchText(text, rawQuery) {
+    if (!rawQuery || !text) return text || '—';
+    const query = rawQuery.toLowerCase();
+    const textLower = text.toLowerCase();
+    
+    // Build regex that matches either the raw query or lowercased query
+    const escapedRaw = rawQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const escapedLower = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    
+    let pattern;
+    if (escapedRaw === escapedLower) {
+        pattern = escapedRaw;
+    } else {
+        pattern = `${escapedRaw}|${escapedLower}`;
+    }
+    
+    // Use case-insensitive flag for Latin chars, but also match original
+    return text.replace(new RegExp(`(${pattern})`, 'gi'), '<span class="search-highlight">$1</span>');
+}
+
+function navigateQueueSearch(direction) {
+    if (queueSearchResults.length === 0) return;
+    currentSearchIndex = (currentSearchIndex + direction + queueSearchResults.length) % queueSearchResults.length;
+    jumpToQueueResult(currentSearchIndex);
+}
+
+function jumpToQueueResult(idx) {
+    const result = queueSearchResults[idx];
+    if (!result) return;
+    currentSearchIndex = idx;
+    
+    const countDisplay = document.getElementById('queue-search-count');
+    if (countDisplay) countDisplay.textContent = `${idx + 1} / ${queueSearchResults.length}`;
+    
+    document.querySelectorAll('.search-result-item').forEach((el, i) => {
+        el.classList.toggle('active', i === idx);
+    });
+    
+    loadItemAtIdx(result.idx);
+}
+
+function handleQueueSearchKeydown(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        const rawQuery = e.target.value.trim();
+        // If empty, clear results
+        if (!rawQuery) {
+            queueSearchResults = [];
+            currentSearchIndex = -1;
+            const resultsContainer = document.getElementById('queue-search-results');
+            const countDisplay = document.getElementById('queue-search-count');
+            if (resultsContainer) resultsContainer.innerHTML = '';
+            if (countDisplay) countDisplay.textContent = '';
+            return;
+        }
+        // If no results yet, perform search first
+        if (queueSearchResults.length === 0) {
+            handleQueueSearch({ target: e.target });
+        } else {
+            navigateQueueSearch(e.shiftKey ? -1 : 1);
+        }
+    } else if (e.key === 'Escape') {
+        e.target.value = '';
+        queueSearchResults = [];
+        currentSearchIndex = -1;
+        const resultsContainer = document.getElementById('queue-search-results');
+        const countDisplay = document.getElementById('queue-search-count');
+        if (resultsContainer) resultsContainer.innerHTML = '';
+        if (countDisplay) countDisplay.textContent = '';
+    }
+}
+
+// Initialize queue search on load
+document.addEventListener('DOMContentLoaded', initQueueSearch);

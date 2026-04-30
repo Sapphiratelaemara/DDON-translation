@@ -704,6 +704,14 @@ class TranslationManager:
         """Get recent translation activity across all entries."""
         return sorted(self.logs, key=lambda x: x.timestamp, reverse=True)[:min(limit, 1000)]
     
+    def get_translation_logs(self) -> List[TranslationLogEntry]:
+        """Get all translation logs."""
+        return self.logs
+    
+    def get_comment_log(self) -> List[TranslationLogEntry]:
+        """Get all comment logs."""
+        return [log for log in self.logs if log.action == 'comment']
+    
     def get_stats(self) -> Dict[str, int]:
         """Get translation statistics."""
         stats = {
@@ -723,6 +731,10 @@ class TranslationManager:
     def get_entries_by_status(self, status: str) -> List[TranslationEntry]:
         """Get all entries with a specific status."""
         return [e for e in self.entries.values() if e.status == status]
+
+    def get_approved_entries(self) -> List[TranslationEntry]:
+        """Get all approved entries."""
+        return self.get_entries_by_status("approved")
 
     def get_unapproved_entries_with_comments(self) -> List[Dict]:
         """Get all unapproved entries with comment count."""

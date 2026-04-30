@@ -260,6 +260,15 @@ Ctrl+Shift+D: Ellipsis</div>
                                 <option value="">Select category...</option>
                             </select>
                         </div>
+                        <div class="kl-queue-search-sidebar">
+                            <input type="text" id="queue-search-input" class="kl-input" placeholder="Search queue (Ctrl+F)..." style="width: 100%; margin-bottom: 8px;">
+                            <div style="display: flex; gap: 4px;">
+                                <button class="kl-btn-secondary" id="btn-queue-search-prev" style="flex: 1;">▲</button>
+                                <button class="kl-btn-secondary" id="btn-queue-search-next" style="flex: 1;">▼</button>
+                            </div>
+                            <span class="kl-value" id="queue-search-count" style="font-size: 11px; color: var(--text-muted);"></span>
+                            <div id="queue-search-results" class="search-results-list" style="margin-top: 8px; max-height: 300px; overflow-y: auto;"></div>
+                        </div>
                         <div class="kl-sidebar-filter" id="filter-dropdown" style="display: none;">
                             <div class="filter-menu">
                                 <div class="filter-option">
@@ -365,6 +374,7 @@ Ctrl+Shift+D: Ellipsis</div>
                                             <div class="kl-line-counters" id="line-counters">
                                                 <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
                                             </div>
+                                            <div id="validation-warnings" style="display: none; margin-top: 8px; padding: 8px; background: rgba(255, 68, 68, 0.1); border: 1px solid #ff4444; border-radius: 4px; font-size: 12px;"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -1107,6 +1117,7 @@ Ctrl+Shift+D: Ellipsis</div>
                                 </div>
                             </div>
 
+                            
                         </div>
                     </div>
                 </div>

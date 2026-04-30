@@ -193,13 +193,15 @@ class LoreEngine:
                 # Handle list values - use first element
                 if isinstance(archaic_word, list):
                     archaic_word = archaic_word[0]
-                # Check if the archaic_word actually came from DD1_VOCAB (not just if key exists)
-                # Compare the actual value to determine source
-                dd1_value = DD1_VOCAB.get(key)
-                if isinstance(dd1_value, list):
-                    dd1_value = dd1_value[0]
-                is_dd1 = (archaic_word == dd1_value)
-                unique.append((word, archaic_word, is_dd1))
+                # Only include matches that have actual suggestions
+                if archaic_word and archaic_word.strip():
+                    # Check if the archaic_word actually came from DD1_VOCAB (not just if key exists)
+                    # Compare the actual value to determine source
+                    dd1_value = DD1_VOCAB.get(key)
+                    if isinstance(dd1_value, list):
+                        dd1_value = dd1_value[0]
+                    is_dd1 = (archaic_word == dd1_value)
+                    unique.append((word, archaic_word, is_dd1))
         return unique
 
     # ---------------- Definition Cache ----------------

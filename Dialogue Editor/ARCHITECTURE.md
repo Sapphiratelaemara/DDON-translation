@@ -89,13 +89,15 @@ Dialogue Editor/
 │   └── check_keys.py      # Utility script for testing API keys
 ├── config/                # Per-language configuration directory
 │   ├── en/                # English language configuration
-│   │   ├── formatter_config.json   # Main configuration - partial sync (tag_map, triggers, presets, wall_presets, speaker_archetypes, speaker_notes, tag_display, entry_type_rules)
-│   │   ├── user_settings.json      # User preferences (sync settings, paths, theme, etc.)
-│   │   ├── memory.json             # Learned fixes (source text → wrapped text mappings, archetype assignments)
-│   │   ├── translation_memory.json # Translation memory entries (synced to GitHub)
-│   │   ├── archetypes.json        # Character archetypes (synced to GitHub)
-│   │   ├── dd1_vocab.json         # DD1 vocabulary (synced to GitHub)
-│   │   ├── other_vocab.json       # Non-DD1 vocabulary (synced to GitHub)
+│   │   ├── formatter_config.json   # Main configuration - non-split keys only (triggers, styles, wall_preset, sync_language, pretranslate_settings, config_dir, deepl_target_lang, archetypes, entry_type_rules, replace_rules, ai_system_prompt, ai_button_prompts, substitution_rules)
+│   │   ├── tag_map.json           # Tag mappings (synced to GitHub)
+│   │   ├── presets.json           # Character presets (synced to GitHub)
+│   │   ├── speaker_data.json      # Speaker archetypes & notes (synced to GitHub)
+│   │   ├── tag_display.json       # Tag display settings (synced to GitHub)
+│   │   ├── preview_font.json      # Font preview settings (synced to GitHub)
+│   │   ├── user_settings.json      # User preferences (local only)
+│   │   ├── memory.json             # Learned fixes (local only)
+│   │   ├── translation_memory.json # Translation memory entries (compressed, synced to GitHub)
 │   │   ├── anach_definitions.json # Anachronism definitions (synced to GitHub)
 │   │   ├── archaic_examples.json  # Archaic word examples (synced to GitHub)
 │   │   ├── prefetch_cache.json    # Prefetch manager cache (per-language, not synced)
@@ -366,13 +368,15 @@ save_vocab(file, data)        # Save vocabulary file
 - Auto-sync on schedule if enabled
 
 **Synced Files (Per-Language):**
-- `formatter_config.json` - Main configuration (partial sync only: tag_map, triggers, presets, wall_presets, speaker_archetypes, speaker_notes, tag_display, entry_type_rules)
-- `archetypes.json` - Character archetypes
-- `dd1_vocab.json` - DD1 vocabulary
-- `other_vocab.json` - Non-DD1 vocabulary
+- `formatter_config.json` - Main configuration (non-split keys only: triggers, styles, wall_preset, sync_language, pretranslate_settings, config_dir, deepl_target_lang, archetypes, entry_type_rules, replace_rules, ai_system_prompt, ai_button_prompts, substitution_rules)
+- `tag_map.json` - Tag mappings (1,485 entries)
+- `presets.json` - Character presets (7 presets)
+- `speaker_data.json` - Speaker archetypes and notes
+- `tag_display.json` - Tag display settings (1,402 entries)
+- `preview_font.json` - Font preview settings
 - `anach_definitions.json` - Anachronism definitions
 - `archaic_examples.json` - Archaic word examples
-- `translation_memory.json` - Translation memory entries (with hash-based entry IDs)
+- `translation_memory.json` - Translation memory entries (compressed with gzip)
 - Entry data: status, logs, comments per source file
 
 **NOT Synced (Local Only):**
@@ -399,7 +403,7 @@ _merge_logs(local, remote)                # Merge logs
 - **Translation Memory**: Combines all entries from local and remote, sorts by timestamp
 - **Status Entries**: Merges entries by entry_id. If same entry_id exists in both, keeps both by appending timestamp to key (e.g., "abc123_2026-04-12T13:59:00")
 - **Logs**: Deduplicates by log ID, keeps newer timestamp for duplicates
-- **Partial Sync (formatter_config.json)**: Only syncs specific fields (tag_map, triggers, presets, wall_presets, speaker_archetypes, speaker_notes, tag_display, entry_type_rules), other fields remain local
+- **Split Config Files**: Each file synced independently to avoid duplication
 
 **Hash-Based Entry IDs:**
 - All translation entries and TM entries use hash-based entry IDs generated from source text
@@ -412,17 +416,33 @@ _merge_logs(local, remote)                # Merge logs
 ```
 <repo>/
 └── <language>/
-    ├── archetypes.json
-    ├── dd1_vocab.json
-    ├── other_vocab.json
-    ├── anach_definitions.json
-    ├── archaic_examples.json
-    ├── translation_memory.json
+    ├── formatter_config.json  # Non-split config keys only
+    ├── tag_map.json          # Tag mappings
+    ├── presets.json          # Character presets
+    ├── speaker_data.json     # Speaker archetypes & notes
+    ├── tag_display.json      # Tag display settings
+    ├── preview_font.json     # Font preview settings
+    ├── anach_definitions.json # Anachronism definitions
+    ├── archaic_examples.json  # Archaic word examples
+    ├── translation_memory.json # Translation memory (compressed)
     └── <sanitized_filename>/  # Per source file
         ├── status.json        # Entry status data (with hash-based entry IDs)
-        ├── logs.json          # Translation logs
-        └── comments.json      # User comments
+        ├── logs.json          # Translation logs (comments embedded)
 ```
+
+**Sync Timing:**
+- Push (upload): Every 30 minutes (`PUSH_INTERVAL_DEFAULT = 1800s`)
+- Pull (download): Every 30 minutes (`PULL_INTERVAL = 1800s`)
+- Urgent push (after comments): 1 minute (`PUSH_INTERVAL_COMMENT = 60s`)
+
+**Data Usage Optimization:**
+- SHA-based change detection - only downloads files with changed hashes
+- Per-file granularity - unchanged source files are completely skipped
+- Entry-level timestamp comparison - only updates newer entries
+- Log deduplication by ID+timestamp
+- Translation memory compressed with gzip (~4x reduction)
+- Large files fetched via direct download_url (binary, not base64)
+- Dirty file tracking - only pushes modified files
 
 ### 4. API Handler (`src/api_handler.py`)
 

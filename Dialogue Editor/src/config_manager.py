@@ -38,6 +38,13 @@ class ConfigManager:
         self.dd1_vocab_file = os.path.join(config_dir, "dd1_vocab.json")
         self.other_vocab_file = os.path.join(config_dir, "other_vocab.json")
         
+        # Split config files (for better sync handling)
+        self.tag_map_file = os.path.join(config_dir, "tag_map.json")
+        self.presets_file = os.path.join(config_dir, "presets.json")
+        self.speaker_data_file = os.path.join(config_dir, "speaker_data.json")
+        self.tag_display_file = os.path.join(config_dir, "tag_display.json")
+        self.preview_font_file = os.path.join(config_dir, "preview_font.json")
+        
         self.memory = {}
         self.keys = {}
         self.cache = {}
@@ -204,8 +211,8 @@ class ConfigManager:
                 "theme_mode": "dark",
                 "dark_mode": True,
                 "in_universe": True,
-                "openrouter_models": ["openrouter/auto", "meta-llama/llama-3.3-70b-instruct:free", "google/gemma-3-27b-it:free"],
-                "selected_openrouter_model": "openrouter/auto",
+                "openrouter_models": None,  # Don't override user's saved list
+                "selected_openrouter_model": "openrouter/auto",  # Default model selection
                 "preview_mode": True,
                 "show_paid_models": False,
                 "selected_preset": "Dialogue Box",
@@ -377,7 +384,7 @@ class ConfigManager:
 
             if os.path.exists(self.config_file):
                 try:
-                    with open(self.config_file, 'r', encoding='utf-8') as f:
+                    with open(self.config_file, 'r', encoding='utf-8-sig') as f:
                         data = json.load(f)
 
                         # Migration of keys to separate file
@@ -432,11 +439,15 @@ class ConfigManager:
                         for key, default in keys_defaults.items():
                             if key not in data:
                                 data[key] = default
+                        
+                        # Load split config files and merge into main config
+                        self._load_split_configs(data)
                         return data
                 except (json.JSONDecodeError, IOError):
                     print("Config file corrupted, creating new one.")
 
-            return {
+            # Return defaults with split configs loaded
+            defaults = {
                 "tag_map": {},
                 "tag_display": {},
                 "presets": {"Standard": 50},
@@ -455,18 +466,140 @@ class ConfigManager:
                     "check": "Check this for errors: {text}"
                 },
             }
+            # Try to load split configs even when using defaults
+            self._load_split_configs(defaults)
+            return defaults
+
+    def _load_split_configs(self, data):
+        """Load split config files and merge into data dict."""
+        # Load tag_map
+        if os.path.exists(self.tag_map_file):
+            try:
+                with open(self.tag_map_file, 'r', encoding='utf-8-sig') as f:
+                    tag_map = json.load(f)
+                    if isinstance(tag_map, dict) and tag_map:
+                        data['tag_map'] = tag_map
+            except (json.JSONDecodeError, IOError) as e:
+                print(f"[ConfigManager] Error loading tag_map.json: {e}")
+        
+        # Load presets (contains presets and wall_presets)
+        if os.path.exists(self.presets_file):
+            try:
+                with open(self.presets_file, 'r', encoding='utf-8-sig') as f:
+                    presets_data = json.load(f)
+                    if isinstance(presets_data, dict):
+                        if 'presets' in presets_data:
+                            data['presets'] = presets_data['presets']
+                        if 'wall_presets' in presets_data:
+                            data['wall_presets'] = presets_data['wall_presets']
+            except (json.JSONDecodeError, IOError) as e:
+                print(f"[ConfigManager] Error loading presets.json: {e}")
+        
+        # Load speaker_data (contains speaker_archetypes and speaker_notes)
+        if os.path.exists(self.speaker_data_file):
+            try:
+                with open(self.speaker_data_file, 'r', encoding='utf-8-sig') as f:
+                    speaker_data = json.load(f)
+                    if isinstance(speaker_data, dict):
+                        if 'speaker_archetypes' in speaker_data:
+                            data['speaker_archetypes'] = speaker_data['speaker_archetypes']
+                        if 'speaker_notes' in speaker_data:
+                            data['speaker_notes'] = speaker_data['speaker_notes']
+            except (json.JSONDecodeError, IOError) as e:
+                print(f"[ConfigManager] Error loading speaker_data.json: {e}")
+        
+        # Load tag_display
+        if os.path.exists(self.tag_display_file):
+            try:
+                with open(self.tag_display_file, 'r', encoding='utf-8-sig') as f:
+                    tag_display = json.load(f)
+                    if isinstance(tag_display, dict) and tag_display:
+                        data['tag_display'] = tag_display
+            except (json.JSONDecodeError, IOError) as e:
+                print(f"[ConfigManager] Error loading tag_display.json: {e}")
+        
+        # Load preview_font
+        if os.path.exists(self.preview_font_file):
+            try:
+                with open(self.preview_font_file, 'r', encoding='utf-8-sig') as f:
+                    preview_font = json.load(f)
+                    if isinstance(preview_font, dict) and preview_font:
+                        data['preview_font'] = preview_font
+            except (json.JSONDecodeError, IOError) as e:
+                print(f"[ConfigManager] Error loading preview_font.json: {e}")
+
+    def _save_split_configs(self):
+        """Save split config files separately for better sync handling."""
+        # Save tag_map
+        if 'tag_map' in self.config:
+            try:
+                with open(self.tag_map_file, 'w', encoding='utf-8') as f:
+                    json.dump(self.config['tag_map'], f, indent=2, ensure_ascii=False)
+            except IOError as e:
+                print(f"[ConfigManager] Error saving tag_map.json: {e}")
+        
+        # Save presets (contains both presets and wall_presets)
+        presets_data = {}
+        if 'presets' in self.config:
+            presets_data['presets'] = self.config['presets']
+        if 'wall_presets' in self.config:
+            presets_data['wall_presets'] = self.config['wall_presets']
+        if presets_data:
+            try:
+                with open(self.presets_file, 'w', encoding='utf-8') as f:
+                    json.dump(presets_data, f, indent=2, ensure_ascii=False)
+            except IOError as e:
+                print(f"[ConfigManager] Error saving presets.json: {e}")
+        
+        # Save speaker_data (contains both speaker_archetypes and speaker_notes)
+        speaker_data = {}
+        if 'speaker_archetypes' in self.config:
+            speaker_data['speaker_archetypes'] = self.config['speaker_archetypes']
+        if 'speaker_notes' in self.config:
+            speaker_data['speaker_notes'] = self.config['speaker_notes']
+        if speaker_data:
+            try:
+                with open(self.speaker_data_file, 'w', encoding='utf-8') as f:
+                    json.dump(speaker_data, f, indent=2, ensure_ascii=False)
+            except IOError as e:
+                print(f"[ConfigManager] Error saving speaker_data.json: {e}")
+        
+        # Save tag_display
+        if 'tag_display' in self.config:
+            try:
+                with open(self.tag_display_file, 'w', encoding='utf-8') as f:
+                    json.dump(self.config['tag_display'], f, indent=2, ensure_ascii=False)
+            except IOError as e:
+                print(f"[ConfigManager] Error saving tag_display.json: {e}")
+        
+        # Save preview_font
+        if 'preview_font' in self.config:
+            try:
+                with open(self.preview_font_file, 'w', encoding='utf-8') as f:
+                    json.dump(self.config['preview_font'], f, indent=2, ensure_ascii=False)
+            except IOError as e:
+                print(f"[ConfigManager] Error saving preview_font.json: {e}")
 
     def save_all(self):
         with self._lock:
             try:
+                # Save main config (without split data or API keys)
                 with open(self.config_file, 'w', encoding='utf-8') as f:
-                    # Ensure we don't save keys into the main config
                     to_save = self.config.copy()
-                    for k in ["deepl_api_key", "openrouter_api_key"]:
+                    # API keys - NEVER synced (stored in keys.json in project root)
+                    api_keys = ["deepl_api_key", "openrouter_api_key"]
+                    # Synced config files - stored separately but DO get synced
+                    synced_split_files = ["tag_map", "presets", "wall_presets", 
+                                          "speaker_archetypes", "speaker_notes", "tag_display", "preview_font"]
+                    for k in api_keys + synced_split_files:
                         to_save.pop(k, None)
                     json.dump(to_save, f, indent=4)
             except IOError as e:
                 print(f"Error saving config: {e}")
+            
+            # Save split config files separately
+            self._save_split_configs()
+            
             self.save_memory()
             self.save_keys()
             self.save_cache()

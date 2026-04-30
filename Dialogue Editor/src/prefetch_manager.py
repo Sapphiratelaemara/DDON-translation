@@ -340,6 +340,25 @@ class PrefetchManager:
         for idx in range(len(items)):
             self.enqueue(category, idx, items[idx])
     
+    def update_cache(self, category: str, idx: int, data: Dict[str, Any]):
+        """Directly update the cache for a specific category and index.
+        
+        Args:
+            category: Category name
+            idx: Item index
+            data: Data to cache (will be merged with existing cache entry)
+        """
+        with self._lock:
+            cache_key = self._cache_key(category, idx)
+            existing = self._cache.get(cache_key, {})
+            # Merge with existing data, preserving timestamp if not provided
+            if 'timestamp' not in data:
+                data['timestamp'] = existing.get('timestamp', time.time())
+            existing.update(data)
+            self._cache[cache_key] = existing
+            self._save_cache_to_file()
+            print(f"[PrefetchManager] Updated cache for category={category}, idx={idx}")
+    
     def clear_cache(self):
         """Clear the entire cache."""
         with self._lock:
