@@ -15,14 +15,15 @@ they execute on the Tk main thread.
 """
 
 import csv
+import json
 import os
 import re
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from typing import Callable, Dict, List
 
-from lore_engine import LoreEngine
-from file_utils import _read_csv
+from src.lore_engine import LoreEngine
+from src.file_utils import _read_csv
 
 
 # ---------------------------------------------------------------------------
@@ -40,7 +41,49 @@ class BatchSettings:
     entry_type_rules: Dict
     replace_rules:    List
     preview_mode:     bool
+    checkpoint_file:  str = None
 
+
+# ---------------------------------------------------------------------------
+# Checkpoint helpers
+# ---------------------------------------------------------------------------
+
+def _get_settings_hash(settings: BatchSettings) -> str:
+    """Generate hash of settings to detect parameter changes."""
+    import hashlib
+    settings_str = f"{settings.limit}_{settings.wall_limit}_{settings.triggers}_{settings.do_in_universe}_{settings.folders}_{settings.preview_mode}"
+    return hashlib.md5(settings_str.encode()).hexdigest()
+
+def _save_checkpoint(checkpoint_file: str, processed_files: List[str], current_index: int, settings_hash: str, auto_fixed: int):
+    """Save checkpoint state to file."""
+    try:
+        with open(checkpoint_file, 'w', encoding='utf-8') as f:
+            json.dump({
+                "processed_files": processed_files,
+                "current_index": current_index,
+                "settings_hash": settings_hash,
+                "auto_fixed": auto_fixed
+            }, f, indent=4)
+    except Exception as e:
+        print(f"Error saving checkpoint: {e}")
+
+def _load_checkpoint(checkpoint_file: str) -> dict:
+    """Load checkpoint state from file."""
+    try:
+        if os.path.exists(checkpoint_file):
+            with open(checkpoint_file, 'r', encoding='utf-8') as f:
+                return json.load(f)
+    except Exception as e:
+        print(f"Error loading checkpoint: {e}")
+    return None
+
+def _delete_checkpoint(checkpoint_file: str):
+    """Delete checkpoint file."""
+    try:
+        if os.path.exists(checkpoint_file):
+            os.remove(checkpoint_file)
+    except Exception as e:
+        print(f"Error deleting checkpoint: {e}")
 
 # ---------------------------------------------------------------------------
 # Core scan
@@ -59,6 +102,26 @@ def run_batch(
     wall_q  = queues["wall"]
     dash_q  = queues["dash"]
     anach_q = queues["anach"]
+
+    # Checkpoint state
+    processed_files = []
+    current_index = 0
+    settings_hash = _get_settings_hash(settings) if settings.checkpoint_file else None
+    auto_fixed = 0
+
+    # Load checkpoint if exists
+    if settings.checkpoint_file:
+        checkpoint = _load_checkpoint(settings.checkpoint_file)
+        if checkpoint:
+            # Check if settings match
+            if checkpoint.get("settings_hash") == settings_hash:
+                processed_files = checkpoint.get("processed_files", [])
+                current_index = checkpoint.get("current_index", 0)
+                auto_fixed = checkpoint.get("auto_fixed", 0)
+                log_fn(f"Resuming from checkpoint: {len(processed_files)} files already processed, {auto_fixed} auto-fixed")
+            else:
+                log_fn("Checkpoint found but settings changed, starting fresh")
+                _delete_checkpoint(settings.checkpoint_file)
 
     # Build lore engine for this scan session
     lore_engine = LoreEngine(cm.config.get("archetypes"))
@@ -135,9 +198,11 @@ def run_batch(
             and t.strip() not in known_tags
         ]
 
-    auto_fixed = 0
-
     for i, f_path in enumerate(all_files):
+        # Skip already-processed files if resuming from checkpoint
+        if f_path in processed_files:
+            continue
+
         progress_fn(((i + 1) / len(all_files)) * 100)
         file_modded = False
         output_rows = []
@@ -172,14 +237,14 @@ def run_batch(
                 # 2b. Dash scan
                 if _DASH_RE.search(orig_text) and orig_text not in tag_q and orig_text not in wall_q:
                     dash_q[orig_text].append(
-                        {"path": f_path, "row_idx": r_idx, "entry_type": entry_type}
+                        {"path": f_path, "row_idx": r_idx, "entry_type": entry_type, "speaker": speaker}
                     )
 
                 # 2c. Anachronism scan
                 anach_hits = lore_engine.scan_anachronisms(orig_text)
                 if anach_hits and orig_text not in tag_q and orig_text not in wall_q:
                     anach_q[orig_text].append(
-                        {"path": f_path, "row_idx": r_idx, "hits": anach_hits, "entry_type": entry_type}
+                        {"path": f_path, "row_idx": r_idx, "hits": anach_hits, "entry_type": entry_type, "speaker": speaker}
                     )
 
                 # 3. Memory branch
@@ -250,12 +315,12 @@ def run_batch(
                     if queue_type == "tag":
                         tag_q[orig_text].append({
                             "path": f_path, "row_idx": r_idx, "entry_type": entry_type,
-                            "tag_reason": tag_reason, "unknown_tags": unknown_tags_found,
+                            "tag_reason": tag_reason, "unknown_tags": unknown_tags_found, "speaker": speaker,
                         })
                     elif queue_type == "linelimit":
                         wall_q[orig_text].append({
                             "path": f_path, "row_idx": r_idx,
-                            "wrapped": wall_wrapped_text, "entry_type": entry_type,
+                            "wrapped": wall_wrapped_text, "entry_type": entry_type, "speaker": speaker,
                         })
                 else:
                     if row[3] != proposed_text:
@@ -268,6 +333,11 @@ def run_batch(
             if file_modded and not settings.preview_mode and len(output_rows) == len(current_file_data):
                 with open(f_path, "w", encoding="utf-8-sig", newline="") as fh:
                     csv.writer(fh, dialect).writerows(output_rows)
+
+            # 7. Save checkpoint
+            if settings.checkpoint_file:
+                processed_files.append(f_path)
+                _save_checkpoint(settings.checkpoint_file, processed_files, i, settings_hash, auto_fixed)
 
             queued = sum(
                 1 for t in [tag_q, wall_q, dash_q]
@@ -291,7 +361,13 @@ def run_batch(
         for q in [tag_q, wall_q, dash_q, anach_q]
     )
     log_fn(
-        f"─── Scan complete — {auto_fixed} file(s) auto-fixed, "
-        f"{total_queued} item(s) queued for review ───"
+        f"――― Scan complete — {auto_fixed} file(s) auto-fixed, "
+        f"{total_queued} item(s) queued for review ―――"
     )
+    
+    # Delete checkpoint on successful completion
+    if settings.checkpoint_file:
+        _delete_checkpoint(settings.checkpoint_file)
+        log_fn("Checkpoint deleted (scan complete)")
+    
     done_fn(settings.limit, settings.wall_limit)

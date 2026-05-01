@@ -13,7 +13,7 @@ import os
 FORBIDDEN_SYMBOLS = {
     "“": '"', "”": '"',
     "‘": "'", "’": "'",
-    "~": "～"
+    "~": "～", "＋": "+",
 }
 
 DATE_PATTERN = re.compile(r"\b\d{1,2}/\d{1,2}/\d{2}\b")
