@@ -75,15 +75,23 @@ class TranslationEngine:
         return "\n".join(result_lines)
 
     def _tokenise(self, text):
-        """Split text into word-level tokens where complete <tags> are always atomic.
+        """Split text into word-level tokens where complete <tags> and quoted tags are always atomic.
         Spaces inside angle brackets are never treated as split points."""
-        parts = re.split(r'(<[^>]+>)', text)   # alternates: text, tag, text, tag, ...
+        # First extract quoted tags as atomic units
+        quoted_tag_pattern = r'("<[^>]+>")'
+        parts = re.split(quoted_tag_pattern, text)
         tokens = []
         for part in parts:
-            if part.startswith('<') and part.endswith('>'):
-                tokens.append(part)             # whole tag — never split
-            elif part:
-                tokens.extend(re.split(r'(\s+)', part))   # normal text — split on whitespace
+            if part.startswith('"') and part.endswith('"') and '<' in part and '>' in part:
+                tokens.append(part)  # quoted tag like "<NAME QUEST>" - keep atomic
+            else:
+                # Process remaining text for regular tags
+                tag_parts = re.split(r'(<[^>]+>)', part)
+                for tag_part in tag_parts:
+                    if tag_part.startswith('<') and tag_part.endswith('>'):
+                        tokens.append(tag_part)  # regular tag - keep atomic
+                    elif tag_part:
+                        tokens.extend(re.split(r'(\s+)', tag_part))  # normal text - split on whitespace
         return tokens
 
     def _wrap_segment(self, text, limit):

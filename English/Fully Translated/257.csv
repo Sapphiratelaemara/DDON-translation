@@ -696,11 +696,14 @@ has joined the clan.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.ar
 253,syslog_clanquest_enable_clear_over,"クランクエスト＜<VAL>＞の
 CP報酬の有効クリア回数が上限に達しました","The maximum number of times to receive CP rewards
 for the Clan Quest <VAL> has been reached.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,253,,System Chatbox Text
-89,syslog_content_anounce_calcurate,<NAME QUEST>が集計期間中です,<NAME QUEST> is currently in progress.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,89,,System Chatbox Text
-88,syslog_content_anounce_hold,<NAME QUEST>が開催期間中です,<NAME QUEST> is currently in progress.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,88,,System Chatbox Text
-87,syslog_content_anounce_prepare,<NAME QUEST>が準備期間中です,"<NAME QUEST> is currently in the preparation
-period.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,87,,System Chatbox Text
-90,syslog_content_anounce_reward,<NAME QUEST>が報酬受取期間中です,<NAME QUEST> has a reward available to claim.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,90,,System Chatbox Text
+89,syslog_content_anounce_calcurate,<NAME QUEST>が集計期間中です,"<NAME QUEST> is
+currently in progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,89,,System Chatbox Text
+88,syslog_content_anounce_hold,<NAME QUEST>が開催期間中です,"<NAME QUEST> is
+currently in progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,88,,System Chatbox Text
+87,syslog_content_anounce_prepare,<NAME QUEST>が準備期間中です,"<NAME QUEST> is currently
+in the preparation period.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,87,,System Chatbox Text
+90,syslog_content_anounce_reward,<NAME QUEST>が報酬受取期間中です,"<NAME QUEST> has a reward
+available to claim.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,90,,System Chatbox Text
 81,syslog_content_boss_beat,<EMNM n>を退けました,<EMNM n> has been repelled.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,81,,System Chatbox Text
 82,syslog_content_boss_defeat,<EMNM n>を討伐しました,<EMNM n> was defeated.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,82,,System Chatbox Text
 336,syslog_content_buff_get,"""<VAL>""の効果が付与されました","""<VAL>"" effect has been applied.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,336,,System Chatbox Text
@@ -709,22 +712,29 @@ period.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,87,,System 
 76,syslog_content_convoy_hp_little,<NAME TARGET>のHPが瀕死状態です,"<NAME TARGET>'s 
 HP is in critical condition",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,76,,System Chatbox Text
 77,syslog_content_convoy_hp_zero,<NAME TARGET>が倒れました,<NAME TARGET> has been defeated.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,77,,System Chatbox Text
-83,syslog_content_end_by_clear,<NAME QUEST>をクリアにより終了します,<NAME QUEST> has been cleared.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,83,,System Chatbox Text
-84,syslog_content_end_by_escape,<NAME QUEST>を離脱により終了します,<NAME QUEST> ended by leaving.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,84,,System Chatbox Text
-85,syslog_content_end_by_friends_down,<NAME QUEST>を<NAME TARGET>が倒れたため、終了します,"The quest <NAME QUEST> will end as 
+83,syslog_content_end_by_clear,<NAME QUEST>をクリアにより終了します,"<NAME QUEST>
+has been cleared.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,83,,System Chatbox Text
+84,syslog_content_end_by_escape,<NAME QUEST>を離脱により終了します,"<NAME QUEST>
+ended by leaving.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,84,,System Chatbox Text
+85,syslog_content_end_by_friends_down,<NAME QUEST>を<NAME TARGET>が倒れたため、終了します,"The quest
+<NAME QUEST> will end as
 <NAME TARGET> has fallen.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,85,,System Chatbox Text
-86,syslog_content_end_by_timeup,<NAME QUEST>をタイムアップにより終了します,<NAME QUEST> ended due to the time limit.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,86,,System Chatbox Text
+86,syslog_content_end_by_timeup,<NAME QUEST>をタイムアップにより終了します,"<NAME QUEST> ended due
+to the time limit.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,86,,System Chatbox Text
 74,syslog_content_enemy_engage,<EMNM n>が乱入しました,<EMNM n> has intruded.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,74,,System Chatbox Text
 159,syslog_content_entry,エクストリームミッションにエントリーしました,You have applied for the Extreme Mission.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,159,,System Chatbox Text
-79,syslog_content_pawn_add_reward,セカンドポーンの恩恵により<NAME QUEST>に報酬が追加されました,"With the benefit of the Second Pawn, rewards have
-been added to <NAME QUEST>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,79,,System Chatbox Text
+79,syslog_content_pawn_add_reward,セカンドポーンの恩恵により<NAME QUEST>に報酬が追加されました,"With the benefit of the Second Pawn,
+rewards have been added to
+<NAME QUEST>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,79,,System Chatbox Text
 80,syslog_content_pawn_get_pawn,セカンドポーンが仲間に加わりました,A second pawn has joined the group.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,80,,System Chatbox Text
 78,syslog_content_pawn_rescure_success,<NAME TARGET>(共闘ポーン名)の援護に成功しました,"<NAME TARGET> 
 has been rescued!",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,78,,System Chatbox Text
-91,syslog_content_reward_get_boarder,<NAME QUEST>の累計スコア報酬が保管ボックスに入りました,"<NAME QUEST> total score reward has been placed
+91,syslog_content_reward_get_boarder,<NAME QUEST>の累計スコア報酬が保管ボックスに入りました,"<NAME QUEST> total score
+reward has been placed
 into the storage box.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,91,,System Chatbox Text
-92,syslog_content_reward_get_ranked,<NAME QUEST>のランキング報酬が保管ボックスに入りました,"<NAME QUEST> ranking reward has been placed into
-the storage box.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,92,,System Chatbox Text
+92,syslog_content_reward_get_ranked,<NAME QUEST>のランキング報酬が保管ボックスに入りました,"<NAME QUEST> ranking
+reward has been placed
+into the storage box.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,92,,System Chatbox Text
 72,syslog_content_start,<NAME QUEST>を開始しました,<NAME QUEST> has begun.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,72,,System Chatbox Text
 73,syslog_content_update,<NAME QUEST>：≪小目的テキスト≫,<NAME QUEST>: <<Text for Sub-objective>>,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,73,,System Chatbox Text
 252,syslog_cp_get,<VAL CP>を入手しました,<VAL CP> obtained.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,252,,System Chatbox Text
@@ -761,9 +771,12 @@ of Destruction!",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,381
 370,syslog_ds_support_ana_02,敵の部位を破壊しやすくなった,It is now easier to break destructible parts.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,370,,System Chatbox Text
 371,syslog_ds_support_ana_03,敵の防御を破り、プレイヤーの攻撃力が強化された,"Break through their defense to enhance your
 offensive power.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,371,,System Chatbox Text
-71,syslog_entryboard_cancel,<NAME QUEST>のエントリーを取り消しました,<NAME QUEST> entry has been canceled.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,71,,System Chatbox Text
-69,syslog_entryboard_creat,<NAME QUEST>のエントリーボードを作成しました,<NAME QUEST> entry board has been created.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,69,,System Chatbox Text
-70,syslog_entryboard_entry,<NAME QUEST>にエントリーしました,<NAME QUEST> has been applied for entry.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,70,,System Chatbox Text
+71,syslog_entryboard_cancel,<NAME QUEST>のエントリーを取り消しました,"<NAME QUEST> entry
+has been canceled.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,71,,System Chatbox Text
+69,syslog_entryboard_creat,<NAME QUEST>のエントリーボードを作成しました,"<NAME QUEST> entry
+board has been created.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,69,,System Chatbox Text
+70,syslog_entryboard_entry,<NAME QUEST>にエントリーしました,"<NAME QUEST> has been
+applied for entry.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,70,,System Chatbox Text
 7,syslog_error_clan,クランに加入していません,Not currently in the clan.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,7,,System Chatbox Text
 8,syslog_error_entryb,エントリーボードに登録していません,You are not registered at the entry board.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,8,,System Chatbox Text
 9,syslog_error_party_member_0,パーティーメンバーがいません,You have no party members.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9,,System Chatbox Text

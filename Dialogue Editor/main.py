@@ -1260,6 +1260,19 @@ def rewrap_text(text, limit=None):
         return text
 
 @eel.expose
+def get_tag_aware_character_count(text):
+    """Get tag-aware character count for line counters."""
+    if not text:
+        return 0
+    try:
+        return engine.get_simulated_len(text)
+    except Exception as e:
+        print(f"[get_tag_aware_character_count] Error: {e}")
+        return len(text)  # Fallback to raw length
+
+
+
+@eel.expose
 def get_standard_limit():
     selected = cm.user_settings.get("selected_preset", "Standard")
     presets  = cm.config.get("presets", {"Standard": 50})

@@ -186,46 +186,62 @@ cannot earn any more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.a
 278,syslog_pq_seq_ana_start,＜<VAL>＞の使命＜<VAL>＞を開始しました,"""<VAL>"" mission ""<VAL>"" has begun.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,278,,System Chatbox Text
 62,syslog_quest_accept_max,クエスト受注数が最大になりました,"Your quest log has reached the
 maximum and you cannot accept more.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,62,,System Chatbox Text
-40,syslog_quest_accept_party,<NAME TARGET>が<NAME QUEST>を受注しました,"<NAME TARGET> has accepted 
+40,syslog_quest_accept_party,<NAME TARGET>が<NAME QUEST>を受注しました,"<NAME TARGET> has accepted
 <NAME QUEST>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,40,,System Chatbox Text
-39,syslog_quest_accept_solo,<NAME QUEST>を受注しました,<NAME QUEST> has been accepted.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,39,,System Chatbox Text
-44,syslog_quest_assist,<NAME QUEST>のクリアをアシストしました,"<NAME QUEST> has been completed with your
-assistance.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,44,,System Chatbox Text
-261,syslog_quest_assist_accept,＜<NAME QUEST>＞の受注条件を満たしていないため、アシスト状態で受注しました,"You do not meet the conditions of ""<NAME QUEST>"",
-so it was accepted in assist mode.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,261,,System Chatbox Text
-211,syslog_quest_can_progress,＜<NAME QUEST>＞が進行可能になりました,"""<NAME QUEST>"" can now progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,211,,System Chatbox Text
-210,syslog_quest_can_progress_leader,パーティーリーダーの＜<NAME QUEST>＞が進行可能になりました,"Because of the party leader, ""<NAME QUEST>"" can
-now progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,210,,System Chatbox Text
-208,syslog_quest_can_progress_party,<NAME TARGET>の＜<NAME QUEST>＞が進行可能になりました,"<NAME TARGET>'s quest 
-""<NAME QUEST>"" 
+39,syslog_quest_accept_solo,<NAME QUEST>を受注しました,"<NAME QUEST>
+has been accepted.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,39,,System Chatbox Text
+44,syslog_quest_assist,<NAME QUEST>のクリアをアシストしました,"<NAME QUEST> has been
+completed with your assistance.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,44,,System Chatbox Text
+261,syslog_quest_assist_accept,＜<NAME QUEST>＞の受注条件を満たしていないため、アシスト状態で受注しました,"You do not meet the conditions of
+""<NAME QUEST>"", so it was
+accepted in assist mode.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,261,,System Chatbox Text
+211,syslog_quest_can_progress,＜<NAME QUEST>＞が進行可能になりました,"""<NAME QUEST>""
+can now progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,211,,System Chatbox Text
+210,syslog_quest_can_progress_leader,パーティーリーダーの＜<NAME QUEST>＞が進行可能になりました,"Because of the party leader,
+""<NAME QUEST>""
+can now progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,210,,System Chatbox Text
+208,syslog_quest_can_progress_party,<NAME TARGET>の＜<NAME QUEST>＞が進行可能になりました,"<NAME TARGET>'s quest ""<NAME QUEST>""
 can now progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,208,,System Chatbox Text
-61,syslog_quest_cancel,<NAME QUEST>を破棄しました,<NAME QUEST> has been canceled.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,61,,System Chatbox Text
-213,syslog_quest_cannot_progress,＜<NAME QUEST>＞が進行不可になりました,"""<NAME QUEST>"" can no longer progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,213,,System Chatbox Text
-212,syslog_quest_cannot_progress_leader,パーティーリーダーの＜<NAME QUEST>＞が進行不可になりました,"Because of the party leader, ""<NAME QUEST>"" can
+61,syslog_quest_cancel,<NAME QUEST>を破棄しました,"<NAME QUEST>
+has been canceled.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,61,,System Chatbox Text
+213,syslog_quest_cannot_progress,＜<NAME QUEST>＞が進行不可になりました,"""<NAME QUEST>"" can
+no longer progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,213,,System Chatbox Text
+212,syslog_quest_cannot_progress_leader,パーティーリーダーの＜<NAME QUEST>＞が進行不可になりました,"Because of the party leader,
+""<NAME QUEST>"" can
 no longer progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,212,,System Chatbox Text
-207,syslog_quest_cannot_progress_party,リーダーと進行状況が異なるため、<NAME TARGET>の＜<NAME QUEST>＞が進行保留になりました,"The quest progress between the party leader and
-<NAME TARGET> for 
+207,syslog_quest_cannot_progress_party,リーダーと進行状況が異なるため、<NAME TARGET>の＜<NAME QUEST>＞が進行保留になりました,"The quest progress between
+the party leader and
+<NAME TARGET> for
 ""<NAME QUEST>"" differs.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,207,,System Chatbox Text
-43,syslog_quest_clear,<NAME QUEST>をクリアしました,<NAME QUEST> has been completed.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,43,,System Chatbox Text
-224,syslog_quest_decide_deliver,＜<NAME QUEST>＞の納品目標を達成しました,"""<NAME QUEST>"" delivery objective achieved.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,224,,System Chatbox Text
-54,syslog_quest_dialog,<NAME QUEST>：≪汎用アナウンス用テキスト≫,<NAME QUEST>: ≪General announcement text≫,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54,,System Chatbox Text
+43,syslog_quest_clear,<NAME QUEST>をクリアしました,"<NAME QUEST>
+has been completed.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,43,,System Chatbox Text
+224,syslog_quest_decide_deliver,＜<NAME QUEST>＞の納品目標を達成しました,"""<NAME QUEST>"" delivery
+objective achieved.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,224,,System Chatbox Text
+54,syslog_quest_dialog,<NAME QUEST>：≪汎用アナウンス用テキスト≫,"<NAME QUEST>: ≪General
+announcement text≫",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54,,System Chatbox Text
 51,syslog_quest_discontinue,進行不可能になったクエストがあります,This quest is not able to progress.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,51,,System Chatbox Text
-42,syslog_quest_discover_party,<NAME TARGET>が<NAME QUEST>を発見しました,"<NAME TARGET> has discovered 
+42,syslog_quest_discover_party,<NAME TARGET>が<NAME QUEST>を発見しました,"<NAME TARGET> has discovered
 <NAME QUEST>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,42,,System Chatbox Text
-41,syslog_quest_discover_solo,<NAME QUEST>を発見しました,<NAME QUEST> has been discovered.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,41,,System Chatbox Text
+41,syslog_quest_discover_solo,<NAME QUEST>を発見しました,"<NAME QUEST>
+has been discovered.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,41,,System Chatbox Text
 48,syslog_quest_dog_clear,<NAME ITEM>の納品が完了しました,<NAME ITEM> delivery completed.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,48,,System Chatbox Text
 47,syslog_quest_dog_party,<NAME TARGET>が<NAME ITEM>×<VAL>を納品しました,"<NAME TARGET> delivered 
 <NAME ITEM> x<VAL>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,47,,System Chatbox Text
 46,syslog_quest_dog_solo,<NAME ITEM>×<VAL>を納品しました,<NAME ITEM> x<VAL> delivered.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,46,,System Chatbox Text
 194,syslog_quest_end_dist_cancel,＜<VAL>＞の配信期間が終了したためクエスト破棄されました,"Quest ""<VAL>"" has expired.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,194,,System Chatbox Text
 45,syslog_quest_happen,<NAME QUEST>に異常事態が発生しました,<NAME QUEST> has updated.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,45,,System Chatbox Text
-205,syslog_quest_help_reward,リーダーが＜<NAME QUEST>＞をクリアしたため、アシスト報酬を獲得しました,"Party leader has cleared ""<NAME QUEST>"" and you
+205,syslog_quest_help_reward,リーダーが＜<NAME QUEST>＞をクリアしたため、アシスト報酬を獲得しました,"Party leader has cleared
+""<NAME QUEST>"" and you
 have received a reward for assisting.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,205,,System Chatbox Text
-59,syslog_quest_meinquest_enable,<NAME QUEST>が受注可能になりました,<NAME QUEST> is now available for completion.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,59,,System Chatbox Text
-50,syslog_quest_order,＜<NAME QUEST>＞が受注待ちになりました,"""<NAME QUEST>"" is awaiting acceptance.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,50,,System Chatbox Text
-49,syslog_quest_order_wait,パーティーリーダーが<NAME QUEST>を受注待ちです,Wait for the party leader to accept <NAME QUEST>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,49,,System Chatbox Text
-206,syslog_quest_party_bonus,パーティーでの＜<NAME QUEST>＞クリアにより、報酬にパーティーボーナスが適用されました,"Party has completed ""<NAME QUEST>"" and you have
-received a party bonus.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,206,,System Chatbox Text
+59,syslog_quest_meinquest_enable,<NAME QUEST>が受注可能になりました,"<NAME QUEST> is now
+available for completion.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,59,,System Chatbox Text
+50,syslog_quest_order,＜<NAME QUEST>＞が受注待ちになりました,"""<NAME QUEST>"" is
+awaiting acceptance.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,50,,System Chatbox Text
+49,syslog_quest_order_wait,パーティーリーダーが<NAME QUEST>を受注待ちです,"Wait for the party leader to accept
+<NAME QUEST>.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,49,,System Chatbox Text
+206,syslog_quest_party_bonus,パーティーでの＜<NAME QUEST>＞クリアにより、報酬にパーティーボーナスが適用されました,"Party has completed
+""<NAME QUEST>"" and you
+have received a party bonus.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,206,,System Chatbox Text
 217,syslog_quest_party_order,＜<VAL>＞をパーティーメンバーが受注しようとしました（あと<VAL>人で受注）,"Party members attempted to accept <VAL> (accept
 with <VAL> more people)",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,217,,System Chatbox Text
 216,syslog_quest_party_order_myself,＜<VAL>＞を受注しようとしました（あと<VAL>人で受注）,"Tried to accept <VAL> (accept with <VAL> more
@@ -234,29 +250,38 @@ people)",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,216,,System
 (progress with <VAL> more people)",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,215,,System Chatbox Text
 214,syslog_quest_party_progress_myself,＜<VAL>＞を進行しようとしました（あと<VAL>人で進行）,"Attempted to progress with <VAL> (progress with
 <VAL> more people)",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,214,,System Chatbox Text
-55,syslog_quest_partyquest_set,<NAME QUEST>がパーティークエストに設定されました,<NAME QUEST> was set as a party quest.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,55,,System Chatbox Text
-56,syslog_quest_partyquest_unset,<NAME QUEST>がパーティークエストから外されました,<NAME QUEST> was removed from the party's quests.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,56,,System Chatbox Text
+55,syslog_quest_partyquest_set,<NAME QUEST>がパーティークエストに設定されました,"<NAME QUEST> was set
+as a party quest.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,55,,System Chatbox Text
+56,syslog_quest_partyquest_unset,<NAME QUEST>がパーティークエストから外されました,"<NAME QUEST> was removed
+from the party's quests.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,56,,System Chatbox Text
 185,syslog_quest_pawn_xp_get,<NAME PAWN>が<VAL XP>獲得しました,<NAME PAWN> gained <VAL XP>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,185,,System Chatbox Text
 186,syslog_quest_pawn_xp_get_ex,<NAME PAWN>が<VAL> (+<VAL>) <UNIT XP>獲得しました,<NAME PAWN> gained <VAL> (+<VAL>) <UNIT XP>.,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,186,,System Chatbox Text
 233,syslog_quest_progress_failed,"＜<NAME QUEST>＞の進行に失敗しました
-クエストログで進行状況を確認してください","The progress of [<NAME QUEST>] has failed. Please
-check the quest log for status updates.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,233,,System Chatbox Text
+クエストログで進行状況を確認してください","The progress of 
+<NAME QUEST> has failed.
+Please check the quest log
+for status updates.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,233,,System Chatbox Text
 58,syslog_quest_ready_ready,<NAME TARGET>が進行準備完了になりました,<NAME TARGET> is now ready to proceed!,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,58,,System Chatbox Text
 57,syslog_quest_ready_start,<NAME TARGET>がイベント準備・パーティー招集を行いました,"<NAME TARGET> 
 prepared for the event and convened the party.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,57,,System Chatbox Text
-203,syslog_quest_repeat_reward,＜<NAME QUEST>＞の報酬に、繰り返しボーナスが適用されました,"Earned a bonus reward for repeating ""<NAME QUEST>
-"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,203,,System Chatbox Text
+203,syslog_quest_repeat_reward,＜<NAME QUEST>＞の報酬に、繰り返しボーナスが適用されました,"Earned a bonus reward for repeating 
+""<NAME QUEST>"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,203,,System Chatbox Text
 244,syslog_quest_root_reward,"条件が満たされたため、＜<NAME QUEST>＞の
-クリア報酬が変化します","Because you satisfied the conditions, the clear
-reward of ""<NAME QUEST>"" will change.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,244,,System Chatbox Text
+クリア報酬が変化します","Because you satisfied the conditions,
+the clear reward of
+""<NAME QUEST>""
+will change.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,244,,System Chatbox Text
 243,syslog_quest_stop_content_reset,クエストが進行不能のため、コンテンツ中断をおこなってください,"Due to the impossibility of progressing the
 quest, please cancel the current Content.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,243,,System Chatbox Text
 60,syslog_quest_stopedquest_enable,進行不能が解除されたクエストがあります,"There are quests that have been released from
 being unable to progress.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,60,,System Chatbox Text
-204,syslog_quest_undiscover_reward,＜<NAME QUEST>＞の未公開報酬を獲得しました,"Earned the hidden reward for ""<NAME QUEST>"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,204,,System Chatbox Text
-53,syslog_quest_update,<NAME QUEST>：≪小目的用テキスト≫,<NAME QUEST>: ≪Text for Sub-objective≫,ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53,,System Chatbox Text
-209,syslog_quest_wait_order,パーティーリーダーの＜<NAME QUEST>＞が受注待ちになりました,"The party leader's quest ""<NAME QUEST>"" has
-orders waiting.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,209,,System Chatbox Text
+204,syslog_quest_undiscover_reward,＜<NAME QUEST>＞の未公開報酬を獲得しました,"Earned the hidden reward for
+""<NAME QUEST>"".",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,204,,System Chatbox Text
+53,syslog_quest_update,<NAME QUEST>：≪小目的用テキスト≫,"<NAME QUEST>: ≪Text
+for Sub-objective≫",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,53,,System Chatbox Text
+209,syslog_quest_wait_order,パーティーリーダーの＜<NAME QUEST>＞が受注待ちになりました,"The party leader's quest
+""<NAME QUEST>""
+has orders waiting.",ui\00_message\ui\system_log.gmd,\ui\gui_cmn.arc,gui_cmn.arc,209,,System Chatbox Text
 237,syslog_quiq_mach_purpose,"冒険目的＜<NAME ETC>＞
 小目的＜<NAME ETC>＞の条件でマッチングしました","Adventure Purpose <<NAME ETC>>
 Matching conditions for Secondary Purpose 

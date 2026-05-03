@@ -1035,7 +1035,19 @@ function initDashboardActions() {
 
     const setupToggle = (id, key) => {
         const el = document.getElementById(id);
-        if (el) el.onchange = async () => { await eel.save_config_field(key, el.checked)(); };
+        if (el) el.onchange = async () => { 
+            await eel.save_config_field(key, el.checked)();
+            // Special handling for in-universe toggle - clear anachronisms when disabled
+            if (id === 'editor-in-universe' && !el.checked) {
+                console.log('[setupToggle] In-universe disabled - clearing anachronism highlights');
+                state.reviewer.anachRanges = [];
+                hoveredAnachronism = null;
+                const ed = document.getElementById('en-editor');
+                if (ed) {
+                    renderHighlights(ed.innerText, highlightGeneration);
+                }
+            }
+        };
     };
     setupToggle('editor-in-universe', 'in_universe');
     setupToggle('dash-preview-mode', 'preview_mode');
@@ -1448,7 +1460,19 @@ function initReviewerActions() {
     // In-universe toggle
     const setupToggle = (id, key) => {
         const el = document.getElementById(id);
-        if (el) el.onchange = async () => { await eel.save_config_field(key, el.checked)(); };
+        if (el) el.onchange = async () => { 
+            await eel.save_config_field(key, el.checked)();
+            // Special handling for in-universe toggle - clear anachronisms when disabled
+            if (id === 'reviewer-in-universe' && !el.checked) {
+                console.log('[setupToggle] In-universe disabled - clearing anachronism highlights');
+                state.reviewer.anachRanges = [];
+                hoveredAnachronism = null;
+                const ed = document.getElementById('en-editor');
+                if (ed) {
+                    renderHighlights(ed.innerText, highlightGeneration);
+                }
+            }
+        };
     };
     setupToggle('reviewer-in-universe', 'in_universe');
 
@@ -1532,9 +1556,8 @@ function initReviewerActions() {
                     if (cc && ed) {
                         const lines = ed.innerText.split('\n');
                         const maxLines = state.maxLines || 5;
-                        const lineCount = lines.length;
-                        cc.innerText = `${lineCount} / ${maxLines} lines`;
-                        cc.style.color = lineCount > maxLines ? '#ff4444' : 'var(--accent-color)';
+                        cc.innerText = `${lines.length} / ${maxLines} lines`;
+                        cc.style.color = lines.length > maxLines ? '#ff4444' : 'var(--accent-color)';
                     }
                     
                     // Don't schedule scan on Enter - it causes cursor position issues
@@ -1763,6 +1786,28 @@ async function replaceDashes(target) {
 // =============================================================================
 // REVIEWER — COUNTERS / PREVIEW
 // =============================================================================
+// Cache for tag-aware character counts to avoid repeated backend calls
+const tagAwareCharCache = new Map();
+
+async function getTagAwareCharCount(text) {
+    if (!text) return 0;
+    
+    // Check cache first
+    if (tagAwareCharCache.has(text)) {
+        return tagAwareCharCache.get(text);
+    }
+    
+    // Get from backend
+    try {
+        const count = await eel.get_tag_aware_character_count(text)();
+        tagAwareCharCache.set(text, count);
+        return count;
+    } catch (e) {
+        console.error('[getTagAwareCharCount] Error:', e);
+        return text.length; // Fallback to raw length
+    }
+}
+
 function syncLineCounters() {
     const ed = document.getElementById('en-editor');
     const ctr = document.getElementById('line-counters');
@@ -1774,6 +1819,8 @@ function syncLineCounters() {
     const lines = text ? text.split('\n') : [];
     const limit = state.standardLimit || 50;
     ctr.innerHTML = '';
+    
+    // Process all lines
     for (let i = 0; i < lines.length; i++) {
         let lineText = lines[i] || '';
         
@@ -1785,8 +1832,19 @@ function syncLineCounters() {
         // Remove zero-width space used for cursor positioning
         lineText = lineText.replace(/\u200B/g, '');
         
-        // Count characters (including spaces)
-        const charCount = lineText.length;
+        // Get tag-aware character count (async but fire-and-forget for UI responsiveness)
+        let charCount = lineText.length; // Default to raw length
+        getTagAwareCharCount(lineText).then(count => {
+            charCount = count;
+            // Update the span if it exists
+            const spans = ctr.children;
+            if (spans[i]) {
+                spans[i].innerText = charCount;
+                if (charCount > limit) spans[i].style.color = '#ff6b6b';
+                else if (charCount > limit * 0.8) spans[i].style.color = '#ffa502';
+                else spans[i].style.color = 'var(--accent-color)';
+            }
+        });
         
         const s = document.createElement('span');
         s.innerText = charCount;
@@ -1902,6 +1960,16 @@ let anachronismDebounceTimer = null;
 const ANACHRONISM_DEBOUNCE_MS = 300; // Wait 300ms after typing stops
 
 async function scanAnachronisms(text) {
+    // Check if in-universe language is enabled - if NOT enabled, skip anachronism scanning
+    const inUniverseEnabled = document.getElementById('editor-in-universe')?.checked;
+    if (!inUniverseEnabled) {
+        console.log('[scanAnachronisms] In-universe language disabled - clearing anachronism highlights');
+        state.reviewer.anachRanges = [];
+        hoveredAnachronism = null;
+        renderHighlights(text, highlightGeneration);
+        return;
+    }
+    
     if (!text) {
         state.reviewer.anachRanges = [];
         hoveredAnachronism = null;
