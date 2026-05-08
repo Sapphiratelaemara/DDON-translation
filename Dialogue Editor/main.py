@@ -3236,7 +3236,7 @@ def tm_find_matches(jp_text: str, threshold: float = 0.5, max_results: int = 10)
         print(f"[TM] No entries available, elapsed={elapsed:.2f}ms")
         return {"ok": True, "matches": [], "message": "No TM entries available"}
     
-    matches = matcher.find_matches(jp_text, tm.entries, threshold, tm._exact_match_index)
+    matches = matcher.find_matches(jp_text, tm.entries, threshold)
     
     # Apply auto-substitution to matches
     for match in matches[:max_results]:

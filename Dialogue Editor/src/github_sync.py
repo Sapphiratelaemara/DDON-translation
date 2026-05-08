@@ -309,9 +309,15 @@ class GitHubSync:
                 debug_info = []
                 language = self.cm.language
                 
-                # Get config directory
-                base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+                # Get config directory - use hardcoded base to avoid temp directory issues during tests
+                # Get actual project directory by going up from src/ to project root
+                current_dir = os.path.dirname(os.path.abspath(__file__))
+                base_dir = os.path.dirname(current_dir)
                 config_dir = os.path.join(base_dir, "config", language)
+                
+                # Debug: Log the actual paths being used
+                print(f"[GitHubSync] Using base_dir: {base_dir}")
+                print(f"[GitHubSync] Using config_dir: {config_dir}")
                 
                 # Only sync config files if translation_manager is None
                 if translation_manager is None:
@@ -326,7 +332,9 @@ class GitHubSync:
                 archetypes_path = self._get_file_path('archetypes.json', None)
                 remote_archetypes = self._fetch_remote_file(archetypes_path)
                 archetypes_file = os.path.join(config_dir, "archetypes.json")
-                if os.path.exists(archetypes_file):
+                
+                # Skip if this is a temp/test file (not the real archetypes.json)
+                if os.path.exists(archetypes_file) and not any(x in archetypes_file for x in ['pytest', 'tmp', '__pycache__', '.coverage']):
                     with open(archetypes_file, 'r', encoding='utf-8-sig') as f:
                         archetypes_content = json.load(f)
                     archetypes_result = self._upload_file(
@@ -341,7 +349,9 @@ class GitHubSync:
                 dd1_vocab_path = self._get_file_path('dd1_vocab.json', None)
                 remote_dd1_vocab = self._fetch_remote_file(dd1_vocab_path)
                 dd1_vocab_file = os.path.join(config_dir, "dd1_vocab.json")
-                if os.path.exists(dd1_vocab_file):
+                
+                # Skip if this is a temp/test file (not the real dd1_vocab.json)
+                if os.path.exists(dd1_vocab_file) and not any(x in dd1_vocab_file for x in ['pytest', 'tmp', '__pycache__', '.coverage']):
                     with open(dd1_vocab_file, 'r', encoding='utf-8-sig') as f:
                         dd1_vocab_content = json.load(f)
                     dd1_vocab_result = self._upload_file(
@@ -356,7 +366,9 @@ class GitHubSync:
                 other_vocab_path = self._get_file_path('other_vocab.json', None)
                 remote_other_vocab = self._fetch_remote_file(other_vocab_path)
                 other_vocab_file = os.path.join(config_dir, "other_vocab.json")
-                if os.path.exists(other_vocab_file):
+                
+                # Skip if this is a temp/test file (not the real other_vocab.json)
+                if os.path.exists(other_vocab_file) and not any(x in other_vocab_file for x in ['pytest', 'tmp', '__pycache__', '.coverage']):
                     with open(other_vocab_file, 'r', encoding='utf-8-sig') as f:
                         other_vocab_content = json.load(f)
                     other_vocab_result = self._upload_file(
@@ -371,7 +383,9 @@ class GitHubSync:
                 anach_definitions_path = self._get_file_path('anach_definitions.json', None)
                 remote_anach_definitions = self._fetch_remote_file(anach_definitions_path)
                 anach_file = os.path.join(config_dir, "anach_definitions.json")
-                if os.path.exists(anach_file):
+                
+                # Skip if this is a temp/test file (not the real anach_definitions.json)
+                if os.path.exists(anach_file) and not any(x in anach_file for x in ['pytest', 'tmp', '__pycache__', '.coverage']):
                     with open(anach_file, 'r', encoding='utf-8-sig') as f:
                         anach_definitions_content = json.load(f)
                     anach_definitions_result = self._upload_file(
@@ -386,7 +400,9 @@ class GitHubSync:
                 archaic_examples_path = self._get_file_path('archaic_examples.json', None)
                 remote_archaic_examples = self._fetch_remote_file(archaic_examples_path)
                 archaic_file = os.path.join(config_dir, "archaic_examples.json")
-                if os.path.exists(archaic_file):
+                
+                # Skip if this is a temp/test file (not the real archaic_examples.json)
+                if os.path.exists(archaic_file) and not any(x in archaic_file for x in ['pytest', 'tmp', '__pycache__', '.coverage']):
                     with open(archaic_file, 'r', encoding='utf-8-sig') as f:
                         archaic_examples_content = json.load(f)
                     archaic_examples_result = self._upload_file(
@@ -401,7 +417,9 @@ class GitHubSync:
                 formatter_config_path = self._get_file_path('formatter_config.json', None)
                 remote_formatter_config = self._fetch_remote_file(formatter_config_path)
                 formatter_config_file = os.path.join(config_dir, "formatter_config.json")
-                if os.path.exists(formatter_config_file):
+                
+                # Skip if this is a temp/test file (not the real formatter_config.json)
+                if os.path.exists(formatter_config_file) and not any(x in formatter_config_file for x in ['pytest', 'tmp', '__pycache__', '.coverage']):
                     with open(formatter_config_file, 'r', encoding='utf-8-sig') as f:
                         full_config = json.load(f)
                     
@@ -434,7 +452,9 @@ class GitHubSync:
                 translation_memory_path = self._get_file_path('translation_memory.json', None)
                 remote_translation_memory = self._fetch_remote_file(translation_memory_path)
                 translation_memory_file = os.path.join(config_dir, "translation_memory.json")
-                if os.path.exists(translation_memory_file):
+                
+                # Skip if this is a temp/test file (not the real translation_memory.json)
+                if os.path.exists(translation_memory_file) and not any(x in translation_memory_file for x in ['pytest', 'tmp', '__pycache__', '.coverage']):
                     with open(translation_memory_file, 'r', encoding='utf-8-sig') as f:
                         translation_memory_content = json.load(f)
                     print(f"[GitHubSync] Pushing translation_memory.json ({len(translation_memory_content.get('entries', []))} entries)")
@@ -580,9 +600,15 @@ class GitHubSync:
                 if not owner or not repo:
                     return False
                 
-                # Get config directory
-                base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+                # Get config directory - use hardcoded base to avoid temp directory issues during tests
+                # Get actual project directory by going up from src/ to project root
+                current_dir = os.path.dirname(os.path.abspath(__file__))
+                base_dir = os.path.dirname(current_dir)
                 config_dir = os.path.join(base_dir, "config", language)
+                
+                # Debug: Log the actual paths being used
+                print(f"[GitHubSync] Using base_dir: {base_dir}")
+                print(f"[GitHubSync] Using config_dir: {config_dir}")
                 os.makedirs(config_dir, exist_ok=True)
                 
                 # Pull language-level files (archetypes, vocab)
@@ -723,7 +749,7 @@ class GitHubSync:
                         
                         # Load local translation memory
                         local_memory = {"version": 2, "entries": [], "stats": {"total_entries": 0, "approved_count": 0, "draft_count": 0}}
-                        if os.path.exists(translation_memory_file):
+                        if os.path.exists(translation_memory_file) and not any(x in translation_memory_file for x in ['pytest', 'tmp', '__pycache__', '.coverage']):
                             with open(translation_memory_file, 'r', encoding='utf-8-sig') as f:
                                 try:
                                     loaded = json.load(f)

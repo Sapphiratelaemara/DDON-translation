@@ -77,21 +77,49 @@ class TranslationEngine:
     def _tokenise(self, text):
         """Split text into word-level tokens where complete <tags> and quoted tags are always atomic.
         Spaces inside angle brackets are never treated as split points."""
-        # First extract quoted tags as atomic units
-        quoted_tag_pattern = r'("<[^>]+>")'
-        parts = re.split(quoted_tag_pattern, text)
+        # Process text sequentially to find and preserve tags with punctuation
         tokens = []
-        for part in parts:
-            if part.startswith('"') and part.endswith('"') and '<' in part and '>' in part:
-                tokens.append(part)  # quoted tag like "<NAME QUEST>" - keep atomic
+        i = 0
+        while i < len(text):
+            # Check for quoted tag
+            if text[i] == '"' and i + 1 < len(text) and text[i+1] == '<':
+                # Find end of quoted tag
+                end_tag = text.find('>', i)
+                if end_tag != -1:
+                    # Find end of quoted tag (next quote or whitespace)
+                    end_quote = text.find('"', end_tag)
+                    if end_quote == -1:
+                        end_quote = len(text)
+                    end_pos = min(end_quote, len(text))
+                    # Extract quoted tag with punctuation
+                    token = text[i:end_pos]
+                    tokens.append(token)
+                    i = end_pos
+                    continue
+            
+            # Check for regular tag
+            if text[i] == '<':
+                end_tag = text.find('>', i)
+                if end_tag != -1:
+                    # Find end of tag (next whitespace or end of string)
+                    j = end_tag + 1
+                    while j < len(text) and text[j] not in [' ', '\t', '\n']:
+                        j += 1
+                    token = text[i:j]
+                    tokens.append(token)
+                    i = j
+                    continue
+            
+            # Regular text - find next space
+            space_pos = text.find(' ', i)
+            if space_pos == -1:
+                # No more spaces, add rest of text
+                tokens.append(text[i:])
+                break
             else:
-                # Process remaining text for regular tags
-                tag_parts = re.split(r'(<[^>]+>)', part)
-                for tag_part in tag_parts:
-                    if tag_part.startswith('<') and tag_part.endswith('>'):
-                        tokens.append(tag_part)  # regular tag - keep atomic
-                    elif tag_part:
-                        tokens.extend(re.split(r'(\s+)', tag_part))  # normal text - split on whitespace
+                tokens.append(text[i:space_pos+1])
+                i = space_pos + 1
+                
         return tokens
 
     def _wrap_segment(self, text, limit):
