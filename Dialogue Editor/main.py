@@ -17,18 +17,50 @@ DEBUG_ENABLED = True
 TEST_MODE = False  # Set to True during testing to disable side effects (file writes, API calls)
 
 def setup_debug_logging():
-    """Setup debug logging to file."""
+    """Setup logging.
+
+    Important: keep DEBUG detail in `debug.log`, but avoid flooding the terminal.
+    """
     if not DEBUG_ENABLED:
         return
-    
-    logging.basicConfig(
-        level=logging.DEBUG,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        handlers=[
-            logging.FileHandler(DEBUG_LOG_FILE, encoding='utf-8'),
-            logging.StreamHandler(sys.stdout)
-        ]
-    )
+
+    log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+
+    # Configure root logger explicitly (avoid basicConfig surprises if anything
+    # else configured logging earlier).
+    root = logging.getLogger()
+    root.setLevel(logging.DEBUG)  # allow all levels; handlers will filter
+    for h in list(root.handlers):
+        root.removeHandler(h)
+
+    file_handler = logging.FileHandler(DEBUG_LOG_FILE, encoding='utf-8')
+    file_handler.setLevel(logging.DEBUG)
+    file_handler.setFormatter(logging.Formatter(log_format))
+
+    stream_handler = logging.StreamHandler(sys.stdout)
+    # Console should be quiet by default; DEBUG stays in the file.
+    stream_handler.setLevel(logging.INFO)
+    stream_handler.setFormatter(logging.Formatter(log_format))
+
+    root.addHandler(file_handler)
+    root.addHandler(stream_handler)
+
+    # Third-party libraries can be extremely noisy at DEBUG (e.g. jamdict/jamdict-data DB queries
+    # via puchikarui). Keep our app logs at DEBUG, but suppress those unless explicitly needed.
+    noisy_defaults = {
+        "puchikarui": logging.WARNING,
+        "puchikarui.puchikarui": logging.WARNING,
+        "urllib3": logging.INFO,
+        "urllib3.connectionpool": logging.INFO,
+    }
+    for name, level in noisy_defaults.items():
+        try:
+            logging.getLogger(name).setLevel(level)
+            # Avoid duplicates if a library adds its own handlers.
+            logging.getLogger(name).propagate = True
+        except Exception:
+            pass
+
     return logging.getLogger('DDON_Editor')
 
 logger = setup_debug_logging()
@@ -1260,6 +1292,19 @@ def rewrap_text(text, limit=None):
         return text
 
 @eel.expose
+def get_tag_aware_character_count(text):
+    """Get tag-aware character count for line counters."""
+    if not text:
+        return 0
+    try:
+        return engine.get_simulated_len(text)
+    except Exception as e:
+        print(f"[get_tag_aware_character_count] Error: {e}")
+        return len(text)  # Fallback to raw length
+
+
+
+@eel.expose
 def get_standard_limit():
     selected = cm.user_settings.get("selected_preset", "Standard")
     presets  = cm.config.get("presets", {"Standard": 50})
@@ -1440,6 +1485,7 @@ def generate_preview_image(profile_name, text):
             return {"error": f"Profile '{profile_name}' not found"}
         
         print(f"[generate_preview_image] Profile found: {profile}")
+        print(f"[generate_preview_image] Text parameters - font_sz: {profile.get('font_sz', 14)}, line_spacing: {profile.get('line_spacing', 1)}, text_x: {profile.get('text_x', 10)}, text_y: {profile.get('text_y', 10)}")
         profile_time = time.time()
         image_load_time = profile_time  # Default if no image loaded
         
@@ -1535,17 +1581,34 @@ def generate_preview_image(profile_name, text):
         elif isinstance(text_color, str):
             text_color = (255, 255, 255, 255)  # Default white with full opacity
         
-        # Draw text
+        # Draw text with boundary checking only (no automatic wrapping)
         line_spacing = profile.get("line_spacing", 1)
         if line_spacing <= 1:
             line_spacing = 1.2
         
+        # Get image dimensions for boundary checking
+        img_width, img_height = final_base.size
+        margin = 10  # Safety margin from edges
+        
+        # Calculate maximum text height based on crop settings or image bounds
+        crop = profile.get("crop", [0, 0, img_width, img_height])
+        max_text_height = crop[3] - text_y - margin if crop[3] > 0 else img_height - text_y - margin
+        
+        # Split text by manual newlines only (no automatic wrapping)
         lines = text.split('\n')
         y_offset = text_y
+        font_size = profile.get("font_sz", 14)
+        
         for line in lines:
+            if y_offset + font_size > max_text_height:
+                # Stop if we've reached the bottom boundary
+                print(f"[generate_preview_image] Text truncated - reached bottom boundary at y={y_offset}")
+                break
+                
             if line.strip():
-                draw.text((text_x, y_offset), line.strip(), fill=text_color, font=font)
-            y_offset += int(font.size * line_spacing)
+                draw.text((text_x, y_offset), line, fill=text_color, font=font)
+            
+            y_offset += int(font_size * line_spacing)
         
         text_draw_time = time.time()
         
@@ -2041,6 +2104,34 @@ def get_items_for_category(category_display_name):
 def get_all_items_in_queue():
     """Return the full flat review queue for the Reviewer tab."""
     return review_items
+
+
+@eel.expose
+def get_row_text(path, row_idx):
+    """Return (jp,en,speaker,entry_type) from a CSV row.
+
+    This is used by the frontend to refresh stale cached queue items. If the user
+    loaded a queue from localStorage (or an older cache file) when CSV parsing
+    was incorrect, fields may appear truncated. Re-reading from disk ensures the
+    editor reflects the current CSV contents.
+    """
+    try:
+        if not path or row_idx is None:
+            return None
+        row_idx = int(row_idx)
+        if row_idx < 0:
+            return None
+        _, _, rows = _read_csv(path)
+        if row_idx >= len(rows):
+            return None
+        row = rows[row_idx]
+        jp = row[2] if len(row) > 2 else ""
+        en = row[3] if len(row) > 3 else ""
+        speaker = row[8].strip() if len(row) > 8 and row[8] else ""
+        entry_type = row[9].strip() if len(row) > 9 and row[9] else ""
+        return {"jp": jp, "en": en, "speaker": speaker, "entry_type": entry_type}
+    except Exception as e:
+        return {"error": str(e)}
 
 @eel.expose
 def get_next_review_item():
@@ -3223,7 +3314,7 @@ def tm_find_matches(jp_text: str, threshold: float = 0.5, max_results: int = 10)
         print(f"[TM] No entries available, elapsed={elapsed:.2f}ms")
         return {"ok": True, "matches": [], "message": "No TM entries available"}
     
-    matches = matcher.find_matches(jp_text, tm.entries, threshold, tm._exact_match_index)
+    matches = matcher.find_matches(jp_text, tm.entries, threshold)
     
     # Apply auto-substitution to matches
     for match in matches[:max_results]:

@@ -1035,7 +1035,19 @@ function initDashboardActions() {
 
     const setupToggle = (id, key) => {
         const el = document.getElementById(id);
-        if (el) el.onchange = async () => { await eel.save_config_field(key, el.checked)(); };
+        if (el) el.onchange = async () => { 
+            await eel.save_config_field(key, el.checked)();
+            // Special handling for in-universe toggle - clear anachronisms when disabled
+            if (id === 'editor-in-universe' && !el.checked) {
+                console.log('[setupToggle] In-universe disabled - clearing anachronism highlights');
+                state.reviewer.anachRanges = [];
+                hoveredAnachronism = null;
+                const ed = document.getElementById('en-editor');
+                if (ed) {
+                    renderHighlights(ed.innerText, highlightGeneration);
+                }
+            }
+        };
     };
     setupToggle('editor-in-universe', 'in_universe');
     setupToggle('dash-preview-mode', 'preview_mode');
@@ -1275,7 +1287,37 @@ async function loadItemAtIdxInternal(idx, mode) {
         if (enEditor) enEditor.innerText = '';
         if (jpEditor) jpEditor.innerText = '';
         
+        // Populate editor from queued item immediately (fast), then refresh from disk to
+        // avoid stale cached items (e.g. restored from localStorage when CSV parsing was wrong).
         if (enEditor) enEditor.innerText = (item.en || '').replace(/★/g, '');
+        if (jpEditor) jpEditor.innerText = (item.jp || '');
+
+        // Refresh row text from backend (path+row). This fixes "cut off" entries caused
+        // by old cached queues and ensures the editor shows the current CSV contents.
+        if (item && item.path && item.row !== undefined && item.row !== null) {
+            const refreshIdx = loadIdx;
+            eel.get_row_text(item.path, item.row)().then(res => {
+                try {
+                    if (state.reviewer.currentIdx !== refreshIdx) return; // navigated away
+                    if (!res || res.error) return;
+
+                    // Update in-memory item too so subsequent panels use correct text.
+                    item.jp = res.jp ?? item.jp;
+                    item.en = res.en ?? item.en;
+                    if (res.speaker) item.speaker = res.speaker;
+                    if (res.entry_type) item.entry_type = res.entry_type;
+
+                    const enEd2 = document.getElementById('en-editor');
+                    const jpEd2 = document.getElementById('jp-editor');
+                    if (enEd2) enEd2.innerText = (item.en || '').replace(/★/g, '');
+                    if (jpEd2) jpEd2.innerText = (item.jp || '');
+                    // Refresh gutter immediately after programmatic update
+                    syncLineCounters();
+                } catch (e) {
+                    // ignore refresh failures
+                }
+            });
+        }
         
         // Re-enable input events after loading
         if (enEditor && enEditor._setSkipInputHandling) enEditor._setSkipInputHandling(false);
@@ -1448,7 +1490,19 @@ function initReviewerActions() {
     // In-universe toggle
     const setupToggle = (id, key) => {
         const el = document.getElementById(id);
-        if (el) el.onchange = async () => { await eel.save_config_field(key, el.checked)(); };
+        if (el) el.onchange = async () => { 
+            await eel.save_config_field(key, el.checked)();
+            // Special handling for in-universe toggle - clear anachronisms when disabled
+            if (id === 'reviewer-in-universe' && !el.checked) {
+                console.log('[setupToggle] In-universe disabled - clearing anachronism highlights');
+                state.reviewer.anachRanges = [];
+                hoveredAnachronism = null;
+                const ed = document.getElementById('en-editor');
+                if (ed) {
+                    renderHighlights(ed.innerText, highlightGeneration);
+                }
+            }
+        };
     };
     setupToggle('reviewer-in-universe', 'in_universe');
 
@@ -1532,9 +1586,8 @@ function initReviewerActions() {
                     if (cc && ed) {
                         const lines = ed.innerText.split('\n');
                         const maxLines = state.maxLines || 5;
-                        const lineCount = lines.length;
-                        cc.innerText = `${lineCount} / ${maxLines} lines`;
-                        cc.style.color = lineCount > maxLines ? '#ff4444' : 'var(--accent-color)';
+                        cc.innerText = `${lines.length} / ${maxLines} lines`;
+                        cc.style.color = lines.length > maxLines ? '#ff4444' : 'var(--accent-color)';
                     }
                     
                     // Don't schedule scan on Enter - it causes cursor position issues
@@ -1763,6 +1816,33 @@ async function replaceDashes(target) {
 // =============================================================================
 // REVIEWER — COUNTERS / PREVIEW
 // =============================================================================
+
+// Helper function to escape special regex characters
+function escapeRegExp(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+// Cache for tag-aware character counts to avoid repeated backend calls
+const tagAwareCharCache = new Map();
+
+async function getTagAwareCharCount(text) {
+    if (!text) return 0;
+    
+    // Check cache first
+    if (tagAwareCharCache.has(text)) {
+        return tagAwareCharCache.get(text);
+    }
+    
+    // Get from backend
+    try {
+        const count = await eel.get_tag_aware_character_count(text)();
+        tagAwareCharCache.set(text, count);
+        return count;
+    } catch (e) {
+        console.error('[getTagAwareCharCount] Error:', e);
+        return text.length; // Fallback to raw length
+    }
+}
+
 function syncLineCounters() {
     const ed = document.getElementById('en-editor');
     const ctr = document.getElementById('line-counters');
@@ -1770,10 +1850,14 @@ function syncLineCounters() {
     
     const virtualTags = ['<n>', '</n>', '<w>', '</w>', '<p>', '</p>', '<b>', '</b>', '<i>', '</i>'];
     
-    const text = ed.innerText;
+    // Normalize Windows/Mac newlines so line splitting is consistent even when the
+    // text was programmatically injected from CSV content.
+    const text = (ed.innerText || '').replace(/\r\n?/g, '\n');
     const lines = text ? text.split('\n') : [];
     const limit = state.standardLimit || 50;
     ctr.innerHTML = '';
+    
+    // Process all lines
     for (let i = 0; i < lines.length; i++) {
         let lineText = lines[i] || '';
         
@@ -1785,8 +1869,19 @@ function syncLineCounters() {
         // Remove zero-width space used for cursor positioning
         lineText = lineText.replace(/\u200B/g, '');
         
-        // Count characters (including spaces)
-        const charCount = lineText.length;
+        // Get tag-aware character count (async but fire-and-forget for UI responsiveness)
+        let charCount = lineText.length; // Default to raw length
+        getTagAwareCharCount(lineText).then(count => {
+            charCount = count;
+            // Update the span if it exists
+            const spans = ctr.children;
+            if (spans[i]) {
+                spans[i].innerText = charCount;
+                if (charCount > limit) spans[i].style.color = '#ff6b6b';
+                else if (charCount > limit * 0.8) spans[i].style.color = '#ffa502';
+                else spans[i].style.color = 'var(--accent-color)';
+            }
+        });
         
         const s = document.createElement('span');
         s.innerText = charCount;
@@ -1835,8 +1930,57 @@ function updatePreview(loadIdx) {
     }
     
     const boxType = document.getElementById('preview-box-type')?.value || 'dialogue';
-    const text = ed.innerText || '';
-    console.log(`[updatePreview] boxType=${boxType}, text="${text.substring(0, 30)}..."`);
+    // Replace HTML tags with lore values before sending to preview
+        let text = ed.textContent || ed.innerText || '';
+        
+        // Get lore context for tag replacement (same logic as source highlighting)
+        const currentLoreMatches = state.reviewer.currentItem?.lore_context || [];
+        
+        if (currentLoreMatches.length > 0) {
+            console.log(`[updatePreview] Replacing ${currentLoreMatches.length} HTML tags with lore values`);
+            
+            // Create markers array for replacement
+            const markers = [];
+            for (const loreMatch of currentLoreMatches) {
+                if (loreMatch.jp && loreMatch.en) {
+                    const marker = `__LORE_${markers.length}__`;
+                    markers.push({ marker, jp: loreMatch.jp, suggestion: loreMatch.en, allSuggestions: [loreMatch.en], is_lore: true });
+                }
+            }
+            
+            // Replace tags with lore spans or placeholder symbols
+            for (const { marker, jp, suggestion } of markers) {
+                text = text.replace(new RegExp(escapeRegExp(jp), 'g'), marker);
+            }
+            
+            // Replace tags using tag map with display rules
+            const tagMap = cm.config?.tag_map || {};
+            const tagDisplay = cm.config?.tag_display || {};
+            
+            // Replace ALL tags using the same system as editor
+            for (const [tag, replacement] of Object.entries(tagMap)) {
+                const tagRegex = new RegExp(escapeRegExp(tag), 'g');
+                text = text.replace(tagRegex, replacement);
+            }
+            
+            // Handle tags that have display text (use placeholder symbols)
+            const allTags = text.match(/<[^>]+>/g) || [];
+            for (const tagMatch of allTags) {
+                const tagContent = tagMatch.match(/<([^>]+)>/)?.[1] || '';
+                if (tagContent && tagDisplay[tagContent]) {
+                    // This tag has display text, use placeholder symbols
+                    const displayText = tagDisplay[tagContent];
+                    const placeholderSymbols = '📏'.repeat(displayText.length || 1);
+                    text = text.replace(tagMatch, placeholderSymbols);
+                }
+            }
+            
+            // Simple tag cleanup for any remaining unmatched tags
+            text = text.replace(/<[^>]*>/g, '');
+        }
+        
+    console.log(`[updatePreview] boxType=${boxType}, text length=${text.length}, text="${text.substring(0, 100)}..."`);
+    console.log(`[updatePreview] Full text being sent: "${text}"`);
     
     const eelCallStart = performance.now();
     // Generate preview image
@@ -1902,6 +2046,16 @@ let anachronismDebounceTimer = null;
 const ANACHRONISM_DEBOUNCE_MS = 300; // Wait 300ms after typing stops
 
 async function scanAnachronisms(text) {
+    // Check if in-universe language is enabled - if NOT enabled, skip anachronism scanning
+    const inUniverseEnabled = document.getElementById('editor-in-universe')?.checked;
+    if (!inUniverseEnabled) {
+        console.log('[scanAnachronisms] In-universe language disabled - clearing anachronism highlights');
+        state.reviewer.anachRanges = [];
+        hoveredAnachronism = null;
+        renderHighlights(text, highlightGeneration);
+        return;
+    }
+    
     if (!text) {
         state.reviewer.anachRanges = [];
         hoveredAnachronism = null;
@@ -2821,6 +2975,7 @@ function savePreviewProfile() {
         fg: textColor?.value || '#ffffff'
     };
     
+    console.log(`[savePreviewProfile] Saving profile for ${boxType}:`, profile);
     eel.save_preview_profile(boxType, profile)();
 }
 
