@@ -26,10 +26,12 @@ class GitHubSync:
         self._lock = threading.RLock()
         self._push_timer = None
         self._last_push = 0
+        self._last_push_completed = 0
         self._last_pull = 0
         self._pending_push = False
         self._urgent_push = False  # Set True when comment posted
         self._remote_timestamps = {}  # Cache of remote file timestamps
+        self._push_in_progress = False
         
     def _get_headers(self) -> Dict[str, str]:
         """Get GitHub API headers with auth token."""
@@ -301,7 +303,15 @@ class GitHubSync:
             return {"success": False, "error": "not configured"}
 
         with self._lock:
-            self._last_push = time.time()
+            # Guard against runaway push loops (e.g. repeated triggers during background work).
+            # We keep the app responsive and avoid hammering GitHub if a push was just done.
+            now = time.time()
+            if self._push_in_progress:
+                return {"success": True, "skipped": True, "reason": "push already in progress"}
+            if (now - self._last_push_completed) < 55:
+                return {"success": True, "skipped": True, "reason": "throttled (recent push)"}
+
+            self._push_in_progress = True
             self._urgent_push = False
 
             try:
@@ -423,21 +433,13 @@ class GitHubSync:
                     with open(formatter_config_file, 'r', encoding='utf-8-sig') as f:
                         full_config = json.load(f)
                     
-                    # Only include keys that are NOT split into separate files
+                    # Only include shared fields that should be synced (read from separate files, not full_config)
                     formatter_config_content = {
                         "triggers": full_config.get("triggers", []),
-                        "styles": full_config.get("styles", {}),
+                        "styles": {},  # styles.json doesn't exist, keep empty
                         "wall_preset": full_config.get("wall_preset", "Tutorial Box"),
-                        "sync_language": full_config.get("sync_language", "English"),
-                        "pretranslate_settings": full_config.get("pretranslate_settings", {}),
-                        "config_dir": full_config.get("config_dir", "config/en"),
-                        "deepl_target_lang": full_config.get("deepl_target_lang", "EN-US"),
-                        "archetypes": full_config.get("archetypes", {}),
-                        "entry_type_rules": full_config.get("entry_type_rules", {}),
-                        "replace_rules": full_config.get("replace_rules", []),
-                        "ai_system_prompt": full_config.get("ai_system_prompt", ""),
-                        "ai_button_prompts": full_config.get("ai_button_prompts", {}),
-                        "substitution_rules": full_config.get("substitution_rules", [])
+                        "tag_map": self.cm.config.get("tag_map", {}),
+                        "substitution_rules": self.cm.config.get("substitution_rules", [])
                     }
                     
                     formatter_config_result = self._upload_file(
@@ -566,6 +568,11 @@ class GitHubSync:
             except Exception as e:
                 import traceback
                 return {"success": False, "error": str(e), "traceback": traceback.format_exc()}
+            finally:
+                # Mark completion for throttling / scheduling decisions.
+                self._push_in_progress = False
+                self._last_push = time.time()
+                self._last_push_completed = self._last_push
     
     def _check_remote_timestamp(self, file_path: str) -> Optional[str]:
         """Check if remote file has been modified since we last synced."""
@@ -699,13 +706,31 @@ class GitHubSync:
                             local_config = {}
                         
                         # Merge: shared fields from remote, user-specific fields from local
-                        shared_fields = ['triggers', 'tag_map', 'styles', 'wall_presets', 'tag_display', 'speaker_archetypes', 'speaker_notes', 'wall_preset']
+                        shared_fields = ['triggers', 'tag_map', 'styles', 'tag_display', 'wall_preset']
                         merged_config = {}
                         
-                        # Copy shared fields from remote (only if they exist and are not None)
+                        # Copy shared fields from remote (preserve local if remote is empty)
                         for field in shared_fields:
                             if field in remote_content and remote_content[field] is not None:
-                                merged_config[field] = remote_content[field]
+                                # Only use remote if it has actual data (not empty dict/list)
+                                remote_value = remote_content[field]
+                                if isinstance(remote_value, dict) and not remote_value:
+                                    # Remote has empty dict, keep local if it has data
+                                    if field in local_config and local_config[field]:
+                                        merged_config[field] = local_config[field]
+                                    else:
+                                        merged_config[field] = {}
+                                elif isinstance(remote_value, list) and not remote_value:
+                                    # Remote has empty list, keep local if it has data
+                                    if field in local_config and local_config[field]:
+                                        merged_config[field] = local_config[field]
+                                    else:
+                                        merged_config[field] = []
+                                else:
+                                    merged_config[field] = remote_value
+                            elif field in local_config:
+                                # Remote doesn't have field, keep local
+                                merged_config[field] = local_config[field]
                         
                         # Keep user-specific fields from local
                         user_fields = ['dark_mode', 'sync_language', 'pretranslate_settings', 'config_dir', 'deepl_target_lang', 'archetypes']

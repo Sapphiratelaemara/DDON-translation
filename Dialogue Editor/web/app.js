@@ -1287,7 +1287,37 @@ async function loadItemAtIdxInternal(idx, mode) {
         if (enEditor) enEditor.innerText = '';
         if (jpEditor) jpEditor.innerText = '';
         
+        // Populate editor from queued item immediately (fast), then refresh from disk to
+        // avoid stale cached items (e.g. restored from localStorage when CSV parsing was wrong).
         if (enEditor) enEditor.innerText = (item.en || '').replace(/★/g, '');
+        if (jpEditor) jpEditor.innerText = (item.jp || '');
+
+        // Refresh row text from backend (path+row). This fixes "cut off" entries caused
+        // by old cached queues and ensures the editor shows the current CSV contents.
+        if (item && item.path && item.row !== undefined && item.row !== null) {
+            const refreshIdx = loadIdx;
+            eel.get_row_text(item.path, item.row)().then(res => {
+                try {
+                    if (state.reviewer.currentIdx !== refreshIdx) return; // navigated away
+                    if (!res || res.error) return;
+
+                    // Update in-memory item too so subsequent panels use correct text.
+                    item.jp = res.jp ?? item.jp;
+                    item.en = res.en ?? item.en;
+                    if (res.speaker) item.speaker = res.speaker;
+                    if (res.entry_type) item.entry_type = res.entry_type;
+
+                    const enEd2 = document.getElementById('en-editor');
+                    const jpEd2 = document.getElementById('jp-editor');
+                    if (enEd2) enEd2.innerText = (item.en || '').replace(/★/g, '');
+                    if (jpEd2) jpEd2.innerText = (item.jp || '');
+                    // Refresh gutter immediately after programmatic update
+                    syncLineCounters();
+                } catch (e) {
+                    // ignore refresh failures
+                }
+            });
+        }
         
         // Re-enable input events after loading
         if (enEditor && enEditor._setSkipInputHandling) enEditor._setSkipInputHandling(false);
@@ -1786,6 +1816,11 @@ async function replaceDashes(target) {
 // =============================================================================
 // REVIEWER — COUNTERS / PREVIEW
 // =============================================================================
+
+// Helper function to escape special regex characters
+function escapeRegExp(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 // Cache for tag-aware character counts to avoid repeated backend calls
 const tagAwareCharCache = new Map();
 
@@ -1815,7 +1850,9 @@ function syncLineCounters() {
     
     const virtualTags = ['<n>', '</n>', '<w>', '</w>', '<p>', '</p>', '<b>', '</b>', '<i>', '</i>'];
     
-    const text = ed.innerText;
+    // Normalize Windows/Mac newlines so line splitting is consistent even when the
+    // text was programmatically injected from CSV content.
+    const text = (ed.innerText || '').replace(/\r\n?/g, '\n');
     const lines = text ? text.split('\n') : [];
     const limit = state.standardLimit || 50;
     ctr.innerHTML = '';
@@ -1893,8 +1930,57 @@ function updatePreview(loadIdx) {
     }
     
     const boxType = document.getElementById('preview-box-type')?.value || 'dialogue';
-    const text = ed.innerText || '';
-    console.log(`[updatePreview] boxType=${boxType}, text="${text.substring(0, 30)}..."`);
+    // Replace HTML tags with lore values before sending to preview
+        let text = ed.textContent || ed.innerText || '';
+        
+        // Get lore context for tag replacement (same logic as source highlighting)
+        const currentLoreMatches = state.reviewer.currentItem?.lore_context || [];
+        
+        if (currentLoreMatches.length > 0) {
+            console.log(`[updatePreview] Replacing ${currentLoreMatches.length} HTML tags with lore values`);
+            
+            // Create markers array for replacement
+            const markers = [];
+            for (const loreMatch of currentLoreMatches) {
+                if (loreMatch.jp && loreMatch.en) {
+                    const marker = `__LORE_${markers.length}__`;
+                    markers.push({ marker, jp: loreMatch.jp, suggestion: loreMatch.en, allSuggestions: [loreMatch.en], is_lore: true });
+                }
+            }
+            
+            // Replace tags with lore spans or placeholder symbols
+            for (const { marker, jp, suggestion } of markers) {
+                text = text.replace(new RegExp(escapeRegExp(jp), 'g'), marker);
+            }
+            
+            // Replace tags using tag map with display rules
+            const tagMap = cm.config?.tag_map || {};
+            const tagDisplay = cm.config?.tag_display || {};
+            
+            // Replace ALL tags using the same system as editor
+            for (const [tag, replacement] of Object.entries(tagMap)) {
+                const tagRegex = new RegExp(escapeRegExp(tag), 'g');
+                text = text.replace(tagRegex, replacement);
+            }
+            
+            // Handle tags that have display text (use placeholder symbols)
+            const allTags = text.match(/<[^>]+>/g) || [];
+            for (const tagMatch of allTags) {
+                const tagContent = tagMatch.match(/<([^>]+)>/)?.[1] || '';
+                if (tagContent && tagDisplay[tagContent]) {
+                    // This tag has display text, use placeholder symbols
+                    const displayText = tagDisplay[tagContent];
+                    const placeholderSymbols = '📏'.repeat(displayText.length || 1);
+                    text = text.replace(tagMatch, placeholderSymbols);
+                }
+            }
+            
+            // Simple tag cleanup for any remaining unmatched tags
+            text = text.replace(/<[^>]*>/g, '');
+        }
+        
+    console.log(`[updatePreview] boxType=${boxType}, text length=${text.length}, text="${text.substring(0, 100)}..."`);
+    console.log(`[updatePreview] Full text being sent: "${text}"`);
     
     const eelCallStart = performance.now();
     // Generate preview image
@@ -2889,6 +2975,7 @@ function savePreviewProfile() {
         fg: textColor?.value || '#ffffff'
     };
     
+    console.log(`[savePreviewProfile] Saving profile for ${boxType}:`, profile);
     eel.save_preview_profile(boxType, profile)();
 }
 
