@@ -1356,7 +1356,7 @@ async function loadItemAtIdxInternal(idx, mode) {
         }
         
         // Check if current item is missing critical data (DeepL or gloss)
-        console.log(`[loadItemAtIdxInternal] cached.deepl_suggestion=${!!cached.deepl_suggestion}, cached.gloss_result=${!!cached.gloss_result}`);
+        console.log(`[loadItemAtIdxInternal] cached=${!!cached}, cached.deepl_suggestion=${cached?.deepl_suggestion}, cached.gloss_result=${cached?.gloss_result}`);
         const needsRefetch = cached && (!cached.deepl_suggestion || !cached.gloss_result);
         
         // Other async enrichments - fire-and-forget with index-based cancellation
@@ -1933,48 +1933,29 @@ function updatePreview(loadIdx) {
     // Replace HTML tags with lore values before sending to preview
         let text = ed.innerText || ed.textContent || '';
         
-        // Get lore context for tag replacement (same logic as source highlighting)
-        const currentLoreMatches = state.reviewer.currentItem?.lore_context || [];
+        // Replace tags using tag map with display rules (always run, not dependent on lore context)
+        const config = state.settings.lastConfig || {};
+        const tagMap = config.tag_map || {};
+        const tagDisplay = config.tag_display || {};
         
-        if (currentLoreMatches.length > 0) {
-            console.log(`[updatePreview] Replacing ${currentLoreMatches.length} HTML tags with lore values`);
-            
-            // Create markers array for replacement
-            const markers = [];
-            for (const loreMatch of currentLoreMatches) {
-                if (loreMatch.jp && loreMatch.en) {
-                    const marker = `__LORE_${markers.length}__`;
-                    markers.push({ marker, jp: loreMatch.jp, suggestion: loreMatch.en, allSuggestions: [loreMatch.en], is_lore: true });
-                }
+        // Handle tags that have display text (use actual display text)
+        const allTags = text.match(/<[^>]+>/g) || [];
+        console.log(`[updatePreview] Found ${allTags.length} tags to process`);
+        for (const tagMatch of allTags) {
+            const tagContent = tagMatch.match(/<([^>]+)>/)?.[1] || '';
+            if (tagContent && tagDisplay[tagContent]) {
+                // This tag has display text, use it
+                text = text.replace(tagMatch, tagDisplay[tagContent]);
+            } else if (tagContent && tagMap[tagContent]) {
+                // This tag has length but no display text, use placeholder symbols
+                const length = tagMap[tagContent];
+                const placeholderSymbols = '📏'.repeat(length || 1);
+                text = text.replace(tagMatch, placeholderSymbols);
             }
-            
-            // Replace tags with lore spans or placeholder symbols
-            for (const { marker, jp, suggestion } of markers) {
-                text = text.replace(new RegExp(escapeRegExp(jp), 'g'), marker);
-            }
-            
-            // Replace tags using tag map with display rules
-            const tagMap = cm.config?.tag_map || {};
-            const tagDisplay = cm.config?.tag_display || {};
-            
-            // Handle tags that have display text (use actual display text)
-            const allTags = text.match(/<[^>]+>/g) || [];
-            for (const tagMatch of allTags) {
-                const tagContent = tagMatch.match(/<([^>]+)>/)?.[1] || '';
-                if (tagContent && tagDisplay[tagContent]) {
-                    // This tag has display text, use it
-                    text = text.replace(tagMatch, tagDisplay[tagContent]);
-                } else if (tagContent && tagMap[tagContent]) {
-                    // This tag has length but no display text, use placeholder symbols
-                    const length = tagMap[tagContent];
-                    const placeholderSymbols = '📏'.repeat(length || 1);
-                    text = text.replace(tagMatch, placeholderSymbols);
-                }
-            }
-            
-            // Simple tag cleanup for any remaining unmatched tags
-            text = text.replace(/<[^>]*>/g, '');
         }
+        
+        // Simple tag cleanup for any remaining unmatched tags
+        text = text.replace(/<[^>]*>/g, '');
         
     console.log(`[updatePreview] boxType=${boxType}, text length=${text.length}, text="${text.substring(0, 100)}..."`);
     console.log(`[updatePreview] Text has ${text.split('\n').length} lines`);
