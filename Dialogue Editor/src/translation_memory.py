@@ -53,7 +53,7 @@ class TranslationMemory:
         with self._lock:
             try:
                 if os.path.exists(self.tm_file):
-                    with open(self.tm_file, 'r', encoding='utf-8-sig') as f:
+                    with open(self.tm_file, 'r', encoding='utf-8') as f:
                         data = json.load(f)
                     if data.get("version") == 2:
                         self.entries = data.get("entries", [])
