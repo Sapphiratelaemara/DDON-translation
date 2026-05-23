@@ -1486,6 +1486,8 @@ def generate_preview_image(profile_name, text):
         
         print(f"[generate_preview_image] Profile found: {profile}")
         print(f"[generate_preview_image] Text parameters - font_sz: {profile.get('font_sz', 14)}, line_spacing: {profile.get('line_spacing', 1)}, text_x: {profile.get('text_x', 10)}, text_y: {profile.get('text_y', 10)}")
+        print(f"[generate_preview_image] Received text has {text.count(chr(10))} newlines, {len(text)} chars")
+        print(f"[generate_preview_image] First 200 chars: {text[:200]}")
         profile_time = time.time()
         image_load_time = profile_time  # Default if no image loaded
         
