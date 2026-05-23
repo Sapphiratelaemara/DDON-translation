@@ -1931,6 +1931,7 @@ def get_adjacent_context(path, row_idx):
         
         # Row index is used directly (no header row in source CSVs)
         data_row_idx = row_idx
+        print(f"[get_adjacent_context] data_row_idx={data_row_idx}, total rows={len(rows)}")
         
         result = {}
         if data_row_idx > 0:
