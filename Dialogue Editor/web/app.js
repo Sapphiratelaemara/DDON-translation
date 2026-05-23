@@ -1931,7 +1931,7 @@ function updatePreview(loadIdx) {
     
     const boxType = document.getElementById('preview-box-type')?.value || 'dialogue';
     // Replace HTML tags with lore values before sending to preview
-        let text = ed.textContent || ed.innerText || '';
+        let text = ed.innerText || ed.textContent || '';
         
         // Get lore context for tag replacement (same logic as source highlighting)
         const currentLoreMatches = state.reviewer.currentItem?.lore_context || [];
@@ -1957,20 +1957,17 @@ function updatePreview(loadIdx) {
             const tagMap = cm.config?.tag_map || {};
             const tagDisplay = cm.config?.tag_display || {};
             
-            // Replace ALL tags using the same system as editor
-            for (const [tag, replacement] of Object.entries(tagMap)) {
-                const tagRegex = new RegExp(escapeRegExp(tag), 'g');
-                text = text.replace(tagRegex, replacement);
-            }
-            
-            // Handle tags that have display text (use placeholder symbols)
+            // Handle tags that have display text (use actual display text)
             const allTags = text.match(/<[^>]+>/g) || [];
             for (const tagMatch of allTags) {
                 const tagContent = tagMatch.match(/<([^>]+)>/)?.[1] || '';
                 if (tagContent && tagDisplay[tagContent]) {
-                    // This tag has display text, use placeholder symbols
-                    const displayText = tagDisplay[tagContent];
-                    const placeholderSymbols = '📏'.repeat(displayText.length || 1);
+                    // This tag has display text, use it
+                    text = text.replace(tagMatch, tagDisplay[tagContent]);
+                } else if (tagContent && tagMap[tagContent]) {
+                    // This tag has length but no display text, use placeholder symbols
+                    const length = tagMap[tagContent];
+                    const placeholderSymbols = '📏'.repeat(length || 1);
                     text = text.replace(tagMatch, placeholderSymbols);
                 }
             }
@@ -1980,6 +1977,7 @@ function updatePreview(loadIdx) {
         }
         
     console.log(`[updatePreview] boxType=${boxType}, text length=${text.length}, text="${text.substring(0, 100)}..."`);
+    console.log(`[updatePreview] Text has ${text.split('\n').length} lines`);
     console.log(`[updatePreview] Full text being sent: "${text}"`);
     
     const eelCallStart = performance.now();
