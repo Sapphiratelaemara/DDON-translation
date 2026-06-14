@@ -133,14 +133,14 @@ are not the same.",ui\00_message\ui\pawn_cultivation.gmd,\ui\uGUIArisenCard.arc,
 4,area_list_header2,遠征数,Dispatch Num,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPawnExpedition.arc,uGUIPawnExpedition.arc,4,,Pawn Expedition
 4,area_list_header2,遠征数,Dispatch Num,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPawnExpeditionResult.arc,uGUIPawnExpeditionResult.arc,4,,Pawn Expedition
 4,area_list_header2,遠征数,Dispatch Num,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPopBuffBonus.arc,uGUIPopBuffBonus.arc,4,,Pawn Expedition
-0,area_list_title,Dispatch Area,Dispatch Area,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIAreaMaster.arc,uGUIAreaMaster.arc,0,,Pawn Expedition
-0,area_list_title,Dispatch Area,Dispatch Area,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPawnExpedition.arc,uGUIPawnExpedition.arc,0,,Pawn Expedition
-0,area_list_title,Dispatch Area,Dispatch Area,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPawnExpeditionResult.arc,uGUIPawnExpeditionResult.arc,0,,Pawn Expedition
-0,area_list_title,Dispatch Area,Dispatch Area,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPopBuffBonus.arc,uGUIPopBuffBonus.arc,0,,Pawn Expedition
-1,area_list_title_sub,遠征エリア,Expedition Area,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIAreaMaster.arc,uGUIAreaMaster.arc,1,,Pawn Expedition
-1,area_list_title_sub,遠征エリア,Expedition Area,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPawnExpedition.arc,uGUIPawnExpedition.arc,1,,Pawn Expedition
-1,area_list_title_sub,遠征エリア,Expedition Area,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPawnExpeditionResult.arc,uGUIPawnExpeditionResult.arc,1,,Pawn Expedition
-1,area_list_title_sub,遠征エリア,Expedition Area,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPopBuffBonus.arc,uGUIPopBuffBonus.arc,1,,Pawn Expedition
+0,area_list_title,Dispatch Area,Expedition Area,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIAreaMaster.arc,uGUIAreaMaster.arc,0,,Pawn Expedition
+0,area_list_title,Dispatch Area,Expedition Area,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPawnExpedition.arc,uGUIPawnExpedition.arc,0,,Pawn Expedition
+0,area_list_title,Dispatch Area,Expedition Area,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPawnExpeditionResult.arc,uGUIPawnExpeditionResult.arc,0,,Pawn Expedition
+0,area_list_title,Dispatch Area,Expedition Area,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPopBuffBonus.arc,uGUIPopBuffBonus.arc,0,,Pawn Expedition
+1,area_list_title_sub,遠征エリア, ,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIAreaMaster.arc,uGUIAreaMaster.arc,1,,Pawn Expedition
+1,area_list_title_sub,遠征エリア, ,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPawnExpedition.arc,uGUIPawnExpedition.arc,1,,Pawn Expedition
+1,area_list_title_sub,遠征エリア, ,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPawnExpeditionResult.arc,uGUIPawnExpeditionResult.arc,1,,Pawn Expedition
+1,area_list_title_sub,遠征エリア, ,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPopBuffBonus.arc,uGUIPopBuffBonus.arc,1,,Pawn Expedition
 34,pop_buff_bonus_title,Special Bonus Buff,Special Bonus Buff,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIAreaMaster.arc,uGUIAreaMaster.arc,34,,Pawn Expedition
 34,pop_buff_bonus_title,Special Bonus Buff,Special Bonus Buff,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPawnExpedition.arc,uGUIPawnExpedition.arc,34,,Pawn Expedition
 34,pop_buff_bonus_title,Special Bonus Buff,Special Bonus Buff,ui\00_message\ui\pawn_expedition.gmd,\ui\uGUIPawnExpeditionResult.arc,uGUIPawnExpeditionResult.arc,34,,Pawn Expedition
@@ -691,7 +691,7 @@ Needs (<NAME ITEM>×<VAL>)",ui\00_message\ui\pick_res.gmd,\ui\uGUIPick01.arc,uGU
 the items.",ui\00_message\ui\pick_res.gmd,\ui\uGUIPick01.arc,uGUIPick01.arc,7,
 2,pick_item_select,使用するアイテムを選択,Select which item to use,ui\00_message\ui\pick_res.gmd,\ui\uGUIPick01.arc,uGUIPick01.arc,2,
 0,pick_recieve_en,Receive,Take,ui\00_message\ui\pick_res.gmd,\ui\uGUIPick01.arc,uGUIPick01.arc,0,
-1,pick_recive_jp,受け取り,Take,ui\00_message\ui\pick_res.gmd,\ui\uGUIPick01.arc,uGUIPick01.arc,1,
+1,pick_recive_jp,受け取り, ,ui\00_message\ui\pick_res.gmd,\ui\uGUIPick01.arc,uGUIPick01.arc,1,
 11,PLAY_PURPOSE_AREA_001,冒険エリア＜ハイデル平原＞,"Adventure in ""Hidell Plains""",ui\00_message\ui\play_style_item.gmd,\ui\menu_cmn.arc,menu_cmn.arc,11,
 12,PLAY_PURPOSE_AREA_002,冒険エリア＜ブリア海岸＞,"Adventure in ""Breya Coast""",ui\00_message\ui\play_style_item.gmd,\ui\menu_cmn.arc,menu_cmn.arc,12,
 13,PLAY_PURPOSE_AREA_003,冒険エリア＜ミスリウ森林＞,"Adventure in ""Mysree Forest""",ui\00_message\ui\play_style_item.gmd,\ui\menu_cmn.arc,menu_cmn.arc,13,
@@ -796,25 +796,20 @@ the items.",ui\00_message\ui\pick_res.gmd,\ui\uGUIPick01.arc,uGUIPick01.arc,7,
 43,PopPartyList_PlayerSearch_PlayStyle,プレイスタイルを指定して探す,Search by play style,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,43,
 41,PopPartyList_PlayerSearch_Title,パーティー検索条件設定,Party Search Criteria,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,41,
 49,PopPartyList_QuickPartyEdit_JobBalance,ジョブバランスを取る,Job Balance,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,49,
-50,PopPartyList_QuickPartyEdit_JobBalanceBrief,(タンク1人/アタッカー2人/ヒーラー1人でバランスを取ります）,"(Party will be balanced with 1 Tank / 2 Attackers
-/ 1 Healer)",ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,50,
+50,PopPartyList_QuickPartyEdit_JobBalanceBrief,(タンク1人/アタッカー2人/ヒーラー1人でバランスを取ります）,1 Tank/2 DPS/1 Healer,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,50,
 51,PopPartyList_QuickPartyEdit_LevelBalance,レベルバランスを取る,Level Balance,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,51,
 52,PopPartyList_QuickPartyEdit_LevelBalanceBrief,(±4以内で検索します),(Search for levels within ±4),ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,52,
 55,PopPartyList_QuickPartyEdit_MainPurpose_Area,エリアスポットで遊ぶ,Play in an Area Spot,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,55,
 54,PopPartyList_QuickPartyEdit_MainPurpose_Main,メインクエストで遊ぶ,Play Main Quest,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,54,
 56,PopPartyList_QuickPartyEdit_MainPurpose_News,レスタニアニュースで遊ぶ,Play Lestania News,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,56,
 58,PopPartyList_QuickPartyEdit_PTLeader,パーティーリーダーＯＫ,Party Leader,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,58,
-59,PopPartyList_QuickPartyEdit_PTLeaderBrief,(パーティーが組まれた時、リーダー候補になります),"(When the party forms, you will be a candidate to
-be leader)",ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,59,
+59,PopPartyList_QuickPartyEdit_PTLeaderBrief,(パーティーが組まれた時、リーダー候補になります),"(Upon party forming, you may become the leader)",ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,59,
 48,PopPartyList_QuickPartyEdit_Title,クイックパーティー条件編集,Edit Quick Party Conditions,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,48,
 53,PopPartyList_QuickPartyEdit_Warning,"※進行に変化があった場合は、クイックパーティーの登録が解除されます
 ※パーティー内のポーンは、合流時にパーティーから外れます
-※登録時のジョブと異なる場合は、合流時に元のジョブに戻ります","※If quest progress changes, the registration will
-be canceled.
-※If there are pawns in party, they will be
-dismissed.
-※If your job is different, you will return to
-your original job.",ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,53,
+※登録時のジョブと異なる場合は、合流時に元のジョブに戻ります","※If quest progress changes, the registration will be canceled.
+※If there are pawns in party, they will be dismissed.
+※If your job is different, you will return to your original job.",ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,53,
 57,PopPartyList_Simple_Req_Title,簡易パーティー要請条件設定,Set Simple Party Conditions,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,57,
 22,pop_prof_all,すべて,All,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,22,
 8,pop_prof_cancel,キャンセル,Cancel,ui\00_message\ui\pop_party_list_res.gmd,\ui\uGUIPopPartyList.arc,uGUIPopPartyList.arc,8,

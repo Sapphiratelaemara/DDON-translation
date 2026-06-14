@@ -408,7 +408,7 @@ Party Recruitment Board category.",ui\00_message\ui\game_menu_win.gmd,\ui\gui_cm
 43,menu_quit_select_shutdown,ログアウトしてゲームを終了する,Log out and exit game,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,43,,Game Menu
 9,menu_rim_transport,リム転移,Rift Teleport,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,9,,Game Menu
 47,menu_serch_player,プレイヤー検索,Player Search,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,47,,Game Menu
-32,menu_server_change,ワールド変更,World Select,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,32,,Game Menu
+32,menu_server_change,ワールド変更,Channel Select,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,32,,Game Menu
 19,menu_shut_down,ゲーム中断,Exit Game,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,19,,Game Menu
 17,menu_support,サポート・報告,Support / Report,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,17,,Game Menu
 54,menu_time_event,リワードミッション,Reward Mission,ui\00_message\ui\game_menu_win.gmd,\ui\gui_cmn.arc,gui_cmn.arc,54,,Game Menu
@@ -687,17 +687,17 @@ Cost: <VAL GOLD>",ui\00_message\ui\item_restore.gmd,\ui\uGUIItemReStore.arc,uGUI
 3,item_restore_header02,復元費用,Restoration cost,ui\00_message\ui\item_restore.gmd,\ui\uGUIItemReStore.arc,uGUIItemReStore.arc,3,
 14,item_restore_item0,復元可能なアイテムがありません,There are no restorable items,ui\00_message\ui\item_restore.gmd,\ui\uGUIItemReStore.arc,uGUIItemReStore.arc,14,
 0,item_restore_title,Item Restoration,Item Restoration,ui\00_message\ui\item_restore.gmd,\ui\uGUIItemReStore.arc,uGUIItemReStore.arc,0,
-1,item_restore_title_sub,アイテム復元,Item Restoration,ui\00_message\ui\item_restore.gmd,\ui\uGUIItemReStore.arc,uGUIItemReStore.arc,1,
+1,item_restore_title_sub,アイテム復元, ,ui\00_message\ui\item_restore.gmd,\ui\uGUIItemReStore.arc,uGUIItemReStore.arc,1,
 3,item_sel_empty_notice,項目がありません,No items available,ui\00_message\ui\item_select_common.gmd,\ui\uGUIItemSelectCommon.arc,uGUIItemSelectCommon.arc,3,
 4,item_sel_err_not_enough_material,素材が足りません,Insufficient materials,ui\00_message\ui\item_select_common.gmd,\ui\uGUIItemSelectCommon.arc,uGUIItemSelectCommon.arc,4,
 5,item_sel_guide_sell,売却,Sell,ui\00_message\ui\item_select_common.gmd,\ui\uGUIItemSelectCommon.arc,uGUIItemSelectCommon.arc,5,
 2,item_sel_header_makable,作るもの,Crafting item,ui\00_message\ui\item_select_common.gmd,\ui\uGUIItemSelectCommon.arc,uGUIItemSelectCommon.arc,2,
-6,item_sel_infdelivery_title_en,Select Item,Select Item,ui\00_message\ui\item_select_common.gmd,\ui\uGUIItemSelectCommon.arc,uGUIItemSelectCommon.arc,6,
-7,item_sel_infdelivery_title_jp,納品するアイテムを選択してください,Please select items to deliver.,ui\00_message\ui\item_select_common.gmd,\ui\uGUIItemSelectCommon.arc,uGUIItemSelectCommon.arc,7,
-0,item_sel_mandra_title,Mandragora Craft,Mandragora Craft,ui\00_message\ui\item_select_common.gmd,\ui\uGUIItemSelectCommon.arc,uGUIItemSelectCommon.arc,0,
-1,item_sel_mandra_title_sub,マンドラゴラを育てる,Mandragora Raising,ui\00_message\ui\item_select_common.gmd,\ui\uGUIItemSelectCommon.arc,uGUIItemSelectCommon.arc,1,
-8,item_sel_sameitem_title_en,Same Item,Same Item,ui\00_message\ui\item_select_common.gmd,\ui\uGUIItemSelectCommon.arc,uGUIItemSelectCommon.arc,8,
-9,item_sel_sameitem_title_jp,所持している同じアイテム一覧,List of same items possessed.,ui\00_message\ui\item_select_common.gmd,\ui\uGUIItemSelectCommon.arc,uGUIItemSelectCommon.arc,9,
+6,item_sel_infdelivery_title_en,Select Item,Select Item(s),ui\00_message\ui\item_select_common.gmd,\ui\uGUIItemSelectCommon.arc,uGUIItemSelectCommon.arc,6,
+7,item_sel_infdelivery_title_jp,納品するアイテムを選択してください, ,ui\00_message\ui\item_select_common.gmd,\ui\uGUIItemSelectCommon.arc,uGUIItemSelectCommon.arc,7,
+0,item_sel_mandra_title,Mandragora Craft,Mandragora Raising,ui\00_message\ui\item_select_common.gmd,\ui\uGUIItemSelectCommon.arc,uGUIItemSelectCommon.arc,0,
+1,item_sel_mandra_title_sub,マンドラゴラを育てる, ,ui\00_message\ui\item_select_common.gmd,\ui\uGUIItemSelectCommon.arc,uGUIItemSelectCommon.arc,1,
+8,item_sel_sameitem_title_en,Same Item,Same Item List,ui\00_message\ui\item_select_common.gmd,\ui\uGUIItemSelectCommon.arc,uGUIItemSelectCommon.arc,8,
+9,item_sel_sameitem_title_jp,所持している同じアイテム一覧, ,ui\00_message\ui\item_select_common.gmd,\ui\uGUIItemSelectCommon.arc,uGUIItemSelectCommon.arc,9,
 102,bbi_embody_conf_01,"以下のアイテムを<COL ffdc78><UNTN GDM> <VAL GDM></COL>を使用して
 レスタニアの<COL ffdc78><VAL></COL>に持ち帰ります
 よろしいですか？","Use <COL ffdc78><VAL GDM> pieces of <UNTN GDM></COL>
