@@ -3,13 +3,13 @@
 <VAL PRICE_WEAK>払えるっていうなら
 ここで治してやるぜ
 手持ちの金は十分か？","If you can pay <VAL PRICE_WEAK>, then I'll treat your
-weakness right here.
+[Weakness] right here.
 Have you that on hand?",ui\00_message\npc\base\n3300.gmd,\npc\n3300.arc,n3300.arc,7,Randolf,Incidental Dialogue
 0,,はい,Yes,ui\00_message\npc\base\n3300.gmd,\npc\n3300.arc,n3300.arc,8,Randolf,Incidental Dialogue
 0,,いいえ,No,ui\00_message\npc\base\n3300.gmd,\npc\n3300.arc,n3300.arc,9,Randolf,Incidental Dialogue
 0,,"――面白くもない冗談はやめろ
 そういうことをやってると
-本当に《弱化》した時に困るぞ","—Stop with the unfunny jokes.
+本当に《弱化》した時に困るぞ","—Stop with the bad jokes.
 If you keep doing things like that, you'll really
 be in trouble when you're actually weakened.",ui\00_message\npc\base\n3300.gmd,\npc\n3300.arc,n3300.arc,10,Randolf,Incidental Dialogue
 0,,"ここで寝ようと思ったら
@@ -174,7 +174,7 @@ Please, understand, and forgive me...",ui\00_message\npc\base\n3352.gmd,\npc\n33
 0,,"覚者殿、申し上げにくいことですが
 《弱化》されていないようです
 ええ、間違いなく《弱化》されていません","Master Arisen, 'tis difficult for me to really
-say, but it seems that you have not been weakened.
+say, but it seems that you have not been [Weakened].
 Yes, without a doubt.",ui\00_message\npc\base\n3352.gmd,\npc\n3352.arc,n3352.arc,10,Youssef,Incidental Dialogue
 0,,"""あの時""メガドを護りきれなかった我らです
 ""今""できることをやらせてください","We couldn't protect Megado back then.
@@ -595,7 +595,7 @@ expenses are no joke, you know.",ui\00_message\npc\base\n4502.gmd,\npc\n4502.arc
 0,,はい,Yes,ui\00_message\npc\base\n4502.gmd,\npc\n4502.arc,n4502.arc,7,Ringdeel,Incidental Dialogue
 0,,いいえ,No,ui\00_message\npc\base\n4502.gmd,\npc\n4502.arc,n4502.arc,8,Ringdeel,Incidental Dialogue
 0,,"でも君、《弱化》ではなさそうだね
-心配しすぎなんじゃない？","But you don't seem to be weakened, huh?
+心配しすぎなんじゃない？","But you don't seem to be [Weakened,] huh?
 Aren't you worrying too much?",ui\00_message\npc\base\n4502.gmd,\npc\n4502.arc,n4502.arc,9,Ringdeel,Incidental Dialogue
 0,,"ロンドジ―ルから君のことは聞いたわ
 この森のこと、かなり詳しくなったみたいね","I heard about you from Rondejeel.
@@ -782,7 +782,7 @@ want to take a break, just let me know.",ui\00_message\npc\base\n4502.gmd,\npc\n
 0,,いいえ,No,ui\00_message\npc\base\n4502.gmd,\npc\n4502.arc,n4502.arc,47,Ringdeel,Incidental Dialogue
 0,,"《弱化の治療》？　多分できると思うけど
 <VAL PRICE_WEAK>くらいは出してもらう
-ことになるわ、それでもいい？","""Weakness Treatment?"" I think I can probably do
+ことになるわ、それでもいい？","[Weakness Treatment]? I think I can probably do
 it, but I'll have to get <VAL PRICE_WEAK> or so out of you.
 Is that okay with you?",ui\00_message\npc\base\n4502.gmd,\npc\n4502.arc,n4502.arc,48,Ringdeel,Incidental Dialogue
 0,,はい,Yes,ui\00_message\npc\base\n4502.gmd,\npc\n4502.arc,n4502.arc,49,Ringdeel,Incidental Dialogue
@@ -1335,12 +1335,12 @@ the lives of many Arisen.",ui\00_message\npc\base\n4506.gmd,\npc\n4506.arc,n4506
 Please accept my request!",ui\00_message\npc\base\n4506.gmd,\npc\n4506.arc,n4506.arc,51,Christine,Incidental Dialogue
 0,,"《弱化の治療》ですね、承りました
 <VAL PRICE_WEAK>ほどご負担いただきますが","I understand that you would like to receive the
-procedure for ""Weakness Treatment."" It will
+procedure for [Weakness Treatment]. It will
 incur a fee of <VAL PRICE_WEAK>.",ui\00_message\npc\base\n4506.gmd,\npc\n4506.arc,n4506.arc,52,Christine,Incidental Dialogue
 0,,はい,Yes,ui\00_message\npc\base\n4506.gmd,\npc\n4506.arc,n4506.arc,53,Christine,Incidental Dialogue
 0,,いいえ,No,ui\00_message\npc\base\n4506.gmd,\npc\n4506.arc,n4506.arc,54,Christine,Incidental Dialogue
 0,,"あら、覚者さまは《弱化》ではありませんね
-治療の必要はないようです","Oh, Master Arisen, you are not weakened.
+治療の必要はないようです","Oh, Master Arisen, you are not [Weakened].
 There is no need for treatment.",ui\00_message\npc\base\n4506.gmd,\npc\n4506.arc,n4506.arc,55,Christine,Incidental Dialogue
 0,,"覚者さま、あなたはこの深き森にとっても
 大事なお方

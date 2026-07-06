@@ -45,6 +45,11 @@ SKIP_SPACING_KEYWORDS = [
     "OS_index_loginskip"
 ]
 
+# ------------------------------------------------------------
+# Minimum required entry count for the generated English gmd.csv
+# ------------------------------------------------------------
+MIN_ENTRY_COUNT = 131121
+
 
 def normalize_brackets(text):
     return "".join(BRACKET_MAP.get(ch, ch) for ch in text)
@@ -226,6 +231,50 @@ def validate_folder(folder):
     print(f"{folder} passed validation (ignored: {', '.join(EXCLUDED_NAMES)}).")
 
 
+# ------------------------------------------------------------
+# Entry-count validation
+# ------------------------------------------------------------
+def count_csv_entries(file_path):
+    """
+    Count actual CSV data entries (rows) in a file, not raw lines.
+    Skips the header row (#Index) and any blank rows, and correctly
+    handles rows whose fields contain embedded newlines.
+    """
+    count = 0
+    with open(file_path, newline='', encoding='utf-8-sig') as csvfile:
+        reader = csv.reader(csvfile)
+        for row in reader:
+            if not row:
+                continue
+            first_column = row[0].strip().lstrip('\ufeff')
+            if first_column == "#Index":
+                continue
+            count += 1
+    return count
+
+
+def validate_entry_count(file_path, minimum=MIN_ENTRY_COUNT):
+    """
+    Ensure the resulting CSV has at least `minimum` entries.
+    Exits the process with an error if the file is missing or short.
+    """
+    if not file_path.exists():
+        print(f"\n❌ Entry count validation failed: {file_path} does not exist.")
+        sys.exit(1)
+
+    entry_count = count_csv_entries(file_path)
+
+    if entry_count < minimum:
+        print(
+            f"\n❌ Entry count validation failed for {file_path}: "
+            f"found {entry_count} entries, expected at least {minimum}."
+        )
+        sys.exit(1)
+
+    print(f"{file_path} passed entry count validation ({entry_count} entries, minimum {minimum}).")
+    return entry_count
+
+
 def get_changed_files():
     try:
         result = subprocess.run(
@@ -282,6 +331,9 @@ def merge_english():
 
     print(f"English gmd.csv generated from {len(csv_files)} CSV files.")
 
+    # Enforce the minimum entry-count requirement on the merged output.
+    validate_entry_count(output_file)
+
 
 def process_english_csv(path):
     changed = False
@@ -324,6 +376,7 @@ def main():
     english_folder = Path(__file__).parent
     fully_translated = english_folder / "Fully Translated"
     splits_folder = english_folder / "splits"
+    gmd_output = english_folder / "gmd.csv"
 
     if not args.ci:
         for folder in [fully_translated, splits_folder]:
@@ -332,7 +385,7 @@ def main():
 
         walk_and_process_english(english_folder)
         modify_specific_entry()
-        merge_english()
+        merge_english()  # also runs validate_entry_count() on gmd.csv internally
 
         print("\nLocal English validation + generation complete.")
         return
@@ -354,6 +407,11 @@ def main():
     for folder_name in changed_folders:
         if folder_name != "English":
             validate_folder(repo_root / folder_name)
+
+    # In CI mode we don't regenerate gmd.csv, but if it already exists in the
+    # repo we still enforce the minimum entry-count requirement on it.
+    if gmd_output.exists():
+        validate_entry_count(gmd_output)
 
     print("\nCI validation complete.")
 
