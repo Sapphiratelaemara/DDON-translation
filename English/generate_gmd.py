@@ -174,6 +174,10 @@ def validate_tags(text):
     # Check basic angle bracket balance
     cleaned = re.sub(r"<-|->", "", text)
 
+    # Check for unbalanced square brackets
+    if text.count("[") != text.count("]"):
+        return "Unbalanced square brackets"
+
     if cleaned.count("<") != cleaned.count(">"):
         return "Unbalanced angle brackets"
 
@@ -212,7 +216,7 @@ def validate_tag_folder(folder):
                             f"{csv_file}\n"
                             f" Row {rnum}, Entry {row[0]}:\n"
                             f"  {err}\n"
-                            f"  {row[3]}\n"
+                            f"  {repr(row[3])}\n"
                         )
 
     if errors:
