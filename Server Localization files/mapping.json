@@ -1,0 +1,2840 @@
+{
+    "PhysicalAttack": {
+        "English": "Physical Attack",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "物理攻撃力",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "2136"
+            }
+        ]
+    },
+    "MagickAttack": {
+        "English": "Magick Attack",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "魔法攻撃力",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "2166"
+            }
+        ]
+    },
+    "PhysicalDefense": {
+        "English": "Physical Defense",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "物理防御力",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "2196"
+            }
+        ]
+    },
+    "MagickDefense": {
+        "English": "Magick Defense",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "魔法防御力",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "2226"
+            }
+        ]
+    },
+    "HealthPoints": {
+        "English": "Health Points",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "体力",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "158"
+            }
+        ]
+    },
+    "Stamina": {
+        "English": "Stamina",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "スタミナ回復",
+                "GmdPath": "ui\\00_message\\ui\\item_work.gmd",
+                "ArcName": "uGUIPopDetail01.arc",
+                "ReadIndex": "1"
+            },
+            {
+                "MsgJp": "スタミナ",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "159"
+            },
+            {
+                "MsgJp": "スタミナ補助",
+                "GmdPath": "ui\\00_message\\skill\\ability_category.gmd",
+                "ArcName": "uGUISkill.arc",
+                "ReadIndex": "8"
+            }
+        ]
+    },
+    "RecoveryLimit": {
+        "English": "Recovery Limit",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "生命治癒力",
+                "GmdPath": "ui\\00_message\\ui\\ArisenCard.gmd",
+                "ArcName": "uGUIArisenCardPop.arc",
+                "ReadIndex": "32"
+            },
+            {
+                "MsgJp": "生命治癒力",
+                "GmdPath": "ui\\00_message\\ui\\ArisenCard_win.gmd",
+                "ArcName": "uGUIArisenCard.arc",
+                "ReadIndex": "32"
+            },
+            {
+                "MsgJp": "生命治癒力",
+                "GmdPath": "ui\\00_message\\ui\\ArisenCard_win.gmd",
+                "ArcName": "uGUIPawnThinkList.arc",
+                "ReadIndex": "32"
+            },
+            {
+                "MsgJp": "生命治癒力",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "71"
+            }
+        ]
+    },
+    "Endurance": {
+        "English": "Endurance",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "耐久力",
+                "GmdPath": "ui\\00_message\\ui\\ArisenCard.gmd",
+                "ArcName": "uGUIArisenCardPop.arc",
+                "ReadIndex": "31"
+            },
+            {
+                "MsgJp": "耐久力",
+                "GmdPath": "ui\\00_message\\ui\\ArisenCard_win.gmd",
+                "ArcName": "uGUIArisenCard.arc",
+                "ReadIndex": "31"
+            },
+            {
+                "MsgJp": "耐久力",
+                "GmdPath": "ui\\00_message\\ui\\ArisenCard_win.gmd",
+                "ArcName": "uGUIPawnThinkList.arc",
+                "ReadIndex": "31"
+            },
+            {
+                "MsgJp": "耐久力",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "70"
+            }
+        ]
+    },
+    "KnockdownPower": {
+        "English": "Knockdown Power",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "吹き飛ばし力",
+                "GmdPath": "ui\\00_message\\ui\\ArisenCard.gmd",
+                "ArcName": "uGUIArisenCardPop.arc",
+                "ReadIndex": "74"
+            },
+            {
+                "MsgJp": "吹き飛ばし力",
+                "GmdPath": "ui\\00_message\\ui\\ArisenCard_win.gmd",
+                "ArcName": "uGUIArisenCard.arc",
+                "ReadIndex": "74"
+            },
+            {
+                "MsgJp": "吹き飛ばし力",
+                "GmdPath": "ui\\00_message\\ui\\ArisenCard_win.gmd",
+                "ArcName": "uGUIPawnThinkList.arc",
+                "ReadIndex": "74"
+            },
+            {
+                "MsgJp": "吹き飛ばし力",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "25"
+            }
+        ]
+    },
+    "StunPower": {
+        "English": "Stun Power",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "気絶攻力",
+                "GmdPath": "ui\\00_message\\ui\\ArisenCard.gmd",
+                "ArcName": "uGUIArisenCardPop.arc",
+                "ReadIndex": "29"
+            },
+            {
+                "MsgJp": "気絶攻力",
+                "GmdPath": "ui\\00_message\\ui\\ArisenCard_win.gmd",
+                "ArcName": "uGUIArisenCard.arc",
+                "ReadIndex": "29"
+            },
+            {
+                "MsgJp": "気絶攻力",
+                "GmdPath": "ui\\00_message\\ui\\ArisenCard_win.gmd",
+                "ArcName": "uGUIPawnThinkList.arc",
+                "ReadIndex": "29"
+            },
+            {
+                "MsgJp": "気絶攻力",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "26"
+            }
+        ]
+    },
+    "FireForce": {
+        "English": "Fire Force",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ファイアフォース",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "2358"
+            }
+        ]
+    },
+    "IceForce": {
+        "English": "Ice Force",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "アイスフォース",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "2378"
+            }
+        ]
+    },
+    "LightningForce": {
+        "English": "Lightning Force",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "サンダーフォース",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "2398"
+            }
+        ]
+    },
+    "LightForce": {
+        "English": "Light Force",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ライトフォース",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "2418"
+            }
+        ]
+    },
+    "DarkForce": {
+        "English": "Dark Force",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ダークフォース",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "2438"
+            }
+        ]
+    },
+    "Gilded": {
+        "English": "Gilded",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "黄金化",
+                "GmdPath": "ui\\00_message\\common\\condition_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "10"
+            },
+            {
+                "MsgJp": "ゴルトイーファイ",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "5203"
+            },
+            {
+                "MsgJp": "ゴルトイーファイ",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "5204"
+            },
+            {
+                "MsgJp": "ゴルトイーファイ",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "5205"
+            },
+            {
+                "MsgJp": "ゴルトイーファイ",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "5206"
+            },
+            {
+                "MsgJp": "ゴルトイーファイ",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "5207"
+            }
+        ]
+    },
+    "Sleep": {
+        "English": "Sleep",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "睡眠",
+                "GmdPath": "ui\\00_message\\common\\condition_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "2"
+            },
+            {
+                "MsgJp": "寝る",
+                "GmdPath": "ui\\00_message\\ui\\emote_text_pawn.gmd",
+                "ArcName": "uGUIPopPawnList.arc",
+                "ReadIndex": "34"
+            }
+        ]
+    },
+    "Petrification": {
+        "English": "Petrification",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "石化",
+                "GmdPath": "ui\\00_message\\common\\condition_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "9"
+            }
+        ]
+    },
+    "Slow": {
+        "English": "Slow",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "遅延",
+                "GmdPath": "ui\\00_message\\common\\condition_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "1"
+            }
+        ]
+    },
+    "Frail": {
+        "English": "Frail",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "軟化",
+                "GmdPath": "ui\\00_message\\common\\condition_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "8"
+            }
+        ]
+    },
+    "PhysicalAtkDown": {
+        "English": "Physical Atk. Down",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "物理攻撃低下",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "2558"
+            }
+        ]
+    },
+    "MagickAtkDown": {
+        "English": "Magick Atk. Down",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "魔法攻撃低下",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "2578"
+            }
+        ]
+    },
+    "PhysicalDefDown": {
+        "English": "Physical Def. Down",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "物理防御低下",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "2598"
+            }
+        ]
+    },
+    "MagickDefDown": {
+        "English": "Magick Def. Down",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "魔法防御低下",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "2618"
+            }
+        ]
+    },
+    "DemihumanSlayer": {
+        "English": "Demihuman Slayer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "対敵特効【亜人】",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "30"
+            }
+        ]
+    },
+    "SkeletonSlayer": {
+        "English": "Skeleton Slayer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "対敵特効【骸骨】",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "34"
+            }
+        ]
+    },
+    "OgrekinSlayer": {
+        "English": "Ogrekin Slayer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "対敵特効【鬼人】",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "32"
+            }
+        ]
+    },
+    "GiantSlayer": {
+        "English": "Giant Slayer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "対敵特効【巨人】",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "36"
+            }
+        ]
+    },
+    "CursedSlayer": {
+        "English": "Cursed Slayer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "対敵特効【呪詛】",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "39"
+            }
+        ]
+    },
+    "BeastSlayer": {
+        "English": "Beast Slayer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "ビーストスレイヤー",
+                "GmdPath": "ui\\00_message\\dragon_skill\\skill_name.gmd",
+                "ArcName": "dragon_skill_info.arc",
+                "ReadIndex": "1"
+            },
+            {
+                "MsgJp": "対敵特効【獣】",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "31"
+            }
+        ]
+    },
+    "CorruptedSlayer": {
+        "English": "Corrupted Slayer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "対敵特効【侵食】",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "215"
+            }
+        ]
+    },
+    "HumanSlayer": {
+        "English": "Human Slayer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "対敵特効【人間】",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "41"
+            }
+        ]
+    },
+    "WarReadySlayer": {
+        "English": "War-Ready Slayer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "対敵特効【戦甲】",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "223"
+            }
+        ]
+    },
+    "MagickalConstructsSlayer": {
+        "English": "Magickal Constructs Slayer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "対敵特効【造魔】",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "40"
+            }
+        ]
+    },
+    "FormlessSlayer": {
+        "English": "Formless Slayer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "対敵特効【軟体】",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "37"
+            }
+        ]
+    },
+    "UndeadSlayer": {
+        "English": "Undead Slayer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "対敵特効【腐死】",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "33"
+            }
+        ]
+    },
+    "FiendSlayer": {
+        "English": "Fiend Slayer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "滅魔",
+                "GmdPath": "ui\\00_message\\achievement\\achievement_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "239"
+            },
+            {
+                "MsgJp": "デーモンスレイヤー",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "7036"
+            },
+            {
+                "MsgJp": "デーモンスレイヤー",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "7037"
+            },
+            {
+                "MsgJp": "デーモンスレイヤー",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "7038"
+            },
+            {
+                "MsgJp": "デーモンスレイヤー",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "7039"
+            },
+            {
+                "MsgJp": "デーモンスレイヤー",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "7040"
+            },
+            {
+                "MsgJp": "デーモンスレイヤー",
+                "GmdPath": "ui\\00_message\\dragon_skill\\skill_name.gmd",
+                "ArcName": "dragon_skill_info.arc",
+                "ReadIndex": "2"
+            },
+            {
+                "MsgJp": "対敵特効【魔族】",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "44"
+            }
+        ]
+    },
+    "WingedSlayer": {
+        "English": "Winged Slayer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "対敵特効【有翼】",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "35"
+            }
+        ]
+    },
+    "DragonkinSlayer": {
+        "English": "Dragonkin Slayer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "竜殺",
+                "GmdPath": "ui\\00_message\\achievement\\achievement_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "242"
+            },
+            {
+                "MsgJp": "対敵特効【竜族】",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "43"
+            }
+        ]
+    },
+    "SpiritSlayer": {
+        "English": "Spirit Slayer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "ゴーストスレイヤー",
+                "GmdPath": "ui\\00_message\\dragon_skill\\skill_name.gmd",
+                "ArcName": "dragon_skill_info.arc",
+                "ReadIndex": "3"
+            },
+            {
+                "MsgJp": "対敵特効【霊体】",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "38"
+            }
+        ]
+    },
+    "AlchemySlayer": {
+        "English": "Alchemy Slayer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "対敵特効【錬金】",
+                "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
+                "ArcName": "menu_cmn.arc",
+                "ReadIndex": "42"
+            }
+        ]
+    },
+    "AgileMotion": {
+        "English": "Agile Motion",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "敏動",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "47"
+            }
+        ]
+    },
+    "DireGouge": {
+        "English": "Dire Gouge",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "狂刺",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "155"
+            }
+        ]
+    },
+    "CrushReceive": {
+        "English": "Crush Receive",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "受崩",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "227"
+            }
+        ]
+    },
+    "Counter": {
+        "English": "Counter",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "受倒",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "11"
+            },
+            {
+                "MsgJp": "合昇",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "2"
+            }
+        ]
+    },
+    "AdvantageousFeeling": {
+        "English": "Advantageous Feeling",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "受得",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "83"
+            }
+        ]
+    },
+    "Onslaught": {
+        "English": "Onslaught",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "猛攻",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "274"
+            },
+            {
+                "MsgJp": "連撃",
+                "GmdPath": "ui\\00_message\\skill\\normal_skill_name_01.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "0"
+            }
+        ]
+    },
+    "Resilience": {
+        "English": "Resilience",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "強靭",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "298"
+            }
+        ]
+    },
+    "Precision": {
+        "English": "Precision",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "精密",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "0"
+            }
+        ]
+    },
+    "ArrowIncrease": {
+        "English": "Arrow Increase",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "充矢",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "144"
+            }
+        ]
+    },
+    "SkilledReload": {
+        "English": "Skilled Reload",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "巧填",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "132"
+            }
+        ]
+    },
+    "AggressionArrow": {
+        "English": "Aggression Arrow",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "侵矢",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "204"
+            }
+        ]
+    },
+    "PerfectReload": {
+        "English": "Perfect Reload",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "匠填",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "72"
+            }
+        ]
+    },
+    "HerculeanStrength": {
+        "English": "Herculean Strength",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "剛力",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "275"
+            }
+        ]
+    },
+    "ToughSkin": {
+        "English": "Tough Skin",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "硬皮",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "287"
+            }
+        ]
+    },
+    "RelaxedCure": {
+        "English": "Relaxed Cure",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "緩療",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "157"
+            }
+        ]
+    },
+    "SpiritOverflow": {
+        "English": "Spirit Overflow",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "漲魂",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "37"
+            }
+        ]
+    },
+    "Compassion": {
+        "English": "Compassion",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "慈覧",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "253"
+            }
+        ]
+    },
+    "LongExposure": {
+        "English": "Long Exposure",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "長露",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "276"
+            }
+        ]
+    },
+    "Encouragement": {
+        "English": "Encouragement",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "激励",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "288"
+            }
+        ]
+    },
+    "DivineProtection": {
+        "English": "Divine Protection",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "加護",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "264"
+            }
+        ]
+    },
+    "Prominence": {
+        "English": "Prominence",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "異彩",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "26"
+            }
+        ]
+    },
+    "ViolentRelease": {
+        "English": "Violent Release",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "烈放",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "146"
+            }
+        ]
+    },
+    "Supercharge": {
+        "English": "Supercharge",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "過給",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "38"
+            }
+        ]
+    },
+    "DividedStrength": {
+        "English": "Divided Strength",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "岐精",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "218"
+            }
+        ]
+    },
+    "FrugalDefense": {
+        "English": "Frugal Defense",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "長守",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "86"
+            }
+        ]
+    },
+    "Robust": {
+        "English": "Robust",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "壮健",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "265"
+            }
+        ]
+    },
+    "Invigorated": {
+        "English": "Invigorated",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "活性",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "254"
+            }
+        ]
+    },
+    "Perky": {
+        "English": "Perky",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "溌剌",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "74"
+            }
+        ]
+    },
+    "EasedBlade": {
+        "English": "Eased Blade",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "緩刃",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "289"
+            }
+        ]
+    },
+    "Longline": {
+        "English": "Longline",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "延縄",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "39"
+            }
+        ]
+    },
+    "RopeReversal": {
+        "English": "Rope Reversal",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "縄倒",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "87"
+            }
+        ]
+    },
+    "SpinAvoid": {
+        "English": "Spin Avoid",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "避旋",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "207"
+            }
+        ]
+    },
+    "HighJump": {
+        "English": "High Jump",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "高跳",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "147"
+            }
+        ]
+    },
+    "FlyingEvasion": {
+        "English": "Flying Evasion",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "跳避",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "219"
+            }
+        ]
+    },
+    "FuriousGrip": {
+        "English": "Furious Grip",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "握烈",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "266"
+            }
+        ]
+    },
+    "Quakemaker": {
+        "English": "Quakemaker",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "与震",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "278"
+            }
+        ]
+    },
+    "EnduringGrip": {
+        "English": "Enduring Grip",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "耐握",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "231"
+            }
+        ]
+    },
+    "SkyHammer": {
+        "English": "Sky Hammer",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "空撃",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "135"
+            }
+        ]
+    },
+    "DestructiveFall": {
+        "English": "Destructive Fall",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "烈墜",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "255"
+            }
+        ]
+    },
+    "BreakFormation": {
+        "English": "Break Formation",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "倒陣",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "4"
+            }
+        ]
+    },
+    "SpiritChant": {
+        "English": "Spirit Chant",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "精唱",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "136"
+            }
+        ]
+    },
+    "GracefulChant": {
+        "English": "Graceful Chant",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "麗詠",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "148"
+            }
+        ]
+    },
+    "ContinuedChant": {
+        "English": "Continued Chant",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "続詠",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "40"
+            }
+        ]
+    },
+    "MagickEnergy": {
+        "English": "Magick Energy",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "魔精",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "256"
+            }
+        ]
+    },
+    "FireAttack": {
+        "English": "Fire Attack",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "攻炎",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "52"
+            }
+        ]
+    },
+    "IceAttack": {
+        "English": "Ice Attack",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "攻氷",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "64"
+            }
+        ]
+    },
+    "ThunderAttack": {
+        "English": "Lightning Attack",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "攻雷",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "76"
+            }
+        ]
+    },
+    "HolyAttack": {
+        "English": "Holy Attack",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "攻聖",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "208"
+            }
+        ]
+    },
+    "DarkAttack": {
+        "English": "Dark Attack",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "攻闇",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "160"
+            }
+        ]
+    },
+    "TwinMagick": {
+        "English": "Twin Magick",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "魔双",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "267"
+            }
+        ]
+    },
+    "UnitedEnergy": {
+        "English": "United Energy",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "一勢",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "197"
+            }
+        ]
+    },
+    "LengthyAssistance": {
+        "English": "Lengthy Assistance",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "拡助",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "257"
+            }
+        ]
+    },
+    "QuickArrow": {
+        "English": "Quick Arrow",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "迅矢",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "209"
+            }
+        ]
+    },
+    "HealExtension": {
+        "English": "Heal Extension",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "延療",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "161"
+            }
+        ]
+    },
+    "HealThyself": {
+        "English": "Heal Thyself",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "自療",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "233"
+            }
+        ]
+    },
+    "SelfFeedback": {
+        "English": "Self Feedback",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "自回",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "268"
+            }
+        ]
+    },
+    "QuickHealing": {
+        "English": "Quick Healing",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "急活",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "292"
+            },
+            {
+                "MsgJp": "快癒",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "125"
+            }
+        ]
+    },
+    "FireAffinity": {
+        "English": "Fire Affinity",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "炎襲",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "41"
+            }
+        ]
+    },
+    "IceAffinity": {
+        "English": "Ice Affinity",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "氷襲",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "53"
+            }
+        ]
+    },
+    "ThunderAffinity": {
+        "English": "Lightning Affinity",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "雷襲",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "89"
+            }
+        ]
+    },
+    "HolyAffinity": {
+        "English": "Holy Affinity",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "聖襲",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "173"
+            }
+        ]
+    },
+    "DarkAffinity": {
+        "English": "Dark Affinity",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "闇襲",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "185"
+            }
+        ]
+    },
+    "Aggression": {
+        "English": "Aggression",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "超恨",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "162"
+            }
+        ]
+    },
+    "Malice": {
+        "English": "Malice",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "熟怨",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "90"
+            }
+        ]
+    },
+    "Mangle": {
+        "English": "Mangle",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "斬刻",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "30"
+            }
+        ]
+    },
+    "FirstImpact": {
+        "English": "First Impact",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "初突 LV.",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3309"
+            }
+        ]
+    },
+    "FullBodied": {
+        "English": "Full Bodied",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "渾身",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "281"
+            }
+        ]
+    },
+    "Weighted": {
+        "English": "Weighted",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "重当",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "174"
+            }
+        ]
+    },
+    "HeavyAttack": {
+        "English": "Heavy Attack",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "重攻",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "210"
+            }
+        ]
+    },
+    "UnyieldingPosture": {
+        "English": "Unyielding Posture",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "高堪",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "258"
+            }
+        ]
+    },
+    "Challenger": {
+        "English": "Challenger",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "挑錬",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "235"
+            }
+        ]
+    },
+    "AlchemicalInvasion": {
+        "English": "Alchemical Invasion",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "侵錬",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "163"
+            }
+        ]
+    },
+    "ProlongedLure": {
+        "English": "Prolonged Lure",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "延囮",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "55"
+            }
+        ]
+    },
+    "WellPracticed": {
+        "English": "Well-Practiced",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "速錬",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "91"
+            }
+        ]
+    },
+    "LivelyRomp": {
+        "English": "Lively Romp",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "舞活",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "7"
+            }
+        ]
+    },
+    "VigorousVitality": {
+        "English": "Vigorous Vitality",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "盛精",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "247"
+            }
+        ]
+    },
+    "Relaxedness": {
+        "English": "Relaxedness",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "快動",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "270"
+            }
+        ]
+    },
+    "HeroicSpirit": {
+        "English": "Heroic Spirit",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "英気",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "223"
+            }
+        ]
+    },
+    "Efficacy": {
+        "English": "Efficacy",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "薬効",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "56"
+            }
+        ]
+    },
+    "Extension": {
+        "English": "Extension",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "延臨",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "261"
+            }
+        ]
+    },
+    "Avoidance": {
+        "English": "Avoidance",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "避活",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "129"
+            }
+        ]
+    },
+    "ExtendedHealing": {
+        "English": "Extended Healing",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "長癒",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "153"
+            }
+        ]
+    },
+    "Critical": {
+        "English": "Critical",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "臨堅",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "93"
+            }
+        ]
+    },
+    "EvasiveSpirit": {
+        "English": "Evasive Spirit",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "避霊",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "141"
+            }
+        ]
+    },
+    "GreatEnchantment": {
+        "English": "Great Enchantment",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "強附",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "416"
+            }
+        ]
+    },
+    "MagickalCharge": {
+        "English": "Magickal Charge",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "魔充",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "118"
+            }
+        ]
+    },
+    "ExtendedGlyph": {
+        "English": "Extended Glyph",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "延印",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "10"
+            }
+        ]
+    },
+    "FierceFlight": {
+        "English": "Fierce Flight",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "烈翔",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "22"
+            }
+        ]
+    },
+    "MagickalChant": {
+        "English": "Magickal Chant",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "節魔",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "273"
+            }
+        ]
+    },
+    "ComplementChant": {
+        "English": "Complement Chant",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "節補",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "250"
+            }
+        ]
+    },
+    "FortunesofWar": {
+        "English": "Fortunes of War",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "武運",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "106"
+            }
+        ]
+    },
+    "SourceLuck": {
+        "English": "Source Luck",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "源運",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "190"
+            }
+        ]
+    },
+    "ActiveSupression": {
+        "English": "Active Suppression",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "活鎮",
+                "GmdPath": "ui\\00_message\\skill\\ability_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "70"
+            }
+        ]
+    },
+    "FighterSlashDamageUP": {
+        "English": "Fighter's Slash Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ファイターの斬属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3636"
+            }
+        ]
+    },
+    "FighterImpactDamageUP": {
+        "English": "Fighter's Impact Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ファイターの打属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3637"
+            }
+        ]
+    },
+    "FighterNonattributeDamageUP": {
+        "English": "Fighter's Null Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ファイターの無属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3639"
+            }
+        ]
+    },
+    "FighterFireDamageUP": {
+        "English": "Fighter's Fire Damage ↑",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "ファイターの炎属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3640"
+            }
+        ]
+    },
+    "FighterIceDamageUP": {
+        "English": "Fighter's Ice Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ファイターの氷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3641"
+            }
+        ]
+    },
+    "FighterLightningDamageUP": {
+        "English": "Fighter's Lightning Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ファイターの雷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3642"
+            }
+        ]
+    },
+    "FighterHolyDamageUP": {
+        "English": "Fighter's Holy Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ファイターの聖属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3643"
+            }
+        ]
+    },
+    "FighterDarkDamageUP": {
+        "English": "Fighter's Dark Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ファイターの闇属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3644"
+            }
+        ]
+    },
+    "SeekerSlashDamageUP": {
+        "English": "Seeker's Slash Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "シーカーの斬属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3672"
+            }
+        ]
+    },
+    "SeekerImpactDamageUP": {
+        "English": "Seeker's Impact Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "シーカーの打属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3673"
+            }
+        ]
+    },
+    "SeekerNonattributeDamageUP": {
+        "English": "Seeker's Null Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "シーカーの無属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3675"
+            }
+        ]
+    },
+    "SeekerFireDamageUP": {
+        "English": "Seeker's Fire Damage ↑",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "シーカーの炎属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3676"
+            }
+        ]
+    },
+    "SeekerIceDamageUP": {
+        "English": "Seeker's Ice Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "シーカーの氷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3677"
+            }
+        ]
+    },
+    "SeekerLightningDamageUP": {
+        "English": "Seeker's Lightning Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "シーカーの雷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3678"
+            }
+        ]
+    },
+    "SeekerHolyDamageUP": {
+        "English": "Seeker's Holy Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "シーカーの聖属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3679"
+            }
+        ]
+    },
+    "SeekerDarkDamageUP": {
+        "English": "Seeker's Dark Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "シーカーの闇属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3680"
+            }
+        ]
+    },
+    "HunterImpactDamageUP": {
+        "English": "Hunter's Impact Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ハンターの打属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3646"
+            }
+        ]
+    },
+    "HunterPierceDamageUP": {
+        "English": "Hunter's Pierce Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ハンターの射属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3647"
+            }
+        ]
+    },
+    "HunterNonattributeDamageUP": {
+        "English": "Hunter's Null Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ハンターの無属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3648"
+            }
+        ]
+    },
+    "HunterFireDamageUP": {
+        "English": "Hunter's Fire Damage ↑",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "ハンターの炎属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3649"
+            }
+        ]
+    },
+    "HunterIceDamageUP": {
+        "English": "Hunter's Ice Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ハンターの氷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3650"
+            }
+        ]
+    },
+    "HunterLightningDamageUP": {
+        "English": "Hunter's Lightning Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ハンターの雷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3651"
+            }
+        ]
+    },
+    "HunterHolyDamageUP": {
+        "English": "Hunter's Holy Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ハンターの聖属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3652"
+            }
+        ]
+    },
+    "HunterDarkDamageUP": {
+        "English": "Hunter's Dark Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ハンターの闇属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3653"
+            }
+        ]
+    },
+    "PriestNonattributeDamageUP": {
+        "English": "Priest's Null Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "プリーストの無属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3657"
+            }
+        ]
+    },
+    "PriestFireDamageUP": {
+        "English": "Priest's Fire Damage ↑",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "プリーストの炎属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3658"
+            }
+        ]
+    },
+    "PriestIceDamageUP": {
+        "English": "Priest's Ice Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "プリーストの氷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3659"
+            }
+        ]
+    },
+    "PriestLightningDamageUP": {
+        "English": "Priest's Lightning Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "プリーストの雷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3660"
+            }
+        ]
+    },
+    "PriestHolyDamageUP": {
+        "English": "Priest's Holy Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "プリーストの聖属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3661"
+            }
+        ]
+    },
+    "PriestDarkDamageUP": {
+        "English": "Priest's Dark Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "プリーストの闇属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3662"
+            }
+        ]
+    },
+    "ShieldSageImpactDamageUP": {
+        "English": "Shield Sage's Impact Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "シールドセージの打属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3664"
+            }
+        ]
+    },
+    "ShieldSageNonattributeDamageUP": {
+        "English": "Shield Sage's Null Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "シールドセージの無属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3666"
+            }
+        ]
+    },
+    "ShieldSageFireDamageUP": {
+        "English": "Shield Sage's Fire Damage ↑",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "シールドセージの炎属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3667"
+            }
+        ]
+    },
+    "ShieldSageIceDamageUP": {
+        "English": "Shield Sage's Ice Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "シールドセージの氷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3668"
+            }
+        ]
+    },
+    "ShieldSageLightningDamageUP": {
+        "English": "Shield Sage's Lightning Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "シールドセージの雷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3669"
+            }
+        ]
+    },
+    "ShieldSageHolyDamageUP": {
+        "English": "Shield Sage's Holy Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "シールドセージの聖属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3670"
+            }
+        ]
+    },
+    "ShieldSageDarkDamageUP": {
+        "English": "Shield Sage's Dark Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "シールドセージの闇属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3671"
+            }
+        ]
+    },
+    "SorcererSlashDamageUP": {
+        "English": "Sorcerer's Slash Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ソーサラーの斬属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3681"
+            }
+        ]
+    },
+    "SorcererImpactDamageUP": {
+        "English": "Sorcerer's Impact Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ソーサラーの打属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3682"
+            }
+        ]
+    },
+    "SorcererPierceDamageUP": {
+        "English": "Sorcerer's Pierce Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ソーサラーの射属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3683"
+            }
+        ]
+    },
+    "SorcererNonattributeDamageUP": {
+        "English": "Sorcerer's Null Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ソーサラーの無属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3684"
+            }
+        ]
+    },
+    "SorcererFireDamageUP": {
+        "English": "Sorcerer's Fire Damage ↑",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "ソーサラーの炎属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3685"
+            }
+        ]
+    },
+    "SorcererIceDamageUP": {
+        "English": "Sorcerer's Ice Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ソーサラーの氷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3686"
+            }
+        ]
+    },
+    "SorcererLightningDamageUP": {
+        "English": "Sorcerer's Lightning Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ソーサラーの雷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3687"
+            }
+        ]
+    },
+    "SorcererHolyDamageUP": {
+        "English": "Sorcerer's Holy Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ソーサラーの聖属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3688"
+            }
+        ]
+    },
+    "SorcererDarkDamageUP": {
+        "English": "Sorcerer's Dark Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ソーサラーの闇属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3689"
+            }
+        ]
+    },
+    "WarriorSlashDamageUP": {
+        "English": "Warrior's Slash Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ウォリアーの斬属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3699"
+            }
+        ]
+    },
+    "WarriorImpactDamageUP": {
+        "English": "Warrior's Impact Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ウォリアーの打属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3700"
+            }
+        ]
+    },
+    "WarriorNonattributeDamageUP": {
+        "English": "Warrior's Null Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ウォリアーの無属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3702"
+            }
+        ]
+    },
+    "WarriorFireDamageUP": {
+        "English": "Warrior's Fire Damage ↑",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "ウォリアーの炎属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3703"
+            }
+        ]
+    },
+    "WarriorIceDamageUP": {
+        "English": "Warrior's Ice Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ウォリアーの氷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3704"
+            }
+        ]
+    },
+    "WarriorLightningDamageUP": {
+        "English": "Warrior's Lightning Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ウォリアーの雷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3705"
+            }
+        ]
+    },
+    "WarriorHolyDamageUP": {
+        "English": "Warrior's Holy Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ウォリアーの聖属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3706"
+            }
+        ]
+    },
+    "WarriorDarkDamageUP": {
+        "English": "Warrior's Dark Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ウォリアーの闇属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3707"
+            }
+        ]
+    },
+    "ElementArcherImpactDamageUP": {
+        "English": "Element Archer's Impact Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "エレメントアーチャーの打属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3691"
+            }
+        ]
+    },
+    "ElementArcherPierceDamageUP": {
+        "English": "Element Archer's Pierce Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "エレメントアーチャーの射属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3692"
+            }
+        ]
+    },
+    "ElementArcherNonattributeDamageUP": {
+        "English": "Element Archer's Null Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "エレメントアーチャーの無属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3693"
+            }
+        ]
+    },
+    "ElementArcherFireDamageUP": {
+        "English": "Element Archer's Fire Damage ↑",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "エレメントアーチャーの炎属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3694"
+            }
+        ]
+    },
+    "ElementArcherIceDamageUP": {
+        "English": "Element Archer's Ice Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "エレメントアーチャーの氷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3695"
+            }
+        ]
+    },
+    "ElementArcherLightningDamageUP": {
+        "English": "Element Archer's Lightning Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "エレメントアーチャーの雷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3696"
+            }
+        ]
+    },
+    "ElementArcherHolyDamageUP": {
+        "English": "Element Archer's Holy Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "エレメントアーチャーの聖属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3697"
+            }
+        ]
+    },
+    "ElementArcherDarkDamageUP": {
+        "English": "Element Archer's Dark Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "エレメントアーチャーの闇属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3698"
+            }
+        ]
+    },
+    "AlchemistImpactDamageUP": {
+        "English": "Alchemist's Impact Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "アルケミストの打属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3709"
+            }
+        ]
+    },
+    "AlchemistNonattributeDamageUP": {
+        "English": "Alchemist's Null Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "アルケミストの無属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3711"
+            }
+        ]
+    },
+    "AlchemistFireDamageUP": {
+        "English": "Alchemist's Fire Damage ↑",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "アルケミストの炎属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3712"
+            }
+        ]
+    },
+    "AlchemistIceDamageUP": {
+        "English": "Alchemist's Ice Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "アルケミストの氷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3713"
+            }
+        ]
+    },
+    "AlchemistLightningDamageUP": {
+        "English": "Alchemist's Lightning Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "アルケミストの雷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3714"
+            }
+        ]
+    },
+    "AlchemistHolyDamageUP": {
+        "English": "Alchemist's Holy Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "アルケミストの聖属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3715"
+            }
+        ]
+    },
+    "AlchemistDarkDamageUP": {
+        "English": "Alchemist's Dark Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "アルケミストの闇属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3716"
+            }
+        ]
+    },
+    "SpiritLancerSlashDamageUP": {
+        "English": "Spirit Lancer's Slash Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "スピリットランサーの斬属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3717"
+            }
+        ]
+    },
+    "SpiritLancerImpactDamageUP": {
+        "English": "Spirit Lancer's Impact Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "スピリットランサーの打属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3718"
+            }
+        ]
+    },
+    "SpiritLancerNonattributeDamageUP": {
+        "English": "Spirit Lancer's Null Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "スピリットランサーの無属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3720"
+            }
+        ]
+    },
+    "SpiritLancerFireDamageUP": {
+        "English": "Spirit Lancer's Fire Damage ↑",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "スピリットランサーの炎属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3721"
+            }
+        ]
+    },
+    "SpiritLancerIceDamageUP": {
+        "English": "Spirit Lancer's Ice Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "スピリットランサーの氷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3722"
+            }
+        ]
+    },
+    "SpiritLancerLightningDamageUP": {
+        "English": "Spirit Lancer's Lightning Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "スピリットランサーの雷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3723"
+            }
+        ]
+    },
+    "SpiritLancerHolyDamageUP": {
+        "English": "Spirit Lancer's Holy Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "スピリットランサーの聖属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3724"
+            }
+        ]
+    },
+    "SpiritLancerDarkDamageUP": {
+        "English": "Spirit Lancer's Dark Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "スピリットランサーの闇属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3725"
+            }
+        ]
+    },
+    "HighScepterSlashDamageUP": {
+        "English": "High Scepter's Slash Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ハイセプターの斬属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3726"
+            }
+        ]
+    },
+    "HighScepterImpactDamageUP": {
+        "English": "High Scepter's Impact Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ハイセプターの打属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3727"
+            }
+        ]
+    },
+    "HighScepterPierceDamageUP": {
+        "English": "High Scepter's Pierce Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ハイセプターの射属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3728"
+            }
+        ]
+    },
+    "HighScepterNonattributeDamageUP": {
+        "English": "High Scepter's Null Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ハイセプターの無属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3729"
+            }
+        ]
+    },
+    "HighScepterFireDamageUP": {
+        "English": "High Scepter's Fire Damage ↑",
+        "MatchType": "Exact",
+        "Locations": [
+            {
+                "MsgJp": "ハイセプターの炎属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3730"
+            }
+        ]
+    },
+    "HighScepterIceDamageUP": {
+        "English": "High Scepter's Ice Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ハイセプターの氷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3731"
+            }
+        ]
+    },
+    "HighScepterLightningDamageUP": {
+        "English": "High Scepter's Lightning Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ハイセプターの雷属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3732"
+            }
+        ]
+    },
+    "HighScepterHolyDamageUP": {
+        "English": "High Scepter's Holy Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ハイセプターの聖属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3733"
+            }
+        ]
+    },
+    "HighScepterDarkDamageUP": {
+        "English": "High Scepter's Dark Damage ↑",
+        "MatchType": "Normalized",
+        "Locations": [
+            {
+                "MsgJp": "ハイセプターの闇属性ダメージUP",
+                "GmdPath": "ui\\00_message\\common\\item_name.gmd",
+                "ArcName": "gui_cmn.arc",
+                "ReadIndex": "3734"
+            }
+        ]
+    }
+}
