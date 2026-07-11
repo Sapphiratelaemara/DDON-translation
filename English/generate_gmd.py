@@ -152,6 +152,77 @@ def fix_text(text, skip_override=False):
     return text
 
 
+
+# ------------------------------------------------------------
+# Tag validation
+# ------------------------------------------------------------
+
+def validate_tags(text):
+    """
+    DDON tag validation:
+    - Checks for unbalanced < and > characters.
+      Ignores arrow symbols (<- and ->).
+    - Only validates <COL> / </COL> matching.
+    - Other tags such as <NPC 580>, <STG 443>, etc.
+      are standalone markers and do not require closing tags.
+    """
+	
+    # Ignore entries that consist only of a single arrow/bracket symbol
+    if text.strip() in ("<", ">"):
+        return None
+
+    # Check basic angle bracket balance
+    cleaned = re.sub(r"<-|->", "", text)
+
+    # Check for unbalanced square brackets
+    if text.count("[") != text.count("]"):
+        return "Unbalanced square brackets"
+
+    if cleaned.count("<") != cleaned.count(">"):
+        return "Unbalanced angle brackets"
+
+    # Validate only COL tags
+    stack = []
+
+    for tag in re.findall(r"</?COL[^>]*>", text):
+        if tag.startswith("</"):
+            if not stack:
+                return "Unexpected closing tag </COL>"
+
+            stack.pop()
+
+        else:
+            stack.append("COL")
+
+    if stack:
+        return "Missing closing tag for <COL>"
+
+    return None
+
+def validate_tag_folder(folder):
+    errors = []
+
+    for csv_file in folder.rglob("*.csv"):
+        if csv_file.name.lower() == "gmd.csv":
+            continue
+
+        with open(csv_file, encoding="utf-8-sig", newline="") as f:
+            for rnum, row in enumerate(csv.reader(f), start=1):
+                if len(row) > 3:
+                    err = validate_tags(row[3])
+
+                    if err:
+                        errors.append(
+                            f"{csv_file}\n"
+                            f" Row {rnum}, Entry {row[0]}:\n"
+                            f"  {err}\n"
+                            f"  {repr(row[3])}\n"
+                        )
+
+    if errors:
+        print("\n===== TAG VALIDATION ERRORS =====\n")
+        print("\n".join(errors))
+        raise SystemExit(1)
 # ------------------------------------------------------------
 # CSV validation
 # ------------------------------------------------------------
@@ -384,6 +455,8 @@ def main():
                 validate_folder(folder)
 
         walk_and_process_english(english_folder)
+        validate_tag_folder(english_folder)
+        validate_tag_folder(english_folder)
         modify_specific_entry()
         merge_english()  # also runs validate_entry_count() on gmd.csv internally
 
