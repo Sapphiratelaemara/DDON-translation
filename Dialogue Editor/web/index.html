@@ -522,7 +522,9 @@ Ctrl+Shift+D: Ellipsis</div>
                     <aside class="kl-sidebar-right">
                         <!-- References Section -->
                         <div class="kl-panel" id="panel-references">
-                            <h3 class="kl-panel-title">References</h3>
+                            <div class="kl-panel-header">
+                                <h3 class="kl-panel-title">References</h3>
+                            </div>
                             <div class="kl-panel-content" id="lore-box">No references found.</div>
                         </div>
 
@@ -1209,6 +1211,27 @@ Ctrl+Shift+D: Ellipsis</div>
             </div>
         </div>
     </div>
+    <div id="modal-reference" class="modal">
+        <div class="modal-content">
+            <h3 id="reference-modal-title">REFERENCE</h3>
+            <div class="field-group">
+                <label>Term</label>
+                <input type="text" id="reference-term-field" class="kl-input">
+            </div>
+            <div class="field-group">
+                <label>Meaning / Translation</label>
+                <input type="text" id="reference-meaning-field" class="kl-input">
+            </div>
+            <div class="field-group">
+                <label>Description</label>
+                <textarea id="reference-description-field" class="kl-input" style="height: 100px; min-height: 100px; resize: vertical;"></textarea>
+            </div>
+            <div class="modal-actions" style="margin-top: 20px; display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn-secondary" id="btn-reference-cancel">CANCEL</button>
+                <button class="btn-primary" id="btn-reference-save">SAVE</button>
+            </div>
+        </div>
+    </div>
     <div id="modal-confirm" class="modal">
         <div class="modal-content">
             <h3 id="confirm-modal-title">CONFIRM</h3>
@@ -1225,6 +1248,18 @@ Ctrl+Shift+D: Ellipsis</div>
             <p id="alert-modal-message" style="margin-bottom: 20px; font-size: 0.8rem;"></p>
             <div class="modal-actions" style="display: flex; gap: 10px; justify-content: flex-end;">
                 <button class="btn-primary" id="btn-alert-ok">OK</button>
+            </div>
+        </div>
+    </div>
+    <div id="modal-anachronism" class="modal">
+        <div class="modal-content">
+            <h3>ANACHRONISM</h3>
+            <div id="anach-modal-replacement" style="margin-bottom: 12px; font-size: 0.85rem;"></div>
+            <p id="anach-modal-definition" style="font-size: 0.75rem; opacity: 0.85; margin-bottom: 8px;"></p>
+            <p id="anach-modal-example" style="font-size: 0.7rem; font-style: italic; opacity: 0.7;"></p>
+            <div class="modal-actions" style="margin-top: 20px; display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn-secondary" id="btn-anach-close">CLOSE</button>
+                <button class="btn-primary" id="btn-anach-replace">REPLACE IN EDITOR</button>
             </div>
         </div>
     </div>

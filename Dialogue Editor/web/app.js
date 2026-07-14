@@ -1046,6 +1046,7 @@ function initDashboardActions() {
                 if (ed) {
                     renderHighlights(ed.innerText, highlightGeneration);
                 }
+                renderAnachronismSection([], state.reviewer.currentIdx);
             }
         };
     };
@@ -1338,7 +1339,8 @@ async function loadItemAtIdxInternal(idx, mode) {
             populateSourceWithLoreHighlights(item.jp, item.en || '');
         }
 
-        updateReviewerCounters();
+        state.reviewer.anachRanges = [];
+
         syncLineCounters();
         renderRowSidebar();
 
@@ -1349,11 +1351,13 @@ async function loadItemAtIdxInternal(idx, mode) {
 
         // Use cached data if available, otherwise fetch it
         console.log(`[loadItemAtIdxInternal] Checking cache for lore_context. cached:`, cached, 'cached.lore_context:', cached?.lore_context);
-        if (cached && (cached.lore_context || cached.anachronisms)) {
-            populateLoreContextFromCache(item.jp, item.en, cached.lore_context, cached.anachronisms, loadIdx);
+        if (cached && cached.lore_context) {
+            populateLoreContextFromCache(item.jp, item.en, cached.lore_context, loadIdx);
         } else {
             populateLoreContext(item.jp, item.en, loadIdx);
         }
+
+        updateReviewerCounters();
         
         // Check if current item is missing critical data (DeepL or gloss)
         console.log(`[loadItemAtIdxInternal] cached=${!!cached}, cached.deepl_suggestion=${cached?.deepl_suggestion}, cached.gloss_result=${cached?.gloss_result}`);
@@ -1501,6 +1505,7 @@ function initReviewerActions() {
                 if (ed) {
                     renderHighlights(ed.innerText, highlightGeneration);
                 }
+                renderAnachronismSection([], state.reviewer.currentIdx);
             }
         };
     };
@@ -1637,9 +1642,6 @@ function initReviewerActions() {
                 cc.style.color = lineCount > maxLines ? '#ff4444' : 'var(--accent-color)';
             }
             // Re-scan for anachronisms as user types (debounced)
-            const jpText = document.getElementById('jp-source')?.innerText || '';
-            populateLoreContext(jpText, ed.innerText, state.reviewer.currentIdx);
-            // Trigger debounced anachronism scan
             scanAnachronisms(ed.innerText);
             // Trigger debounced validation
             debounce(validateCurrentTranslation, 500)();
@@ -1657,6 +1659,8 @@ function initReviewerActions() {
         ed._setSkipInputHandling = (val) => { skipInputHandling = val; };
     }
     
+    attachSourceSelectionHandling();
+
     // Initialize speaker, archetype, and entry type controls
     initMetadataControls();
     
@@ -2022,51 +2026,155 @@ let highlightGeneration = 0;   // Counter to prevent race conditions in async hi
 let isUserTyping = false;      // Track if user is actively typing right now
 
 let anachronismDebounceTimer = null;
+let anachronismScanResolve = null;
 const ANACHRONISM_DEBOUNCE_MS = 300; // Wait 300ms after typing stops
 
+function parseDefinitionResult(result) {
+    if (!result) return { defn: '', example: '' };
+    if (Array.isArray(result)) {
+        return { defn: result[0] || '', example: result[1] || '' };
+    }
+    return { defn: result, example: '' };
+}
+
+function createAnachronismRow(word, suggestion, is_ddon) {
+    const row = document.createElement('div');
+    row.className = 'lore-row anach-row';
+    row.style.cssText = 'flex: 0 0 auto; color: #ff6b6b; font-size: 10px; cursor: pointer;';
+    row.innerHTML = `<span style="text-decoration: line-through; opacity: 0.7;">${escHtml(word)}</span> → `;
+
+    const suggestionSpan = document.createElement('span');
+    suggestionSpan.style.cssText = 'color: var(--accent-color);';
+    suggestionSpan.textContent = suggestion || '...';
+    if (is_ddon) {
+        const starSpan = document.createElement('span');
+        starSpan.textContent = ' ★';
+        starSpan.style.cssText = 'color: #e8c56a;';
+        suggestionSpan.appendChild(starSpan);
+    }
+    row.appendChild(suggestionSpan);
+
+    row._word = word;
+    row._suggestion = suggestion;
+    row._is_ddon = is_ddon;
+
+    row.addEventListener('click', () => {
+        showAnachronismModal(row._word, row._suggestion, row._fullDefn, row._fullExample, row._is_ddon);
+    });
+
+    if (suggestion) {
+        eel.get_definition(suggestion)().then(result => {
+            const { defn, example } = parseDefinitionResult(result);
+            if (defn || example) {
+                let titleText = defn || '';
+                if (example) titleText += `\nExample: "${example}"`;
+                suggestionSpan.title = titleText;
+            }
+            row._fullDefn = defn;
+            row._fullExample = example;
+        }).catch(err => {
+            console.error('[get_definition]', err);
+        });
+    }
+
+    return row;
+}
+
+function updateLoreBoxEmptyState(box) {
+    const hasContent = box.querySelector('.lore-header, .lore-row, #anach-section');
+    if (!hasContent && !box.querySelector('.lore-empty-msg')) {
+        box.innerHTML = '<em class="lore-empty-msg" style="opacity:0.5">No references found.</em>';
+    }
+}
+
+function renderAnachronismSection(anachHits, loadIdx) {
+    const box = document.getElementById('lore-box');
+    if (!box || state.reviewer.currentIdx !== loadIdx) return;
+
+    box.querySelector('#anach-section')?.remove();
+
+    if (anachHits && anachHits.length > 0) {
+        box.querySelector('.lore-empty-msg')?.remove();
+
+        const section = document.createElement('div');
+        section.id = 'anach-section';
+
+        const anachHeader = document.createElement('div');
+        anachHeader.className = 'lore-header';
+        anachHeader.innerText = 'Possible Anachronisms:';
+        anachHeader.style.cssText = 'font-size: 9px; font-weight: 700; color: var(--accent-color); margin-bottom: 6px; margin-top: 8px;';
+        section.appendChild(anachHeader);
+
+        const anachContainer = document.createElement('div');
+        anachContainer.style.cssText = 'display: flex; flex-wrap: wrap; gap: 8px;';
+
+        anachHits.forEach(([word, suggestion, is_ddon]) => {
+            anachContainer.appendChild(createAnachronismRow(word, suggestion, is_ddon));
+        });
+
+        section.appendChild(anachContainer);
+        box.appendChild(section);
+
+        eel.update_prefetch_cache('lore_context', loadIdx, { anachronisms: anachHits })().catch(err => {
+            console.error('[renderAnachronismSection] Error updating anachronisms cache:', err);
+        });
+    } else {
+        updateLoreBoxEmptyState(box);
+    }
+}
+
 async function scanAnachronisms(text) {
-    // Check if in-universe language is enabled - if NOT enabled, skip anachronism scanning
     const inUniverseEnabled = document.getElementById('editor-in-universe')?.checked;
+    const loadIdx = state.reviewer.currentIdx;
+
     if (!inUniverseEnabled) {
         console.log('[scanAnachronisms] In-universe language disabled - clearing anachronism highlights');
         state.reviewer.anachRanges = [];
         hoveredAnachronism = null;
         renderHighlights(text, highlightGeneration);
-        return;
+        renderAnachronismSection([], loadIdx);
+        return [];
     }
-    
+
     if (!text) {
         state.reviewer.anachRanges = [];
         hoveredAnachronism = null;
         renderHighlights(text, highlightGeneration);
-        return;
+        renderAnachronismSection([], loadIdx);
+        return [];
     }
-    
-    // Clear any pending debounce
+
     if (anachronismDebounceTimer) {
         clearTimeout(anachronismDebounceTimer);
     }
-    
-    // Mark that user is typing
+    if (anachronismScanResolve) {
+        anachronismScanResolve(null);
+        anachronismScanResolve = null;
+    }
+
     isUserTyping = true;
-    
-    // Debounce the anachronism scan to prevent cursor flickering
-    anachronismDebounceTimer = setTimeout(async () => {
-        // Mark that we're done typing
-        isUserTyping = false;
-        
-        // Capture current generation to detect if this render is stale
-        const generation = ++highlightGeneration;
-        
-        // Backend now handles caching via ConfigManager (file-based, per-language)
-        const hits = await eel.scan_anachronisms(text)();
-        
-        // Only update if we're still rendering this generation and not typing anymore
-        if (generation === highlightGeneration && !isUserTyping) {
-            state.reviewer.anachRanges = hits || [];
-            renderHighlights(text, generation);
-        }
-    }, ANACHRONISM_DEBOUNCE_MS);
+
+    return new Promise(resolve => {
+        anachronismScanResolve = resolve;
+        anachronismDebounceTimer = setTimeout(async () => {
+            anachronismDebounceTimer = null;
+            isUserTyping = false;
+
+            const generation = ++highlightGeneration;
+            const hits = await eel.scan_anachronisms(text)();
+
+            if (generation === highlightGeneration && !isUserTyping) {
+                state.reviewer.anachRanges = hits || [];
+                renderHighlights(text, generation);
+                renderAnachronismSection(state.reviewer.anachRanges, state.reviewer.currentIdx);
+            }
+
+            if (anachronismScanResolve) {
+                anachronismScanResolve(hits || []);
+                anachronismScanResolve = null;
+            }
+        }, ANACHRONISM_DEBOUNCE_MS);
+    });
 }
 
 function renderHighlights(text, generation) {
@@ -2497,7 +2605,7 @@ function handleMouseMove(e) {
         
         // Show tooltip with definition
         if (tooltip && suggestion) {
-            let tooltipHtml = `<span class="tooltip-word">${word}</span> <span class="tooltip-arrow">→</span> ${suggestion}`;
+            let tooltipHtml = `<span class="tooltip-word">${escHtml(word)}</span> <span class="tooltip-arrow">→</span> ${escHtml(suggestion)}`;
             
             // Store the current word to check later in the async callback
             const currentWord = word;
@@ -2506,24 +2614,14 @@ function handleMouseMove(e) {
             eel.get_definition(suggestion)().then(result => {
                 // Only update tooltip if we're still hovering over the same word
                 if (hoveredAnachronism && hoveredAnachronism[0] === currentWord && tooltip.style.display !== 'none') {
-                    if (result) {
-                        // Handle both tuple format (new) and string format (legacy)
-                        let defn, example;
-                        if (Array.isArray(result)) {
-                            defn = result[0];
-                            example = result[1];
-                        } else {
-                            defn = result;
-                            example = "";
-                        }
-                        if (defn) {
-                            tooltipHtml += `<br><span class="tooltip-definition">${defn}</span>`;
-                        }
-                        if (example) {
-                            tooltipHtml += `<br><span class="tooltip-example">"${example}"</span>`;
-                        }
-                        tooltip.innerHTML = tooltipHtml;
+                    const { defn, example } = parseDefinitionResult(result);
+                    if (defn) {
+                        tooltipHtml += `<br><span class="tooltip-definition">${renderRichText(defn)}</span>`;
                     }
+                    if (example) {
+                        tooltipHtml += `<br><span class="tooltip-example">"${renderRichText(example)}"</span>`;
+                    }
+                    tooltip.innerHTML = tooltipHtml;
                 }
             }).catch(err => {
                 console.error('[get_definition]', err);
@@ -3540,14 +3638,14 @@ async function populateSourceWithLoreHighlightsFromCache(jpText, enText, loreMat
     }
 }
 
-function populateLoreContextFromCache(jpText, enText, loreContext, anachHits, loadIdx) {
+function populateLoreContextFromCache(jpText, enText, loreContext, loadIdx) {
     const box = document.getElementById('lore-box');
     if (!box) {
         console.log('[populateLoreContextFromCache] lore-box element not found');
         return;
     }
     
-    console.log(`[populateLoreContextFromCache] Called with loadIdx=${loadIdx}, loreContext:`, loreContext, 'anachHits:', anachHits);
+    console.log(`[populateLoreContextFromCache] Called with loadIdx=${loadIdx}, loreContext:`, loreContext);
     console.log(`[populateLoreContextFromCache] Box element found:`, !!box, 'box.innerHTML length:', box.innerHTML.length);
     
     // Only update if we're still on the same item
@@ -3661,87 +3759,15 @@ function populateLoreContextFromCache(jpText, enText, loreContext, anachHits, lo
         box.appendChild(loreContainer);
         console.log(`[populateLoreContextFromCache] Added lore container to box, box children count:`, box.children.length);
     }
-    
-    // Show anachronisms from cache
-    if (anachHits && anachHits.length > 0) {
-        hasContent = true;
-        const anachHeader = document.createElement('div');
-        anachHeader.className = 'lore-header';
-        anachHeader.innerText = 'Possible Anachronisms:';
-        anachHeader.style.cssText = 'font-size: 9px; font-weight: 700; color: var(--accent-color); margin-bottom: 6px; margin-top: 8px;';
-        box.appendChild(anachHeader);
-        
-        // Create flex container for anachronism hits (match main function layout)
-        const anachContainer = document.createElement('div');
-        anachContainer.style.cssText = 'display: flex; flex-wrap: wrap; gap: 8px;';
-        
-        anachHits.forEach(([word, suggestion, is_ddon]) => {
-            const row = document.createElement('div');
-            row.className = 'lore-row anach-row';
-            row.style.cssText = 'flex: 0 0 auto; color: #ff6b6b; font-size: 10px; cursor: pointer;';
-            const suggestionSpan = document.createElement('span');
-            suggestionSpan.style.cssText = 'color: var(--accent-color);';
-            suggestionSpan.innerText = escHtml(suggestion || '...');
-            
-            // Add star icon for DD1-sourced words
-            if (is_ddon) {
-                const starSpan = document.createElement('span');
-                starSpan.innerText = ' ★';
-                starSpan.style.cssText = 'color: #e8c56a;';
-                suggestionSpan.appendChild(starSpan);
-            }
-            
-            // Fetch definition and example for hover tooltip and click handler
-            if (suggestion) {
-                eel.get_definition(suggestion)().then(result => {
-                    if (result) {
-                        // Handle both tuple format (new) and string format (legacy)
-                        let defn, example;
-                        if (Array.isArray(result)) {
-                            defn = result[0];
-                            example = result[1];
-                        } else {
-                            defn = result;
-                            example = "";
-                        }
-                        let titleText = defn || "";
-                        if (example) {
-                            titleText += `\nExample: "${example}"`;
-                        }
-                        suggestionSpan.title = titleText;
-                        
-                        // Store full data for click handler
-                        row._fullDefn = defn;
-                        row._fullExample = example;
-                        row._word = word;
-                        row._suggestion = suggestion;
-                        row._is_ddon = is_ddon;
-                    }
-                }).catch(err => {
-                    console.error('[get_definition]', err);
-                });
-                
-                // Add click handler to show full definition in modal
-                row.addEventListener('click', () => {
-                    showAnachronismModal(row._word, row._suggestion, row._fullDefn, row._fullExample, row._is_ddon);
-                });
-            }
-            
-            row.innerHTML = `<span style="text-decoration: line-through; opacity: 0.7;">${escHtml(word)}</span> → `;
-            row.appendChild(suggestionSpan);
-            anachContainer.appendChild(row);
-        });
-        
-        box.appendChild(anachContainer);
-    }
-    
-    // Only show "No references found" if we have no content at all
+
     if (!hasContent) {
         console.log(`[populateLoreContextFromCache] No content found, showing "No references found"`);
-        box.innerHTML = '<em style="opacity:0.5">No references found.</em>';
+        box.innerHTML = '<em class="lore-empty-msg" style="opacity:0.5">No references found.</em>';
     } else {
         console.log(`[populateLoreContextFromCache] Content added successfully, final box children count:`, box.children.length, 'box.innerHTML length:', box.innerHTML.length);
     }
+
+    renderAnachronismSection(state.reviewer.anachRanges || [], loadIdx);
 }
 
 async function populateSourceWithLoreHighlights(jpText, enText = '') {
@@ -3864,6 +3890,12 @@ async function populateSourceWithLoreHighlights(jpText, enText = '') {
                     }
                 }
             };
+
+            span.oncontextmenu = (e) => {
+                e.preventDefault();
+                const selectedText = window.getSelection()?.toString()?.trim();
+                openReferenceModal(selectedText || span.innerText, '', '', selectedText || span.innerText);
+            };
             
             // Add mouseover handler for custom tooltip
             span.onmouseover = (e) => {
@@ -3981,6 +4013,17 @@ async function populateLoreContext(jpText, enText, loadIdx) {
                 const row = document.createElement('div');
                 row.className = 'lore-row';
                 row.style.cssText = 'flex: 0 0 auto; font-size: 10px;';
+                row.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                    openReferenceModal(m.jp || '', m.en || '', '', m.jp || '');
+                });
+                row.dataset.referenceTerm = m.jp || '';
+                row.dataset.referenceMeaning = m.en || '';
+                row.dataset.referenceDescription = '';
+                row.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                    openReferenceModal(m.jp || '', m.en || '', '', m.jp || '');
+                });
                 if (m.is_lore) {
                     // Clickable lore terms — insert into editor on click
                     // Quote-aware split: don't split on delimiters inside quotes
@@ -4040,94 +4083,12 @@ async function populateLoreContext(jpText, enText, loadIdx) {
             
             box.appendChild(loreContainer);
         }
-        
-        // Show anachronisms at the bottom if any
-        const anachHits = state.reviewer.anachRanges || [];
-        
-        // Store anachronisms in cache for future use
-        if (anachHits && anachHits.length > 0) {
-            console.log(`[populateLoreContext] Storing anachronisms in cache for idx=${loadIdx}`);
-            eel.update_prefetch_cache(loreCategory, loadIdx, { anachronisms: anachHits })().then(result => {
-                console.log(`[populateLoreContext] Anachronisms cache update result:`, result);
-            }).catch(err => {
-                console.error(`[populateLoreContext] Error updating anachronisms cache:`, err);
-            });
-        }
-        
-        if (anachHits && anachHits.length > 0) {
-            const anachHeader = document.createElement('div');
-            anachHeader.className = 'lore-header';
-            anachHeader.innerText = 'Possible Anachronisms:';
-            anachHeader.style.cssText = 'font-size: 9px; font-weight: 700; color: var(--accent-color); margin-bottom: 6px; margin-top: 8px;';
-            box.appendChild(anachHeader);
 
-            // Create flex container for anachronism hits
-            const anachContainer = document.createElement('div');
-            anachContainer.style.cssText = 'display: flex; flex-wrap: wrap; gap: 8px;';
+        if (!matches?.length) {
+            box.innerHTML = '<em class="lore-empty-msg" style="opacity:0.5">No references found.</em>';
+        }
 
-            anachHits.forEach(([word, suggestion, is_ddon]) => {
-                const row = document.createElement('div');
-                row.className = 'lore-row anach-row';
-                row.style.cssText = 'flex: 0 0 auto; color: #ff6b6b; font-size: 10px; cursor: pointer;';
-                const suggestionSpan = document.createElement('span');
-                suggestionSpan.style.cssText = 'color: var(--accent-color);';
-                suggestionSpan.innerText = escHtml(suggestion || '...');
-                
-                // Add star icon for DD1-sourced words
-                if (is_ddon) {
-                    const starSpan = document.createElement('span');
-                    starSpan.innerText = ' ★';
-                    starSpan.style.cssText = 'color: #e8c56a;';
-                    suggestionSpan.appendChild(starSpan);
-                }
-                
-                // Fetch definition and example for hover tooltip and click handler
-                if (suggestion) {
-                    eel.get_definition(suggestion)().then(result => {
-                        if (result) {
-                            // Handle both tuple format (new) and string format (legacy)
-                            let defn, example;
-                            if (Array.isArray(result)) {
-                                defn = result[0];
-                                example = result[1];
-                            } else {
-                                defn = result;
-                                example = "";
-                            }
-                            let titleText = defn || "";
-                            if (example) {
-                                titleText += `\nExample: "${example}"`;
-                            }
-                            suggestionSpan.title = titleText;
-                            
-                            // Store full data for click handler
-                            row._fullDefn = defn;
-                            row._fullExample = example;
-                            row._word = word;
-                            row._suggestion = suggestion;
-                            row._is_ddon = is_ddon;
-                        }
-                    }).catch(err => {
-                        console.error('[get_definition]', err);
-                    });
-                    
-                    // Add click handler to show full definition in modal
-                    row.addEventListener('click', () => {
-                        showAnachronismModal(row._word, row._suggestion, row._fullDefn, row._fullExample, row._is_ddon);
-                    });
-                }
-                
-                row.innerHTML = `<span style="text-decoration: line-through; opacity: 0.7;">${escHtml(word)}</span> → `;
-                row.appendChild(suggestionSpan);
-                anachContainer.appendChild(row);
-            });
-            
-            box.appendChild(anachContainer);
-        }
-        
-        if (!matches?.length && !anachHits?.length) {
-            box.innerHTML = '<em style="opacity:0.5">No references found.</em>';
-        }
+        renderAnachronismSection(state.reviewer.anachRanges || [], loadIdx);
     } catch (e) {
         box.innerHTML = `<em style="opacity:0.5">Error loading context: ${e.message || e}</em>`;
         console.error('[populateLoreContext]', e);
@@ -4184,6 +4145,91 @@ async function populateAdjacentContext(path, rowIdx, loadIdx) {
                 : '<span class="adj-arrow">▼</span>—';
         }
     } catch (e) { console.error('[populateAdjacentContext]', e); }
+}
+
+function refreshReferencesPanel() {
+    const box = document.getElementById('lore-box');
+    if (!box) return;
+    const jpText = document.getElementById('jp-source')?.innerText || '';
+    const enText = document.getElementById('en-editor')?.innerText || '';
+    populateLoreContext(jpText, enText, state.reviewer.currentIdx || 0);
+}
+
+function ensureReferenceSelectionButton(box) {
+    if (!box) return;
+    box.style.position = 'relative';
+    let button = document.getElementById('source-reference-add-btn');
+    if (!button) {
+        button = document.createElement('button');
+        button.id = 'source-reference-add-btn';
+        button.className = 'kl-btn-tiny';
+        button.innerText = '+ ref';
+        button.style.cssText = 'position:absolute; z-index:20; display:none; padding:0 8px; height:20px;';
+        box.appendChild(button);
+    }
+    return button;
+}
+
+function attachSourceSelectionHandling() {
+    const box = document.getElementById('jp-source');
+    if (!box || box.dataset.referenceSelectionBound === 'true') return;
+
+    const handleSelection = () => {
+        const selection = window.getSelection();
+        if (!box || !selection || selection.rangeCount === 0) {
+            hideReferenceSelectionButton();
+            return;
+        }
+        const selectedText = selection.toString().trim();
+        if (!selectedText) {
+            hideReferenceSelectionButton();
+            return;
+        }
+        const range = selection.getRangeAt(0);
+        if (!range || !box.contains(range.commonAncestorContainer)) {
+            hideReferenceSelectionButton();
+            return;
+        }
+        const rect = range.getBoundingClientRect();
+        if (!rect.width && !rect.height) {
+            hideReferenceSelectionButton();
+            return;
+        }
+        showReferenceSelectionButton(selectedText, rect, box);
+    };
+
+    box.addEventListener('mouseup', handleSelection);
+    box.addEventListener('keyup', handleSelection);
+    box.addEventListener('click', () => {
+        setTimeout(handleSelection, 0);
+    });
+    document.addEventListener('selectionchange', () => {
+        if (document.activeElement === box) {
+            handleSelection();
+        } else {
+            hideReferenceSelectionButton();
+        }
+    });
+    box.dataset.referenceSelectionBound = 'true';
+}
+
+function hideReferenceSelectionButton() {
+    const button = document.getElementById('source-reference-add-btn');
+    if (button) button.style.display = 'none';
+}
+
+function showReferenceSelectionButton(selectionText, rect, box) {
+    const button = ensureReferenceSelectionButton(box);
+    if (!button) return;
+    const boxRect = box.getBoundingClientRect();
+    button.style.display = 'inline-flex';
+    button.style.left = `${Math.max(8, rect.left - boxRect.left + 4)}px`;
+    button.style.top = `${Math.max(8, rect.top - boxRect.top - 24)}px`;
+    button.onclick = (e) => {
+        e.stopPropagation();
+        hideReferenceSelectionButton();
+        openReferenceModal(selectionText, '', '', selectionText);
+    };
 }
 
 function insertIntoEditor(text) {
@@ -5744,7 +5790,68 @@ function buildSelectableLi(text, onSelect, list) {
 // =============================================================================
 // MODALS
 // =============================================================================
+
+function populateAnachronismModalContent(word, suggestion, defn, example, isDdon) {
+    const replacementEl = document.getElementById('anach-modal-replacement');
+    const defnEl = document.getElementById('anach-modal-definition');
+    const exampleEl = document.getElementById('anach-modal-example');
+    if (!replacementEl || !defnEl || !exampleEl) return;
+
+    let replacementHtml = `<span style="text-decoration: line-through; opacity: 0.7;">${escHtml(word)}</span> → ${escHtml(suggestion)}`;
+    if (isDdon) replacementHtml += ' <span style="color: #e8c56a;">★</span>';
+    replacementEl.innerHTML = replacementHtml;
+
+    if (defn) {
+        defnEl.innerHTML = renderRichText(defn);
+        defnEl.style.display = '';
+    } else {
+        defnEl.textContent = '';
+        defnEl.style.display = 'none';
+    }
+
+    if (example) {
+        exampleEl.innerHTML = `"${renderRichText(example)}"`;
+        exampleEl.style.display = '';
+    } else {
+        exampleEl.textContent = '';
+        exampleEl.style.display = 'none';
+    }
+}
+
+function showAnachronismModal(word, suggestion, defn, example, isDdon) {
+    const modal = document.getElementById('modal-anachronism');
+    if (!modal || !word || !suggestion) return;
+
+    modal._anachWord = word;
+    modal._anachSuggestion = suggestion;
+
+    populateAnachronismModalContent(word, suggestion, defn, example, isDdon);
+    modal.classList.add('active');
+
+    eel.get_definition(suggestion)().then(result => {
+        if (modal.classList.contains('active') && modal._anachSuggestion === suggestion) {
+            const parsed = parseDefinitionResult(result);
+            populateAnachronismModalContent(
+                word,
+                suggestion,
+                parsed.defn || defn,
+                parsed.example || example,
+                isDdon
+            );
+        }
+    }).catch(err => {
+        console.error('[showAnachronismModal get_definition]', err);
+    });
+}
+
 function initModals() {
+    // Reference modal
+    document.getElementById('btn-reference-cancel')?.addEventListener('click', () => {
+        document.getElementById('modal-reference')?.classList.remove('active');
+        state.ui.referenceEditor = null;
+    });
+    document.getElementById('btn-reference-save')?.addEventListener('click', saveReferenceEntryFromModal);
+
     // Rule modal
     document.getElementById('btn-rule-cancel')?.addEventListener('click',
         () => document.getElementById('modal-rule').classList.remove('active'));
@@ -5758,6 +5865,19 @@ function initModals() {
     // Input modal
     document.getElementById('btn-input-cancel')?.addEventListener('click',
         () => document.getElementById('modal-input').classList.remove('active'));
+    document.getElementById('btn-add-reference')?.addEventListener('click', () => openReferenceModal());
+
+    // Anachronism modal
+    document.getElementById('btn-anach-close')?.addEventListener('click', () => {
+        document.getElementById('modal-anachronism')?.classList.remove('active');
+    });
+    document.getElementById('btn-anach-replace')?.addEventListener('click', () => {
+        const modal = document.getElementById('modal-anachronism');
+        if (modal?._anachWord && modal?._anachSuggestion) {
+            replaceAnachronism(modal._anachWord, modal._anachSuggestion);
+        }
+        modal?.classList.remove('active');
+    });
 
     // Close on backdrop click
     document.querySelectorAll('.modal').forEach(modal => {
@@ -5768,6 +5888,7 @@ function initModals() {
 }
 
 let inputModalCallback = null;
+let referenceEditorContext = null;
 
 function openInputModal(title, message, defaultValue = '', callback) {
     const modal = document.getElementById('modal-input');
@@ -5793,6 +5914,49 @@ document.getElementById('btn-input-save')?.addEventListener('click', () => {
     }
     document.getElementById('modal-input').classList.remove('active');
 });
+
+function openReferenceModal(initialTerm = '', initialMeaning = '', initialDescription = '', existingTerm = null) {
+    const modal = document.getElementById('modal-reference');
+    const titleEl = document.getElementById('reference-modal-title');
+    const termEl = document.getElementById('reference-term-field');
+    const meaningEl = document.getElementById('reference-meaning-field');
+    const descriptionEl = document.getElementById('reference-description-field');
+    if (!modal || !titleEl || !termEl || !meaningEl || !descriptionEl) return;
+
+    referenceEditorContext = { existingTerm };
+    titleEl.innerText = existingTerm ? 'EDIT REFERENCE' : 'NEW REFERENCE';
+    termEl.value = initialTerm || '';
+    meaningEl.value = initialMeaning || '';
+    descriptionEl.value = initialDescription || '';
+    modal.classList.add('active');
+    termEl.focus();
+    termEl.select();
+}
+
+async function saveReferenceEntryFromModal() {
+    const termEl = document.getElementById('reference-term-field');
+    const meaningEl = document.getElementById('reference-meaning-field');
+    const descriptionEl = document.getElementById('reference-description-field');
+    if (!termEl || !meaningEl || !descriptionEl) return;
+
+    const term = termEl.value.trim();
+    const meaning = meaningEl.value.trim();
+    const description = descriptionEl.value.trim();
+    if (!term || !meaning) {
+        openAlertModal('ERROR', 'Term and meaning are required.');
+        return;
+    }
+
+    const result = await eel.save_reference_entry(term, meaning, description, referenceEditorContext?.existingTerm || null)();
+    if (result?.ok) {
+        document.getElementById('modal-reference')?.classList.remove('active');
+        state.ui.referenceEditor = null;
+        referenceEditorContext = null;
+        refreshReferencesPanel();
+    } else {
+        openAlertModal('ERROR', result?.error || 'Unable to save reference.');
+    }
+}
 
 let confirmModalCallback = null;
 
@@ -6219,6 +6383,14 @@ function escHtml(s) {
     return String(s || '')
         .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
+}
+
+function renderRichText(text) {
+    if (text == null) return '';
+    const escaped = escHtml(String(text));
+    return escaped
+        .replace(/\*\*\*(.+?)\*\*\*/g, '<strong style="font-weight: 800; font-size: 1.02em;">$1</strong>')
+        .replace(/\*\*(.+?)\*\*/g, '<strong style="font-weight: 700; font-size: 1.01em;">$1</strong>');
 }
 
 async function updateSyncStatusDisplay() {

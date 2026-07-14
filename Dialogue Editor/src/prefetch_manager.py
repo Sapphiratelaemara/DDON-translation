@@ -37,27 +37,33 @@ class PrefetchManager:
         """Get the cache file path based on current language."""
         if self._cache_file:
             return self._cache_file
-        # Use stored language if available
-        if self._language:
-            import os
-            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            config_dir = os.path.join(base_dir, "config", self._language)
-            return os.path.join(config_dir, "prefetch_cache.json")
-        # Fallback: try to get the current language from config manager
+        base_dir = None
         try:
-            import os
-            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            # Check if config_manager exists and has language set
             import sys
             if 'main' in sys.modules:
                 cm = sys.modules['main'].cm if hasattr(sys.modules['main'], 'cm') else None
-                if cm and hasattr(cm, 'language'):
-                    config_dir = os.path.join(base_dir, "config", cm.language)
-                    return os.path.join(config_dir, "prefetch_cache.json")
-        except:
+                if cm and hasattr(cm, 'base_dir'):
+                    base_dir = cm.base_dir
+        except Exception:
             pass
-        # Return None if config not available - cache must be per-language
-        return None
+        if not base_dir:
+            import os
+            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        language = self._language
+        if not language:
+            try:
+                import sys
+                if 'main' in sys.modules:
+                    cm = sys.modules['main'].cm if hasattr(sys.modules['main'], 'cm') else None
+                    if cm and hasattr(cm, 'language'):
+                        language = cm.language
+            except Exception:
+                pass
+        if not language:
+            return None
+        import os
+        config_dir = os.path.join(base_dir, "config", language)
+        return os.path.join(config_dir, "prefetch_cache.json")
     
     def _cache_key(self, category: str, idx: int) -> str:
         """Convert category and index to a string key for JSON serialization."""

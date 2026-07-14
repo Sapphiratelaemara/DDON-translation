@@ -32,8 +32,11 @@ def _load_json(filename, default=None):
         except Exception as e:
             print(f"[lore_data._load_json] Error loading {filename} from config: {e}")
     
-    # Fall back to data directory
-    data_dir = os.path.join(os.path.dirname(__file__), 'data')
+    # Fall back to project data directory
+    if _config_manager and hasattr(_config_manager, 'base_dir'):
+        data_dir = os.path.join(_config_manager.base_dir, 'data')
+    else:
+        data_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data')
     json_path = os.path.join(data_dir, filename)
     if os.path.exists(json_path):
         with open(json_path, 'r', encoding='utf-8') as f:
