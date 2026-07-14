@@ -12,6 +12,46 @@ from src.lore_data import DEFAULT_ARCHETYPES, IN_UNIVERSE_VOCAB, ANACHRONISM_PAT
 # Track files written by app for cache invalidation
 _recently_written_files = {}
 
+def save_reference_entry_to_csv(path, term, meaning, description='', existing_term=None):
+    """Create or update a glossary/reference row in a CSV file."""
+    if not path:
+        raise ValueError("A glossary path is required")
+
+    term = (term or '').strip()
+    meaning = (meaning or '').strip()
+    description = (description or '').strip()
+    if not term or not meaning:
+        raise ValueError("Term and meaning are required")
+
+    rows = []
+    updated = False
+
+    if os.path.exists(path):
+        with open(path, 'r', encoding='utf-8-sig', newline='') as fh:
+            reader = csv.reader(fh)
+            for row in reader:
+                if not row or not row[0].strip():
+                    continue
+                current_term = row[0].strip()
+                if existing_term is not None and current_term == existing_term.strip():
+                    rows.append([term, meaning, '', '', '', description])
+                    updated = True
+                elif existing_term is None and current_term == term:
+                    rows.append([term, meaning, '', '', '', description])
+                    updated = True
+                else:
+                    rows.append(row)
+
+    if not updated:
+        rows.append([term, meaning, '', '', '', description])
+
+    with open(path, 'w', encoding='utf-8', newline='') as fh:
+        writer = csv.writer(fh)
+        writer.writerows(rows)
+
+    return path
+
+
 def mark_file_written(file_path):
     """Mark a file as recently written by the app (to avoid cache invalidation)."""
     _recently_written_files[file_path] = time.time()
@@ -207,39 +247,71 @@ class LoreEngine:
     # ---------------- Definition Cache ----------------
     # Resolve relative to config/<language>/ directory for per-language storage
     @classmethod
+    def _get_app_cm(cls):
+        """Return the active ConfigManager from the running app module, if available."""
+        try:
+            import sys
+            for module_name in ('main', '__main__'):
+                module = sys.modules.get(module_name)
+                if module is None:
+                    continue
+                cm = getattr(module, 'cm', None)
+                if cm and hasattr(cm, 'language') and hasattr(cm, 'base_dir'):
+                    return cm
+
+            for module in sys.modules.values():
+                if not hasattr(module, 'cm'):
+                    continue
+                cm = getattr(module, 'cm', None)
+                if cm and hasattr(cm, 'language') and hasattr(cm, 'base_dir'):
+                    return cm
+        except Exception:
+            pass
+        return None
+
+    @classmethod
+    def _get_config_dir(cls):
+        """Return the active config directory for the current language."""
+        cm = cls._get_app_cm()
+        if cm and hasattr(cm, 'language') and hasattr(cm, 'base_dir'):
+            return os.path.join(cm.base_dir, "config", cm.language)
+
+        project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        fallback_dir = os.path.join(project_root, "config", "en")
+        if os.path.isdir(fallback_dir):
+            return fallback_dir
+        return os.path.join(project_root, "config")
+
+    @classmethod
     def _get_definitions_file(cls):
         """Get the path to the definitions file for the current language."""
         try:
-            import sys
-            if 'main' in sys.modules:
-                cm = sys.modules['main'].cm if hasattr(sys.modules['main'], 'cm') else None
-                if cm and hasattr(cm, 'language'):
-                    base_dir = os.path.dirname(os.path.abspath(__file__))
-                    config_dir = os.path.join(base_dir, "config", cm.language)
-                    return os.path.join(config_dir, "anach_definitions.json")
-        except:
-            pass
-        # Return None if not found - config file must exist
-        return None
+            config_dir = cls._get_config_dir()
+            return os.path.join(config_dir, "anach_definitions.json")
+        except Exception:
+            return None
     
     @classmethod
     def _get_examples_file(cls):
         """Get the path to the examples file for the current language."""
         try:
-            import sys
-            if 'main' in sys.modules:
-                cm = sys.modules['main'].cm if hasattr(sys.modules['main'], 'cm') else None
-                if cm and hasattr(cm, 'language'):
-                    base_dir = os.path.dirname(os.path.abspath(__file__))
-                    config_dir = os.path.join(base_dir, "config", cm.language)
-                    return os.path.join(config_dir, "archaic_examples.json")
-        except:
-            pass
-        # Return None if not found - config file must exist
-        return None
+            config_dir = cls._get_config_dir()
+            return os.path.join(config_dir, "archaic_examples.json")
+        except Exception:
+            return None
     
     DEFINITIONS_FILE = property(lambda cls: cls._get_definitions_file())
     EXAMPLES_FILE = property(lambda cls: cls._get_examples_file())
+
+    @classmethod
+    def _normalize_definition_cache(cls, definitions):
+        """Lowercase keys so lookups match scan suggestions regardless of casing."""
+        normalized = {}
+        for word, definition in definitions.items():
+            if word.startswith('_'):
+                continue
+            normalized[word.lower()] = definition
+        return normalized
 
     @classmethod
     def _load_def_cache(cls):
@@ -248,16 +320,15 @@ class LoreEngine:
             try:
                 with open(definitions_file, 'r', encoding='utf-8-sig') as f:
                     data = json.load(f)
-                    # Handle new nested structure with dd1_definitions and other_definitions
                     if isinstance(data, dict) and "dd1_definitions" in data:
                         definitions = {}
-                        # Add dd1_definitions first (higher priority)
                         definitions.update(data.get("dd1_definitions", {}))
-                        # Add other_definitions only if word not already in dd1_definitions
                         for word, definition in data.get("other_definitions", {}).items():
                             if word not in definitions:
                                 definitions[word] = definition
-                        return definitions
+                        return cls._normalize_definition_cache(definitions)
+                    if isinstance(data, dict):
+                        return cls._normalize_definition_cache(data)
                     return data
             except Exception:
                 pass
@@ -316,38 +387,16 @@ class LoreEngine:
         cache = cls._load_def_cache()
         word_lower = word.lower()
         cached = cache.get(word_lower)
+        examples = cls._load_examples()
         if cached is not None:
-            # Handle legacy string format (old cache) vs new tuple format
             if isinstance(cached, str):
-                # Check if local database has an example for this word
-                examples = cls._load_examples()
-                if word_lower in examples and examples[word_lower]:
-                    # Re-fetch to get the example from local database
-                    if callback:
-                        def _fetch():
-                            defn = cls._fetch_definition(word_lower)
-                            cache2 = cls._load_def_cache()
-                            cache2[word_lower] = defn
-                            cls._save_def_cache(cache2)
-                            if callback:
-                                callback(word, defn)
-                        threading.Thread(target=_fetch, daemon=True).start()
-                return None
-            # Check if cached entry has no example but local database has one
-            if isinstance(cached, list) and len(cached) == 2 and not cached[1]:
-                examples = cls._load_examples()
-                if word_lower in examples and examples[word_lower]:
-                    # Re-fetch to get the example from local database
-                    if callback:
-                        def _fetch():
-                            defn = cls._fetch_definition(word_lower)
-                            cache2 = cls._load_def_cache()
-                            cache2[word_lower] = defn
-                            cls._save_def_cache(cache2)
-                            if callback:
-                                callback(word, defn)
-                        threading.Thread(target=_fetch, daemon=True).start()
-            return cached
+                return (cached, examples.get(word_lower, ""))
+            if isinstance(cached, (list, tuple)) and len(cached) >= 2:
+                defn = cached[0] or ""
+                example = cached[1] or examples.get(word_lower, "")
+                return (defn, example)
+            if isinstance(cached, (list, tuple)) and len(cached) == 1:
+                return (cached[0] or "", examples.get(word_lower, ""))
         if callback:
             def _fetch():
                 defn = cls._fetch_definition(word_lower)

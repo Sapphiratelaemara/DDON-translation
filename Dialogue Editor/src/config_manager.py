@@ -149,12 +149,10 @@ class ConfigManager:
         """Load user-specific settings from a separate file."""
         debug_log(f"Loading user_settings from: {self.user_settings_file}")
         with self._lock:
-            base_dir = os.path.dirname(os.path.abspath(__file__))
-            project_root = os.path.dirname(base_dir)
-            terms_dir = os.path.join(project_root, "Terms and references directory")
+            terms_dir = os.path.join(self.base_dir, "Terms and references directory")
             default_bible = os.path.normpath(os.path.join(terms_dir, "DDON_BIBLE_V2.txt")).replace("\\", "/")
             default_glossary = os.path.normpath(os.path.join(terms_dir, "glossary.csv")).replace("\\", "/")
-            default_assets = os.path.normpath(os.path.join(base_dir, "assets")).replace("\\", "/")
+            default_assets = os.path.normpath(os.path.join(self.base_dir, "assets")).replace("\\", "/")
 
             user_settings = {}
             if os.path.exists(self.user_settings_file):
@@ -234,7 +232,7 @@ class ConfigManager:
                     val = user_settings[key]
                     if val:  # Only process if not empty string
                         if not os.path.isabs(val):
-                            val = os.path.normpath(os.path.join(base_dir, val)).replace("\\", "/")
+                            val = os.path.normpath(os.path.join(self.base_dir, val)).replace("\\", "/")
                             user_settings[key] = val
                         # Don't override with default if path doesn't exist - user may have intentionally set it
                     # If val is empty string, keep it empty (don't apply default)
@@ -375,12 +373,10 @@ class ConfigManager:
 
     def load_all(self):
         with self._lock:
-            base_dir = os.path.dirname(os.path.abspath(__file__))
-            project_root = os.path.dirname(base_dir)
-            terms_dir = os.path.join(project_root, "Terms and references directory")
+            terms_dir = os.path.join(self.base_dir, "Terms and references directory")
             default_bible = os.path.normpath(os.path.join(terms_dir, "DDON_BIBLE_V2.txt")).replace("\\", "/")
             default_glossary = os.path.normpath(os.path.join(terms_dir, "glossary.csv")).replace("\\", "/")
-            default_assets = os.path.normpath(os.path.join(base_dir, "assets")).replace("\\", "/")
+            default_assets = os.path.normpath(os.path.join(self.base_dir, "assets")).replace("\\", "/")
 
             if os.path.exists(self.config_file):
                 try:

@@ -141,6 +141,7 @@ if os.path.exists(global_user_settings_path):
         pass
 
 from src.lore_data import set_config_manager, reload_vocab
+from src.lore_engine import save_reference_entry_to_csv
 
 cm     = ConfigManager(language=initial_language)
 set_config_manager(cm)  # Set ConfigManager for lore_data to load language-specific vocab
@@ -1464,6 +1465,13 @@ def generate_preview_image(profile_name, text):
         import base64
         import hashlib
         from PIL import Image, ImageDraw, ImageFont
+    except ImportError as exc:
+        return {
+            "error": f"Pillow is required for preview-image generation: {exc}",
+            "debug": {"missing_module": "PIL"}
+        }
+
+    try:
         
         # Create cache key from profile_name and text
         cache_key = f"{profile_name}:{hashlib.md5(text.encode('utf-8')).hexdigest()}"
@@ -1789,6 +1797,25 @@ def get_gloss(jp_text):
     return []
 
 @eel.expose
+def save_reference_entry(term, meaning, description='', existing_term=None, glossary_path=None):
+    """Create or edit a glossary/reference entry in the configured glossary CSV."""
+    try:
+        if not glossary_path:
+            glossary_path = cm.user_settings.get('glossary_path', '') if hasattr(cm, 'user_settings') else ''
+        if not glossary_path:
+            raise ValueError('No glossary path configured')
+
+        os.makedirs(os.path.dirname(glossary_path), exist_ok=True)
+        save_reference_entry_to_csv(glossary_path, term, meaning, description=description, existing_term=existing_term)
+        le = _get_lore_engine()
+        if le:
+            le.load_data(cm.user_settings.get('bible_path', '') if hasattr(cm, 'user_settings') else '', glossary_path)
+        return {'ok': True, 'path': glossary_path}
+    except Exception as e:
+        print(f"[save_reference_entry] Error: {e}")
+        return {'ok': False, 'error': str(e)}
+
+@eel.expose
 def get_lore_context(jp_text):
     """Returns lore glossary + tag display matches for the given JP text."""
     if not jp_text:
@@ -1877,31 +1904,43 @@ def scan_anachronisms(en_text):
         print(f"[scan_anachronisms] Error: {e}")
         return []
 
+def _normalize_definition_result(result):
+    """Return [definition, example] for the frontend."""
+    if result is None:
+        return ["", ""]
+    if isinstance(result, str):
+        return [result, ""]
+    if isinstance(result, (list, tuple)):
+        defn = result[0] if len(result) > 0 else ""
+        example = result[1] if len(result) > 1 else ""
+        return [defn or "", example or ""]
+    return ["", ""]
+
 @eel.expose
 def get_definition(word):
-    """Return cached definition for word, or fetch it from Free Dictionary API."""
+    """Return cached definition for word, or fetch it from local examples."""
     if not word:
-        return ""
+        return ["", ""]
     try:
         le = _get_lore_engine()
         if not le:
-            return ""
-        # Synchronous fetch - wait for result
+            return ["", ""]
+        sync_result = le.get_definition(word)
+        if sync_result is not None:
+            return _normalize_definition_result(sync_result)
         result_container = [None]
         def _callback(w, defn):
             result_container[0] = defn
         le.get_definition(word, _callback)
-        # Wait a bit for async fetch to complete if not cached
         import time
-        for _ in range(10):  # Wait up to 1 second
+        for _ in range(10):
             if result_container[0] is not None:
-                return result_container[0]
+                return _normalize_definition_result(result_container[0])
             time.sleep(0.1)
-        # If still None, try getting from cache directly
-        return le.get_definition(word) or ""
+        return _normalize_definition_result(le.get_definition(word))
     except Exception as e:
         print(f"[get_definition] Error: {e}")
-        return ""
+        return ["", ""]
 
 @eel.expose
 def prefetch_definitions(words):

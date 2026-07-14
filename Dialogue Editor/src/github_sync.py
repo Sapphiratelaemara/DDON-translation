@@ -319,10 +319,8 @@ class GitHubSync:
                 debug_info = []
                 language = self.cm.language
                 
-                # Get config directory - use hardcoded base to avoid temp directory issues during tests
-                # Get actual project directory by going up from src/ to project root
-                current_dir = os.path.dirname(os.path.abspath(__file__))
-                base_dir = os.path.dirname(current_dir)
+                # Get config directory from ConfigManager base_dir
+                base_dir = self.cm.base_dir
                 config_dir = os.path.join(base_dir, "config", language)
                 
                 # Debug: Log the actual paths being used
@@ -607,10 +605,8 @@ class GitHubSync:
                 if not owner or not repo:
                     return False
                 
-                # Get config directory - use hardcoded base to avoid temp directory issues during tests
-                # Get actual project directory by going up from src/ to project root
-                current_dir = os.path.dirname(os.path.abspath(__file__))
-                base_dir = os.path.dirname(current_dir)
+                # Get config directory from ConfigManager base_dir
+                base_dir = self.cm.base_dir
                 config_dir = os.path.join(base_dir, "config", language)
                 
                 # Debug: Log the actual paths being used
