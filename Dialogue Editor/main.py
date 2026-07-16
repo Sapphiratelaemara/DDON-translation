@@ -10,6 +10,15 @@ if sys.platform == 'win32':
     # Set console code page to UTF-8 instead of wrapping stdout (avoids threading issues)
     import subprocess
     subprocess.run(['chcp', '65001'], shell=True, capture_output=True)
+    # Reconfigure stdout/stderr to UTF-8 so print() of Japanese text doesn't raise
+    # UnicodeEncodeError on the Windows console (this was breaking TM matching logs).
+    try:
+        if hasattr(sys.stdout, 'reconfigure'):
+            sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+        if hasattr(sys.stderr, 'reconfigure'):
+            sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+    except Exception:
+        pass
 
 # Configure debug logging
 DEBUG_LOG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'debug.log')
