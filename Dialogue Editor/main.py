@@ -189,7 +189,9 @@ _tm_cache_lock = threading.Lock()
 _tm_cache_ttl = 300  # 5 minutes
 
 # Start GitHub auto-sync if enabled (30 min intervals)
-if github_sync.is_configured() and cm.config.get('sync_auto', False):
+# sync_auto is a user-specific setting (stored in user_settings, not config)
+_sync_auto = cm.user_settings.get('sync_auto', False) if hasattr(cm, 'user_settings') else False
+if github_sync.is_configured() and _sync_auto:
     github_sync.start_auto_sync(translation_manager)
     print("[main] GitHub auto-sync started (30min intervals)")
 
@@ -239,13 +241,28 @@ def _get_lore_engine():
                 try:
                     from src.lore_engine import LoreEngine
                     le = LoreEngine(cm.config.get("archetypes"))
-                    le.load_data(
-                        cm.user_settings.get("bible_path",    "") if hasattr(cm, 'user_settings') else "",
-                        cm.user_settings.get("glossary_path", "") if hasattr(cm, 'user_settings') else "")
+                    le.load_data("", _get_glossary_path())
                     _lore_engine = le
                 except Exception as e:
                     print(f"[WARN] LoreEngine unavailable: {e}")
     return _lore_engine
+
+def _get_glossary_path():
+    """Return the per-language glossary CSV path.
+
+    The glossary now lives alongside other language-specific config at
+    config/<language>/glossary.csv. For backwards compatibility we fall back to
+    the legacy user_settings.glossary_path if that file does not yet exist.
+    """
+    config_dir = os.path.join(cm.base_dir, "config", cm.language)
+    lang_glossary = os.path.join(config_dir, "glossary.csv")
+    if os.path.exists(lang_glossary):
+        return lang_glossary
+    legacy = cm.user_settings.get('glossary_path', '') if hasattr(cm, 'user_settings') else ''
+    if legacy and os.path.exists(legacy):
+        return legacy
+    # Default to the per-language location even if not created yet (save will create it)
+    return lang_glossary
 
 # Pre-initialize Jamdict to avoid first-call timeout (optional dependency)
 print("[MAIN] Pre-initializing Jamdict (optional)...")
@@ -817,11 +834,9 @@ def create_language(language_code):
         
         # Create minimal user_settings.json with only language-specific defaults
         # Do NOT include sync settings (github_repo, github_token, sync_nickname, sync_auto)
-        # Do NOT include bible_path/glossary_path - these should be configured per-language by the user
+        # Glossary is auto-located at config/<lang>/glossary.csv; bible is no longer used.
         user_settings = {
             "folders": [],
-            "bible_path": "",
-            "glossary_path": "",
             "assets_path": "assets",
             "theme_mode": "dark",
             "dark_mode": True,
@@ -879,7 +894,7 @@ def save_config_field(key, value):
     global _lore_engine
     print(f"[DEBUG] save_config_field: key={key}, value={value[:50] if isinstance(value, str) else value}")
     user_specific_keys = [
-        "folders", "bible_path", "glossary_path", "assets_path",
+        "folders", "assets_path",
         "theme_mode", "dark_mode", "in_universe", "openrouter_models",
         "selected_openrouter_model", "preview_mode",
         "show_paid_models", "selected_preset",
@@ -893,8 +908,6 @@ def save_config_field(key, value):
         cm.user_settings[key] = value
         print(f"[DEBUG] Calling save_user_settings() for key={key}")
         cm.save_user_settings()  # Save to user_settings.json
-        if key in ("bible_path", "glossary_path"):
-            _lore_engine = None   # invalidate lore cache
     else:
         cm.config[key] = value
         cm.save_all()
@@ -1660,6 +1673,47 @@ def generate_preview_image(profile_name, text):
 _lore_context_cache = {}
 _lore_context_cache_lock = threading.Lock()
 
+def _reload_glossary_caches():
+    """Reload glossary-derived caches after the glossary file changed on disk.
+
+    A GitHub pull (or manual pull) can update config/<lang>/glossary.csv without
+    going through save_reference_entry, so the in-memory LoreEngine and the
+    persisted prefetch/lore caches would otherwise keep showing stale data
+    (e.g. a multi-option meaning rendered as a single entry). This forces a
+    fresh load and clears every cache that depends on the glossary.
+    """
+    try:
+        global _lore_engine, _gloss_engine, _gloss_engine_last_lore_map
+        # Force the LoreEngine to re-read the glossary from disk.
+        le = _get_lore_engine()
+        if le is not None:
+            le.load_data("", _get_glossary_path())
+        # Clear the per-line lore context cache (keyed by JP text).
+        with _lore_context_cache_lock:
+            _lore_context_cache.clear()
+        # Clear the persisted prefetch cache (keyed by category::idx) so the
+        # References panel re-renders with the new glossary data.
+        if '_prefetch_mgr' in globals() and _prefetch_mgr is not None:
+            try:
+                _prefetch_mgr.clear_cache()
+            except Exception:
+                pass
+        # Clear the gloss cache so GlossEngine picks up the new lore_map.
+        with _gloss_cache_lock:
+            _gloss_cache.clear()
+        _gloss_engine_last_lore_map = None  # force GlossEngine to rebuild
+        print("[_reload_glossary_caches] Reloaded glossary and cleared dependent caches")
+    except Exception as e:
+        print(f"[_reload_glossary_caches] Error: {e}")
+
+# Reload glossary-derived caches only when a pull actually changes a
+# glossary-affecting file (glossary.csv / archetypes.json). sync_pull invokes
+# this hook in that case; unchanged pulls do NOT trigger it, so the prefetch
+# cache is preserved instead of being wiped and recomputed for every entry.
+# Registered here (after the function is defined) to avoid a forward-reference
+# NameError at module load time.
+github_sync.set_glossary_reload_hook(_reload_glossary_caches)
+
 @eel.expose
 def get_gloss(jp_text):
     """Returns morpheme gloss for the given JP text via GlossEngine."""
@@ -1801,7 +1855,7 @@ def save_reference_entry(term, meaning, description='', existing_term=None, glos
     """Create or edit a glossary/reference entry in the configured glossary CSV."""
     try:
         if not glossary_path:
-            glossary_path = cm.user_settings.get('glossary_path', '') if hasattr(cm, 'user_settings') else ''
+            glossary_path = _get_glossary_path()
         if not glossary_path:
             raise ValueError('No glossary path configured')
 
@@ -1809,10 +1863,46 @@ def save_reference_entry(term, meaning, description='', existing_term=None, glos
         save_reference_entry_to_csv(glossary_path, term, meaning, description=description, existing_term=existing_term)
         le = _get_lore_engine()
         if le:
-            le.load_data(cm.user_settings.get('bible_path', '') if hasattr(cm, 'user_settings') else '', glossary_path)
+            le.load_data("", glossary_path)
+        # Invalidate caches so the References panel re-renders fresh glossary data
+        # (otherwise it shows the pre-edit cached result for the current line).
+        # Targeted: only drop the per-line lore context and the prefetch entries
+        # whose source text actually contains the changed term, instead of
+        # wiping the entire cache and forcing every entry to re-run.
+        with _lore_context_cache_lock:
+            _lore_context_cache.clear()
+        if '_prefetch_mgr' in globals() and _prefetch_mgr is not None:
+            try:
+                _prefetch_mgr.invalidate_by_term(term)
+            except Exception:
+                pass
         return {'ok': True, 'path': glossary_path}
     except Exception as e:
         print(f"[save_reference_entry] Error: {e}")
+        return {'ok': False, 'error': str(e)}
+
+@eel.expose
+def get_reference_entry(term, glossary_path=None):
+    """Read an existing glossary/reference row (including description) by term."""
+    try:
+        import csv as _csv
+        if not glossary_path:
+            glossary_path = _get_glossary_path()
+        if not glossary_path or not os.path.exists(glossary_path):
+            return {'ok': False, 'error': 'No glossary path configured'}
+        term = (term or '').strip()
+        if not term:
+            return {'ok': False, 'error': 'Term required'}
+        with open(glossary_path, 'r', encoding='utf-8-sig', newline='') as fh:
+            reader = _csv.reader(fh)
+            for row in reader:
+                if row and row[0].strip() == term:
+                    meaning = row[1].strip() if len(row) > 1 else ''
+                    description = row[5].strip() if len(row) > 5 else ''
+                    return {'ok': True, 'term': row[0].strip(), 'meaning': meaning, 'description': description}
+        return {'ok': False, 'error': 'Reference not found'}
+    except Exception as e:
+        print(f"[get_reference_entry] Error: {e}")
         return {'ok': False, 'error': str(e)}
 
 @eel.expose
@@ -2143,8 +2233,18 @@ def get_items_for_category(category_display_name):
 
 @eel.expose
 def get_all_items_in_queue():
-    """Return the full flat review queue for the Reviewer tab."""
-    return review_items
+    """Return the full flat review queue for the Reviewer tab.
+
+    Manual-translation items store the entry type in the ``category`` field (not
+    ``entry_type``), so populate ``entry_type`` from ``category`` when it is missing.
+    """
+    items = []
+    for it in review_items:
+        entry = dict(it)
+        if not entry.get("entry_type") and entry.get("category"):
+            entry["entry_type"] = entry["category"]
+        items.append(entry)
+    return items
 
 
 @eel.expose
@@ -2696,14 +2796,35 @@ def reject_translation(entry_id, reviewer="reviewer", reason=None):
         return {"ok": False, "error": str(e)}
 
 @eel.expose
-def get_translation_status(entry_id):
-    """Get status of a translation entry."""
+def get_translation_status(entry_id, path=None, row=None):
+    """Get status of a translation entry.
+
+    Status precedence:
+      1. Client-created translation data (translation_manager.entries) wins. This is
+         the only source for non-approved states (pre-translated, pending, rejected),
+         since those are only produced when an entry is added/acted on from the client.
+      2. Otherwise fall back to the CSV: if the translation column (row[3]) already has
+         content the entry is considered "approved"; if empty it is "untranslated".
+    """
     try:
-        status = translation_manager.get_entry_status(entry_id)
-        entry = translation_manager.entries.get(entry_id)
-        if entry:
-            return {"ok": True, "status": status, "entry": entry.to_dict()}
-        return {"ok": False, "error": "Entry not found"}
+        # 1. Client translation data takes precedence (only source of non-approved states).
+        if entry_id and entry_id in translation_manager.entries:
+            status = translation_manager.get_entry_status(entry_id)
+            entry = translation_manager.entries[entry_id]
+            return {"ok": True, "status": status or "untranslated", "entry": entry.to_dict()}
+
+        # 2. Fall back to the CSV contents.
+        if path and row is not None:
+            try:
+                _, _, rows = _read_csv(path)
+                ri = int(row)
+                if 0 <= ri < len(rows):
+                    en = rows[ri][3] if len(rows[ri]) > 3 else ""
+                    if en and en.strip():
+                        return {"ok": True, "status": "approved"}
+            except Exception:
+                pass
+        return {"ok": True, "status": "untranslated"}
     except Exception as e:
         return {"ok": False, "error": str(e)}
 
@@ -2878,10 +2999,51 @@ def sync_push():
 def sync_pull():
     """Manually pull translation data from GitHub and merge with local."""
     try:
-        success = github_sync.sync_pull(translation_manager)
+        # sync_pull invokes the glossary reload hook (registered at startup)
+        # only when a glossary-affecting file actually changed on the hub, so an
+        # unchanged pull does not wipe the prefetch cache.
+        result = github_sync.sync_pull(translation_manager)
+        success = result.get("success", False) if isinstance(result, dict) else result
         return {"ok": success, "message": "Pull successful" if success else "Pull failed"}
     except Exception as e:
         return {"ok": False, "error": str(e)}
+
+@eel.expose
+def startup_sync():
+    """Run a GitHub pull at app startup and report progress to the frontend.
+
+    Returns a dict with 'ok' and 'message'. Progress is streamed to the UI via
+    eel.sync_progress() so the startup sync window can show what's happening.
+    If sync is not configured, returns immediately with ok=True and a notice.
+    """
+    try:
+        if not github_sync.is_configured():
+            try:
+                eel.sync_progress("GitHub sync not configured - skipping startup fetch")()
+            except Exception:
+                pass
+            return {"ok": True, "message": "Sync not configured", "skipped": True}
+
+        def _progress(msg):
+            try:
+                eel.sync_progress(msg)()
+            except Exception:
+                pass
+
+        try:
+            eel.sync_progress("Starting startup fetch from GitHub...")()
+        except Exception:
+            pass
+
+        result = github_sync.sync_pull(translation_manager, progress_callback=_progress)
+        success = result.get("success", False) if isinstance(result, dict) else result
+        # sync_pull invokes the glossary reload hook (registered at startup) only
+        # when a glossary-affecting file actually changed on the hub, so an
+        # unchanged pull does not wipe the prefetch cache.
+        return {"ok": success, "message": "Startup fetch complete" if success else "Startup fetch failed"}
+    except Exception as e:
+        import traceback
+        return {"ok": False, "error": str(e), "traceback": traceback.format_exc()}
 
 @eel.expose
 def sync_config_files():
@@ -3010,8 +3172,7 @@ def get_feature_status():
         "deepl_key_configured": False,
         "lore_context": False,
         "lore_context_error": None,
-        "glossary_path": cm.user_settings.get("glossary_path", "") if hasattr(cm, 'user_settings') else "",
-        "bible_path": cm.user_settings.get("bible_path", "") if hasattr(cm, 'user_settings') else "",
+        "glossary_path": _get_glossary_path(),
     }
     
     # Check GlossEngine (Jamdict)
@@ -3142,7 +3303,6 @@ def main():
     print(f"[STARTUP] DeepL: {status['deepl']}" + (f" - {status['deepl_error']}" if status['deepl_error'] else ""))
     print(f"[STARTUP] Lore Context: {status['lore_context']}" + (f" - {status['lore_context_error']}" if status['lore_context_error'] else ""))
     print(f"[STARTUP] Glossary path: {status['glossary_path']}")
-    print(f"[STARTUP] Bible path: {status['bible_path']}")
     
     # Find available port
     port = find_available_port(8000, 10)
