@@ -125,10 +125,12 @@ def run_batch(
 
     # Build lore engine for this scan session
     lore_engine = LoreEngine(cm.config.get("archetypes"))
-    lore_engine.load_data(
-        cm.config.get("bible_path", ""),
-        cm.config.get("glossary_path", ""),
-    )
+    # Glossary is per-language at config/<lang>/glossary.csv (bible is no longer used)
+    _config_dir = os.path.join(cm.base_dir, "config", cm.language)
+    _glossary = os.path.join(_config_dir, "glossary.csv")
+    if not os.path.exists(_glossary):
+        _glossary = cm.user_settings.get("glossary_path", "") if hasattr(cm, "user_settings") else ""
+    lore_engine.load_data("", _glossary)
     in_universe_replacements = (
         lore_engine.get_in_universe_replacements() if settings.do_in_universe else {}
     )

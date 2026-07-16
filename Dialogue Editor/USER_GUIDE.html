@@ -127,6 +127,7 @@
         <ul>
             <li><code>keys.json</code> - API keys for DeepL and OpenRouter (auto-created if missing, stored in root directory)</li>
             <li><code>config/&lt;lang&gt;/formatter_config.json</code> - Main application settings (per-language)</li>
+            <li><code>config/&lt;lang&gt;/glossary.csv</code> - Reference/glossary data (per-language, synced to GitHub). 6-column CSV: term, meaning (multiple meanings separated by <code>|</code>), then empty columns, then description</li>
             <li><code>config/&lt;lang&gt;/user_settings.json</code> - User preferences including sync settings, paths, theme (per-language)</li>
             <li><code>config/&lt;lang&gt;/memory.json</code> - Learned fixes and archetype assignments (per-language)</li>
             <li><code>config/&lt;lang&gt;/archetypes.json</code> - Character archetypes (synced to GitHub)</li>
@@ -136,9 +137,11 @@
             <li><code>config/&lt;lang&gt;/archaic_examples.json</code> - Archaic word examples (synced to GitHub)</li>
             <li><code>config/&lt;lang&gt;/translation_memory.json</code> - Translation memory entries (synced to GitHub, with hash-based entry IDs)</li>
             <li><code>config/&lt;lang&gt;/cache.json</code> - API response cache (7-day TTL, per-language)</li>
-            <li><code>config/&lt;lang&gt;/prefetch_cache.json</code> - Prefetch cache for performance (7-day TTL, per-language)</li>
+            <li><code>config/&lt;lang&gt;/prefetch_cache.json</code> - Prefetch cache for performance (7-day TTL, per-language). When you edit a glossary term, only the cached entries whose source text contains that term are invalidated — the rest of the cache stays warm instead of re-running every entry.</li>
             <li><code>config/&lt;lang&gt;/review_queues_cache.json</code> - Review queues (per-language, not synced)</li>
             <li><code>config/&lt;lang&gt;/review_items_cache.json</code> - Manual translation queue (per-language, not synced)</li>
+            <li><code>config/&lt;lang&gt;/.sync_push_cache.json</code> - Push change-detection cache (per-language, not synced)</li>
+            <li><code>config/&lt;lang&gt;/.sync_pull_cache.json</code> - Pull change-detection cache (per-language, not synced)</li>
         </ul>
     </div>
 
@@ -208,9 +211,9 @@
         <h3>Settings Sections:</h3>
         <ul>
             <li><strong>Language:</strong> Select the current language to work with. Each language has its own configuration directory (config/&lt;lang&gt;/) with separate settings files. Switching languages loads the appropriate configuration for that language.</li>
-            <li><strong>GitHub Sync:</strong> Configure GitHub repository and token for syncing translation data, archetypes, vocabulary, anachronism definitions, and translation memory. Set your sync nickname to identify your contributions. Enable auto-sync to automatically push/pull on save/load. Sync uses hash-based entry IDs to group translations of the same source text. Conflicts are automatically resolved by keeping both versions with timestamp suffixes.</li>
+            <li><strong>GitHub Sync:</strong> Configure GitHub repository and token for syncing translation data, glossary, archetypes, vocabulary, anachronism definitions, and translation memory. Set your sync nickname to identify your contributions. Enable auto-sync to automatically push/pull on save/load. Sync uses hash-based entry IDs to group translations of the same source text. Conflicts are automatically resolved by keeping both versions with timestamp suffixes. On startup, the app fetches the latest data from GitHub (a progress window is shown). Unchanged files are skipped automatically to save bandwidth. When a pull actually changes the glossary (or archetypes), the References panel refreshes so you immediately see updated terms (e.g. a term with multiple meanings shows all options, not a stale single entry). Pulls that only fetch entry data or translation memory don't disturb your other cached entries.</li>
             <li><strong>API Keys:</strong> Configure DeepL and OpenRouter API keys for translation services</li>
-            <li><strong>Path Mappings:</strong> Configure paths to bible (.txt/.log), glossary (.csv), and assets directory</li>
+            <li><strong>Path Mappings:</strong> Configure the assets directory. The glossary is auto-located at <code>config/&lt;lang&gt;/glossary.csv</code> (per-language, synced to GitHub) — no manual path configuration is needed.</li>
             <li><strong>Tag Mappings:</strong> Define custom tag lengths for automatic line calculations and in-game preview</li>
             <li><strong>Limit Presets:</strong> Configure character limit and wall of text (max lines) presets</li>
             <li><strong>Replace Rules:</strong> Configure regex replacement rules for automated editing during scan</li>
@@ -266,9 +269,14 @@
         <h3>Glossary Features:</h3>
         <ul>
             <li><strong>Term Mapping:</strong> Maps source language terms to target language translations</li>
-            <li><strong>Additional Suggestions:</strong> Provides alternative translations</li>
+            <li><strong>Multiple Meanings:</strong> Each term can have several translations/meanings, separated by <code>|</code> (e.g. <code>enhance|Enhance (the crafting option)|reinforce|strengthen</code>). Commas and semicolons inside a meaning are preserved.</li>
             <li><strong>Text Scanning:</strong> Scans source text to find glossary term matches</li>
+            <li><strong>Clickable Terms:</strong> In the sidebar, each Japanese term is shown as a clickable link (dotted underline). Clicking it opens the reference editor so you can view or edit that term's meanings and description.</li>
+            <li><strong>Clickable Meanings:</strong> Each English meaning is a clickable suggestion that inserts the text directly into the translation editor.</li>
+            <li><strong>Select-to-Add from Source:</strong> In the source (Japanese) window, select any text and a small <strong>+ ref</strong> button appears next to your selection. Click it to open the reference editor pre-filled with the selected term, so you can quickly add a new glossary entry or edit an existing one without retyping.</li>
+            <li><strong>Editing References:</strong> Use the <em>Add Reference</em> button (or click an existing term, or use the source selection button) to open the reference modal. Enter the term, its meaning(s) separated by <code>|</code>, and an optional description, then save. Changes are written to <code>config/&lt;lang&gt;/glossary.csv</code> and synced to GitHub. On save, the glossary reloads and only the lines that actually contain the edited term are refreshed in the cache — the rest of your cached entries stay warm, so you don't wait for everything to recompute.</li>
             <li><strong>Gloss Integration:</strong> Highlights project-specific terms in the gloss window</li>
+            <li><strong>Per-Language Storage:</strong> The glossary lives at <code>config/&lt;lang&gt;/glossary.csv</code> and is synced to GitHub per language. The legacy bible file is no longer used.</li>
         </ul>
     </div>
 

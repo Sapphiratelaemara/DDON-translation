@@ -150,8 +150,6 @@ class ConfigManager:
         debug_log(f"Loading user_settings from: {self.user_settings_file}")
         with self._lock:
             terms_dir = os.path.join(self.base_dir, "Terms and references directory")
-            default_bible = os.path.normpath(os.path.join(terms_dir, "DDON_BIBLE_V2.txt")).replace("\\", "/")
-            default_glossary = os.path.normpath(os.path.join(terms_dir, "glossary.csv")).replace("\\", "/")
             default_assets = os.path.normpath(os.path.join(self.base_dir, "assets")).replace("\\", "/")
 
             user_settings = {}
@@ -203,8 +201,6 @@ class ConfigManager:
             # Set defaults for user-specific settings
             defaults = {
                 "folders": [],
-                "bible_path": default_bible,
-                "glossary_path": default_glossary,
                 "assets_path": default_assets,
                 "theme_mode": "dark",
                 "dark_mode": True,
@@ -373,9 +369,6 @@ class ConfigManager:
 
     def load_all(self):
         with self._lock:
-            terms_dir = os.path.join(self.base_dir, "Terms and references directory")
-            default_bible = os.path.normpath(os.path.join(terms_dir, "DDON_BIBLE_V2.txt")).replace("\\", "/")
-            default_glossary = os.path.normpath(os.path.join(terms_dir, "glossary.csv")).replace("\\", "/")
             default_assets = os.path.normpath(os.path.join(self.base_dir, "assets")).replace("\\", "/")
 
             if os.path.exists(self.config_file):
