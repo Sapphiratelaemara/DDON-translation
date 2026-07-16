@@ -65,9 +65,12 @@ Chance for Bonus Rewards upon completion!",ui\00_message\examine_message\quest\q
 0,,黒騎士の配下が現れた！,Underlings of the Black Knight have appeared!,ui\00_message\examine_message\quest\quest_examine_q50204000.gmd,\quest\q50204000.arc,q50204000.arc,6,The White Dragon,Quest Examine
 0,,黒剣が敵対者を感知した――,The Black Sword has sensed an opponent...,ui\00_message\examine_message\quest\quest_examine_q50204000.gmd,\quest\q50204000.arc,q50204000.arc,7,The White Dragon,Quest Examine
 0,,黒剣を守らんとする魔物が出現――！,Monsters trying to protect the Black Sword appear!,ui\00_message\examine_message\quest\quest_examine_q50204000.gmd,\quest\q50204000.arc,q50204000.arc,8,The White Dragon,Quest Examine
-0,,《追憶の枝》に存在する黒剣を全て破壊した――！,,ui\00_message\examine_message\quest\quest_examine_q50204000.gmd,\quest\q50204000.arc,q50204000.arc,9,The White Dragon,Quest Examine
-0,,《懐旧の枝》に存在する黒剣を全て破壊した――！,,ui\00_message\examine_message\quest\quest_examine_q50204000.gmd,\quest\q50204000.arc,q50204000.arc,10,Mordred,Quest Examine
-0,,《悔恨の枝》に存在する黒剣を全て破壊した――！,,ui\00_message\examine_message\quest\quest_examine_q50204000.gmd,\quest\q50204000.arc,q50204000.arc,11,Mordred,Quest Examine
+0,,《追憶の枝》に存在する黒剣を全て破壊した――！,"Destroyed all Black Swords in
+[Branch of Remembrance]!",ui\00_message\examine_message\quest\quest_examine_q50204000.gmd,\quest\q50204000.arc,q50204000.arc,9,The White Dragon,Quest Examine
+0,,《懐旧の枝》に存在する黒剣を全て破壊した――！,"Destroyed all Black Swords in
+[Branch of Nostalgia]!",ui\00_message\examine_message\quest\quest_examine_q50204000.gmd,\quest\q50204000.arc,q50204000.arc,10,Mordred,Quest Examine
+0,,《悔恨の枝》に存在する黒剣を全て破壊した――！,"Destroyed all Black Swords in
+[Branch of Remorse]!",ui\00_message\examine_message\quest\quest_examine_q50204000.gmd,\quest\q50204000.arc,q50204000.arc,11,Mordred,Quest Examine
 0,,《静慮の枝》に存在する黒剣を全て破壊した――！,,ui\00_message\examine_message\quest\quest_examine_q50204000.gmd,\quest\q50204000.arc,q50204000.arc,12,Mordred,Quest Examine
 0,,特定ジョブの参加により制限時間が加算されました,,ui\00_message\examine_message\quest\quest_examine_q50204000.gmd,\quest\q50204000.arc,q50204000.arc,13,Gearóid,Quest Examine
 0,,黒騎士が幻影を召喚した――！,,ui\00_message\examine_message\quest\quest_examine_q50204001.gmd,\quest\q50204001.arc,q50204001.arc,0,,Quest Examine
@@ -295,18 +298,18 @@ number and power of shots.""",ui\00_message\examine_message\quest\quest_examine_
 0,,"「発動した範囲に傷ついた仲間を入れる事で
 　自分だけでなく仲間の体力も回復できる
 　ただし回復は体力の白いゲージ幅までである」","""Injured allies within the activated area will
- recover HP, not just you. Recovery is limited
- to the white gauge portion of their HP.""",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,5,Priest,Quest Examine
+recover HP, not just you. Recovery is limited
+to the white gauge portion of their HP.""",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,5,Priest,Quest Examine
 0,,"「また使用中はスタミナが消費するので
 　状況を見てキャンセルも可能である」","""Stamina is consumed while active, so you can
- cancel it depending on the situation.""",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,6,Priest,Quest Examine
+cancel it depending on the situation.""",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,6,Priest,Quest Examine
 0,,《浄化の証》を手に入れた！,You have obtained the [Priest's Mark]!,ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,7,Priest,Quest Examine
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 「《セイントオーラ》を展開して敵を攻撃せよ」","Teachings carved by someone emerge―
 
 ""Attack the enemy with Holy Aura.""",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,8,Priest,Quest Examine
 0,,「<ICON STG_MAIN_WEP>を押しながら<ICON STG_TOUCH>を押す、再度押すと解除」,"""Hold <ICON STG_MAIN_WEP>, then press <ICON STG_TOUCH>.
- Press again to cancel.""",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,9,Renton,Quest Examine
+Press again to cancel.""",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,9,Renton,Quest Examine
 0,,"「展開された魔法波の範囲内に
 　敵が入ると聖属性ダメージを与える事ができる
 　複数の敵に対しても有効である」","""When an enemy enters the range of the aura, 
@@ -320,9 +323,9 @@ area of effect.",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd
 0,,発動したセイントサークルは発動中スタミナが減るから注意して使え,"Holy Aura consumes stamina while active, 
 so use it carefully.",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,13,White Knight,Quest Examine
 0,,最後の仕上げだ――最奥のゴブリンを今までの課題を生かして全滅させるんだ,"The final test—use what you've learned to
- eliminate all the goblins at the far end.",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,14,White Knight,Quest Examine
+eliminate all the goblins at the far end.",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,14,White Knight,Quest Examine
 0,,よくやった――最奥にある証を探して試練は終わりだ,"Well done—find the mark at the end
- to complete the trial.",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,15,Renton,Quest Examine
+to complete the trial.",ui\00_message\examine_message\quest\quest_examine_q60000004.gmd,\quest\q60000004.arc,q60000004.arc,15,Renton,Quest Examine
 0,,"何者かが刻んだ教えの言葉が浮かび上がっている――
 「《連斬》にて敵を攻撃せよ」","Teachings carved by someone emerge―
 
