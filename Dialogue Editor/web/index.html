@@ -684,11 +684,14 @@ Ctrl+Shift+D: Ellipsis</div>
                                     <div class="input-with-action">
                                         <input type="password" id="opt-deepl-key" placeholder="Enter DeepL Auth Key">
                                         <button class="btn-secondary" id="btn-test-deepl">TEST</button>
+                                        <button class="btn-secondary" id="btn-deepl-getkey">GET KEY</button>
                                     </div>
                                     <div class="flex-row" style="margin-top: 10px;">
                                         <label style="width: auto;">Target Lang:</label>
-                                        <input type="text" id="opt-deepl-lang" placeholder="e.g. EN-US"
-                                            style="width: 100px;">
+                                        <input type="text" id="opt-deepl-lang" list="deepl-lang-list"
+                                            placeholder="e.g. EN-US" autocomplete="off"
+                                            style="width: 200px;">
+                                        <datalist id="deepl-lang-list"></datalist>
                                     </div>
                                 </div>
 
@@ -697,6 +700,7 @@ Ctrl+Shift+D: Ellipsis</div>
                                     <div class="input-with-action">
                                         <input type="password" id="opt-or-key" placeholder="Enter OpenRouter Key">
                                         <button class="btn-secondary" id="btn-test-or">TEST</button>
+                                        <button class="btn-secondary" id="btn-or-getkey">GET KEY</button>
                                     </div>
                                     <div class="flex-row" style="margin-top: 10px;">
                                         <div class="toggle-group sm">

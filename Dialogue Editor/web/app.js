@@ -114,6 +114,7 @@ function loadState() {
             showTranslated: false,
             anachRanges: [],         // Track anachronism ranges for Tab replacement
             reviewerMode: true,      // Crowdin-style reviewer mode - always enabled
+            chatHistory: [],         // AI assistant conversation history
         },
         search: {
             results: [],
@@ -122,7 +123,14 @@ function loadState() {
     };
     if (!saved) return defaults;
     try {
-        return { ...defaults, ...JSON.parse(saved) };
+        const parsed = JSON.parse(saved);
+        // Deep-merge nested objects so newly-added fields (e.g. reviewer.chatHistory)
+        // are not dropped when an older saved state is restored.
+        const merged = { ...defaults, ...parsed };
+        merged.reviewer = { ...defaults.reviewer, ...(parsed.reviewer || {}) };
+        merged.settings = { ...defaults.settings, ...(parsed.settings || {}) };
+        merged.search = { ...defaults.search, ...(parsed.search || {}) };
+        return merged;
     } catch {
         return defaults;
     }
@@ -4522,7 +4530,10 @@ function initChatActions() {
     const send = async () => {
         const msg = input ? input.value.trim() : '';
         if (!msg) return;
-        
+
+        // Ensure chat history exists (defensive against stale saved state).
+        if (!Array.isArray(state.reviewer.chatHistory)) state.reviewer.chatHistory = [];
+
         appendChatMsg('user', msg);
         if (input) input.value = '';
         state.reviewer.chatHistory.push({ role: 'user', content: msg });
@@ -4767,6 +4778,13 @@ async function loadSettings() {
         setVal('opt-deepl-key', config.deepl_api_key || '');
         setVal('opt-or-key', config.openrouter_api_key || '');
         setVal('opt-path-assets', config.assets_path || '');
+        // DeepL target language (filterable dropdown). Store current value so the
+        // datalist population can restore it if it runs after loadSettings.
+        const deeplLangEl = document.getElementById('opt-deepl-lang');
+        if (deeplLangEl) {
+            deeplLangEl.dataset.currentLang = config.deepl_target_lang || 'EN-US';
+            deeplLangEl.value = deeplLangEl.dataset.currentLang;
+        }
 
         // 2. Simple Lists (Using your helper)
         renderSettingsList('set-folder-list', config.folders || [], 'folders');
@@ -5364,6 +5382,37 @@ function initSettingsActions() {
         };
     }
 
+    // --- DeepL target language filterable dropdown ---
+    // DeepL target languages (code + friendly name). Typing in the input filters
+    // the datalist, so e.g. "English" surfaces the EN / EN-US / EN-GB options.
+    const DEEPL_LANGUAGES = [
+        ['BG', 'Bulgarian'], ['CS', 'Czech'], ['DA', 'Danish'], ['DE', 'German'],
+        ['EL', 'Greek'], ['EN', 'English'], ['EN-GB', 'English (British)'],
+        ['EN-US', 'English (American)'], ['ES', 'Spanish'], ['ET', 'Estonian'],
+        ['FI', 'Finnish'], ['FR', 'French'], ['HU', 'Hungarian'], ['ID', 'Indonesian'],
+        ['IT', 'Italian'], ['JA', 'Japanese'], ['KO', 'Korean'], ['LT', 'Lithuanian'],
+        ['LV', 'Latvian'], ['NB', 'Norwegian (Bokmål)'], ['NL', 'Dutch'],
+        ['PL', 'Polish'], ['PT', 'Portuguese'], ['PT-BR', 'Portuguese (Brazilian)'],
+        ['RO', 'Romanian'], ['RU', 'Russian'], ['SK', 'Slovak'], ['SL', 'Slovenian'],
+        ['SV', 'Swedish'], ['TR', 'Turkish'], ['UK', 'Ukrainian'], ['ZH', 'Chinese'],
+    ];
+    const populateDeeplLangList = () => {
+        const dl = document.getElementById('deepl-lang-list');
+        const input = document.getElementById('opt-deepl-lang');
+        if (!dl) return;
+        dl.innerHTML = '';
+        DEEPL_LANGUAGES.forEach(([code, name]) => {
+            const opt = document.createElement('option');
+            opt.value = code;
+            opt.label = name;
+            opt.textContent = `${code} — ${name}`;
+            dl.appendChild(opt);
+        });
+        // Restore current value if present (loadSettings sets it separately too).
+        if (input && input.dataset.currentLang) input.value = input.dataset.currentLang;
+    };
+    populateDeeplLangList();
+
     // --- Path fields: save on blur ---
     const pathFields = [
         ['opt-path-assets', 'assets_path'],
@@ -5371,7 +5420,13 @@ function initSettingsActions() {
     ];
     pathFields.forEach(([id, key]) => {
         const el = document.getElementById(id);
-        if (el) el.onblur = async () => { await eel.save_config_field(key, el.value.trim())(); };
+        if (el) {
+            el.onblur = async () => { await eel.save_config_field(key, el.value.trim())(); };
+            // Save immediately when a datalist option is picked.
+            el.addEventListener('change', async () => {
+                await eel.save_config_field(key, el.value.trim())();
+            });
+        }
     });
 
     // --- API key fields: save on blur ---
@@ -5382,16 +5437,34 @@ function initSettingsActions() {
     keyBlur('opt-deepl-key', 'deepl_api_key');
     keyBlur('opt-or-key', 'openrouter_api_key');
 
+    // --- "Get Key" links to provider key pages ---
+    const btnDeeplGetKey = document.getElementById('btn-deepl-getkey');
+    if (btnDeeplGetKey) btnDeeplGetKey.onclick = () => {
+        window.open('https://www.deepl.com/en/your-account/keys', '_blank');
+    };
+    const btnOrGetKey = document.getElementById('btn-or-getkey');
+    if (btnOrGetKey) btnOrGetKey.onclick = () => {
+        window.open('https://openrouter.ai/keys', '_blank');
+    };
+
     // --- Test buttons ---
     const btnTestDeepl = document.getElementById('btn-test-deepl');
     if (btnTestDeepl) btnTestDeepl.onclick = async () => {
         const key = document.getElementById('opt-deepl-key')?.value?.trim();
         if (!key) return openAlertModal('ERROR', 'Enter a DeepL API key first.');
         btnTestDeepl.innerText = 'Testing…';
-        const res = await eel.test_deepl(key)();
-        btnTestDeepl.innerText = 'TEST';
-        if (res && res.text) openAlertModal('SUCCESS', `✓ DeepL OK — "${res.text}"`);
-        else openAlertModal('ERROR', `✗ DeepL Error: ${res?.error || 'Unknown'}`);
+        btnTestDeepl.disabled = true;
+        try {
+            const res = await eel.test_deepl(key)();
+            if (res && res.text) openAlertModal('SUCCESS', `✓ DeepL OK — "${res.text}"`);
+            else openAlertModal('ERROR', `✗ DeepL Error: ${res?.error || 'Unknown'}`);
+        } catch (e) {
+            console.error('[btnTestDeepl] Test failed:', e);
+            openAlertModal('ERROR', `✗ DeepL test failed (connection error). Try again.`);
+        } finally {
+            btnTestDeepl.innerText = 'TEST';
+            btnTestDeepl.disabled = false;
+        }
     };
 
     const btnTestOR = document.getElementById('btn-test-or');
@@ -5399,10 +5472,18 @@ function initSettingsActions() {
         const key = document.getElementById('opt-or-key')?.value?.trim();
         if (!key) return openAlertModal('ERROR', 'Enter an OpenRouter key first.');
         btnTestOR.innerText = 'Testing…';
-        const res = await eel.test_openrouter(key)();
-        btnTestOR.innerText = 'TEST';
-        if (res && res.text) openAlertModal('SUCCESS', `✓ OpenRouter OK — "${res.text}"`);
-        else openAlertModal('ERROR', `✗ OpenRouter Error: ${res?.error || 'Unknown'}`);
+        btnTestOR.disabled = true;
+        try {
+            const res = await eel.test_openrouter(key)();
+            if (res && res.text) openAlertModal('SUCCESS', `✓ OpenRouter OK — "${res.text}"`);
+            else openAlertModal('ERROR', `✗ OpenRouter Error: ${res?.error || 'Unknown'}`);
+        } catch (e) {
+            console.error('[btnTestOR] Test failed:', e);
+            openAlertModal('ERROR', `✗ OpenRouter test failed (connection error). Try again.`);
+        } finally {
+            btnTestOR.innerText = 'TEST';
+            btnTestOR.disabled = false;
+        }
     };
 
     // --- Refresh models ---
