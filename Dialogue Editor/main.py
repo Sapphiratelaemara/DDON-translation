@@ -2233,8 +2233,18 @@ def get_items_for_category(category_display_name):
 
 @eel.expose
 def get_all_items_in_queue():
-    """Return the full flat review queue for the Reviewer tab."""
-    return review_items
+    """Return the full flat review queue for the Reviewer tab.
+
+    Manual-translation items store the entry type in the ``category`` field (not
+    ``entry_type``), so populate ``entry_type`` from ``category`` when it is missing.
+    """
+    items = []
+    for it in review_items:
+        entry = dict(it)
+        if not entry.get("entry_type") and entry.get("category"):
+            entry["entry_type"] = entry["category"]
+        items.append(entry)
+    return items
 
 
 @eel.expose
@@ -2786,14 +2796,35 @@ def reject_translation(entry_id, reviewer="reviewer", reason=None):
         return {"ok": False, "error": str(e)}
 
 @eel.expose
-def get_translation_status(entry_id):
-    """Get status of a translation entry."""
+def get_translation_status(entry_id, path=None, row=None):
+    """Get status of a translation entry.
+
+    Status precedence:
+      1. Client-created translation data (translation_manager.entries) wins. This is
+         the only source for non-approved states (pre-translated, pending, rejected),
+         since those are only produced when an entry is added/acted on from the client.
+      2. Otherwise fall back to the CSV: if the translation column (row[3]) already has
+         content the entry is considered "approved"; if empty it is "untranslated".
+    """
     try:
-        status = translation_manager.get_entry_status(entry_id)
-        entry = translation_manager.entries.get(entry_id)
-        if entry:
-            return {"ok": True, "status": status, "entry": entry.to_dict()}
-        return {"ok": False, "error": "Entry not found"}
+        # 1. Client translation data takes precedence (only source of non-approved states).
+        if entry_id and entry_id in translation_manager.entries:
+            status = translation_manager.get_entry_status(entry_id)
+            entry = translation_manager.entries[entry_id]
+            return {"ok": True, "status": status or "untranslated", "entry": entry.to_dict()}
+
+        # 2. Fall back to the CSV contents.
+        if path and row is not None:
+            try:
+                _, _, rows = _read_csv(path)
+                ri = int(row)
+                if 0 <= ri < len(rows):
+                    en = rows[ri][3] if len(rows[ri]) > 3 else ""
+                    if en and en.strip():
+                        return {"ok": True, "status": "approved"}
+            except Exception:
+                pass
+        return {"ok": True, "status": "untranslated"}
     except Exception as e:
         return {"ok": False, "error": str(e)}
 

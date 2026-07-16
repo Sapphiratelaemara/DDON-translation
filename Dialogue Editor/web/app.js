@@ -1317,6 +1317,11 @@ async function loadItemAtIdxInternal(idx, mode) {
                     const jpEd2 = document.getElementById('jp-editor');
                     if (enEd2) enEd2.innerText = (item.en || '').replace(/★/g, '');
                     if (jpEd2) jpEd2.innerText = (item.jp || '');
+                    // Re-render the entry type display now that we have the real value.
+                    const entryTypeEl2 = document.getElementById('entry-type-parity');
+                    const entryTypeDisplay2 = document.getElementById('entry-type-display');
+                    if (entryTypeEl2) entryTypeEl2.innerText = item.entry_type || '—';
+                    if (entryTypeDisplay2) entryTypeDisplay2.innerText = item.entry_type || '—';
                     // Refresh gutter immediately after programmatic update
                     syncLineCounters();
                 } catch (e) {
@@ -6594,9 +6599,13 @@ function togglePanel(panelId) {
 async function updateTranslationStatusBadge(entryId) {
     const badge = document.getElementById('translation-status');
     if (!badge) return;
-    
+
+    const item = state.reviewer.currentItem;
+    const path = item && item.path;
+    const row = item && (item.row !== undefined && item.row !== null) ? item.row : null;
+
     try {
-        const res = await eel.get_translation_status(entryId)();
+        const res = await eel.get_translation_status(entryId, path, row)();
         if (res && res.ok) {
             const status = res.status || 'untranslated';
             badge.innerText = status.charAt(0).toUpperCase() + status.slice(1);
