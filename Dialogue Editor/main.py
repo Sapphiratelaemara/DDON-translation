@@ -851,11 +851,11 @@ def create_language(language_code):
             "dark_mode": True,
             "in_universe": True,
             "openrouter_models": [
-                "openrouter/auto",
+                "openrouter/free",
                 "meta-llama/llama-3.3-70b-instruct:free",
                 "google/gemma-3-27b-it:free"
             ],
-            "selected_openrouter_model": "openrouter/auto",
+            "selected_openrouter_model": "openrouter/free",
             "preview_mode": True,
             "show_paid_models": False,
             "selected_preset": "Dialogue Box",
@@ -1266,7 +1266,8 @@ def get_entry_types_list():
 
 @eel.expose
 def test_deepl(key):
-    return DeepLClient(key).translate("テスト")
+    target_lang = cm.config.get("deepl_target_lang", "EN-US")
+    return DeepLClient(key).translate("テスト", target_lang=target_lang)
 
 @eel.expose
 def test_openrouter(key):

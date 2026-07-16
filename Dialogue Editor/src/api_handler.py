@@ -53,46 +53,59 @@ class OpenRouterClient:
     def chat(self, messages, model="openrouter/auto"):
         if not self.api_key:
             return {"error": "OpenRouter API key is missing or invalid (non-ASCII)."}
-            
-        headers = {
-            "Authorization": f"Bearer {self.api_key}",
-            "Content-Type": "application/json",
-            "X-Title": "DDON Dialogue Editor"
-        }
-        payload = {
-            "model": model,
-            "messages": messages
-        }
-        
-        try:
-            response = requests.post(self.url, headers=headers, json=payload, timeout=30)
-            if response.status_code == 401:
-                return {"error": "Invalid OpenRouter API key (401 Unauthorized). Please check your API key in Settings."}
-            if response.status_code == 403:
-                return {"error": "OpenRouter API key forbidden (403). The API key may be invalid, expired, or lack permissions. Please check your API key in Settings."}
-            if response.status_code == 404:
-                try:
-                    err_json = response.json()
-                    msg = err_json.get("error", {}).get("message", "Not Found")
-                    return {"error": f"OpenRouter Error: {msg} (404). Check model ID: {model}"}
-                except:
-                    return {"error": f"OpenRouter Error: Endpoint not found (404). Check model ID: {model}"}
-            if response.status_code == 429:
-                return {"error": "OpenRouter rate limit exceeded (429). Please wait a moment and try again."}
-            response.raise_for_status()
-            result = response.json()
-            if "choices" in result:
-                return {"text": result["choices"][0]["message"]["content"]}
-            elif "error" in result:
-                msg = result["error"].get("message", "Unknown error")
-                return {"error": f"OpenRouter Error: {msg}"}
-            return {"error": "Unknown response format from OpenRouter."}
-        except requests.exceptions.RequestException as e:
-            if hasattr(e.response, 'status_code') and e.response.status_code == 429:
-                return {"error": "Rate limit exceeded. Please wait."}
-            return {"error": f"OpenRouter API Error: {str(e)}"}
-        except Exception as e:
-            return {"error": str(e)}
+
+        # The 'openrouter/auto' router is forbidden (403) for some keys/accounts.
+        # Fall back to the official free router if auto is rejected.
+        tried_models = [model]
+        if model == "openrouter/auto":
+            tried_models.append("openrouter/free")
+
+        last_error = None
+        for attempt_model in tried_models:
+            headers = {
+                "Authorization": f"Bearer {self.api_key}",
+                "Content-Type": "application/json",
+                "X-Title": "DDON Dialogue Editor"
+            }
+            payload = {
+                "model": attempt_model,
+                "messages": messages
+            }
+
+            try:
+                response = requests.post(self.url, headers=headers, json=payload, timeout=30)
+                if response.status_code == 401:
+                    return {"error": "Invalid OpenRouter API key (401 Unauthorized). Please check your API key in Settings."}
+                if response.status_code == 403:
+                    # Remember the error and try the next fallback model if any.
+                    last_error = "OpenRouter API key forbidden (403). The API key may be invalid, expired, or lack permissions. Please check your API key in Settings."
+                    continue
+                if response.status_code == 404:
+                    try:
+                        err_json = response.json()
+                        msg = err_json.get("error", {}).get("message", "Not Found")
+                        return {"error": f"OpenRouter Error: {msg} (404). Check model ID: {attempt_model}"}
+                    except:
+                        return {"error": f"OpenRouter Error: Endpoint not found (404). Check model ID: {attempt_model}"}
+                if response.status_code == 429:
+                    return {"error": "OpenRouter rate limit exceeded (429). Please wait a moment and try again."}
+                response.raise_for_status()
+                result = response.json()
+                if "choices" in result:
+                    return {"text": result["choices"][0]["message"]["content"]}
+                elif "error" in result:
+                    msg = result["error"].get("message", "Unknown error")
+                    return {"error": f"OpenRouter Error: {msg}"}
+                return {"error": "Unknown response format from OpenRouter."}
+            except requests.exceptions.RequestException as e:
+                if hasattr(e.response, 'status_code') and e.response.status_code == 429:
+                    return {"error": "Rate limit exceeded. Please wait."}
+                return {"error": f"OpenRouter API Error: {str(e)}"}
+            except Exception as e:
+                return {"error": str(e)}
+
+        # All attempts failed (e.g. 403 on every model).
+        return {"error": last_error or "OpenRouter request failed."}
 
     def fetch_models(self, free_only=True):
         """Fetch available models from OpenRouter. Returns a list of IDs."""
