@@ -85,7 +85,19 @@ class PrefetchManager:
                     k: v for k, v in cached_data.items()
                     if v.get('timestamp', 0) > seven_days_ago
                 }
-                print(f"[PrefetchManager] Loaded {len(self._cache)} cached items from file (removed {len(cached_data) - len(self._cache)} expired entries)")
+                # Schema migration: older cache files stored lore_context as a
+                # list of [jp, en] pairs and lacked the 'jp' field on each entry.
+                # Without 'jp', targeted invalidation (invalidate_by_term) can
+                # never match, so stale entries would persist forever. Drop any
+                # entry missing the 'jp' field so it recomputes with the current
+                # glossary format (pipe-delimited meanings) on next view.
+                stale_schema = [k for k, v in self._cache.items() if not isinstance(v, dict) or 'jp' not in v]
+                for k in stale_schema:
+                    del self._cache[k]
+                if stale_schema:
+                    self._save_cache_to_file()
+                    print(f"[PrefetchManager] Dropped {len(stale_schema)} old-schema cache entries (missing 'jp'); they will recompute with current glossary")
+                print(f"[PrefetchManager] Loaded {len(self._cache)} cached items from file (removed {len(cached_data) - len(self._cache)} expired/old-schema entries)")
         except json.JSONDecodeError as e:
             print(f"[PrefetchManager] Cache file corrupted, clearing cache: {e}")
             self._cache = {}
@@ -165,6 +177,7 @@ class PrefetchManager:
         try:
             results = {
                 'idx': idx,
+                'jp': item.get('jp', ''),  # store source text so we can target-invalidate by term
                 'lore_context': None,
                 'anachronisms': None,
                 'adjacent_context': None,
@@ -376,3 +389,30 @@ class PrefetchManager:
                     self._queue.get_nowait()
                 except queue.Empty:
                     break
+
+    def invalidate_by_term(self, term: str):
+        """Remove only the cached entries whose source text contains `term`.
+
+        Used when a glossary/reference term is added or updated: only the lines
+        that actually mention that term need recomputation, so we avoid wiping
+        the entire (potentially large) cache and re-running every entry.
+        """
+        if not term:
+            return 0
+        term = term.strip()
+        if not term:
+            return 0
+        removed = 0
+        with self._lock:
+            keys_to_remove = [
+                key for key, cached in self._cache.items()
+                if term in (cached.get('jp') or '')
+            ]
+            for key in keys_to_remove:
+                del self._cache[key]
+                removed += 1
+            if removed:
+                self._save_cache_to_file()
+        if removed:
+            print(f"[PrefetchManager] invalidate_by_term('{term}') removed {removed} cached entries")
+        return removed

@@ -192,6 +192,11 @@ let originalState = {
 // =============================================================================
 window.onload = async () => {
     try {
+        // Show startup sync window immediately so the user knows a fetch may run
+        showStartupSyncModal();
+        // Kick off the GitHub fetch now (progress streams into the modal)
+        runStartupSync();
+
         // Initialize theme
         const themeColors = await eel.get_theme_colors()();
         applyTheme(themeColors);
@@ -1312,6 +1317,11 @@ async function loadItemAtIdxInternal(idx, mode) {
                     const jpEd2 = document.getElementById('jp-editor');
                     if (enEd2) enEd2.innerText = (item.en || '').replace(/★/g, '');
                     if (jpEd2) jpEd2.innerText = (item.jp || '');
+                    // Re-render the entry type display now that we have the real value.
+                    const entryTypeEl2 = document.getElementById('entry-type-parity');
+                    const entryTypeDisplay2 = document.getElementById('entry-type-display');
+                    if (entryTypeEl2) entryTypeEl2.innerText = item.entry_type || '—';
+                    if (entryTypeDisplay2) entryTypeDisplay2.innerText = item.entry_type || '—';
                     // Refresh gutter immediately after programmatic update
                     syncLineCounters();
                 } catch (e) {
@@ -1652,6 +1662,26 @@ function initReviewerActions() {
         ed.addEventListener('mouseleave', hideTooltip);
         ed.addEventListener('click', handleEditorClick);
         ed.addEventListener('paste', handlePaste);
+        // Remember the caret position so inserting text from outside the editor
+        // (e.g. clicking a reference in the sidebar) lands at the cursor, not at
+        // the start/end of the text.
+        //
+        // We save on mousedown/keyup/mouseup for in-editor moves. mousedown fires
+        // BEFORE the editor can blur, so it reliably captures the real cursor
+        // position the instant the user clicks into the editor.
+        //
+        // We deliberately do NOT save on 'focus': insertIntoEditor() calls
+        // ed.focus() itself, and the focus listener would then fire and read the
+        // (already collapsed) selection, overwriting the real offset with 0.
+        //
+        // We also avoid 'blur' and the global 'selectionchange' event: when the
+        // user clicks a sidebar reference the editor blurs and the browser has
+        // already collapsed the selection to 0; and renderHighlights()
+        // programmatically moves the caret (restoreCursor(ed, 0)) which would
+        // otherwise overwrite our saved position with 0.
+        ed.addEventListener('mousedown', saveEditorCaret);
+        ed.addEventListener('keyup', saveEditorCaret);
+        ed.addEventListener('mouseup', saveEditorCaret);
         
         // Store the skip flags on the element for other functions to access
         ed._skipCursorRestore = () => skipCursorRestore;
@@ -3700,7 +3730,7 @@ function populateLoreContextFromCache(jpText, enText, loreContext, loadIdx) {
             row.style.cssText = 'flex: 0 0 auto; font-size: 10px;';
             if (m.is_lore) {
                 // Clickable lore terms — insert into editor on click
-                // Quote-aware split: don't split on delimiters inside quotes
+                // Quote-aware split: delimit multiple meanings with | or / (comma and ; are preserved inside a meaning)
                 const suggestions = [];
                 let current = '';
                 let inQuotes = false;
@@ -3709,7 +3739,7 @@ function populateLoreContextFromCache(jpText, enText, loreContext, loadIdx) {
                     if (char === '"' && (i === 0 || m.en[i-1] !== '\\')) {
                         inQuotes = !inQuotes;
                         current += char;
-                    } else if (/[,\;|\n\/]/.test(char) && !inQuotes) {
+                    } else if (/[\/|]/.test(char) && !inQuotes) {
                         if (current.trim()) {
                             suggestions.push(current.trim());
                         }
@@ -3726,15 +3756,35 @@ function populateLoreContextFromCache(jpText, enText, loreContext, loadIdx) {
                 const filteredSuggestions = suggestions.filter(s => !/^(less|lesser|lesson)\s+common:?$/i.test(s));
                 
                 const jpSpan = document.createElement('span');
-                jpSpan.className = 'lore-jp';
+                jpSpan.className = 'lore-jp lore-term-link';
                 jpSpan.innerText = (m.jp || '') + ':  ';
+                jpSpan.title = 'Click to edit reference';
+                jpSpan.onclick = () => editReferenceFromPanel(m.jp || '');
                 row.appendChild(jpSpan);
+                // NOTE: split regex below intentionally excludes \n so line breaks in meanings render correctly
                 filteredSuggestions.forEach((sug, i) => {
                     const a = document.createElement('span');
                     a.className = 'lore-en';
                     a.innerText = sug;
                     a.title = 'Click to insert';
-                    a.onclick = () => insertIntoEditor(sug);
+                    // Capture the caret offset NOW (before the editor blurs when
+                    // this span receives focus) and pass it explicitly so the
+                    // text lands at the cursor regardless of focus/selection state.
+                    a.onclick = () => {
+                        const ed = document.getElementById('en-editor');
+                        let off = null;
+                        if (ed) {
+                            const sel = window.getSelection();
+                            if (sel && sel.rangeCount > 0) {
+                                const live = sel.getRangeAt(0);
+                                if (ed.contains(live.commonAncestorContainer)) {
+                                    off = getCaretOffset(ed, live);
+                                }
+                            }
+                            if (off === null) off = _editorSavedCaretOffset;
+                        }
+                        insertIntoEditor(sug, off);
+                    };
                     row.appendChild(a);
                     if (i < filteredSuggestions.length - 1) {
                         row.appendChild(document.createTextNode(' | '));
@@ -4020,13 +4070,9 @@ async function populateLoreContext(jpText, enText, loadIdx) {
                 row.dataset.referenceTerm = m.jp || '';
                 row.dataset.referenceMeaning = m.en || '';
                 row.dataset.referenceDescription = '';
-                row.addEventListener('contextmenu', (e) => {
-                    e.preventDefault();
-                    openReferenceModal(m.jp || '', m.en || '', '', m.jp || '');
-                });
                 if (m.is_lore) {
                     // Clickable lore terms — insert into editor on click
-                    // Quote-aware split: don't split on delimiters inside quotes
+                    // Quote-aware split: delimit multiple meanings with | or / (comma and ; are preserved inside a meaning)
                     const suggestions = [];
                     let current = '';
                     let inQuotes = false;
@@ -4035,7 +4081,7 @@ async function populateLoreContext(jpText, enText, loadIdx) {
                         if (char === '"' && (i === 0 || m.en[i-1] !== '\\')) {
                             inQuotes = !inQuotes;
                             current += char;
-                        } else if (/[,\;|\n\/]/.test(char) && !inQuotes) {
+                        } else if (/[\/|]/.test(char) && !inQuotes) {
                             if (current.trim()) {
                                 suggestions.push(current.trim());
                             }
@@ -4052,15 +4098,31 @@ async function populateLoreContext(jpText, enText, loadIdx) {
                     const filteredSuggestions = suggestions.filter(s => !/^(less|lesser|lesson)\s+common:?$/i.test(s));
                     
                     const jpSpan = document.createElement('span');
-                    jpSpan.className = 'lore-jp';
+                    jpSpan.className = 'lore-jp lore-term-link';
                     jpSpan.innerText = (m.jp || '') + ':  ';
+                    jpSpan.title = 'Click to edit reference';
+                    jpSpan.onclick = () => editReferenceFromPanel(m.jp || '');
                     row.appendChild(jpSpan);
                     filteredSuggestions.forEach((sug, i) => {
                         const a = document.createElement('span');
                         a.className = 'lore-en';
                         a.innerText = sug;
                         a.title = 'Click to insert';
-                        a.onclick = () => insertIntoEditor(sug);
+                        a.onclick = () => {
+                            const ed = document.getElementById('en-editor');
+                            let off = null;
+                            if (ed) {
+                                const sel = window.getSelection();
+                                if (sel && sel.rangeCount > 0) {
+                                    const live = sel.getRangeAt(0);
+                                    if (ed.contains(live.commonAncestorContainer)) {
+                                        off = getCaretOffset(ed, live);
+                                    }
+                                }
+                                if (off === null) off = _editorSavedCaretOffset;
+                            }
+                            insertIntoEditor(sug, off);
+                        };
                         row.appendChild(a);
                         if (i < filteredSuggestions.length - 1) {
                             row.appendChild(document.createTextNode(' | '));
@@ -4164,7 +4226,7 @@ function ensureReferenceSelectionButton(box) {
         button.id = 'source-reference-add-btn';
         button.className = 'kl-btn-tiny';
         button.innerText = '+ ref';
-        button.style.cssText = 'position:absolute; z-index:20; display:none; padding:0 8px; height:20px;';
+        button.style.cssText = 'position:absolute; z-index:20; display:none; padding:0 10px; height:22px; background: var(--accent-color); color:#000; border:1px solid var(--accent-text); box-shadow:0 0 8px var(--glow-color); font-weight:900;';
         box.appendChild(button);
     }
     return button;
@@ -4232,36 +4294,108 @@ function showReferenceSelectionButton(selectionText, rect, box) {
     };
 }
 
-function insertIntoEditor(text) {
+// Tracks the editor's last caret position (as a character offset) so we can
+// restore it when inserting text from outside the editor (e.g. clicking a
+// reference in the sidebar moves the selection away). We store an offset
+// rather than a Range because a Range's nodes are detached whenever the editor
+// is re-rendered (item load, highlight render), which would otherwise make the
+// saved position invalid and cause insertion at the start/end.
+let _editorSavedCaretOffset = null;
+
+function saveEditorCaret() {
     const ed = document.getElementById('en-editor');
     if (!ed) return;
-    
+    const sel = window.getSelection();
+    if (sel && sel.rangeCount > 0) {
+        const range = sel.getRangeAt(0);
+        if (ed.contains(range.commonAncestorContainer)) {
+            _editorSavedCaretOffset = getCaretOffset(ed, range);
+        }
+    }
+}
+
+function insertIntoEditor(text, explicitOffset) {
+    const ed = document.getElementById('en-editor');
+    if (!ed) return;
+
     // Focus the editor
     ed.focus();
-    
-    // Get selection in the editor
+
     const selection = window.getSelection();
-    let range = selection.getRangeAt(0);
-    
-    // Check if selection is within the editor
-    if (!ed.contains(range.commonAncestorContainer)) {
-        // Selection is not in editor, insert at end
-        range = document.createRange();
-        range.selectNodeContents(ed);
-        range.collapse(false);
-        selection.removeAllRanges();
-        selection.addRange(range);
+    let insertOffset = null;
+
+    // An explicit offset (captured by the caller at click time, before focus
+    // left the editor) always wins — this is the most reliable path for
+    // sidebar-reference clicks, which would otherwise lose the caret position
+    // when the editor blurs.
+    if (typeof explicitOffset === 'number' && !isNaN(explicitOffset)) {
+        insertOffset = explicitOffset;
     }
-    
-    // Insert text
-    range.deleteContents();
-    range.insertNode(document.createTextNode(text));
-    
-    // Move cursor after inserted text
-    range.setStartAfter(range.endContainer);
-    range.setEndAfter(range.endContainer);
-    selection.removeAllRanges();
-    selection.addRange(range);
+
+    // Prefer the live caret if it's inside the editor; otherwise fall back to
+    // the last known caret offset (so clicking a sidebar reference inserts at
+    // the cursor, not at the start/end of the text).
+    if (insertOffset === null && selection && selection.rangeCount > 0) {
+        const live = selection.getRangeAt(0);
+        if (ed.contains(live.commonAncestorContainer)) {
+            insertOffset = getCaretOffset(ed, live);
+        }
+    }
+    if (insertOffset === null && _editorSavedCaretOffset !== null) {
+        insertOffset = _editorSavedCaretOffset;
+    }
+    if (insertOffset === null) {
+        // No usable position — insert at the end as a last resort.
+        insertOffset = (ed.innerText || '').length;
+    }
+
+    // Clamp to valid range
+    const maxOffset = (ed.innerText || '').length;
+    insertOffset = Math.min(Math.max(0, insertOffset), maxOffset);
+
+    // Decide capitalization based on the character(s) immediately before the
+    // insertion point. Start-of-text, or preceded by a period (directly, or a
+    // space/newline that follows a period) -> start capital; otherwise lowercase.
+    // If the reference term already contains any capital letter, it is kept
+    // exactly as-is (e.g. "Blood Orb"); only all-lowercase terms get the
+    // position-based first-letter adjustment.
+    const editorText = ed.innerText || '';
+    const prevChar = insertOffset > 0 ? editorText[insertOffset - 1] : '';
+    const prevPrevChar = insertOffset > 1 ? editorText[insertOffset - 2] : '';
+    const needsCapital = insertOffset === 0 ||
+        prevChar === '.' ||
+        (prevChar === ' ' && prevPrevChar === '.') ||
+        (prevChar === '\n' && prevPrevChar === '.');
+    let insertText = text;
+    const hasAnyCapital = /[A-Z]/.test(insertText);
+    if (!hasAnyCapital && insertText.length > 0) {
+        const first = insertText[0];
+        if (needsCapital) {
+            insertText = first.toUpperCase() + insertText.slice(1);
+        } else {
+            insertText = first.toLowerCase() + insertText.slice(1);
+        }
+    }
+
+    // Place the caret at the target offset, insert the text, then move the
+    // caret just after it.
+    restoreCursor(ed, insertOffset);
+    const sel = window.getSelection();
+    if (sel && sel.rangeCount > 0) {
+        const range = sel.getRangeAt(0);
+        range.deleteContents();
+        const node = document.createTextNode(insertText);
+        range.insertNode(node);
+        range.setStartAfter(node);
+        range.setEndAfter(node);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        _editorSavedCaretOffset = getCaretOffset(ed, range);
+    } else {
+        // Fallback: append at end if restoreCursor failed
+        ed.appendChild(document.createTextNode(insertText));
+        _editorSavedCaretOffset = (ed.innerText || '').length;
+    }
 }
 
 // =============================================================================
@@ -4632,8 +4766,6 @@ async function loadSettings() {
         // 1. API Keys & Global Paths
         setVal('opt-deepl-key', config.deepl_api_key || '');
         setVal('opt-or-key', config.openrouter_api_key || '');
-        setVal('opt-path-bible', config.bible_path || '');
-        setVal('opt-path-gloss', config.glossary_path || '');
         setVal('opt-path-assets', config.assets_path || '');
 
         // 2. Simple Lists (Using your helper)
@@ -4681,22 +4813,6 @@ async function loadSettings() {
 // =============================================================================
 function initSettingsActions() {
     // --- PATH PICKERS ---
-    async function pickBiblePath() {
-        const path = await eel.pick_file("Select Bible File", [["Text Files", "*.txt"], ["Log Files", "*.log"], ["All Files", "*.*"]])();
-        if (path) {
-            document.getElementById('opt-path-bible').value = path;
-            await eel.save_config_field('bible_path', path)();
-        }
-    }
-
-    async function pickGlossPath() {
-        const path = await eel.pick_file("Select Glossary File", [["CSV Files", "*.csv"], ["All Files", "*.*"]])();
-        if (path) {
-            document.getElementById('opt-path-gloss').value = path;
-            await eel.save_config_field('glossary_path', path)();
-        }
-    }
-
     async function pickAssetsPath() {
         const path = await eel.pick_directory()();
         if (path) {
@@ -5250,8 +5366,6 @@ function initSettingsActions() {
 
     // --- Path fields: save on blur ---
     const pathFields = [
-        ['opt-path-bible', 'bible_path'],
-        ['opt-path-gloss', 'glossary_path'],
         ['opt-path-assets', 'assets_path'],
         ['opt-deepl-lang', 'deepl_target_lang'],
     ];
@@ -5306,12 +5420,6 @@ function initSettingsActions() {
     };
 
     // --- PATH PICKERS ---
-    const btnPickBible = document.getElementById('btn-pick-bible');
-    if (btnPickBible) btnPickBible.onclick = pickBiblePath;
-
-    const btnPickGloss = document.getElementById('btn-pick-gloss');
-    if (btnPickGloss) btnPickGloss.onclick = pickGlossPath;
-
     const btnPickAssets = document.getElementById('btn-pick-assets');
     if (btnPickAssets) btnPickAssets.onclick = pickAssetsPath;
 
@@ -5848,7 +5956,7 @@ function initModals() {
     // Reference modal
     document.getElementById('btn-reference-cancel')?.addEventListener('click', () => {
         document.getElementById('modal-reference')?.classList.remove('active');
-        state.ui.referenceEditor = null;
+        referenceEditorContext = null;
     });
     document.getElementById('btn-reference-save')?.addEventListener('click', saveReferenceEntryFromModal);
 
@@ -5887,6 +5995,57 @@ function initModals() {
     });
 }
 
+// --- Startup sync window ---
+let _startupSyncSafetyTimer = null;
+function showStartupSyncModal() {
+    const modal = document.getElementById('modal-startup-sync');
+    const statusEl = document.getElementById('startup-sync-status');
+    if (statusEl) statusEl.innerText = 'Fetching latest data from GitHub...';
+    if (modal) modal.classList.add('active');
+    // Safety net: never let the window stay open longer than 60s even if the
+    // backend call hangs or the completion callback is missed.
+    if (_startupSyncSafetyTimer) clearTimeout(_startupSyncSafetyTimer);
+    _startupSyncSafetyTimer = setTimeout(hideStartupSyncModal, 60000);
+}
+
+function hideStartupSyncModal() {
+    const modal = document.getElementById('modal-startup-sync');
+    if (modal) modal.classList.remove('active');
+}
+
+function updateStartupSyncStatus(msg) {
+    const statusEl = document.getElementById('startup-sync-status');
+    if (statusEl && msg) statusEl.innerText = msg;
+}
+
+// Receive progress updates from the backend during startup sync.
+// Python calls this via eel.sync_progress(msg)(), so the JS handler must be
+// exposed with eel.expose(). (Do NOT call eel.sync_progress(...) from JS —
+// that is a Python->JS direction and would throw "not a function".)
+// This eel.expose MUST run at script-parse time (before Python calls it).
+eel.expose(updateStartupSyncStatus);
+
+// Kick off the startup fetch. Declared as a function so it can be called from
+// window.onload AFTER the modal is shown (avoids the modal closing before it
+// appears). Hides the window when done.
+async function runStartupSync() {
+    try {
+        const res = await eel.startup_sync()();
+        if (res && res.skipped) {
+            updateStartupSyncStatus('Sync not configured - skipping');
+        } else if (res && res.ok) {
+            updateStartupSyncStatus('Startup fetch complete');
+        } else {
+            updateStartupSyncStatus('Startup fetch failed - continuing offline');
+        }
+    } catch (e) {
+        console.error('[startup_sync] Error:', e);
+        updateStartupSyncStatus('Startup fetch error - continuing offline');
+    }
+    // Give the user a brief moment to read the final status, then close
+    setTimeout(hideStartupSyncModal, 800);
+}
+
 let inputModalCallback = null;
 let referenceEditorContext = null;
 
@@ -5914,6 +6073,17 @@ document.getElementById('btn-input-save')?.addEventListener('click', () => {
     }
     document.getElementById('modal-input').classList.remove('active');
 });
+
+async function editReferenceFromPanel(term) {
+    if (!term) return;
+    const result = await eel.get_reference_entry(term)();
+    if (result?.ok) {
+        openReferenceModal(result.term, result.meaning, result.description, result.term);
+    } else {
+        // Fallback: open with just the term if not found in glossary
+        openReferenceModal(term, '', '', term);
+    }
+}
 
 function openReferenceModal(initialTerm = '', initialMeaning = '', initialDescription = '', existingTerm = null) {
     const modal = document.getElementById('modal-reference');
@@ -5950,7 +6120,6 @@ async function saveReferenceEntryFromModal() {
     const result = await eel.save_reference_entry(term, meaning, description, referenceEditorContext?.existingTerm || null)();
     if (result?.ok) {
         document.getElementById('modal-reference')?.classList.remove('active');
-        state.ui.referenceEditor = null;
         referenceEditorContext = null;
         refreshReferencesPanel();
     } else {
@@ -6430,9 +6599,13 @@ function togglePanel(panelId) {
 async function updateTranslationStatusBadge(entryId) {
     const badge = document.getElementById('translation-status');
     if (!badge) return;
-    
+
+    const item = state.reviewer.currentItem;
+    const path = item && item.path;
+    const row = item && (item.row !== undefined && item.row !== null) ? item.row : null;
+
     try {
-        const res = await eel.get_translation_status(entryId)();
+        const res = await eel.get_translation_status(entryId, path, row)();
         if (res && res.ok) {
             const status = res.status || 'untranslated';
             badge.innerText = status.charAt(0).toUpperCase() + status.slice(1);

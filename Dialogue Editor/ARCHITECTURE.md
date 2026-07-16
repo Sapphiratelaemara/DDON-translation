@@ -90,6 +90,7 @@ Dialogue Editor/
 ├── config/                # Per-language configuration directory
 │   ├── en/                # English language configuration
 │   │   ├── formatter_config.json   # Main configuration - non-split keys only (triggers, styles, wall_preset, sync_language, pretranslate_settings, config_dir, deepl_target_lang, archetypes, entry_type_rules, replace_rules, ai_system_prompt, ai_button_prompts, substitution_rules)
+│   │   ├── glossary.csv           # Reference/glossary data (per-language, synced to GitHub). 6-col CSV: term, meaning (| delimited), '', '', '', description
 │   │   ├── tag_map.json           # Tag mappings (synced to GitHub)
 │   │   ├── presets.json           # Character presets (synced to GitHub)
 │   │   ├── speaker_data.json      # Speaker archetypes & notes (synced to GitHub)
@@ -100,6 +101,8 @@ Dialogue Editor/
 │   │   ├── translation_memory.json # Translation memory entries (compressed, synced to GitHub)
 │   │   ├── anach_definitions.json # Anachronism definitions (synced to GitHub)
 │   │   ├── archaic_examples.json  # Archaic word examples (synced to GitHub)
+│   │   ├── .sync_push_cache.json  # Push change-detection cache (per-language, not synced)
+│   │   ├── .sync_pull_cache.json  # Pull change-detection cache (per-language, not synced)
 │   │   ├── prefetch_cache.json    # Prefetch manager cache (per-language, not synced)
 │   │   ├── cache.json             # API response cache (per-language, not synced)
 │   │   ├── review_queues_cache.json # Review queues (per-language, not synced)
@@ -276,8 +279,9 @@ Functions decorated with `@eel.expose` are callable from JavaScript:
 - `get_unapproved_entries_with_comments()` - Get unapproved entries with comments
 
 **GitHub Sync:**
-- `sync_push()` - Push data to GitHub
-- `sync_pull()` - Pull data from GitHub
+- `sync_push(translation_manager, progress_callback=None)` - Push data to GitHub (skips unchanged files via persisted hash cache)
+- `sync_pull(translation_manager, progress_callback=None)` - Pull data from GitHub (skips unchanged files via persisted SHA cache + conditional requests)
+- `startup_sync()` - Run a GitHub pull at app startup, streaming progress to the UI via `eel.sync_progress()`
 - `get_sync_status()` - Get sync status
 
 **Search:**
@@ -368,6 +372,7 @@ save_vocab(file, data)        # Save vocabulary file
 - Auto-sync on schedule if enabled
 
 **Synced Files (Per-Language):**
+- `glossary.csv` - Reference/glossary data (per-language; 6-col CSV, meaning `|`-delimited)
 - `formatter_config.json` - Main configuration (non-split keys only: triggers, styles, wall_preset, sync_language, pretranslate_settings, config_dir, deepl_target_lang, archetypes, entry_type_rules, replace_rules, ai_system_prompt, ai_button_prompts, substitution_rules)
 - `tag_map.json` - Tag mappings (1,485 entries)
 - `presets.json` - Character presets (7 presets)
@@ -391,7 +396,7 @@ save_vocab(file, data)        # Save vocabulary file
 **Key Methods:**
 ```python
 sync_push(translation_manager)  # Push local data to GitHub (with merge)
-sync_pull(translation_manager)  # Pull remote data from GitHub
+sync_pull(translation_manager, progress_callback=None, on_glossary_changed=None)  # Pull remote data; returns {"success", "glossary_changed"} and invokes the reload hook only when a glossary file changed
 is_configured()                  # Check if sync is configured
 sync_auto_enabled()              # Check if auto-sync is enabled
 _merge_translation_memory(local, remote)  # Merge TM entries
@@ -436,13 +441,23 @@ _merge_logs(local, remote)                # Merge logs
 - Urgent push (after comments): 1 minute (`PUSH_INTERVAL_COMMENT = 60s`)
 
 **Data Usage Optimization:**
-- SHA-based change detection - only downloads files with changed hashes
-- Per-file granularity - unchanged source files are completely skipped
-- Entry-level timestamp comparison - only updates newer entries
-- Log deduplication by ID+timestamp
-- Translation memory compressed with gzip (~4x reduction)
-- Large files fetched via direct download_url (binary, not base64)
-- Dirty file tracking - only pushes modified files
+- **Push-side change detection (persisted cache):** Before uploading, each file's content hash is compared against `config/<lang>/.sync_push_cache.json` (a persisted map of `file_path -> sha256`). If unchanged, the upload is skipped entirely with zero network calls. The cache survives app restarts, so a second push of identical data is near-instant.
+- **Pull-side change detection (persisted cache + conditional requests):** Each config file's remote SHA is compared against `config/<lang>/.sync_pull_cache.json`. Unchanged files are detected via a GitHub `If-None-Match` conditional request, which returns HTTP 304 with **no body** — so unchanged files cost only a tiny metadata round-trip, never a full content download. Entry-dir pulls use the same persisted SHA cache.
+- **Lazy SHA fetching:** The remote SHA needed for an update is fetched only when a file is actually about to be uploaded (not eagerly for every file), so an unchanged push makes no `GET` calls at all.
+- **Deterministic TM compression:** `translation_memory.json` is gzipped with `mtime=0` so the compressed bytes are stable between runs, letting the content hash match and the file be skipped when nothing changed.
+- **SHA-based change detection** - only downloads files with changed hashes
+- **Per-file granularity** - unchanged source files are completely skipped
+- **Entry-level timestamp comparison** - only updates newer entries
+- **Log deduplication** by ID+timestamp
+- **Translation memory compressed** with gzip (~4x reduction, `mtime=0` for stable hashes)
+- **Large files fetched** via direct `download_url` (binary, not base64)
+- **Dirty file tracking** - only pushes modified files
+- **Startup sync window:** On app launch, `startup_sync()` runs a GitHub pull and streams progress to a modal (`#modal-startup-sync`) via `eel.sync_progress()`, so the user sees what's being fetched instead of a frozen UI. The window auto-closes when the fetch completes (or immediately if sync is unconfigured). A 60-second safety timeout force-closes it even if the backend call hangs.
+- **Glossary cache reload after pull (conditional):** A GitHub pull can update `glossary.csv` without going through `save_reference_entry`. To prevent the References panel from showing stale cached data (e.g. a multi-option meaning rendered as a single entry), `sync_pull()` tracks whether a LoreEngine-dependent file (`glossary.csv` / `archetypes.json`) **actually changed** this pull and only then invokes the glossary reload hook (`_reload_glossary_caches()`). Unchanged pulls — or pulls that only touched entry data / translation memory — do **not** trigger the reload, so the prefetch cache is preserved instead of being wiped and forcing every entry to recompute. The hook is registered once via `GitHubSync.set_glossary_reload_hook()` and fires for manual pulls, the startup fetch, and the background auto-sync loop alike.
+
+**Sync Caches (Per-Language, Persisted):**
+- `config/<lang>/.sync_push_cache.json` - maps pushed file paths to content hashes (survives restarts)
+- `config/<lang>/.sync_pull_cache.json` - maps pulled file paths (config + entry status) to remote SHAs (survives restarts)
 
 ### 4. API Handler (`src/api_handler.py`)
 
@@ -493,15 +508,26 @@ clean_and_wrap(text, limit)       # Clean and wrap text
 - Manage archetypes (character personality types)
 - Provide in-universe vocabulary replacements
 - Detect anachronisms (modern words that shouldn't exist in fantasy setting)
+- Reference editing (add/edit glossary terms from the UI)
 
 **Data Sources:**
-- Bible CSV - Canonical term translations
-- Glossary CSV - Additional term mappings with descriptions
+- Glossary CSV - Per-language reference data at `config/<lang>/glossary.csv` (synced to GitHub). The legacy `bible.csv` / `DDON_BIBLE_V2.txt` is no longer used.
+
+**Glossary CSV Format:**
+- 6 columns: `[term, meaning, '', '', '', description]`
+- `meaning` uses `|` to delimit multiple translations/meanings (e.g. `enhance|Enhance (the crafting option)|reinforce|strengthen`). Commas and semicolons are preserved inside a meaning.
+- `description` is free-text notes for the term.
+
+**Reference Editing (UI):**
+- The right sidebar shows glossary suggestions. Each Japanese term is rendered as a clickable `.lore-term-link` that opens the reference editor modal (`editReferenceFromPanel(term)` → `eel.get_reference_entry(term)` → `openReferenceModal`).
+- Each English meaning is a clickable `.lore-en` span that inserts the suggestion into the editor.
+- `eel.save_reference_entry(term, meaning, description, existing_term)` writes to `config/<lang>/glossary.csv` via `save_reference_entry_to_csv()`, matching by `existing_term` or `term` and updating in place or appending. On save, the lore engine reloads the glossary and the per-line lore context cache is cleared. The prefetch cache is **targeted**: only the cached entries whose source text contains the changed term are invalidated (`PrefetchManager.invalidate_by_term(term)`), so the rest of the cache stays warm instead of re-running every entry.
 
 **Key Methods:**
 ```python
-load_data(bible_path, glossary_path) # Load lore data from CSV
-scan_text(jp_text)                  # Scan for lore terms
+load_data(bible_path, glossary_path) # Load lore data from CSV (bible_path now passed as "")
+scan_text(jp_text)                  # Scan for lore terms -> list of (jp_term, en_term)
+save_reference_entry_to_csv(path, term, meaning, description, existing_term)  # Write 6-col rows
 get_archetype_options()             # Get available archetypes
 get_in_universe_replacements()      # Get modern→archaic word map
 ```
@@ -1120,22 +1146,24 @@ janome               # Japanese tokenization (for gloss engine)
 - Key: Japanese text
 - Value: Lore context lookup results
 - Lifetime: Until application restart
-- Invalidation: Automatic based on file modification time (bible/glossary files)
+- Invalidation: Cleared on glossary save (`save_reference_entry`) and on post-pull glossary reload (`_reload_glossary_caches`); automatic based on file modification time (glossary.csv)
 - Note: Lore data is static; only changes when adding/modifying lore entries
 
 ### Prefetch Cache
-- Key: Category + index
+- Key: Category + index (`{category}::{idx}`)
 - Value: Cached results with timestamp
 - Lifetime: 7 days (604800 seconds)
 - Purpose: Pre-load commonly accessed items (local-only operations)
-- Invalidation: Automatic TTL-based expiration on load
+- Invalidation: Automatic TTL-based expiration on load; **targeted** invalidation by term
 - **Cached Data:**
+  - `jp`: Source Japanese text (stored so entries can be target-invalidated by term)
   - `lore_context`: Lore context scan results
   - `anachronisms`: Anachronism detection results
   - `adjacent_context`: Adjacent lines from source file
   - `gloss_result`: Glossary lookup results
   - `tm_matches`: Translation memory fuzzy matches
   - `deepl_suggestion`: DeepL translation (populated by `fetch_deepl_batch`)
+- **Targeted invalidation:** `PrefetchManager.invalidate_by_term(term)` removes only the cached entries whose `jp` text contains `term`. Used when a glossary term is added/updated so only the affected lines recompute — the rest of the (potentially large) cache is preserved. A full `clear_cache()` is reserved for post-pull glossary reloads (where any term may have changed).
 - **Note:** DeepL suggestions are populated by the separate `fetch_deepl_batch()` function, not by PrefetchManager
 
 ### Review Queue
