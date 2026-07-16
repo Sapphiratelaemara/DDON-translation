@@ -6,6 +6,7 @@ Handles syncing translation data with a GitHub repository.
 import json
 import os
 import base64
+import hashlib
 import threading
 import time
 from datetime import datetime
@@ -30,9 +31,69 @@ class GitHubSync:
         self._last_pull = 0
         self._pending_push = False
         self._urgent_push = False  # Set True when comment posted
-        self._remote_timestamps = {}  # Cache of remote file timestamps
         self._push_in_progress = False
+        # Cache of content hashes for files we last successfully pushed (survives restarts)
+        self._push_cache_file = os.path.join(self.cm.base_dir, "config", self.cm.language, ".sync_push_cache.json")
+        self._last_pushed_hash = self._load_push_cache()
+        # Cache of remote status SHAs from last successful pull (survives restarts)
+        self._pull_cache_file = os.path.join(self.cm.base_dir, "config", self.cm.language, ".sync_pull_cache.json")
+        self._last_pulled_sha = self._load_pull_cache()
+        # Optional hook invoked by sync_pull when a glossary-affecting file
+        # actually changed on the hub. Lets the host app reload glossary-derived
+        # caches without github_sync needing to import main.py.
+        self._glossary_reload_hook = None
         
+    def _load_push_cache(self) -> Dict[str, str]:
+        """Load the persisted map of file_path -> content hash from last successful push."""
+        try:
+            if os.path.exists(self._push_cache_file):
+                with open(self._push_cache_file, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+        except Exception:
+            pass
+        return {}
+
+    def _save_push_cache(self):
+        """Persist the push cache to disk."""
+        try:
+            os.makedirs(os.path.dirname(self._push_cache_file), exist_ok=True)
+            with open(self._push_cache_file, 'w', encoding='utf-8') as f:
+                json.dump(self._last_pushed_hash, f)
+        except Exception as e:
+            print(f"[GitHubSync] Failed to save push cache: {e}")
+
+    def _load_pull_cache(self) -> Dict[str, str]:
+        """Load the persisted map of status_path -> remote SHA from last successful pull."""
+        try:
+            if os.path.exists(self._pull_cache_file):
+                with open(self._pull_cache_file, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+        except Exception:
+            pass
+        return {}
+
+    def _save_pull_cache(self):
+        """Persist the pull cache to disk."""
+        try:
+            os.makedirs(os.path.dirname(self._pull_cache_file), exist_ok=True)
+            with open(self._pull_cache_file, 'w', encoding='utf-8') as f:
+                json.dump(self._last_pulled_sha, f)
+        except Exception as e:
+            print(f"[GitHubSync] Failed to save pull cache: {e}")
+
+    @staticmethod
+    def _content_hash(content: Any) -> str:
+        """Compute a stable sha256 of upload content (handles dict/str/bytes)."""
+        if isinstance(content, dict) and content.get('compressed'):
+            data = content['data'].encode('utf-8') if isinstance(content['data'], str) else content['data']
+        elif isinstance(content, bytes):
+            data = content
+        elif isinstance(content, str):
+            data = content.encode('utf-8')
+        else:
+            data = json.dumps(content, ensure_ascii=False, sort_keys=True).encode('utf-8')
+        return hashlib.sha256(data).hexdigest()
+
     def _get_headers(self) -> Dict[str, str]:
         """Get GitHub API headers with auth token."""
         token = self.cm.user_settings.get('github_token', '')
@@ -62,7 +123,7 @@ class GitHubSync:
         # Handle config files directly
         if file_id in ['archetypes.json', 'dd1_vocab.json', 'other_vocab.json', 'anach_definitions.json', 'archaic_examples.json', 
                        'translation_memory.json', 'formatter_config.json', 'tag_map.json', 'presets.json', 'speaker_data.json',
-                       'tag_display.json', 'preview_font.json']:
+                       'tag_display.json', 'preview_font.json', 'glossary.csv']:
             return f"{language}/{file_id}"
         
         if entry_id:
@@ -104,6 +165,15 @@ class GitHubSync:
         token = self.cm.user_settings.get('github_token', '')
         repo = self.cm.user_settings.get('github_repo', '')
         return bool(token and repo)
+
+    def set_glossary_reload_hook(self, hook):
+        """Register a callback invoked when a glossary-affecting file changes on pull.
+
+        The hook is called from sync_pull only when glossary.csv or archetypes.json
+        actually changed this pull (not on unchanged pulls), so it can safely reload
+        glossary-derived caches without wiping the prefetch cache on no-ops.
+        """
+        self._glossary_reload_hook = hook
     
     def _fetch_remote_file(self, file_path: str) -> Optional[Dict]:
         """Fetch a file from GitHub. Returns dict with content, sha, and last_modified."""
@@ -179,6 +249,33 @@ class GitHubSync:
             print(f"[GitHubSync] Error fetching {file_path}: {e}")
             return None
     
+    def _fetch_remote_file_if_changed(self, file_path: str) -> Optional[Dict]:
+        """Fetch a remote file only if its SHA differs from the last successful pull.
+
+        Uses a GitHub conditional request (If-None-Match with the cached SHA): when
+        the file is unchanged the server replies 304 with NO body, so we skip the
+        content download + local rewrite at near-zero cost. Returns the remote dict
+        (with 'content' and 'sha') when changed, or None when unchanged.
+        """
+        cached_sha = self._last_pulled_sha.get(file_path)
+        if cached_sha:
+            url = self._get_api_url(file_path)
+            if url:
+                try:
+                    headers = self._get_headers()
+                    headers['If-None-Match'] = f'"{cached_sha}"'
+                    resp = requests.get(url, headers=headers, timeout=30)
+                    if resp.status_code == 304:
+                        print(f"[GitHubSync] Skipping pull of {file_path} - unchanged since last pull")
+                        return None
+                except Exception:
+                    pass
+        remote = self._fetch_remote_file(file_path)
+        if remote and 'sha' in remote:
+            self._last_pulled_sha[file_path] = remote['sha']
+            self._save_pull_cache()
+        return remote
+
     def _upload_file(self, file_path: str, content: Any, sha: Optional[str] = None) -> dict:
         """Upload/update a file on GitHub. Returns dict with success status and debug info."""
         url = self._get_api_url(file_path)
@@ -214,11 +311,51 @@ class GitHubSync:
                 response_data = resp.json()
                 print(f"[GitHubSync] Upload response: content size {len(response_data.get('content', {}).get('content', ''))} chars")
                 return {"success": True, "status_code": resp.status_code, "response": response_data}
+            elif resp.status_code == 409 and sha:
+                # Stale SHA conflict: remote changed since we fetched it.
+                # Re-fetch the current SHA and retry once with the fresh value.
+                print(f"[GitHubSync] 409 conflict on {file_path} - refreshing SHA and retrying")
+                fresh = self._fetch_remote_file(file_path)
+                fresh_sha = fresh.get('sha') if fresh else None
+                if fresh_sha and fresh_sha != sha:
+                    payload['sha'] = fresh_sha
+                    resp = requests.put(url, headers=self._get_headers(), json=payload, timeout=30)
+                    if resp.status_code in [200, 201]:
+                        response_data = resp.json()
+                        print(f"[GitHubSync] Upload response (retry): content size {len(response_data.get('content', {}).get('content', ''))} chars")
+                        return {"success": True, "status_code": resp.status_code, "response": response_data}
+                return {"success": False, "error": f"HTTP 409 (retry failed)", "response": resp.text}
             else:
                 return {"success": False, "error": f"HTTP {resp.status_code}", "response": resp.text}
         except Exception as e:
             import traceback
             return {"success": False, "error": str(e), "traceback": traceback.format_exc()}
+
+    def _push_file_if_changed(self, file_path: str, content: Any, sha: Optional[str] = None, precomputed_hash: Optional[str] = None) -> dict:
+        """Upload a file only if its content differs from the last successful push.
+
+        Returns a dict with 'success' and 'skipped' (True when content unchanged).
+        On success, records the content hash so future pushes can skip it.
+
+        `precomputed_hash` lets callers skip the (potentially expensive) hashing of
+        large content when they already have a stable hash of the raw source.
+
+        The remote SHA is only fetched (lazily) when we are actually about to upload,
+        so an unchanged push performs zero network calls for skipped files.
+        """
+        content_hash = precomputed_hash if precomputed_hash is not None else self._content_hash(content)
+        if self._last_pushed_hash.get(file_path) == content_hash:
+            print(f"[GitHubSync] Skipping {file_path} - unchanged since last push")
+            return {"success": True, "skipped": True, "status_code": None}
+        # Not skipped: ensure we have the remote SHA for the update (fetch lazily).
+        if sha is None:
+            remote = self._fetch_remote_file(file_path)
+            sha = remote.get('sha') if remote else None
+        result = self._upload_file(file_path, content, sha)
+        if result.get("success"):
+            self._last_pushed_hash[file_path] = content_hash
+            self._save_push_cache()
+        return result
     
     def _should_push(self) -> bool:
         """Check if enough time has passed for a push."""
@@ -297,8 +434,20 @@ class GitHubSync:
         
         return files_data
     
-    def sync_push(self, translation_manager) -> dict:
-        """Push local data to remote (per-file structure). Returns dict with success status and debug info."""
+    def sync_push(self, translation_manager, progress_callback=None) -> dict:
+        """Push local data to remote (per-file structure). Returns dict with success status and debug info.
+
+        If `progress_callback` is provided, it is called with a status string at key
+        stages (e.g. "Pushing archetypes.json", "Skipping glossary.csv - unchanged") so
+        the UI can show live progress.
+        """
+        def _report(msg):
+            if progress_callback:
+                try:
+                    progress_callback(msg)
+                except Exception:
+                    pass
+
         if not self.is_configured():
             return {"success": False, "error": "not configured"}
 
@@ -338,92 +487,86 @@ class GitHubSync:
                 # Push language-level files (archetypes, vocab)
                 # Push archetypes
                 archetypes_path = self._get_file_path('archetypes.json', None)
-                remote_archetypes = self._fetch_remote_file(archetypes_path)
                 archetypes_file = os.path.join(config_dir, "archetypes.json")
                 
                 # Skip if this is a temp/test file (not the real archetypes.json)
                 if os.path.exists(archetypes_file) and not any(x in archetypes_file for x in ['pytest', 'tmp', '__pycache__', '.coverage']):
                     with open(archetypes_file, 'r', encoding='utf-8-sig') as f:
                         archetypes_content = json.load(f)
-                    archetypes_result = self._upload_file(
+                    archetypes_result = self._push_file_if_changed(
                         archetypes_path,
                         archetypes_content,
-                        remote_archetypes['sha'] if remote_archetypes else None
+                        None
                     )
                     results.append(archetypes_result.get("success", False))
                     debug_info.append({"file": "archetypes.json", "type": "archetypes", "result": archetypes_result})
 
                 # Push dd1_vocab
                 dd1_vocab_path = self._get_file_path('dd1_vocab.json', None)
-                remote_dd1_vocab = self._fetch_remote_file(dd1_vocab_path)
                 dd1_vocab_file = os.path.join(config_dir, "dd1_vocab.json")
                 
                 # Skip if this is a temp/test file (not the real dd1_vocab.json)
                 if os.path.exists(dd1_vocab_file) and not any(x in dd1_vocab_file for x in ['pytest', 'tmp', '__pycache__', '.coverage']):
                     with open(dd1_vocab_file, 'r', encoding='utf-8-sig') as f:
                         dd1_vocab_content = json.load(f)
-                    dd1_vocab_result = self._upload_file(
+                    dd1_vocab_result = self._push_file_if_changed(
                         dd1_vocab_path,
                         dd1_vocab_content,
-                        remote_dd1_vocab['sha'] if remote_dd1_vocab else None
+                        None
                     )
                     results.append(dd1_vocab_result.get("success", False))
                     debug_info.append({"file": "dd1_vocab.json", "type": "vocab", "result": dd1_vocab_result})
 
                 # Push other_vocab
                 other_vocab_path = self._get_file_path('other_vocab.json', None)
-                remote_other_vocab = self._fetch_remote_file(other_vocab_path)
                 other_vocab_file = os.path.join(config_dir, "other_vocab.json")
                 
                 # Skip if this is a temp/test file (not the real other_vocab.json)
                 if os.path.exists(other_vocab_file) and not any(x in other_vocab_file for x in ['pytest', 'tmp', '__pycache__', '.coverage']):
                     with open(other_vocab_file, 'r', encoding='utf-8-sig') as f:
                         other_vocab_content = json.load(f)
-                    other_vocab_result = self._upload_file(
+                    other_vocab_result = self._push_file_if_changed(
                         other_vocab_path,
                         other_vocab_content,
-                        remote_other_vocab['sha'] if remote_other_vocab else None
+                        None
                     )
                     results.append(other_vocab_result.get("success", False))
                     debug_info.append({"file": "other_vocab.json", "type": "vocab", "result": other_vocab_result})
 
                 # Push anach_definitions
                 anach_definitions_path = self._get_file_path('anach_definitions.json', None)
-                remote_anach_definitions = self._fetch_remote_file(anach_definitions_path)
                 anach_file = os.path.join(config_dir, "anach_definitions.json")
                 
                 # Skip if this is a temp/test file (not the real anach_definitions.json)
                 if os.path.exists(anach_file) and not any(x in anach_file for x in ['pytest', 'tmp', '__pycache__', '.coverage']):
                     with open(anach_file, 'r', encoding='utf-8-sig') as f:
                         anach_definitions_content = json.load(f)
-                    anach_definitions_result = self._upload_file(
+                    anach_definitions_result = self._push_file_if_changed(
                         anach_definitions_path,
                         anach_definitions_content,
-                        remote_anach_definitions['sha'] if remote_anach_definitions else None
+                        None
                     )
                     results.append(anach_definitions_result.get("success", False))
                     debug_info.append({"file": "anach_definitions.json", "type": "definitions", "result": anach_definitions_result})
 
                 # Push archaic_examples
                 archaic_examples_path = self._get_file_path('archaic_examples.json', None)
-                remote_archaic_examples = self._fetch_remote_file(archaic_examples_path)
                 archaic_file = os.path.join(config_dir, "archaic_examples.json")
                 
                 # Skip if this is a temp/test file (not the real archaic_examples.json)
                 if os.path.exists(archaic_file) and not any(x in archaic_file for x in ['pytest', 'tmp', '__pycache__', '.coverage']):
                     with open(archaic_file, 'r', encoding='utf-8-sig') as f:
                         archaic_examples_content = json.load(f)
-                    archaic_examples_result = self._upload_file(
+                    archaic_examples_result = self._push_file_if_changed(
                         archaic_examples_path,
                         archaic_examples_content,
-                        remote_archaic_examples['sha'] if remote_archaic_examples else None
+                        None
                     )
                     results.append(archaic_examples_result.get("success", False))
                     debug_info.append({"file": "archaic_examples.json", "type": "examples", "result": archaic_examples_result})
 
                 # Push formatter_config (only non-split keys)
                 formatter_config_path = self._get_file_path('formatter_config.json', None)
-                remote_formatter_config = self._fetch_remote_file(formatter_config_path)
                 formatter_config_file = os.path.join(config_dir, "formatter_config.json")
                 
                 # Skip if this is a temp/test file (not the real formatter_config.json)
@@ -440,17 +583,16 @@ class GitHubSync:
                         "substitution_rules": self.cm.config.get("substitution_rules", [])
                     }
                     
-                    formatter_config_result = self._upload_file(
+                    formatter_config_result = self._push_file_if_changed(
                         formatter_config_path,
                         formatter_config_content,
-                        remote_formatter_config['sha'] if remote_formatter_config else None
+                        None
                     )
                     results.append(formatter_config_result.get("success", False))
                     debug_info.append({"file": "formatter_config.json", "type": "formatter", "result": formatter_config_result})
 
                 # Push translation_memory
                 translation_memory_path = self._get_file_path('translation_memory.json', None)
-                remote_translation_memory = self._fetch_remote_file(translation_memory_path)
                 translation_memory_file = os.path.join(config_dir, "translation_memory.json")
                 
                 # Skip if this is a temp/test file (not the real translation_memory.json)
@@ -458,34 +600,68 @@ class GitHubSync:
                     with open(translation_memory_file, 'r', encoding='utf-8-sig') as f:
                         translation_memory_content = json.load(f)
                     print(f"[GitHubSync] Pushing translation_memory.json ({len(translation_memory_content.get('entries', []))} entries)")
-                    
-                    # Compress with gzip to reduce size for GitHub API
+                    _report(f"Pushing translation_memory.json ({len(translation_memory_content.get('entries', []))} entries)")
+
+                    # Hash the raw content first so we can skip the expensive
+                    # gzip compression when nothing changed since last push.
                     import gzip
-                    json_str = json.dumps(translation_memory_content, ensure_ascii=False, indent=2)
-                    compressed = gzip.compress(json_str.encode('utf-8'))
-                    # Wrap with compression marker
-                    upload_content = {
-                        'compressed': True,
-                        'encoding': 'gzip',
-                        'data': base64.b64encode(compressed).decode('utf-8')
-                    }
-                    print(f"[GitHubSync] Compressed TM: {len(json_str)/1024/1024:.2f} MB -> {len(compressed)/1024/1024:.2f} MB ({len(json_str)/len(compressed):.1f}x)")
-                    
-                    # Handle translation_memory upload with proper SHA handling
-                    sha = remote_translation_memory.get('sha') if remote_translation_memory else None
-                    if not sha and remote_translation_memory:
-                        print(f"[GitHubSync] Warning: remote_translation_memory exists but no SHA: {remote_translation_memory}")
-                    translation_memory_result = self._upload_file(
+                    raw_json = json.dumps(translation_memory_content, ensure_ascii=False, indent=2)
+                    raw_hash = hashlib.sha256(raw_json.encode('utf-8')).hexdigest()
+
+                    # SHA is fetched lazily inside _push_file_if_changed only if not skipped.
+                    translation_memory_result = self._push_file_if_changed(
                         translation_memory_path,
-                        upload_content,
-                        sha
+                        None,  # payload built lazily below only when changed
+                        None,
+                        precomputed_hash=raw_hash
                     )
+                    # If not skipped, build and upload the compressed payload now.
+                    if not translation_memory_result.get("skipped"):
+                        compressed = gzip.compress(raw_json.encode('utf-8'), mtime=0)
+                        upload_content = {
+                            'compressed': True,
+                            'encoding': 'gzip',
+                            'data': base64.b64encode(compressed).decode('utf-8')
+                        }
+                        print(f"[GitHubSync] Compressed TM: {len(raw_json)/1024/1024:.2f} MB -> {len(compressed)/1024/1024:.2f} MB ({len(raw_json)/len(compressed):.1f}x)")
+                        # Fetch the current remote SHA for the update (lazy).
+                        remote_tm = self._fetch_remote_file(translation_memory_path)
+                        tm_sha = remote_tm.get('sha') if remote_tm else None
+                        translation_memory_result = self._upload_file(
+                            translation_memory_path,
+                            upload_content,
+                            tm_sha
+                        )
+                        if translation_memory_result.get("success"):
+                            self._last_pushed_hash[translation_memory_path] = raw_hash
+                            self._save_push_cache()
                     print(f"[GitHubSync] Translation memory upload result: {translation_memory_result.get('success', False)}")
                     if not translation_memory_result.get('success'):
                         print(f"[GitHubSync] Upload error: {translation_memory_result.get('error', 'Unknown')}")
                     results.append(translation_memory_result.get("success", False))
                     debug_info.append({"file": "translation_memory.json", "type": "memory", "result": translation_memory_result})
-
+                # Push glossary.csv (per-language reference data)
+                glossary_path = self._get_file_path('glossary.csv', None)
+                glossary_file = os.path.join(config_dir, "glossary.csv")
+                if os.path.exists(glossary_file) and not any(x in glossary_file for x in ['pytest', 'tmp', '__pycache__', '.coverage']):
+                    try:
+                        with open(glossary_file, 'r', encoding='utf-8-sig') as f:
+                            glossary_content = f.read()
+                        if not glossary_content.strip():
+                            print(f"[GitHubSync] Skipping glossary.csv - local file is empty")
+                            glossary_result = {"success": True, "skipped": True, "status_code": None}
+                        else:
+                            _report("Pushing glossary.csv")
+                            glossary_result = self._push_file_if_changed(
+                                glossary_path,
+                                glossary_content,
+                                None
+                            )
+                        results.append(glossary_result.get("success", False))
+                        debug_info.append({"file": "glossary.csv", "type": "glossary", "result": glossary_result})
+                    except Exception as e:
+                        print(f"[GitHubSync] Error pushing glossary.csv: {e}")
+                        results.append(False)
                 # Push split config files
                 split_config_files = [
                     ('tag_map.json', 'tag_map'),
@@ -504,11 +680,11 @@ class GitHubSync:
                             with open(local_file, 'r', encoding='utf-8-sig') as f:
                                 content = json.load(f)
                             
-                            remote_file = self._fetch_remote_file(file_path)
-                            result = self._upload_file(
+                            _report(f"Pushing {filename}")
+                            result = self._push_file_if_changed(
                                 file_path,
                                 content,
-                                remote_file['sha'] if remote_file else None
+                                None
                             )
                             results.append(result.get("success", False))
                             debug_info.append({"file": filename, "type": config_key, "result": result})
@@ -527,11 +703,11 @@ class GitHubSync:
                         # Push status file for this entry file
                         status_content = {k: v.to_dict() for k, v in data['entries'].items()}
                         status_path = self._get_file_path('status', dir_name)
-                        remote_status = self._fetch_remote_file(status_path)
-                        status_result = self._upload_file(
+                        _report(f"Pushing status for {os.path.basename(file_path)}")
+                        status_result = self._push_file_if_changed(
                             status_path,
                             status_content,
-                            remote_status['sha'] if remote_status else None
+                            None
                         )
                         results.append(status_result.get("success", False))
                         debug_info.append({"file": file_path, "type": "status", "result": status_result})
@@ -550,7 +726,7 @@ class GitHubSync:
                                         remote_logs['content'].append(log)
                                 logs_content = remote_logs['content']
                             
-                            logs_result = self._upload_file(
+                            logs_result = self._push_file_if_changed(
                                 self._get_file_path('logs', dir_name),
                                 logs_content,
                                 remote_logs['sha'] if remote_logs else None
@@ -573,28 +749,58 @@ class GitHubSync:
                 self._last_push_completed = self._last_push
     
     def _check_remote_timestamp(self, file_path: str) -> Optional[str]:
-        """Check if remote file has been modified since we last synced."""
+        """Get the remote file's current SHA via a metadata-only GET.
+
+        Unlike _fetch_remote_file, this does NOT follow download_url for large
+        files, so it transfers only the small metadata JSON (with the SHA) and
+        never the full content. This keeps unchanged-file checks cheap.
+        """
         url = self._get_api_url(file_path)
         if not url:
             return None
         
         try:
             resp = requests.get(url, headers=self._get_headers(), timeout=30)
+            if resp.status_code == 404:
+                return None
             if resp.status_code == 200:
                 data = resp.json()
+                # For large files, data has 'sha' but content is via download_url;
+                # we only need the SHA here, so we deliberately don't follow it.
                 return data.get('sha')
             return None
         except:
             return None
     
-    def sync_pull(self, translation_manager) -> bool:
-        """Pull remote data and merge with local (only if changed). Returns True if successful."""
+    def sync_pull(self, translation_manager, progress_callback=None, on_glossary_changed=None) -> dict:
+        """Pull remote data and merge with local (only if changed).
+
+        Returns a dict: {"success": bool, "glossary_changed": bool}.
+
+        If `progress_callback` is provided, it is called with a status string at key
+        stages (e.g. "Pulling archetypes.json", "Skipping pull of glossary.csv - unchanged")
+        so the UI can show live progress.
+
+        If `on_glossary_changed` is provided and a LoreEngine-dependent file
+        (glossary.csv / archetypes.json) actually changed this pull, that callback is
+        invoked so the caller can reload glossary-derived caches. It is intentionally
+        NOT called on unchanged pulls (or pulls that only touched entry data / TM),
+        so the prefetch cache is not needlessly wiped.
+        """
+        def _report(msg):
+            if progress_callback:
+                try:
+                    progress_callback(msg)
+                except Exception:
+                    pass
+
         if not self.is_configured():
-            return False
+            return {"success": False, "glossary_changed": False}
         
         if not self._should_pull():
             print("[GitHubSync] Pull skipped - too soon")
-            return True
+            _report("Pull skipped - too soon")
+            return {"success": True, "glossary_changed": False}
         
         with self._lock:
             self._last_pull = time.time()
@@ -613,7 +819,14 @@ class GitHubSync:
                 print(f"[GitHubSync] Using base_dir: {base_dir}")
                 print(f"[GitHubSync] Using config_dir: {config_dir}")
                 os.makedirs(config_dir, exist_ok=True)
-                
+
+                # Tracks whether a file the LoreEngine depends on (glossary.csv or
+                # archetypes.json) actually changed this pull. We only trigger a
+                # glossary cache reload when this is True, so an unchanged pull
+                # (or one that only touched entry data / TM) does NOT wipe the
+                # prefetch cache and force every entry to recompute.
+                glossary_changed = False
+
                 # Pull language-level files (archetypes, vocab)
                 # Helper to validate remote content is usable
                 def _is_valid_content(content):
@@ -622,42 +835,53 @@ class GitHubSync:
                 
                 # Pull archetypes
                 archetypes_path = self._get_file_path('archetypes.json', None)
-                remote_archetypes = self._fetch_remote_file(archetypes_path)
+                _report("Checking archetypes.json")
+                remote_archetypes = self._fetch_remote_file_if_changed(archetypes_path)
                 if remote_archetypes and 'content' in remote_archetypes:
                     if _is_valid_content(remote_archetypes['content']):
                         self.cm.archetypes = remote_archetypes['content']
                         self.cm.save_archetypes()
+                        glossary_changed = True  # archetypes feed the LoreEngine
                         print(f"[GitHubSync] Pulled archetypes ({len(remote_archetypes['content'])} entries)")
+                        _report(f"Pulled archetypes ({len(remote_archetypes['content'])} entries)")
                     else:
                         print(f"[GitHubSync] Skipped archetypes - remote content empty or invalid")
+                        _report("Skipped archetypes - empty or invalid")
                 
                 # Pull dd1_vocab
                 dd1_vocab_path = self._get_file_path('dd1_vocab.json', None)
-                remote_dd1_vocab = self._fetch_remote_file(dd1_vocab_path)
+                _report("Checking dd1_vocab.json")
+                remote_dd1_vocab = self._fetch_remote_file_if_changed(dd1_vocab_path)
                 if remote_dd1_vocab and 'content' in remote_dd1_vocab:
                     if _is_valid_content(remote_dd1_vocab['content']):
                         self.cm.dd1_vocab = remote_dd1_vocab['content']
                         dd1_vocab_file = os.path.join(config_dir, "dd1_vocab.json")
                         self.cm.save_vocab(dd1_vocab_file, remote_dd1_vocab['content'])
                         print(f"[GitHubSync] Pulled dd1_vocab ({len(remote_dd1_vocab['content'])} entries)")
+                        _report(f"Pulled dd1_vocab ({len(remote_dd1_vocab['content'])} entries)")
                     else:
                         print(f"[GitHubSync] Skipped dd1_vocab - remote content empty or invalid")
+                        _report("Skipped dd1_vocab - empty or invalid")
                 
                 # Pull other_vocab
                 other_vocab_path = self._get_file_path('other_vocab.json', None)
-                remote_other_vocab = self._fetch_remote_file(other_vocab_path)
+                _report("Checking other_vocab.json")
+                remote_other_vocab = self._fetch_remote_file_if_changed(other_vocab_path)
                 if remote_other_vocab and 'content' in remote_other_vocab:
                     if _is_valid_content(remote_other_vocab['content']):
                         self.cm.other_vocab = remote_other_vocab['content']
                         other_vocab_file = os.path.join(config_dir, "other_vocab.json")
                         self.cm.save_vocab(other_vocab_file, remote_other_vocab['content'])
                         print(f"[GitHubSync] Pulled other_vocab ({len(remote_other_vocab['content'])} entries)")
+                        _report(f"Pulled other_vocab ({len(remote_other_vocab['content'])} entries)")
                     else:
                         print(f"[GitHubSync] Skipped other_vocab - remote content empty or invalid")
+                        _report("Skipped other_vocab - empty or invalid")
                 
                 # Pull anach_definitions
                 anach_definitions_path = self._get_file_path('anach_definitions.json', None)
-                remote_anach_definitions = self._fetch_remote_file(anach_definitions_path)
+                _report("Checking anach_definitions.json")
+                remote_anach_definitions = self._fetch_remote_file_if_changed(anach_definitions_path)
                 if remote_anach_definitions and 'content' in remote_anach_definitions:
                     if _is_valid_content(remote_anach_definitions['content']):
                         anach_file = os.path.join(config_dir, "anach_definitions.json")
@@ -665,12 +889,15 @@ class GitHubSync:
                         with open(anach_file, 'w', encoding='utf-8-sig') as f:
                             json.dump(remote_anach_definitions['content'], f, indent=2, ensure_ascii=False)
                         print(f"[GitHubSync] Pulled anach_definitions ({len(remote_anach_definitions['content'])} entries)")
+                        _report(f"Pulled anach_definitions ({len(remote_anach_definitions['content'])} entries)")
                     else:
                         print(f"[GitHubSync] Skipped anach_definitions - remote content empty or invalid")
+                        _report("Skipped anach_definitions - empty or invalid")
                 
                 # Pull archaic_examples
                 archaic_examples_path = self._get_file_path('archaic_examples.json', None)
-                remote_archaic_examples = self._fetch_remote_file(archaic_examples_path)
+                _report("Checking archaic_examples.json")
+                remote_archaic_examples = self._fetch_remote_file_if_changed(archaic_examples_path)
                 if remote_archaic_examples and 'content' in remote_archaic_examples:
                     if _is_valid_content(remote_archaic_examples['content']):
                         archaic_file = os.path.join(config_dir, "archaic_examples.json")
@@ -678,12 +905,15 @@ class GitHubSync:
                         with open(archaic_file, 'w', encoding='utf-8-sig') as f:
                             json.dump(remote_archaic_examples['content'], f, indent=2, ensure_ascii=False)
                         print(f"[GitHubSync] Pulled archaic_examples ({len(remote_archaic_examples['content'])} entries)")
+                        _report(f"Pulled archaic_examples ({len(remote_archaic_examples['content'])} entries)")
                     else:
                         print(f"[GitHubSync] Skipped archaic_examples - remote content empty or invalid")
+                        _report("Skipped archaic_examples - empty or invalid")
                 
                 # Pull formatter_config (merge with local)
                 formatter_path = self._get_file_path('formatter_config.json', None)
-                remote_formatter_config = self._fetch_remote_file(formatter_path)
+                _report("Checking formatter_config.json")
+                remote_formatter_config = self._fetch_remote_file_if_changed(formatter_path)
                 if remote_formatter_config and 'content' in remote_formatter_config:
                     remote_content = remote_formatter_config['content']
                     # Validate remote content is a dict
@@ -743,12 +973,15 @@ class GitHubSync:
                         with open(formatter_file, 'w', encoding='utf-8-sig') as f:
                             json.dump(merged_config, f, indent=2, ensure_ascii=False)
                         print(f"[GitHubSync] Pulled formatter_config (merged {len(merged_config)} fields)")
+                        _report(f"Pulled formatter_config (merged {len(merged_config)} fields)")
                     else:
                         print(f"[GitHubSync] Skipped formatter_config - remote content is not a dict (type: {type(remote_content).__name__})")
+                        _report("Skipped formatter_config - invalid content")
                 
                 # Pull translation_memory (merge with local)
                 translation_memory_path = self._get_file_path('translation_memory.json', None)
-                remote_translation_memory = self._fetch_remote_file(translation_memory_path)
+                _report("Checking translation_memory.json")
+                remote_translation_memory = self._fetch_remote_file_if_changed(translation_memory_path)
                 if remote_translation_memory and 'content' in remote_translation_memory:
                     remote_tm_content = remote_translation_memory['content']
                     
@@ -814,8 +1047,29 @@ class GitHubSync:
                         with open(translation_memory_file, 'w', encoding='utf-8-sig') as f:
                             json.dump(merged_memory, f, indent=2, ensure_ascii=False)
                         print(f"[GitHubSync] Pulled translation_memory ({len(remote_entries)} remote + {len(local_entries)} local = {len(merged_entries)} merged)")
+                        _report(f"Pulled translation_memory ({len(merged_entries)} merged)")
                     else:
                         print(f"[GitHubSync] Skipped translation_memory - remote content missing 'entries' array (keys: {list(remote_tm_content.keys()) if isinstance(remote_tm_content, dict) else 'N/A'})")
+                        _report("Skipped translation_memory - invalid content")
+                
+                # Pull glossary.csv (per-language reference data)
+                glossary_path = self._get_file_path('glossary.csv', None)
+                _report("Checking glossary.csv")
+                remote_glossary = self._fetch_remote_file_if_changed(glossary_path)
+                if remote_glossary and 'content' in remote_glossary:
+                    remote_glossary_content = remote_glossary['content']
+                    # Content is raw CSV text (string), not JSON
+                    if isinstance(remote_glossary_content, str) and remote_glossary_content.strip():
+                        glossary_file = os.path.join(config_dir, "glossary.csv")
+                        os.makedirs(config_dir, exist_ok=True)
+                        with open(glossary_file, 'w', encoding='utf-8-sig') as f:
+                            f.write(remote_glossary_content)
+                        glossary_changed = True  # glossary feeds the LoreEngine
+                        print(f"[GitHubSync] Pulled glossary.csv ({len(remote_glossary_content)} chars)")
+                        _report(f"Pulled glossary.csv ({len(remote_glossary_content)} chars)")
+                    else:
+                        print(f"[GitHubSync] Skipped glossary.csv - remote content empty or invalid")
+                        _report("Skipped glossary.csv - empty or invalid")
                 
                 # Pull split config files
                 split_config_files = [
@@ -828,7 +1082,8 @@ class GitHubSync:
                 
                 for filename, config_key in split_config_files:
                     file_path = self._get_file_path(filename, None)
-                    remote_file = self._fetch_remote_file(file_path)
+                    _report(f"Checking {filename}")
+                    remote_file = self._fetch_remote_file_if_changed(file_path)
                     
                     if remote_file and 'content' in remote_file:
                         remote_content = remote_file['content']
@@ -838,6 +1093,7 @@ class GitHubSync:
                             with open(local_file, 'w', encoding='utf-8-sig') as f:
                                 json.dump(remote_content, f, indent=2, ensure_ascii=False)
                             print(f"[GitHubSync] Pulled {filename} ({len(remote_content)} keys)")
+                            _report(f"Pulled {filename} ({len(remote_content)} keys)")
                             
                             # Update in-memory config
                             if config_key == 'tag_map':
@@ -863,14 +1119,17 @@ class GitHubSync:
                 if translation_manager is not None:
                     # List contents of language directory
                     url = f"https://api.github.com/repos/{owner}/{repo}/contents/{language}"
+                    _report("Checking entry data directories")
                     resp = requests.get(url, headers=self._get_headers(), timeout=30)
                     
                     if resp.status_code == 404:
                         # No data yet on remote
-                        return True
+                        _report("No entry data on remote yet")
+                        return {"success": True, "glossary_changed": False}
                     if resp.status_code != 200:
                         print(f"[GitHubSync] Failed to list remote files: {resp.status_code}")
-                        return False
+                        _report(f"Failed to list remote files: {resp.status_code}")
+                        return {"success": False, "glossary_changed": False}
                     
                     contents = resp.json()
                     
@@ -887,13 +1146,19 @@ class GitHubSync:
                         
                         # Check status file
                         status_path = f"{language}/{dir_name}/status.json"
-                        current_sha = self._remote_timestamps.get(status_path)
+                        current_sha = self._last_pulled_sha.get(status_path)
                         new_sha = self._check_remote_timestamp(status_path)
                         
                         if new_sha == current_sha:
+                            # No changes since last pull - report like config files do
+                            # (entry data lives at en/<dir>/status.json on GitHub and is
+                            # written locally to config/<lang>/translation_data/<dir>/)
+                            _report(f"Skipping pull of {dir_name} - unchanged since last pull")
                             continue  # No changes
                         
-                        self._remote_timestamps[status_path] = new_sha
+                        self._last_pulled_sha[status_path] = new_sha
+                        self._save_pull_cache()
+                        _report(f"Pulling entry data for {dir_name}")
                         
                         # Fetch status
                         remote_status = self._fetch_remote_file(status_path)
@@ -928,11 +1193,25 @@ class GitHubSync:
                 if translation_manager is not None:
                     translation_manager.flush_saves()
                 
+                self._save_pull_cache()
                 print(f"[GitHubSync] Pull completed: {total_entries} entries, {total_logs} logs")
-                return True
+                _report(f"Pull completed: {total_entries} entries, {total_logs} logs")
+                # Only reload glossary-derived caches if a LoreEngine-dependent
+                # file actually changed this pull (glossary.csv / archetypes.json).
+                # An unchanged pull — or one that only touched entry data / TM —
+                # must NOT wipe the prefetch cache and force every entry to recompute.
+                if glossary_changed:
+                    cb = on_glossary_changed or self._glossary_reload_hook
+                    if cb:
+                        try:
+                            cb()
+                        except Exception as e:
+                            print(f"[GitHubSync] glossary reload callback error: {e}")
+                return {"success": True, "glossary_changed": glossary_changed}
                 
             except Exception as e:
                 print(f"[GitHubSync] Pull failed: {e}")
+                _report(f"Pull failed: {e}")
                 return False
     
     def start_auto_sync(self, translation_manager):
@@ -943,7 +1222,9 @@ class GitHubSync:
                 try:
                     if not self.is_configured():
                         continue
-                    if not self.cm.config.get('sync_auto', False):
+                    # sync_auto is a user-specific setting (stored in user_settings, not config)
+                    _sync_auto = self.cm.user_settings.get('sync_auto', False) if hasattr(self.cm, 'user_settings') else False
+                    if not _sync_auto:
                         continue
                     
                     # Pull if needed

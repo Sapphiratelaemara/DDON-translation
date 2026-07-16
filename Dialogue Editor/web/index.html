@@ -524,6 +524,7 @@ Ctrl+Shift+D: Ellipsis</div>
                         <div class="kl-panel" id="panel-references">
                             <div class="kl-panel-header">
                                 <h3 class="kl-panel-title">References</h3>
+                                <button class="kl-btn-square" id="btn-add-reference" title="Create new reference">+</button>
                             </div>
                             <div class="kl-panel-content" id="lore-box">No references found.</div>
                         </div>
@@ -712,20 +713,6 @@ Ctrl+Shift+D: Ellipsis</div>
 
                             <!-- Section: Paths -->
                             <div class="settings-section" id="section-paths">
-                                <div class="field-group">
-                                    <label>Bible Path (.txt / .log)</label>
-                                    <div class="input-with-action">
-                                        <input type="text" id="opt-path-bible" readonly placeholder="Click to select file...">
-                                        <button class="btn-secondary" id="btn-pick-bible">BROWSE</button>
-                                    </div>
-                                </div>
-                                <div class="field-group">
-                                    <label>Glossary Path (.csv)</label>
-                                    <div class="input-with-action">
-                                        <input type="text" id="opt-path-gloss" readonly placeholder="Click to select file...">
-                                        <button class="btn-secondary" id="btn-pick-gloss">BROWSE</button>
-                                    </div>
-                                </div>
                                 <div class="field-group">
                                     <label>Assets Directory</label>
                                     <div class="input-with-action">
@@ -1220,7 +1207,7 @@ Ctrl+Shift+D: Ellipsis</div>
             </div>
             <div class="field-group">
                 <label>Meaning / Translation</label>
-                <input type="text" id="reference-meaning-field" class="kl-input">
+                <textarea id="reference-meaning-field" class="kl-input" style="height: 60px; min-height: 60px; resize: vertical;"></textarea>
             </div>
             <div class="field-group">
                 <label>Description</label>
@@ -1249,6 +1236,14 @@ Ctrl+Shift+D: Ellipsis</div>
             <div class="modal-actions" style="display: flex; gap: 10px; justify-content: flex-end;">
                 <button class="btn-primary" id="btn-alert-ok">OK</button>
             </div>
+        </div>
+    </div>
+    <div id="modal-startup-sync" class="modal">
+        <div class="modal-content" style="width: 420px; text-align: center;">
+            <h3 style="margin-bottom: 16px;">SYNCING WITH GITHUB</h3>
+            <div class="sync-spinner" aria-label="Loading"></div>
+            <p id="startup-sync-status" style="margin-top: 18px; font-size: 0.8rem; opacity: 0.9; min-height: 1.2em;">Fetching latest data from GitHub...</p>
+            <p style="margin-top: 10px; font-size: 0.7rem; opacity: 0.6;">Please wait while we check for updates. This window will close automatically.</p>
         </div>
     </div>
     <div id="modal-anachronism" class="modal">
