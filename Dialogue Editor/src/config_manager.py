@@ -102,7 +102,7 @@ class ConfigManager:
                     print(f"Error creating keys file: {e}")
             else:
                 try:
-                    with open(self.keys_file, 'r', encoding='utf-8') as f:
+                    with open(self.keys_file, 'r', encoding='utf-8-sig') as f:
                         keys = json.load(f)
                 except (json.JSONDecodeError, IOError):
                     pass
@@ -206,7 +206,7 @@ class ConfigManager:
                 "dark_mode": True,
                 "in_universe": True,
                 "openrouter_models": None,  # Don't override user's saved list
-                "selected_openrouter_model": "openrouter/auto",  # Default model selection
+                "selected_openrouter_model": "openrouter/free",  # Default model selection
                 "preview_mode": True,
                 "show_paid_models": False,
                 "selected_preset": "Dialogue Box",
