@@ -298,13 +298,17 @@ class PrefetchManager:
         except Exception as e:
             print(f"[PrefetchManager] Error processing category={category}, idx={idx}: {e}")
     
-    def enqueue(self, category: str, idx: int, item: Dict[str, Any]):
+    def enqueue(self, category: str, idx: int, item: Dict[str, Any]) -> bool:
         """Add an item to the prefetch queue.
 
         Args:
             category: Category name
             idx: Item index
             item: Item data
+
+        Returns:
+            True if the item was enqueued (cache miss / first-time compute),
+            False if it was skipped because it is already cached and fresh.
         """
         # Skip if already cached and fresh (within 7 days to match disk cache expiration)
         with self._lock:
@@ -312,10 +316,11 @@ class PrefetchManager:
             cached = self._cache.get(cache_key)
             if cached and time.time() - cached['timestamp'] < 604800:  # 7 days
                 print(f"[PrefetchManager] Skipping {cache_key} - already cached")
-                return
+                return False
 
         print(f"[PrefetchManager] Enqueuing {cache_key}")
         self._queue.put((category, idx, item))
+        return True
     
     def get_cached(self, category: str, idx: int) -> Optional[Dict[str, Any]]:
         """Get cached results for a category and index."""
@@ -348,16 +353,24 @@ class PrefetchManager:
             if next_idx < len(items):
                 self.enqueue(category, next_idx, items[next_idx])
 
-    def prefetch_all(self, category: str, items: list):
+    def prefetch_all(self, category: str, items: list) -> int:
         """Prefetch all entries in the queue (for local-only operations like gloss/context).
 
         Args:
             category: Category name
             items: List of items to prefetch
+
+        Returns:
+            The number of items enqueued (cache misses / first-time computes). A
+            high count means the cache is cold and the client is doing heavy work.
         """
         print(f"[PrefetchManager] Queuing all {len(items)} items for category={category}")
+        queued = 0
         for idx in range(len(items)):
-            self.enqueue(category, idx, items[idx])
+            if self.enqueue(category, idx, items[idx]):
+                queued += 1
+        print(f"[PrefetchManager] Enqueued {queued}/{len(items)} items (cache misses) for category={category}")
+        return queued
     
     def update_cache(self, category: str, idx: int, data: Dict[str, Any]):
         """Directly update the cache for a specific category and index.

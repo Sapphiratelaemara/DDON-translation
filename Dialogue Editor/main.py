@@ -179,6 +179,9 @@ _gloss_engine_lock = threading.Lock()
 _gloss_engine_last_lore_map = None
 _gloss_cache = {}  # Clear cache on restart to use new smaller format
 
+# Pre-translate batch cancellation flag (set by cancel_pretranslate())
+_pretranslate_cancel = False
+
 # Preview image cache
 _preview_cache = {}
 _preview_cache_lock = threading.Lock()
@@ -906,7 +909,7 @@ def save_config_field(key, value):
         "folders", "assets_path",
         "theme_mode", "dark_mode", "in_universe", "openrouter_models",
         "selected_openrouter_model", "preview_mode",
-        "show_paid_models", "selected_preset",
+        "show_paid_models", "selected_preset", "pretranslate_openrouter_model",
         "custom_dark_theme", "custom_light_theme", "last_stats",
         "github_repo", "github_token", "sync_nickname", "sync_auto"
     ]
@@ -2725,14 +2728,20 @@ def start_prefetch_all(category, items):
     Args:
         category: Category name
         items: List of items to prefetch
+
+    Returns:
+        {"ok": True, "queued": <cache misses>, "total": <item count>}
+        A high `queued` count means the cache is cold and the client is computing
+        entries for the first time (which is slow) — the frontend shows a warning.
     """
     try:
-        print(f"[start_prefetch_all] Called with category={category}, items={len(items) if items else 0}")
-        _prefetch_mgr.prefetch_all(category, items)
-        return True
+        total = len(items) if items else 0
+        print(f"[start_prefetch_all] Called with category={category}, items={total}")
+        queued = _prefetch_mgr.prefetch_all(category, items)
+        return {"ok": True, "queued": queued, "total": total}
     except Exception as e:
         print(f"[start_prefetch_all] Error: {e}")
-        return False
+        return {"ok": False, "queued": 0, "total": 0}
 
 @eel.expose
 def get_prefetch_cache(category, idx):
@@ -3558,7 +3567,7 @@ def tm_track_usage(entry_id: str):
 @eel.expose
 def tm_test_ui_integration():
     """Test TM UI integration functions."""
-    from translation_memory import TranslationMemory, FuzzyMatcher, AutoSubstitutor
+    from src.translation_memory import TranslationMemory, FuzzyMatcher, AutoSubstitutor
     
     tm = TranslationMemory(cm)
     matcher = FuzzyMatcher(cm)
@@ -3668,7 +3677,7 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
         tm_threshold: TM match threshold (uses config if not provided)
         tm_min_quality: Minimum TM quality to use (uses config if not provided)
     """
-    from translation_memory import TranslationMemory, FuzzyMatcher, AutoSubstitutor
+    from src.translation_memory import TranslationMemory, FuzzyMatcher, AutoSubstitutor
     
     # Get settings from config or use defaults
     pretranslate_settings = cm.config.get("pretranslate_settings", {})
@@ -3685,7 +3694,8 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
     
     openrouter_key = cm.get_key("openrouter_api_key") if enable_openrouter else None
     deepl_key = cm.get_key("deepl_api_key") if enable_deepl else None
-    openrouter_model = cm.user_settings.get("selected_openrouter_model", "openrouter/auto")
+    # Use the dedicated pre-translate model if set, else fall back to the chat model
+    openrouter_model = cm.user_settings.get("pretranslate_openrouter_model") or cm.user_settings.get("selected_openrouter_model", "openrouter/auto")
     deepl_target_lang = cm.config.get("deepl_target_lang", "EN-US")
     
     print(f"[pretranslate_batch] API keys: openrouter={'configured' if openrouter_key else 'none'}, deepl={'configured' if deepl_key else 'none'}")
@@ -3705,10 +3715,23 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
     ai_applied = 0
     deepl_applied = 0
     
-    for item in items:
+    global _pretranslate_cancel
+    _pretranslate_cancel = False
+    total_items = len(items)
+    
+    for idx, item in enumerate(items):
+        if _pretranslate_cancel:
+            print(f"[pretranslate_batch] Cancellation requested — stopping at {idx}/{total_items}")
+            break
         item_id = item.get("id")
         jp_text = item.get("jp", "")
         file_path = item.get("file_path", "")
+        
+        # Emit progress to the frontend (best-effort; ignore if not listening)
+        try:
+            eel.updatePretranslateProgress(idx + 1, total_items, f"Processing item {item_id}…")()
+        except Exception:
+            pass
         row_idx = item.get("row_idx", 0)
         speaker = item.get("speaker", "")
         entry_type = item.get("entry_type", "")
@@ -3982,9 +4005,15 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
             })
     
     print(f"[pretranslate_batch] Complete: total={len(items)}, tm={tm_applied}, ai={ai_applied}, deepl={deepl_applied}")
+    try:
+        eel.updatePretranslateProgress(len(results), total_items, "Pre-translation complete")()
+    except Exception:
+        pass
     return {
         "ok": True,
         "total": len(items),
+        "processed": len(results),
+        "cancelled": _pretranslate_cancel,
         "tm_applied": tm_applied,
         "ai_applied": ai_applied,
         "deepl_applied": deepl_applied,
@@ -3992,9 +4021,105 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
     }
 
 @eel.expose
+def pretranslate_by_keys(tm_threshold: float = None, tm_min_quality: str = None):
+    """
+    Pre-translate by scanning WATCHED_FOLDERS and filtering CSV rows by the
+    ENTRY_KEYS (triggers) the user entered — exactly like the batch scan.
+
+    Only untranslated rows (empty column 3) that match a trigger are processed.
+    Delegates the actual TM → OpenRouter → DeepL work to ``pretranslate_batch``.
+    """
+    folders = cm.user_settings.get("folders", []) or []
+    triggers = cm.user_settings.get("triggers", []) or []
+    if not folders:
+        return {"ok": False, "error": "No WATCHED_FOLDERS configured."}
+    if not triggers:
+        return {"ok": False, "error": "No ENTRY_KEYS (triggers) configured."}
+
+    print(f"[pretranslate_by_keys] Scanning {len(folders)} folder(s) with {len(triggers)} trigger(s)")
+
+    import csv as _csv
+    items = []
+    seen = set()
+    for folder in folders:
+        if not os.path.isdir(folder):
+            print(f"[pretranslate_by_keys] Skipping missing folder: {folder}")
+            continue
+        for root, _dirs, files in os.walk(folder):
+            for name in files:
+                if not name.endswith(".csv"):
+                    continue
+                f_path = os.path.join(root, name)
+                try:
+                    _raw, _dialect, rows = _read_csv(f_path)
+                except Exception as e:
+                    print(f"[pretranslate_by_keys] Failed to read {f_path}: {e}")
+                    continue
+                for r_idx, row in enumerate(rows):
+                    if len(row) <= 3:
+                        continue
+                    # Trigger filter (same logic as batch scan)
+                    if not any(tr in "|".join(row) for tr in triggers):
+                        continue
+                    jp_text = row[2] if len(row) > 2 else ""
+                    en_text = row[3] if len(row) > 3 else ""
+                    if not jp_text or (en_text and en_text.strip()):
+                        continue  # already translated or no source
+                    # Build a stable id from file + row so re-runs don't duplicate
+                    item_id = f"{os.path.relpath(f_path, folder)}::{r_idx}"
+                    if item_id in seen:
+                        continue
+                    seen.add(item_id)
+                    items.append({
+                        "id": item_id,
+                        "jp": jp_text,
+                        "file_path": f_path,
+                        "row_idx": r_idx,
+                        "speaker": row[8].strip() if len(row) > 8 else "",
+                        "entry_type": row[9].strip() if len(row) > 9 else "",
+                    })
+
+    print(f"[pretranslate_by_keys] Found {len(items)} untranslated trigger-matched rows")
+
+    # Queue the matched items into the editor's review queue (like batch scan /
+    # load_csv_for_translation does) so the pre-translated entries show up there.
+    global review_items, current_review_idx
+    review_items = []
+    current_review_idx = 0
+    for it in items:
+        f_path = it["file_path"]
+        r_idx = it["row_idx"]
+        review_items.append({
+            "id": it["id"],
+            "speaker": it["speaker"] or "Unknown",
+            "jp": it["jp"],
+            "en": "",  # will be filled once pre-translation runs
+            "category": it["entry_type"] or "MANUAL",
+            "entry_type": it["entry_type"] or "MANUAL",
+            "path": f_path,
+            "row": r_idx,
+        })
+    _save_review_items()
+    print(f"[pretranslate_by_keys] Queued {len(review_items)} items into the editor review queue")
+
+    if not items:
+        return {"ok": True, "total": 0, "processed": 0, "tm_applied": 0, "ai_applied": 0, "deepl_applied": 0, "results": []}
+
+    return pretranslate_batch(items, tm_threshold=tm_threshold, tm_min_quality=tm_min_quality)
+
+
+@eel.expose
+def cancel_pretranslate():
+    """Signal the running pre-translate batch to stop after the current item."""
+    global _pretranslate_cancel
+    _pretranslate_cancel = True
+    print("[cancel_pretranslate] Cancellation requested")
+    return {"ok": True}
+
+@eel.expose
 def tm_test_pretranslate_batch():
     """Test pre-translation batch feature."""
-    from translation_memory import TranslationMemory
+    from src.translation_memory import TranslationMemory
     
     tm = TranslationMemory(cm)
     

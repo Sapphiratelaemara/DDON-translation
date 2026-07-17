@@ -892,6 +892,11 @@ Ctrl+Shift+D: Ellipsis</div>
                                     <label>Enable DeepL Fallback</label>
                                     <input type="checkbox" id="opt-pretranslate-enable-deepl" checked>
                                 </div>
+                                <div class="field-group">
+                                    <label>Pre-Translate Model (OpenRouter)</label>
+                                    <select id="opt-pretranslate-openrouter-model" class="settings-select"></select>
+                                    <p class="help-text">Model used for AI pre-translation. Separate from the chat/rephrase model. Falls back to the chat model if unset.</p>
+                                </div>
                                 <button class="btn-primary" id="btn-save-pretranslate-settings" style="margin-top: 10px;">SAVE PRE-TRANSLATE SETTINGS</button>
                             </div>
 
@@ -1261,6 +1266,34 @@ Ctrl+Shift+D: Ellipsis</div>
                 <button class="btn-primary" id="btn-anach-replace">REPLACE IN EDITOR</button>
             </div>
         </div>
+    </div>
+    <!-- Pre-translate progress window -->
+    <div id="modal-pretranslate" class="modal">
+        <div class="modal-content" style="width: 460px;">
+            <h3>PRE-TRANSLATING</h3>
+            <div id="pretranslate-status" style="font-size: 0.8rem; opacity: 0.9; min-height: 1.2em; margin-bottom: 6px;">Starting…</div>
+            <div class="progress-wrapper">
+                <div id="pretranslate-progress-bar" class="progress-bar"></div>
+                <div id="pretranslate-progress-val" class="progress-val">0%</div>
+            </div>
+            <div id="pretranslate-count" style="font-size: 0.75rem; opacity: 0.7; margin-top: 8px; font-family: 'JetBrains Mono', monospace;">0 / 0 items</div>
+            <div class="modal-actions" style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn-secondary" id="btn-pretranslate-cancel">CANCEL</button>
+            </div>
+        </div>
+    </div>
+    <!-- Non-blocking warning shown while the client caches entries for the first time -->
+    <div id="caching-warning" class="caching-warning" style="display: none;">
+        <div class="caching-warning-icon">⏳</div>
+        <div class="caching-warning-body">
+            <div class="caching-warning-title">Building cache…</div>
+            <div class="caching-warning-text">
+                The client is computing and caching entries for this queue or section. This
+                happens whenever you switch queues or look up a different section — it may feel
+                slow for the next moment or two, then everything loads instantly.
+            </div>
+        </div>
+        <button class="caching-warning-close" id="btn-caching-warning-close" aria-label="Dismiss">×</button>
     </div>
     <script src="app.js"></script>
 </body>

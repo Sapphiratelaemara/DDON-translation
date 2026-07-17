@@ -519,7 +519,9 @@ async function switchCategory(categoryDisplayName) {
             console.log('[switchCategory] Item at idx 0:', state.reviewer.fullQueue[0]);
             // Start prefetching BEFORE loading first item
             console.log('[switchCategory] Starting prefetch_all for category:', categoryDisplayName, 'items:', state.reviewer.fullQueue.length);
-            eel.start_prefetch_all(categoryDisplayName, state.reviewer.fullQueue)();
+            eel.start_prefetch_all(categoryDisplayName, state.reviewer.fullQueue)().then(res => {
+                if (res && res.queued >= 10) showCachingWarning();
+            });
             loadItemAtIdx(0);  // Don't await - let it load in background
         } else {
             console.log('[switchCategory] Queue is empty, skipping item load');
@@ -597,7 +599,9 @@ function switchTab(tabId) {
                             renderRowSidebar();
                             // Start prefetching BEFORE loading first item
                             console.log('[switchTab] Starting prefetch_all for Manual Translation, items:', items.length);
-                            eel.start_prefetch_all('Manual Translation', items)();
+                            eel.start_prefetch_all('Manual Translation', items)().then(res => {
+                                if (res && res.queued >= 10) showCachingWarning();
+                            });
                             loadItemAtIdx(0);  // Don't await - let it load in background
                         });
                     } else {
@@ -609,7 +613,9 @@ function switchTab(tabId) {
                             renderRowSidebar();
                             // Start prefetching BEFORE loading first item
                             console.log('[switchTab] Starting prefetch_all for category:', state.reviewer.currentCategory, 'items:', items.length);
-                            eel.start_prefetch_all(state.reviewer.currentCategory, items)();
+                            eel.start_prefetch_all(state.reviewer.currentCategory, items)().then(res => {
+                                if (res && res.queued >= 10) showCachingWarning();
+                            });
                             loadItemAtIdx(0);  // Don't await - let it load in background
                         });
                     }
@@ -625,7 +631,9 @@ function switchTab(tabId) {
                         if (state.reviewer.fullQueue.length > 0) {
                             // Start prefetching BEFORE loading first item
                             console.log('[switchTab] Starting prefetch_all for default category, items:', items.length);
-                            eel.start_prefetch_all('default', items)();
+                            eel.start_prefetch_all('default', items)().then(res => {
+                                if (res && res.queued >= 10) showCachingWarning();
+                            });
                             loadItemAtIdx(0);  // Don't await - let it load in background
                         }
                     });
@@ -688,54 +696,89 @@ function initDashboardActions() {
     if (btnPretranslate) btnPretranslate.onclick = async () => {
         btnPretranslate.innerText = 'PRE-TRANSLATING...';
         btnPretranslate.disabled = true;
-        
+
         log_to_js('[SYSTEM] Starting pre-translation batch...');
-        
+
         try {
-            // Get all untranslated entries from the current queue
-            const queue = state.reviewer.fullQueue || [];
-            const itemsToPretranslate = queue.filter(item => !item.en || item.en.trim() === '');
-            
-            log_to_js(`[SYSTEM] Found ${itemsToPretranslate.length} items to pre-translate`);
-            
-            if (itemsToPretranslate.length === 0) {
-                openAlertModal('INFO', 'No untranslated items found in current queue.');
-                btnPretranslate.innerText = 'PRE-TRANSLATE';
-                btnPretranslate.disabled = false;
-                return;
+            // Decide scope: if ENTRY_KEYS (triggers) are set, scan folders by keys
+            // (like the batch scan); otherwise fall back to the loaded review queue.
+            const config = await eel.get_full_config()();
+            const triggers = (config && config.triggers) || [];
+            const folders = (config && config.folders) || [];
+
+            let res;
+            if (triggers.length > 0 && folders.length > 0) {
+                log_to_js(`[SYSTEM] Pre-translating by ENTRY_KEYS (${triggers.length} key(s)) across ${folders.length} folder(s)...`);
+                showPretranslateModal();
+                res = await eel.pretranslate_by_keys()();
+                // The backend queued the matched items into the editor review
+                // queue (like batch scan). Load them so they show up in the editor.
+                state.reviewer.fullQueue = await eel.get_all_items_in_queue()() || [];
+                state.reviewer.currentItem = null;
+                state.reviewer.currentIdx = 0;
+                state.reviewer.mode = 'review';
+                saveState();
+                switchTab('editor');
+            } else {
+                // Fall back to the currently loaded review queue
+                const queue = state.reviewer.fullQueue || [];
+                const itemsToPretranslate = queue.filter(item => !item.en || item.en.trim() === '');
+
+                log_to_js(`[SYSTEM] Found ${itemsToPretranslate.length} items to pre-translate in current queue`);
+
+                if (itemsToPretranslate.length === 0) {
+                    openAlertModal('INFO', 'No untranslated items found in current queue.');
+                    btnPretranslate.innerText = 'PRE-TRANSLATE';
+                    btnPretranslate.disabled = false;
+                    return;
+                }
+
+                const items = itemsToPretranslate.map(item => ({
+                    id: item.id,
+                    jp: item.jp,
+                    file_path: item.path,
+                    row_idx: item.row,
+                    speaker: item.speaker,
+                    entry_type: item.entry_type
+                }));
+
+                showPretranslateModal();
+                res = await eel.pretranslate_batch(items)();
             }
-            
-            // Format items for pretranslate_batch
-            const items = itemsToPretranslate.map(item => ({
-                id: item.id,
-                jp: item.jp,
-                file_path: item.path,
-                row_idx: item.row,
-                speaker: item.speaker,
-                entry_type: item.entry_type
-            }));
-            
-            const res = await eel.pretranslate_batch(items)();
-            
+
             if (res && res.ok) {
-                log_to_js(`[SYSTEM] Pre-translation complete: TM=${res.tm_applied}, AI=${res.ai_applied}, DeepL=${res.deepl_applied}`);
-                openAlertModal('SUCCESS', `Pre-translation complete!\n\nTM: ${res.tm_applied}\nAI: ${res.ai_applied}\nDeepL: ${res.deepl_applied}\n\nTotal: ${res.total}`);
-                
+                log_to_js(`[SYSTEM] Pre-Translation complete: TM=${res.tm_applied}, AI=${res.ai_applied}, DeepL=${res.deepl_applied}`);
+                const cancelledNote = res.cancelled ? ' (cancelled)' : '';
+                openAlertModal('SUCCESS', `Pre-Translation complete${cancelledNote}!\n\nTM: ${res.tm_applied}\nAI: ${res.ai_applied}\nDeepL: ${res.deepl_applied}\n\nProcessed: ${res.processed} / ${res.total}`);
+
                 // Reload the current queue to show pre-translated entries
                 const currentCategory = document.getElementById('category-select')?.value;
                 if (currentCategory) {
                     await switchCategory(currentCategory);
                 }
             } else {
-                log_to_js(`[SYSTEM] Pre-translation failed: ${res?.error || 'Unknown error'}`);
-                openAlertModal('ERROR', `Pre-translation failed: ${res?.error || 'Unknown error'}`);
+                log_to_js(`[SYSTEM] Pre-Translation failed: ${res?.error || 'Unknown error'}`);
+                openAlertModal('ERROR', `Pre-Translation failed: ${res?.error || 'Unknown error'}`);
             }
         } catch (e) {
-            log_to_js(`[SYSTEM] Pre-translation error: ${e}`);
-            openAlertModal('ERROR', `Pre-translation error: ${e}`);
+            log_to_js(`[SYSTEM] Pre-Translation error: ${e}`);
+            openAlertModal('ERROR', `Pre-Translation error: ${e}`);
         } finally {
+            hidePretranslateModal();
             btnPretranslate.innerText = 'PRE-TRANSLATE';
             btnPretranslate.disabled = false;
+        }
+    };
+
+    // Cancel the running pre-translate batch
+    const btnPretranslateCancel = document.getElementById('btn-pretranslate-cancel');
+    if (btnPretranslateCancel) btnPretranslateCancel.onclick = async () => {
+        btnPretranslateCancel.innerText = 'CANCELLING…';
+        btnPretranslateCancel.disabled = true;
+        try {
+            await eel.cancel_pretranslate()();
+        } catch (e) {
+            console.error('[pretranslate] cancel error:', e);
         }
     };
 
@@ -4814,6 +4857,31 @@ async function loadSettings() {
         setCheck('opt-pretranslate-enable-openrouter', pretranslateSettings.enable_openrouter !== false);
         setCheck('opt-pretranslate-enable-deepl', pretranslateSettings.enable_deepl !== false);
 
+        // Pre-Translate Model selector (populated from openrouter_models)
+        const ptModelSel = document.getElementById('opt-pretranslate-openrouter-model');
+        if (ptModelSel) {
+            const models = config.openrouter_models || [];
+            const modelList = models.length ? models : ['openrouter/auto'];
+            const selectedPtModel = config.pretranslate_openrouter_model || '';
+            ptModelSel.innerHTML = '';
+            // Blank option = fall back to chat model
+            const blank = document.createElement('option');
+            blank.value = '';
+            blank.innerText = '(use chat model)';
+            ptModelSel.appendChild(blank);
+            modelList.forEach(m => {
+                const opt = document.createElement('option');
+                opt.value = opt.innerText = m;
+                if (m === selectedPtModel) opt.selected = true;
+                ptModelSel.appendChild(opt);
+            });
+            if (selectedPtModel && modelList.includes(selectedPtModel)) {
+                ptModelSel.value = selectedPtModel;
+            } else {
+                ptModelSel.value = '';
+            }
+        }
+
         // GitHub Sync Settings
         setVal('opt-github-repo', config.github_repo || '');
         setVal('opt-github-token', config.github_token || '');
@@ -5378,6 +5446,9 @@ function initSettingsActions() {
                 enable_deepl: document.getElementById('opt-pretranslate-enable-deepl')?.checked !== false
             };
             await eel.save_config_field('pretranslate_settings', settings)();
+            // Save the dedicated pre-translate model separately (user_settings scope)
+            const ptModel = document.getElementById('opt-pretranslate-openrouter-model')?.value || '';
+            await eel.save_config_field('pretranslate_openrouter_model', ptModel)();
             alert('Pre-Translation Settings saved!');
         };
     }
@@ -6106,6 +6177,31 @@ function updateStartupSyncStatus(msg) {
 // This eel.expose MUST run at script-parse time (before Python calls it).
 eel.expose(updateStartupSyncStatus);
 
+// --- Pre-translate progress window ---
+// Python calls this via eel.updatePretranslateProgress(done, total, msg)(),
+// so the handler MUST be exposed with eel.expose() at script-parse time.
+function updatePretranslateProgress(done, total, msg) {
+    const bar = document.getElementById('pretranslate-progress-bar');
+    const val = document.getElementById('pretranslate-progress-val');
+    const count = document.getElementById('pretranslate-count');
+    const status = document.getElementById('pretranslate-status');
+    const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+    if (bar) bar.style.width = pct + '%';
+    if (val) val.innerText = pct + '%';
+    if (count) count.innerText = `${done} / ${total} items`;
+    if (status && msg) status.innerText = msg;
+}
+eel.expose(updatePretranslateProgress);
+
+function showPretranslateModal() {
+    const modal = document.getElementById('modal-pretranslate');
+    if (modal) modal.classList.add('active');
+}
+function hidePretranslateModal() {
+    const modal = document.getElementById('modal-pretranslate');
+    if (modal) modal.classList.remove('active');
+}
+
 // Kick off the startup fetch. Declared as a function so it can be called from
 // window.onload AFTER the modal is shown (avoids the modal closing before it
 // appears). Hides the window when done.
@@ -6256,6 +6352,29 @@ function openAlertModal(title, message, isHtml = false) {
 document.getElementById('btn-alert-ok')?.addEventListener('click', () => {
     document.getElementById('modal-alert').classList.remove('active');
 });
+
+// --- First-time caching warning popup (non-blocking) ---
+// Shown when the client is computing/caching entries for the first time (cold
+// cache), which is slow. Auto-hides once caching settles or after a timeout.
+let _cachingWarningTimer = null;
+function showCachingWarning() {
+    const el = document.getElementById('caching-warning');
+    if (!el) return;
+    if (el.dataset.shown === '1') return;  // only show once per session
+    el.dataset.shown = '1';
+    el.style.display = 'flex';
+    const hide = () => { el.style.display = 'none'; };
+    const closeBtn = document.getElementById('btn-caching-warning-close');
+    if (closeBtn) closeBtn.onclick = hide;
+    // Auto-hide after 25s in case the caller never hides it explicitly.
+    if (_cachingWarningTimer) clearTimeout(_cachingWarningTimer);
+    _cachingWarningTimer = setTimeout(hide, 25000);
+}
+function hideCachingWarning() {
+    const el = document.getElementById('caching-warning');
+    if (el) el.style.display = 'none';
+    if (_cachingWarningTimer) { clearTimeout(_cachingWarningTimer); _cachingWarningTimer = null; }
+}
 
 function openRuleModal(idx, rule) {
     state.settings.editingRuleIdx = idx;
