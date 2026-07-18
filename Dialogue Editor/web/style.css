@@ -3736,6 +3736,32 @@ font-weight: bold;
     border: 1px solid #ffc107;
 }
 
+/* Translation source badge (TM / AI / DeepL) in history panel */
+.kl-history-source {
+    padding: 2px 6px;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    margin-left: 6px;
+}
+.kl-history-source.src-tm {
+    background: rgba(33, 150, 243, 0.2);
+    color: #2196f3;
+    border: 1px solid #2196f3;
+}
+.kl-history-source.src-ai {
+    background: rgba(156, 39, 176, 0.2);
+    color: #ce93d8;
+    border: 1px solid #ce93d8;
+}
+.kl-history-source.src-deepl {
+    background: rgba(255, 152, 0, 0.2);
+    color: #ff9800;
+    border: 1px solid #ff9800;
+}
+
 .kl-history-item {
     padding: 12px;
     border-bottom: 1px solid var(--border-color);

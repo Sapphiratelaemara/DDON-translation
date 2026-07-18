@@ -13,6 +13,14 @@ from typing import Optional, Dict, Any, List, Tuple
 import threading
 from difflib import SequenceMatcher
 
+# rapidfuzz provides C-accelerated similarity metrics. Import is optional so the
+# module still works (with slower pure-Python fallbacks) if it isn't installed.
+try:
+    from rapidfuzz.distance import Levenshtein as _rf_levenshtein
+    _HAVE_RAPIDFUZZ = True
+except Exception:
+    _HAVE_RAPIDFUZZ = False
+
 # Test mode flag - check environment variable to avoid circular import
 TEST_MODE = os.environ.get('DDON_TEST_MODE', 'false').lower() == 'true'
 
@@ -243,13 +251,19 @@ class FuzzyMatcher:
         self.cm = config_manager
     
     def _levenshtein_distance(self, s1: str, s2: str) -> int:
-        """Calculate Levenshtein distance between two strings."""
+        """Calculate Levenshtein distance between two strings.
+
+        Uses rapidfuzz's C-accelerated implementation when available, falling
+        back to the pure-Python algorithm otherwise.
+        """
+        if _HAVE_RAPIDFUZZ:
+            return _rf_levenshtein.distance(s1, s2)
         if len(s1) < len(s2):
             return self._levenshtein_distance(s2, s1)
-        
+
         if len(s2) == 0:
             return len(s1)
-        
+
         previous_row = range(len(s2) + 1)
         for i, c1 in enumerate(s1):
             current_row = [i + 1]
@@ -259,7 +273,7 @@ class FuzzyMatcher:
                 substitutions = previous_row[j] + (c1 != c2)
                 current_row.append(min(insertions, deletions, substitutions))
             previous_row = current_row
-        
+
         return previous_row[-1]
     
     def _normalize_text(self, text: str) -> str:
@@ -294,14 +308,18 @@ class FuzzyMatcher:
         return len(intersection) / len(union) if union else 0.0
     
     def _word_order_similarity(self, s1: str, s2: str) -> float:
-        """Calculate word order similarity using SequenceMatcher."""
+        """Calculate word order similarity using SequenceMatcher.
+
+        Kept on difflib.SequenceMatcher (not rapidfuzz) because its ratio on word
+        sequences is part of the tuned weighted blend; swapping it would change
+        match rankings. Word lists are short, so this stays cheap.
+        """
         words1 = self._extract_words(s1)
         words2 = self._extract_words(s2)
-        
+
         if not words1 or not words2:
             return 1.0 if words1 == words2 else 0.0
-        
-        # Use difflib SequenceMatcher for better sequence matching
+
         matcher = SequenceMatcher(None, words1, words2)
         return matcher.ratio()
     

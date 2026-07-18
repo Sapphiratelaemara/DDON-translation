@@ -144,6 +144,25 @@ class LoreEngine:
                 matches.append((jp_term, en_term))
         return matches
 
+    def scan_text_with_source(self, jp_text):
+        """Like scan_text, but tags each match with its vocabulary source so the
+        caller can prioritise. DD1_VOCAB terms are flagged 'dd1' (higher priority,
+        prefer these renderings); OTHER_VOCAB terms are flagged 'other' (lower
+        priority). Returns a list of (jp_term, en_term, source)."""
+        if not jp_text: return []
+        from src.lore_data import DD1_VOCAB, OTHER_VOCAB
+        matches = []
+        for jp_term, en_term in self.lore_map.items():
+            if jp_term in jp_text:
+                if jp_term in DD1_VOCAB:
+                    source = "dd1"
+                elif jp_term in OTHER_VOCAB:
+                    source = "other"
+                else:
+                    source = "lore"
+                matches.append((jp_term, en_term, source))
+        return matches
+
     # ---------------- Archetype Handling ----------------
     def get_archetype_options(self):
         """Return (key, name) pairs for dropdown without professions."""

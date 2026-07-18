@@ -80,7 +80,7 @@
                     <span class="panel-toggle-icon material-symbols-outlined">keyboard</span>
                 </button>
             </div>
-            <div id="shortcuts-tooltip" style="position: fixed; display: none; background: #1a1a2e; color: #fff; padding: 15px; border-radius: 8px; border: 1px solid #4a4a6a; z-index: 10000; min-width: 250px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); white-space: pre-line; font-size: 13px;">Ctrl+Enter: Apply fix
+            <div id="shortcuts-tooltip" style="position: fixed; display: none; background: #1a1a2e; color: #fff; padding: 15px; border-radius: 8px; border: 1px solid #4a4a6a; z-index: 10000; min-width: 250px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); white-space: pre-line; font-size: 13px;">Ctrl+Enter: Save
 Ctrl+ArrowRight: Next item
 Ctrl+ArrowLeft: Previous item
 Ctrl+R: Rewrap text
@@ -227,6 +227,21 @@ Ctrl+Shift+D: Ellipsis</div>
                         style="flex: 1; padding: 20px; font-size: 1rem; border: 1px solid var(--accent-color); color: var(--accent-color);"> TRANSLATE CSV</button>
                     <button class="btn-secondary large" id="btn-pretranslate"
                         style="flex: 1; padding: 20px; font-size: 1rem; border: 1px solid var(--accent-color); color: var(--accent-color);"> PRE-TRANSLATE</button>
+                </div>
+
+                <!-- Inline pre-translate progress meter (non-blocking) -->
+                <div id="pretranslate-meter" style="display: none; margin-top: 12px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                        <span id="pretranslate-meter-status" style="font-size: 0.75rem; opacity: 0.9; font-family: 'JetBrains Mono', monospace;">Starting…</span>
+                        <span id="pretranslate-meter-count" style="font-size: 0.7rem; opacity: 0.7; font-family: 'JetBrains Mono', monospace;">0 / 0 items</span>
+                    </div>
+                    <div class="progress-wrapper" style="margin-top: 0;">
+                        <div id="pretranslate-meter-bar" class="progress-bar"></div>
+                        <div id="pretranslate-meter-val" class="progress-val">0%</div>
+                    </div>
+                    <div style="text-align: right; margin-top: 6px;">
+                        <button class="btn-secondary" id="btn-pretranslate-cancel" style="font-size: 0.7rem; padding: 4px 12px;">CANCEL</button>
+                    </div>
                 </div>
 
                 <!-- Progress Display Label (missing from old version) -->
@@ -1268,17 +1283,17 @@ Ctrl+Shift+D: Ellipsis</div>
         </div>
     </div>
     <!-- Pre-translate progress window -->
-    <div id="modal-pretranslate" class="modal">
+    <div id="modal-pretranslate-options" class="modal">
         <div class="modal-content" style="width: 460px;">
-            <h3>PRE-TRANSLATING</h3>
-            <div id="pretranslate-status" style="font-size: 0.8rem; opacity: 0.9; min-height: 1.2em; margin-bottom: 6px;">Starting…</div>
-            <div class="progress-wrapper">
-                <div id="pretranslate-progress-bar" class="progress-bar"></div>
-                <div id="pretranslate-progress-val" class="progress-val">0%</div>
-            </div>
-            <div id="pretranslate-count" style="font-size: 0.75rem; opacity: 0.7; margin-top: 8px; font-family: 'JetBrains Mono', monospace;">0 / 0 items</div>
+            <h3>PRE-TRANSLATE OPTIONS</h3>
+            <p style="font-size: 0.85rem; opacity: 0.85; margin: 0 0 14px;">Choose how to run pre-translation.</p>
+            <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; cursor: pointer; margin-bottom: 18px;">
+                <input type="checkbox" id="chk-pretranslate-skip" checked />
+                <span>Skip entries that are already pre-translated</span>
+            </label>
             <div class="modal-actions" style="display: flex; gap: 10px; justify-content: flex-end;">
-                <button class="btn-secondary" id="btn-pretranslate-cancel">CANCEL</button>
+                <button class="btn-secondary" id="btn-pretranslate-options-cancel">CANCEL</button>
+                <button class="btn-primary" id="btn-pretranslate-options-start">START</button>
             </div>
         </div>
     </div>

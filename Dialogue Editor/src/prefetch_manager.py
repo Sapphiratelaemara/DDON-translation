@@ -65,9 +65,31 @@ class PrefetchManager:
         config_dir = os.path.join(base_dir, "config", language)
         return os.path.join(config_dir, "prefetch_cache.json")
     
-    def _cache_key(self, category: str, idx: int) -> str:
-        """Convert category and index to a string key for JSON serialization."""
-        return f"{category}::{idx}"
+    def _cache_key(self, category: str, idx: int, item: Dict[str, Any] = None) -> str:
+        """Build a cache key for an entry.
+
+        Keyed by the entry's stable identity (id, or path::row) rather than the
+        positional idx, so switching queues doesn't collide on idx 0/1/2 and
+        force reprocessing of previously-cached entries.
+
+        The category is intentionally NOT part of the key: the cached data
+        (lore context, gloss, anachronisms, adjacent context) is derived purely
+        from the entry's own jp/en/path/row and is identical regardless of which
+        queue/category the entry happens to be loaded under. Prefixing the
+        category caused cache misses on boot — e.g. an entry cached under
+        "Pre-translated Unapproved" would miss when reloaded under
+        "Manual Translation" — forcing a full recompute (~15s) on every fresh
+        start. Identity-only keys make the cache survive queue switches and
+        restarts.
+        """
+        identity = None
+        if item:
+            identity = item.get("id") or item.get("entry_id")
+            if not identity and item.get("path") is not None and item.get("row") is not None:
+                identity = f"{item['path']}::{item['row']}"
+        if not identity:
+            identity = f"idx{idx}"
+        return identity
     
     def _load_cache_from_file(self):
         """Load cache from file on startup, removing entries older than 7 days."""
@@ -97,6 +119,29 @@ class PrefetchManager:
                 if stale_schema:
                     self._save_cache_to_file()
                     print(f"[PrefetchManager] Dropped {len(stale_schema)} old-schema cache entries (missing 'jp'); they will recompute with current glossary")
+                # Key migration: older cache files prefixed keys with the
+                # category (e.g. "Pre-translated Unapproved::170.csv::77"). Keys
+                # are now identity-only so the cache survives queue switches and
+                # restarts. Strip a leading "category::" prefix so previously
+                # cached entries are still found on boot under a different
+                # category name (e.g. "Manual Translation").
+                #
+                # IMPORTANT: a valid identity is either "idx<N>" or
+                # "<path>::<row>" (e.g. "170.csv::77"), which already contains a
+                # single "::". A category-prefixed key contains TWO "::"
+                # (category::path::row). Only migrate keys with >= 2 "::"
+                # separators — otherwise we'd wrongly truncate a legitimate
+                # "170.csv::77" identity down to "77" and lose the cache.
+                migrated = 0
+                for k in list(self._cache.keys()):
+                    if k.count('::') >= 2:
+                        new_key = k.split('::', 1)[1]
+                        if new_key and new_key != k:
+                            self._cache[new_key] = self._cache.pop(k)
+                            migrated += 1
+                if migrated:
+                    self._save_cache_to_file()
+                    print(f"[PrefetchManager] Migrated {migrated} category-prefixed cache keys to identity-only keys")
                 print(f"[PrefetchManager] Loaded {len(self._cache)} cached items from file (removed {len(cached_data) - len(self._cache)} expired/old-schema entries)")
         except json.JSONDecodeError as e:
             print(f"[PrefetchManager] Cache file corrupted, clearing cache: {e}")
@@ -289,7 +334,7 @@ class PrefetchManager:
             
             # Cache the results with category-aware key
             with self._lock:
-                cache_key = self._cache_key(category, idx)
+                cache_key = self._cache_key(category, idx, item)
                 self._cache[cache_key] = results
                 self._save_cache_to_file()
                 
@@ -312,7 +357,7 @@ class PrefetchManager:
         """
         # Skip if already cached and fresh (within 7 days to match disk cache expiration)
         with self._lock:
-            cache_key = self._cache_key(category, idx)
+            cache_key = self._cache_key(category, idx, item)
             cached = self._cache.get(cache_key)
             if cached and time.time() - cached['timestamp'] < 604800:  # 7 days
                 print(f"[PrefetchManager] Skipping {cache_key} - already cached")
@@ -322,10 +367,17 @@ class PrefetchManager:
         self._queue.put((category, idx, item))
         return True
     
-    def get_cached(self, category: str, idx: int) -> Optional[Dict[str, Any]]:
-        """Get cached results for a category and index."""
+    def get_cached(self, category: str, idx: int, item_id: str = None) -> Optional[Dict[str, Any]]:
+        """Get cached results for a category and index.
+
+        ``item_id`` (stable entry identity) lets the key survive queue switches.
+        If not provided, falls back to the positional idx key.
+        """
         with self._lock:
-            cache_key = self._cache_key(category, idx)
+            if item_id:
+                cache_key = self._cache_key(category, idx, {"id": item_id})
+            else:
+                cache_key = self._cache_key(category, idx)
             return self._cache.get(cache_key)
     
     def update_current_idx(self, category: str, idx: int):
@@ -333,10 +385,21 @@ class PrefetchManager:
         with self._lock:
             self._current_idx = idx
             self._current_category = category
-            # Clear cache for old entries in different categories (keep last 20 per category)
-            if len(self._cache) > 20:
-                keys_to_remove = [key for key in self._cache.keys() if not key.startswith(f"{category}::")]
-                for key in keys_to_remove:
+            # Bound the in-memory cache to avoid unbounded growth, but keep it
+            # large enough that previously-viewed entries stay cached across a
+            # full session of navigation. The old 20-entry cap evicted entries
+            # after ~20 navigations, so returning to an earlier entry missed the
+            # cache and re-showed the loading placeholder instead of the cached
+            # DeepL/gloss result. 5000 entries is well within memory and covers
+            # any realistic queue; only genuinely stale (7-day-old) entries are
+            # dropped at load time via _load_cache_from_file.
+            _CACHE_HARD_CAP = 5000
+            if len(self._cache) > _CACHE_HARD_CAP:
+                sorted_keys = sorted(
+                    self._cache.keys(),
+                    key=lambda k: self._cache[k].get('timestamp', 0)
+                )
+                for key in sorted_keys[:len(self._cache) - _CACHE_HARD_CAP]:
                     del self._cache[key]
     
     def prefetch_next(self, category: str, items: list, current_idx: int, depth: int = 25):
@@ -365,6 +428,9 @@ class PrefetchManager:
             high count means the cache is cold and the client is doing heavy work.
         """
         print(f"[PrefetchManager] Queuing all {len(items)} items for category={category}")
+        # Drop any in-flight work from a previous queue (scan/pretranslate/load)
+        # so the worker switches to the new batch immediately.
+        self.reset()
         queued = 0
         for idx in range(len(items)):
             if self.enqueue(category, idx, items[idx]):
@@ -372,16 +438,21 @@ class PrefetchManager:
         print(f"[PrefetchManager] Enqueued {queued}/{len(items)} items (cache misses) for category={category}")
         return queued
     
-    def update_cache(self, category: str, idx: int, data: Dict[str, Any]):
+    def update_cache(self, category: str, idx: int, data: Dict[str, Any], item_id: str = None):
         """Directly update the cache for a specific category and index.
-        
+
         Args:
             category: Category name
             idx: Item index
             data: Data to cache (will be merged with existing cache entry)
+            item_id: Stable entry identity (path::row) so the key survives queue
+                switches. Falls back to positional idx key if not provided.
         """
         with self._lock:
-            cache_key = self._cache_key(category, idx)
+            if item_id:
+                cache_key = self._cache_key(category, idx, {"id": item_id})
+            else:
+                cache_key = self._cache_key(category, idx)
             existing = self._cache.get(cache_key, {})
             # Merge with existing data, preserving timestamp if not provided
             if 'timestamp' not in data:
@@ -402,6 +473,20 @@ class PrefetchManager:
                     self._queue.get_nowait()
                 except queue.Empty:
                     break
+
+    def reset(self):
+        """Stop the worker, drain any pending tasks from the previous queue, and
+        restart the worker fresh. Called before enqueuing a new batch so an old
+        prefetch run (from a previous scan/pretranslate/load) doesn't keep
+        processing stale entries alongside the new ones."""
+        self.stop()
+        with self._lock:
+            while not self._queue.empty():
+                try:
+                    self._queue.get_nowait()
+                except queue.Empty:
+                    break
+        self.start()
 
     def invalidate_by_term(self, term: str):
         """Remove only the cached entries whose source text contains `term`.

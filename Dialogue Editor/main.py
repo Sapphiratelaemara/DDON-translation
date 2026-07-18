@@ -129,7 +129,7 @@ from datetime import datetime
 from src.config_manager import ConfigManager
 from src.api_handler import DeepLClient, OpenRouterClient
 from src.translator_engine import TranslationEngine
-from src.file_utils import _get_csv_files, _read_csv
+from src.file_utils import _get_csv_files, _read_csv, row_matches_triggers, CSV_COL_JP, CSV_COL_EN, CSV_COL_SPEAKER, CSV_COL_ENTRY_TYPE
 from src.batch_runner import run_batch, BatchSettings
 from src.translation_manager import get_translation_manager
 from src.github_sync import GitHubSync
@@ -158,6 +158,7 @@ reload_vocab()  # Reload vocab from ConfigManager to ensure it's loaded from the
 engine = TranslationEngine(cm.config.get("tag_map", {}))
 github_sync = GitHubSync(cm)
 translation_manager = get_translation_manager(initial_language)
+translation_manager.set_config_manager(cm)
 source_validator = SourceValidator()
 source_validator.load_tag_map(cm.config.get("tag_map", {}))
 
@@ -181,6 +182,38 @@ _gloss_cache = {}  # Clear cache on restart to use new smaller format
 
 # Pre-translate batch cancellation flag (set by cancel_pretranslate())
 _pretranslate_cancel = False
+
+
+def _cancelable_api_call(fn, timeout=15):
+    """Run a blocking API call ``fn`` in a daemon thread so it can be abandoned
+    the instant ``_pretranslate_cancel`` is set. Returns the call's result, or
+    ``{"error": "Cancelled"}`` if cancellation was requested while it was in
+    flight. This avoids waiting out the full socket timeout on cancel."""
+    import queue as _queue
+    result_q = _queue.Queue()
+    def _runner():
+        try:
+            result_q.put(("ok", fn()))
+        except Exception as e:
+            result_q.put(("err", e))
+    t = threading.Thread(target=_runner, daemon=True)
+    t.start()
+    # Poll the cancel flag in small slices instead of blocking on join().
+    remaining = timeout
+    while remaining > 0:
+        if _pretranslate_cancel:
+            return {"error": "Cancelled"}
+        t.join(timeout=min(0.25, remaining))
+        if not t.is_alive():
+            break
+        remaining -= 0.25
+    if t.is_alive():
+        # Timed out waiting for the call — treat as cancelled/aborted.
+        return {"error": "Cancelled (timeout)"}
+    status, payload = result_q.get()
+    if status == "err":
+        raise payload
+    return payload
 
 # Preview image cache
 _preview_cache = {}
@@ -344,14 +377,29 @@ def _save_review_items():
         print(f"[_save_review_items] Error: {e}")
 
 def _load_review_items():
-    """Load review_items from disk if they exist."""
+    """Load review_items from disk if they exist.
+
+    Only restores the queue if it was explicitly populated (by a trigger scan,
+    CSV load, or search) in the previous session — tracked via
+    ``review_items_source`` in user_settings. A stale global queue (e.g. all
+    unapproved entries) must never auto-load on boot, as that floods the editor
+    with thousands of unrelated entries.
+    """
     global review_items
     try:
         queue_file = _get_queue_cache_file("review_items_cache.json")
         if os.path.exists(queue_file):
             with open(queue_file, 'r', encoding='utf-8') as f:
                 review_items = json.load(f)
-            print(f"[_load_review_items] Loaded {len(review_items)} items")
+            source = cm.user_settings.get("review_items_source", "")
+            valid_sources = ("trigger_scan", "csv_load", "search", "pretranslate")
+            if source not in valid_sources:
+                print(f"[_load_review_items] Discarding {len(review_items)} items "
+                      f"(source={source!r} not explicitly loaded) — not restoring on boot")
+                review_items = []
+                _save_review_items()
+            else:
+                print(f"[_load_review_items] Loaded {len(review_items)} items (source={source})")
     except Exception as e:
         print(f"[_load_review_items] Error: {e}")
 
@@ -466,12 +514,12 @@ def calculate_project_stats():
     translated  = 0
     for f_path in csv_files:
         try:
-            _, _, rows = _read_csv(f_path)
+            _, _, rows = _read_csv_cached(f_path)
             for i, row in enumerate(rows):
                 if i == 0 or len(row) < 6:
                     continue
-                en_text = row[3].strip() if len(row) > 3 else ""
-                jp_text = row[2].strip() if len(row) > 2 else ""
+                en_text = row[CSV_COL_EN].strip() if len(row) > CSV_COL_EN else ""
+                jp_text = row[CSV_COL_JP].strip() if len(row) > CSV_COL_JP else ""
                 if not jp_text: 
                     continue
                 total_lines += 1
@@ -899,6 +947,10 @@ def get_full_config():
     for key in ["folders", "triggers", "replace_rules"]:
         if key not in data:
             data[key] = []
+    # Use cm.archetypes (loaded from archetypes.json) as the source of truth for
+    # the Archetype tab. cm.config["archetypes"] is only seeded from lore_engine's
+    # hardcoded DEFAULT_ARCHETYPES and is empty when the json holds the real data.
+    data['archetypes'] = cm.archetypes.get("archetypes", {})
     return data
 
 @eel.expose
@@ -2068,7 +2120,7 @@ def get_adjacent_context(path, row_idx):
         print(f"[get_adjacent_context] Returning empty: path={path}, row_idx={row_idx}")
         return {}
     try:
-        _, _, rows = _read_csv(path)
+        _, _, rows = _read_csv_cached(path)
         print(f"[get_adjacent_context] Read {len(rows)} rows from CSV")
         
         # Row index is used directly (no header row in source CSVs)
@@ -2078,15 +2130,15 @@ def get_adjacent_context(path, row_idx):
         if data_row_idx > 0:
             prev = rows[data_row_idx - 1]
             result["prev"] = {
-                "jp": (prev[2] if len(prev) > 2 else "").replace("\r", ""),
-                "en": (prev[3] if len(prev) > 3 else "").replace("\r", ""),
+                "jp": (prev[CSV_COL_JP] if len(prev) > CSV_COL_JP else "").replace("\r", ""),
+                "en": (prev[CSV_COL_EN] if len(prev) > CSV_COL_EN else "").replace("\r", ""),
             }
             print(f"[get_adjacent_context] Found prev row at index {data_row_idx - 1}")
         if data_row_idx < len(rows) - 1:
             nxt = rows[data_row_idx + 1]
             result["next"] = {
-                "jp": (nxt[2] if len(nxt) > 2 else "").replace("\r", ""),
-                "en": (nxt[3] if len(nxt) > 3 else "").replace("\r", ""),
+                "jp": (nxt[CSV_COL_JP] if len(nxt) > CSV_COL_JP else "").replace("\r", ""),
+                "en": (nxt[CSV_COL_EN] if len(nxt) > CSV_COL_EN else "").replace("\r", ""),
             }
             print(f"[get_adjacent_context] Found next row at index {data_row_idx + 1}")
         # print(f"[get_adjacent_context] Returning result: {result}")  # Disabled due to encoding issues
@@ -2110,19 +2162,71 @@ def get_archetype_notes(archetype_key):
     """Return notes for a specific archetype."""
     if not archetype_key:
         return ""
-    archetypes = cm.config.get("archetypes", {})
+    # Read from cm.archetypes (loaded from archetypes.json), NOT cm.config
+    # ["archetypes"] — the latter is only seeded from lore_engine's hardcoded
+    # DEFAULT_ARCHETYPES and is empty when archetypes.json holds the real data,
+    # which made the notes panel and Archetype tab show nothing.
+    archetypes = cm.archetypes.get("archetypes", {})
     return archetypes.get(archetype_key, {}).get("notes", "")
 
 # =============================================================================
 # BATCH RUNNER
 # =============================================================================
 
+def _scan_rows_by_trigger(folders, triggers):
+    """Return every CSV row (translated or not) whose joined cells contain a
+    trigger string. Used to load trigger-matched entries into the editor queue
+    after a batch scan, so the user can actually see/work the matched lines —
+    not just the ones that have 'issues'."""
+    import csv as _csv
+    matched = []
+    seen = set()
+    for folder in folders:
+        if not os.path.isdir(folder):
+            continue
+        for root, _dirs, files in os.walk(folder):
+            for name in files:
+                if not name.endswith(".csv"):
+                    continue
+                f_path = os.path.join(root, name)
+                try:
+                    _raw, _dialect, rows = _read_csv_cached(f_path)
+                except Exception as e:
+                    print(f"[_scan_rows_by_trigger] Failed to read {f_path}: {e}")
+                    continue
+                for r_idx, row in enumerate(rows):
+                    if len(row) <= 3:
+                        continue
+                    if not row_matches_triggers(row, triggers):
+                        continue
+                    jp_text = row[CSV_COL_JP] if len(row) > CSV_COL_JP else ""
+                    if not jp_text:
+                        continue
+                    item_id = f"{os.path.relpath(f_path, folder)}::{r_idx}"
+                    if item_id in seen:
+                        continue
+                    seen.add(item_id)
+                    matched.append({
+                        "id": item_id,
+                        "jp": jp_text,
+                        "en": row[CSV_COL_EN].strip() if len(row) > CSV_COL_EN else "",
+                        "speaker": row[CSV_COL_SPEAKER].strip() if len(row) > CSV_COL_SPEAKER else "Unknown",
+                        "entry_type": row[CSV_COL_ENTRY_TYPE].strip() if len(row) > CSV_COL_ENTRY_TYPE else "MANUAL",
+                        "file_path": f_path,
+                        "row_idx": r_idx,
+                    })
+    return matched
+
+
 @eel.expose
 def start_batch_scan(preset_name="Standard", wall_preset_name="Standard"):
     global review_items, current_review_idx, batch_scan_complete
     for q in review_queues.values():
         q.clear()
-    # Don't clear review_items to preserve manual translation items
+    # Clear the manual translation queue too — a batch scan is a fresh context
+    # and should not carry over stale items from a previous manual load.
+    review_items = []
+    _save_review_items()
     current_review_idx = 0
     batch_scan_complete = False
 
@@ -2156,11 +2260,35 @@ def start_batch_scan(preset_name="Standard", wall_preset_name="Standard"):
 
     def done_cb(limit, wall_limit):
         global review_items, batch_scan_complete
-        # Set completion flag for polling
-        batch_scan_complete = True
         # Save queues to disk for persistence
         _save_review_queues()
-        print(f"[done_cb] Scan complete, saved {sum(len(q) for q in review_queues.values())} items")
+        # If triggers are set, load the matched rows into the editor queue so the
+        # user can actually see/work the entries (not just the issue-queue ones).
+        _triggers = settings.triggers
+        _folders = settings.folders
+        if _triggers and _folders:
+            matched = _scan_rows_by_trigger(_folders, _triggers)
+            review_items = []
+            current_review_idx = 0
+            for m in matched:
+                review_items.append({
+                    "id": m["id"],
+                    "speaker": m["speaker"] or "Unknown",
+                    "jp": m["jp"],
+                    "en": m["en"],
+                    "category": m["entry_type"] or "MANUAL",
+                    "entry_type": m["entry_type"] or "MANUAL",
+                    "path": m["file_path"],
+                    "row": m["row_idx"],
+                })
+            _save_review_items()
+            cm.user_settings["review_items_source"] = "trigger_scan"
+            cm.save_user_settings()
+            print(f"[done_cb] Loaded {len(review_items)} trigger-matched rows into editor queue")
+        print(f"[done_cb] Scan complete, saved {sum(len(q) for q in review_queues.values())} issue items")
+        # Set completion flag LAST, after review_items is fully populated, so the
+        # UI poll never reads an empty queue in the window before population.
+        batch_scan_complete = True
 
     threading.Thread(
         target=run_batch,
@@ -2224,16 +2352,16 @@ def get_items_for_category(category_display_name):
         # Read CSV to get Japanese source at row[2]
         jp_source = orig_text  # Default to orig_text if CSV read fails
         try:
-            _, _, rows = _read_csv(inst["path"])
+            _, _, rows = _read_csv_cached(inst["path"])
             if inst["row_idx"] < len(rows):
                 row = rows[inst["row_idx"]]
-                if len(row) > 2:
-                    jp_source = row[2]
+                if len(row) > CSV_COL_JP:
+                    jp_source = row[CSV_COL_JP]
         except Exception as e:
             print(f"[get_items_for_category] Error reading CSV: {e}")
         
         items.append({
-            "id": len(items) + 1,
+            "id": f"{inst['path']}::{inst['row_idx']}",
             "speaker": inst.get("speaker", "Unknown"),
             "jp": jp_source,
             "en": orig_text,
@@ -2275,14 +2403,14 @@ def get_row_text(path, row_idx):
         row_idx = int(row_idx)
         if row_idx < 0:
             return None
-        _, _, rows = _read_csv(path)
+        _, _, rows = _read_csv_cached(path)
         if row_idx >= len(rows):
             return None
         row = rows[row_idx]
-        jp = row[2] if len(row) > 2 else ""
-        en = row[3] if len(row) > 3 else ""
-        speaker = row[8].strip() if len(row) > 8 and row[8] else ""
-        entry_type = row[9].strip() if len(row) > 9 and row[9] else ""
+        jp = row[CSV_COL_JP] if len(row) > CSV_COL_JP else ""
+        en = row[CSV_COL_EN] if len(row) > CSV_COL_EN else ""
+        speaker = row[CSV_COL_SPEAKER].strip() if len(row) > CSV_COL_SPEAKER and row[CSV_COL_SPEAKER] else ""
+        entry_type = row[CSV_COL_ENTRY_TYPE].strip() if len(row) > CSV_COL_ENTRY_TYPE and row[CSV_COL_ENTRY_TYPE] else ""
         return {"jp": jp, "en": en, "speaker": speaker, "entry_type": entry_type}
     except Exception as e:
         return {"error": str(e)}
@@ -2401,10 +2529,17 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
                         sys_prompt += f"- Instead of '{word}', consider '{suggestion}'\n"
             
             # Get relevant lore terms from Japanese text
-            relevant_terms = le.scan_text(current_jp)
+            relevant_terms = le.scan_text_with_source(current_jp)
             if relevant_terms:
+                dd1_terms = [(jp, en) for jp, en, src in relevant_terms if src == "dd1"]
+                other_terms = [(jp, en) for jp, en, src in relevant_terms if src == "other"]
+                lore_terms = [(jp, en) for jp, en, src in relevant_terms if src == "lore"]
                 sys_prompt += "\n\nMANDATORY GLOSSARY TERMS FOR THIS LINE:\n"
-                for jp, en in relevant_terms:
+                for jp, en in dd1_terms:
+                    sys_prompt += f"- {jp} MUST be translated as '{en}' (DD1 vocab — preferred)\n"
+                for jp, en in other_terms:
+                    sys_prompt += f"- {jp} SHOULD be translated as '{en}' (other vocab — lower priority)\n"
+                for jp, en in lore_terms:
                     sys_prompt += f"- {jp} MUST be translated as '{en}'\n"
     
     try:
@@ -2471,46 +2606,58 @@ def apply_fix(item_id, new_text, force=False, user="translator"):
                 item = i
                 break
     else:
-        # First try to find in review_items (manual mode)
-        idx = int(item_id) - 1
-        if 0 <= idx < len(review_items):
-            item = review_items[idx]
-        
-        # If not found in review_items, try to find in review_queues (batch scan mode)
-        if not item:
-            # Search all queues for the item by ID
-            for queue_key, queue_data in review_queues.items():
-                # Items from get_items_for_category have sequential IDs
-                # We need to find the item by iterating through the queue
-                current_id = 1
-                for orig_text, instances in queue_data.items():
-                    inst = instances[0]
-                    if current_id == int(item_id):
-                        # Construct item with the same structure as get_items_for_category
-                        try:
-                            _, _, rows = _read_csv(inst["path"])
-                            if inst["row_idx"] < len(rows):
-                                row = rows[inst["row_idx"]]
-                                jp_source = row[2] if len(row) > 2 else orig_text
-                            else:
-                                jp_source = orig_text
-                        except Exception:
-                            jp_source = orig_text
-                        
+        # Entry ids are now stable "file::row" strings (e.g. "170.csv::77"),
+        # not sequential integers. Match by id directly first.
+        for i in review_items:
+            if i["id"] == item_id:
+                item = i
+                break
+
+        # Fallback: a purely-numeric id means a sequential index (legacy/manual mode)
+        if not item and isinstance(item_id, (str, int)) and str(item_id).isdigit():
+            idx = int(item_id) - 1
+            if 0 <= idx < len(review_items):
+                item = review_items[idx]
+
+        # Fallback: "file::row" id not present in review_items — resolve from disk
+        if not item and isinstance(item_id, str) and "::" in item_id:
+            file_part, _, row_part = item_id.partition("::")
+            try:
+                row_idx = int(row_part)
+            except ValueError:
+                row_idx = -1
+            # Find the CSV path that ends with file_part
+            match_path = None
+            for folder in cm.user_settings.get("folders", []) or []:
+                if not os.path.isdir(folder):
+                    continue
+                for root, _d, files in os.walk(folder):
+                    for name in files:
+                        if name == file_part:
+                            match_path = os.path.join(root, name)
+                            break
+                    if match_path:
+                        break
+                if match_path:
+                    break
+            if match_path and row_idx >= 0:
+                try:
+                    _, _, rows = _read_csv_cached(match_path)
+                    if row_idx < len(rows):
+                        row = rows[row_idx]
+                        jp_source = row[CSV_COL_JP] if len(row) > CSV_COL_JP else ""
                         item = {
                             "id": item_id,
-                            "speaker": inst.get("speaker", "Unknown"),
+                            "speaker": row[CSV_COL_SPEAKER].strip() if len(row) > CSV_COL_SPEAKER else "Unknown",
                             "jp": jp_source,
-                            "en": orig_text,
-                            "category": queue_key.upper(),
-                            "path": inst["path"],
-                            "row": inst["row_idx"],
-                            "entry_type": inst.get("entry_type", ""),
+                            "en": row[CSV_COL_EN] if len(row) > CSV_COL_EN else "",
+                            "category": "MANUAL",
+                            "path": match_path,
+                            "row": row_idx,
+                            "entry_type": row[CSV_COL_ENTRY_TYPE].strip() if len(row) > CSV_COL_ENTRY_TYPE else "",
                         }
-                        break
-                    current_id += 1
-                if item:
-                    break
+                except Exception as e:
+                    print(f"[apply_fix] Failed to resolve {item_id} from disk: {e}")
 
     if not item:
         return {"ok": False, "error": f"Item {item_id} not found."}
@@ -2521,11 +2668,13 @@ def apply_fix(item_id, new_text, force=False, user="translator"):
     # Always update the in-memory fix dictionary
     cm.memory[item["jp"]] = new_text
 
-    # Track translation in translation manager
-    from src.translation_manager import generate_entry_id
-    # Generate entry ID from source text (hash-based)
-    entry_id = generate_entry_id(item["jp"])
-    print(f"[apply_fix] Generated entry_id={entry_id} from source text")
+    # Track translation in translation manager.
+    # Use the stable file::row id (item_id) so this entry matches the one
+    # created by pretranslate and the approve step that follows. Using a
+    # source-text hash here would create a separate entry, leaving the
+    # pretranslate entry (keyed by file::row) to be approved instead.
+    entry_id = item_id
+    print(f"[apply_fix] Using entry_id={entry_id} (file::row)")
     print(f"[apply_fix] Tracking translation for item {item_id}")
     print(f"[apply_fix]   path: {item.get('path')}, row: {item.get('row')}")
     print(f"[apply_fix]   TM entries before: {len(translation_manager.entries)}")
@@ -2586,7 +2735,7 @@ def load_csv_for_translation(filepath=None):
         return None
         
     try:
-        _, _, rows = _read_csv(filepath)
+        _, _, rows = _read_csv_cached(filepath)
         global review_items, current_review_idx
         review_items = []
         current_review_idx = 0
@@ -2594,13 +2743,13 @@ def load_csv_for_translation(filepath=None):
         for i, row in enumerate(rows):
             if len(row) < 3: 
                 continue
-            jp_text = row[2]
+            jp_text = row[CSV_COL_JP]
             if not jp_text.strip(): 
                 continue
             
-            en_text  = row[3] if len(row) > 3 else ""
-            speaker  = row[8].strip() if len(row) > 8 and row[8].strip() else "Unknown"
-            category = row[9].strip() if len(row) > 9 and row[9].strip() else "MANUAL"
+            en_text  = row[CSV_COL_EN] if len(row) > CSV_COL_EN else ""
+            speaker  = row[CSV_COL_SPEAKER].strip() if len(row) > CSV_COL_SPEAKER and row[CSV_COL_SPEAKER].strip() else "Unknown"
+            category = row[CSV_COL_ENTRY_TYPE].strip() if len(row) > CSV_COL_ENTRY_TYPE and row[CSV_COL_ENTRY_TYPE].strip() else "MANUAL"
             
             # Load all rows with Japanese text, regardless of translation status
             # This allows users to review and edit completed translations
@@ -2615,6 +2764,8 @@ def load_csv_for_translation(filepath=None):
                 "row": i  # i is the actual row index in the CSV file
             })
         _save_review_items()
+        cm.user_settings["review_items_source"] = "csv_load"
+        cm.save_user_settings()
         return len(review_items)
     except Exception as e:
         return {"error": str(e)}
@@ -2670,6 +2821,11 @@ def start_prefetch(category, items, current_idx, depth=3):
 def fetch_deepl_batch(category, items, start_idx, count=20):
     """Fetch DeepL translations for a batch of entries starting from start_idx.
 
+    Runs the (network-bound) loop in a background thread so it never blocks
+    Eel's main thread — otherwise the preview image (and every other exposed
+    call) would queue behind this synchronous DeepL loop and only render once
+    it finished.
+
     Args:
         category: Category name
         items: List of items
@@ -2677,22 +2833,65 @@ def fetch_deepl_batch(category, items, start_idx, count=20):
         count: Number of entries to fetch (default 20)
     """
     print(f"[fetch_deepl_batch] CALLED with category={category}, start_idx={start_idx}, count={count}")
-    try:
-        from src.api_handler import DeepLClient
-        key = cm.get_key("deepl_api_key")
-        if not key:
-            print(f"[fetch_deepl_batch] No DeepL key configured")
-            return False
 
-        target_lang = cm.config.get("deepl_target_lang", "EN-US")
-        end_idx = min(start_idx + count, len(items))
-        print(f"[fetch_deepl_batch] Fetching DeepL for indices {start_idx}-{end_idx-1}")
+    def _run():
+        try:
+            from src.api_handler import DeepLClient
+            key = cm.get_key("deepl_api_key")
+            if not key:
+                print(f"[fetch_deepl_batch] No DeepL key configured")
+                return
 
-        for i in range(start_idx, end_idx):
-            item = items[i]
-            if item.get('jp'):
+            target_lang = cm.config.get("deepl_target_lang", "EN-US")
+            end_idx = min(start_idx + count, len(items))
+
+            # Build the list of entries that actually need a fetch: skip any
+            # whose prefetch cache already holds a suggestion (keyed by stable
+            # identity) or whose JP text is already in the persistent DeepL
+            # cache. Only these are sent to the network — already-extant
+            # entries are excluded up front rather than looped over and skipped.
+            to_fetch = []
+            already_cached = []
+            for i in range(start_idx, end_idx):
+                item = items[i]
+                if not item.get('jp'):
+                    continue
+                cache_key = _prefetch_mgr._cache_key(category, i, item)
+                existing = _prefetch_mgr._cache.get(cache_key, {})
+                if existing.get('deepl_suggestion'):
+                    # Already in prefetch cache — push it to the UI so the box
+                    # populates even though we skip the network call.
+                    already_cached.append((i, item, existing['deepl_suggestion']))
+                    continue
+                persistent = cm.get_cached("deepl", item['jp'])
+                if persistent:
+                    # In persistent DeepL cache but not prefetch cache — push it
+                    # and also record it in the prefetch cache for next time.
+                    already_cached.append((i, item, persistent))
+                    cached = _prefetch_mgr._cache.get(cache_key, {})
+                    cached['deepl_suggestion'] = persistent
+                    cached['timestamp'] = time.time()
+                    _prefetch_mgr._cache[cache_key] = cached
+                    continue
+                to_fetch.append((i, item, cache_key))
+
+            # Emit callbacks for entries that were already cached so the DeepL box
+            # populates immediately instead of staying on the loading placeholder.
+            for i, item, translation in already_cached:
                 try:
-                    # Check cache first
+                    eel.deepl_suggestion_ready(i, translation, item.get('id'))()
+                except Exception:
+                    pass
+
+            if not to_fetch:
+                print(f"[fetch_deepl_batch] Nothing to fetch for indices {start_idx}-{end_idx-1} (all cached)")
+                _prefetch_mgr._save_cache_to_file()
+                return
+
+            print(f"[fetch_deepl_batch] Fetching DeepL for {len(to_fetch)} uncached entries of {end_idx - start_idx} in range {start_idx}-{end_idx-1}")
+
+            for i, item, cache_key in to_fetch:
+                try:
                     cached_deepl = cm.get_cached("deepl", item['jp'])
                     if cached_deepl:
                         translation = cached_deepl
@@ -2706,20 +2905,28 @@ def fetch_deepl_batch(category, items, start_idx, count=20):
                             translation = None
                             print(f"[fetch_deepl_batch] idx={i}: DeepL error: {res.get('error')}")
                     print(f"[fetch_deepl_batch] idx={i}: {translation[:50] if translation else 'None'}...")
-                    # Update prefetch cache with the result
-                    cache_key = _prefetch_mgr._cache_key(category, i)
+                    # Update prefetch cache with the result (identity key)
                     cached = _prefetch_mgr._cache.get(cache_key, {})
                     cached['deepl_suggestion'] = translation
                     cached['timestamp'] = time.time()
                     _prefetch_mgr._cache[cache_key] = cached
+                    # Notify the frontend immediately so the DeepL box populates
+                    # without waiting for the poll loop (which only runs ~5s).
+                    try:
+                        eel.deepl_suggestion_ready(i, translation, item.get('id'))()
+                    except Exception:
+                        pass
                 except Exception as e:
                     print(f"[fetch_deepl_batch] Error fetching idx={i}: {e}")
 
-        _prefetch_mgr._save_cache_to_file()
-        return True
-    except Exception as e:
-        print(f"[fetch_deepl_batch] Error: {e}")
-        return False
+            _prefetch_mgr._save_cache_to_file()
+            print(f"[fetch_deepl_batch] Done")
+        except Exception as e:
+            print(f"[fetch_deepl_batch] Error: {e}")
+
+    t = threading.Thread(target=_run, daemon=True)
+    t.start()
+    return True
 
 @eel.expose
 def start_prefetch_all(category, items):
@@ -2744,11 +2951,16 @@ def start_prefetch_all(category, items):
         return {"ok": False, "queued": 0, "total": 0}
 
 @eel.expose
-def get_prefetch_cache(category, idx):
-    """Get cached prefetch results for a category and index."""
+def get_prefetch_cache(category, idx, item_id=None):
+    """Get cached prefetch results for a category and index.
+
+    ``item_id`` (the entry's stable identity, e.g. path::row) is used to build a
+    cache key that survives queue switches, so switching back to a previously
+    processed entry hits the cache instead of reprocessing.
+    """
     try:
-        print(f"[get_prefetch_cache] Called with category={category}, idx={idx}")
-        result = _prefetch_mgr.get_cached(category, idx)
+        print(f"[get_prefetch_cache] Called with category={category}, idx={idx}, item_id={item_id}")
+        result = _prefetch_mgr.get_cached(category, idx, item_id)
         print(f"[get_prefetch_cache] Result: {result is not None}, keys={list(result.keys()) if result else 'None'}")
         return result
     except Exception as e:
@@ -2756,10 +2968,10 @@ def get_prefetch_cache(category, idx):
         return None
 
 @eel.expose
-def update_prefetch_cache(category, idx, data):
+def update_prefetch_cache(category, idx, data, item_id=None):
     """Update the prefetch cache for a specific category and index."""
     try:
-        _prefetch_mgr.update_cache(category, idx, data)
+        _prefetch_mgr.update_cache(category, idx, data, item_id)
         return True
     except Exception as e:
         print(f"[update_prefetch_cache] Error: {e}")
@@ -2773,6 +2985,22 @@ def clear_prefetch_cache():
         return True
     except Exception as e:
         print(f"[clear_prefetch_cache] Error: {e}")
+        return False
+
+@eel.expose
+def stop_prefetch():
+    """Stop the background prefetch worker and drain its queue.
+
+    Called when the user leaves the editor (e.g. switches to the dashboard or
+    runs a dashboard action) so an in-progress precache run doesn't keep
+    churning CPU in the background.
+    """
+    try:
+        _prefetch_mgr.stop()
+        print("[stop_prefetch] Prefetch worker stopped")
+        return True
+    except Exception as e:
+        print(f"[stop_prefetch] Error: {e}")
         return False
 
 @eel.expose
@@ -2835,7 +3063,7 @@ def get_translation_status(entry_id, path=None, row=None):
         # 2. Fall back to the CSV contents.
         if path and row is not None:
             try:
-                _, _, rows = _read_csv(path)
+                _, _, rows = _read_csv_cached(path)
                 ri = int(row)
                 if 0 <= ri < len(rows):
                     en = rows[ri][3] if len(rows[ri]) > 3 else ""
@@ -2888,10 +3116,10 @@ def vote_translation(entry_id, user, vote):
 def save_translation_history(entry_id, jp_text, en_text, speaker=None, entry_type=None, translator=None, file_path=None, row_index=None):
     """Save translation history without writing to CSV (for Save button)."""
     try:
-        from src.translation_manager import generate_entry_id
-        # Generate entry ID from source text (hash-based)
-        entry_id = generate_entry_id(jp_text)
-        print(f"[save_translation_history] Generated entry_id={entry_id} from source text, translator={translator}, file_path={file_path}")
+        # Use the passed entry_id (file::row) so it matches the pretranslate /
+        # apply_fix entry and the approve step. Do NOT regenerate a source-text
+        # hash here, or the history/approve would key to a different entry.
+        print(f"[save_translation_history] Using entry_id={entry_id} (file::row), translator={translator}, file_path={file_path}")
         # Track in translation manager (saves history)
         print(f"[save_translation_history] Calling submit_translation with translator={translator or user}")
         translation_manager.submit_translation(
@@ -2976,9 +3204,16 @@ def get_unapproved_entries_with_comments():
 
 @eel.expose
 def get_pretranslated_unapproved_entries():
-    """Get all pre-translated unapproved entries with comment count."""
+    """Get pre-translated unapproved entries with comment count.
+
+    Scoped to the entries currently loaded in the editor queue (review_items),
+    so re-running pre-translate over a small trigger match doesn't surface every
+    pre-translated entry from earlier runs across all files.
+    """
     try:
-        entries = translation_manager.get_pretranslated_unapproved_entries()
+        queued_ids = {it.get("id") for it in review_items if it.get("id")}
+        all_entries = translation_manager.get_pretranslated_unapproved_entries()
+        entries = [e for e in all_entries if e.get("entry", {}).get("id") in queued_ids]
         return {"ok": True, "entries": entries, "count": len(entries)}
     except Exception as e:
         return {"ok": False, "error": str(e)}
@@ -3105,11 +3340,28 @@ def get_sync_status():
 
 @eel.expose
 def clear_queue():
-    """Clear the current review queue."""
-    global review_items
+    """Clear the current review queue AND all batch-derived queues."""
+    global review_items, review_queues
     review_items = []
     _save_review_items()
+    for q in review_queues.values():
+        q.clear()
+    _save_review_queues()
     return True
+
+@eel.expose
+def clear_pretranslate_cache():
+    """Clear the persistent OpenRouter/DeepL translation cache used by
+    pre-translate (stored in config/<lang>/cache.json under 'openrouter' and
+    'deepl' keys). Returns the number of entries removed."""
+    removed = 0
+    for service in ("openrouter", "deepl"):
+        if service in cm.cache and isinstance(cm.cache[service], dict):
+            removed += len(cm.cache[service])
+            cm.cache[service] = {}
+    cm.save_cache()
+    print(f"[clear_pretranslate_cache] Cleared {removed} cached translation entries")
+    return {"ok": True, "removed": removed}
 
 @eel.expose
 def bulk_inject(items):
@@ -3120,37 +3372,44 @@ def bulk_inject(items):
         item["id"] = generate_entry_id(item.get('jp', ''))
         review_items.insert(current_review_idx, item)
     _save_review_items()
+    cm.user_settings["review_items_source"] = "search"
+    cm.save_user_settings()
     return True
 
 @eel.expose
 def perform_search(query, field_col=None):
     if not query:
         return []
-    query_lc  = query.lower()
+    # Normalize path separators so a query typed with '/' (or '\') matches data
+    # stored with the opposite separator. CSV paths use backslashes
+    # (e.g. "ui\00_message\quest\q60200015.gmd"), but users often type or paste
+    # forward slashes — without this, an existing entry key returns 0 results.
+    query_norm = query.replace('/', '\\')
+    query_lc   = query_norm.lower()
     csv_files = _get_csv_files(cm.user_settings.get("folders", []) if hasattr(cm, 'user_settings') else [])
     results   = []
     for f_path in csv_files:
         try:
-            _, _, rows = _read_csv(f_path)
+            _, _, rows = _read_csv_cached(f_path)
             for i, row in enumerate(rows):
                 if i == 0: continue
                 if field_col is None:
-                    hits = [(ci, row[ci]) for ci in range(len(row)) if query_lc in row[ci].lower()]
+                    hits = [(ci, row[ci]) for ci in range(len(row)) if query_lc in row[ci].replace('/', '\\').lower()]
                 else:
                     col  = int(field_col)
-                    hits = [(col, row[col])] if col < len(row) and query_lc in row[col].lower() else []
+                    hits = [(col, row[col])] if col < len(row) and query_lc in row[col].replace('/', '\\').lower() else []
                 if hits:
                     mc, mv = hits[0]
-                    speaker = row[8].strip() if len(row) > 8 and row[8].strip() else "Unknown"
-                    category = row[9].strip() if len(row) > 9 and row[9].strip() else ""
+                    speaker = row[CSV_COL_SPEAKER].strip() if len(row) > CSV_COL_SPEAKER and row[CSV_COL_SPEAKER].strip() else "Unknown"
+                    category = row[CSV_COL_ENTRY_TYPE].strip() if len(row) > CSV_COL_ENTRY_TYPE and row[CSV_COL_ENTRY_TYPE].strip() else ""
                     results.append({
                         "file":  os.path.basename(f_path),
                         "path":  f_path,
                         "row":   i,  # i is already the actual row index in the CSV file
                         "col":   mc,
                         "match": mv[:200],
-                        "en":    (row[3] if len(row) > 3 else "")[:200],
-                        "jp":    (row[2] if len(row) > 2 else "")[:200],
+                        "en":    (row[CSV_COL_EN] if len(row) > CSV_COL_EN else "")[:200],
+                        "jp":    (row[CSV_COL_JP] if len(row) > CSV_COL_JP else "")[:200],
                         "speaker": speaker,
                         "category": category,
                         "entry_type": category,  # Use category as entry_type for search results
@@ -3504,57 +3763,88 @@ def tm_test_auto_substitution():
 
 @eel.expose
 def tm_find_matches(jp_text: str, threshold: float = 0.5, max_results: int = 10):
-    """Find TM matches for given JP text."""
+    """Find TM matches for given JP text.
+
+    Returns immediately. The (expensive — ~30s over 55k entries) fuzzy search
+    runs in a background thread so it never blocks Eel's main thread; results
+    are pushed to the frontend via ``eel.tm_matches_ready()`` once computed.
+    This keeps the preview image (and every other exposed call) responsive
+    instead of queuing behind the synchronous TM scan.
+    """
     import time
     start_time = time.time()
-    
+
     # Normalize jp_text for cache key
     normalized_text = re.sub(r'\s+', ' ', jp_text.strip())
     cache_key = f"{normalized_text}:{threshold}:{max_results}"
-    
-    # Check cache first
+
+    # Check cache first (synchronous, fast)
     with _tm_cache_lock:
         if cache_key in _tm_result_cache:
             cached_matches, cache_time = _tm_result_cache[cache_key]
-            # Check if cache is still valid
             if time.time() - cache_time < _tm_cache_ttl:
                 elapsed = (time.time() - start_time) * 1000
                 print(f"[TM] Cache hit for '{jp_text[:30]}...', elapsed={elapsed:.2f}ms")
-                return {
+                result = {
                     "ok": True,
                     "matches": cached_matches[:max_results],
                     "total_found": len(cached_matches),
                     "cached": True
                 }
-    
+                # Still notify the frontend so the panel populates (it awaits
+                # this call, which now returns instantly).
+                try:
+                    eel.tm_matches_ready(result)()
+                except Exception:
+                    pass
+                return result
+
     tm, matcher, substitutor = _get_tm_components()
-    
+
     if not tm.entries:
         elapsed = (time.time() - start_time) * 1000
         print(f"[TM] No entries available, elapsed={elapsed:.2f}ms")
-        return {"ok": True, "matches": [], "message": "No TM entries available"}
-    
-    matches = matcher.find_matches(jp_text, tm.entries, threshold)
-    
-    # Apply auto-substitution to matches
-    for match in matches[:max_results]:
-        substituted = substitutor.apply_auto_substitution(jp_text, match["entry"])
-        match["substituted_translation"] = substituted
-        debug_log("TM", f"Match: query='{jp_text}' vs tm_source='{match['entry'].get('source', 'N/A')}', score={match['score']:.2f}")
-    
-    elapsed = (time.time() - start_time) * 1000
-    print(f"[TM] Found {len(matches)} matches, elapsed={elapsed:.2f}ms")
-    
-    # Cache the result
-    with _tm_cache_lock:
-        _tm_result_cache[cache_key] = (matches[:max_results], time.time())
-    
-    return {
-        "ok": True,
-        "matches": matches[:max_results],
-        "total_found": len(matches),
-        "cached": False
-    }
+        result = {"ok": True, "matches": [], "message": "No TM entries available"}
+        try:
+            eel.tm_matches_ready(result)()
+        except Exception:
+            pass
+        return result
+
+    # Run the heavy fuzzy search off the main thread.
+    def _run_search():
+        try:
+            matches = matcher.find_matches(jp_text, tm.entries, threshold)
+            for match in matches[:max_results]:
+                substituted = substitutor.apply_auto_substitution(jp_text, match["entry"])
+                match["substituted_translation"] = substituted
+                debug_log("TM", f"Match: query='{jp_text}' vs tm_source='{match['entry'].get('source', 'N/A')}', score={match['score']:.2f}")
+            elapsed = (time.time() - start_time) * 1000
+            print(f"[TM] Found {len(matches)} matches, elapsed={elapsed:.2f}ms")
+            with _tm_cache_lock:
+                _tm_result_cache[cache_key] = (matches[:max_results], time.time())
+            result = {
+                "ok": True,
+                "matches": matches[:max_results],
+                "total_found": len(matches),
+                "cached": False
+            }
+            try:
+                eel.tm_matches_ready(result)()
+            except Exception:
+                pass
+        except Exception as e:
+            print(f"[TM] Search error: {e}")
+            try:
+                eel.tm_matches_ready({"ok": False, "message": str(e), "matches": []})()
+            except Exception:
+                pass
+
+    t = threading.Thread(target=_run_search, daemon=True)
+    t.start()
+
+    # Return immediately so the caller (and the preview) isn't blocked.
+    return {"ok": True, "matches": [], "pending": True}
 
 @eel.expose
 def tm_track_usage(entry_id: str):
@@ -3661,21 +3951,27 @@ def tm_pretranslate_batch(items: list, threshold: float = 0.9, min_quality: str 
     }
 
 @eel.expose
-def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: str = None):
+def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_quality: str = None, skip_pretranslated: bool = True):
     """
-    Pre-translate batch using TM, OpenRouter, and DeepL fallback.
-    
+    Worker: pre-translate batch using TM, OpenRouter, and DeepL fallback.
+
     Order of operations:
     1. Translation Memory (high-confidence matches)
     2. OpenRouter AI (if key configured and enabled)
     3. DeepL (fallback if no OpenRouter key or disabled)
-    
+
     All pre-translated entries are marked as 'pre-translated' (not 'approved').
-    
+
+    Runs in a background thread so progress callbacks can stream to the frontend
+    while the (slow) API calls execute. See ``pretranslate_batch`` for the
+    thread-spawning wrapper.
+
     Args:
         items: List of dicts with keys: id, jp, file_path, row_idx, speaker, entry_type
         tm_threshold: TM match threshold (uses config if not provided)
         tm_min_quality: Minimum TM quality to use (uses config if not provided)
+        skip_pretranslated: If True, skip items whose entry is already in
+            'pre-translated' status (re-run only new/unprocessed entries).
     """
     from src.translation_memory import TranslationMemory, FuzzyMatcher, AutoSubstitutor
     
@@ -3726,7 +4022,14 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
         item_id = item.get("id")
         jp_text = item.get("jp", "")
         file_path = item.get("file_path", "")
-        
+
+        # Skip entries already in 'pre-translated' status when requested.
+        if skip_pretranslated and translation_manager.entries.get(item_id) and \
+                translation_manager.entries[item_id].status == "pre-translated":
+            print(f"[pretranslate_batch] Skipping already-pretranslated item {item_id}")
+            results.append({"item_id": item_id, "success": True, "skipped": True, "reason": "already pre-translated"})
+            continue
+
         # Emit progress to the frontend (best-effort; ignore if not listening)
         try:
             eel.updatePretranslateProgress(idx + 1, total_items, f"Processing item {item_id}…")()
@@ -3751,7 +4054,9 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
         source = None
         
         # Step 1: Try Translation Memory (100% matches or element-only differences)
-        matches = matcher.find_matches(jp_text, tm.entries, tm_threshold)
+        # Pass the exact-match index so entries with a perfect TM hit resolve in
+        # O(1) instead of scanning all 55k entries (≈29s each) via fuzzy search.
+        matches = matcher.find_matches(jp_text, tm.entries, tm_threshold, tm._exact_match_index)
         print(f"[pretranslate_batch] Item {item_id}: TM found {len(matches)} matches")
         
         best_match = None
@@ -3822,13 +4127,19 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
                         "- For unknown proper nouns, keep the established romanisation.\n\n"
 
                         "STYLE — THE DRAGON'S DOGMA HOUSE STYLE:\n"
-                        "Natural English grammar with archaic vocabulary woven in. "
-                        "Standard contractions (don't, can't, won't, it's, let's, we're) are used freely. "
-                        "What is avoided is modern slang: never use 'gonna', 'gotta', 'kinda', 'sorta', 'okay', 'awesome', 'yeah'.\n"
-                        "Favour archaic vocabulary where it fits naturally: "
-                        "'tis / 'twas, naught / aught, afore, ere, nigh, mayhap, o'er, e'er, nary, anon, forsooth, hath, dost. "
-                        "'Tis is especially characteristic — use it freely for observations ('Tis a formidable foe.').\n"
-                        "Characters often speak with heightened gravity — preserve that register rather than flattening it.\n\n"
+                        "The DEFAULT register is LIGHT archaic English: natural grammar with archaic vocabulary woven in. Standard contractions "
+                        "(don't, can't, won't, it's, let's, we're) are used freely. Avoid modern slang ('gonna', 'gotta', 'kinda', 'sorta', 'okay', "
+                        "'awesome', 'yeah'). Favour archaic vocabulary where it fits naturally: 'tis / 'twas, naught / aught, afore, ere, nigh, "
+                        "mayhap, o'er, e'er, nary, anon, forsooth. 'Tis is especially characteristic — use it freely for observations "
+                        "('Tis a formidable foe.'). Characters often speak with heightened gravity — preserve that register rather than flattening it.\n\n"
+
+                        "REGISTER GUARDRAILS:\n"
+                        "- Do NOT use DEEPLY archaic forms: 'thou', 'thee', 'thy', 'thine', or -est verb endings (thinkest, dost, hath, art, etc.). "
+                        "These read as wrong in normal DDON text and are NOT part of the default house style. Only use them if the speaker's "
+                        "archetype note EXPLICITLY requests that level of archaic address.\n"
+                        "- The default is LIGHT archaic (above), NOT plain modern and NOT deeply archaic. Do not flatten the style into ordinary "
+                        "contemporary English, and do not push it into thou/thee territory on your own — stay in the light-archaic middle unless "
+                        "the archetype note says otherwise.\n\n"
 
                         "EXAMPLES (from the actual game):\n"
                         "❌ \"Watch out, the monster is almost here!\"\n"
@@ -3849,7 +4160,11 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
                         # Get the archetype key assigned to this speaker
                         archetype_key = cm.user_settings.get("speaker_archetypes", {}).get(speaker, "")
                         if archetype_key:
-                            archetypes = cm.config.get("archetypes", {})
+                            # Use cm.archetypes (loaded from archetypes.json) — NOT
+                            # cm.config["archetypes"], which is only seeded from
+                            # lore_engine defaults and is empty when the json holds
+                            # the real data. Same fix as get_archetype_notes.
+                            archetypes = cm.archetypes.get("archetypes", {})
                             if archetype_key in archetypes:
                                 arch_data = archetypes[archetype_key]
                                 sys_prompt += f"\n\nCHARACTER ARCHETYPE FOR {speaker}:\n{arch_data.get('notes', '')}"
@@ -3858,16 +4173,36 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
                     # Add lore glossary terms from current JP text
                     le = _get_lore_engine()
                     if le:
-                        # Get relevant lore terms from Japanese text
-                        relevant_terms = le.scan_text(jp_text)
+                        # Get relevant lore terms, tagged by vocabulary source so
+                        # DD1-vocab (higher priority) and other_vocab (lower) are
+                        # distinguished in the prompt.
+                        relevant_terms = le.scan_text_with_source(jp_text)
                         if relevant_terms:
+                            dd1_terms = [(jp, en) for jp, en, src in relevant_terms if src == "dd1"]
+                            other_terms = [(jp, en) for jp, en, src in relevant_terms if src == "other"]
+                            lore_terms = [(jp, en) for jp, en, src in relevant_terms if src == "lore"]
                             sys_prompt += "\n\nGLOSSARY — use these renderings unless the surrounding context makes a different reading clearly more accurate:\n"
-                            for jp, en in relevant_terms:
-                                sys_prompt += f"- {jp} → {en}\n"
-                            print(f"[pretranslate_batch] Item {item_id}: Added {len(relevant_terms)} glossary terms")
+                            if dd1_terms:
+                                sys_prompt += "\nDD1 VOCABULARY (preferred — use these when appropriate):\n"
+                                for jp, en in dd1_terms:
+                                    sys_prompt += f"- {jp} → {en}\n"
+                            if other_terms:
+                                sys_prompt += "\nOTHER VOCABULARY (lower priority — only if it fits naturally):\n"
+                                for jp, en in other_terms:
+                                    sys_prompt += f"- {jp} → {en}\n"
+                            if lore_terms:
+                                sys_prompt += "\nLORE TERMS:\n"
+                                for jp, en in lore_terms:
+                                    sys_prompt += f"- {jp} → {en}\n"
+                            print(f"[pretranslate_batch] Item {item_id}: Added {len(relevant_terms)} glossary terms (dd1={len(dd1_terms)}, other={len(other_terms)}, lore={len(lore_terms)})")
                     
                     cache_key = f"{openrouter_model}::{jp_text}"
-                    cached = cm.get_cached("openrouter", cache_key)
+                    # When skip_pretranslated is False the user explicitly wants a
+                    # fresh translation, so bypass the persistent cache (which only
+                    # stores one translation per source) and let the API produce a
+                    # new one — that becomes a new history entry instead of
+                    # re-surfacing the same cached string.
+                    cached = None if not skip_pretranslated else cm.get_cached("openrouter", cache_key)
                     if cached:
                         translation = cached
                         source = "openrouter_cached"
@@ -3879,20 +4214,31 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
                         translation = None
                         source = None
                         
-                        # Rate limiting: wait if needed
+                        # Rate limiting: wait if needed (cancel-aware, in small steps)
                         current_time = time.time()
                         time_since_openrouter = current_time - last_openrouter_call
                         if time_since_openrouter < OPENROUTER_RATE_LIMIT:
                             sleep_time = OPENROUTER_RATE_LIMIT - time_since_openrouter
                             print(f"[pretranslate_batch] Rate limiting OpenRouter: waiting {sleep_time:.1f}s")
-                            time.sleep(sleep_time)
-                        
+                            while sleep_time > 0 and not _pretranslate_cancel:
+                                time.sleep(min(0.25, sleep_time))
+                                sleep_time -= 0.25
+                        if _pretranslate_cancel:
+                            print(f"[pretranslate_batch] Cancellation requested during OpenRouter wait — stopping at {idx}/{total_items}")
+                            break
+
                         print(f"[pretranslate_batch] Item {item_id}: Calling OpenRouter API with model {openrouter_model}")
                         last_openrouter_call = time.time()
-                        res = OpenRouterClient(openrouter_key).chat(
-                            [{"role": "system", "content": sys_prompt}, {"role": "user", "content": f"Translate this to English: {jp_text}"}],
-                            model=openrouter_model
+                        user_msg = f"Translate this to English.\nSpeaker: {speaker or 'Unknown'}\nEntry type: {entry_type or 'unspecified'}\n\nSource text:\n{jp_text}"
+                        res = _cancelable_api_call(
+                            lambda: OpenRouterClient(openrouter_key).chat(
+                                [{"role": "system", "content": sys_prompt}, {"role": "user", "content": user_msg}],
+                                model=openrouter_model
+                            )
                         )
+                        if res.get("error") == "Cancelled" or res.get("error", "").startswith("Cancelled"):
+                            print(f"[pretranslate_batch] Cancellation requested during OpenRouter call — stopping at {idx}/{total_items}")
+                            break
                         if "text" in res:
                             translation = res["text"]
                             cm.set_cached("openrouter", cache_key, translation)
@@ -3920,17 +4266,24 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
                 source = f"{cached_source}_batch_cached"
                 print(f"[pretranslate_batch] Item {item_id}: Using batch-cached translation from {cached_source}")
             else:
-                # Rate limiting: wait if needed
+                # Rate limiting: wait if needed (cancel-aware, in small steps)
                 current_time = time.time()
                 time_since_deepl = current_time - last_deepl_call
                 if time_since_deepl < DEEPL_RATE_LIMIT:
                     sleep_time = DEEPL_RATE_LIMIT - time_since_deepl
                     print(f"[pretranslate_batch] Rate limiting DeepL: waiting {sleep_time:.1f}s")
-                    time.sleep(sleep_time)
-                
+                    while sleep_time > 0 and not _pretranslate_cancel:
+                        time.sleep(min(0.25, sleep_time))
+                        sleep_time -= 0.25
+                if _pretranslate_cancel:
+                    print(f"[pretranslate_batch] Cancellation requested during DeepL wait — stopping at {idx}/{total_items}")
+                    break
+
                 print(f"[pretranslate_batch] Item {item_id}: Trying DeepL fallback")
                 try:
-                    cached = cm.get_cached("deepl", jp_text)
+                    # Bypass persistent cache when a fresh translation is requested
+                    # (skip_pretranslated False) so a new history entry is created.
+                    cached = None if not skip_pretranslated else cm.get_cached("deepl", jp_text)
                     if cached:
                         translation = cached
                         source = "deepl_cached"
@@ -3940,7 +4293,12 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
                     else:
                         print(f"[pretranslate_batch] Item {item_id}: Calling DeepL API with target lang {deepl_target_lang}")
                         last_deepl_call = time.time()
-                        res = DeepLClient(deepl_key).translate(jp_text, target_lang=deepl_target_lang)
+                        res = _cancelable_api_call(
+                            lambda: DeepLClient(deepl_key).translate(jp_text, target_lang=deepl_target_lang)
+                        )
+                        if res.get("error") == "Cancelled" or res.get("error", "").startswith("Cancelled"):
+                            print(f"[pretranslate_batch] Cancellation requested during DeepL call — stopping at {idx}/{total_items}")
+                            break
                         if "text" in res:
                             translation = res["text"]
                             cm.set_cached("deepl", jp_text, translation)
@@ -3972,7 +4330,8 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
                     row_index=row_idx,
                     speaker=speaker,
                     entry_type=entry_type,
-                    status="pre-translated"
+                    status="pre-translated",
+                    source=source
                 )
                 
                 if source.startswith("tm"):
@@ -4020,14 +4379,38 @@ def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: 
         "results": results
     }
 
+
 @eel.expose
-def pretranslate_by_keys(tm_threshold: float = None, tm_min_quality: str = None):
+def pretranslate_batch(items: list, tm_threshold: float = None, tm_min_quality: str = None, skip_pretranslated: bool = True):
+    """
+    Threaded wrapper around ``_pretranslate_batch_run``.
+
+    Eel processes each exposed call on a single message thread. If we ran the
+    (slow, API-calling) pipeline inline, that thread would be blocked and could
+    not stream ``updatePretranslateProgress`` callbacks back to the frontend —
+    the progress window would freeze at 0/0. So we spawn a background thread and
+    return immediately, letting the worker emit progress as it goes.
+    """
+    global _pretranslate_cancel
+    _pretranslate_cancel = False
+    threading.Thread(
+        target=_pretranslate_batch_run,
+        args=(items, tm_threshold, tm_min_quality, skip_pretranslated),
+        daemon=True,
+    ).start()
+    return {"ok": True, "started": True, "total": len(items) if items else 0}
+
+
+@eel.expose
+def pretranslate_by_keys(tm_threshold: float = None, tm_min_quality: str = None, skip_pretranslated: bool = True):
     """
     Pre-translate by scanning WATCHED_FOLDERS and filtering CSV rows by the
     ENTRY_KEYS (triggers) the user entered — exactly like the batch scan.
 
     Only untranslated rows (empty column 3) that match a trigger are processed.
     Delegates the actual TM → OpenRouter → DeepL work to ``pretranslate_batch``.
+    If ``skip_pretranslated`` is True, rows whose entry is already in
+    'pre-translated' status are excluded.
     """
     folders = cm.user_settings.get("folders", []) or []
     triggers = cm.user_settings.get("triggers", []) or []
@@ -4051,7 +4434,7 @@ def pretranslate_by_keys(tm_threshold: float = None, tm_min_quality: str = None)
                     continue
                 f_path = os.path.join(root, name)
                 try:
-                    _raw, _dialect, rows = _read_csv(f_path)
+                    _raw, _dialect, rows = _read_csv_cached(f_path)
                 except Exception as e:
                     print(f"[pretranslate_by_keys] Failed to read {f_path}: {e}")
                     continue
@@ -4059,12 +4442,17 @@ def pretranslate_by_keys(tm_threshold: float = None, tm_min_quality: str = None)
                     if len(row) <= 3:
                         continue
                     # Trigger filter (same logic as batch scan)
-                    if not any(tr in "|".join(row) for tr in triggers):
+                    if not row_matches_triggers(row, triggers):
                         continue
-                    jp_text = row[2] if len(row) > 2 else ""
-                    en_text = row[3] if len(row) > 3 else ""
-                    if not jp_text or (en_text and en_text.strip()):
-                        continue  # already translated or no source
+                    jp_text = row[CSV_COL_JP] if len(row) > CSV_COL_JP else ""
+                    en_text = row[CSV_COL_EN] if len(row) > CSV_COL_EN else ""
+                    if not jp_text:
+                        continue  # no source text
+                    # When skip_pretranslated is True, skip rows that already have
+                    # an English translation. When False, re-process them anyway so
+                    # the AI/DeepL can produce a fresh translation.
+                    if skip_pretranslated and en_text and en_text.strip():
+                        continue  # already translated and skipping requested
                     # Build a stable id from file + row so re-runs don't duplicate
                     item_id = f"{os.path.relpath(f_path, folder)}::{r_idx}"
                     if item_id in seen:
@@ -4075,17 +4463,21 @@ def pretranslate_by_keys(tm_threshold: float = None, tm_min_quality: str = None)
                         "jp": jp_text,
                         "file_path": f_path,
                         "row_idx": r_idx,
-                        "speaker": row[8].strip() if len(row) > 8 else "",
-                        "entry_type": row[9].strip() if len(row) > 9 else "",
+                        "speaker": row[CSV_COL_SPEAKER].strip() if len(row) > CSV_COL_SPEAKER else "",
+                        "entry_type": row[CSV_COL_ENTRY_TYPE].strip() if len(row) > CSV_COL_ENTRY_TYPE else "",
                     })
 
     print(f"[pretranslate_by_keys] Found {len(items)} untranslated trigger-matched rows")
 
     # Queue the matched items into the editor's review queue (like batch scan /
     # load_csv_for_translation does) so the pre-translated entries show up there.
-    global review_items, current_review_idx
+    global review_items, current_review_idx, review_queues
     review_items = []
     current_review_idx = 0
+    # Clear stale batch-derived queues so old scan results don't linger
+    for q in review_queues.values():
+        q.clear()
+    _save_review_queues()
     for it in items:
         f_path = it["file_path"]
         r_idx = it["row_idx"]
@@ -4100,12 +4492,21 @@ def pretranslate_by_keys(tm_threshold: float = None, tm_min_quality: str = None)
             "row": r_idx,
         })
     _save_review_items()
+    cm.user_settings["review_items_source"] = "pretranslate"
+    cm.save_user_settings()
     print(f"[pretranslate_by_keys] Queued {len(review_items)} items into the editor review queue")
 
     if not items:
+        # No items matched — emit the completion progress so the frontend's
+        # waitForPretranslateDone() resolver fires (otherwise it hangs forever,
+        # and cancel can't help because no worker thread was started).
+        try:
+            eel.updatePretranslateProgress(0, 0, "Pre-translation complete")()
+        except Exception:
+            pass
         return {"ok": True, "total": 0, "processed": 0, "tm_applied": 0, "ai_applied": 0, "deepl_applied": 0, "results": []}
 
-    return pretranslate_batch(items, tm_threshold=tm_threshold, tm_min_quality=tm_min_quality)
+    return pretranslate_batch(items, tm_threshold=tm_threshold, tm_min_quality=tm_min_quality, skip_pretranslated=skip_pretranslated)
 
 
 @eel.expose

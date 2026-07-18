@@ -128,6 +128,7 @@ class TranslationLogEntry:
     old_value: Optional[str] = None
     new_value: Optional[str] = None
     comment: Optional[str] = None
+    source: Optional[str] = None  # Translation source: 'tm', 'openrouter', 'deepl', etc.
     comments: List['Comment'] = field(default_factory=list)  # Comments attached to this history entry
     
     def to_dict(self) -> Dict:
@@ -176,6 +177,10 @@ class TranslationManager:
         self._ensure_data_dir()
         self._load_data()
     
+    def set_config_manager(self, cm):
+        """Set the ConfigManager used for Translation Memory access."""
+        self.cm = cm
+
     def _ensure_data_dir(self):
         """Create data directory if it doesn't exist."""
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -341,10 +346,14 @@ class TranslationManager:
         return {k: v for k, v in self.entries.items() if v.file_path == file_path}
     
     def _get_logs_by_file(self, file_path: str) -> List[TranslationLogEntry]:
-        """Get all logs for entries belonging to a specific file."""
+        """Get all logs for entries belonging to a specific file.
+
+        Log ids are ``{entry_id}_{timestamp}``, so a log belongs to a file if its
+        id starts with one of that file's entry ids.
+        """
         file_entries = self._get_entries_by_file(file_path)
         file_entry_ids = set(file_entries.keys())
-        return [log for log in self.logs if log.id in file_entry_ids]
+        return [log for log in self.logs if any(log.id.startswith(eid) for eid in file_entry_ids)]
     
     def _save_file_data(self, file_path: str):
         """Save all data for a specific file using MessagePack."""
@@ -413,7 +422,8 @@ class TranslationManager:
                           row_index: Optional[int] = None,
                           speaker: Optional[str] = None,
                           entry_type: Optional[str] = None,
-                          status: str = "translated") -> TranslationEntry:
+                          status: str = "translated",
+                          source: Optional[str] = None) -> TranslationEntry:
         """Submit a new translation."""
         debug_log("submit_translation", f"Called with entry_id={entry_id}, status={status}")
         if not validate_entry_id(entry_id):
@@ -444,7 +454,8 @@ class TranslationManager:
             action="translate",
             user=sanitize_text(translator),
             old_value=old_value,
-            new_value=sanitize_text(translated_text)
+            new_value=sanitize_text(translated_text),
+            source=source
         ))
         self._mark_dirty(file_path)
         self._save_file_data(file_path)
