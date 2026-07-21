@@ -23,7 +23,7 @@ from dataclasses import dataclass, field
 from typing import Callable, Dict, List
 
 from src.lore_engine import LoreEngine
-from src.file_utils import _read_csv
+from src.file_utils import _read_csv, CSV_COL_JP, CSV_COL_EN, CSV_COL_SPEAKER, CSV_COL_ENTRY_TYPE
 
 
 # ---------------------------------------------------------------------------
@@ -137,6 +137,14 @@ def run_batch(
 
     _DASH_RE = re.compile(r"[-–—―]{2,}")
 
+    # Lazy import: _read_csv_cached lives in main.py (coupled to its write-tracking
+    # cache state). Importing at module top would be circular, so grab it now that
+    # main is fully loaded. Fall back to plain _read_csv if unavailable.
+    try:
+        from main import _read_csv_cached as _read_csv_cached_fn
+    except Exception:
+        _read_csv_cached_fn = _read_csv
+
     # Collect all CSV files from every watched folder
     all_files = []
     for folder in settings.folders:
@@ -210,7 +218,7 @@ def run_batch(
         output_rows = []
 
         try:
-            _raw, dialect, current_file_data = _read_csv(f_path)
+            _raw, dialect, current_file_data = _read_csv_cached_fn(f_path)
 
             for r_idx, row in enumerate(current_file_data):
 
@@ -219,19 +227,19 @@ def run_batch(
                     output_rows.append(row)
                     continue
 
-                # 2. Trigger filter
-                if settings.triggers and not any(tr in "|".join(row) for tr in settings.triggers):
+                # 2. Trigger filter (shared helper normalizes '/' vs '\')
+                if settings.triggers and not row_matches_triggers(row, settings.triggers):
                     output_rows.append(row)
                     continue
 
-                orig_text     = row[3]
+                orig_text     = row[CSV_COL_EN]
                 proposed_text = orig_text
                 needs_review  = False
                 queue_type    = None
                 wall_wrapped_text = ""
 
-                entry_type = row[9].strip() if len(row) > 9 else ""
-                speaker    = row[8].strip() if len(row) > 8 else ""
+                entry_type = row[CSV_COL_ENTRY_TYPE].strip() if len(row) > CSV_COL_ENTRY_TYPE else ""
+                speaker    = row[CSV_COL_SPEAKER].strip() if len(row) > CSV_COL_SPEAKER else ""
                 et_rules   = entry_type_rules.get(entry_type, {})
                 no_linebreak    = et_rules.get("no_linebreak", False)
                 effective_limit = et_rules.get("char_limit") or settings.limit
@@ -264,7 +272,7 @@ def run_batch(
 
                 # 4. Auto-processing branch
                 else:
-                    jp_source = row[2] if len(row) > 2 else ""
+                    jp_source = row[CSV_COL_JP] if len(row) > CSV_COL_JP else ""
                     clean_txt  = strip_known_tags(orig_text)
                     is_complex = "<" in clean_txt
 
@@ -309,7 +317,7 @@ def run_batch(
                         needs_review      = True
                         queue_type        = "linelimit"
                         wall_wrapped_text = wrapped
-                    elif wrapped != row[3]:
+                    elif wrapped != row[CSV_COL_EN]:
                         proposed_text = wrapped
 
                 # 5. Apply
@@ -325,8 +333,8 @@ def run_batch(
                             "wrapped": wall_wrapped_text, "entry_type": entry_type, "speaker": speaker,
                         })
                 else:
-                    if row[3] != proposed_text:
-                        row[3]      = proposed_text
+                    if row[CSV_COL_EN] != proposed_text:
+                        row[CSV_COL_EN] = proposed_text
                         file_modded = True
 
                 output_rows.append(row)

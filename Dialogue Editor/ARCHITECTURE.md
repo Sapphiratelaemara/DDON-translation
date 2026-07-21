@@ -89,7 +89,7 @@ Dialogue Editor/
 │   └── check_keys.py      # Utility script for testing API keys
 ├── config/                # Per-language configuration directory
 │   ├── en/                # English language configuration
-│   │   ├── formatter_config.json   # Main configuration - non-split keys only (triggers, styles, wall_preset, sync_language, pretranslate_settings, config_dir, deepl_target_lang, archetypes, entry_type_rules, replace_rules, ai_system_prompt, ai_button_prompts, substitution_rules)
+│   │   ├── formatter_config.json   # Main configuration - non-split keys only (triggers, styles, wall_preset, sync_language, pretranslate_settings, config_dir, deepl_target_lang, archetypes, entry_type_rules, replace_rules, ai_prompt, ai_button_prompts, substitution_rules)
 │   │   ├── glossary.csv           # Reference/glossary data (per-language, synced to GitHub). 6-col CSV: term, meaning (| delimited), '', '', '', description
 │   │   ├── tag_map.json           # Tag mappings (synced to GitHub)
 │   │   ├── presets.json           # Character presets (synced to GitHub)
@@ -373,7 +373,7 @@ save_vocab(file, data)        # Save vocabulary file
 
 **Synced Files (Per-Language):**
 - `glossary.csv` - Reference/glossary data (per-language; 6-col CSV, meaning `|`-delimited)
-- `formatter_config.json` - Main configuration (non-split keys only: triggers, styles, wall_preset, sync_language, pretranslate_settings, config_dir, deepl_target_lang, archetypes, entry_type_rules, replace_rules, ai_system_prompt, ai_button_prompts, substitution_rules)
+- `formatter_config.json` - Main configuration (non-split keys only: triggers, styles, wall_preset, sync_language, pretranslate_settings, config_dir, deepl_target_lang, archetypes, entry_type_rules, replace_rules, ai_prompt, ai_button_prompts, substitution_rules)
 - `tag_map.json` - Tag mappings (1,485 entries)
 - `presets.json` - Character presets (7 presets)
 - `speaker_data.json` - Speaker archetypes and notes
@@ -499,6 +499,35 @@ clean_and_wrap(text, limit)       # Clean and wrap text
 1. Strip erroneous line breaks (preserving intentional breaks after sentence-ending punctuation)
 2. Wrap each intentional segment independently
 3. Balance stub lines by pulling words from preceding lines (never across segment boundaries)
+
+### 5b. Pretranslate Batch (`main.py`)
+
+**Entry points:**
+- `pretranslate_by_keys(tm_threshold, tm_min_quality, skip_pretranslated)` — scans watched
+  folders for entries matching the configured ENTRY_KEYS triggers, queues them, and starts
+  the batch.
+- `pretranslate_batch(items, ...)` — thread-spawning wrapper.
+- `_pretranslate_batch_run(items, ...)` — the worker (runs in a background daemon thread so
+  progress streams to the frontend while slow API calls execute).
+
+**Per-item order of operations:**
+1. Translation Memory (high-confidence matches, threshold/quality from `pretranslate_settings`).
+2. OpenRouter AI (if key configured and enabled).
+3. DeepL (fallback if no OpenRouter key or disabled).
+
+All pre-translated entries are marked `pre-translated` (never `approved`).
+
+**Timeout & retry (added 2026-07-18):**
+- Each blocking API call runs via `_cancelable_api_call(fn, timeout=120)`, which polls
+  `_pretranslate_cancel` in a daemon thread. A timeout returns `Cancelled (timeout)`; a real
+  user cancel returns `Cancelled`.
+- On a **timeout**, the SAME item is retried up to `PRETRANSLATE_MAX_RETRIES = 3` times
+  (free-tier models are slow and routinely exceed 15s). After exhausting retries the item is
+  skipped. A **real user cancel** (`cancel_pretranslate`) stops the whole batch immediately.
+- Rate limits between calls: `OPENROUTER_RATE_LIMIT = 5.0s`, `DEEPL_RATE_LIMIT = 2.0s`.
+- Frontend (`web/app.js`) uses a no-progress watchdog (`waitForPretranslateDone`, 10-minute
+  silence cap) instead of a flat timeout, so batches of any size complete without being cut
+  off early.
 
 ### 6. Lore Engine (`src/lore_engine.py`)
 
@@ -936,7 +965,7 @@ formatter_config.json (Main Config)
 ├── archetypes: {}           # Character archetypes (now separate file)
 ├── entry_type_rules: {}     # Entry type → tag rules
 ├── replace_rules: []        # Find/replace rules
-├── ai_system_prompt: ""     # AI system prompt
+├── ai_prompt: ""     # AI system prompt (used for both chat and batch pre-translation)
 ├── ai_button_prompts: {}    # AI button prompts
 └── ...
 
@@ -988,6 +1017,41 @@ anach_definitions.json (Anachronism Definitions - Synced to GitHub)
 archaic_examples.json (Archaic Word Examples - Synced to GitHub)
 ├── dd1_examples: {}         # DD1-sourced examples
 └── other_examples: {}       # Other-sourced examples
+
+### AI System Prompt & House Style
+
+The AI system prompt (`DEFAULT_AI_PROMPT` in `main.py`) is used for **both** the chat
+assistant and batch pre-translation. It can be overridden per-language via the `ai_prompt`
+key in `formatter_config.json` (edited through Settings → AI Prompts). If `ai_prompt` is
+empty/unset, the constant is used. The prompt is assembled at runtime by appending:
+
+1. A `{character_voice_note}` placeholder (filled from the speaker's archetype notes).
+2. `CHARACTER ARCHETYPE FOR <speaker>` notes (if a speaker archetype is assigned).
+3. `GLOSSARY` terms (DD1 vocab → other vocab → lore terms) scanned from the source text.
+4. `_target_language_instruction()` — ties output to the active settings language.
+
+**Target language classification (`_target_language_instruction` + `_LANGUAGE_NAMES`):**
+The prompt names the target language (e.g. "English") from a language-code → name map.
+There is **no separate register/tone field** — register is defined entirely by the house
+style below, which is the same for every target language.
+
+**House style — "archaized modern English":**
+The default register is **archaized modern English** (lightly archaized contemporary
+English): modern grammar and syntax with archaic *vocabulary* woven in. The archaic feel
+must come ONLY from word choice (`'tis`, `naught`, `ere`, `mayhap`, `afore`, `nigh`,
+`hither`, `yon`, `whence`, `albeit`), never from the second-person pronoun system or verb
+endings. Standard contractions (`don't`, `it's`, `we're`) are correct and used freely.
+
+**Absolute bans (REGISTER GUARDRAILS) — no exceptions unless the character-voice note
+explicitly demands them:**
+- Never use `thou` / `thee` / `thy` / `thine` — always `you` / `your`.
+- Never use Early Modern / Shakespearean verb forms: `-est` / `-eth` endings
+  (`thinkest`, `dost`, `hath`, `maketh`) or `thou art/dost/hast`. Use `you are/do/have`.
+- Never use `ye` as a pronoun for "you" (`what think ye` → `what think you`).
+
+If a line starts forming with thou/thee/-est/-eth, the model is instructed to stop and
+rewrite it in archaized modern English. This was tightened on 2026-07-18 after the model
+kept drifting into Shakespearean/Early Modern English.
 
 prefetch_cache.json (Prefetch Cache - Local Only)
 ├── [category::idx]: {

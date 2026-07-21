@@ -3656,13 +3656,27 @@ font-weight: bold;
 }
 
 /* Translation History Panel */
+#panel-history .kl-panel-title {
+    flex: 0 0 auto;
+}
+
 #panel-history .kl-panel-content {
     flex: 1;
     display: flex;
     flex-direction: column;
     padding: 0;
     overflow-y: auto;
-    max-height: 400px;
+}
+
+/* History and AI share the sidebar; AI gets more vertical space.
+   flex-basis:0 so space splits by grow ratio, not by content height.
+   :not(.collapsed) keeps the .collapsed rule (flex:0 0 0) working. */
+#panel-history:not(.collapsed) {
+    flex: 1 1 0;
+}
+
+#panel-ai:not(.collapsed) {
+    flex: 2 1 0;
 }
 
 .kl-history-empty {
@@ -3734,6 +3748,32 @@ font-weight: bold;
     background: rgba(255, 193, 7, 0.2);
     color: #ffc107;
     border: 1px solid #ffc107;
+}
+
+/* Translation source badge (TM / AI / DeepL) in history panel */
+.kl-history-source {
+    padding: 2px 6px;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    margin-left: 6px;
+}
+.kl-history-source.src-tm {
+    background: rgba(33, 150, 243, 0.2);
+    color: #2196f3;
+    border: 1px solid #2196f3;
+}
+.kl-history-source.src-ai {
+    background: rgba(156, 39, 176, 0.2);
+    color: #ce93d8;
+    border: 1px solid #ce93d8;
+}
+.kl-history-source.src-deepl {
+    background: rgba(255, 152, 0, 0.2);
+    color: #ff9800;
+    border: 1px solid #ff9800;
 }
 
 .kl-history-item {
@@ -4029,3 +4069,52 @@ font-weight: 700;
 margin: 0 4px;
 }
 
+
+/* --- First-time caching warning popup --- */
+.caching-warning {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 5000;
+    max-width: 360px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--panel-bg, rgba(29, 31, 41, 0.95));
+    border: 1px solid var(--border-color, rgba(195, 245, 255, 0.2));
+    border-left: 4px solid var(--tooltip-color, #ff8800);
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+    color: var(--fg-color, #C3F5FF);
+    font-size: 0.8rem;
+    line-height: 1.45;
+}
+.caching-warning-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+.caching-warning-body {
+    flex: 1;
+}
+.caching-warning-title {
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.caching-warning-text {
+    opacity: 0.85;
+}
+.caching-warning-close {
+    background: none;
+    border: none;
+    color: var(--tab-inactive, rgba(195, 245, 255, 0.6));
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 2px;
+    flex-shrink: 0;
+}
+.caching-warning-close:hover {
+    color: var(--fg-color, #C3F5FF);
+}

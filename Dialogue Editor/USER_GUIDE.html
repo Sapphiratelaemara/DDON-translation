@@ -95,6 +95,8 @@
     <div class="toc">
         <h2>Table of Contents</h2>
         <ul>
+            <li><a href="#quick-start">Quick Start</a></li>
+            <li><a href="#github-sync-setup">GitHub Sync Setup</a></li>
             <li><a href="#installation">Installation & Setup</a></li>
             <li><a href="#main-interface">Main Editor Interface</a></li>
             <li><a href="#settings">Settings Configuration</a></li>
@@ -105,6 +107,80 @@
             <li><a href="#search">Search & Database</a></li>
             <li><a href="#shortcuts">Keyboard Shortcuts</a></li>
         </ul>
+    </div>
+
+    <div class="section" id="quick-start">
+        <h2>Quick Start</h2>
+        <p>Get translating in a few minutes. This assumes you already have the project files and a Python 3.x installation.</p>
+
+        <h3>1. Launch the app</h3>
+        <ul>
+            <li>Run <code>main.py</code> with Python 3.x (e.g. <code>python main.py</code>). On first launch it checks for and offers to install missing dependencies automatically — type <code>y</code> to confirm.</li>
+            <li>A browser window opens automatically. If it doesn't, open <code>http://localhost:8000</code> in Chrome/Chromium.</li>
+        </ul>
+
+        <h3>2. Add your API keys (optional but recommended)</h3>
+        <ul>
+            <li>Open the <strong>Settings</strong> tab.</li>
+            <li>Under <strong>API Keys</strong>, paste your <strong>DeepL</strong> and/or <strong>OpenRouter</strong> key, then click <strong>TEST</strong> to verify. Use the <strong>GET KEY</strong> buttons to open the provider's key page.</li>
+            <li>Set the DeepL <strong>Target Lang</strong> (start typing to filter, e.g. "English").</li>
+        </ul>
+
+        <h3>3. Set up GitHub Sync (recommended for collaboration)</h3>
+        <ul>
+            <li>See the <a href="#github-sync-setup">GitHub Sync Setup</a> guide below. This keeps glossary, archetypes, vocabulary, and translation memory shared with the team.</li>
+        </ul>
+
+        <h3>4. Start translating</h3>
+        <ul>
+            <li>Pick a category from the dropdown (e.g. <strong>Manual Translation</strong> or <strong>Unapproved Entries</strong>).</li>
+            <li>The editor loads the first entry. The <strong>English translation</strong> is editable at the <strong>top</strong>, with the <strong>Japanese source</strong> shown <strong>below</strong> it for reference.</li>
+            <li>Type your translation. Use the <strong>References</strong> panel and <strong>Translation Memory</strong> suggestions for consistency.</li>
+            <li>Click <strong>APPROVE</strong> to mark it done (this also records it in the shared translation memory).</li>
+        </ul>
+
+        <div class="tip">
+            <strong>Tip:</strong> The <strong>AI Assistant</strong> (in the editor tab) can translate, rephrase, or archaize the current text. Just type a request like "Translate" or "Make this more archaic" and send it.
+        </div>
+    </div>
+
+    <div class="section" id="github-sync-setup">
+        <h2>GitHub Sync Setup</h2>
+        <p>GitHub Sync shares glossary, archetypes, vocabulary, anachronism definitions, and translation memory with the rest of the team. API keys are <strong>never</strong> synced (they stay in your local <code>keys.json</code>).</p>
+
+        <h3>What you need first</h3>
+        <ul>
+            <li>A GitHub account.</li>
+            <li>A <strong>Personal Access Token (PAT)</strong> with <code>repo</code> (full repository) scope. Create one at <code>GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)</code>. Use a <strong>classic</strong> token (not a fine-grained one) so it works with the sync flow.</li>
+            <li>The full repository URL the team uses for shared data (e.g. <code>https://github.com/owner/repo</code>).</li>
+        </ul>
+
+        <h3>Step-by-step</h3>
+        <ol>
+            <li>Open the <strong>Settings</strong> tab and scroll to the <strong>GitHub Sync</strong> section.</li>
+            <li><strong>Repository:</strong> enter the full repository URL (e.g. <code>https://github.com/MyOrg/DDON-Translation</code>). The app parses the <code>owner/repo</code> part from it, so paste the complete URL, not just the short name.</li>
+            <li><strong>Token:</strong> paste your Personal Access Token. It is stored only in your local settings and is never pushed to GitHub.</li>
+            <li><strong>Sync Nickname:</strong> enter the name you want attributed to your edits and comments (this shows in the History and Comments panels).</li>
+            <li><strong>Enable Auto-Sync (recommended):</strong> this automatically pushes your changes on save and pulls the latest data on load, so the team always has your updates without you having to remember to push. We strongly recommend leaving this on.</li>
+            <li>Click <strong>TEST</strong> to verify the connection, then <strong>PULL FROM GITHUB</strong> to fetch the latest shared data.</li>
+            <li>With Auto-Sync enabled you're done — your work syncs automatically. The manual <strong>PUSH TO GITHUB</strong> button is only a fallback for when Auto-Sync is off (e.g. to push a batch of changes at once, or if you temporarily disabled it). On startup the app also pulls the latest data automatically.</li>
+        </ol>
+
+        <h3>How sync behaves</h3>
+        <ul>
+            <li>Translations are grouped by a <strong>hash of the source text</strong>, so the same Japanese line stays linked across entries.</li>
+            <li>If two people edit the same entry, conflicts are resolved by <strong>keeping both versions</strong> with timestamp suffixes — nothing is silently overwritten.</li>
+            <li>Unchanged files are skipped on pull to save bandwidth. When a pull changes the glossary or archetypes, the References panel refreshes automatically so you see updated terms immediately.</li>
+            <li>Local-only data (your manual queue and review queues) is <strong>not</strong> synced.</li>
+        </ul>
+
+        <div class="tip">
+            <strong>Recommendation:</strong> Keep <strong>Auto-Sync enabled</strong>. It pushes your changes the moment you save and pulls others' updates when you load, so nobody works from stale data and you never have to remember to hit <strong>PUSH TO GITHUB</strong>. Only use the manual Push button as a fallback (e.g. when Auto-Sync is temporarily off, or to force a sync after fixing a connection issue).
+        </div>
+
+        <div class="note">
+            <strong>Note:</strong> If you see a sync error, double-check the token has <code>repo</code> scope and that the Repository field contains the full URL (e.g. <code>https://github.com/owner/repo</code>). A 401/403 almost always means the token is expired, revoked, or lacks the right scope.
+        </div>
     </div>
 
     <div class="section" id="installation">
@@ -219,6 +295,7 @@
             <li><strong>Replace Rules:</strong> Configure regex replacement rules for automated editing during scan</li>
             <li><strong>Archetypes:</strong> Manage character archetypes and their speech patterns</li>
             <li><strong>AI Prompts:</strong> Configure the AI system prompt (used for all AI interactions) and button prompts (Translate, Rephrase, Archaize, Check) for AI assistant. Use {text} placeholder in button prompts for the text to process</li>
+            <li><strong>House Style:</strong> The default AI system prompt uses <em>archaized modern English</em> — modern grammar with archaic <em>vocabulary</em> (<code>'tis</code>, <code>naught</code>, <code>ere</code>, <code>mayhap</code>, <code>afore</code>) woven in. It <strong>strictly bans</strong> Shakespearean / Early Modern English: never <code>thou</code>/<code>thee</code>/<code>thy</code>/<code>thine</code>, never <code>-est</code>/<code>-eth</code> verb endings (<code>thinkest</code>, <code>dost</code>, <code>hath</code>), and never <code>ye</code> as a pronoun. If you customize the prompt, keep these bans or the model will drift into thou/thee.</li>
             <li><strong>Regex Sandbox:</strong> Test regex patterns and replacements</li>
         </ul>
         
@@ -275,6 +352,7 @@
             <li><strong>Clickable Meanings:</strong> Each English meaning is a clickable suggestion that inserts the text directly into the translation editor.</li>
             <li><strong>Select-to-Add from Source:</strong> In the source (Japanese) window, select any text and a small <strong>+ ref</strong> button appears next to your selection. Click it to open the reference editor pre-filled with the selected term, so you can quickly add a new glossary entry or edit an existing one without retyping.</li>
             <li><strong>Editing References:</strong> Use the <em>Add Reference</em> button (or click an existing term, or use the source selection button) to open the reference modal. Enter the term, its meaning(s) separated by <code>|</code>, and an optional description, then save. Changes are written to <code>config/&lt;lang&gt;/glossary.csv</code> and synced to GitHub. On save, the glossary reloads and only the lines that actually contain the edited term are refreshed in the cache — the rest of your cached entries stay warm, so you don't wait for everything to recompute.</li>
+            <li><strong>Deleting References:</strong> When you open the reference modal for an <em>existing</em> term (by clicking a term in the sidebar or using the source selection button), a <strong>DELETE</strong> button appears on the left of the modal actions. Click it, confirm in the dialog, and the term is removed from <code>config/&lt;lang&gt;/glossary.csv</code>, the lore engine reloads, the caches clear, and the change is pushed to GitHub automatically.</li>
             <li><strong>Gloss Integration:</strong> Highlights project-specific terms in the gloss window</li>
             <li><strong>Per-Language Storage:</strong> The glossary lives at <code>config/&lt;lang&gt;/glossary.csv</code> and is synced to GitHub per language. The legacy bible file is no longer used.</li>
         </ul>

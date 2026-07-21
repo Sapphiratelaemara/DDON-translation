@@ -73,7 +73,7 @@ class OpenRouterClient:
             }
 
             try:
-                response = requests.post(self.url, headers=headers, json=payload, timeout=30)
+                response = requests.post(self.url, headers=headers, json=payload, timeout=15)
                 if response.status_code == 401:
                     return {"error": "Invalid OpenRouter API key (401 Unauthorized). Please check your API key in Settings."}
                 if response.status_code == 403:

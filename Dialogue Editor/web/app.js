@@ -264,24 +264,28 @@ window.onload = async () => {
         }
         // Restore tab first (before any other operations that might switch tabs)
         console.log('[INIT] currentTab before restore:', state.currentTab);
-        if (state.currentTab && state.currentTab !== 'dashboard') {
-            console.log('[INIT] Restoring to tab:', state.currentTab);
-            switchTab(state.currentTab);
+        // Only restore the editor tab if there's an actual loaded queue
+        // (review_items). Otherwise a saved global category like
+        // "Unapproved Entries" would load 2000+ entries on every boot.
+        const queueStruct = await eel.get_queue_structure()();
+        const hasLoadedQueue = queueStruct && queueStruct["Manual Translation"] &&
+            queueStruct["Manual Translation"].count > 0;
+        if (state.currentTab === 'editor' && hasLoadedQueue) {
+            // Drop any saved global category so we load the actual loaded queue
+            // (review_items) instead of a 2000+ global query on boot.
+            state.reviewer.currentCategory = null;
+            console.log('[INIT] Restoring to editor tab (loaded queue present)');
+            switchTab('editor');
         } else {
-            console.log('[INIT] No saved tab, switching to dashboard');
+            // Drop any saved global category so we don't auto-load 2000+ entries
+            state.reviewer.currentCategory = null;
+            console.log('[INIT] No loaded queue — switching to dashboard');
             switchTab('dashboard');
         }
-        // Restore search results sent to editor if they exist
-        if (state.search.sentToEditor && state.search.sentToEditor.length > 0) {
-            await eel.clear_queue()();
-            const items = state.search.sentToEditor.map(r => ({
-                speaker: r.speaker || 'Unknown', jp: r.jp, en: r.en,
-                category: r.category || 'SEARCH_RESULT', path: r.path, row: r.row,
-            }));
-            await eel.bulk_inject(items)();
-            state.reviewer.fullQueue = await eel.get_all_items_in_queue()() || [];
-            console.log(`[INIT] Restored ${items.length} search results to editor queue.`);
-        }
+        // Do NOT auto-restore search results sent to editor on boot — that can
+        // re-inject thousands of stale entries and overwrite the explicit queue
+        // loaded from disk. The user re-sends search results intentionally.
+        state.search.sentToEditor = [];
         // Save state and sync on exit
         window.addEventListener('beforeunload', () => {
             saveState();
@@ -351,29 +355,41 @@ async function pollBatchScanCompletion() {
             const queueStructure = await eel.get_queue_structure()();
             console.log('[pollBatchScanCompletion] Queue structure:', queueStructure);
             state.reviewer.queueStructure = queueStructure;
-            // Select first category with items, preferring batch categories over Manual Translation
+            // Decide which queue to surface.
+            // If triggers (ENTRY_KEYS) are set, the scan loaded the matched rows
+            // into the editor queue (review_items) — show those directly,
+            // regardless of whether they're pre-translated or untranslated.
+            const cfg = await eel.get_full_config()();
+            const hasTriggers = !!(cfg && cfg.triggers && cfg.triggers.length > 0);
             let firstCategory = null;
-            // First check batch categories for items
-            for (const [displayName, data] of Object.entries(queueStructure)) {
-                if (displayName !== "Manual Translation" && data.count > 0) {
-                    firstCategory = displayName;
-                    break;
+            if (hasTriggers) {
+                // Trigger-matched rows live in the editor queue (review_items),
+                // surfaced as "Manual Translation". Use that as the category.
+                firstCategory = "Manual Translation";
+            } else {
+                for (const [displayName, data] of Object.entries(queueStructure)) {
+                    if (displayName !== "Manual Translation" && data.count > 0) {
+                        firstCategory = displayName;
+                        break;
+                    }
                 }
             }
-            // If no batch categories have items, use Manual Translation
-            if (!firstCategory && queueStructure["Manual Translation"] && queueStructure["Manual Translation"].count > 0) {
-                firstCategory = "Manual Translation";
-            }
-            console.log('[pollBatchScanCompletion] First category:', firstCategory);
+            console.log('[pollBatchScanCompletion] First category:', firstCategory, 'hasTriggers:', hasTriggers);
             // Set current category before populating selector
             state.reviewer.currentCategory = firstCategory || null;
             // Populate category selector
             populateCategorySelector(queueStructure);
             // Show modal to switch to Editor
             if (firstCategory) {
-                const itemCount = queueStructure[firstCategory].count;
-                console.log('[pollBatchScanCompletion] Found', itemCount, 'items in category:', firstCategory);
-                openConfirmModal('SCAN COMPLETE', `Found ${itemCount} items. Switch to Editor?`, (confirmed) => {
+                // For trigger scans the authoritative count is the editor queue
+                // (review_items), which get_all_items_in_queue() returns. Fall back
+                // to it whenever the queueStructure count is 0 so the modal never
+                // shows "Found 0 items" for a scan that actually matched rows.
+                const itemCount = queueStructure[firstCategory] ? queueStructure[firstCategory].count : 0;
+                const displayCount = itemCount > 0 ? itemCount
+                    : (hasTriggers ? (await eel.get_all_items_in_queue()()).length : 0);
+                console.log('[pollBatchScanCompletion] Found', displayCount, 'items in category:', firstCategory);
+                openConfirmModal('SCAN COMPLETE', `Found ${displayCount} items. Switch to Editor?`, (confirmed) => {
                     if (confirmed) {
                         state.reviewer.mode = 'review';
                         switchTab('editor');
@@ -519,7 +535,9 @@ async function switchCategory(categoryDisplayName) {
             console.log('[switchCategory] Item at idx 0:', state.reviewer.fullQueue[0]);
             // Start prefetching BEFORE loading first item
             console.log('[switchCategory] Starting prefetch_all for category:', categoryDisplayName, 'items:', state.reviewer.fullQueue.length);
-            eel.start_prefetch_all(categoryDisplayName, state.reviewer.fullQueue)();
+            eel.start_prefetch_all(categoryDisplayName, state.reviewer.fullQueue)().then(res => {
+                if (res && res.queued >= 10) showCachingWarning();
+            });
             loadItemAtIdx(0);  // Don't await - let it load in background
         } else {
             console.log('[switchCategory] Queue is empty, skipping item load');
@@ -597,7 +615,9 @@ function switchTab(tabId) {
                             renderRowSidebar();
                             // Start prefetching BEFORE loading first item
                             console.log('[switchTab] Starting prefetch_all for Manual Translation, items:', items.length);
-                            eel.start_prefetch_all('Manual Translation', items)();
+                            eel.start_prefetch_all('Manual Translation', items)().then(res => {
+                                if (res && res.queued >= 10) showCachingWarning();
+                            });
                             loadItemAtIdx(0);  // Don't await - let it load in background
                         });
                     } else {
@@ -609,7 +629,9 @@ function switchTab(tabId) {
                             renderRowSidebar();
                             // Start prefetching BEFORE loading first item
                             console.log('[switchTab] Starting prefetch_all for category:', state.reviewer.currentCategory, 'items:', items.length);
-                            eel.start_prefetch_all(state.reviewer.currentCategory, items)();
+                            eel.start_prefetch_all(state.reviewer.currentCategory, items)().then(res => {
+                                if (res && res.queued >= 10) showCachingWarning();
+                            });
                             loadItemAtIdx(0);  // Don't await - let it load in background
                         });
                     }
@@ -625,7 +647,9 @@ function switchTab(tabId) {
                         if (state.reviewer.fullQueue.length > 0) {
                             // Start prefetching BEFORE loading first item
                             console.log('[switchTab] Starting prefetch_all for default category, items:', items.length);
-                            eel.start_prefetch_all('default', items)();
+                            eel.start_prefetch_all('default', items)().then(res => {
+                                if (res && res.queued >= 10) showCachingWarning();
+                            });
                             loadItemAtIdx(0);  // Don't await - let it load in background
                         }
                     });
@@ -634,7 +658,11 @@ function switchTab(tabId) {
         });
     }
     if (tabId === 'settings') loadSettings();
-    if (tabId === 'dashboard') loadDashboard();
+    if (tabId === 'dashboard') {
+        // Stop any in-progress precache run — it's editor-only work
+        eel.stop_prefetch()().catch(err => console.error('[switchTab] stop_prefetch error:', err));
+        loadDashboard();
+    }
 }
 
 // =============================================================================
@@ -646,6 +674,8 @@ function initDashboardActions() {
         const pChar = document.getElementById('dash-preset-char')?.value || 'Standard';
         const pWall = document.getElementById('dash-preset-wall')?.value || 'Standard';
 
+        // Stop any in-progress precache before starting a dashboard op
+        eel.stop_prefetch()().catch(err => console.error('[btnScan] stop_prefetch error:', err));
         log_to_js('\n[SYSTEM] Initialising scan…');
         update_progress(0);
         await eel.start_batch_scan(pChar, pWall)();
@@ -661,6 +691,8 @@ function initDashboardActions() {
     const btnTranslate = document.getElementById('btn-translate-csv');
     if (btnTranslate) btnTranslate.onclick = async () => {
         btnTranslate.innerText = 'LOADING...';
+        // Stop any in-progress precache before starting a dashboard op
+        eel.stop_prefetch()().catch(err => console.error('[btnTranslate] stop_prefetch error:', err));
         // Clear previous queue first
         await eel.clear_queue()();
         const res = await eel.load_csv_for_translation()();
@@ -676,6 +708,8 @@ function initDashboardActions() {
             state.reviewer.fullQueue = await eel.get_all_items_in_queue()() || [];
             state.reviewer.currentItem = null;
             state.reviewer.currentIdx = 0;
+            // Reset category so switchTab loads THIS queue, not a stale one
+            state.reviewer.currentCategory = "Manual Translation";
             saveState();
             switchTab('editor');
         } else if (res === 0) {
@@ -686,56 +720,117 @@ function initDashboardActions() {
     // NEW: Pre-translate bind
     const btnPretranslate = document.getElementById('btn-pretranslate');
     if (btnPretranslate) btnPretranslate.onclick = async () => {
+        // Show options modal first; the actual run starts on confirm.
+        const optsModal = document.getElementById('modal-pretranslate-options');
+        if (optsModal) optsModal.classList.add('active');
+    };
+
+    const btnPretranslateOptionsStart = document.getElementById('btn-pretranslate-options-start');
+    if (btnPretranslateOptionsStart) btnPretranslateOptionsStart.onclick = async () => {
+        const optsModal = document.getElementById('modal-pretranslate-options');
+        if (optsModal) optsModal.classList.remove('active');
+        const skipPretranslated = document.getElementById('chk-pretranslate-skip')
+            ? document.getElementById('chk-pretranslate-skip').checked : true;
+
+        const btnPretranslate = document.getElementById('btn-pretranslate');
         btnPretranslate.innerText = 'PRE-TRANSLATING...';
         btnPretranslate.disabled = true;
-        
+
         log_to_js('[SYSTEM] Starting pre-translation batch...');
-        
+
         try {
-            // Get all untranslated entries from the current queue
-            const queue = state.reviewer.fullQueue || [];
-            const itemsToPretranslate = queue.filter(item => !item.en || item.en.trim() === '');
-            
-            log_to_js(`[SYSTEM] Found ${itemsToPretranslate.length} items to pre-translate`);
-            
-            if (itemsToPretranslate.length === 0) {
-                openAlertModal('INFO', 'No untranslated items found in current queue.');
-                btnPretranslate.innerText = 'PRE-TRANSLATE';
-                btnPretranslate.disabled = false;
-                return;
-            }
-            
-            // Format items for pretranslate_batch
-            const items = itemsToPretranslate.map(item => ({
-                id: item.id,
-                jp: item.jp,
-                file_path: item.path,
-                row_idx: item.row,
-                speaker: item.speaker,
-                entry_type: item.entry_type
-            }));
-            
-            const res = await eel.pretranslate_batch(items)();
-            
-            if (res && res.ok) {
-                log_to_js(`[SYSTEM] Pre-translation complete: TM=${res.tm_applied}, AI=${res.ai_applied}, DeepL=${res.deepl_applied}`);
-                openAlertModal('SUCCESS', `Pre-translation complete!\n\nTM: ${res.tm_applied}\nAI: ${res.ai_applied}\nDeepL: ${res.deepl_applied}\n\nTotal: ${res.total}`);
-                
-                // Reload the current queue to show pre-translated entries
-                const currentCategory = document.getElementById('category-select')?.value;
-                if (currentCategory) {
-                    await switchCategory(currentCategory);
-                }
+            // Decide scope: if ENTRY_KEYS (triggers) are set, scan folders by keys
+            // (like the batch scan); otherwise fall back to the loaded review queue.
+            const config = await eel.get_full_config()();
+            const triggers = (config && config.triggers) || [];
+            const folders = (config && config.folders) || [];
+
+            showPretranslateModal();
+
+            if (triggers.length > 0 && folders.length > 0) {
+                log_to_js(`[SYSTEM] Pre-translating by ENTRY_KEYS (${triggers.length} key(s)) across ${folders.length} folder(s)...`);
+                // Backend scans folders, queues items into the editor, then runs
+                // the batch in a background thread. Await the completion callback.
+                // NOTE: Python signature is pretranslate_by_keys(tm_threshold,
+                // tm_min_quality, skip_pretranslated) — pass skip as the 3rd arg.
+                await eel.pretranslate_by_keys(null, null, skipPretranslated)();
             } else {
-                log_to_js(`[SYSTEM] Pre-translation failed: ${res?.error || 'Unknown error'}`);
-                openAlertModal('ERROR', `Pre-translation failed: ${res?.error || 'Unknown error'}`);
+                // Fall back to the currently loaded review queue
+                const queue = state.reviewer.fullQueue || [];
+                const itemsToPretranslate = queue.filter(item => !item.en || item.en.trim() === '');
+
+                log_to_js(`[SYSTEM] Found ${itemsToPretranslate.length} items to pre-translate in current queue`);
+
+                if (itemsToPretranslate.length === 0) {
+                    hidePretranslateModal();
+                    openAlertModal('INFO', 'No untranslated items found in current queue.');
+                    btnPretranslate.innerText = 'PRE-TRANSLATE';
+                    btnPretranslate.disabled = false;
+                    return;
+                }
+
+                const items = itemsToPretranslate.map(item => ({
+                    id: item.id,
+                    jp: item.jp,
+                    file_path: item.path,
+                    row_idx: item.row,
+                    speaker: item.speaker,
+                    entry_type: item.entry_type
+                }));
+
+                await eel.pretranslate_batch(items, skipPretranslated)();
             }
+
+            // Wait for the backend to stream the "Pre-translation complete" progress
+            // update (the batch runs in a background thread, so the call above
+            // returns immediately).
+            await waitForPretranslateDone();
+
+            log_to_js(`[SYSTEM] Pre-Translation complete`);
+            openAlertModal('SUCCESS', `Pre-Translation complete!\n\nThe editor queue has been populated with the processed entries.`);
+
+            // Reload the editor queue to show pre-translated entries
+            state.reviewer.fullQueue = await eel.get_all_items_in_queue()() || [];
+            state.reviewer.currentItem = null;
+            state.reviewer.currentIdx = 0;
+            state.reviewer.mode = 'review';
+            // Switch to the Pre-translated Unapproved queue so the new
+            // pre-translated entries are shown automatically. This category is a
+            // dynamic query (handled by switchCategory), NOT a stored queue, so
+            // switchTab('editor') would wrongly fall back to get_items_for_category
+            // and return nothing for it.
+            state.reviewer.currentCategory = "Pre-translated Unapproved";
+            saveState();
+            switchTab('editor');
+            await switchCategory("Pre-translated Unapproved");
+            const catSel = document.getElementById('category-select');
+            if (catSel) catSel.value = "Pre-translated Unapproved";
         } catch (e) {
-            log_to_js(`[SYSTEM] Pre-translation error: ${e}`);
-            openAlertModal('ERROR', `Pre-translation error: ${e}`);
+            log_to_js(`[SYSTEM] Pre-Translation error: ${e}`);
+            openAlertModal('ERROR', `Pre-Translation error: ${e}`);
         } finally {
+            hidePretranslateModal();
             btnPretranslate.innerText = 'PRE-TRANSLATE';
             btnPretranslate.disabled = false;
+        }
+    };
+
+    // Dismiss the options modal without starting
+    const btnPretranslateOptionsCancel = document.getElementById('btn-pretranslate-options-cancel');
+    if (btnPretranslateOptionsCancel) btnPretranslateOptionsCancel.onclick = () => {
+        const optsModal = document.getElementById('modal-pretranslate-options');
+        if (optsModal) optsModal.classList.remove('active');
+    };
+
+    // Cancel the running pre-translate batch
+    const btnPretranslateCancel = document.getElementById('btn-pretranslate-cancel');
+    if (btnPretranslateCancel) btnPretranslateCancel.onclick = async () => {
+        btnPretranslateCancel.innerText = 'CANCELLING…';
+        btnPretranslateCancel.disabled = true;
+        try {
+            await eel.cancel_pretranslate()();
+        } catch (e) {
+            console.error('[pretranslate] cancel error:', e);
         }
     };
 
@@ -1241,7 +1336,7 @@ async function loadItemAtIdxInternal(idx, mode) {
         const category = state.reviewer.currentCategory || 'default';
         const loadStartTime = performance.now();
         console.log(`[loadItemAtIdxInternal] Fetching cache for category=${category}, idx=${idx}`);
-        const cached = await eel.get_prefetch_cache(category, idx)();
+        const cached = await eel.get_prefetch_cache(category, idx, item && item.id)();
         console.log(`[loadItemAtIdxInternal] Cache result:`, cached);
         if (cached) {
             console.log(`[loadItemAtIdxInternal] Using cached data for category=${category}, idx=${idx}`);
@@ -1262,8 +1357,13 @@ async function loadItemAtIdxInternal(idx, mode) {
             eel.get_speaker_archetype(item.speaker)().then(speakerArchetype => {
                 if (archetypeSelect) archetypeSelect.value = speakerArchetype || '';
                 debugLog('App', `Speaker archetype: ${speakerArchetype}`);
-                // Fetch archetype notes after archetype is loaded
-                eel.get_archetype_notes(speakerArchetype || '')().then(archetypeNotes => {
+                // Fetch archetype notes after archetype is loaded. Use the
+                // dropdown's CURRENT value at resolution time (not the captured
+                // speakerArchetype) so a user who changed the selection while
+                // this async call was in flight sees their chosen archetype's
+                // notes, not a stale overwrite of "(no notes)".
+                const notesKey = (archetypeSelect && archetypeSelect.value) || speakerArchetype || '';
+                eel.get_archetype_notes(notesKey)().then(archetypeNotes => {
                     const notesPanel = document.getElementById('archetype-notes');
                     if (notesPanel) notesPanel.innerText = archetypeNotes || '(no notes)';
                 });
@@ -1316,8 +1416,12 @@ async function loadItemAtIdxInternal(idx, mode) {
                     if (!res || res.error) return;
 
                     // Update in-memory item too so subsequent panels use correct text.
-                    item.jp = res.jp ?? item.jp;
-                    item.en = res.en ?? item.en;
+                    item.jp = res.jp || item.jp;
+                    // Only backfill from CSV when we have no translation yet.
+                    // Never overwrite an existing (approved/typed) translation with
+                    // a stale or empty CSV cell -- that caused approved text to vanish
+                    // when switching between entries.
+                    if (!item.en) item.en = res.en || '';
                     if (res.speaker) item.speaker = res.speaker;
                     if (res.entry_type) item.entry_type = res.entry_type;
 
@@ -1384,9 +1488,11 @@ async function loadItemAtIdxInternal(idx, mode) {
         // Other async enrichments - fire-and-forget with index-based cancellation
         if (cached && cached.deepl_suggestion) {
             populateDeepLFromCache(cached.deepl_suggestion, loadIdx);
-        } else if (!needsRefetch) {
-            // Only fetch fresh if we're NOT triggering prefetch for this item
-            fetchDeepLSuggestion(item.jp, loadIdx);
+        } else {
+            // Always (re)fetch DeepL for the CURRENT item when it's missing from
+            // cache — even if gloss was cached (needsRefetch only checks both).
+            // Uses the non-blocking batch path so it never stalls the UI thread.
+            fetchDeepLSuggestion(item.jp, loadIdx, item.id);
         }
         if (cached && cached.tm_matches) {
             populateTMFromCache(cached.tm_matches, item.jp, loadIdx);
@@ -1416,7 +1522,7 @@ async function loadItemAtIdxInternal(idx, mode) {
             const pollCache = async (pollIdx, category, pollCount = 0) => {
                 if (pollCount > 10) return;  // Max 10 polls (5 seconds)
                 if (state.reviewer.currentIdx !== pollIdx) return;  // Stop if navigated away
-                const updatedCache = await eel.get_prefetch_cache(category, pollIdx)();
+                const updatedCache = await eel.get_prefetch_cache(category, pollIdx, item && item.id)();
                 if (updatedCache && (updatedCache.deepl_suggestion || updatedCache.gloss_result)) {
                     console.log(`[loadItemAtIdxInternal] Cache updated for idx=${pollIdx}, populating`);
                     if (updatedCache.deepl_suggestion && state.reviewer.currentIdx === pollIdx) {
@@ -1663,6 +1769,9 @@ function initReviewerActions() {
             scanAnachronisms(ed.innerText);
             // Trigger debounced validation
             debounce(validateCurrentTranslation, 500)();
+            // Refresh the preview image as the user types (debounced so we don't
+            // regenerate on every keystroke)
+            debounce(() => updatePreview(state.reviewer.currentIdx), 400)();
             // Don't update source window highlights on every keystroke - let scanAnachronisms handle that
         });
         ed.addEventListener('scroll', syncCounterScroll);
@@ -1787,7 +1896,7 @@ async function applyFix() {
     const nickname = state.settings.lastConfig?.sync_nickname || 'reviewer';
     console.log('[applyFix] Saving history with nickname:', nickname, 'item.path:', item.path, 'item.id:', item.id);
     try {
-        const res = await eel.save_translation_history(item.id, item.jp, text, speaker, entryType, nickname, item.path, item.row)();
+        const res = await eel.save_translation_history(item.id, item.jp, text, speaker, item.entry_type, nickname, item.path, item.row)();
         console.log('[applyFix] Save result:', res);
     } catch (e) {
         console.error('[applyFix] Save error:', e);
@@ -1838,6 +1947,7 @@ async function rewrapEditor() {
             if (ed._setSkipInputHandling) ed._setSkipInputHandling(false);
             updateReviewerCounters();
             syncLineCounters();
+            updatePreview(state.reviewer.currentIdx);
         }
     }
 }
@@ -1853,6 +1963,7 @@ async function replaceDashes(target) {
     }
     updateReviewerCounters();
     syncLineCounters();
+    updatePreview(state.reviewer.currentIdx);
 }
 
 // =============================================================================
@@ -2101,7 +2212,7 @@ function createAnachronismRow(word, suggestion, is_ddon) {
     });
 
     if (suggestion) {
-        eel.get_definition(suggestion)().then(result => {
+            eel.get_definition(suggestion, is_ddon)().then(result => {
             const { defn, example } = parseDefinitionResult(result);
             if (defn || example) {
                 let titleText = defn || '';
@@ -2153,7 +2264,7 @@ function renderAnachronismSection(anachHits, loadIdx) {
         section.appendChild(anachContainer);
         box.appendChild(section);
 
-        eel.update_prefetch_cache('lore_context', loadIdx, { anachronisms: anachHits })().catch(err => {
+        eel.update_prefetch_cache('lore_context', loadIdx, { anachronisms: anachHits }, state.reviewer.currentItem && state.reviewer.currentItem.id)().catch(err => {
             console.error('[renderAnachronismSection] Error updating anachronisms cache:', err);
         });
     } else {
@@ -2648,8 +2759,11 @@ function handleMouseMove(e) {
             // Store the current word to check later in the async callback
             const currentWord = word;
             
-            // Fetch definition and example for the suggestion (archaic word)
-            eel.get_definition(suggestion)().then(result => {
+            // Fetch definition and example for the suggestion (archaic word).
+            // Pass the source flag (ddon vs other) so the correct definition
+            // section is used when a word exists in both (e.g. 'art').
+            const isDdon = target.getAttribute('data-is-ddon') === 'true';
+            eel.get_definition(suggestion, isDdon)().then(result => {
                 // Only update tooltip if we're still hovering over the same word
                 if (hoveredAnachronism && hoveredAnachronism[0] === currentWord && tooltip.style.display !== 'none') {
                     const { defn, example } = parseDefinitionResult(result);
@@ -2723,6 +2837,7 @@ function handlePaste(e) {
     updateReviewerCounters();
     syncLineCounters();
     scanAnachronisms(document.getElementById('en-editor').innerText);
+    updatePreview(state.reviewer.currentIdx);
 }
 
 function handleEditorClick(e) {
@@ -2767,6 +2882,30 @@ function initMetadataControls() {
                 archSelect.innerHTML = '<option>(none)</option>';
             }
         });
+    }
+
+    // When the user switches the archetype dropdown, immediately load that
+    // archetype's description into the notes panel. Without this, the panel
+    // only refreshed on item load, so picking a different archetype left the
+    // old description (or none) on screen until the next item was opened.
+    if (archSelect) {
+        archSelect.onchange = () => {
+            const key = archSelect.value;
+            const notesPanel = document.getElementById('archetype-notes');
+            if (!notesPanel) return;
+            if (!key) {
+                notesPanel.innerText = '(no archetype)';
+                return;
+            }
+            notesPanel.innerText = 'Loading…';
+            eel.get_archetype_notes(key)().then(notes => {
+                // Only update if the dropdown still shows this archetype
+                // (user may have switched again while the call was in flight).
+                if (archSelect.value === key) {
+                    notesPanel.innerText = notes || '(no notes)';
+                }
+            });
+        };
     }
 
     // Entry type is now read-only display, no dropdown population needed
@@ -2884,6 +3023,7 @@ async function replaceAnachronism(word, suggestion, position = null) {
     ed.innerText = before + replacement + after;
     updateReviewerCounters();
     syncLineCounters();
+    updatePreview(state.reviewer.currentIdx);
 
     // Trigger async rescan without blocking UI
     // Tab key only works on hover for contenteditable approach
@@ -3111,36 +3251,45 @@ function populateDeepLFromCache(suggestion, loadIdx) {
     console.log(`[populateDeepLFromCache] Rendered suggestion from cache`);
 }
 
-async function fetchDeepLSuggestion(text, loadIdx) {
+// Called by Python's background DeepL batch as each entry completes, so the
+// suggestion box populates without waiting for the (time-limited) poll loop.
+eel.expose(deepl_suggestion_ready);
+function deepl_suggestion_ready(idx, suggestion, itemId) {
+    console.log(`[deepl_suggestion_ready] idx=${idx}, currentIdx=${state.reviewer.currentIdx}, hasSuggestion=${!!suggestion}`);
+    if (idx !== state.reviewer.currentIdx) return;
+    const el = document.getElementById('deepl-text');
+    if (!el) return;
+    el.value = suggestion || '—';
+}
+
+async function fetchDeepLSuggestion(text, loadIdx, itemId) {
     const el = document.getElementById('deepl-text');
     if (!el || !text) return;
     console.log(`[fetchDeepLSuggestion] Starting for loadIdx=${loadIdx}, currentIdx=${state.reviewer.currentIdx}`);
     
-    let res = null;
-    
-    // Check prefetch cache
+    // Check prefetch cache first (non-blocking read)
     const category = state.reviewer.currentCategory || 'default';
-    const cached = await eel.get_prefetch_cache(category, loadIdx)();
+    const cached = await eel.get_prefetch_cache(category, loadIdx, itemId)();
     
     if (cached && cached.deepl_suggestion) {
         console.log(`[fetchDeepLSuggestion] Using prefetch cache for idx=${loadIdx}`);
-        res = cached.deepl_suggestion;
-    } else {
-        // Fetch fresh if not cached
-        el.value = 'Consulting DeepL…';
-        const startTime = Date.now();
-        res = await eel.get_deepl_suggestion(text)();
-        const elapsed = Date.now() - startTime;
-        console.log(`[fetchDeepLSuggestion] Fetched fresh for idx=${loadIdx}, elapsed=${elapsed}ms`);
+        if (state.reviewer.currentIdx === loadIdx) {
+            el.value = cached.deepl_suggestion || '—';
+        }
+        return;
     }
     
-    // Only update if we're still on the same item
-    if (state.reviewer.currentIdx === loadIdx) {
-        el.value = res || '—';
-    } else {
-        console.log(`[fetchDeepLSuggestion] Skipped update because currentIdx=${state.reviewer.currentIdx} != loadIdx=${loadIdx}`);
+    // No cache: request a fresh translation via the NON-BLOCKING batch path.
+    // fetch_deepl_batch runs the network call in a Python background thread and
+    // pushes the result back via deepl_suggestion_ready — so this never stalls
+    // Eel's main thread (which would freeze entry switching). We do NOT call the
+    // synchronous get_deepl_suggestion here, as that blocks the UI thread.
+    el.value = 'Consulting DeepL…';
+    const items = state.reviewer.fullQueue || [];
+    if (items.length) {
+        eel.fetch_deepl_batch(category, items, loadIdx, 1)();
     }
-    
+
     // Add click-to-paste functionality
     el.onclick = () => {
         const suggestion = el.value.trim();
@@ -3250,46 +3399,55 @@ function populateTMFromCache(matches, jpText, loadIdx) {
     });
 }
 
-async function fetchTMSuggestions(jpText, loadIdx) {
+// Kick off a TM search. The heavy fuzzy scan runs in a background thread on the
+// Python side; results arrive via tm_matches_ready() (so the preview is never
+// blocked waiting on the ~30s scan over 55k entries).
+function fetchTMSuggestions(jpText, loadIdx) {
+    if (!jpText) return;
+    console.log(`[fetchTMSuggestions] Starting for loadIdx=${loadIdx}, jpText="${jpText}"`);
+    // Fire-and-forget: results populate the panel via tm_matches_ready.
+    eel.tm_find_matches(jpText, 0.7, 10)().catch(error => {
+        console.error(`[fetchTMSuggestions] Error:`, error);
+    });
+}
+
+// Called by Python when a (background) TM search completes. Populates the panel
+// without blocking the preview — the search runs off Eel's main thread.
+eel.expose(tm_matches_ready);
+function tm_matches_ready(result) {
+    const loadIdx = state.reviewer.currentIdx;
+    console.log(`[tm_matches_ready] Got result for currentIdx=${loadIdx}:`, result);
+    _populateTMPanel(result, loadIdx);
+}
+
+function _populateTMPanel(result, loadIdx) {
     const panel = document.getElementById('tm-suggestions-panel');
     const list = document.getElementById('tm-suggestions-list');
-    if (!panel || !list || !jpText) return;
-    
-    console.log(`[fetchTMSuggestions] Starting for loadIdx=${loadIdx}, jpText="${jpText}"`);
-    
-    // Fetch TM matches with higher threshold (0.7 = 70%) to filter out low-quality matches
-    let result;
-    try {
-        result = await eel.tm_find_matches(jpText, 0.7, 10)();
-        console.log(`[fetchTMSuggestions] Result:`, result);
-    } catch (error) {
-        console.error(`[fetchTMSuggestions] Error:`, error);
-        return;
-    }
-    
+    if (!panel || !list) return;
+
     // Only update if we're still on the same item
     if (state.reviewer.currentIdx !== loadIdx) {
-        console.log(`[fetchTMSuggestions] Skipped update because currentIdx=${state.reviewer.currentIdx} != loadIdx=${loadIdx}`);
+        console.log(`[_populateTMPanel] Skipped update because currentIdx=${state.reviewer.currentIdx} != loadIdx=${loadIdx}`);
         return;
     }
-    
-    if (!result.ok) {
-        console.error(`[fetchTMSuggestions] Failed: ${result.message}`);
+
+    if (!result || !result.ok) {
+        console.error(`[_populateTMPanel] Failed: ${result && result.message}`);
         return;
     }
-    
-    if (result.matches.length === 0) {
-        console.log(`[fetchTMSuggestions] No matches found`);
+
+    if (!result.matches || result.matches.length === 0) {
+        console.log(`[_populateTMPanel] No matches found`);
         panel.style.display = 'none';
         return;
     }
-    
-    console.log(`[fetchTMSuggestions] Found ${result.matches.length} matches`);
+
+    console.log(`[_populateTMPanel] Found ${result.matches.length} matches`);
     panel.style.display = 'block';
-    
+
     // Clear previous results
     list.innerHTML = '';
-    
+
     result.matches.forEach(match => {
         const item = document.createElement('div');
         item.className = `kl-tm-item match-${match.match_type}`;
@@ -4017,7 +4175,7 @@ async function populateLoreContext(jpText, enText, loadIdx) {
     
     try {
         // Check if we have cached lore context for this item
-        const loreCached = await eel.get_prefetch_cache(loreCategory, loadIdx)();
+        const loreCached = await eel.get_prefetch_cache(loreCategory, loadIdx, state.reviewer.currentItem && state.reviewer.currentItem.id)();
         console.log(`[populateLoreContext] loreCached:`, loreCached);
         
         if (loreCached && loreCached.lore_context) {
@@ -4039,7 +4197,7 @@ async function populateLoreContext(jpText, enText, loadIdx) {
         // Store lore context in cache for future use
         if (matches && matches.length > 0) {
             console.log(`[populateLoreContext] Storing lore_context in cache for idx=${loadIdx}`);
-            eel.update_prefetch_cache(loreCategory, loadIdx, { lore_context: matches })().then(result => {
+            eel.update_prefetch_cache(loreCategory, loadIdx, { lore_context: matches }, state.reviewer.currentItem && state.reviewer.currentItem.id)().then(result => {
                 console.log(`[populateLoreContext] Cache update result:`, result);
             }).catch(err => {
                 console.error(`[populateLoreContext] Error updating cache:`, err);
@@ -4404,6 +4562,8 @@ function insertIntoEditor(text, explicitOffset) {
         ed.appendChild(document.createTextNode(insertText));
         _editorSavedCaretOffset = (ed.innerText || '').length;
     }
+    // Refresh the preview image after programmatic text insertion
+    updatePreview(state.reviewer.currentIdx);
 }
 
 // =============================================================================
@@ -4800,7 +4960,7 @@ async function loadSettings() {
         renderSettingsArchetypes(config.archetypes || {});
 
         // AI Prompts
-        setVal('opt-ai-system-prompt', config.ai_system_prompt || '');
+        setVal('opt-ai-prompt', config.ai_prompt || '');
         const buttonPrompts = config.ai_button_prompts || {};
         setVal('opt-ai-prompt-translate', buttonPrompts.translate || 'Translate: {text}');
         setVal('opt-ai-prompt-rephrase', buttonPrompts.rephrase || 'Rephrase this: {text}');
@@ -4813,6 +4973,31 @@ async function loadSettings() {
         setVal('opt-pretranslate-tm-quality', pretranslateSettings.tm_quality || 'approved');
         setCheck('opt-pretranslate-enable-openrouter', pretranslateSettings.enable_openrouter !== false);
         setCheck('opt-pretranslate-enable-deepl', pretranslateSettings.enable_deepl !== false);
+
+        // Pre-Translate Model selector (populated from openrouter_models)
+        const ptModelSel = document.getElementById('opt-pretranslate-openrouter-model');
+        if (ptModelSel) {
+            const models = config.openrouter_models || [];
+            const modelList = models.length ? models : ['openrouter/auto'];
+            const selectedPtModel = config.pretranslate_openrouter_model || '';
+            ptModelSel.innerHTML = '';
+            // Blank option = fall back to chat model
+            const blank = document.createElement('option');
+            blank.value = '';
+            blank.innerText = '(use chat model)';
+            ptModelSel.appendChild(blank);
+            modelList.forEach(m => {
+                const opt = document.createElement('option');
+                opt.value = opt.innerText = m;
+                if (m === selectedPtModel) opt.selected = true;
+                ptModelSel.appendChild(opt);
+            });
+            if (selectedPtModel && modelList.includes(selectedPtModel)) {
+                ptModelSel.value = selectedPtModel;
+            } else {
+                ptModelSel.value = '';
+            }
+        }
 
         // GitHub Sync Settings
         setVal('opt-github-repo', config.github_repo || '');
@@ -5340,14 +5525,14 @@ function initSettingsActions() {
         };
     }
 
-    // --- AI System Prompt: save on button click ---
-    const btnSaveAiSystem = document.getElementById('btn-save-ai-system-prompt');
-    if (btnSaveAiSystem) {
-        btnSaveAiSystem.onclick = async () => {
-            const el = document.getElementById('opt-ai-system-prompt');
+    // --- AI Prompt: save on button click ---
+    const btnSaveAiPrompt = document.getElementById('btn-save-ai-prompt');
+    if (btnSaveAiPrompt) {
+        btnSaveAiPrompt.onclick = async () => {
+            const el = document.getElementById('opt-ai-prompt');
             if (el) {
-                await eel.save_config_field('ai_system_prompt', el.value)();
-                alert('AI System Prompt saved!');
+                await eel.save_config_field('ai_prompt', el.value)();
+                alert('AI Prompt saved!');
             }
         };
     }
@@ -5378,6 +5563,9 @@ function initSettingsActions() {
                 enable_deepl: document.getElementById('opt-pretranslate-enable-deepl')?.checked !== false
             };
             await eel.save_config_field('pretranslate_settings', settings)();
+            // Save the dedicated pre-translate model separately (user_settings scope)
+            const ptModel = document.getElementById('opt-pretranslate-openrouter-model')?.value || '';
+            await eel.save_config_field('pretranslate_openrouter_model', ptModel)();
             alert('Pre-Translation Settings saved!');
         };
     }
@@ -6017,7 +6205,7 @@ function showAnachronismModal(word, suggestion, defn, example, isDdon) {
     populateAnachronismModalContent(word, suggestion, defn, example, isDdon);
     modal.classList.add('active');
 
-    eel.get_definition(suggestion)().then(result => {
+    eel.get_definition(suggestion, isDdon)().then(result => {
         if (modal.classList.contains('active') && modal._anachSuggestion === suggestion) {
             const parsed = parseDefinitionResult(result);
             populateAnachronismModalContent(
@@ -6040,6 +6228,22 @@ function initModals() {
         referenceEditorContext = null;
     });
     document.getElementById('btn-reference-save')?.addEventListener('click', saveReferenceEntryFromModal);
+
+document.getElementById('btn-reference-delete')?.addEventListener('click', () => {
+    const existingTerm = referenceEditorContext?.existingTerm;
+    if (!existingTerm) return;
+    openConfirmModal('DELETE REFERENCE', `Delete the reference "${existingTerm}"? This removes it from the glossary and uploads the change to GitHub.`, async (confirmed) => {
+        if (!confirmed) return;
+        const result = await eel.delete_reference_entry(existingTerm)();
+        if (result?.ok) {
+            document.getElementById('modal-reference')?.classList.remove('active');
+            referenceEditorContext = null;
+            refreshReferencesPanel();
+        } else {
+            openAlertModal('ERROR', result?.error || 'Unable to delete reference.');
+        }
+    });
+});
 
     // Rule modal
     document.getElementById('btn-rule-cancel')?.addEventListener('click',
@@ -6101,10 +6305,80 @@ function updateStartupSyncStatus(msg) {
 
 // Receive progress updates from the backend during startup sync.
 // Python calls this via eel.sync_progress(msg)(), so the JS handler must be
-// exposed with eel.expose(). (Do NOT call eel.sync_progress(...) from JS —
-// that is a Python->JS direction and would throw "not a function".)
-// This eel.expose MUST run at script-parse time (before Python calls it).
+// registered with eel.expose (do NOT call eel.sync_progress from JS —
+// that is a Python->JS direction and would throw "not a function").
+// This expose MUST run at script-parse time (before Python calls it).
 eel.expose(updateStartupSyncStatus);
+
+// --- Pre-translate progress window ---
+// Python calls this via eel.updatePretranslateProgress(done, total, msg)(),
+// so the handler MUST be registered with eel.expose at script-parse time.
+// The backend runs the batch in a background thread and streams these updates.
+// When msg === 'Pre-translation complete', we resolve the pending completion
+// promise so the button handler can show the final summary.
+let _pretranslateDoneResolve = null;
+// Timestamp of the last progress update from the backend. Used by the
+// no-progress watchdog so the wait scales to ANY batch size (10 or 1000
+// entries) — we only give up if the backend goes silent, never because a
+// fixed wall-clock limit was hit.
+let _pretranslateLastProgress = 0;
+function updatePretranslateProgress(done, total, msg) {
+    const bar = document.getElementById('pretranslate-meter-bar');
+    const val = document.getElementById('pretranslate-meter-val');
+    const count = document.getElementById('pretranslate-meter-count');
+    const status = document.getElementById('pretranslate-meter-status');
+    const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+    if (bar) bar.style.width = pct + '%';
+    if (val) val.innerText = pct + '%';
+    if (count) count.innerText = `${done} / ${total} items`;
+    if (status && msg) status.innerText = msg;
+    // Record progress so the watchdog knows the backend is still alive.
+    _pretranslateLastProgress = Date.now();
+    if (msg === 'Pre-translation complete' && _pretranslateDoneResolve) {
+        const resolve = _pretranslateDoneResolve;
+        _pretranslateDoneResolve = null;
+        resolve();
+    }
+}
+eel.expose(updatePretranslateProgress);
+
+function showPretranslateModal() {
+    const meter = document.getElementById('pretranslate-meter');
+    if (meter) meter.style.display = 'block';
+}
+function hidePretranslateModal() {
+    const meter = document.getElementById('pretranslate-meter');
+    if (meter) meter.style.display = 'none';
+}
+// Returns a promise that resolves when the backend reports completion.
+// Instead of a fixed wall-clock cap (which is wrong for variable batch sizes
+// — 10 entries vs 1000), we use a NO-PROGRESS watchdog: as long as the
+// backend keeps streaming updatePretranslateProgress updates, we wait. We
+// only resolve early if the backend goes silent for watchdogMs (default 10
+// min) with no progress AND no completion callback — a true hang, not a slow
+// batch. 10 min safely exceeds the worst-case single-item retry storm
+// (3 timeouts x 120s + rate-limit penalties ~= 6 min) so a slow item is never
+// mistaken for a hang. This is correct for any number of queued entries.
+function waitForPretranslateDone(watchdogMs = 600000) {
+    return new Promise(resolve => {
+        _pretranslateDoneResolve = resolve;
+        _pretranslateLastProgress = Date.now();
+        const interval = setInterval(() => {
+            if (_pretranslateDoneResolve !== resolve) {
+                // Already resolved by the completion callback.
+                clearInterval(interval);
+                return;
+            }
+            const idle = Date.now() - _pretranslateLastProgress;
+            if (idle >= watchdogMs) {
+                // Backend has gone silent with no progress and no completion.
+                clearInterval(interval);
+                _pretranslateDoneResolve = null;
+                resolve();
+            }
+        }, 10000);
+    });
+}
 
 // Kick off the startup fetch. Declared as a function so it can be called from
 // window.onload AFTER the modal is shown (avoids the modal closing before it
@@ -6179,6 +6453,9 @@ function openReferenceModal(initialTerm = '', initialMeaning = '', initialDescri
     termEl.value = initialTerm || '';
     meaningEl.value = initialMeaning || '';
     descriptionEl.value = initialDescription || '';
+    // Only show DELETE when editing an existing term (not for new entries).
+    const delBtn = document.getElementById('btn-reference-delete');
+    if (delBtn) delBtn.style.display = existingTerm ? 'inline-block' : 'none';
     modal.classList.add('active');
     termEl.focus();
     termEl.select();
@@ -6256,6 +6533,29 @@ function openAlertModal(title, message, isHtml = false) {
 document.getElementById('btn-alert-ok')?.addEventListener('click', () => {
     document.getElementById('modal-alert').classList.remove('active');
 });
+
+// --- First-time caching warning popup (non-blocking) ---
+// Shown when the client is computing/caching entries for the first time (cold
+// cache), which is slow. Auto-hides once caching settles or after a timeout.
+let _cachingWarningTimer = null;
+function showCachingWarning() {
+    const el = document.getElementById('caching-warning');
+    if (!el) return;
+    if (el.dataset.shown === '1') return;  // only show once per session
+    el.dataset.shown = '1';
+    el.style.display = 'flex';
+    const hide = () => { el.style.display = 'none'; };
+    const closeBtn = document.getElementById('btn-caching-warning-close');
+    if (closeBtn) closeBtn.onclick = hide;
+    // Auto-hide after 25s in case the caller never hides it explicitly.
+    if (_cachingWarningTimer) clearTimeout(_cachingWarningTimer);
+    _cachingWarningTimer = setTimeout(hide, 25000);
+}
+function hideCachingWarning() {
+    const el = document.getElementById('caching-warning');
+    if (el) el.style.display = 'none';
+    if (_cachingWarningTimer) { clearTimeout(_cachingWarningTimer); _cachingWarningTimer = null; }
+}
 
 function openRuleModal(idx, rule) {
     state.settings.editingRuleIdx = idx;
@@ -6785,6 +7085,18 @@ async function loadTranslationHistory(entryId) {
 
                 historyContainer.innerHTML = filteredHistory.map((h, idx) => {
                     const actionLabel = h.action === 'translate' ? 'Edit' : h.action;
+                    // Source badge (TM / AI / DeepL) so the origin of each entry is visible at a glance
+                    const SOURCE_LABELS = {
+                        'tm': 'TM', 'tm_cached': 'TM', 'tm_batch_cached': 'TM',
+                        'openrouter': 'AI', 'openrouter_cached': 'AI', 'openrouter_batch_cached': 'AI',
+                        'deepl': 'DeepL', 'deepl_cached': 'DeepL', 'deepl_batch_cached': 'DeepL'
+                    };
+                    let sourceBadge = '';
+                    if (h.source && SOURCE_LABELS[h.source]) {
+                        const cls = h.source.startsWith('tm') ? 'src-tm'
+                            : h.source.startsWith('openrouter') ? 'src-ai' : 'src-deepl';
+                        sourceBadge = `<span class="kl-history-source ${cls}">${SOURCE_LABELS[h.source]}</span>`;
+                    }
                     // For translate entries, check if there was an approve/reject action after this entry
                     let statusBadge = '';
                     let displayUser = h.user;
@@ -6852,6 +7164,7 @@ async function loadTranslationHistory(entryId) {
                         <div class="kl-history-header">
                             <span class="kl-history-action action-${h.action}">${actionLabel}</span>
                             ${statusBadge}
+                            ${sourceBadge}
                             <span class="kl-history-user">by ${displayUser}</span>
                             <span class="kl-history-time">${new Date(h.timestamp).toLocaleString()}</span>
                             ${addCommentBtn}
@@ -6878,6 +7191,9 @@ async function loadTranslationHistory(entryId) {
                             if (editor) {
                                 editor.innerText = decodeHtmlEntities(text);
                                 console.log('[loadTranslationHistory] Pasted history text into editor');
+                                updateReviewerCounters();
+                                syncLineCounters();
+                                updatePreview(state.reviewer.currentIdx);
                             }
                         }
                     });

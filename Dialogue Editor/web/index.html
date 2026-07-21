@@ -80,7 +80,7 @@
                     <span class="panel-toggle-icon material-symbols-outlined">keyboard</span>
                 </button>
             </div>
-            <div id="shortcuts-tooltip" style="position: fixed; display: none; background: #1a1a2e; color: #fff; padding: 15px; border-radius: 8px; border: 1px solid #4a4a6a; z-index: 10000; min-width: 250px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); white-space: pre-line; font-size: 13px;">Ctrl+Enter: Apply fix
+            <div id="shortcuts-tooltip" style="position: fixed; display: none; background: #1a1a2e; color: #fff; padding: 15px; border-radius: 8px; border: 1px solid #4a4a6a; z-index: 10000; min-width: 250px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); white-space: pre-line; font-size: 13px;">Ctrl+Enter: Save
 Ctrl+ArrowRight: Next item
 Ctrl+ArrowLeft: Previous item
 Ctrl+R: Rewrap text
@@ -229,6 +229,21 @@ Ctrl+Shift+D: Ellipsis</div>
                         style="flex: 1; padding: 20px; font-size: 1rem; border: 1px solid var(--accent-color); color: var(--accent-color);"> PRE-TRANSLATE</button>
                 </div>
 
+                <!-- Inline pre-translate progress meter (non-blocking) -->
+                <div id="pretranslate-meter" style="display: none; margin-top: 12px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                        <span id="pretranslate-meter-status" style="font-size: 0.75rem; opacity: 0.9; font-family: 'JetBrains Mono', monospace;">Starting…</span>
+                        <span id="pretranslate-meter-count" style="font-size: 0.7rem; opacity: 0.7; font-family: 'JetBrains Mono', monospace;">0 / 0 items</span>
+                    </div>
+                    <div class="progress-wrapper" style="margin-top: 0;">
+                        <div id="pretranslate-meter-bar" class="progress-bar"></div>
+                        <div id="pretranslate-meter-val" class="progress-val">0%</div>
+                    </div>
+                    <div style="text-align: right; margin-top: 6px;">
+                        <button class="btn-secondary" id="btn-pretranslate-cancel" style="font-size: 0.7rem; padding: 4px 12px;">CANCEL</button>
+                    </div>
+                </div>
+
                 <!-- Progress Display Label (missing from old version) -->
                 <div class="progress-display" style="margin-top: 15px; text-align: center;">
                     <span id="progress-label" style="font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--fg);">Translated: --%</span>
@@ -369,7 +384,7 @@ Ctrl+Shift+D: Ellipsis</div>
                                             <span class="kl-char-count" id="char-count">0 / 50</span>
                                         </div>
                                         <div class="kl-editor-wrapper">
-                                            <div class="kl-textarea" id="en-editor" contenteditable="true" spellcheck="false" data-placeholder="Enter translation..."></div>
+                                            <div class="kl-textarea" id="en-editor" contenteditable="true" spellcheck="true" data-placeholder="Enter translation..."></div>
                                             <div class="kl-tooltip" id="anach-tooltip"></div>
                                             <div class="kl-line-counters" id="line-counters">
                                                 <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
@@ -844,12 +859,12 @@ Ctrl+Shift+D: Ellipsis</div>
 
                             <!-- Section: AI Prompts -->
                             <div class="settings-section" id="section-ai">
-                                <label>AI System Prompt</label>
-                                <p class="help-text">System prompt used for AI chat interactions.</p>
+                                <label>AI Prompt</label>
+                                <p class="help-text">System prompt used for both AI chat and batch pre-translation (TM → OpenRouter → DeepL). Archetype notes and glossary terms are appended automatically.</p>
                                 <div class="field-group">
-                                    <textarea id="opt-ai-system-prompt" style="height: 150px; font-family: 'JetBrains Mono'; font-size: 0.75rem;"></textarea>
+                                    <textarea id="opt-ai-prompt" style="height: 320px; font-family: 'JetBrains Mono'; font-size: 0.75rem;"></textarea>
                                 </div>
-                                <button class="btn-primary" id="btn-save-ai-system-prompt" style="margin-top: 10px;">SAVE SYSTEM PROMPT</button>
+                                <button class="btn-primary" id="btn-save-ai-prompt" style="margin-top: 10px;">SAVE AI PROMPT</button>
 
                                 <label style="margin-top: 30px;">AI Button Prompts</label>
                                 <p class="help-text">Prompts used for AI assistant buttons. Use {text} as placeholder for the text to process.</p>
@@ -891,6 +906,11 @@ Ctrl+Shift+D: Ellipsis</div>
                                 <div class="field-group">
                                     <label>Enable DeepL Fallback</label>
                                     <input type="checkbox" id="opt-pretranslate-enable-deepl" checked>
+                                </div>
+                                <div class="field-group">
+                                    <label>Pre-Translate Model (OpenRouter)</label>
+                                    <select id="opt-pretranslate-openrouter-model" class="settings-select"></select>
+                                    <p class="help-text">Model used for AI pre-translation. Separate from the chat/rephrase model. Falls back to the chat model if unset.</p>
                                 </div>
                                 <button class="btn-primary" id="btn-save-pretranslate-settings" style="margin-top: 10px;">SAVE PRE-TRANSLATE SETTINGS</button>
                             </div>
@@ -1218,6 +1238,7 @@ Ctrl+Shift+D: Ellipsis</div>
                 <textarea id="reference-description-field" class="kl-input" style="height: 100px; min-height: 100px; resize: vertical;"></textarea>
             </div>
             <div class="modal-actions" style="margin-top: 20px; display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn-danger" id="btn-reference-delete" style="margin-right: auto; display: none;">DELETE</button>
                 <button class="btn-secondary" id="btn-reference-cancel">CANCEL</button>
                 <button class="btn-primary" id="btn-reference-save">SAVE</button>
             </div>
@@ -1261,6 +1282,34 @@ Ctrl+Shift+D: Ellipsis</div>
                 <button class="btn-primary" id="btn-anach-replace">REPLACE IN EDITOR</button>
             </div>
         </div>
+    </div>
+    <!-- Pre-translate progress window -->
+    <div id="modal-pretranslate-options" class="modal">
+        <div class="modal-content" style="width: 460px;">
+            <h3>PRE-TRANSLATE OPTIONS</h3>
+            <p style="font-size: 0.85rem; opacity: 0.85; margin: 0 0 14px;">Choose how to run pre-translation.</p>
+            <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; cursor: pointer; margin-bottom: 18px;">
+                <input type="checkbox" id="chk-pretranslate-skip" checked />
+                <span>Skip entries that are already pre-translated</span>
+            </label>
+            <div class="modal-actions" style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn-secondary" id="btn-pretranslate-options-cancel">CANCEL</button>
+                <button class="btn-primary" id="btn-pretranslate-options-start">START</button>
+            </div>
+        </div>
+    </div>
+    <!-- Non-blocking warning shown while the client caches entries for the first time -->
+    <div id="caching-warning" class="caching-warning" style="display: none;">
+        <div class="caching-warning-icon">⏳</div>
+        <div class="caching-warning-body">
+            <div class="caching-warning-title">Building cache…</div>
+            <div class="caching-warning-text">
+                The client is computing and caching entries for this queue or section. This
+                happens whenever you switch queues or look up a different section — it may feel
+                slow for the next moment or two, then everything loads instantly.
+            </div>
+        </div>
+        <button class="caching-warning-close" id="btn-caching-warning-close" aria-label="Dismiss">×</button>
     </div>
     <script src="app.js"></script>
 </body>
