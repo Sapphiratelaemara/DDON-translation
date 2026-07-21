@@ -1416,8 +1416,12 @@ async function loadItemAtIdxInternal(idx, mode) {
                     if (!res || res.error) return;
 
                     // Update in-memory item too so subsequent panels use correct text.
-                    item.jp = res.jp ?? item.jp;
-                    item.en = res.en ?? item.en;
+                    item.jp = res.jp || item.jp;
+                    // Only backfill from CSV when we have no translation yet.
+                    // Never overwrite an existing (approved/typed) translation with
+                    // a stale or empty CSV cell -- that caused approved text to vanish
+                    // when switching between entries.
+                    if (!item.en) item.en = res.en || '';
                     if (res.speaker) item.speaker = res.speaker;
                     if (res.entry_type) item.entry_type = res.entry_type;
 
@@ -1892,7 +1896,7 @@ async function applyFix() {
     const nickname = state.settings.lastConfig?.sync_nickname || 'reviewer';
     console.log('[applyFix] Saving history with nickname:', nickname, 'item.path:', item.path, 'item.id:', item.id);
     try {
-        const res = await eel.save_translation_history(item.id, item.jp, text, speaker, entryType, nickname, item.path, item.row)();
+        const res = await eel.save_translation_history(item.id, item.jp, text, speaker, item.entry_type, nickname, item.path, item.row)();
         console.log('[applyFix] Save result:', res);
     } catch (e) {
         console.error('[applyFix] Save error:', e);
@@ -2208,7 +2212,7 @@ function createAnachronismRow(word, suggestion, is_ddon) {
     });
 
     if (suggestion) {
-        eel.get_definition(suggestion)().then(result => {
+            eel.get_definition(suggestion, is_ddon)().then(result => {
             const { defn, example } = parseDefinitionResult(result);
             if (defn || example) {
                 let titleText = defn || '';
@@ -2755,8 +2759,11 @@ function handleMouseMove(e) {
             // Store the current word to check later in the async callback
             const currentWord = word;
             
-            // Fetch definition and example for the suggestion (archaic word)
-            eel.get_definition(suggestion)().then(result => {
+            // Fetch definition and example for the suggestion (archaic word).
+            // Pass the source flag (ddon vs other) so the correct definition
+            // section is used when a word exists in both (e.g. 'art').
+            const isDdon = target.getAttribute('data-is-ddon') === 'true';
+            eel.get_definition(suggestion, isDdon)().then(result => {
                 // Only update tooltip if we're still hovering over the same word
                 if (hoveredAnachronism && hoveredAnachronism[0] === currentWord && tooltip.style.display !== 'none') {
                     const { defn, example } = parseDefinitionResult(result);
@@ -4953,7 +4960,7 @@ async function loadSettings() {
         renderSettingsArchetypes(config.archetypes || {});
 
         // AI Prompts
-        setVal('opt-ai-system-prompt', config.ai_system_prompt || '');
+        setVal('opt-ai-prompt', config.ai_prompt || '');
         const buttonPrompts = config.ai_button_prompts || {};
         setVal('opt-ai-prompt-translate', buttonPrompts.translate || 'Translate: {text}');
         setVal('opt-ai-prompt-rephrase', buttonPrompts.rephrase || 'Rephrase this: {text}');
@@ -5518,14 +5525,14 @@ function initSettingsActions() {
         };
     }
 
-    // --- AI System Prompt: save on button click ---
-    const btnSaveAiSystem = document.getElementById('btn-save-ai-system-prompt');
-    if (btnSaveAiSystem) {
-        btnSaveAiSystem.onclick = async () => {
-            const el = document.getElementById('opt-ai-system-prompt');
+    // --- AI Prompt: save on button click ---
+    const btnSaveAiPrompt = document.getElementById('btn-save-ai-prompt');
+    if (btnSaveAiPrompt) {
+        btnSaveAiPrompt.onclick = async () => {
+            const el = document.getElementById('opt-ai-prompt');
             if (el) {
-                await eel.save_config_field('ai_system_prompt', el.value)();
-                alert('AI System Prompt saved!');
+                await eel.save_config_field('ai_prompt', el.value)();
+                alert('AI Prompt saved!');
             }
         };
     }
@@ -6198,7 +6205,7 @@ function showAnachronismModal(word, suggestion, defn, example, isDdon) {
     populateAnachronismModalContent(word, suggestion, defn, example, isDdon);
     modal.classList.add('active');
 
-    eel.get_definition(suggestion)().then(result => {
+    eel.get_definition(suggestion, isDdon)().then(result => {
         if (modal.classList.contains('active') && modal._anachSuggestion === suggestion) {
             const parsed = parseDefinitionResult(result);
             populateAnachronismModalContent(
@@ -6221,6 +6228,22 @@ function initModals() {
         referenceEditorContext = null;
     });
     document.getElementById('btn-reference-save')?.addEventListener('click', saveReferenceEntryFromModal);
+
+document.getElementById('btn-reference-delete')?.addEventListener('click', () => {
+    const existingTerm = referenceEditorContext?.existingTerm;
+    if (!existingTerm) return;
+    openConfirmModal('DELETE REFERENCE', `Delete the reference "${existingTerm}"? This removes it from the glossary and uploads the change to GitHub.`, async (confirmed) => {
+        if (!confirmed) return;
+        const result = await eel.delete_reference_entry(existingTerm)();
+        if (result?.ok) {
+            document.getElementById('modal-reference')?.classList.remove('active');
+            referenceEditorContext = null;
+            refreshReferencesPanel();
+        } else {
+            openAlertModal('ERROR', result?.error || 'Unable to delete reference.');
+        }
+    });
+});
 
     // Rule modal
     document.getElementById('btn-rule-cancel')?.addEventListener('click',
@@ -6294,6 +6317,11 @@ eel.expose(updateStartupSyncStatus);
 // When msg === 'Pre-translation complete', we resolve the pending completion
 // promise so the button handler can show the final summary.
 let _pretranslateDoneResolve = null;
+// Timestamp of the last progress update from the backend. Used by the
+// no-progress watchdog so the wait scales to ANY batch size (10 or 1000
+// entries) — we only give up if the backend goes silent, never because a
+// fixed wall-clock limit was hit.
+let _pretranslateLastProgress = 0;
 function updatePretranslateProgress(done, total, msg) {
     const bar = document.getElementById('pretranslate-meter-bar');
     const val = document.getElementById('pretranslate-meter-val');
@@ -6304,6 +6332,8 @@ function updatePretranslateProgress(done, total, msg) {
     if (val) val.innerText = pct + '%';
     if (count) count.innerText = `${done} / ${total} items`;
     if (status && msg) status.innerText = msg;
+    // Record progress so the watchdog knows the backend is still alive.
+    _pretranslateLastProgress = Date.now();
     if (msg === 'Pre-translation complete' && _pretranslateDoneResolve) {
         const resolve = _pretranslateDoneResolve;
         _pretranslateDoneResolve = null;
@@ -6321,17 +6351,32 @@ function hidePretranslateModal() {
     if (meter) meter.style.display = 'none';
 }
 // Returns a promise that resolves when the backend reports completion.
-function waitForPretranslateDone(timeoutMs = 60000) {
+// Instead of a fixed wall-clock cap (which is wrong for variable batch sizes
+// — 10 entries vs 1000), we use a NO-PROGRESS watchdog: as long as the
+// backend keeps streaming updatePretranslateProgress updates, we wait. We
+// only resolve early if the backend goes silent for watchdogMs (default 10
+// min) with no progress AND no completion callback — a true hang, not a slow
+// batch. 10 min safely exceeds the worst-case single-item retry storm
+// (3 timeouts x 120s + rate-limit penalties ~= 6 min) so a slow item is never
+// mistaken for a hang. This is correct for any number of queued entries.
+function waitForPretranslateDone(watchdogMs = 600000) {
     return new Promise(resolve => {
         _pretranslateDoneResolve = resolve;
-        // Safety net: never hang forever if the backend never reports completion
-        // (e.g. missed callback). Resolve anyway so the UI recovers.
-        setTimeout(() => {
-            if (_pretranslateDoneResolve === resolve) {
+        _pretranslateLastProgress = Date.now();
+        const interval = setInterval(() => {
+            if (_pretranslateDoneResolve !== resolve) {
+                // Already resolved by the completion callback.
+                clearInterval(interval);
+                return;
+            }
+            const idle = Date.now() - _pretranslateLastProgress;
+            if (idle >= watchdogMs) {
+                // Backend has gone silent with no progress and no completion.
+                clearInterval(interval);
                 _pretranslateDoneResolve = null;
                 resolve();
             }
-        }, timeoutMs);
+        }, 10000);
     });
 }
 
@@ -6408,6 +6453,9 @@ function openReferenceModal(initialTerm = '', initialMeaning = '', initialDescri
     termEl.value = initialTerm || '';
     meaningEl.value = initialMeaning || '';
     descriptionEl.value = initialDescription || '';
+    // Only show DELETE when editing an existing term (not for new entries).
+    const delBtn = document.getElementById('btn-reference-delete');
+    if (delBtn) delBtn.style.display = existingTerm ? 'inline-block' : 'none';
     modal.classList.add('active');
     termEl.focus();
     termEl.select();

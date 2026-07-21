@@ -52,6 +52,36 @@ def save_reference_entry_to_csv(path, term, meaning, description='', existing_te
     return path
 
 
+def delete_reference_entry_from_csv(path, term):
+    """Remove a glossary/reference row by term. Returns True if a row was deleted."""
+    if not path:
+        raise ValueError("A glossary path is required")
+    term = (term or '').strip()
+    if not term:
+        raise ValueError("Term is required")
+    if not os.path.exists(path):
+        return False
+
+    rows = []
+    deleted = False
+    with open(path, 'r', encoding='utf-8-sig', newline='') as fh:
+        reader = csv.reader(fh)
+        for row in reader:
+            if row and row[0].strip() and row[0].strip() == term:
+                deleted = True
+                continue  # drop this row
+            rows.append(row)
+
+    if not deleted:
+        return False
+
+    with open(path, 'w', encoding='utf-8', newline='') as fh:
+        writer = csv.writer(fh)
+        writer.writerows(rows)
+
+    return True
+
+
 def mark_file_written(file_path):
     """Mark a file as recently written by the app (to avoid cache invalidation)."""
     _recently_written_files[file_path] = time.time()
@@ -399,14 +429,23 @@ class LoreEngine:
             print(f"Definition cache save error: {e}")
 
     @classmethod
-    def get_definition(cls, word, callback=None):
+    def get_definition(cls, word, callback=None, is_dd1=None):
         """Return cached (definition, example) tuple for word, or fetch it asynchronously.
         If callback is given, calls callback(word, (definition, example)) when fetch completes.
-        Returns cached value immediately if available, else None."""
-        cache = cls._load_def_cache()
+        Returns cached value immediately if available, else None.
+        `is_dd1` (bool|None): when provided, restricts the lookup to the matching
+        definition section (dd1_definitions vs other_definitions) so a word that
+        appears in both (e.g. 'art' = skill/craft in DD1 but 'thou art' = you are
+        in other vocab) resolves to the definition matching its actual source."""
         word_lower = word.lower()
-        cached = cache.get(word_lower)
         examples = cls._load_examples()
+        if is_dd1 is not None:
+            # Source-aware lookup: pick the definition from the correct section.
+            defn = cls._load_def_by_source(word_lower, is_dd1)
+            if defn is not None:
+                return (defn, examples.get(word_lower, ""))
+        cache = cls._load_def_cache()
+        cached = cache.get(word_lower)
         if cached is not None:
             if isinstance(cached, str):
                 return (cached, examples.get(word_lower, ""))
@@ -425,6 +464,28 @@ class LoreEngine:
                 if callback:
                     callback(word, defn)
             threading.Thread(target=_fetch, daemon=True).start()
+
+    @classmethod
+    def _load_def_by_source(cls, word_lower, is_dd1):
+        """Return the definition for `word_lower` from the matching section of
+        anach_definitions.json. DD1 vocab -> dd1_definitions; other vocab ->
+        other_definitions. Returns None if not found in that section."""
+        definitions_file = cls._get_definitions_file()
+        if not definitions_file or not os.path.exists(definitions_file):
+            return None
+        try:
+            with open(definitions_file, 'r', encoding='utf-8-sig') as f:
+                data = json.load(f)
+            if isinstance(data, dict) and "dd1_definitions" in data:
+                if is_dd1:
+                    val = data.get("dd1_definitions", {}).get(word_lower)
+                else:
+                    val = data.get("other_definitions", {}).get(word_lower)
+                if val is not None:
+                    return val if isinstance(val, str) else (val[0] if isinstance(val, (list, tuple)) and val else "")
+        except Exception:
+            pass
+        return None
 
     @classmethod
     def _load_examples(cls):

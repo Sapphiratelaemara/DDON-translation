@@ -162,6 +162,195 @@ translation_manager.set_config_manager(cm)
 source_validator = SourceValidator()
 source_validator.load_tag_map(cm.config.get("tag_map", {}))
 
+# One-time migration: unify the old separate AI prompts into a single "ai_prompt"
+# config key (used for both chat and batch pre-translation). If the user had a
+# custom pre-translate prompt, keep it; otherwise fall back to a custom chat
+# prompt; otherwise leave it for the default constant to supply.
+if "ai_prompt" not in cm.config:
+    _migrated = cm.config.get("pretranslate_system_prompt") or cm.config.get("ai_system_prompt")
+    if _migrated:
+        cm.config["ai_prompt"] = _migrated
+        cm.save_all()
+
+# Default system prompt used for ALL AI work (chat + batch pre-translation).
+# Editable via the AI_PROMPTS settings section (stored in config as "ai_prompt").
+DEFAULT_AI_PROMPT = (
+    "You are a Dragon's Dogma Online (DDON) localization assistant. "
+    "Your output will be inserted directly into the game — follow every rule precisely.\n\n"
+
+    "OUTPUT FORMAT:\n"
+    "Return only the translated or refined text. No preamble, no explanation, no quotation marks. "
+    "If genuinely uncertain about a reading, append a single bracketed note: [alt: ...]. "
+    "Do not insert blank lines or extra newlines.\n\n"
+
+    "HARD RULES (these override EVERYTHING else, including any character-voice note):\n"
+    "- Preserve anything inside < > angle brackets exactly as-is — these are engine tags. "
+    "Text between paired tags (e.g. <COL>text</COL>) should be translated; the tags themselves must not change.\n"
+    "- Do NOT use Japanese honorifics (e.g. -san, -sama, -dono).\n"
+    "- Render Japanese dashes as an ellipsis (...) or em dash (—) depending on context.\n"
+    "- For unknown proper nouns (names, places, skills), keep the established romanisation.\n"
+    "- Address the player as 'Master' or 'Arisen' as context warrants. Use 'ser' not 'sir'.\n"
+    "- ABSOLUTE BAN: NEVER use Early Modern / Shakespearean English. This means NO 'thou', 'thee', 'thy', 'thine', "
+    "and NO '-est'/'-eth' verb forms ('thinkest', 'dost', 'hath', 'maketh', 'goest', 'wilt', 'art'). Always use modern "
+    "'you' / 'your' / 'you are' / 'you do' / 'you have'. Note: 'ye' is allowed as a VOCABULARY word (e.g. 'ye olde'), "
+    "but never as a pronoun for 'you'. The ONLY exception to the ban is a character-voice note that EXPLICITLY requests "
+    "Early Modern / Shakespearean tone (e.g. 'thou/thee', as with The White Dragon) — a vague 'archaic tone' note does "
+    "NOT grant permission. If no such explicit note is present, rewrite any thou/thee line in archaized modern English.\n\n"
+
+    "STYLE — THE DRAGON'S DOGMA HOUSE STYLE:\n"
+    "The DEFAULT register is ARCHAIZED MODERN ENGLISH (also called 'lightly archaized contemporary English'): "
+    "modern English GRAMMAR and SYNTAX with archaic VOCABULARY woven in. This is the crucial distinction — the archaic "
+    "flavour comes ONLY from word choice (nouns, adjectives, adverbs, set phrases), NEVER from the pronoun system or verb "
+    "endings. Standard contractions (don't, can't, won't, it's, let's, we're) are used freely, exactly as in modern speech. "
+    "Avoid modern slang ('gonna', 'gotta', 'kinda', 'sorta', 'nah', 'dude', 'okay', 'awesome', 'yeah'). "
+    "Favour archaic VOCABULARY where it fits naturally: 'tis / 'twas, naught / aught, afore, ere, nigh, mayhap, o'er, e'er, "
+    "nary, anon, summat, yon, whence, albeit. 'Tis is especially characteristic — use it freely for "
+    "observations and reactions ('Hobgoblin! 'Tis a formidable foe.', ''Tis more bloodthirsty than a wolf!'). "
+    "Short, punchy combat calls are the norm for battle lines — keep them terse. "
+    "Characters often speak with heightened gravity — preserve that register rather than flattening it.\n\n"
+
+    "REGISTER GUARDRAILS — ABSOLUTE BANS (no exceptions unless the CHARACTER VOICE note below EXPLICITLY demands it):\n"
+    "1. NEVER use the second-person archaic pronouns: 'thou', 'thee', 'thy', 'thine'. Use 'you' / 'your' ALWAYS.\n"
+    "2. NEVER use Early Modern / Shakespearean verb forms: -est / -eth endings (thinkest, dost, dost thou, hath, maketh, "
+    "goest, wilt, art for 'you are'). 'You are' / 'you do' / 'you have' is correct — NOT 'thou art' / 'thou dost' / 'thou hast'.\n"
+    "3. NEVER use 'ye' as a pronoun for 'you' (e.g. 'what think ye' is banned — write 'what think you').\n"
+    "If you feel an archaic line forming with thou/thee/-est/-eth, STOP and rewrite it in archaized modern English instead "
+    "(archaic words on modern grammar). The default house style is archaized MODERN English, not Shakespearean English. "
+    "Do not flatten into ordinary contemporary English either — stay in the archaized-modern middle unless told otherwise.\n\n"
+
+    "EXAMPLES (from the actual game):\n"
+    "JP: 仲間を呼ばれる前に仕留めましょう！\n"
+    "EN: Silence that howl, ere more arrive!\n\n"
+    "JP: あいつも尻尾が弱点かもしれませんね\n"
+    "EN: Mayhap their tails are weak as well.\n\n"
+    "JP: こう素早いと…当てにくいです！\n"
+    "EN: 'Tis a trial to hit such swift targets!\n\n"
+    "JP: 陸に上がる前に仕留めましょう！\n"
+    "EN: Let's end this afore they reach land!\n\n"
+    "JP: ゴールデンナイトの攻撃力は脅威です！\n"
+    "EN: The knight of gold is fearsome strong!\n\n"
+
+    "CHARACTER VOICE (delivery only — never content):\n"
+    "If a character voice note is supplied below, it describes surface-level delivery only: sentence length and rhythm, "
+    "formality, and how directly the character states things. Use it ONLY to choose between otherwise-equivalent ways of "
+    "phrasing the SAME meaning (word order, contraction density, clause length, how blunt vs. hedged the phrasing is). "
+    "It is NOT permission to add jokes, asides, actions, or any content not present in the source line, and it never "
+    "overrides TRANSLATION GUIDANCE below. If the voice note and a faithful translation ever conflict, faithfulness wins.\n"
+    "{character_voice_note}\n\n"
+
+    "TRANSLATION GUIDANCE:\n"
+    "Stay faithful to the original meaning and length — do not add, omit, or embellish. "
+    "Rephrase for natural English flow within the style above. "
+    "Respect the character's voice and any archetype notes provided. "
+    "Stay consistent with any translation choices made earlier in this conversation.\n"
+)
+
+# Map of language codes to human-readable names for the prompt's TARGET LANGUAGE
+# instruction. Falls back to the uppercased code if unknown.
+_LANGUAGE_NAMES = {
+    "en": "English",
+    "pt": "Portuguese",
+    "pt-br": "Brazilian Portuguese",
+    "pt-pt": "European Portuguese",
+    "fr": "French",
+    "es": "Spanish",
+    "es-419": "Latin American Spanish",
+    "de": "German",
+    "it": "Italian",
+    "ja": "Japanese",
+    "ko": "Korean",
+    "zh": "Chinese",
+    "zh-cn": "Simplified Chinese",
+    "zh-tw": "Traditional Chinese",
+    "ru": "Russian",
+    "nl": "Dutch",
+    "pl": "Polish",
+    "ar": "Arabic",
+    "bg": "Bulgarian",
+    "cs": "Czech",
+    "da": "Danish",
+    "el": "Greek",
+    "et": "Estonian",
+    "fi": "Finnish",
+    "hu": "Hungarian",
+    "id": "Indonesian",
+    "lt": "Lithuanian",
+    "lv": "Latvian",
+    "nb": "Norwegian Bokmål",
+    "no": "Norwegian",
+    "ro": "Romanian",
+    "sk": "Slovak",
+    "sl": "Slovenian",
+    "sv": "Swedish",
+    "tr": "Turkish",
+    "uk": "Ukrainian",
+    "vi": "Vietnamese",
+    "th": "Thai",
+    "hi": "Hindi",
+    "he": "Hebrew",
+    "ca": "Catalan",
+    "hr": "Croatian",
+    "sr": "Serbian",
+    "fa": "Persian",
+    "fil": "Filipino",
+    "ms": "Malay",
+    "sw": "Swahili",
+    "is": "Icelandic",
+    "ga": "Irish",
+    "mt": "Maltese",
+    "cy": "Welsh",
+    "eu": "Basque",
+    "gl": "Galician",
+}
+
+# Words/endings that mark Early Modern / Shakespearean English. Used by
+# _contains_early_modern() to reject AI output that violates the house-style ban
+# (unless the character is explicitly exempt, e.g. The White Dragon).
+_EARLY_MODERN_PRONOUNS = {"thou", "thee", "thy", "thine"}
+_EARLY_MODERN_VERB_FORMS = (
+    "thinkest", "dost", "doth", "hath", "makest", "maketh", "goest", "doest",
+    "sayest", "comest", "art", "wilt", "wouldst", "couldst", "shouldst",
+    "hast", "didst", "knowest", "seest", "gett'st", "giv'st", "tisn't",
+)
+
+def _contains_early_modern(text):
+    """Return True if ``text`` contains Early Modern / Shakespearean English.
+
+    Matches the banned second-person pronouns and -est/-eth verb forms as
+    whole words (so 'artist', 'hathaway', 'fast' etc. are NOT flagged).
+    """
+    if not text:
+        return False
+    lowered = " " + text.lower().replace("'", "'") + " "
+    # Whole-word pronoun match
+    for w in _EARLY_MODERN_PRONOUNS:
+        if f" {w} " in lowered:
+            return True
+    # Whole-word verb-form match (covers -est/-eth and standalone forms)
+    for w in _EARLY_MODERN_VERB_FORMS:
+        if f" {w} " in lowered:
+            return True
+    # Bare -est / -eth endings on other verbs (e.g. 'speakest', 'goeth')
+    import re
+    if re.search(r"\b\w+est\b|\b\w+eth\b", lowered):
+        return True
+    return False
+
+def _target_language_instruction():
+    """Build a TARGET LANGUAGE instruction tied to the active settings language.
+
+    Appended to AI system prompts so the model replies in the language the
+    user is actually localizing into (not always English).
+    """
+    code = (getattr(cm, "language", "en") or "en").lower()
+    name = _LANGUAGE_NAMES.get(code, code.upper())
+    return (
+        f"\n\nTARGET LANGUAGE:\n"
+        f"The file you are working on is intended to be localized into {name}. "
+        f"All of your output MUST be written in {name}. Do not reply in any other "
+        f"language (including English) unless the user explicitly asks for it."
+    )
+
 # Set up sync callback - request push to GitHub after local saves
 # Comments trigger urgent push (1 min), other changes wait (30 min)
 def sync_push_request(urgent: bool = False):
@@ -1095,6 +1284,9 @@ def save_replace_rules(rules):
 @eel.expose
 def save_archetype(key, name, notes):
     cm.config.setdefault("archetypes", {})[key] = {"name": name, "notes": notes}
+    # Keep cm.archetypes (the archetypes.json source of truth) in sync and persist it
+    cm.archetypes.setdefault("archetypes", {})[key] = {"name": name, "notes": notes}
+    cm.save_archetypes()
     cm.save_all()
     return True
 
@@ -1106,6 +1298,9 @@ def save_archetype_data(key, data):
         cm.config["archetypes"] = {}
     
     cm.config["archetypes"][key] = data
+    # Keep cm.archetypes (the archetypes.json source of truth) in sync and persist it
+    cm.archetypes.setdefault("archetypes", {})[key] = data
+    cm.save_archetypes()
     cm.save_all()
     # If LoreEngine is active, we'd trigger a reload here
     global _lore_engine
@@ -1223,6 +1418,9 @@ def delete_archetype(key):
     archetypes = cm.config.get("archetypes", {})
     if key in archetypes:
         del archetypes[key]
+        if "archetypes" in cm.archetypes and key in cm.archetypes["archetypes"]:
+            del cm.archetypes["archetypes"][key]
+        cm.save_archetypes()
         cm.save_all()
         return True
     return False
@@ -1265,14 +1463,15 @@ def reload_archetypes_from_file():
 
 @eel.expose
 def save_speaker_archetype(speaker, archetype_key, note=""):
-    cm.user_settings.setdefault("speaker_archetypes", {})[speaker] = archetype_key if archetype_key else None
+    # Store in cm.config so it persists to speaker_data.json (not user_settings.json)
+    cm.config.setdefault("speaker_archetypes", {})[speaker] = archetype_key if archetype_key else None
     if not archetype_key:
-        cm.user_settings["speaker_archetypes"].pop(speaker, None)
+        cm.config["speaker_archetypes"].pop(speaker, None)
     if note:
-        cm.user_settings.setdefault("speaker_notes", {})[speaker] = note
+        cm.config.setdefault("speaker_notes", {})[speaker] = note
     else:
-        cm.user_settings.setdefault("speaker_notes", {}).pop(speaker, None)
-    cm.save_user_settings()
+        cm.config.setdefault("speaker_notes", {}).pop(speaker, None)
+    cm.save_all()
     return True
 
 @eel.expose
@@ -1287,7 +1486,7 @@ def get_archetypes_list():
 def get_speaker_archetype(speaker):
     """Return saved archetype for a speaker."""
     debug_log("Main", f"get_speaker_archetype called for speaker: {speaker}")
-    result = cm.user_settings.get("speaker_archetypes", {}).get(speaker, "")
+    result = cm.config.get("speaker_archetypes", {}).get(speaker, "")
     debug_log("Main", f"get_speaker_archetype result: {result}")
     return result
 
@@ -1295,7 +1494,7 @@ def get_speaker_archetype(speaker):
 def get_speaker_note(speaker):
     """Return saved note for a speaker."""
     debug_log("Main", f"get_speaker_note called for speaker: {speaker}")
-    result = cm.user_settings.get("speaker_notes", {}).get(speaker, "")
+    result = cm.config.get("speaker_notes", {}).get(speaker, "")
     debug_log("Main", f"get_speaker_note result: {result}")
     return result
 
@@ -1941,6 +2140,13 @@ def save_reference_entry(term, meaning, description='', existing_term=None, glos
                 _prefetch_mgr.invalidate_by_term(term)
             except Exception:
                 pass
+        # Upload the glossary change to GitHub. Glossary edits don't otherwise
+        # fire a push, so request one here (urgent: 1 min). The push compares a
+        # content hash, so a smaller-but-different file still uploads.
+        try:
+            github_sync.request_push(urgent=True)
+        except Exception as e:
+            print(f"[save_reference_entry] Push request failed: {e}")
         return {'ok': True, 'path': glossary_path}
     except Exception as e:
         print(f"[save_reference_entry] Error: {e}")
@@ -1968,6 +2174,43 @@ def get_reference_entry(term, glossary_path=None):
         return {'ok': False, 'error': 'Reference not found'}
     except Exception as e:
         print(f"[get_reference_entry] Error: {e}")
+        return {'ok': False, 'error': str(e)}
+
+@eel.expose
+def delete_reference_entry(term, glossary_path=None):
+    """Delete a glossary/reference entry by term and upload the change to GitHub."""
+    try:
+        if not glossary_path:
+            glossary_path = _get_glossary_path()
+        if not glossary_path:
+            raise ValueError('No glossary path configured')
+
+        from src.lore_engine import delete_reference_entry_from_csv
+        deleted = delete_reference_entry_from_csv(glossary_path, term)
+        if not deleted:
+            return {'ok': False, 'error': 'Reference not found'}
+
+        le = _get_lore_engine()
+        if le:
+            le.load_data("", glossary_path)
+        # Invalidate caches so the References panel re-renders without the term
+        with _lore_context_cache_lock:
+            _lore_context_cache.clear()
+        if '_prefetch_mgr' in globals() and _prefetch_mgr is not None:
+            try:
+                _prefetch_mgr.invalidate_by_term(term)
+            except Exception:
+                pass
+        # Upload the now-smaller glossary.csv to GitHub. The push compares a
+        # content hash (not file size), so a smaller-but-different file still
+        # uploads. Glossary edits don't otherwise fire a push, so do it here.
+        try:
+            github_sync.request_push(urgent=True)
+        except Exception as e:
+            print(f"[delete_reference_entry] Push request failed: {e}")
+        return {'ok': True, 'path': glossary_path}
+    except Exception as e:
+        print(f"[delete_reference_entry] Error: {e}")
         return {'ok': False, 'error': str(e)}
 
 @eel.expose
@@ -2072,27 +2315,30 @@ def _normalize_definition_result(result):
     return ["", ""]
 
 @eel.expose
-def get_definition(word):
-    """Return cached definition for word, or fetch it from local examples."""
+def get_definition(word, is_dd1=None):
+    """Return cached definition for word, or fetch it from local examples.
+    `is_dd1` (bool|None): when provided, restricts the lookup to the matching
+    definition section so a word present in both dd1 and other vocab resolves to
+    the definition matching its actual source."""
     if not word:
         return ["", ""]
     try:
         le = _get_lore_engine()
         if not le:
             return ["", ""]
-        sync_result = le.get_definition(word)
+        sync_result = le.get_definition(word, is_dd1=is_dd1)
         if sync_result is not None:
             return _normalize_definition_result(sync_result)
         result_container = [None]
         def _callback(w, defn):
             result_container[0] = defn
-        le.get_definition(word, _callback)
+        le.get_definition(word, _callback, is_dd1=is_dd1)
         import time
         for _ in range(10):
             if result_container[0] is not None:
                 return _normalize_definition_result(result_container[0])
             time.sleep(0.1)
-        return _normalize_definition_result(le.get_definition(word))
+        return _normalize_definition_result(le.get_definition(word, is_dd1=is_dd1))
     except Exception as e:
         print(f"[get_definition] Error: {e}")
         return ["", ""]
@@ -2451,63 +2697,15 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
     if cached:
         return cached
 
-    sys_prompt = cm.config.get("ai_system_prompt",
-        "You are a Dragon's Dogma Online (DDON) localization assistant. "
-        "Your output will be inserted directly into the game — follow every rule precisely.\n\n"
-
-        "OUTPUT FORMAT:\n"
-        "Return only the translated or refined text. No preamble, no explanation, no quotation marks. "
-        "If you are genuinely uncertain about a reading, append a single bracketed note: [alt: ...]. "
-        "Do not insert blank lines or extra newlines.\n\n"
-
-        "HARD RULES:\n"
-        "- Preserve anything inside < > angle brackets exactly as-is — these are engine tags. "
-        "Text between paired tags (e.g. <COL>text</COL>) should be translated; the tags themselves must not change.\n"
-        "- Do NOT use Japanese honorifics (e.g. -san, -sama, -dono).\n"
-        "- Render Japanese dashes as an ellipsis (...) or em dash (—) depending on context.\n"
-        "- For unknown proper nouns (names, places, skills), keep the established romanisation.\n"
-        "- Address the player as 'Master' or 'Arisen' as context warrants. Use 'ser' not 'sir'.\n\n"
-
-        "STYLE — THE DRAGON'S DOGMA HOUSE STYLE:\n"
-        "The style is natural English grammar with archaic vocabulary woven in. "
-        "Standard contractions (don't, can't, won't, it's, let's, we're) are used freely — "
-        "what is avoided is modern slang: never use 'gonna', 'gotta', 'kinda', 'sorta', 'nah', 'dude', 'okay', 'awesome'.\n\n"
-
-        "Draw on these archaic vocabulary choices where they fit naturally:\n"
-        "  'tis / 'twas / 'twould  — for 'it is / it was / it would'\n"
-        "  naught / aught          — for 'nothing / anything'\n"
-        "  afore                   — for 'before'\n"
-        "  ere                     — for 'before' (in time: 'ere more arrive')\n"
-        "  nigh                    — for 'near' or 'almost'\n"
-        "  mayhap                  — for 'perhaps'\n"
-        "  o'er / whate'er / e'er  — contracted forms\n"
-        "  nary                    — for 'not a single'\n"
-        "  summat                  — for 'something' (informal)\n"
-        "  what                    — as a relative pronoun ('fiends what haunt these halls')\n\n"
-
-        "'Tis is especially characteristic — use it freely for observations and reactions "
-        "('Hobgoblin! 'Tis a formidable foe.', ''Tis more bloodthirsty than a wolf!'). "
-        "Short, punchy combat calls are the norm for battle lines — keep them terse.\n\n"
-
-        "EXAMPLES (from the actual game):\n"
-        "JP: 仲間を呼ばれる前に仕留めましょう！\n"
-        "EN: Silence that howl, ere more arrive!\n\n"
-        "JP: あいつも尻尾が弱点かもしれませんね\n"
-        "EN: Mayhap their tails are weak as well.\n\n"
-        "JP: こう素早いと…当てにくいです！\n"
-        "EN: 'Tis a trial to hit such swift targets!\n\n"
-        "JP: 陸に上がる前に仕留めましょう！\n"
-        "EN: Let's end this afore they reach land!\n\n"
-        "JP: ゴールデンナイトの攻撃力は脅威です！\n"
-        "EN: The knight of gold is fearsome strong!\n\n"
-
-        "TRANSLATION GUIDANCE:\n"
-        "Stay faithful to the original meaning and its length — do not add, omit, or embellish. "
-        "Rephrase for natural English flow within the style above. "
-        "Characters often speak with heightened gravity — preserve that register rather than flattening it. "
-        "Respect the character's voice and any archetype notes provided. "
-        "Stay consistent with any translation choices made earlier in this conversation.\n"
-    )
+    sys_prompt = cm.config.get("ai_prompt", DEFAULT_AI_PROMPT)
+    # Fill the {character_voice_note} placeholder (no-op if already resolved).
+    if "{character_voice_note}" in sys_prompt:
+        voice_note = ""
+        if archetype_key:
+            archetypes = cm.config.get("archetypes", {})
+            if archetype_key in archetypes:
+                voice_note = archetypes[archetype_key].get("notes", "")
+        sys_prompt = sys_prompt.replace("{character_voice_note}", voice_note)
     
     # Add archetype notes if available
     if archetype_key:
@@ -2542,6 +2740,9 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
                 for jp, en in lore_terms:
                     sys_prompt += f"- {jp} MUST be translated as '{en}'\n"
     
+    # Tie output language to the active settings language
+    sys_prompt += _target_language_instruction()
+
     try:
         res = OpenRouterClient(key).chat(
             [{"role": "system", "content": sys_prompt}] + history,
@@ -2550,6 +2751,27 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
         
         if "text" in res:
             response_text = res["text"]
+            # Guard: reject Early Modern / Shakespearean output (house-style ban).
+            # The only exempt speaker is one whose voice note explicitly requests
+            # it (e.g. The White Dragon) — checked via the archetype/speaker note.
+            exempt = False
+            if speaker:
+                note = (cm.config.get("speaker_notes", {}).get(speaker, "") or "").lower()
+                if "thou" in note or "thee" in note or "shakespeare" in note:
+                    exempt = True
+            if not exempt and _contains_early_modern(response_text):
+                print(f"[send_ai_chat] Rejected Early Modern output for speaker '{speaker}': {response_text[:80]!r}")
+                sys_prompt += (
+                    "\n\nYour previous attempt used Early Modern / Shakespearean English "
+                    "(thou/thee/-est/-eth), which is BANNED for this character. Rewrite in "
+                    "archaized modern English (modern 'you', no -est/-eth)."
+                )
+                res = OpenRouterClient(key).chat(
+                    [{"role": "system", "content": sys_prompt}] + history,
+                    model=model,
+                )
+                if "text" in res:
+                    response_text = res["text"]
             cm.set_cached("openrouter", cache_key, response_text)
             return response_text
         else:
@@ -2572,6 +2794,7 @@ def flush_csv_writes():
         return {"ok": True, "written": 0}
 
     written_files = 0
+    written_paths = []
     for path, writes in pending_csv_writes.items():
         try:
             raw, dialect, rows = _read_csv(path)
@@ -2587,11 +2810,21 @@ def flush_csv_writes():
                 writer.writerows(rows)
             mark_file_written(path)  # Mark as written by app
             written_files += 1
+            written_paths.append(path)
         except Exception as e:
             print(f"Error flushing CSV {path}: {e}")
             return {"ok": False, "error": str(e)}
 
     pending_csv_writes.clear()
+    # Invalidate the cached CSV rows for any file we just wrote, so subsequent
+    # reads (e.g. get_row_text used by the editor's async refresh) return the
+    # on-disk contents instead of the pre-write (stale) data. Without this, the
+    # editor could overwrite an approved translation with the pre-translation
+    # text that was cached before the write -- making approved text "vanish"
+    # when switching between entries.
+    with _csv_cache_lock:
+        for p in written_paths:
+            _csv_cache.pop(p, None)
     return {"ok": True, "written": written_files}
 
 @eel.expose
@@ -4002,6 +4235,10 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
     last_deepl_call = 0
     OPENROUTER_RATE_LIMIT = 5.0  # seconds between calls (more reasonable)
     DEEPL_RATE_LIMIT = 2.0        # seconds between calls (Free tier: 5/min, allows buffer)
+    # Max attempts per item when an API call times out (free models are slow).
+    # A timeout re-attempts the SAME item rather than skipping it; only a real
+    # user cancel stops the whole batch.
+    PRETRANSLATE_MAX_RETRIES = 3
     
     # Local cache for translations within this batch (avoids duplicate API calls for identical JP text)
     batch_translation_cache = {}
@@ -4110,55 +4347,21 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
             else:
                 print(f"[pretranslate_batch] Item {item_id}: Trying OpenRouter AI")
                 try:
-                    sys_prompt = cm.config.get("ai_system_prompt",
-                        "You are a Dragon's Dogma Online (DDON) localization assistant. "
-                        "Your output will be inserted directly into the game — follow every rule precisely.\n\n"
-
-                        "OUTPUT FORMAT:\n"
-                        "Return only the translated or refined text. No preamble, no explanation, no quotation marks. "
-                        "If genuinely uncertain about a reading, append a single bracketed note: [alt: ...]. "
-                        "Do not insert blank lines or extra newlines.\n\n"
-
-                        "HARD RULES:\n"
-                        "- Preserve anything inside < > angle brackets exactly as-is — these are engine tags. "
-                        "Text between paired tags (e.g. <COL>text</COL>) should be translated; the tags themselves must not change.\n"
-                        "- Do NOT use Japanese honorifics (e.g. -san, -sama, -dono).\n"
-                        "- Render Japanese dashes as an ellipsis (...) or em dash (—) depending on context.\n"
-                        "- For unknown proper nouns, keep the established romanisation.\n\n"
-
-                        "STYLE — THE DRAGON'S DOGMA HOUSE STYLE:\n"
-                        "The DEFAULT register is LIGHT archaic English: natural grammar with archaic vocabulary woven in. Standard contractions "
-                        "(don't, can't, won't, it's, let's, we're) are used freely. Avoid modern slang ('gonna', 'gotta', 'kinda', 'sorta', 'okay', "
-                        "'awesome', 'yeah'). Favour archaic vocabulary where it fits naturally: 'tis / 'twas, naught / aught, afore, ere, nigh, "
-                        "mayhap, o'er, e'er, nary, anon, forsooth. 'Tis is especially characteristic — use it freely for observations "
-                        "('Tis a formidable foe.'). Characters often speak with heightened gravity — preserve that register rather than flattening it.\n\n"
-
-                        "REGISTER GUARDRAILS:\n"
-                        "- Do NOT use DEEPLY archaic forms: 'thou', 'thee', 'thy', 'thine', or -est verb endings (thinkest, dost, hath, art, etc.). "
-                        "These read as wrong in normal DDON text and are NOT part of the default house style. Only use them if the speaker's "
-                        "archetype note EXPLICITLY requests that level of archaic address.\n"
-                        "- The default is LIGHT archaic (above), NOT plain modern and NOT deeply archaic. Do not flatten the style into ordinary "
-                        "contemporary English, and do not push it into thou/thee territory on your own — stay in the light-archaic middle unless "
-                        "the archetype note says otherwise.\n\n"
-
-                        "EXAMPLES (from the actual game):\n"
-                        "❌ \"Watch out, the monster is almost here!\"\n"
-                        "✓  \"Have a care! The beast draws nigh!\"\n"
-                        "❌ \"Let's finish this before more show up.\"\n"
-                        "✓  \"Let's end this afore more arrive!\"\n"
-                        "❌ \"It's a fast enemy, hard to hit.\"\n"
-                        "✓  \"'Tis a trial to hit such swift targets!\"\n\n"
-
-                        "TRANSLATION GUIDANCE:\n"
-                        "Stay faithful to the original meaning and length — do not add, omit, or embellish. "
-                        "Rephrase for natural English flow within the style above. "
-                        "Stay consistent with any translation choices made earlier in this conversation.\n"
-                    )
+                    sys_prompt = cm.config.get("ai_prompt", DEFAULT_AI_PROMPT)
+                    # Fill the {character_voice_note} placeholder if present
+                    if "{character_voice_note}" in sys_prompt:
+                        voice_note = ""
+                        archetype_key = cm.config.get("speaker_archetypes", {}).get(speaker, "")
+                        if archetype_key:
+                            archetypes = cm.archetypes.get("archetypes", {})
+                            if archetype_key in archetypes:
+                                voice_note = archetypes[archetype_key].get("notes", "")
+                        sys_prompt = sys_prompt.replace("{character_voice_note}", voice_note)
                     
                     # Add archetype notes if available
                     if speaker:
                         # Get the archetype key assigned to this speaker
-                        archetype_key = cm.user_settings.get("speaker_archetypes", {}).get(speaker, "")
+                        archetype_key = cm.config.get("speaker_archetypes", {}).get(speaker, "")
                         if archetype_key:
                             # Use cm.archetypes (loaded from archetypes.json) — NOT
                             # cm.config["archetypes"], which is only seeded from
@@ -4195,6 +4398,9 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
                                 for jp, en in lore_terms:
                                     sys_prompt += f"- {jp} → {en}\n"
                             print(f"[pretranslate_batch] Item {item_id}: Added {len(relevant_terms)} glossary terms (dd1={len(dd1_terms)}, other={len(other_terms)}, lore={len(lore_terms)})")
+
+                    # Tie output language to the active settings language
+                    sys_prompt += _target_language_instruction()
                     
                     cache_key = f"{openrouter_model}::{jp_text}"
                     # When skip_pretranslated is False the user explicitly wants a
@@ -4230,30 +4436,75 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
                         print(f"[pretranslate_batch] Item {item_id}: Calling OpenRouter API with model {openrouter_model}")
                         last_openrouter_call = time.time()
                         user_msg = f"Translate this to English.\nSpeaker: {speaker or 'Unknown'}\nEntry type: {entry_type or 'unspecified'}\n\nSource text:\n{jp_text}"
-                        res = _cancelable_api_call(
-                            lambda: OpenRouterClient(openrouter_key).chat(
-                                [{"role": "system", "content": sys_prompt}, {"role": "user", "content": user_msg}],
-                                model=openrouter_model
+                        # Retry loop: a per-call timeout ("Cancelled (timeout)")
+                        # means the free model was just slow — re-attempt the
+                        # SAME item rather than skipping it. Only a REAL user
+                        # cancel ("Cancelled") stops the whole batch.
+                        openrouter_attempts = 0
+                        while openrouter_attempts < PRETRANSLATE_MAX_RETRIES:
+                            openrouter_attempts += 1
+                            res = _cancelable_api_call(
+                                lambda: OpenRouterClient(openrouter_key).chat(
+                                    [{"role": "system", "content": sys_prompt}, {"role": "user", "content": user_msg}],
+                                    model=openrouter_model
+                                ),
+                                timeout=120,
                             )
-                        )
-                        if res.get("error") == "Cancelled" or res.get("error", "").startswith("Cancelled"):
-                            print(f"[pretranslate_batch] Cancellation requested during OpenRouter call — stopping at {idx}/{total_items}")
-                            break
-                        if "text" in res:
-                            translation = res["text"]
-                            cm.set_cached("openrouter", cache_key, translation)
-                            source = "openrouter"
-                            # Store in batch cache for reuse
-                            batch_translation_cache[jp_text] = (translation, source)
-                            print(f"[pretranslate_batch] Item {item_id}: OpenRouter translation successful")
-                        else:
-                            error = res.get('error', 'Unknown error')
-                            if 'rate limit' in error.lower() or '429' in error:
-                                print(f"[pretranslate_batch] OpenRouter rate limit hit for {item_id}: {error}")
-                                # Increase delay for next call
-                                last_openrouter_call = time.time() + 30  # Add 30s penalty
+                            if res.get("error") == "Cancelled":
+                                print(f"[pretranslate_batch] Cancellation requested during OpenRouter call — stopping at {idx}/{total_items}")
+                                break
+                            if res.get("error", "").startswith("Cancelled (timeout)"):
+                                if openrouter_attempts < PRETRANSLATE_MAX_RETRIES:
+                                    print(f"[pretranslate_batch] OpenRouter call timed out for {item_id} (free model slow) — retry {openrouter_attempts}/{PRETRANSLATE_MAX_RETRIES}")
+                                    continue
+                                print(f"[pretranslate_batch] OpenRouter call timed out for {item_id} after {PRETRANSLATE_MAX_RETRIES} retries — skipping item")
+                                break
+                            if "text" in res:
+                                translation = res["text"]
+                                # Guard: reject Early Modern / Shakespearean output
+                                # (house-style ban) unless this speaker is explicitly
+                                # exempt (voice note requests thou/thee, e.g. White Dragon).
+                                exempt = False
+                                if speaker:
+                                    note = (cm.config.get("speaker_notes", {}).get(speaker, "") or "").lower()
+                                    if "thou" in note or "thee" in note or "shakespeare" in note:
+                                        exempt = True
+                                if not exempt and _contains_early_modern(translation):
+                                    print(f"[pretranslate_batch] Item {item_id}: Early Modern output rejected (speaker '{speaker}'): {translation[:80]!r}")
+                                    sys_prompt += (
+                                        "\n\nYour previous attempt used Early Modern / Shakespearean English "
+                                        "(thou/thee/-est/-eth), which is BANNED for this character. Rewrite in "
+                                        "archaized modern English (modern 'you', no -est/-eth)."
+                                    )
+                                    res = _cancelable_api_call(
+                                        lambda: OpenRouterClient(openrouter_key).chat(
+                                            [{"role": "system", "content": sys_prompt}, {"role": "user", "content": user_msg}],
+                                            model=openrouter_model
+                                        ),
+                                        timeout=120,
+                                    )
+                                    if "text" in res:
+                                        translation = res["text"]
+                                cm.set_cached("openrouter", cache_key, translation)
+                                source = "openrouter"
+                                # Store in batch cache for reuse
+                                batch_translation_cache[jp_text] = (translation, source)
+                                print(f"[pretranslate_batch] Item {item_id}: OpenRouter translation successful")
+                                break
                             else:
-                                print(f"[pretranslate_batch] OpenRouter error for {item_id}: {error}")
+                                error = res.get('error', 'Unknown error')
+                                if 'rate limit' in error.lower() or '429' in error:
+                                    print(f"[pretranslate_batch] OpenRouter rate limit hit for {item_id}: {error}")
+                                    # Increase delay for next call
+                                    last_openrouter_call = time.time() + 30  # Add 30s penalty
+                                else:
+                                    print(f"[pretranslate_batch] OpenRouter error for {item_id}: {error}")
+                                break
+                        # If the user cancelled mid-call, stop the whole batch
+                        # (don't fall through to the DeepL fallback).
+                        if _pretranslate_cancel:
+                            print(f"[pretranslate_batch] Cancellation requested — stopping at {idx}/{total_items}")
+                            break
                 except Exception as e:
                     print(f"[pretranslate_batch] OpenRouter exception for {item_id}: {e}")
         
@@ -4293,27 +4544,45 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
                     else:
                         print(f"[pretranslate_batch] Item {item_id}: Calling DeepL API with target lang {deepl_target_lang}")
                         last_deepl_call = time.time()
-                        res = _cancelable_api_call(
-                            lambda: DeepLClient(deepl_key).translate(jp_text, target_lang=deepl_target_lang)
-                        )
-                        if res.get("error") == "Cancelled" or res.get("error", "").startswith("Cancelled"):
-                            print(f"[pretranslate_batch] Cancellation requested during DeepL call — stopping at {idx}/{total_items}")
-                            break
-                        if "text" in res:
-                            translation = res["text"]
-                            cm.set_cached("deepl", jp_text, translation)
-                            source = "deepl"
-                            # Store in batch cache for reuse
-                            batch_translation_cache[jp_text] = (translation, source)
-                            print(f"[pretranslate_batch] Item {item_id}: DeepL translation successful")
-                        else:
-                            error = res.get('error', 'Unknown error')
-                            if 'rate limit' in error.lower() or '429' in error:
-                                print(f"[pretranslate_batch] DeepL rate limit hit for {item_id}: {error}")
-                                # Increase delay for next call
-                                last_deepl_call = time.time() + 60  # Add 60s penalty
+                        # Retry loop: same semantics as OpenRouter — a timeout
+                        # means the call was slow, so re-attempt the SAME item
+                        # instead of skipping it. Real user cancel stops batch.
+                        deepl_attempts = 0
+                        while deepl_attempts < PRETRANSLATE_MAX_RETRIES:
+                            deepl_attempts += 1
+                            res = _cancelable_api_call(
+                                lambda: DeepLClient(deepl_key).translate(jp_text, target_lang=deepl_target_lang),
+                                timeout=120,
+                            )
+                            if res.get("error") == "Cancelled":
+                                print(f"[pretranslate_batch] Cancellation requested during DeepL call — stopping at {idx}/{total_items}")
+                                break
+                            if res.get("error", "").startswith("Cancelled (timeout)"):
+                                if deepl_attempts < PRETRANSLATE_MAX_RETRIES:
+                                    print(f"[pretranslate_batch] DeepL call timed out for {item_id} — retry {deepl_attempts}/{PRETRANSLATE_MAX_RETRIES}")
+                                    continue
+                                print(f"[pretranslate_batch] DeepL call timed out for {item_id} after {PRETRANSLATE_MAX_RETRIES} retries — skipping item")
+                                break
+                            if "text" in res:
+                                translation = res["text"]
+                                cm.set_cached("deepl", jp_text, translation)
+                                source = "deepl"
+                                # Store in batch cache for reuse
+                                batch_translation_cache[jp_text] = (translation, source)
+                                print(f"[pretranslate_batch] Item {item_id}: DeepL translation successful")
+                                break
                             else:
-                                print(f"[pretranslate_batch] DeepL error for {item_id}: {error}")
+                                error = res.get('error', 'Unknown error')
+                                if 'rate limit' in error.lower() or '429' in error:
+                                    print(f"[pretranslate_batch] DeepL rate limit hit for {item_id}: {error}")
+                                    # Increase delay for next call
+                                    last_deepl_call = time.time() + 60  # Add 60s penalty
+                                else:
+                                    print(f"[pretranslate_batch] DeepL error for {item_id}: {error}")
+                                break
+                        if _pretranslate_cancel:
+                            print(f"[pretranslate_batch] Cancellation requested — stopping at {idx}/{total_items}")
+                            break
                 except Exception as e:
                     print(f"[pretranslate_batch] DeepL exception for {item_id}: {e}")
         

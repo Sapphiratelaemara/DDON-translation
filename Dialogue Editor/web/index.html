@@ -384,7 +384,7 @@ Ctrl+Shift+D: Ellipsis</div>
                                             <span class="kl-char-count" id="char-count">0 / 50</span>
                                         </div>
                                         <div class="kl-editor-wrapper">
-                                            <div class="kl-textarea" id="en-editor" contenteditable="true" spellcheck="false" data-placeholder="Enter translation..."></div>
+                                            <div class="kl-textarea" id="en-editor" contenteditable="true" spellcheck="true" data-placeholder="Enter translation..."></div>
                                             <div class="kl-tooltip" id="anach-tooltip"></div>
                                             <div class="kl-line-counters" id="line-counters">
                                                 <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
@@ -859,12 +859,12 @@ Ctrl+Shift+D: Ellipsis</div>
 
                             <!-- Section: AI Prompts -->
                             <div class="settings-section" id="section-ai">
-                                <label>AI System Prompt</label>
-                                <p class="help-text">System prompt used for AI chat interactions.</p>
+                                <label>AI Prompt</label>
+                                <p class="help-text">System prompt used for both AI chat and batch pre-translation (TM → OpenRouter → DeepL). Archetype notes and glossary terms are appended automatically.</p>
                                 <div class="field-group">
-                                    <textarea id="opt-ai-system-prompt" style="height: 150px; font-family: 'JetBrains Mono'; font-size: 0.75rem;"></textarea>
+                                    <textarea id="opt-ai-prompt" style="height: 320px; font-family: 'JetBrains Mono'; font-size: 0.75rem;"></textarea>
                                 </div>
-                                <button class="btn-primary" id="btn-save-ai-system-prompt" style="margin-top: 10px;">SAVE SYSTEM PROMPT</button>
+                                <button class="btn-primary" id="btn-save-ai-prompt" style="margin-top: 10px;">SAVE AI PROMPT</button>
 
                                 <label style="margin-top: 30px;">AI Button Prompts</label>
                                 <p class="help-text">Prompts used for AI assistant buttons. Use {text} as placeholder for the text to process.</p>
@@ -1238,6 +1238,7 @@ Ctrl+Shift+D: Ellipsis</div>
                 <textarea id="reference-description-field" class="kl-input" style="height: 100px; min-height: 100px; resize: vertical;"></textarea>
             </div>
             <div class="modal-actions" style="margin-top: 20px; display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn-danger" id="btn-reference-delete" style="margin-right: auto; display: none;">DELETE</button>
                 <button class="btn-secondary" id="btn-reference-cancel">CANCEL</button>
                 <button class="btn-primary" id="btn-reference-save">SAVE</button>
             </div>

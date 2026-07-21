@@ -3656,13 +3656,27 @@ font-weight: bold;
 }
 
 /* Translation History Panel */
+#panel-history .kl-panel-title {
+    flex: 0 0 auto;
+}
+
 #panel-history .kl-panel-content {
     flex: 1;
     display: flex;
     flex-direction: column;
     padding: 0;
     overflow-y: auto;
-    max-height: 400px;
+}
+
+/* History and AI share the sidebar; AI gets more vertical space.
+   flex-basis:0 so space splits by grow ratio, not by content height.
+   :not(.collapsed) keeps the .collapsed rule (flex:0 0 0) working. */
+#panel-history:not(.collapsed) {
+    flex: 1 1 0;
+}
+
+#panel-ai:not(.collapsed) {
+    flex: 2 1 0;
 }
 
 .kl-history-empty {
