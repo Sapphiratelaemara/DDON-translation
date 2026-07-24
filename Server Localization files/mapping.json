@@ -64,22 +64,10 @@
         "MatchType": "Exact",
         "Locations": [
             {
-                "MsgJp": "スタミナ回復",
-                "GmdPath": "ui\\00_message\\ui\\item_work.gmd",
-                "ArcName": "uGUIPopDetail01.arc",
-                "ReadIndex": "1"
-            },
-            {
                 "MsgJp": "スタミナ",
                 "GmdPath": "ui\\00_message\\ui\\parameter.gmd",
                 "ArcName": "menu_cmn.arc",
                 "ReadIndex": "159"
-            },
-            {
-                "MsgJp": "スタミナ補助",
-                "GmdPath": "ui\\00_message\\skill\\ability_category.gmd",
-                "ArcName": "uGUISkill.arc",
-                "ReadIndex": "8"
             }
         ]
     },
