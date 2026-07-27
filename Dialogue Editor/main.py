@@ -310,7 +310,7 @@ _EARLY_MODERN_PRONOUNS = {"thou", "thee", "thy", "thine"}
 _EARLY_MODERN_VERB_FORMS = (
     "thinkest", "dost", "doth", "hath", "makest", "maketh", "goest", "doest",
     "sayest", "comest", "art", "wilt", "wouldst", "couldst", "shouldst",
-    "hast", "didst", "knowest", "seest", "gett'st", "giv'st", "tisn't",
+    "hast", "didst", "knowest", "seest", "gett'st", "giv'st", "tisn't", "User Safety: safe", "OpenRouter Error",
 )
 
 def _contains_early_modern(text):
