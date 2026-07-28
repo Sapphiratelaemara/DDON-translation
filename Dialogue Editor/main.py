@@ -2702,14 +2702,14 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
     if "{character_voice_note}" in sys_prompt:
         voice_note = ""
         if archetype_key:
-            archetypes = cm.config.get("archetypes", {})
+            archetypes = cm.archetypes.get("archetypes", {})
             if archetype_key in archetypes:
                 voice_note = archetypes[archetype_key].get("notes", "")
         sys_prompt = sys_prompt.replace("{character_voice_note}", voice_note)
     
     # Add archetype notes if available
     if archetype_key:
-        archetypes = cm.config.get("archetypes", {})
+        archetypes = cm.archetypes.get("archetypes", {})
         if archetype_key in archetypes:
             arch_data = archetypes[archetype_key]
             sys_prompt += f"\n\nCHARACTER ARCHETYPE FOR {speaker or 'SPEAKER'}:\n{arch_data.get('notes', '')}"
