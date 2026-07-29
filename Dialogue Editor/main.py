@@ -2695,37 +2695,45 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
     model = cm.user_settings.get("selected_openrouter_model", "openrouter/auto")
     sys_prompt = cm.config.get("ai_prompt", DEFAULT_AI_PROMPT)
 
-    # Build the full character context once so both custom prompts using the
-    # placeholder and the default prompt receive the archetype and any
-    # speaker-specific note.
     archetypes = cm.archetypes.get("archetypes", {})
     archetype_notes = ""
     if archetype_key in archetypes:
         archetype_notes = archetypes[archetype_key].get("notes", "") or ""
-    speaker_note = (cm.config.get("speaker_notes", {}).get(speaker, "") or "").strip()
 
-    character_context = []
+    # Ensure speaker match works (strip whitespace/case issues)
+    speaker_notes_dict = cm.config.get("speaker_notes", {})
+    speaker_note = (speaker_notes_dict.get(speaker, "") or "").strip()
+
+    context_blocks = []
     if archetype_notes:
-        character_context.append(
+        context_blocks.append(
             f"CHARACTER ARCHETYPE FOR {speaker or 'SPEAKER'}:\n{archetype_notes}"
         )
     if speaker_note:
-        character_context.append(
+        context_blocks.append(
             f"SPEAKER-SPECIFIC NOTE FOR {speaker or 'SPEAKER'}:\n{speaker_note}"
         )
-    character_context = "\n\n".join(character_context)
 
-    # Fill the {character_voice_note} placeholder (no-op if already resolved).
+    character_context_str = ""
+    if context_blocks:
+        character_context_str = (
+            "CHARACTER-VOICE REFERENCE — STYLE ONLY:\n"
+            "Use these notes and any quoted examples only to infer cadence, register, "
+            "sentence rhythm, and phrasing choices. They are NOT source content. "
+            "Never copy, paraphrase, mention, or add their people, places, events, "
+            "actions, or ideas to the translation. Translate only what is present in "
+            "the current source text.\n\n"
+            + "\n\n".join(context_blocks)
+        )
+
     if "{character_voice_note}" in sys_prompt:
-        sys_prompt = sys_prompt.replace("{character_voice_note}", character_context)
-    elif character_context:
-        sys_prompt += f"\n\n{character_context}"
+        sys_prompt = sys_prompt.replace("{character_voice_note}", character_context_str)
+    elif character_context_str:
+        sys_prompt += f"\n\n{character_context_str}"
     
-    # Add lore glossary terms from current JP text
     if current_jp:
         le = _get_lore_engine()
         if le:
-            # Inject archaic suggestions for any modern words detected in the drafted English
             anach_hits = le.scan_anachronisms(current_jp)
             if anach_hits:
                 sys_prompt += "\n\nSUGGESTED ARCHAIC ALTERNATIVES (use these instead of modern words if appropriate):\n"
@@ -2733,7 +2741,6 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
                     if suggestion:
                         sys_prompt += f"- Instead of '{word}', consider '{suggestion}'\n"
             
-            # Get relevant lore terms from Japanese text
             relevant_terms = le.scan_text_with_source(current_jp)
             if relevant_terms:
                 dd1_terms = [(jp, en) for jp, en, src in relevant_terms if src == "dd1"]
@@ -2747,18 +2754,14 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
                 for jp, en in lore_terms:
                     sys_prompt += f"- {jp} MUST be translated as '{en}'\n"
     
-    # Tie output language to the active settings language
     sys_prompt += _target_language_instruction()
 
-    # Make the active character context part of the current request as well.
-    # Some routed chat models pay little attention to an earlier system message
-    # when answering a terse "Translate: ..." prompt.
     request_history = list(history or [])
-    if character_context:
+    if character_context_str:
         context_suffix = (
             "\n\n[ACTIVE CHARACTER CONTEXT — use this for delivery only; "
             "do not add content beyond the source]\n"
-            f"{character_context}"
+            f"{character_context_str}"
         )
         if request_history and request_history[-1].get("role") == "user":
             latest = dict(request_history[-1])
@@ -2766,7 +2769,6 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
             request_history[-1] = latest
         else:
             request_history.append({"role": "user", "content": f"{message}{context_suffix}"})
-
     # A chat reply depends on the complete conversation and current editor
     # context, not just the last message. The old key could return a reply
     # generated before an archetype or speaker note was selected.
@@ -2780,11 +2782,19 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
     cached = cm.get_cached("openrouter", cache_key)
     if cached:
         return cached
+    def chat_with_upstream_retry(prompt):
+        """Retry one transient upstream failure after a brief backoff."""
+        messages = [{"role": "system", "content": prompt}] + request_history
+        for attempt in range(2):
+            result = OpenRouterClient(key).chat(messages, model=model)
+            if "upstream error" not in str(result.get("error", "")).lower() or attempt:
+                return result
+            print("[send_ai_chat] Upstream error; retrying in 2 seconds.")
+            time.sleep(2)
+        return result
+
     try:
-        res = OpenRouterClient(key).chat(
-            [{"role": "system", "content": sys_prompt}] + request_history,
-            model=model,
-        )
+        res = chat_with_upstream_retry(sys_prompt)
         
         if "text" in res:
             response_text = res["text"]
@@ -2806,10 +2816,8 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
                 print("=" * 80)
                 print(sys_prompt)
                 print("=" * 80)
-                res = OpenRouterClient(key).chat(
-                    [{"role": "system", "content": sys_prompt}] + request_history,
-                    model=model,
-                )
+                res = chat_with_upstream_retry(sys_prompt)
+
                 if "text" in res:
                     response_text = res["text"]
             cm.set_cached("openrouter", cache_key, response_text)

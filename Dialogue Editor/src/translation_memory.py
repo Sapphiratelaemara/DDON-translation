@@ -61,8 +61,15 @@ class TranslationMemory:
         with self._lock:
             try:
                 if os.path.exists(self.tm_file):
-                    with open(self.tm_file, 'r', encoding='utf-8-sig') as f:
-                        data = json.load(f)
+                    with open(self.tm_file, 'rb') as f:
+                        raw = f.read()
+                    
+                    if raw.startswith(b'\x1f\x8b'):
+                        import gzip
+                        raw = gzip.decompress(raw)
+                    
+                    data = json.loads(raw.decode('utf-8-sig'))
+                    
                     if data.get("version") == 2:
                         self.entries = data.get("entries", [])
                         self.stats = data.get("stats", {})
