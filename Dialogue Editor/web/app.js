@@ -2104,9 +2104,14 @@ function updatePreview(loadIdx) {
                 const length = tagMap[tagContent];
                 const placeholderSymbols = '📏'.repeat(length || 1);
                 text = text.replace(tagMatch, placeholderSymbols);
+            } else if (/^(?:STG|SPOT|NPC|ITEM|AREA)\s+\d+$/i.test(tagContent)) {
+                // Do not silently erase an unmapped dynamic tag. Showing its
+                // identifier makes the missing mapping actionable and matches
+                // the fallback used by the line-length counter.
+                console.warn(`[updatePreview] Missing display mapping for <${tagContent}>`);
+                text = text.replace(tagMatch, tagContent);
             }
         }
-        
         // Simple tag cleanup for any remaining unmatched tags
         text = text.replace(/<[^>]*>/g, '');
         
@@ -2878,6 +2883,36 @@ function initMetadataControls() {
                 });
                 debugLog('App', `Populated archetype dropdown with ${archetypes.length} archetypes`);
                 console.log('[initMetadataControls] Populated archetype dropdown');
+
+                // Cached review items can load before this async dropdown
+                // population completes. Re-apply the active speaker metadata
+                // now that its saved archetype has an option to select.
+                const currentItem = state.reviewer.currentItem;
+                const currentItemId = currentItem?.id;
+                const currentSpeaker = currentItem?.speaker;
+                if (currentSpeaker) {
+                    Promise.all([
+                        eel.get_speaker_archetype(currentSpeaker)(),
+                        eel.get_speaker_note(currentSpeaker)(),
+                    ]).then(([speakerArchetype, speakerNote]) => {
+                        if (state.reviewer.currentItem?.id !== currentItemId) return;
+
+                        archSelect.value = speakerArchetype || '';
+                        const noteInput = document.getElementById('speaker-note');
+                        if (noteInput) noteInput.value = speakerNote || '';
+                        const sidebarNote = document.getElementById('sidebar-speaker-note');
+                        if (sidebarNote) sidebarNote.innerText = speakerNote || '';
+
+                        const notesKey = archSelect.value || speakerArchetype || '';
+                        return eel.get_archetype_notes(notesKey)();
+                    }).then(archetypeNotes => {
+                        if (archetypeNotes === undefined || state.reviewer.currentItem?.id !== currentItemId) return;
+                        const notesPanel = document.getElementById('archetype-notes');
+                        if (notesPanel) notesPanel.innerText = archetypeNotes || '(no notes)';
+                    }).catch(error => {
+                        console.error('[initMetadataControls] Failed to restore speaker metadata:', error);
+                    });
+                }
             } else {
                 archSelect.innerHTML = '<option>(none)</option>';
             }

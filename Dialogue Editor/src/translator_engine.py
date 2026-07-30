@@ -13,7 +13,14 @@ class TranslationEngine:
         working_text = text
         found_tags = re.findall(r'<([^>]+)>', working_text)
         for tag_content in found_tags:
-            sim_len = self.tag_map.get(tag_content, 0)
+            sim_len = self.tag_map.get(tag_content)
+            if sim_len is None:
+                # Keep an unmapped dynamic tag visible and countable instead of
+                # silently treating it as zero-width. Its actual display text
+                # must still be supplied through tag_display/tag_map.
+                sim_len = len(tag_content) if re.fullmatch(
+                    r"(?:STG|SPOT|NPC|ITEM|AREA)\s+\d+", tag_content, re.IGNORECASE
+                ) else 0
             working_text = working_text.replace(f"<{tag_content}>", "X" * sim_len)
         clean_text = re.sub(r'<[^>]*>', '', working_text)
         return len(clean_text)
