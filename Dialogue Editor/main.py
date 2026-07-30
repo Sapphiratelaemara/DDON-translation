@@ -2760,7 +2760,8 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
     if character_context_str:
         context_suffix = (
             "\n\n[ACTIVE CHARACTER CONTEXT — use this for delivery only; "
-            "do not add content beyond the source]\n"
+            "do not add content beyond the source]\n" \
+            "**Punctuation discipline: The ellipses in the above examples illustrate syntactic hesitation (clause breaks, self-corrections, qualifying phrases). They do NOT license replacing source punctuation. Preserve every `!` `?` `—` `よ` `ね` `って` as mapped in the translation guidance. Hesitation is conveyed by sentence structure and word choice, not by inserting `...` where the source has none.**"
             f"{character_context_str}"
         )
         if request_history and request_history[-1].get("role") == "user":
