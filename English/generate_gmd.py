@@ -370,6 +370,19 @@ def modify_specific_entry():
             lines[i] = DATE_PATTERN.sub(current_date, line)
     file_path.write_text("\n".join(lines), encoding='utf-8')
 
+def convert_embedded_lf_to_crlf(file_path):
+    """
+    Convert lone LF characters to CRLF throughout the merged CSV.
+    Existing CRLF sequences are left untouched.
+    """
+    with open(file_path, "rb") as f:
+        data = f.read()
+
+    converted = re.sub(rb'(?<!\r)\n', b'\r\n', data)
+
+    if converted != data:
+        with open(file_path, "wb") as f:
+            f.write(converted)
 
 def merge_english():
     english = Path(__file__).parent
@@ -401,6 +414,8 @@ def merge_english():
                         writer.writerow(row)
 
     print(f"English gmd.csv generated from {len(csv_files)} CSV files.")
+	
+    convert_embedded_lf_to_crlf(output_file)
 
     # Enforce the minimum entry-count requirement on the merged output.
     validate_entry_count(output_file)

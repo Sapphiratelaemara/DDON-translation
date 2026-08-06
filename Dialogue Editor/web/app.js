@@ -1922,14 +1922,14 @@ async function applyFix() {
         console.log(`[renderHighlights] In-universe language disabled - skipping anachronism highlights`);
         setTimeout(() => {
             btn.innerHTML = prev;
-            nextItem();
+            if (!autoApprove) nextItem();
         }, 400);
         return;
     }
 
     setTimeout(() => {
         btn.innerHTML = prev;
-        nextItem();
+        if (!autoApprove) nextItem();
     }, 400);
 }
 
