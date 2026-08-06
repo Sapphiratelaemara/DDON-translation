@@ -173,6 +173,7 @@ if "ai_prompt" not in cm.config:
         cm.config["ai_prompt"] = _migrated
         cm.save_all()
 
+
 # Default system prompt used for ALL AI work (chat + batch pre-translation).
 # Editable via the AI_PROMPTS settings section (stored in config as "ai_prompt").
 DEFAULT_AI_PROMPT = (
@@ -205,7 +206,8 @@ DEFAULT_AI_PROMPT = (
     "endings. Standard contractions (don't, can't, won't, it's, let's, we're) are used freely, exactly as in modern speech. "
     "Avoid modern slang ('gonna', 'gotta', 'kinda', 'sorta', 'nah', 'dude', 'okay', 'awesome', 'yeah'). "
     "Favour archaic VOCABULARY where it fits naturally: 'tis / 'twas, naught / aught, afore, ere, nigh, mayhap, o'er, e'er, "
-    "nary, anon, summat, yon, whence, albeit. 'Tis is especially characteristic — use it freely for "
+    "nary, anon, summat, yon, whence, albeit. These archaic words (e.g. aught, 'tis, naught) are a deliberate and common part of the house style — "
+    "prefer them to more modern equivalents when they naturally fit the meaning and tone. 'Tis is especially characteristic — use it freely for "
     "observations and reactions ('Hobgoblin! 'Tis a formidable foe.', ''Tis more bloodthirsty than a wolf!'). "
     "Short, punchy combat calls are the norm for battle lines — keep them terse. "
     "Characters often speak with heightened gravity — preserve that register rather than flattening it.\n\n"
@@ -238,6 +240,9 @@ DEFAULT_AI_PROMPT = (
     "It is NOT permission to add jokes, asides, actions, or any content not present in the source line, and it never "
     "overrides TRANSLATION GUIDANCE below. If the voice note and a faithful translation ever conflict, faithfulness wins.\n"
     "{character_voice_note}\n\n"
+    "Punctuation discipline: The ellipses in the above examples illustrate syntactic hesitation (clause breaks, self-corrections, qualifying phrases). "
+    "They do NOT license replacing source punctuation. Preserve every `!` `?` as mapped in the translation guidance. "
+    "Hesitation is conveyed by sentence structure and word choice, not by inserting `...` where the source has none.\n\n"
 
     "TRANSLATION GUIDANCE:\n"
     "Stay faithful to the original meaning and length — do not add, omit, or embellish. "
@@ -2726,6 +2731,10 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
             + "\n\n".join(context_blocks)
         )
 
+    # Fill the `{character_voice_note}` placeholder with the assembled
+    # character-context block. Prompt-level punctuation guidance is now
+    # sourced from the on-disk `ai_prompt` (or `DEFAULT_AI_PROMPT`) so we
+    # no longer inject the punctuation paragraph at runtime.
     if "{character_voice_note}" in sys_prompt:
         sys_prompt = sys_prompt.replace("{character_voice_note}", character_context_str)
     elif character_context_str:
@@ -2760,9 +2769,8 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
     if character_context_str:
         context_suffix = (
             "\n\n[ACTIVE CHARACTER CONTEXT — use this for delivery only; "
-            "do not add content beyond the source]\n" \
-            "**Punctuation discipline: The ellipses in the above examples illustrate syntactic hesitation (clause breaks, self-corrections, qualifying phrases). They do NOT license replacing source punctuation. Preserve every `!` `?` `—` `よ` `ね` `って` as mapped in the translation guidance. Hesitation is conveyed by sentence structure and word choice, not by inserting `...` where the source has none.**"
-            f"{character_context_str}"
+            "do not add content beyond the source]\n"
+            + character_context_str
         )
         if request_history and request_history[-1].get("role") == "user":
             latest = dict(request_history[-1])
@@ -2851,9 +2859,10 @@ def flush_csv_writes():
                 if r_idx < len(rows):
                     rows[r_idx][3] = new_text
             import csv as _csv
-            # Override dialect quoting to use QUOTE_MINIMAL
+            # Override dialect quoting to use QUOTE_MINIMAL and CRLF record terminators.
             dialect.quoting = _csv.QUOTE_MINIMAL
             dialect.quotechar = '"'
+            dialect.lineterminator = '\r\n'
             with open(path, 'w', encoding='utf-8-sig', newline='') as f:
                 writer = _csv.writer(f, dialect=dialect)
                 writer.writerows(rows)
