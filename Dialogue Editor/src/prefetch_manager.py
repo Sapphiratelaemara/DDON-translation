@@ -15,9 +15,22 @@ from typing import Dict, Any, Optional
 class PrefetchManager:
     """Manages background prefetching of editor entries."""
     
+    @staticmethod
+    def _has_usable_gloss(tokens):
+        """Return True only when a cached gloss contains a real candidate."""
+        if not isinstance(tokens, list):
+            return False
+        for token in tokens:
+            if not isinstance(token, dict):
+                continue
+            for candidate in token.get("candidates") or []:
+                value = str(candidate).strip()
+                if value and value not in {"[", "]"}:
+                    return True
+        return False
     def __init__(self, lore_engine_getter=None, cache_file=None, language=None, get_adjacent_context_getter=None, gloss_engine_getter=None, tm_getter=None):
-        self._queue = queue.Queue()
         self._cache: Dict[str, Dict[str, Any]] = {}  # Use string keys for JSON serialization
+        self._queue = queue.Queue()
         self._processing = False
         self._stop_event = threading.Event()
         self._worker_thread: Optional[threading.Thread] = None
@@ -271,7 +284,7 @@ class PrefetchManager:
                     from src.config_manager import ConfigManager
                     cm = ConfigManager()
                     cached = cm.get_cached("gloss", item['jp'])
-                    if cached:
+                    if self._has_usable_gloss(cached):
                         results['gloss_result'] = cached
                     else:
                         # Generate gloss result in background
@@ -359,7 +372,7 @@ class PrefetchManager:
         with self._lock:
             cache_key = self._cache_key(category, idx, item)
             cached = self._cache.get(cache_key)
-            if cached and time.time() - cached['timestamp'] < 604800:  # 7 days
+            if (cached and self._has_usable_gloss(cached.get('gloss_result')) and time.time() - cached['timestamp'] < 604800):  # 7 days
                 print(f"[PrefetchManager] Skipping {cache_key} - already cached")
                 return False
 

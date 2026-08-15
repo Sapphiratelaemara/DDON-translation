@@ -55,12 +55,16 @@ _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 # Look for jamdict data in parent project directory
 _PARENT_DIR = os.path.dirname(_THIS_DIR)
 _LOCAL_JAMDICT_HOME = os.path.join(_PARENT_DIR, "deps", "jamdict_data")
-# Always use local directory if it exists
-if os.path.isdir(_LOCAL_JAMDICT_HOME):
+_LOCAL_JAMDICT_DB = os.path.join(_LOCAL_JAMDICT_HOME, "data", "jamdict.db")
+
+# Preserve JAMDICT_HOME for tools which honour it, but pass the bundled database
+# explicitly below. Jamdict otherwise reads the per-user config file, which can
+# still point at an old or missing database even when the project copy exists.
+if os.path.isfile(_LOCAL_JAMDICT_DB):
     os.environ["JAMDICT_HOME"] = _LOCAL_JAMDICT_HOME
-    print(f"[GlossEngine] Using local jamdict data: {_LOCAL_JAMDICT_HOME}")
+    print(f"[GlossEngine] Using local jamdict database: {_LOCAL_JAMDICT_DB}")
 else:
-    print(f"[GlossEngine] Local jamdict data not found at {_LOCAL_JAMDICT_HOME}, using default location")
+    print(f"[GlossEngine] Local jamdict database not found at {_LOCAL_JAMDICT_DB}, using default location")
 
 # ---------------------------------------------------------------------------
 # Availability guard — soft-fail if deps are missing
@@ -177,7 +181,13 @@ class GlossEngine:
                     return False
             if cls._jmd is None:
                 try:
-                    cls._jmd = _Jamdict(reuse_ctx=False)
+                    # Do not depend on ~/.jamdict/config.json: it may refer to
+                    # a stale installation. The project ships this database.
+                    kwargs = {"reuse_ctx": False}
+                    if os.path.isfile(_LOCAL_JAMDICT_DB):
+                        kwargs["db_file"] = _LOCAL_JAMDICT_DB
+                        kwargs["auto_config"] = False
+                    cls._jmd = _Jamdict(**kwargs)
                 except Exception as e:
                     print(f"[GlossEngine] Jamdict init failed: {e}")
                     return False
