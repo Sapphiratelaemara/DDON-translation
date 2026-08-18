@@ -1481,9 +1481,16 @@ async function loadItemAtIdxInternal(idx, mode) {
 
         updateReviewerCounters();
         
+        const hasUsableGloss = (tokens) => Array.isArray(tokens) && tokens.some((token) => {
+            const candidates = Array.isArray(token?.candidates) ? token.candidates : [];
+            return candidates.some((candidate) => {
+                const value = String(candidate || '').trim();
+                return value && value !== '[' && value !== ']';
+            });
+        });
         // Check if current item is missing critical data (DeepL or gloss)
         console.log(`[loadItemAtIdxInternal] cached=${!!cached}, cached.deepl_suggestion=${cached?.deepl_suggestion}, cached.gloss_result=${cached?.gloss_result}`);
-        const needsRefetch = cached && (!cached.deepl_suggestion || !cached.gloss_result);
+        const needsRefetch = cached && (!cached.deepl_suggestion || !hasUsableGloss(cached.gloss_result));
         
         // Other async enrichments - fire-and-forget with index-based cancellation
         if (cached && cached.deepl_suggestion) {
@@ -1499,10 +1506,10 @@ async function loadItemAtIdxInternal(idx, mode) {
         } else {
             fetchTMSuggestions(item.jp, loadIdx);
         }
-        if (cached && cached.gloss_result) {
+        if (cached && hasUsableGloss(cached.gloss_result)) {
             populateGlossFromCache(cached.gloss_result, loadIdx);
-        } else if (!needsRefetch) {
-            // Only generate fresh if we're NOT triggering prefetch for this item
+        } else {
+            // Generate fresh gloss whenever the current item has no cached gloss result.
             console.log(`[loadItemAtIdxInternal] Gloss NOT in cache for idx=${idx}, will generate`);
             populateGloss(item.jp, loadIdx);
         }
@@ -1523,7 +1530,7 @@ async function loadItemAtIdxInternal(idx, mode) {
                 if (pollCount > 10) return;  // Max 10 polls (5 seconds)
                 if (state.reviewer.currentIdx !== pollIdx) return;  // Stop if navigated away
                 const updatedCache = await eel.get_prefetch_cache(category, pollIdx, item && item.id)();
-                if (updatedCache && (updatedCache.deepl_suggestion || updatedCache.gloss_result)) {
+                if (updatedCache && (updatedCache.deepl_suggestion || hasUsableGloss(updatedCache.gloss_result))) {
                     console.log(`[loadItemAtIdxInternal] Cache updated for idx=${pollIdx}, populating`);
                     if (updatedCache.deepl_suggestion && state.reviewer.currentIdx === pollIdx) {
                         populateDeepLFromCache(updatedCache.deepl_suggestion, pollIdx);
@@ -1895,15 +1902,26 @@ async function applyFix() {
     // Save to history (without writing to CSV)
     const nickname = state.settings.lastConfig?.sync_nickname || 'reviewer';
     console.log('[applyFix] Saving history with nickname:', nickname, 'item.path:', item.path, 'item.id:', item.id);
+    let saveHistoryOk = true;
     try {
         const res = await eel.save_translation_history(item.id, item.jp, text, speaker, item.entry_type, nickname, item.path, item.row)();
         console.log('[applyFix] Save result:', res);
+        if (!res || !res.ok) {
+            saveHistoryOk = false;
+            console.error('[applyFix] save_translation_history failed:', res);
+            openAlertModal('ERROR', res?.error || 'Failed to save translation history.');
+        }
     } catch (e) {
+        saveHistoryOk = false;
         console.error('[applyFix] Save error:', e);
+        openAlertModal('ERROR', 'Error saving translation history.');
     }
-    // Reload history to show the new entry
-    console.log('[applyFix] Reloading history for item:', item.id);
-    await loadTranslationHistory(item.id);
+
+    if (saveHistoryOk) {
+        // Reload history to show the new entry
+        console.log('[applyFix] Reloading history for item:', item.id);
+        await loadTranslationHistory(item.id);
+    }
 
     const btn = document.getElementById('btn-apply');
     const prev = btn.innerHTML;
@@ -3273,6 +3291,16 @@ function savePreviewProfile() {
 // REVIEWER — DEEPL + LORE + ADJACENT
 // =============================================================================
 function populateDeepLFromCache(suggestion, loadIdx) {
+function sanitizeTranslationCopy(text) {
+    // Keep readable translation text and tag digits, but remove invisible
+    // controls, bidi marks, zero-width characters, and non-text symbols.
+    return String(text || '')
+        .normalize('NFC')
+        .replace(/\r\n?/g, '\n')
+        .replace(/\t/g, ' ')
+        .replace(/[^\p{L}\p{N}\p{P}\p{Zs}<>\n]/gu, '');
+}
+
     const el = document.getElementById('deepl-text');
     if (!el) return;
     
@@ -3283,7 +3311,33 @@ function populateDeepLFromCache(suggestion, loadIdx) {
     }
     
     el.value = suggestion || '';
+    bindDeepLClickHandler(el);
     console.log(`[populateDeepLFromCache] Rendered suggestion from cache`);
+}
+
+function bindDeepLClickHandler(el) {
+    if (!el) return;
+    el.onclick = () => {
+        const suggestion = sanitizeTranslationCopy(el.value);
+        if (!suggestion || suggestion === 'Consulting DeepL…' || suggestion === '—') return;
+        
+        const editor = document.getElementById('en-editor');
+        if (!editor) return;
+        
+        const current = editor.innerText.trim();
+        if (current) {
+            openConfirmModal('OVERWRITE TEXT', 'Overwrite current English text with DeepL suggestion?', (confirmed) => {
+                if (confirmed) {
+                    editor.innerText = suggestion;
+                    updateReviewerCounters();
+                }
+            });
+            return;
+        }
+        
+        editor.innerText = suggestion;
+        updateReviewerCounters();
+    };
 }
 
 // Called by Python's background DeepL batch as each entry completes, so the
@@ -3310,6 +3364,7 @@ async function fetchDeepLSuggestion(text, loadIdx, itemId) {
         console.log(`[fetchDeepLSuggestion] Using prefetch cache for idx=${loadIdx}`);
         if (state.reviewer.currentIdx === loadIdx) {
             el.value = cached.deepl_suggestion || '—';
+            bindDeepLClickHandler(el);
         }
         return;
     }
@@ -3320,33 +3375,11 @@ async function fetchDeepLSuggestion(text, loadIdx, itemId) {
     // Eel's main thread (which would freeze entry switching). We do NOT call the
     // synchronous get_deepl_suggestion here, as that blocks the UI thread.
     el.value = 'Consulting DeepL…';
+    bindDeepLClickHandler(el);
     const items = state.reviewer.fullQueue || [];
     if (items.length) {
         eel.fetch_deepl_batch(category, items, loadIdx, 1)();
     }
-
-    // Add click-to-paste functionality
-    el.onclick = () => {
-        const suggestion = el.value.trim();
-        if (!suggestion || suggestion === 'Consulting DeepL…' || suggestion === '—') return;
-        
-        const editor = document.getElementById('en-editor');
-        if (!editor) return;
-        
-        const current = editor.innerText.trim();
-        if (current) {
-            openConfirmModal('OVERWRITE TEXT', 'Overwrite current English text with DeepL suggestion?', (confirmed) => {
-                if (confirmed) {
-                    editor.innerText = suggestion;
-                    updateReviewerCounters();
-                }
-            });
-            return;
-        }
-        
-        editor.innerText = suggestion;
-        updateReviewerCounters();
-    };
 }
 
 // =============================================================================
@@ -4907,7 +4940,8 @@ function setupChatContextMenu() {
                 if (ed) {
                     saveUndoState('paste');
                     if (ed._setSkipInputHandling) ed._setSkipInputHandling(true);
-                    ed.innerText = text;
+                    const sanitizedText = sanitizeTranslationCopy(text);
+                    ed.innerText = sanitizedText;
                     if (ed._setSkipInputHandling) ed._setSkipInputHandling(false);
                     updateReviewerCounters();
                     syncLineCounters();
@@ -7047,7 +7081,12 @@ async function approveCurrentTranslation() {
     try {
         // First save the translation to CSV
         const text = document.getElementById('en-editor').innerText;
-        await eel.apply_fix(item.id, text, false)();
+        const saveRes = await eel.apply_fix(item.id, text, false)();
+        if (!saveRes || !saveRes.ok) {
+            console.error('[approveCurrentTranslation] apply_fix failed:', saveRes);
+            openAlertModal('ERROR', saveRes?.error || 'Failed to write translation to CSV.');
+            return;
+        }
 
         // Then approve it
         const nickname = state.settings.lastConfig?.sync_nickname || 'reviewer';

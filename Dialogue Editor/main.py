@@ -91,6 +91,8 @@ def check_dependencies():
         'requests': 'requests>=2.31.0',
         'msgpack': 'msgpack>=1.0.0',
         'PIL': 'Pillow>=10.0.0',
+        'janome': 'janome',
+        'jamdict': 'jamdict>=1.0.0',
     }
     
     missing = []
@@ -504,11 +506,12 @@ def _get_glossary_path():
     # Default to the per-language location even if not created yet (save will create it)
     return lang_glossary
 
-# Pre-initialize Jamdict to avoid first-call timeout (optional dependency)
+# Pre-initialize the tokenizer and dictionary to avoid the first UI request
+# consuming the gloss timeout while Janome/JMdict are being opened.
 print("[MAIN] Pre-initializing Jamdict (optional)...")
 try:
     ge = _get_gloss_engine()
-    if ge:
+    if ge and ge._ensure_ready():
         print("[MAIN] Jamdict pre-initialization successful")
     else:
         print("[MAIN] Jamdict unavailable - gloss feature disabled")
@@ -630,6 +633,7 @@ def should_invalidate_cache(file_path, cache_timestamp):
 
 def _read_csv_cached(path):
     """Read CSV with caching to avoid repeated file reads."""
+    path = os.path.normpath(path)
     global _csv_cache
     # Check cache with modification time validation
     with _csv_cache_lock:
@@ -1984,6 +1988,18 @@ def _reload_glossary_caches():
 # NameError at module load time.
 github_sync.set_glossary_reload_hook(_reload_glossary_caches)
 
+def _has_usable_gloss(tokens):
+    """Return True only when a cached gloss contains a real candidate."""
+    if not isinstance(tokens, list):
+        return False
+    for token in tokens:
+        if not isinstance(token, dict):
+            continue
+        for candidate in token.get("candidates") or []:
+            value = str(candidate).strip()
+            if value and value not in {"[", "]"}:
+                return True
+    return False
 @eel.expose
 def get_gloss(jp_text):
     """Returns morpheme gloss for the given JP text via GlossEngine."""
@@ -2005,7 +2021,7 @@ def get_gloss(jp_text):
     
     # Check ConfigManager cache (file-based, per-language)
     cached = cm.get_cached("gloss", jp_text)
-    if cached:
+    if _has_usable_gloss(cached):
         print(f"[get_gloss] Cache hit for: {jp_text[:30]}...")
         return cached
     
@@ -2850,6 +2866,12 @@ def flush_csv_writes():
     if not pending_csv_writes:
         return {"ok": True, "written": 0}
 
+    normalized_writes = {}
+    for path, writes in pending_csv_writes.items():
+        normalized_path = os.path.normpath(path)
+        normalized_writes.setdefault(normalized_path, []).extend(writes)
+    pending_csv_writes = normalized_writes
+
     written_files = 0
     written_paths = []
     for path, writes in pending_csv_writes.items():
@@ -2967,15 +2989,22 @@ def apply_fix(item_id, new_text, force=False, user="translator"):
     entry_id = item_id
     print(f"[apply_fix] Using entry_id={entry_id} (file::row)")
     print(f"[apply_fix] Tracking translation for item {item_id}")
-    print(f"[apply_fix]   path: {item.get('path')}, row: {item.get('row')}")
+    item_path = os.path.normpath(item.get('path') or '')
+    item['path'] = item_path
+    try:
+        row_idx = int(item.get('row'))
+    except (TypeError, ValueError):
+        return {"ok": False, "error": f"Invalid row index: {item.get('row')}"}
+    item['row'] = row_idx
+    print(f"[apply_fix]   path: {item_path}, row: {row_idx}")
     print(f"[apply_fix]   TM entries before: {len(translation_manager.entries)}")
     translation_manager.submit_translation(
         entry_id=entry_id,
         source_text=item["jp"],
         translated_text=new_text,
         translator=user,
-        file_path=item.get("path"),
-        row_index=item.get("row"),
+        file_path=item_path,
+        row_index=row_idx,
         speaker=item.get("speaker"),
         entry_type=item.get("entry_type")
     )
