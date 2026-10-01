@@ -197,11 +197,19 @@ class PrefetchManager:
             self._worker_thread.start()
     
     def stop(self):
-        """Stop the background worker thread."""
+        """Stop the worker and discard entries that have not started."""
         self._stop_event.set()
-        if self._worker_thread:
+        if self._worker_thread and self._worker_thread.is_alive():
+            self._queue.put(None)
             self._worker_thread.join(timeout=2.0)
-            self._worker_thread = None
+            if not self._worker_thread.is_alive():
+                self._worker_thread = None
+
+        while True:
+            try:
+                self._queue.get_nowait()
+            except queue.Empty:
+                break
     
     def _worker_loop(self):
         """Background worker that processes prefetch requests."""
@@ -211,7 +219,9 @@ class PrefetchManager:
                 # Wait for work with timeout to check stop event
                 task = self._queue.get(timeout=0.5)
                 if task is None:
-                    continue
+                    break
+                if self._stop_event.is_set():
+                    break
 
                 # Task format: (category, idx, item)
                 category, idx, item = task
@@ -424,10 +434,22 @@ class PrefetchManager:
             current_idx: Current index
             depth: Number of entries to prefetch (default 25)
         """
+        pending = []
+        while True:
+            try:
+                task = self._queue.get_nowait()
+            except queue.Empty:
+                break
+            if task and task[0] == category and task[1] > current_idx + depth:
+                pending.append(task)
+
         for offset in range(1, depth + 1):
             next_idx = current_idx + offset
             if next_idx < len(items):
                 self.enqueue(category, next_idx, items[next_idx])
+
+        for task in pending:
+            self._queue.put(task)
 
     def prefetch_all(self, category: str, items: list) -> int:
         """Prefetch all entries in the queue (for local-only operations like gloss/context).
