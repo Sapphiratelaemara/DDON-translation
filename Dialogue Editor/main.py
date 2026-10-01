@@ -3845,6 +3845,12 @@ def shutdown_app():
     """Gracefully shutdown the application."""
     print("[SHUTDOWN] App shutdown requested by frontend")
     try:
+        _prefetch_mgr.stop()
+        print("[SHUTDOWN] Pending prefetch work discarded")
+    except Exception as e:
+        print(f"[SHUTDOWN] Prefetch stop failed: {e}")
+
+    try:
         # Flush any pending sync data
         if github_sync.is_configured():
             github_sync.flush_on_exit(translation_manager)

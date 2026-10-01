@@ -2728,6 +2728,18 @@ function restoreCursorAbsolute(element, offset) {
     }
 }
 
+function getAnachronismOffset(editor, target) {
+    if (!editor || !target.firstChild) return -1;
+
+    const range = document.createRange();
+    range.setStart(target.firstChild, 0);
+    range.collapse(true);
+    const rawOffset = getCaretOffset(editor, range);
+    if (rawOffset === null) return -1;
+
+    return (editor.innerText || '').slice(0, rawOffset).replace(/ ★/g, '').length;
+}
+
 function getWordAtPosition(text, position) {
     // Find word at the given character position
     const before = text.substring(0, position);
@@ -2752,25 +2764,7 @@ function handleMouseMove(e) {
     if (target.classList.contains('anach-highlight')) {
         const word = target.getAttribute('data-word');
         const suggestion = target.getAttribute('data-suggestion');
-        // Get the position of this specific occurrence in the text using Range API
-        let position = -1;
-        
-        try {
-            const range = document.createRange();
-            range.selectNodeContents(ed);
-            const textRange = document.createRange();
-            textRange.setStartBefore(target);
-            textRange.setEndAfter(target);
-            
-            // Get the text before the target
-            const preRange = document.createRange();
-            preRange.setStart(ed, 0);
-            preRange.setEndBefore(target);
-            position = preRange.toString().length;
-            
-        } catch (err) {
-            position = -1;
-        }
+        const position = getAnachronismOffset(ed, target);
         
         hoveredAnachronism = [word, suggestion, position];
         ed.style.cursor = 'pointer';
@@ -2836,7 +2830,7 @@ function handleEditorClick(e) {
         const word = e.target.getAttribute('data-word');
         const suggestion = e.target.getAttribute('data-suggestion');
         if (word && suggestion) {
-            replaceAnachronism(word, suggestion);
+            replaceAnachronism(word, suggestion, getAnachronismOffset(e.currentTarget, e.target));
             hideTooltip();
         }
     }
@@ -2868,7 +2862,7 @@ function handleEditorClick(e) {
         const word = e.target.getAttribute('data-word');
         const suggestion = e.target.getAttribute('data-suggestion');
         if (word && suggestion) {
-            replaceAnachronism(word, suggestion);
+            replaceAnachronism(word, suggestion, getAnachronismOffset(e.currentTarget, e.target));
             hideTooltip();
         }
     }
@@ -3049,9 +3043,10 @@ async function replaceAnachronism(word, suggestion, position = null) {
     // Strip star icon from text when searching (word may be followed by " ★")
     const textClean = text.replace(/ ★/g, '');
 
-    // Use provided position if available, otherwise find first occurrence
+    // Use the clicked occurrence when supplied; only sidebar actions use first occurrence.
     let idx;
-    if (position !== null && position >= 0) {
+    if (position !== null) {
+        if (position < 0 || textClean.slice(position, position + word.length).toLowerCase() !== word.toLowerCase()) return;
         idx = position;
     } else {
         idx = textClean.toLowerCase().indexOf(word.toLowerCase());
@@ -5942,6 +5937,7 @@ function initSettingsActions() {
     
     // --- GitHub Sync ---
     const btnSyncPush = document.getElementById('btn-sync-push');
+    const btnSyncPull = document.getElementById('btn-sync-pull');
     if (btnSyncPush) btnSyncPush.onclick = async () => {
         btnSyncPush.innerText = 'PUSHING...';
         const res = await eel.sync_push()();
@@ -5950,8 +5946,6 @@ function initSettingsActions() {
         openAlertModal(res.ok ? 'SUCCESS' : 'ERROR', res.message || res.error);
         updateSyncStatusDisplay();
     };
-    
-    const btnSyncPull = document.getElementById('btn-sync-pull');
     if (btnSyncPull) btnSyncPull.onclick = async () => {
         btnSyncPull.innerText = 'PULLING...';
         const res = await eel.sync_pull()();

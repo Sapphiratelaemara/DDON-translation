@@ -103,7 +103,7 @@ class LoreEngine:
         else:
             self.archetypes = dict(DEFAULT_ARCHETYPES)
         # Invalidate the compiled pattern so any vocab changes take effect this session
-        LoreEngine._ANACH_PATTERN = None
+        LoreEngine._ANACH_PATTERNS = None
         LoreEngine._ANACH_KEYS    = None
         self.lore_map = {
             "剛化": "Harden",
@@ -224,25 +224,21 @@ class LoreEngine:
         return replacements
 
     # Pre-compiled anachronism regex — built once per session, reset when vocab changes
-    _ANACH_PATTERN = None
+    _ANACH_PATTERNS = None
     _ANACH_KEYS    = None
 
     @classmethod
     def _build_anach_pattern(cls):
-        if cls._ANACH_PATTERN is not None:
+        if cls._ANACH_PATTERNS is not None:
             return
         # Import IN_UNIVERSE_VOCAB dynamically to get updated values after reload_vocab
         from src.lore_data import IN_UNIVERSE_VOCAB
         # Longest keys first so multi-word phrases match before single words
         sorted_keys = sorted(IN_UNIVERSE_VOCAB.keys(), key=lambda x: -len(x))
-        parts = []
-        for k in sorted_keys:
-            if " " in k:
-                # Add word boundaries for multi-word phrases too
-                parts.append(r'\b' + re.escape(k) + r'\b')
-            else:
-                parts.append(r'\b' + re.escape(k) + r'\b')
-        cls._ANACH_PATTERN = re.compile('|'.join(parts), re.IGNORECASE)
+        cls._ANACH_PATTERNS = {
+            key: re.compile(r'\b' + re.escape(key) + r'\b', re.IGNORECASE)
+            for key in sorted_keys
+        }
         cls._ANACH_KEYS    = sorted_keys
 
     def scan_anachronisms(self, en_text):
@@ -252,30 +248,19 @@ class LoreEngine:
         from src.lore_data import IN_UNIVERSE_VOCAB, DD1_VOCAB
         # Get all matches with their positions
         matches = []
-        for m in self._ANACH_PATTERN.finditer(en_text):
-            word = m.group(0)
-            key = word.lower()
-            matches.append((m.start(), m.end(), word, key))
+        for key in self._ANACH_KEYS:
+            m = self._ANACH_PATTERNS[key].search(en_text)
+            if m:
+                word = m.group(0)
+                matches.append((m.start(), m.end(), word, key.lower()))
         
         # Sort by position, then by length (longer first)
         matches.sort(key=lambda x: (x[0], -(x[1] - x[0])))
         
-        # Filter out matches that are contained within longer matches at the same position
-        filtered = []
-        for start, end, word, key in matches:
-            # Check if this match is contained within any longer match at the same position
-            is_contained = False
-            for s, e, w, k in filtered:
-                if start >= s and end <= e and (end - start) < (e - s):
-                    is_contained = True
-                    break
-            if not is_contained:
-                filtered.append((start, end, word, key))
-        
         # Remove duplicates and return
         seen = set()
         unique = []
-        for start, end, word, key in filtered:
+        for start, end, word, key in matches:
             if key not in seen:
                 seen.add(key)
                 archaic_word = IN_UNIVERSE_VOCAB.get(key)
