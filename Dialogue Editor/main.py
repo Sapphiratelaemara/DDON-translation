@@ -1887,9 +1887,9 @@ def generate_preview_image(profile_name, text):
         img_width, img_height = final_base.size
         margin = 10  # Safety margin from edges
         
-        # Calculate maximum text height based on crop settings or image bounds
+        # Crop values use absolute image coordinates, as does text_y.
         crop = profile.get("crop", [0, 0, img_width, img_height])
-        max_text_height = crop[3] - text_y - margin if crop[3] > 0 else img_height - text_y - margin
+        max_text_bottom = crop[3] - margin if crop[3] > 0 else img_height - margin
         
         # Split text by manual newlines only (no automatic wrapping)
         lines = text.split('\n')
@@ -1897,7 +1897,7 @@ def generate_preview_image(profile_name, text):
         font_size = profile.get("font_sz", 14)
         
         for line in lines:
-            if y_offset + font_size > max_text_height:
+            if y_offset + font_size > max_text_bottom:
                 # Stop if we've reached the bottom boundary
                 print(f"[generate_preview_image] Text truncated - reached bottom boundary at y={y_offset}")
                 break
@@ -3157,6 +3157,22 @@ def fetch_deepl_batch(category, items, start_idx, count=20):
     def _run():
         try:
             from src.api_handler import DeepLClient
+
+            def _notify_suggestion(idx, translation, item_id):
+                def _on_error(error, stack):
+                    print(
+                        f"[fetch_deepl_batch] UI callback failed for idx={idx}: "
+                        f"{error}\n{stack}"
+                    )
+
+                try:
+                    eel.deepl_suggestion_ready(idx, translation, item_id)(
+                        callback=lambda _value: None,
+                        error_callback=_on_error,
+                    )
+                except Exception as e:
+                    print(f"[fetch_deepl_batch] Could not notify UI for idx={idx}: {e}")
+
             key = cm.get_key("deepl_api_key")
             if not key:
                 print(f"[fetch_deepl_batch] No DeepL key configured")
@@ -3198,10 +3214,7 @@ def fetch_deepl_batch(category, items, start_idx, count=20):
             # Emit callbacks for entries that were already cached so the DeepL box
             # populates immediately instead of staying on the loading placeholder.
             for i, item, translation in already_cached:
-                try:
-                    eel.deepl_suggestion_ready(i, translation, item.get('id'))()
-                except Exception:
-                    pass
+                _notify_suggestion(i, translation, item.get('id'))
 
             if not to_fetch:
                 print(f"[fetch_deepl_batch] Nothing to fetch for indices {start_idx}-{end_idx-1} (all cached)")
@@ -3232,10 +3245,7 @@ def fetch_deepl_batch(category, items, start_idx, count=20):
                     _prefetch_mgr._cache[cache_key] = cached
                     # Notify the frontend immediately so the DeepL box populates
                     # without waiting for the poll loop (which only runs ~5s).
-                    try:
-                        eel.deepl_suggestion_ready(i, translation, item.get('id'))()
-                    except Exception:
-                        pass
+                    _notify_suggestion(i, translation, item.get('id'))
                 except Exception as e:
                     print(f"[fetch_deepl_batch] Error fetching idx={i}: {e}")
 

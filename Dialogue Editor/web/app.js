@@ -1436,6 +1436,7 @@ async function loadItemAtIdxInternal(idx, mode) {
                     if (entryTypeDisplay2) entryTypeDisplay2.innerText = item.entry_type || '—';
                     // Refresh gutter immediately after programmatic update
                     syncLineCounters();
+                    updatePreview(refreshIdx);
                 } catch (e) {
                     // ignore refresh failures
                 }
@@ -2089,7 +2090,11 @@ async function updateReviewerCounters() {
     await scanAnachronisms(ed.innerText);
 }
 
+let previewRenderVersion = 0;
+
 function updatePreview(loadIdx) {
+    const renderVersion = ++previewRenderVersion;
+    const renderIdx = state.reviewer.currentIdx;
     const startTime = performance.now();
     console.log(`[updatePreview] Called with loadIdx=${loadIdx}`);
     const ed = document.getElementById('en-editor');
@@ -2146,6 +2151,10 @@ function updatePreview(loadIdx) {
         if (result.error && result.debug) {
             console.log(`[updatePreview] Debug info:`, result.debug);
         }
+        if (renderVersion !== previewRenderVersion || state.reviewer.currentIdx !== renderIdx) {
+            console.log(`[updatePreview] Skipped stale render for idx=${renderIdx}`);
+            return;
+        }
         // Only check index if loadIdx was provided (skip check for preview setting changes)
         if (loadIdx !== undefined && state.reviewer.currentIdx !== loadIdx) {
             console.log(`[updatePreview] Skipped: currentIdx=${state.reviewer.currentIdx} != loadIdx=${loadIdx}`);
@@ -2182,7 +2191,8 @@ function updatePreview(loadIdx) {
         }
     }).catch(error => {
         console.error('[updatePreview] Failed to generate preview:', error);
-        if (loadIdx === undefined || state.reviewer.currentIdx === loadIdx) {
+        if (renderVersion === previewRenderVersion && state.reviewer.currentIdx === renderIdx
+            && (loadIdx === undefined || state.reviewer.currentIdx === loadIdx)) {
             container.innerText = text || '(preview error)';
             container.style.width = '';
             container.style.height = '';
