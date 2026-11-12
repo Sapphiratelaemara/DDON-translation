@@ -61,6 +61,16 @@ https://raw.githubusercontent.com/Sapphiratelaemara/DDON-translation/refs/heads/
 https://raw.githubusercontent.com/Sapphiratelaemara/DDON-translation/refs/heads/main/Viet/gmd.csv
 ```
 
+### Korean (한국어)
+Korean needs a modified font (Hangul glyphs are drawn into unused kanji slots), so it is installed as a **launcher mod** instead of the CSV link above.
+
+1. Download [`Korean/DDON_Korean_launcher_mod.zip`](https://github.com/Sapphiratelaemara/DDON-translation/raw/refs/heads/main/Korean/DDON_Korean_launcher_mod.zip).
+2. In the launcher, open **Mod Installation** and select the zip.
+3. Wait until "Mod installed" appears.
+
+The mod applies `Korean/gmd.csv` (`packGmd`) and replaces the font in `ui/gui_cmn.arc` and two menu header textures in `ddo_common.arc`. To remove it, restore the original game files.
+
+
 ## 🚀 Development
 
 ### 📋 Prerequisites
@@ -145,6 +155,7 @@ Fixes and improvements by knowledgeable people would be very welcome!)
 | 🇨🇳 Simplified Chinese | 🔄 WIP | `Simplified Chinese/` |
 | 🇹🇼 Traditional Chinese | 🔄 WIP | `Traditional Chinese/gmd.csv` |
 | 🇻🇳 Vietnamese | 🔄 WIP | `Viet/gmd.csv` |
+| 🇰🇷 Korean | 🔄 WIP | `Korean/gmd.csv` + `Korean/DDON_Korean_launcher_mod.zip` |
 
 
 ## 🤝 How to Contribute
