@@ -1549,9 +1549,10 @@ async function loadItemAtIdxInternal(idx, mode) {
 
         // Update translation status and history
         if (item.id) {
-            updateTranslationStatusBadge(item.id);
-            loadTranslationHistory(item.id);
-            loadTranslationComments(item.id);
+            const historyEntryId = getTranslationHistoryEntryId(item);
+            updateTranslationStatusBadge(historyEntryId);
+            loadTranslationHistory(historyEntryId);
+            loadTranslationComments(historyEntryId);
         }
         
         // Validate translation
@@ -1903,9 +1904,10 @@ async function applyFix() {
     // Save to history (without writing to CSV)
     const nickname = state.settings.lastConfig?.sync_nickname || 'reviewer';
     console.log('[applyFix] Saving history with nickname:', nickname, 'item.path:', item.path, 'item.id:', item.id);
+    const historyEntryId = getTranslationHistoryEntryId(item);
     let saveHistoryOk = true;
     try {
-        const res = await eel.save_translation_history(item.id, item.jp, text, speaker, item.entry_type, nickname, item.path, item.row)();
+        const res = await eel.save_translation_history(historyEntryId, item.jp, text, speaker, item.entry_type, nickname, item.path, item.row)();
         console.log('[applyFix] Save result:', res);
         if (!res || !res.ok) {
             saveHistoryOk = false;
@@ -1920,8 +1922,8 @@ async function applyFix() {
 
     if (saveHistoryOk) {
         // Reload history to show the new entry
-        console.log('[applyFix] Reloading history for item:', item.id);
-        await loadTranslationHistory(item.id);
+        console.log('[applyFix] Reloading history for item:', historyEntryId);
+        await loadTranslationHistory(historyEntryId);
     }
 
     const btn = document.getElementById('btn-apply');
@@ -3295,7 +3297,6 @@ function savePreviewProfile() {
 // =============================================================================
 // REVIEWER — DEEPL + LORE + ADJACENT
 // =============================================================================
-function populateDeepLFromCache(suggestion, loadIdx) {
 function sanitizeTranslationCopy(text) {
     // Keep readable translation text and tag digits, but remove invisible
     // controls, bidi marks, zero-width characters, and non-text symbols.
@@ -3306,6 +3307,7 @@ function sanitizeTranslationCopy(text) {
         .replace(/[^\p{L}\p{N}\p{P}\p{Zs}<>\n]/gu, '');
 }
 
+function populateDeepLFromCache(suggestion, loadIdx) {
     const el = document.getElementById('deepl-text');
     if (!el) return;
     
@@ -3479,7 +3481,7 @@ function fetchTMSuggestions(jpText, loadIdx) {
     if (!jpText) return;
     console.log(`[fetchTMSuggestions] Starting for loadIdx=${loadIdx}, jpText="${jpText}"`);
     // Fire-and-forget: results populate the panel via tm_matches_ready.
-    eel.tm_find_matches(jpText, 0.7, 10)().catch(error => {
+    eel.tm_find_matches(jpText, 0.7, 10, loadIdx)().catch(error => {
         console.error(`[fetchTMSuggestions] Error:`, error);
     });
 }
@@ -3487,13 +3489,13 @@ function fetchTMSuggestions(jpText, loadIdx) {
 // Called by Python when a (background) TM search completes. Populates the panel
 // without blocking the preview — the search runs off Eel's main thread.
 eel.expose(tm_matches_ready);
-function tm_matches_ready(result) {
-    const loadIdx = state.reviewer.currentIdx;
-    console.log(`[tm_matches_ready] Got result for currentIdx=${loadIdx}:`, result);
-    _populateTMPanel(result, loadIdx);
+function tm_matches_ready(result, jpText, loadIdx) {
+    if (loadIdx == null) loadIdx = state.reviewer.currentIdx;
+    console.log(`[tm_matches_ready] Got result for loadIdx=${loadIdx}, jpText="${jpText}":`, result);
+    _populateTMPanel(result, jpText, loadIdx);
 }
 
-function _populateTMPanel(result, loadIdx) {
+function _populateTMPanel(result, jpText, loadIdx) {
     const panel = document.getElementById('tm-suggestions-panel');
     const list = document.getElementById('tm-suggestions-list');
     if (!panel || !list) return;
@@ -3530,7 +3532,7 @@ function _populateTMPanel(result, loadIdx) {
         const tmJp = match.entry.source || '';
         
         // Normalize newlines for comparison
-        const normalizedJpQuery = jpText.replace(/\n/g, ' ');
+        const normalizedJpQuery = (jpText || '').replace(/\n/g, ' ');
         const normalizedJpTM = tmJp.replace(/\n/g, ' ');
         const jpIdentical = normalizedJpQuery.trim() === normalizedJpTM.trim();
         
@@ -3538,7 +3540,7 @@ function _populateTMPanel(result, loadIdx) {
         console.log(`[TM DEBUG] Will highlight Jp: ${!jpIdentical}, Will highlight En: ${!jpIdentical}`);
         
         // Diff highlighting on Japanese (what determines if entries differ)
-        const highlightedJp = jpIdentical ? escapeHtml(tmJp) : highlightDiff(jpText, tmJp);
+        const highlightedJp = jpIdentical ? escapeHtml(tmJp) : highlightDiff(jpText || '', tmJp);
         
         // Diff highlighting on English (what user will use)
         const editor = document.getElementById('en-editor');
@@ -6377,7 +6379,7 @@ function updateStartupSyncStatus(msg) {
 }
 
 // Receive progress updates from the backend during startup sync.
-// Python calls this via eel.sync_progress(msg)(), so the JS handler must be
+// Python calls this via eel.updateStartupSyncStatus(msg)(), so the JS handler must be
 // registered with eel.expose (do NOT call eel.sync_progress from JS —
 // that is a Python->JS direction and would throw "not a function").
 // This expose MUST run at script-parse time (before Python calls it).
@@ -7075,6 +7077,15 @@ async function updateTranslationStatusBadge(entryId) {
     }
 }
 
+function getTranslationHistoryEntryId(item) {
+    if (!item || typeof item.id !== 'string') return item?.id;
+    if (item.id.startsWith('MANUAL_') && item.path && item.row !== undefined && item.row !== null) {
+        const filename = String(item.path).split(/[\\/]/).pop();
+        if (filename) return `${filename}::${item.row}`;
+    }
+    return item.id;
+}
+
 async function approveCurrentTranslation() {
     const item = state.reviewer.currentItem;
     if (!item) {
@@ -7083,9 +7094,10 @@ async function approveCurrentTranslation() {
     }
 
     try {
+        const entryId = getTranslationHistoryEntryId(item);
         // First save the translation to CSV
         const text = document.getElementById('en-editor').innerText;
-        const saveRes = await eel.apply_fix(item.id, text, false)();
+        const saveRes = await eel.apply_fix(entryId, text, false)();
         if (!saveRes || !saveRes.ok) {
             console.error('[approveCurrentTranslation] apply_fix failed:', saveRes);
             openAlertModal('ERROR', saveRes?.error || 'Failed to write translation to CSV.');
@@ -7094,10 +7106,10 @@ async function approveCurrentTranslation() {
 
         // Then approve it
         const nickname = state.settings.lastConfig?.sync_nickname || 'reviewer';
-        const res = await eel.approve_translation(item.id, nickname)();
+        const res = await eel.approve_translation(entryId, nickname)();
         if (res && res.ok) {
-            await updateTranslationStatusBadge(item.id);
-            await loadTranslationHistory(item.id);
+            await updateTranslationStatusBadge(entryId);
+            await loadTranslationHistory(entryId);
             // Move to next item after approval
             setTimeout(() => nextItem(), 400);
         } else {
@@ -7117,10 +7129,11 @@ async function rejectCurrentTranslation() {
     }
     
     try {
-        const res = await eel.reject_translation(item.id, 'reviewer', 'Translation needs improvement')();
+        const entryId = getTranslationHistoryEntryId(item);
+        const res = await eel.reject_translation(entryId, 'reviewer', 'Translation needs improvement')();
         if (res && res.ok) {
-            await updateTranslationStatusBadge(item.id);
-            await loadTranslationHistory(item.id);
+            await updateTranslationStatusBadge(entryId);
+            await loadTranslationHistory(entryId);
         } else {
             openAlertModal('ERROR', res?.error || 'Failed to reject translation.');
         }
@@ -7142,7 +7155,10 @@ function decodeHtmlEntities(text) {
     return div.textContent || div.innerText || '';
 }
 
+let translationHistoryRequestId = 0;
+
 async function loadTranslationHistory(entryId) {
+    const requestId = ++translationHistoryRequestId;
     const historyContainer = document.getElementById('translation-history');
     const historyPanel = document.getElementById('panel-history');
     console.log('[loadTranslationHistory] entryId:', entryId, 'container:', !!historyContainer, 'panel collapsed:', historyPanel?.classList.contains('collapsed'));
@@ -7150,6 +7166,12 @@ async function loadTranslationHistory(entryId) {
 
     try {
         const res = await eel.get_translation_history(entryId)();
+        if (requestId !== translationHistoryRequestId
+            || (state.reviewer.currentItem
+                && getTranslationHistoryEntryId(state.reviewer.currentItem) !== entryId)) {
+            console.log('[loadTranslationHistory] Ignoring stale response for entry:', entryId);
+            return;
+        }
         console.log('[loadTranslationHistory] response:', res);
         if (res && res.ok && res.history && res.history.length > 0) {
             // Show all history entries except approve/reject (comments are now shown inline)
@@ -7318,7 +7340,11 @@ async function loadTranslationHistory(entryId) {
         }
     } catch (e) {
         console.error('[loadTranslationHistory] Error:', e);
-        historyContainer.innerHTML = '<div class="kl-history-empty">Error loading history</div>';
+        if (requestId === translationHistoryRequestId
+            && (!state.reviewer.currentItem
+                || getTranslationHistoryEntryId(state.reviewer.currentItem) === entryId)) {
+            historyContainer.innerHTML = '<div class="kl-history-empty">Error loading history</div>';
+        }
     }
 }
 
@@ -7334,10 +7360,11 @@ async function addTranslationComment() {
     
     try {
         const nickname = state.settings.lastConfig?.sync_nickname || 'reviewer';
-        const res = await eel.add_translation_comment(item.id, nickname, input.value.trim())();
+        const entryId = getTranslationHistoryEntryId(item);
+        const res = await eel.add_translation_comment(entryId, nickname, input.value.trim())();
         if (res && res.ok) {
             input.value = '';
-            await loadTranslationComments(item.id);
+            await loadTranslationComments(entryId);
         } else {
             openAlertModal('ERROR', res?.error || 'Failed to add comment.');
         }
