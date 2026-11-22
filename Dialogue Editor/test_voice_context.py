@@ -335,6 +335,20 @@ check("the two on-by-default checks can be switched off",
       "added_exclamation" not in _codes(_ex_src, "It itches for the fray!") and "lost_question" not in _codes(_lq_src, "How fared the investigation—!"))
 vc.CHECK_ADDED_EXCLAMATION, vc.CHECK_LOST_QUESTION = _old_ae, _old_lq
 
+# --- 2026-11-21 (later): added_quotes (a reply wrapped whole lines in quotation marks; the prompt says none) ------------
+_q_src = '"シェドレアン大神殿"での問題を\n解決してくれたみたいね！\nアデルドナハからも、礼をいっておいてくれと\n言われたよ――'
+_q_bad = '"It appears you have resolved the matter at the Shadolean Great Temple!"\n"Adair Donnchadh charged me to relay his gratitude—"'
+check("added_quotes: flagged when the reply wraps whole lines in quotes (real Deryn 355)", "added_quotes" in _codes(_q_src, _q_bad))
+check("added_quotes: not flagged when the reply quotes what the source quotes",
+      "added_quotes" not in _codes('"シェドレアン大神殿"での問題を解決してくれたみたいね！', 'It appears you resolved the matter at the "Shadolean Great Temple"!'))
+check("added_quotes: not flagged when the source uses ＜＞ and the reply renders it as quotes (approved TM style)",
+      "added_quotes" not in _codes("メインクエスト＜<QCND 0>＞をクリア", 'Clear Main Quest "<QCND 0>"'))
+check("added_quotes: not flagged for 「」 source rendered with quotes", "added_quotes" not in _codes("「行くぞ」", '"Let us go."'))
+_old_aq = vc.CHECK_ADDED_QUOTES
+vc.CHECK_ADDED_QUOTES = False
+check("added_quotes can be switched off", "added_quotes" not in _codes(_q_src, _q_bad))
+vc.CHECK_ADDED_QUOTES = _old_aq
+
 # --- HTML-escaping bug (translation_manager.sanitize_text escaped on every save AND every load) ----------
 import importlib
 _buf = io.StringIO()
@@ -633,7 +647,7 @@ def _grab(pattern, text, default="?"):
 
 # LF-normalised SHA-1 of every file as I delivered it (stamped in when the package is built). The report compares your
 # installed copies against these, ignoring line endings, so a file you edited yourself shows up instead of being assumed equal.
-DELIVERED = {'main.py': '5db80163ec', 'run_test_mode.py': '25bca4bcfc', 'clean_tm_escaping.py': 'ca70c9d015', 'apply_ai_notes.py': 'e7a6d34dae', 'test_client_errors.py': '32cf2c8798', 'src/voice_context.py': '0869c056b7', 'src/api_handler.py': 'b3f297e7b6', 'src/ai_log.py': 'b2fe5c9f69', 'src/translation_manager.py': '68b7178a8c'}
+DELIVERED = {'main.py': '5db80163ec', 'run_test_mode.py': '25bca4bcfc', 'clean_tm_escaping.py': 'ca70c9d015', 'apply_ai_notes.py': 'e7a6d34dae', 'test_client_errors.py': '32cf2c8798', 'src/voice_context.py': 'd8ecc0e4f1', 'src/api_handler.py': 'b3f297e7b6', 'src/ai_log.py': 'b2fe5c9f69', 'src/translation_manager.py': '68b7178a8c'}
 
 
 def _sha(path):
@@ -842,6 +856,9 @@ def write_report():
               f"model {c.get('model_used') or c.get('model')}  {c.get('elapsed', '-')}s  attempts {c.get('attempts', '-')}"
               f"{'  TEST-MODE' if c.get('test_mode') else ''}")
             P(f"  voice block: {c.get('voice_chars', '-')} chars, {c.get('examples', '-')} TM examples")
+            if c.get("glossary_n") is not None:
+                _g = c.get("glossary") or []
+                P(f"  glossary injected: {c.get('glossary_n')} term(s)" + ((": " + "; ".join(_g[:8]) + (" ..." if len(_g) > 8 else "")) if _g else ""))
             P("  JP: " + (c.get("jp") or c.get("user") or "").replace("\n", " / "))
             if c.get("first_output") and c.get("first_output") != c.get("output"):
                 P("  FIRST REPLY (before QA retry): " + c["first_output"].replace("\n", " / "))

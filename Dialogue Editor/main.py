@@ -2911,7 +2911,7 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
         return "Error: No OpenRouter key found."
 
     model = cm.user_settings.get("selected_openrouter_model", "openrouter/auto")
-    sys_prompt = cm.config.get("ai_prompt", DEFAULT_AI_PROMPT)
+    sys_prompt = (cm.config.get("ai_prompt") or DEFAULT_AI_PROMPT)
 
     # Character context goes in the system prompt ONCE (it used to be appended to the last
     # user message as well, which double-weighted the notes).
@@ -2932,6 +2932,9 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
                         sys_prompt += f"- Instead of '{word}', consider '{suggestion}'\n"
 
             relevant_terms = le.scan_text_with_source(current_jp)
+            if relevant_terms:
+                _jps = [t[0] for t in relevant_terms]
+                relevant_terms = [t for t in relevant_terms if not any(t[0] != o and t[0] in o for o in _jps)]
             if relevant_terms:
                 dd1_terms = [(jp, en) for jp, en, src in relevant_terms if src == "dd1"]
                 other_terms = [(jp, en) for jp, en, src in relevant_terms if src == "other"]
@@ -4633,7 +4636,7 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
             else:
                 print(f"[pretranslate_batch] Item {item_id}: Trying OpenRouter AI")
                 try:
-                    sys_prompt = cm.config.get("ai_prompt", DEFAULT_AI_PROMPT)
+                    sys_prompt = (cm.config.get("ai_prompt") or DEFAULT_AI_PROMPT)
                     # ONE voice block (archetype ai_notes + speaker note + approved TM examples),
                     # injected once. (Previously: raw archetype notes via the placeholder AND again
                     # appended at the end, with no style-only wrapper and no speaker note.)
@@ -4644,12 +4647,18 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
                         sys_prompt += f"\n\n{voice_block}"
 
                     # Add lore glossary terms from current JP text
+                    _gloss_log, _gloss_n = [], 0
                     le = _get_lore_engine()
                     if le:
                         # Get relevant lore terms, tagged by vocabulary source so
                         # DD1-vocab (higher priority) and other_vocab (lower) are
                         # distinguished in the prompt.
                         relevant_terms = le.scan_text_with_source(jp_text)
+                        if relevant_terms:
+                            _jps = [t[0] for t in relevant_terms]
+                            relevant_terms = [t for t in relevant_terms if not any(t[0] != o and t[0] in o for o in _jps)]
+                        _gloss_n = len(relevant_terms or [])
+                        _gloss_log = [f"{jp} -> {en}"[:70] for jp, en, src in (relevant_terms or [])][:12]
                         if relevant_terms:
                             dd1_terms = [(jp, en) for jp, en, src in relevant_terms if src == "dd1"]
                             other_terms = [(jp, en) for jp, en, src in relevant_terms if src == "other"]
@@ -4710,7 +4719,7 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
                         user_msg = f"Translate this to English.\nSpeaker: {speaker or 'Unknown'}\nEntry type: {entry_type or 'unspecified'}\n\nSource text:\n{jp_text}"
                         _dump_ai_request("batch", [{"role": "system", "content": sys_prompt}, {"role": "user", "content": user_msg}])
                         print(f"[pretranslate_batch] Item {item_id}: voice {_voice_summary(voice_block, speaker)}")
-                        _ai_ctx = dict(item_id=item_id, speaker=speaker, archetype=_speaker_archetype_map().get(speaker, ""), model=openrouter_model, jp=jp_text, voice_chars=len(voice_block), examples=_voice_example_count(voice_block))
+                        _ai_ctx = dict(item_id=item_id, speaker=speaker, archetype=_speaker_archetype_map().get(speaker, ""), model=openrouter_model, jp=jp_text, voice_chars=len(voice_block), examples=_voice_example_count(voice_block), glossary=_gloss_log, glossary_n=_gloss_n)
                         # Retry loop: a per-call timeout ("Cancelled (timeout)")
                         # means the free model was just slow — re-attempt the
                         # SAME item rather than skipping it. Only a REAL user

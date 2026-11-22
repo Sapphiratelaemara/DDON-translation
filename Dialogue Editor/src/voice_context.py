@@ -149,6 +149,9 @@ _FW_BRACKET_WORD = re.compile(r"＜([A-Za-z][A-Za-z0-9 ]{0,14})＞")
 # Each flag triggers ONE corrective retry, like the older checks. Set a switch to False to turn that check off.
 CHECK_ADDED_EXCLAMATION = True      # source line has no ！ at all, reply ends a sentence with "!"
 CHECK_LOST_QUESTION = True          # source has a ？ but the reply contains no "?" at all
+CHECK_ADDED_QUOTES = True            # reply has more quotation marks than the source (the prompt says: no quotation marks)
+_SRC_QUOTES = "\"\u201c\u201d\u300c\u300d\u300e\u300f\uff1c\uff1e\u226a\u226b\u300a\u300b\u3008\u3009"
+_OUT_QUOTES = "\"\u201c\u201d"
 # OFF by default: the prompt says whether a trailing ―― becomes "...", an em dash or NOTHING is the model's call,
 # so dropping it is not an error under the written rules. Turn on only if you want the closing pause kept.
 CHECK_LOST_TRAILING_PAUSE = False
@@ -203,6 +206,14 @@ def punct_issues(src, out, strict=False):
         issues.append((
             "lost_question",
             f"The source has {c['sq']} question mark(s) but your reply has none. Keep the question and end it with \"?\"."))
+    if CHECK_ADDED_QUOTES:
+        sq_ = sum((src or "").count(ch) for ch in _SRC_QUOTES)
+        oq_ = sum((out or "").count(ch) for ch in _OUT_QUOTES)
+        if oq_ > sq_:
+            issues.append((
+                "added_quotes",
+                f"Your reply has {oq_} quotation mark(s) but the source has {sq_}. Do not wrap lines in quotation marks: "
+                "quote only the words the source itself quotes."))
     if CHECK_LOST_TRAILING_PAUSE:
         s_ = (src or "").rstrip()
         o_ = (out or "").rstrip()
