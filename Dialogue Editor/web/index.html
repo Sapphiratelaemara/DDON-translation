@@ -670,6 +670,7 @@ Ctrl+Shift+D: Ellipsis</div>
                             <button class="settings-nav-btn" data-section="rules">REPLACE_RULES</button>
                             <button class="settings-nav-btn" data-section="archetypes">ARCHETYPES</button>
                             <button class="settings-nav-btn" data-section="ai">AI_PROMPTS</button>
+                            <button class="settings-nav-btn" data-section="optional">OPTIONAL_FEATURES</button>
                             <button class="settings-nav-btn" data-section="regex">REGEX_SANDBOX</button>
                             <button class="settings-nav-btn" data-section="colors">THEME_COLORS</button>
                             <button class="settings-nav-btn" data-section="sync">SYNC</button>
@@ -913,6 +914,16 @@ Ctrl+Shift+D: Ellipsis</div>
                                     <p class="help-text">Model used for AI pre-translation. Separate from the chat/rephrase model. Falls back to the chat model if unset.</p>
                                 </div>
                                 <button class="btn-primary" id="btn-save-pretranslate-settings" style="margin-top: 10px;">SAVE PRE-TRANSLATE SETTINGS</button>
+                            </div>
+
+                            <!-- Section: Optional Features -->
+                            <div class="settings-section" id="section-optional">
+                                <div class="field-group">
+                                    <label>Jamdict Dictionary</label>
+                                    <p class="help-text">Optional Japanese-English dictionary data used by the Gloss panel.</p>
+                                    <button class="btn-secondary" id="btn-jamdict-download">DOWNLOAD JAMDICT</button>
+                                    <p id="jamdict-download-status" class="help-text"></p>
+                                </div>
                             </div>
 
                             <!-- Section: Regex Sandbox -->
@@ -1315,6 +1326,3 @@ Ctrl+Shift+D: Ellipsis</div>
 </body>
 
 </html>
-
-
-
