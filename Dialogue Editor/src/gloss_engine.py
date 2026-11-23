@@ -34,8 +34,8 @@ Public surface
 
 Notes
 -----
-• jamdict downloads JMdict (~50 MB) on first use into its default cache
-  directory (~/.jamdict/).  Subsequent calls are instant.
+• If the project-local Jamdict database is missing, the app downloads and
+  validates the ~50 MB JMdict database before first use. Subsequent calls are instant.
 • POS filtering: particles (助詞), auxiliary verbs (助動詞), punctuation (記号),
   and whitespace-only tokens are kept in the output but get empty candidates so
   the UI can still render them as non-interactive spacers.
@@ -45,7 +45,11 @@ from __future__ import annotations
 import os
 import threading
 import re
+import lzma
+import tarfile
+import tempfile
 from typing import Callable, List, NamedTuple, Optional, Dict
+import requests
 
 # ---------------------------------------------------------------------------
 # Point jamdict at the project-local data folder (portable, self-contained).
@@ -56,6 +60,79 @@ _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 _PARENT_DIR = os.path.dirname(_THIS_DIR)
 _LOCAL_JAMDICT_HOME = os.path.join(_PARENT_DIR, "deps", "jamdict_data")
 _LOCAL_JAMDICT_DB = os.path.join(_LOCAL_JAMDICT_HOME, "data", "jamdict.db")
+_JAMDICT_DATA_URL = (
+    "https://files.pythonhosted.org/packages/97/a5/"
+    "075928aed2b3b70459fc1db396397dfa6714d266c143c51af9b648551a4e/"
+    "jamdict_data-1.5.tar.gz"
+)
+
+def _download_jamdict_db(target_path: str) -> bool:
+    """Download, verify, and install the Jamdict database without a shell or package build."""
+    archive_path = None
+    temp_db_path = None
+    try:
+        os.makedirs(os.path.dirname(target_path), exist_ok=True)
+        fd, archive_path = tempfile.mkstemp(prefix="jamdict-", suffix=".tar.gz")
+        os.close(fd)
+
+        print("[GlossEngine] Downloading Jamdict database (~54 MB)...")
+        with requests.get(_JAMDICT_DATA_URL, stream=True, timeout=(30, 300)) as response:
+            response.raise_for_status()
+            downloaded = 0
+            with open(archive_path, "wb") as archive:
+                for chunk in response.iter_content(chunk_size=1024 * 1024):
+                    if not chunk:
+                        continue
+                    downloaded += len(chunk)
+                    if downloaded > 60 * 1024 * 1024:
+                        raise RuntimeError("Jamdict archive exceeded the expected size")
+                    archive.write(chunk)
+
+        with tarfile.open(archive_path, "r:*") as archive:
+            member = next(
+                (item for item in archive.getmembers()
+                 if item.isfile() and item.name.replace("\\", "/").endswith("/jamdict.db.xz")),
+                None,
+            )
+            if member is None:
+                raise RuntimeError("Jamdict archive did not contain jamdict.db.xz")
+            if member.size > 60 * 1024 * 1024:
+                raise RuntimeError("Compressed Jamdict database exceeded the expected size")
+            compressed = archive.extractfile(member)
+            if compressed is None:
+                raise RuntimeError("Could not read Jamdict database from archive")
+
+            fd, temp_db_path = tempfile.mkstemp(prefix="jamdict-db-", suffix=".db")
+            os.close(fd)
+            unpacked = 0
+            with lzma.LZMAFile(compressed, "rb") as source, open(temp_db_path, "wb") as target:
+                while True:
+                    chunk = source.read(1024 * 1024)
+                    if not chunk:
+                        break
+                    unpacked += len(chunk)
+                    if unpacked > 500 * 1024 * 1024:
+                        raise RuntimeError("Unpacked Jamdict database exceeded the expected size")
+                    target.write(chunk)
+
+        with open(temp_db_path, "rb") as database:
+            if database.read(16) != b"SQLite format 3\x00":
+                raise RuntimeError("Downloaded Jamdict database failed SQLite validation")
+
+        os.replace(temp_db_path, target_path)
+        temp_db_path = None
+        print(f"[GlossEngine] Jamdict database installed at {target_path}")
+        return True
+    except Exception as e:
+        print(f"[GlossEngine] Jamdict database download failed: {e}")
+        return False
+    finally:
+        for temporary in (archive_path, temp_db_path):
+            if temporary:
+                try:
+                    os.remove(temporary)
+                except FileNotFoundError:
+                    pass
 
 # Preserve JAMDICT_HOME for tools which honour it, but pass the bundled database
 # explicitly below. Jamdict otherwise reads the per-user config file, which can
@@ -181,6 +258,9 @@ class GlossEngine:
                     return False
             if cls._jmd is None:
                 try:
+                    if not os.path.isfile(_LOCAL_JAMDICT_DB):
+                        print("[GlossEngine] Jamdict database not installed; gloss feature unavailable")
+                        return False
                     # Do not depend on ~/.jamdict/config.json: it may refer to
                     # a stale installation. The project ships this database.
                     kwargs = {"reuse_ctx": False}

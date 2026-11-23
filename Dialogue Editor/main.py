@@ -91,8 +91,6 @@ def check_dependencies():
         'requests': 'requests>=2.31.0',
         'msgpack': 'msgpack>=1.0.0',
         'PIL': 'Pillow>=10.0.0',
-        'janome': 'janome',
-        'jamdict': 'jamdict>=1.0.0',
     }
     
     missing = []
@@ -3951,14 +3949,15 @@ def get_feature_status():
         "lore_context": False,
         "lore_context_error": None,
         "glossary_path": _get_glossary_path(),
+        "gloss_download_available": True,
     }
     
     # Check GlossEngine (Jamdict)
     try:
         ge = _get_gloss_engine()
-        status["gloss"] = ge is not None
-        if not ge:
-            status["gloss_error"] = "GlossEngine not initialized (Jamdict may not be installed)"
+        status["gloss"] = bool(ge and ge._ensure_ready())
+        if not status["gloss"]:
+            status["gloss_error"] = "Jamdict or its database could not be initialized"
     except Exception as e:
         status["gloss"] = False
         status["gloss_error"] = str(e)
@@ -3994,6 +3993,44 @@ def get_feature_status():
         status["lore_context_error"] = str(e)
     
     return status
+
+@eel.expose
+def download_jamdict_data():
+    """Opt-in installation of the optional Jamdict packages and database."""
+    try:
+        for package_name, spec in (
+            ("janome", "janome"),
+            ("jamdict", "jamdict>=1.0.0"),
+        ):
+            try:
+                __import__(package_name)
+            except ImportError:
+                subprocess.check_call([sys.executable, "-m", "pip", "install", spec])
+
+        from src.gloss_engine import (
+            _download_jamdict_db,
+            _LOCAL_JAMDICT_DB,
+            GlossEngine,
+        )
+
+        if not os.path.isfile(_LOCAL_JAMDICT_DB):
+            if not _download_jamdict_db(_LOCAL_JAMDICT_DB):
+                return {"ok": False, "error": "Jamdict database download failed"}
+
+        global _gloss_engine
+        with _gloss_engine_lock:
+            _gloss_engine = None
+        GlossEngine._tok = None
+        GlossEngine._jmd = None
+
+        engine = _get_gloss_engine()
+        if engine and engine._ensure_ready():
+            return {"ok": True, "message": "Jamdict installed and ready"}
+        return {"ok": False, "error": "Jamdict installed, but the optional feature could not initialize"}
+    except subprocess.CalledProcessError as e:
+        return {"ok": False, "error": f"Jamdict package installation failed: {e}"}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
 
 # =============================================================================
 # SHUTDOWN / CLEANUP

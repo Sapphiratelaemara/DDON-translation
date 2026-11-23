@@ -5972,6 +5972,25 @@ function initSettingsActions() {
         const message = `Repo: ${status.repo || 'N/A'}<br>Language: ${status.language}<br>Auto: ${status.auto_sync ? 'ON' : 'OFF'}`;
         openAlertModal(status.ok && status.configured ? 'CONFIGURED' : 'NOT CONFIGURED', message, true);
     };
+
+    const btnJamdictDownload = document.getElementById('btn-jamdict-download');
+    const jamdictStatus = document.getElementById('jamdict-download-status');
+    if (btnJamdictDownload) btnJamdictDownload.onclick = async () => {
+        btnJamdictDownload.disabled = true;
+        if (jamdictStatus) jamdictStatus.textContent = 'Downloading and validating Jamdict database...';
+        try {
+            const result = await eel.download_jamdict_data()();
+            if (jamdictStatus) {
+                jamdictStatus.textContent = result?.ok
+                    ? 'Jamdict is installed and ready.'
+                    : `Jamdict download failed: ${result?.error || 'Unknown error'}`;
+            }
+        } catch (error) {
+            if (jamdictStatus) jamdictStatus.textContent = `Jamdict download failed: ${error}`;
+        } finally {
+            btnJamdictDownload.disabled = false;
+        }
+    };
     
     const btnSyncSave = document.getElementById('btn-sync-save');
     if (btnSyncSave) {
