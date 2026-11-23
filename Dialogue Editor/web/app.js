@@ -200,9 +200,9 @@ let originalState = {
 // =============================================================================
 window.onload = async () => {
     try {
-        // Show startup sync window immediately so the user knows a fetch may run
-        showStartupSyncModal();
-        // Kick off the GitHub fetch now (progress streams into the modal)
+        // Only show or start sync when the client is configured. Otherwise the
+        // startup window must not appear (and must not block Firefox or any
+        // other browser waiting for a GitHub callback).
         runStartupSync();
 
         // Initialize theme
@@ -6455,11 +6455,17 @@ function waitForPretranslateDone(watchdogMs = 600000) {
     });
 }
 
-// Kick off the startup fetch. Declared as a function so it can be called from
-// window.onload AFTER the modal is shown (avoids the modal closing before it
-// appears). Hides the window when done.
+// Kick off the startup fetch only if GitHub sync is configured. Hides the
+// window immediately for unconfigured clients and closes it after a fetch.
 async function runStartupSync() {
+    hideStartupSyncModal();
     try {
+        const status = await eel.get_sync_status()();
+        if (!status || !status.ok || !status.configured) {
+            return;
+        }
+
+        showStartupSyncModal();
         const res = await eel.startup_sync()();
         if (res && res.skipped) {
             updateStartupSyncStatus('Sync not configured - skipping');
