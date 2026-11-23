@@ -131,6 +131,8 @@ from datetime import datetime
 
 from src.config_manager import ConfigManager
 from src.api_handler import DeepLClient, OpenRouterClient
+from src import voice_context as vc
+from src import ai_log
 from src.translator_engine import TranslationEngine
 from src.file_utils import _get_csv_files, _read_csv, row_matches_triggers, CSV_COL_JP, CSV_COL_EN, CSV_COL_SPEAKER, CSV_COL_ENTRY_TYPE
 from src.batch_runner import run_batch, BatchSettings
@@ -192,6 +194,8 @@ DEFAULT_AI_PROMPT = (
     "Text between paired tags (e.g. <COL>text</COL>) should be translated; the tags themselves must not change.\n"
     "- Do NOT use Japanese honorifics (e.g. -san, -sama, -dono).\n"
     "- Render Japanese dashes as an ellipsis (...) or em dash (—) depending on context.\n"
+    "- Drop 《》 brackets: keep the text inside them and never replace them with ( ) or [ ].\n"
+    "- If the GLOSSARY section lists a rendering for a person, place, skill or creature name, use it exactly.\n"
     "- For unknown proper nouns (names, places, skills), keep the established romanisation.\n"
     "- Address the player as 'Master' or 'Arisen' as context warrants. Use 'ser' not 'sir'.\n"
     "- ABSOLUTE BAN: NEVER use Early Modern / Shakespearean English. This means NO 'thou', 'thee', 'thy', 'thine', "
@@ -235,22 +239,26 @@ DEFAULT_AI_PROMPT = (
     "JP: ゴールデンナイトの攻撃力は脅威です！\n"
     "EN: The knight of gold is fearsome strong!\n\n"
 
-    "CHARACTER VOICE (delivery only — never content):\n"
-    "If a character voice note is supplied below, it describes surface-level delivery only: sentence length and rhythm, "
-    "formality, and how directly the character states things. Use it ONLY to choose between otherwise-equivalent ways of "
-    "phrasing the SAME meaning (word order, contraction density, clause length, how blunt vs. hedged the phrasing is). "
+    "CHARACTER VOICE (word choice only — never content, never sentence shape):\n"
+    "If a character voice note is supplied below, it describes how the speaker chooses words: vocabulary, forms of address, "
+    "formality and contraction habits. Use it ONLY to choose between otherwise-equivalent wordings of the SAME meaning. "
+    "Sentence type (statement / question / exclamation) and punctuation come from the SOURCE line alone. "
     "It is NOT permission to add jokes, asides, actions, or any content not present in the source line, and it never "
     "overrides TRANSLATION GUIDANCE below. If the voice note and a faithful translation ever conflict, faithfulness wins.\n"
     "{character_voice_note}\n\n"
-    "Punctuation discipline: The ellipses in the above examples illustrate syntactic hesitation (clause breaks, self-corrections, qualifying phrases). "
-    "They do NOT license replacing source punctuation. Preserve every `!` `?` as mapped in the translation guidance. "
-    "Hesitation is conveyed by sentence structure and word choice, not by inserting `...` where the source has none.\n\n"
+    "PUNCTUATION (follows the source):\n"
+    "Preserve every `!` and `?` as mapped in the translation guidance; a source statement never becomes a question. "
+    "Pauses (`...` or an em dash) come only from a source ――, …, ‥, or a clause that continues onto the next line; "
+    "whether ―― becomes `...`, an em dash, or nothing is your judgement. "
+    "Never add pauses to express shyness, hesitation or any other personality trait.\n\n"
 
     "TRANSLATION GUIDANCE:\n"
     "Stay faithful to the original meaning and length — do not add, omit, or embellish. "
     "Rephrase for natural English flow within the style above. "
-    "Respect the character's voice and any archetype notes provided. "
-    "Stay consistent with any translation choices made earlier in this conversation.\n"
+    "Apply any character-voice notes to word choice only. "
+    "Keep names and glossary terms consistent with earlier choices in this conversation.\n\n"
+    "FINAL CHECK (before you answer): does your reply contain a `?`, `...` or em dash that the source line does not support? "
+    "If so, remove it.\n"
 )
 
 # Map of language codes to human-readable names for the prompt's TARGET LANGUAGE
@@ -314,35 +322,11 @@ _LANGUAGE_NAMES = {
 # Words/endings that mark Early Modern / Shakespearean English. Used by
 # _contains_early_modern() to reject AI output that violates the house-style ban
 # (unless the character is explicitly exempt, e.g. The White Dragon).
-_EARLY_MODERN_PRONOUNS = {"thou", "thee", "thy", "thine"}
-_EARLY_MODERN_VERB_FORMS = (
-    "thinkest", "dost", "doth", "hath", "makest", "maketh", "goest", "doest",
-    "sayest", "comest", "art", "wilt", "wouldst", "couldst", "shouldst",
-    "hast", "didst", "knowest", "seest", "gett'st", "giv'st", "tisn't", "User Safety: safe", "OpenRouter Error",
-)
-
 def _contains_early_modern(text):
-    """Return True if ``text`` contains Early Modern / Shakespearean English.
-
-    Matches the banned second-person pronouns and -est/-eth verb forms as
-    whole words (so 'artist', 'hathaway', 'fast' etc. are NOT flagged).
-    """
-    if not text:
-        return False
-    lowered = " " + text.lower().replace("'", "'") + " "
-    # Whole-word pronoun match
-    for w in _EARLY_MODERN_PRONOUNS:
-        if f" {w} " in lowered:
-            return True
-    # Whole-word verb-form match (covers -est/-eth and standalone forms)
-    for w in _EARLY_MODERN_VERB_FORMS:
-        if f" {w} " in lowered:
-            return True
-    # Bare -est / -eth endings on other verbs (e.g. 'speakest', 'goeth')
-    import re
-    if re.search(r"\b\w+est\b|\b\w+eth\b", lowered):
-        return True
-    return False
+    """Thin wrapper kept for the existing call sites; the logic (closed word list instead of the
+    old \\w+est / \\w+eth regex, which flagged best/rest/west/honest/forest...) lives in
+    src/voice_context.py. Junk replies such as "User Safety: safe" are handled by vc.is_bad_reply()."""
+    return vc.contains_early_modern(text)
 
 def _target_language_instruction():
     """Build a TARGET LANGUAGE instruction tied to the active settings language.
@@ -356,13 +340,51 @@ def _target_language_instruction():
         f"\n\nTARGET LANGUAGE:\n"
         f"The file you are working on is intended to be localized into {name}. "
         f"All of your output MUST be written in {name}. Do not reply in any other "
-        f"language (including English) unless the user explicitly asks for it."
+        f"language{'' if name == 'English' else ' (including English)'} unless the user explicitly asks for it."
     )
+
+def _raw_text(text):
+    """Undo HTML escaping (any number of levels). The 'Pre-translated Unapproved' queue gets the translation manager's
+    stored, HTML-ESCAPED text and the UI passes it back to these functions as if it were raw, so gloss, preview,
+    validation, character counts, TM search and CSV writes all saw &#x27; / &quot; / &lt; instead of ' " <.
+    Raw text passes through unchanged."""
+    return vc.raw_text(text)
+
+
+def _test_mode():
+    """TEST MODE (DDON_TEST_MODE=1, set by run_test_mode.py): lets you re-run pre-translation over the same
+    lines to compare outputs. It forces 'skip pre-translated' off, bypasses the TM for every entry that already
+    holds a translation (approved ones included), and blocks GitHub pushes so test output never reaches the
+    shared repo (set DDON_TEST_ALLOW_SYNC=1 to allow them)."""
+    return os.environ.get("DDON_TEST_MODE", "").strip().lower() not in ("", "0", "false", "no")
+
+
+def _sync_blocked():
+    return _test_mode() and os.environ.get("DDON_TEST_ALLOW_SYNC", "").strip().lower() in ("", "0", "false", "no")
+
+
+def _test_mode_cap_items(items):
+    """In TEST MODE, limit how many items one batch sends to the AI (default 20) so a big quest cannot exhaust the
+    free tier: test mode re-translates every entry it scans. DDON_TEST_MAX_ITEMS=0 removes the limit."""
+    if not _test_mode():
+        return items
+    try:
+        cap = int(os.environ.get("DDON_TEST_MAX_ITEMS", "20"))
+    except ValueError:
+        cap = 20
+    if cap > 0 and len(items) > cap:
+        print(f"[TEST MODE] only the first {cap} of {len(items)} items will be processed (protects the free tier); "
+              "DDON_TEST_MAX_ITEMS=0 removes the limit")
+        return items[:cap]
+    return items
+
 
 # Set up sync callback - request push to GitHub after local saves
 # Comments trigger urgent push (1 min), other changes wait (30 min)
 def sync_push_request(urgent: bool = False):
     """Request a sync push - urgent for comments, normal for other changes."""
+    if _sync_blocked():
+        return
     github_sync.request_push(urgent=urgent)
 
 translation_manager.set_sync_callback(sync_push_request)
@@ -674,6 +696,14 @@ WEB_DIR  = os.path.join(BASE_DIR, 'web')
 
 # Initialize Eel early so decorators work
 eel.init(WEB_DIR)
+
+def _call_js(name, *args):
+    """Call a frontend callback without letting a JavaScript exception kill an Eel greenlet."""
+    def _on_error(error, stack):
+        print(f"[Eel] JavaScript callback {name} failed: {error}\n{stack}")
+
+    getattr(eel, name)(*args)(lambda _result: None, _on_error)
+
 
 @eel.btl.route('/assets/<path:path>')
 def serve_assets(path):
@@ -1293,12 +1323,34 @@ def save_replace_rules(rules):
 
 @eel.expose
 def save_archetype(key, name, notes):
-    cm.config.setdefault("archetypes", {})[key] = {"name": name, "notes": notes}
+    # MERGE into the existing record so editing name/notes in the UI keeps professions and ai_notes
+    # (this used to replace the whole record with just name + notes).
+    rec = dict(cm.archetypes.get("archetypes", {}).get(key) or cm.config.get("archetypes", {}).get(key) or {})
+    rec.update({"name": name, "notes": notes})
+    cm.config.setdefault("archetypes", {})[key] = dict(rec)
     # Keep cm.archetypes (the archetypes.json source of truth) in sync and persist it
-    cm.archetypes.setdefault("archetypes", {})[key] = {"name": name, "notes": notes}
+    cm.archetypes.setdefault("archetypes", {})[key] = rec
     cm.save_archetypes()
     cm.save_all()
     return True
+
+@eel.expose
+def get_archetype_ai_notes(key):
+    """Model-facing voice text for an archetype ('' if none; the prompt then falls back to the human notes)."""
+    return (cm.archetypes.get("archetypes", {}).get(key, {}) or {}).get("ai_notes", "")
+
+
+@eel.expose
+def save_archetype_ai_notes(key, text):
+    rec = cm.archetypes.setdefault("archetypes", {}).setdefault(key, {})
+    if text and text.strip():
+        rec["ai_notes"] = text.strip()
+    else:
+        rec.pop("ai_notes", None)
+    cm.save_archetypes()
+    cm.save_all()
+    return True
+
 
 # --- ARCHETYPES ---
 @eel.expose
@@ -1307,9 +1359,12 @@ def save_archetype_data(key, data):
     if "archetypes" not in cm.config:
         cm.config["archetypes"] = {}
     
-    cm.config["archetypes"][key] = data
+    # MERGE: a UI payload without ai_notes / professions must not erase them.
+    merged = dict(cm.archetypes.get("archetypes", {}).get(key) or {})
+    merged.update(data or {})
+    cm.config["archetypes"][key] = dict(merged)
     # Keep cm.archetypes (the archetypes.json source of truth) in sync and persist it
-    cm.archetypes.setdefault("archetypes", {})[key] = data
+    cm.archetypes.setdefault("archetypes", {})[key] = merged
     cm.save_archetypes()
     cm.save_all()
     # If LoreEngine is active, we'd trigger a reload here
@@ -1561,6 +1616,7 @@ def test_regex(pattern, repl, text):
 
 @eel.expose
 def get_simulated_len(text):
+    text = _raw_text(text)
     if not text:
         return 0
     # Strip ★ character (lore marker) before calculating length
@@ -1569,6 +1625,7 @@ def get_simulated_len(text):
 
 @eel.expose
 def rewrap_text(text, limit=None):
+    text = _raw_text(text)
     if not text:
         return text
     if limit is None:
@@ -1582,6 +1639,7 @@ def rewrap_text(text, limit=None):
 @eel.expose
 def get_tag_aware_character_count(text):
     """Get tag-aware character count for line counters."""
+    text = _raw_text(text)
     if not text:
         return 0
     try:
@@ -1744,6 +1802,7 @@ def remove_preview_type(profile_name):
 @eel.expose
 def generate_preview_image(profile_name, text):
     """Generate a preview image with text overlay for the given profile."""
+    text = _raw_text(text)
     import time
     start_time = time.time()
     try:
@@ -1887,9 +1946,9 @@ def generate_preview_image(profile_name, text):
         img_width, img_height = final_base.size
         margin = 10  # Safety margin from edges
         
-        # Calculate maximum text height based on crop settings or image bounds
+        # Crop values use absolute image coordinates, as does text_y.
         crop = profile.get("crop", [0, 0, img_width, img_height])
-        max_text_height = crop[3] - text_y - margin if crop[3] > 0 else img_height - text_y - margin
+        max_text_bottom = crop[3] - margin if crop[3] > 0 else img_height - margin
         
         # Split text by manual newlines only (no automatic wrapping)
         lines = text.split('\n')
@@ -1897,7 +1956,7 @@ def generate_preview_image(profile_name, text):
         font_size = profile.get("font_sz", 14)
         
         for line in lines:
-            if y_offset + font_size > max_text_height:
+            if y_offset + font_size > max_text_bottom:
                 # Stop if we've reached the bottom boundary
                 print(f"[generate_preview_image] Text truncated - reached bottom boundary at y={y_offset}")
                 break
@@ -2003,6 +2062,7 @@ def _has_usable_gloss(tokens):
 @eel.expose
 def get_gloss(jp_text):
     """Returns morpheme gloss for the given JP text via GlossEngine."""
+    jp_text = _raw_text(jp_text)
     print(f"[get_gloss] Called with: {jp_text[:50] if jp_text else 'None'}...")
     if not jp_text:
         return []
@@ -2166,7 +2226,8 @@ def save_reference_entry(term, meaning, description='', existing_term=None, glos
         # fire a push, so request one here (urgent: 1 min). The push compares a
         # content hash, so a smaller-but-different file still uploads.
         try:
-            github_sync.request_push(urgent=True)
+            if not _sync_blocked():
+                github_sync.request_push(urgent=True)
         except Exception as e:
             print(f"[save_reference_entry] Push request failed: {e}")
         return {'ok': True, 'path': glossary_path}
@@ -2227,7 +2288,8 @@ def delete_reference_entry(term, glossary_path=None):
         # content hash (not file size), so a smaller-but-different file still
         # uploads. Glossary edits don't otherwise fire a push, so do it here.
         try:
-            github_sync.request_push(urgent=True)
+            if not _sync_blocked():
+                github_sync.request_push(urgent=True)
         except Exception as e:
             print(f"[delete_reference_entry] Push request failed: {e}")
         return {'ok': True, 'path': glossary_path}
@@ -2238,6 +2300,7 @@ def delete_reference_entry(term, glossary_path=None):
 @eel.expose
 def get_lore_context(jp_text):
     """Returns lore glossary + tag display matches for the given JP text."""
+    jp_text = _raw_text(jp_text)
     if not jp_text:
         return []
     
@@ -2303,6 +2366,7 @@ def get_lore_context(jp_text):
 @eel.expose
 def scan_anachronisms(en_text):
     """Scan English text for modern words that should use archaic alternatives."""
+    en_text = _raw_text(en_text)
     if not en_text:
         return []
     
@@ -2694,6 +2758,7 @@ def get_next_review_item():
 
 @eel.expose
 def get_deepl_suggestion(text):
+    text = _raw_text(text)
     key = cm.get_key("deepl_api_key")
     if not key:
         return "No DeepL key configured."
@@ -2707,55 +2772,155 @@ def get_deepl_suggestion(text):
         return res["text"]
     return f"Error: {res.get('error')}"
 
+# Set True to also run the punctuation QA on editor-chat replies. Off by default: in chat the
+# user may deliberately ask for a question or a trailing line, and a retry would undo that.
+QA_PUNCT_IN_CHAT = False
+
+# Writes the exact system+user text of the most recent AI call to last_ai_request_chat.txt /
+# last_ai_request_batch.txt next to main.py, so you can read what the model was actually sent.
+# Set to False once you no longer need it.
+VOICE_DEBUG_DUMP = True
+
+
+def _dump_ai_request(kind, messages):
+    if not VOICE_DEBUG_DUMP:
+        return
+    try:
+        path = os.path.join(BASE_DIR, f"last_ai_request_{kind}.txt")
+        with open(path, "w", encoding="utf-8", newline="\n") as fh:  # LF only: text-mode on Windows turned CRLF in the JP into '\r\r\n'
+            for m in messages:
+                fh.write(f"===== {str(m.get('role', '?')).upper()} =====\n{str(m.get('content', '')).replace(chr(13) + chr(10), chr(10))}\n\n")
+    except Exception as e:
+        print(f"[voice] debug dump failed: {e!a}")
+
+
+def _voice_example_count(block):
+    sect = block.split("APPROVED TRANSLATIONS", 1)[1] if "APPROVED TRANSLATIONS" in block else ""
+    return len([b for b in sect.split("\n\n") if "JP:" in b])
+
+
+def _ai_log(kind, **fields):
+    """One line per AI call -> ai_call_log.jsonl next to main.py (see src/ai_log.py).
+    test_voice_context.py turns that file into ddon_report.txt."""
+    try:
+        ai_log.log_call(BASE_DIR, dict(kind=kind, test_mode=_test_mode(), **fields))
+    except Exception as e:
+        print(f"[ai_log] {e!a}")
+
+
+def _voice_summary(block, speaker):
+    """One-line, ASCII-safe description of the voice block an AI call received."""
+    sect = block.split("APPROVED TRANSLATIONS", 1)[1] if "APPROVED TRANSLATIONS" in block else ""
+    n_ex = len([b for b in sect.split("\n\n") if "JP:" in b])
+    arch = _speaker_archetype_map().get(speaker, "-")
+    note = "yes" if _speaker_note_for(speaker) else "no"
+    return f"archetype={arch!a} speaker_note={note} examples={n_ex} chars={len(block)}"
+
+
+def _should_bypass_tm(item, item_id, skip_pretranslated, settings):
+    """A re-run of an entry that already holds a translation wants a FRESH translation; otherwise the TM
+    returns the earlier output as an exact match and the AI never runs.
+    Default (setting bypass_tm_on_rerun true): bypass only for entries still in 'pre-translated' status, so
+    approved/human translations are never replaced. Set it to "all" to bypass for every entry that already has
+    a translation (useful for testing; it WILL replace approved text). Set it to false to disable."""
+    mode = (settings or {}).get("bypass_tm_on_rerun", True)
+    if _test_mode():
+        mode = "all"
+    if skip_pretranslated or not mode:
+        return False
+    ent = translation_manager.entries.get(item_id)
+    if mode == "all":
+        return bool(ent) or bool((item.get("en") or "").strip())
+    return bool(ent) and getattr(ent, "status", "") == "pre-translated"
+
+
+def _speaker_archetype_map():
+    m = dict(cm.user_settings.get("speaker_archetypes", {}) or {})
+    m.update(cm.config.get("speaker_archetypes", {}) or {})
+    return {k: v for k, v in m.items() if v}
+
+
+def _speaker_note_for(speaker):
+    if not speaker:
+        return ""
+    n = (cm.config.get("speaker_notes", {}) or {}).get(speaker) \
+        or (cm.user_settings.get("speaker_notes", {}) or {}).get(speaker) or ""
+    return n.strip()
+
+
+def _voice_block_for(speaker, archetype_key, jp_text, example_index=None, sys_prompt=""):
+    """The ONE place the character context is built (chat and batch both call this).
+    Archetype `ai_notes` (fallback: `notes`) + speaker note + approved TM examples."""
+    spk_map = _speaker_archetype_map()
+    archetype_key = archetype_key or spk_map.get(speaker, "")
+    archetypes = cm.archetypes.get("archetypes", {})
+    examples_text = ""
+    if speaker:
+        try:
+            idx = example_index
+            if idx is None:
+                tm_inst, _m, _s = _get_tm_components()
+                idx = vc.get_index(tm_inst.entries, spk_map)
+            examples_text = vc.format_examples(idx.pick(speaker, archetype_key, jp_text or "", n=3))
+        except Exception as e:
+            print(f"[voice] example lookup failed: {e!a}")
+    # when the system prompt already states the voice/punctuation rules, use the short header
+    short = "CHARACTER VOICE (word choice only" in (sys_prompt or "")
+    return vc.build_voice_block(speaker, archetype_key, archetypes, _speaker_note_for(speaker), examples_text,
+                                short_header=short)
+
+
+def _early_modern_exempt(speaker, archetype_key=""):
+    """Exempt only when the speaker note names thou/thee as a WHOLE WORD, or the archetype carries
+    `allow_early_modern` (AB, The White Dragon). The old test was a substring match
+    (`"thou" in note`), which fired on "without" / "thoughtful" and exempted 12 speakers by accident."""
+    import re as _re
+    if not speaker:
+        return False
+    if _re.search(r"\b(?:thou|thee|thy|thine)\b|shakespear", _speaker_note_for(speaker), _re.I):
+        return True
+    key = archetype_key or _speaker_archetype_map().get(speaker, "")
+    rec = (cm.archetypes.get("archetypes", {}) or {}).get(key) or {}
+    return bool(rec.get("allow_early_modern"))
+
+
+def _review_reply(reply, jp_text, speaker, check_punct=True, archetype_key=""):
+    """Return (flags, correction_notes) for a model reply."""
+    flags, notes = [], []
+    if not _early_modern_exempt(speaker, archetype_key) and _contains_early_modern(reply):
+        flags.append("early_modern")
+        notes.append("Rewrite in archaized modern English: modern 'you'/'your', no thou/thee, no -est/-eth verb forms.")
+    if check_punct and jp_text:
+        for code, msg in vc.punct_issues(jp_text, reply):
+            flags.append(code)
+            notes.append(msg)
+    return flags, notes
+
+
+def _feedback_messages(base_messages, reply, notes):
+    fb = ("Your reply needs a correction:\n- " + "\n- ".join(notes) +
+          "\nKeep your wording wherever it is already fine. Reply with the corrected translation only.")
+    return list(base_messages) + [{"role": "assistant", "content": reply}, {"role": "user", "content": fb}]
+
+
 @eel.expose
 def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
+    current_jp = _raw_text(current_jp)
     key = cm.get_key("openrouter_api_key")
     if not key:
         return "Error: No OpenRouter key found."
 
     model = cm.user_settings.get("selected_openrouter_model", "openrouter/auto")
-    sys_prompt = cm.config.get("ai_prompt", DEFAULT_AI_PROMPT)
+    sys_prompt = (cm.config.get("ai_prompt") or DEFAULT_AI_PROMPT)
 
-    archetypes = cm.archetypes.get("archetypes", {})
-    archetype_notes = ""
-    if archetype_key in archetypes:
-        archetype_notes = archetypes[archetype_key].get("notes", "") or ""
-
-    # Ensure speaker match works (strip whitespace/case issues)
-    speaker_notes_dict = cm.config.get("speaker_notes", {})
-    speaker_note = (speaker_notes_dict.get(speaker, "") or "").strip()
-
-    context_blocks = []
-    if archetype_notes:
-        context_blocks.append(
-            f"CHARACTER ARCHETYPE FOR {speaker or 'SPEAKER'}:\n{archetype_notes}"
-        )
-    if speaker_note:
-        context_blocks.append(
-            f"SPEAKER-SPECIFIC NOTE FOR {speaker or 'SPEAKER'}:\n{speaker_note}"
-        )
-
-    character_context_str = ""
-    if context_blocks:
-        character_context_str = (
-            "CHARACTER-VOICE REFERENCE — STYLE ONLY:\n"
-            "Use these notes and any quoted examples only to infer cadence, register, "
-            "sentence rhythm, and phrasing choices. They are NOT source content. "
-            "Never copy, paraphrase, mention, or add their people, places, events, "
-            "actions, or ideas to the translation. Translate only what is present in "
-            "the current source text.\n\n"
-            + "\n\n".join(context_blocks)
-        )
-
-    # Fill the `{character_voice_note}` placeholder with the assembled
-    # character-context block. Prompt-level punctuation guidance is now
-    # sourced from the on-disk `ai_prompt` (or `DEFAULT_AI_PROMPT`) so we
-    # no longer inject the punctuation paragraph at runtime.
+    # Character context goes in the system prompt ONCE (it used to be appended to the last
+    # user message as well, which double-weighted the notes).
+    character_context_str = _voice_block_for(speaker, archetype_key, current_jp or "", sys_prompt=sys_prompt)
     if "{character_voice_note}" in sys_prompt:
         sys_prompt = sys_prompt.replace("{character_voice_note}", character_context_str)
     elif character_context_str:
         sys_prompt += f"\n\n{character_context_str}"
-    
+
     if current_jp:
         le = _get_lore_engine()
         if le:
@@ -2765,8 +2930,11 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
                 for word, suggestion, is_ddon in anach_hits:
                     if suggestion:
                         sys_prompt += f"- Instead of '{word}', consider '{suggestion}'\n"
-            
+
             relevant_terms = le.scan_text_with_source(current_jp)
+            if relevant_terms:
+                _jps = [t[0] for t in relevant_terms]
+                relevant_terms = [t for t in relevant_terms if not any(t[0] != o and t[0] in o for o in _jps)]
             if relevant_terms:
                 dd1_terms = [(jp, en) for jp, en, src in relevant_terms if src == "dd1"]
                 other_terms = [(jp, en) for jp, en, src in relevant_terms if src == "other"]
@@ -2778,25 +2946,15 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
                     sys_prompt += f"- {jp} SHOULD be translated as '{en}' (other vocab — lower priority)\n"
                 for jp, en in lore_terms:
                     sys_prompt += f"- {jp} MUST be translated as '{en}'\n"
-    
+
     sys_prompt += _target_language_instruction()
 
     request_history = list(history or [])
-    if character_context_str:
-        context_suffix = (
-            "\n\n[ACTIVE CHARACTER CONTEXT — use this for delivery only; "
-            "do not add content beyond the source]\n"
-            + character_context_str
-        )
-        if request_history and request_history[-1].get("role") == "user":
-            latest = dict(request_history[-1])
-            latest["content"] = f"{latest.get('content', message)}{context_suffix}"
-            request_history[-1] = latest
-        else:
-            request_history.append({"role": "user", "content": f"{message}{context_suffix}"})
+    if not request_history:
+        request_history.append({"role": "user", "content": message})
+
     # A chat reply depends on the complete conversation and current editor
-    # context, not just the last message. The old key could return a reply
-    # generated before an archetype or speaker note was selected.
+    # context, not just the last message.
     cache_material = json.dumps(
         {"model": model, "system": sys_prompt, "history": request_history},
         ensure_ascii=False,
@@ -2805,11 +2963,12 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
     )
     cache_key = f"chat::{hashlib.sha256(cache_material.encode('utf-8')).hexdigest()}"
     cached = cm.get_cached("openrouter", cache_key)
-    if cached:
+    if cached and not vc.is_bad_reply(cached):
         return cached
-    def chat_with_upstream_retry(prompt):
+
+    def chat_with_upstream_retry(messages):
         """Retry one transient upstream failure after a brief backoff."""
-        messages = [{"role": "system", "content": prompt}] + request_history
+        result = {}
         for attempt in range(2):
             result = OpenRouterClient(key).chat(messages, model=model)
             if "upstream error" not in str(result.get("error", "")).lower() or attempt:
@@ -2818,37 +2977,29 @@ def send_ai_chat(message, history, current_jp="", speaker="", archetype_key=""):
             time.sleep(2)
         return result
 
-    try:
-        res = chat_with_upstream_retry(sys_prompt)
-        
-        if "text" in res:
-            response_text = res["text"]
-            # Guard: reject Early Modern / Shakespearean output (house-style ban).
-            # The only exempt speaker is one whose voice note explicitly requests
-            # it (e.g. The White Dragon) — checked via the archetype/speaker note.
-            exempt = False
-            if speaker:
-                note = (cm.config.get("speaker_notes", {}).get(speaker, "") or "").lower()
-                if "thou" in note or "thee" in note or "shakespeare" in note:
-                    exempt = True
-            if not exempt and _contains_early_modern(response_text):
-                print(f"[send_ai_chat] Rejected Early Modern output for speaker '{speaker}': {response_text[:80]!r}")
-                sys_prompt += (
-                    "\n\nYour previous attempt used Early Modern / Shakespearean English "
-                    "(thou/thee/-est/-eth), which is BANNED for this character. Rewrite in "
-                    "archaized modern English (modern 'you', no -est/-eth)."
-                )
-                print("=" * 80)
-                print(sys_prompt)
-                print("=" * 80)
-                res = chat_with_upstream_retry(sys_prompt)
+    base_messages = [{"role": "system", "content": sys_prompt}] + request_history
+    _dump_ai_request("chat", base_messages)
 
-                if "text" in res:
-                    response_text = res["text"]
+    try:
+        res = chat_with_upstream_retry(base_messages)
+
+        if "text" in res:
+            response_text = vc.clean_reply(res["text"], current_jp)
+            first_text = response_text
+            flags, notes = _review_reply(response_text, current_jp, speaker, check_punct=QA_PUNCT_IN_CHAT, archetype_key=archetype_key)
+            if notes:
+                print(f"[send_ai_chat] QA flags {flags} for speaker {speaker!a}: {response_text[:80]!a}")
+                res2 = chat_with_upstream_retry(_feedback_messages(base_messages, response_text, notes))
+                if "text" in res2 and not vc.is_bad_reply(res2["text"]):
+                    response_text = vc.clean_reply(res2["text"], current_jp)
+            if vc.is_bad_reply(response_text):
+                return "Error: the model returned an unusable reply. Please try again."
+            _ai_log("chat", outcome="ok", speaker=speaker, archetype=archetype_key or _speaker_archetype_map().get(speaker, ""), model=model, jp=current_jp, user=str(message)[:500], first_output=first_text, output=response_text, qa_flags=flags, retried=bool(notes), model_used=res.get("model"), elapsed=res.get("elapsed"))
             cm.set_cached("openrouter", cache_key, response_text)
             return response_text
         else:
             error_msg = res.get('error', 'Unknown OpenRouter error')
+            _ai_log("chat", outcome="error", speaker=speaker, model=model, jp=current_jp, error=error_msg, raw=res.get("raw"), elapsed=res.get("elapsed"))
             return error_msg
     except Exception as e:
         error_msg = f"Exception: {str(e)}"
@@ -2910,6 +3061,7 @@ def flush_csv_writes():
 @eel.expose
 def apply_fix(item_id, new_text, force=False, user="translator"):
     """Write corrected text to CSV. Returns {"ok": bool, "error": str|None}."""
+    new_text = _raw_text(new_text)
     global review_items, pending_csv_writes, review_queues
 
     item = None
@@ -2939,21 +3091,35 @@ def apply_fix(item_id, new_text, force=False, user="translator"):
                 row_idx = int(row_part)
             except ValueError:
                 row_idx = -1
+
+            # CSV-loaded manual queues use MANUAL_<row> as their UI/cache ID,
+            # while translation history uses the stable filename::row ID.
+            # Resolve that history ID against the loaded queue before searching
+            # configured folders, since the selected CSV may be outside them.
+            matching_items = [
+                candidate for candidate in review_items
+                if os.path.basename(candidate.get("path", "")) == file_part
+                and candidate.get("row") == row_idx
+            ]
+            if len(matching_items) == 1:
+                item = matching_items[0]
+
             # Find the CSV path that ends with file_part
             match_path = None
-            for folder in cm.user_settings.get("folders", []) or []:
-                if not os.path.isdir(folder):
-                    continue
-                for root, _d, files in os.walk(folder):
-                    for name in files:
-                        if name == file_part:
-                            match_path = os.path.join(root, name)
+            if not item:
+                for folder in cm.user_settings.get("folders", []) or []:
+                    if not os.path.isdir(folder):
+                        continue
+                    for root, _d, files in os.walk(folder):
+                        for name in files:
+                            if name == file_part:
+                                match_path = os.path.join(root, name)
+                                break
+                        if match_path:
                             break
                     if match_path:
                         break
-                if match_path:
-                    break
-            if match_path and row_idx >= 0:
+            if not item and match_path and row_idx >= 0:
                 try:
                     _, _, rows = _read_csv_cached(match_path)
                     if row_idx < len(rows):
@@ -3157,6 +3323,22 @@ def fetch_deepl_batch(category, items, start_idx, count=20):
     def _run():
         try:
             from src.api_handler import DeepLClient
+
+            def _notify_suggestion(idx, translation, item_id):
+                def _on_error(error, stack):
+                    print(
+                        f"[fetch_deepl_batch] UI callback failed for idx={idx}: "
+                        f"{error}\n{stack}"
+                    )
+
+                try:
+                    eel.deepl_suggestion_ready(idx, translation, item_id)(
+                        callback=lambda _value: None,
+                        error_callback=_on_error,
+                    )
+                except Exception as e:
+                    print(f"[fetch_deepl_batch] Could not notify UI for idx={idx}: {e}")
+
             key = cm.get_key("deepl_api_key")
             if not key:
                 print(f"[fetch_deepl_batch] No DeepL key configured")
@@ -3198,10 +3380,7 @@ def fetch_deepl_batch(category, items, start_idx, count=20):
             # Emit callbacks for entries that were already cached so the DeepL box
             # populates immediately instead of staying on the loading placeholder.
             for i, item, translation in already_cached:
-                try:
-                    eel.deepl_suggestion_ready(i, translation, item.get('id'))()
-                except Exception:
-                    pass
+                _notify_suggestion(i, translation, item.get('id'))
 
             if not to_fetch:
                 print(f"[fetch_deepl_batch] Nothing to fetch for indices {start_idx}-{end_idx-1} (all cached)")
@@ -3232,10 +3411,7 @@ def fetch_deepl_batch(category, items, start_idx, count=20):
                     _prefetch_mgr._cache[cache_key] = cached
                     # Notify the frontend immediately so the DeepL box populates
                     # without waiting for the poll loop (which only runs ~5s).
-                    try:
-                        eel.deepl_suggestion_ready(i, translation, item.get('id'))()
-                    except Exception:
-                        pass
+                    _notify_suggestion(i, translation, item.get('id'))
                 except Exception as e:
                     print(f"[fetch_deepl_batch] Error fetching idx={i}: {e}")
 
@@ -3435,6 +3611,8 @@ def vote_translation(entry_id, user, vote):
 @eel.expose
 def save_translation_history(entry_id, jp_text, en_text, speaker=None, entry_type=None, translator=None, file_path=None, row_index=None):
     """Save translation history without writing to CSV (for Save button)."""
+    jp_text = _raw_text(jp_text)
+    en_text = _raw_text(en_text)
     try:
         # Use the passed entry_id (file::row) so it matches the pretranslate /
         # apply_fix entry and the approve step. Do NOT regenerate a source-text
@@ -3586,26 +3764,26 @@ def sync_pull():
 def startup_sync():
     """Run a GitHub pull at app startup and report progress to the frontend.
 
-    Returns a dict with 'ok' and 'message'. Progress is streamed to the UI via
-    eel.sync_progress() so the startup sync window can show what's happening.
+    Returns a dict with 'ok' and 'message'.     Progress is streamed to the UI via updateStartupSyncStatus so the startup
+    sync window can show what's happening.
     If sync is not configured, returns immediately with ok=True and a notice.
     """
     try:
         if not github_sync.is_configured():
             try:
-                eel.sync_progress("GitHub sync not configured - skipping startup fetch")()
+                _call_js("updateStartupSyncStatus", "GitHub sync not configured - skipping startup fetch")
             except Exception:
                 pass
             return {"ok": True, "message": "Sync not configured", "skipped": True}
 
         def _progress(msg):
             try:
-                eel.sync_progress(msg)()
+                _call_js("updateStartupSyncStatus", msg)
             except Exception:
                 pass
 
         try:
-            eel.sync_progress("Starting startup fetch from GitHub...")()
+            _call_js("updateStartupSyncStatus", "Starting startup fetch from GitHub...")
         except Exception:
             pass
 
@@ -3745,6 +3923,8 @@ def perform_search(query, field_col=None):
 @eel.expose
 def validate_translation(source: str, translation: str) -> dict:
     """Validate that translation preserves source elements (tags, placeholders)."""
+    source = _raw_text(source)
+    translation = _raw_text(translation)
     try:
         # Reload tag_map in case it was updated
         source_validator.load_tag_map(cm.config.get("tag_map", {}))
@@ -4088,15 +4268,16 @@ def tm_test_auto_substitution():
     return {"ok": True, "results": results}
 
 @eel.expose
-def tm_find_matches(jp_text: str, threshold: float = 0.5, max_results: int = 10):
+def tm_find_matches(jp_text: str, threshold: float = 0.5, max_results: int = 10, load_idx=None):
     """Find TM matches for given JP text.
 
     Returns immediately. The (expensive — ~30s over 55k entries) fuzzy search
     runs in a background thread so it never blocks Eel's main thread; results
-    are pushed to the frontend via ``eel.tm_matches_ready()`` once computed.
+    are pushed to the frontend with the search text and reviewer index once computed.
     This keeps the preview image (and every other exposed call) responsive
     instead of queuing behind the synchronous TM scan.
     """
+    jp_text = _raw_text(jp_text)
     import time
     start_time = time.time()
 
@@ -4120,7 +4301,7 @@ def tm_find_matches(jp_text: str, threshold: float = 0.5, max_results: int = 10)
                 # Still notify the frontend so the panel populates (it awaits
                 # this call, which now returns instantly).
                 try:
-                    eel.tm_matches_ready(result)()
+                    _call_js("tm_matches_ready", result, jp_text, load_idx)
                 except Exception:
                     pass
                 return result
@@ -4132,7 +4313,7 @@ def tm_find_matches(jp_text: str, threshold: float = 0.5, max_results: int = 10)
         print(f"[TM] No entries available, elapsed={elapsed:.2f}ms")
         result = {"ok": True, "matches": [], "message": "No TM entries available"}
         try:
-            eel.tm_matches_ready(result)()
+            _call_js("tm_matches_ready", result, jp_text, load_idx)
         except Exception:
             pass
         return result
@@ -4156,13 +4337,13 @@ def tm_find_matches(jp_text: str, threshold: float = 0.5, max_results: int = 10)
                 "cached": False
             }
             try:
-                eel.tm_matches_ready(result)()
+                _call_js("tm_matches_ready", result, jp_text, load_idx)
             except Exception:
                 pass
         except Exception as e:
             print(f"[TM] Search error: {e}")
             try:
-                eel.tm_matches_ready({"ok": False, "message": str(e), "matches": []})()
+                _call_js("tm_matches_ready", {"ok": False, "message": str(e), "matches": []}, jp_text, load_idx)
             except Exception:
                 pass
 
@@ -4305,6 +4486,10 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
     pretranslate_settings = cm.config.get("pretranslate_settings", {})
     tm_threshold = tm_threshold if tm_threshold is not None else pretranslate_settings.get("tm_threshold", 0.9)
     tm_min_quality = tm_min_quality if tm_min_quality is not None else pretranslate_settings.get("tm_quality", "approved")
+    if _test_mode():
+        skip_pretranslated = False
+        print("[TEST MODE] skip_pretranslated forced off; TM bypassed for entries that already hold a translation")
+        items = _test_mode_cap_items(items)
     enable_openrouter = pretranslate_settings.get("enable_openrouter", True)
     enable_deepl = pretranslate_settings.get("enable_deepl", True)
     
@@ -4313,6 +4498,12 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
     tm = TranslationMemory(cm)
     matcher = FuzzyMatcher(cm.config.get("tm_settings", {}))
     substitutor = AutoSubstitutor(cm.config.get("tm_settings", {}))
+    # Approved JP->EN pairs (by speaker / archetype) used as few-shot examples; built once per batch.
+    try:
+        example_index = vc.get_index(tm.entries, _speaker_archetype_map())
+    except Exception as _e:
+        print(f"[pretranslate_batch] Example index unavailable: {_e!a}")
+        example_index = None
     
     openrouter_key = cm.get_key("openrouter_api_key") if enable_openrouter else None
     deepl_key = cm.get_key("deepl_api_key") if enable_deepl else None
@@ -4362,7 +4553,7 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
 
         # Emit progress to the frontend (best-effort; ignore if not listening)
         try:
-            eel.updatePretranslateProgress(idx + 1, total_items, f"Processing item {item_id}…")()
+            _call_js("updatePretranslateProgress", idx + 1, total_items, f"Processing item {item_id}…")
         except Exception:
             pass
         row_idx = item.get("row_idx", 0)
@@ -4382,11 +4573,16 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
         
         translation = None
         source = None
+        qa_flags = []
         
         # Step 1: Try Translation Memory (100% matches or element-only differences)
         # Pass the exact-match index so entries with a perfect TM hit resolve in
         # O(1) instead of scanning all 55k entries (≈29s each) via fuzzy search.
-        matches = matcher.find_matches(jp_text, tm.entries, tm_threshold, tm._exact_match_index)
+        if _should_bypass_tm(item, item_id, skip_pretranslated, pretranslate_settings):
+            matches = []
+            print(f"[pretranslate_batch] Item {item_id}: re-run of an already pre-translated entry; bypassing TM for a fresh AI translation")
+        else:
+            matches = matcher.find_matches(jp_text, tm.entries, tm_threshold, tm._exact_match_index)
         print(f"[pretranslate_batch] Item {item_id}: TM found {len(matches)} matches")
         
         best_match = None
@@ -4440,39 +4636,29 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
             else:
                 print(f"[pretranslate_batch] Item {item_id}: Trying OpenRouter AI")
                 try:
-                    sys_prompt = cm.config.get("ai_prompt", DEFAULT_AI_PROMPT)
-                    # Fill the {character_voice_note} placeholder if present
+                    sys_prompt = (cm.config.get("ai_prompt") or DEFAULT_AI_PROMPT)
+                    # ONE voice block (archetype ai_notes + speaker note + approved TM examples),
+                    # injected once. (Previously: raw archetype notes via the placeholder AND again
+                    # appended at the end, with no style-only wrapper and no speaker note.)
+                    voice_block = _voice_block_for(speaker, "", jp_text, example_index=example_index, sys_prompt=sys_prompt)
                     if "{character_voice_note}" in sys_prompt:
-                        voice_note = ""
-                        archetype_key = cm.config.get("speaker_archetypes", {}).get(speaker, "")
-                        if archetype_key:
-                            archetypes = cm.archetypes.get("archetypes", {})
-                            if archetype_key in archetypes:
-                                voice_note = archetypes[archetype_key].get("notes", "")
-                        sys_prompt = sys_prompt.replace("{character_voice_note}", voice_note)
-                    
-                    # Add archetype notes if available
-                    if speaker:
-                        # Get the archetype key assigned to this speaker
-                        archetype_key = cm.config.get("speaker_archetypes", {}).get(speaker, "")
-                        if archetype_key:
-                            # Use cm.archetypes (loaded from archetypes.json) — NOT
-                            # cm.config["archetypes"], which is only seeded from
-                            # lore_engine defaults and is empty when the json holds
-                            # the real data. Same fix as get_archetype_notes.
-                            archetypes = cm.archetypes.get("archetypes", {})
-                            if archetype_key in archetypes:
-                                arch_data = archetypes[archetype_key]
-                                sys_prompt += f"\n\nCHARACTER ARCHETYPE FOR {speaker}:\n{arch_data.get('notes', '')}"
-                                print(f"[pretranslate_batch] Item {item_id}: Added archetype notes for speaker {speaker} (archetype: {archetype_key})")
-                    
+                        sys_prompt = sys_prompt.replace("{character_voice_note}", voice_block)
+                    elif voice_block:
+                        sys_prompt += f"\n\n{voice_block}"
+
                     # Add lore glossary terms from current JP text
+                    _gloss_log, _gloss_n = [], 0
                     le = _get_lore_engine()
                     if le:
                         # Get relevant lore terms, tagged by vocabulary source so
                         # DD1-vocab (higher priority) and other_vocab (lower) are
                         # distinguished in the prompt.
                         relevant_terms = le.scan_text_with_source(jp_text)
+                        if relevant_terms:
+                            _jps = [t[0] for t in relevant_terms]
+                            relevant_terms = [t for t in relevant_terms if not any(t[0] != o and t[0] in o for o in _jps)]
+                        _gloss_n = len(relevant_terms or [])
+                        _gloss_log = [f"{jp} -> {en}"[:70] for jp, en, src in (relevant_terms or [])][:12]
                         if relevant_terms:
                             dd1_terms = [(jp, en) for jp, en, src in relevant_terms if src == "dd1"]
                             other_terms = [(jp, en) for jp, en, src in relevant_terms if src == "other"]
@@ -4495,13 +4681,15 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
                     # Tie output language to the active settings language
                     sys_prompt += _target_language_instruction()
                     
-                    cache_key = f"{openrouter_model}::{jp_text}"
+                    cache_key = f"{openrouter_model}::{hashlib.sha1(sys_prompt.encode('utf-8')).hexdigest()[:8]}::{jp_text}"
                     # When skip_pretranslated is False the user explicitly wants a
                     # fresh translation, so bypass the persistent cache (which only
                     # stores one translation per source) and let the API produce a
                     # new one — that becomes a new history entry instead of
                     # re-surfacing the same cached string.
                     cached = None if not skip_pretranslated else cm.get_cached("openrouter", cache_key)
+                    if cached and vc.is_bad_reply(cached):
+                        cached = None  # never reuse a cached junk reply
                     if cached:
                         translation = cached
                         source = "openrouter_cached"
@@ -4529,6 +4717,9 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
                         print(f"[pretranslate_batch] Item {item_id}: Calling OpenRouter API with model {openrouter_model}")
                         last_openrouter_call = time.time()
                         user_msg = f"Translate this to English.\nSpeaker: {speaker or 'Unknown'}\nEntry type: {entry_type or 'unspecified'}\n\nSource text:\n{jp_text}"
+                        _dump_ai_request("batch", [{"role": "system", "content": sys_prompt}, {"role": "user", "content": user_msg}])
+                        print(f"[pretranslate_batch] Item {item_id}: voice {_voice_summary(voice_block, speaker)}")
+                        _ai_ctx = dict(item_id=item_id, speaker=speaker, archetype=_speaker_archetype_map().get(speaker, ""), model=openrouter_model, jp=jp_text, voice_chars=len(voice_block), examples=_voice_example_count(voice_block), glossary=_gloss_log, glossary_n=_gloss_n)
                         # Retry loop: a per-call timeout ("Cancelled (timeout)")
                         # means the free model was just slow — re-attempt the
                         # SAME item rather than skipping it. Only a REAL user
@@ -4550,34 +4741,39 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
                                 if openrouter_attempts < PRETRANSLATE_MAX_RETRIES:
                                     print(f"[pretranslate_batch] OpenRouter call timed out for {item_id} (free model slow) — retry {openrouter_attempts}/{PRETRANSLATE_MAX_RETRIES}")
                                     continue
+                                _ai_log("batch", outcome="timeout", error=f"no reply within 120 s on all {PRETRANSLATE_MAX_RETRIES} attempts", attempts=openrouter_attempts, **_ai_ctx)
                                 print(f"[pretranslate_batch] OpenRouter call timed out for {item_id} after {PRETRANSLATE_MAX_RETRIES} retries — skipping item")
                                 break
                             if "text" in res:
-                                translation = res["text"]
-                                # Guard: reject Early Modern / Shakespearean output
-                                # (house-style ban) unless this speaker is explicitly
-                                # exempt (voice note requests thou/thee, e.g. White Dragon).
-                                exempt = False
-                                if speaker:
-                                    note = (cm.config.get("speaker_notes", {}).get(speaker, "") or "").lower()
-                                    if "thou" in note or "thee" in note or "shakespeare" in note:
-                                        exempt = True
-                                if not exempt and _contains_early_modern(translation):
-                                    print(f"[pretranslate_batch] Item {item_id}: Early Modern output rejected (speaker '{speaker}'): {translation[:80]!r}")
-                                    sys_prompt += (
-                                        "\n\nYour previous attempt used Early Modern / Shakespearean English "
-                                        "(thou/thee/-est/-eth), which is BANNED for this character. Rewrite in "
-                                        "archaized modern English (modern 'you', no -est/-eth)."
-                                    )
-                                    res = _cancelable_api_call(
-                                        lambda: OpenRouterClient(openrouter_key).chat(
-                                            [{"role": "system", "content": sys_prompt}, {"role": "user", "content": user_msg}],
-                                            model=openrouter_model
-                                        ),
+                                translation = vc.clean_reply(res["text"], jp_text)
+                                # QA: early-modern ban + punctuation the source does not support.
+                                # One corrective retry (as a follow-up turn); keep the result either way.
+                                first_translation = translation
+                                qa_flags, qa_notes = _review_reply(translation, jp_text, speaker, check_punct=True)
+                                if qa_notes and not _pretranslate_cancel:
+                                    print(f"[pretranslate_batch] Item {item_id}: QA flags {qa_flags} (speaker {speaker!a}): {translation[:80]!a}")
+                                    wait = OPENROUTER_RATE_LIMIT - (time.time() - last_openrouter_call)
+                                    while wait > 0 and not _pretranslate_cancel:
+                                        time.sleep(min(0.25, wait))
+                                        wait -= 0.25
+                                    fb_msgs = _feedback_messages(
+                                        [{"role": "system", "content": sys_prompt}, {"role": "user", "content": user_msg}],
+                                        translation, qa_notes)
+                                    last_openrouter_call = time.time()
+                                    res2 = _cancelable_api_call(
+                                        lambda: OpenRouterClient(openrouter_key).chat(fb_msgs, model=openrouter_model),
                                         timeout=120,
                                     )
-                                    if "text" in res:
-                                        translation = res["text"]
+                                    if "text" in res2 and not vc.is_bad_reply(res2["text"]):
+                                        translation = vc.clean_reply(res2["text"], jp_text)
+                                        qa_flags, _ = _review_reply(translation, jp_text, speaker, check_punct=True)
+                                print(f"[pretranslate_batch] Item {item_id}: QA {('flags ' + str(qa_flags)) if qa_flags else 'clean'}")
+                                if vc.is_bad_reply(translation):
+                                    print(f"[pretranslate_batch] Item {item_id}: unusable reply {translation[:40]!a}; not saved")
+                                    _ai_log("batch", outcome="unusable", error="unusable reply after QA", output=first_translation, elapsed=res.get("elapsed"), attempts=openrouter_attempts, **_ai_ctx)
+                                    translation = None
+                                    break
+                                _ai_log("batch", outcome="ok", output=translation, first_output=first_translation, qa_flags=qa_flags, retried=bool(qa_notes), model_used=res.get("model"), elapsed=res.get("elapsed"), attempts=openrouter_attempts, **_ai_ctx)
                                 cm.set_cached("openrouter", cache_key, translation)
                                 source = "openrouter"
                                 # Store in batch cache for reuse
@@ -4586,6 +4782,7 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
                                 break
                             else:
                                 error = res.get('error', 'Unknown error')
+                                _ai_log("batch", outcome="error", error=error, raw=res.get("raw"), elapsed=res.get("elapsed"), attempts=openrouter_attempts, **_ai_ctx)
                                 if 'rate limit' in error.lower() or '429' in error:
                                     print(f"[pretranslate_batch] OpenRouter rate limit hit for {item_id}: {error}")
                                     # Increase delay for next call
@@ -4601,8 +4798,12 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
                 except Exception as e:
                     print(f"[pretranslate_batch] OpenRouter exception for {item_id}: {e}")
         
+        # TEST MODE re-translates entries that ALREADY hold text. If the AI fails, falling back to DeepL would silently
+        # overwrite that text with machine output, so test mode leaves the item untouched instead.
+        if translation is None and deepl_key and _test_mode():
+            print(f"[TEST MODE] Item {item_id}: the AI gave no usable reply; NOT falling back to DeepL (existing text is left untouched)")
         # Step 3: Fallback to DeepL (if no translation yet and key configured)
-        if translation is None and deepl_key:
+        if translation is None and deepl_key and not _test_mode():
             # Check local batch cache first
             if jp_text in batch_translation_cache:
                 cached_trans, cached_source = batch_translation_cache[jp_text]
@@ -4707,7 +4908,8 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
                     "item_id": item_id,
                     "success": True,
                     "translation": translation,
-                    "source": source
+                    "source": source,
+                    "qa_flags": qa_flags
                 })
                 print(f"[pretranslate_batch] Item {item_id}: Translation saved successfully")
             except Exception as e:
@@ -4727,7 +4929,7 @@ def _pretranslate_batch_run(items: list, tm_threshold: float = None, tm_min_qual
     
     print(f"[pretranslate_batch] Complete: total={len(items)}, tm={tm_applied}, ai={ai_applied}, deepl={deepl_applied}")
     try:
-        eel.updatePretranslateProgress(len(results), total_items, "Pre-translation complete")()
+        _call_js("updatePretranslateProgress", len(results), total_items, "Pre-translation complete")
     except Exception:
         pass
     return {
@@ -4781,6 +4983,8 @@ def pretranslate_by_keys(tm_threshold: float = None, tm_min_quality: str = None,
     if not triggers:
         return {"ok": False, "error": "No ENTRY_KEYS (triggers) configured."}
 
+    if _test_mode():
+        skip_pretranslated = False  # re-process rows that already have English
     print(f"[pretranslate_by_keys] Scanning {len(folders)} folder(s) with {len(triggers)} trigger(s)")
 
     import csv as _csv
@@ -4823,6 +5027,7 @@ def pretranslate_by_keys(tm_threshold: float = None, tm_min_quality: str = None,
                     items.append({
                         "id": item_id,
                         "jp": jp_text,
+                        "en": en_text,
                         "file_path": f_path,
                         "row_idx": r_idx,
                         "speaker": row[CSV_COL_SPEAKER].strip() if len(row) > CSV_COL_SPEAKER else "",
@@ -4863,7 +5068,7 @@ def pretranslate_by_keys(tm_threshold: float = None, tm_min_quality: str = None,
         # waitForPretranslateDone() resolver fires (otherwise it hangs forever,
         # and cancel can't help because no worker thread was started).
         try:
-            eel.updatePretranslateProgress(0, 0, "Pre-translation complete")()
+            _call_js("updatePretranslateProgress", 0, 0, "Pre-translation complete")
         except Exception:
             pass
         return {"ok": True, "total": 0, "processed": 0, "tm_applied": 0, "ai_applied": 0, "deepl_applied": 0, "results": []}
@@ -5157,6 +5362,9 @@ if __name__ == '__main__':
 
     try:
         print("[MAIN] Initializing application...")
+        if _test_mode():
+            print("[TEST MODE] ACTIVE: pre-translate re-runs fresh over existing entries, bypasses the TM for them, "
+                  "and GitHub pushes are " + ("ALLOWED" if not _sync_blocked() else "BLOCKED"))
         success = main()
         if not success:
             print("[MAIN] Application failed to start")

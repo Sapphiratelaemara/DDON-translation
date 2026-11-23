@@ -43,14 +43,38 @@ VALID_STATUSES = {"untranslated", "translated", "pre-translated", "approved", "r
 VALID_ACTIONS = {"translate", "approve", "reject", "comment", "vote"}
 
 
-def sanitize_text(text: str, max_length: int = 10000) -> str:
-    """Sanitize text input to prevent injection attacks."""
+# Exactly the five replacements html.escape() makes (and nothing else, so text like "&copy;" is never touched).
+_ESCAPES = (("&lt;", "<"), ("&gt;", ">"), ("&quot;", '"'), ("&#x27;", "'"), ("&#39;", "'"), ("&amp;", "&"))
+
+
+def unsanitize_text(text: str) -> str:
+    """Fully reverse sanitize_text()'s HTML escaping, however many times it was applied (&amp;amp;amp;quot; -> ")."""
     if not isinstance(text, str):
         return ""
+    for _ in range(500):   # every save/restart used to add one level, so old data can carry dozens
+        new = text
+        for escaped, raw in _ESCAPES:
+            new = new.replace(escaped, raw)
+        if new == text:
+            break
+        text = new
+    return text
+
+
+def sanitize_text(text: str, max_length: int = 10000) -> str:
+    """Sanitize text input to prevent injection attacks.
+
+    IDEMPOTENT: the text is first fully unescaped and then escaped exactly once. It used to escape unconditionally, and
+    it runs on every save AND again on every load (TranslationEntry.from_dict), so each app restart added another
+    level of escaping (' -> &#x27; -> &amp;#x27; -> &amp;amp;#x27; ...)."""
+    if not isinstance(text, str):
+        return ""
+    # Undo any earlier escaping first (makes this function idempotent and heals already multiply-escaped data)
+    text = unsanitize_text(text)
     # Truncate if too long
     if len(text) > max_length:
         text = text[:max_length]
-    # Escape HTML to prevent XSS
+    # Escape HTML to prevent XSS (exactly once)
     text = html.escape(text)
     # Remove null bytes and control characters except newlines/tabs
     text = ''.join(c for c in text if c == '\n' or c == '\t' or ord(c) >= 32)
@@ -467,8 +491,8 @@ class TranslationManager:
                 from src.translation_memory import TranslationMemory
                 tm = TranslationMemory(self.cm)
                 tm_entry = {
-                    "source": source_text,
-                    "translation": translated_text,
+                    "source": unsanitize_text(source_text),
+                    "translation": unsanitize_text(translated_text),
                     "context": {
                         "file": file_path,
                         "row": row_index,
@@ -530,8 +554,10 @@ class TranslationManager:
                 from src.translation_memory import TranslationMemory
                 tm = TranslationMemory(self.cm)
                 tm_entry = {
-                    "source": entry.source_text,
-                    "translation": entry.translated_text,
+                    # entry.* is stored HTML-ESCAPED; the TM must get raw text (it used to get the escaped text,
+                    # which is how &amp;amp;lt;QDEL... ended up in the TM)
+                    "source": unsanitize_text(entry.source_text),
+                    "translation": unsanitize_text(entry.translated_text),
                     "context": {
                         "file": entry.file_path,
                         "row": entry.row_index,
